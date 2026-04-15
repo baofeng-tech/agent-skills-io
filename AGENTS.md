@@ -1,0 +1,111 @@
+# AGENTS.md
+
+## Repo Working Rule
+
+Any AI working in this repository should treat `PROJECT_OVERVIEW.md` as the high-level source of truth.
+
+### Before doing substantial work
+
+1. Read `PROJECT_OVERVIEW.md`
+2. Use it to understand:
+   - project purpose
+   - directory roles
+   - current outputs
+   - publishing flow
+   - current project status
+
+### After completing work
+
+Update `PROJECT_OVERVIEW.md` if any of the following changed:
+
+- project purpose or positioning
+- directory structure or directory meaning
+- key outputs or generated artifacts
+- publishing workflow
+- recommended working flow
+- project stage / current status
+
+### Update rule
+
+- Keep `PROJECT_OVERVIEW.md` concise and easy for both humans and AI to scan
+- Prefer updating existing sections over adding noisy new sections
+- Do not rewrite the document for tiny code-only changes unless they affect project understanding
+
+## Standard Execution Flow
+
+Use this default flow unless the task is truly trivial.
+
+### Step 1: Ground yourself
+
+Read these files first:
+
+1. `PROJECT_OVERVIEW.md`
+2. `README.md`
+3. one or more of the following if relevant:
+   - `targetSkills/PUBLISHING.md`
+   - `clawhub-release/README.md`
+   - files under `targets/`
+   - files under `platformDesc/`
+
+### Step 2: Identify the work type
+
+Classify the task before editing:
+
+- `source analysis`
+  - working from `sources/` zip bundles
+- `mother skill work`
+  - working in `targetSkills/`
+- `clawhub publish work`
+  - working in `clawhub-release/`
+- `methodology / docs work`
+  - working in `targets/`, `platformDesc/`, or repo-level docs
+- `ai helper skill work`
+  - working in `.agents/skills/`
+
+### Step 3: Use the right target directory
+
+- If the goal is cross-platform skill output, prefer `targetSkills/`
+- If the goal is ClawHub upload hardening, prefer `clawhub-release/`
+- If the goal is research, templates, or explanation, prefer `targets/`
+- Do not confuse `targetSkills/` with the final ClawHub upload layer
+
+### Step 4: Preserve project intent
+
+When changing skills:
+
+- keep runtime functionality intact unless the task explicitly asks for behavior changes
+- prefer minimal safe changes over broad rewrites
+- preserve relative paths in cross-platform mother skills
+- keep ClawHub variants conservative and low-noise
+
+### Step 5: Validate before finishing
+
+When applicable, verify:
+
+- directory structure is still coherent
+- referenced files actually exist
+- Python scripts still compile
+- no accidental `__pycache__`, temp files, or other publish noise remains
+- `targetSkills/` and `clawhub-release/` are not being mixed up
+
+### Step 6: Update project memory
+
+Before finishing, check whether `PROJECT_OVERVIEW.md` should be updated.
+
+Update it when:
+
+- a new major directory appears
+- a new skill family is added
+- the publishing workflow changes
+- the repo's role changes
+- the project stage meaningfully advances
+
+Do not update it for tiny wording fixes or isolated code changes that do not affect repo understanding.
+
+### Priority
+
+When `README.md`, ad hoc notes, and scattered docs differ, prefer:
+
+1. `AGENTS.md`
+2. `PROJECT_OVERVIEW.md`
+3. other project documents
