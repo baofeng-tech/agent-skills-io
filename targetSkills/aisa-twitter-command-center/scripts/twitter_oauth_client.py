@@ -56,7 +56,7 @@ def normalize_base_url(base_url: str) -> str:
 def load_config(args: argparse.Namespace) -> Dict[str, Any]:
     base_url = normalize_base_url(DEFAULT_BASE_URL)
     aisa_api_key = get_env("AISA_API_KEY")
-    timeout = DEFAULT_TIMEOUT
+    timeout = getattr(args, "timeout", None) or int(get_env("TWITTER_RELAY_TIMEOUT", str(DEFAULT_TIMEOUT)))
 
     if not aisa_api_key:
         raise RelayConfigError("AISA_API_KEY is required.")
@@ -556,6 +556,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Twitter relay client for local OAuth and posting",
     )
+    parser.add_argument("--timeout", type=int, help="Override TWITTER_RELAY_TIMEOUT")
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 

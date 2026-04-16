@@ -90,6 +90,50 @@ Any AI working in this repository should:
 - `x-intelligence-automation`
 - `aisa-youtube-search`
 - `aisa-youtube-serp-scout`
+- `market`
+- `marketpulse`
+- `media-gen`
+- `openclaw-media-gen`
+- `perplexity-search`
+- `aisa-tavily`
+- `llm-router`
+- `aisa-provider`
+- `cn-llm`
+- `last30days`
+- `last30days-zh`
+- `openclaw-search`
+- `openclaw-twitter`
+- `openclaw-twitter-post-engage`
+- `twitter-command-center-search-post`
+- `twitter-command-center-search-post-interact`
+- `openclaw-youtube`
+- `youtube-search`
+- `openclaw-aisa-youtube-aisa`
+- `us-stock-analyst`
+- `prediction-market`
+- `prediction-market-data`
+- `prediction-market-arbitrage`
+- `prediction-market-arbitrage-api`
+- `prediction-market-data-zh`
+- `prediction-market-arbitrage-zh`
+- `search`
+- `twitter`
+- `youtube`
+- `twitter-autopilot`
+- `aisa-multi-search-engine`
+- `multi-search`
+- `perplexity-research`
+- `scholar-search`
+- `smart-search`
+- `tavily-extract`
+- `tavily-search`
+- `web-search`
+- `stock-analysis`
+- `stock-dividend`
+- `stock-hot`
+- `stock-portfolio`
+- `stock-rumors`
+- `stock-watchlist`
 
 这些 skill 的特点：
 
@@ -128,6 +172,34 @@ Any AI working in this repository should:
 
 - 面向正式仓库 `AIsa-team/agent-skills/tree/agentskills`
 - 说明 skill 列表、发布顺序、索引方式、well-known 方向
+
+#### 4.1 发布辅助脚本
+
+位于 `scripts/`：
+
+- `publish-targetSkills-to-agent-skills.ps1`
+- `publish-targetSkills-to-agent-skills.sh`
+- `import-agent-skills-own-to-targetSkills.ps1`
+- `import-agent-skills-own-to-targetSkills.sh`
+- `import-clawhub-downloads-to-targetSkills.ps1`
+- `import-clawhub-downloads-to-targetSkills.sh`
+- `import-clawhub-downloads-to-targetSkills.py`
+- `import-github-downloads-to-targetSkills.ps1`
+- `import-github-downloads-to-targetSkills.sh`
+- `import-github-downloads-to-targetSkills.py`
+
+这些脚本的作用：
+
+- 将 `targetSkills/` 下的内容同步到相邻的正式仓库目录 `../agent-skills/`
+- 保留目标仓库中的其它无关文件
+- 只替换同名 skill 目录和根层索引文件
+- 默认排除 `PUBLISHING.md`
+- 支持从相邻的 `../agent-skills-own/` 导入 skill 到 `targetSkills/`
+- 导入脚本默认只补充缺失 skill，避免覆盖本仓库已改造的母版目录
+- 支持从相邻的 `../skillGet/public/downloads/clawHub/` 递归导入 zip 包到 `targetSkills/`
+- ClawHub 导入脚本按“压缩包名”或 `SKILL.md` 中的 `name` 是否重名来去重，并保留原有功能脚本不变
+- 支持从相邻的 `../skillGet/public/downloads/github/` 递归导入 `.tar.gz`、`.tgz`、`.zip` skill 包到 `targetSkills/`
+- GitHub 导入脚本按“源目录名（归档根目录名）”和 `SKILL.md` 中的 `name` 两个维度去重，只导入未做过的 skill
 
 #### 5. ClawHub 辅助技能
 
@@ -218,6 +290,16 @@ AI 工作辅助层。
 
 - 让 AI 在这个项目里更稳定地分析、包装、审计 AIsa skills
 
+### `scripts/`
+
+发布辅助脚本层。  
+这里放的是工作台到正式仓库的复制/同步脚本。
+
+用途：
+
+- 将 `targetSkills/` 发布到相邻的 `../agent-skills/`
+- 降低手工复制时误删其它仓库文件的风险
+
 ### `examp/`
 
 参考示例层。  
@@ -244,6 +326,8 @@ AI 工作辅助层。
 3. 如果要继续做 skill 迁移：
    - 从 `sources/` 找原始 zip
    - 先整理到 `targetSkills/`
+   - 如果来源是相邻仓库 `../agent-skills-own/`，优先使用 `scripts/import-agent-skills-own-to-targetSkills.ps1` 或 `.sh`
+   - 如果来源是相邻目录 `../skillGet/public/downloads/clawHub/`，优先使用 `scripts/import-clawhub-downloads-to-targetSkills.py` 或对应的 `.ps1` / `.sh`
 4. 如果目标是 ClawHub 上传：
    - 优先从 `clawhub-release/` 继续收敛
    - 不要直接拿 `targetSkills/` 原样上传
@@ -263,6 +347,8 @@ AI 工作辅助层。
 - 模板设计：已完成
 - 示例 skill 改造：已完成
 - 第一批目标 skill 生成：已完成
+- 第二批从 `agent-skills-own` 回收的通用 AIsa skills：已并入 `targetSkills/`
+- 第三批从 `clawHub` 下载目录回收的未重复 skills：已并入 `targetSkills/`
 - ClawHub 专用发布层：已开始，首批 4 个已生成
 - 正式仓库同步：尚未在本仓库内执行
 - 中文镜像 / EN-ZH 双版本发布：尚未系统化完成
