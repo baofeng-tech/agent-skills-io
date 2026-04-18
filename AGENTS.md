@@ -57,6 +57,8 @@ Classify the task before editing:
   - working in `targetSkills/`
 - `clawhub publish work`
   - working in `clawhub-release/`
+- `claude / hermes publish work`
+  - working in `claude-release/`, `claude-marketplace/`, or `hermes-release/`
 - `methodology / docs work`
   - working in `targets/`, `platformDesc/`, or repo-level docs
 - `ai helper skill work`
@@ -66,8 +68,23 @@ Classify the task before editing:
 
 - If the goal is cross-platform skill output, prefer `targetSkills/`
 - If the goal is ClawHub upload hardening, prefer `clawhub-release/`
+- If the goal is Claude standalone publish output, prefer `claude-release/`
+- If the goal is Claude plugin marketplace output, prefer `claude-marketplace/`
+- If the goal is Hermes publish output, prefer `hermes-release/`
 - If the goal is research, templates, or explanation, prefer `targets/`
 - Do not confuse `targetSkills/` with the final ClawHub upload layer
+- Do not hand-edit generated release layers when the real source of truth should be `targetSkills/`
+
+### Step 3.5: Use the generation scripts
+
+When the task is about Claude / Hermes release output, prefer these entry points:
+
+- `python3 scripts/build_claude_release.py`
+- `python3 scripts/build_claude_marketplace.py`
+- `python3 scripts/build_hermes_release.py`
+- `PYTHON_EXE=/usr/local/python3.12/bin/python3.12 python3 scripts/test_release_layers.py`
+
+These scripts are the default way to regenerate publish layers and validate them.
 
 ### Step 4: Preserve project intent
 

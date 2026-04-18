@@ -1,0 +1,254 @@
+{
+  "structure": {
+    "claude_errors": [],
+    "hermes_errors": []
+  },
+  "smoke_tests": [
+    {
+      "layer": "claude",
+      "path": "aisa-twitter-command-center",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGMj9hiaweIKAAIcYyNY_BvQYwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcYyQB9UAnEAoABhxjJAH1P9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/14637",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "claude",
+      "path": "aisa-youtube-serp-scout",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1930000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "claude",
+      "path": "search",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI latest",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"id\": \"_9IVO32dlO5jJf5MmpwmjA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.3 Instant · GPT-5.3-Codex ; Safety. Safety Approach · Security & Privacy ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "claude",
+      "path": "prediction-market",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x3ed4bb8c30c3f4dfaddf76ef5585caa099e70fb15b4e3e4e3ac7fde509d2d118\",\n      \"description\": \"In the upcoming Round 1 match between PARIVISION and MOUZ in the PGL Wallachia Group Stage, initially scheduled for April 18 at 9:10AM ET:\\n\\nThis market is about the total kills in Game 2.\\n\\nThis market wi",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "claude",
+      "path": "stock-analysis",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/analyze_stock.py",
+        "AAPL",
+        "--fast",
+        "--output",
+        "json"
+      ],
+      "code": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/stock-analysis/scripts/analyze_stock.py\", line 121, in <module>\n    def _extract_balanced_json(text: str) -> str | None:\nTypeError: unsupported operand type(s) for |: 'type' and 'NoneType'\n"
+    },
+    {
+      "layer": "claude",
+      "path": "stock-watchlist",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/watchlist.py",
+        "list"
+      ],
+      "code": 0,
+      "stdout_preview": "📋 Watchlist is empty. Add tickers with: watchlist.py add AAPL --target 220\n",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "claude",
+      "path": "stock-portfolio",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/portfolio.py",
+        "list"
+      ],
+      "code": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/stock-portfolio/scripts/portfolio.py\", line 55, in <module>\n    def get_active_portfolio(data: dict, name: str | None) -> str:\nTypeError: unsupported operand type(s) for |: 'type' and 'NoneType'\n"
+    },
+    {
+      "layer": "claude",
+      "path": "llm-router",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/llm_router_client.py",
+        "models"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qw",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "claude",
+      "path": "last30days",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/test-aisa-provider.py"
+      ],
+      "code": 0,
+      "stdout_preview": "[AISA Test] model=gpt-4.1-mini\n[AISA Test] url=https://api.aisa.one/v1/chat/completions\n[AISA Test] timeout=20s retries=1 prompt_chars=54\n[AISA Test] request=ok\n{\n  \"text\": \"{\\\"ok\\\": true, \\\"provider\\\": \\\"aisa\\\"}\",\n  \"parsed\": {\n    \"ok\": true,\n    \"provider\": \"aisa\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "claude",
+      "path": "last30days-zh",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/test-aisa-provider.py"
+      ],
+      "code": 0,
+      "stdout_preview": "[AISA Test] model=gpt-4.1-mini\n[AISA Test] url=https://api.aisa.one/v1/chat/completions\n[AISA Test] timeout=20s retries=1 prompt_chars=54\n[AISA Test] request=ok\n{\n  \"text\": \"{\\\"ok\\\": true, \\\"provider\\\": \\\"aisa\\\"}\",\n  \"parsed\": {\n    \"ok\": true,\n    \"provider\": \"aisa\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "communication/aisa-twitter-command-center",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGMj9hiaweIKAAIcYyNY_BvQYwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcYyQkQgAnEAoABhxjJCRB_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/14637",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "research/aisa-youtube-serp-scout",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 124,
+      "stdout_preview": "",
+      "stderr_preview": "\nTimeoutExpired"
+    },
+    {
+      "layer": "hermes",
+      "path": "research/search",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI latest",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"id\": \"LYWP8u2U9429O2e1-kAwNw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.3 Instant · GPT-5.3-Codex ; Safety. Safety Approach · Security & Privacy ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "finance/prediction-market",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x3ed4bb8c30c3f4dfaddf76ef5585caa099e70fb15b4e3e4e3ac7fde509d2d118\",\n      \"description\": \"In the upcoming Round 1 match between PARIVISION and MOUZ in the PGL Wallachia Group Stage, initially scheduled for April 18 at 9:10AM ET:\\n\\nThis market is about the total kills in Game 2.\\n\\nThis market wi",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "finance/stock-analysis",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/analyze_stock.py",
+        "AAPL",
+        "--fast",
+        "--output",
+        "json"
+      ],
+      "code": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/stock-analysis/scripts/analyze_stock.py\", line 121, in <module>\n    def _extract_balanced_json(text: str) -> str | None:\nTypeError: unsupported operand type(s) for |: 'type' and 'NoneType'\n"
+    },
+    {
+      "layer": "hermes",
+      "path": "finance/stock-watchlist",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/watchlist.py",
+        "list"
+      ],
+      "code": 0,
+      "stdout_preview": "📋 Watchlist is empty. Add tickers with: watchlist.py add AAPL --target 220\n",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "finance/stock-portfolio",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/portfolio.py",
+        "list"
+      ],
+      "code": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/stock-portfolio/scripts/portfolio.py\", line 55, in <module>\n    def get_active_portfolio(data: dict, name: str | None) -> str:\nTypeError: unsupported operand type(s) for |: 'type' and 'NoneType'\n"
+    },
+    {
+      "layer": "hermes",
+      "path": "ai/llm-router",
+      "command": [
+        "/usr/bin/python3.9",
+        "scripts/llm_router_client.py",
+        "models"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qw",
+      "stderr_preview": ""
+    }
+  ]
+}

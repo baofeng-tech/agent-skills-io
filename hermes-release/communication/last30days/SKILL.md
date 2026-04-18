@@ -1,0 +1,95 @@
+---
+name: last30days
+description: 'Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output.'
+version: 1.0.4
+author: mvanhorn
+license: MIT
+homepage: https://github.com/AIsa-team/agent-skills
+repository: https://github.com/AIsa-team/agent-skills
+metadata:
+  hermes:
+    tags:
+    - communication
+    - twitter
+    - x
+    - youtube
+    - search
+    - research
+    - market
+    - aisa
+    related_skills:
+    - search
+    - aisa-multi-search-engine
+required_environment_variables:
+- name: AISA_API_KEY
+  prompt: AIsa API key
+  help: Get your key from https://aisa.one or the AIsa marketplace account panel.
+  required_for: AIsa-backed API access
+---
+
+> Release note: This package is published for Hermes. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
+
+# last30days
+
+Research recent evidence across social platforms, community forums, prediction markets, GitHub, and grounded web results, then merge everything into one brief.
+
+## When to Use
+
+- Use when you need a last-30-days research brief on a person, company, product, market, tool, or trend.
+- Use when you want a recent competitor comparison, launch reaction summary, creator/community sentiment scan, or shipping update.
+- Use when you want structured JSON with `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source`.
+
+## Pitfalls
+
+- Do not use for timeless encyclopedia questions with no recent evidence requirement.
+- Do not use when you need only one official source and do not want social/community signals.
+
+## Capabilities
+
+- AISA-hosted planning, reranking, synthesis, grounded web search, X/Twitter search, YouTube search, and Polymarket search.
+- Public Reddit and Hacker News retrieval with fail-soft behavior.
+- Official GitHub API search when `GH_TOKEN` or `GITHUB_TOKEN` is available.
+- Hosted discovery for TikTok, Instagram, Threads, and Pinterest when enabled in runtime config.
+
+## Setup
+
+- `AISA_API_KEY` is the main hosted credential.
+- `GH_TOKEN` or `GITHUB_TOKEN` is optional for GitHub search only.
+- Python `3.12+` is required.
+
+```bash
+for py in /usr/local/python3.12/bin/python3.12 python3.14 python3.13 python3.12 python3; do
+  command -v "$py" >/dev/null 2>&1 || continue
+  "$py" -c 'import sys; raise SystemExit(0 if sys.version_info >= (3, 12) else 1)' || continue
+  LAST30DAYS_PYTHON="$py"
+  break
+done
+```
+
+## Quick Reference
+
+```bash
+bash "${SKILL_ROOT}/scripts/run-last30days.sh" "$ARGUMENTS" --emit=compact
+"${LAST30DAYS_PYTHON}" "${SKILL_ROOT}/scripts/last30days.py" "$ARGUMENTS" --emit=json
+"${LAST30DAYS_PYTHON}" "${SKILL_ROOT}/scripts/last30days.py" "$ARGUMENTS" --quick
+"${LAST30DAYS_PYTHON}" "${SKILL_ROOT}/scripts/last30days.py" "$ARGUMENTS" --deep
+"${LAST30DAYS_PYTHON}" "${SKILL_ROOT}/scripts/last30days.py" "$ARGUMENTS" --search=reddit,x,grounding
+"${LAST30DAYS_PYTHON}" "${SKILL_ROOT}/scripts/last30days.py" --diagnose
+```
+
+## Inputs And Outputs
+
+- Input: a topic or comparison query such as `OpenAI Agents SDK`, `OpenClaw vs Codex`, or `Peter Steinberger`.
+- Output: synthesized research plus `provider_runtime`, `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source`.
+
+## Example Queries
+
+- `last30days OpenAI Agents SDK`
+- `last30days Peter Steinberger`
+- `last30days OpenClaw vs Codex`
+- `last30days Kanye West --quick`
+
+## Verification
+
+- Confirm the command returns structured output or a successful API response.
+- If the workflow is stateful, re-run a read/list/status command to verify the new state.

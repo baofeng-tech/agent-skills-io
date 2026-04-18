@@ -17,12 +17,25 @@ Any AI working in this repository should:
 - 分析多平台 skill 规范
 - 产出跨平台母版 skill
 - 再进一步产出适合 ClawHub 上传的保守发布变体
+- 再进一步产出适合 Claude / skills.sh / GitHub 分发的保守发布变体
+- 再进一步产出适合 Hermes Hub / GitHub / tap 分发的保守发布变体
 - 沉淀一套让人类和 AI 都能快速复用的迁移、包装、发布方法
 
 正式发布目标仓库不是这里，而是：
 
 - `https://github.com/AIsa-team/agent-skills`
 - 分支：`agentskills`
+
+当前工作区里的外部发布仓库包括：
+
+- `D:\workplace\agent-skills-own`
+  - 承接 `targetSkills/` 的平铺母 skill 副本
+- `D:\workplace\Aisa-One-Skills-Claude`
+  - 承接 `claude-release/`
+- `D:\workplace\Aisa-One-Plugins-Claude`
+  - 承接 `claude-marketplace/`
+- `D:\workplace\Aisa-One-Skills-Hermes`
+  - 承接 `hermes-release/`
 
 ## 2. 这个项目现在能做什么
 
@@ -52,6 +65,8 @@ Any AI working in this repository should:
 - 提供迁移手册
 - 提供平台差异对照表
 - 提供索引与发布说明
+- 提供 Claude 市场结构分析与发布预处理层
+- 提供 Hermes 市场结构分析与发布预处理层
 - 提供 2 个面向 ClawHub 的辅助 skill：
   - `clawhub-skill-optimizer`
   - `clawhub-security-auditor`
@@ -74,6 +89,26 @@ Any AI working in this repository should:
   - AIsa 通用 skill 模板
 - `targets/openclaw-twitter-cross-platform-example.md`
   - 真实 skill 的跨平台改造示例
+- `targets/targetSkills-test-matrix-2026-04-17.md`
+  - `targetSkills/` 母版 skill 的阶段性全量测试矩阵与阻塞项记录
+- `targets/targetSkills-test-summary-2026-04-17.md`
+  - 面向汇报的简版测试结论与优先级摘要
+- `targets/aisa-api-endpoint-failures-2026-04-17.md`
+  - 本次测试中已复核的 AISA 上游失效接口与状态码清单
+- `targets/claude-market-structure-and-upload-plan-2026-04-17.md`
+  - Claude Market / Claude Code / skills.sh 当前结构、搜索优化和低风险发布方案
+- `targets/hermes-market-structure-and-upload-plan-2026-04-17.md`
+  - Hermes Agent 当前 skill 规范、分类结构、搜索优化和低风险发布方案
+- `targets/release-layer-test-report-2026-04-17.json`
+  - Claude / Hermes 发布层的结构校验与 smoke test 结果
+- `targets/release-layer-real-test-report-2026-04-17.md`
+  - 使用真实账号、真实 AISA 数据、真实 Python 3.12 环境的发布层测试报告
+- `targets/release-generation-rules-and-runbook-2026-04-17.md`
+  - Claude / Claude marketplace / Hermes 三类发布层的生成规则与执行顺序
+- `targets/release-accounts-and-environment-reference-2026-04-17.md`
+  - 说明账号、环境路径、凭据入口统一从 `example/accounts` 查找
+- `targets/claude-and-hermes-upload-guide-2026-04-17.md`
+  - Claude 与 Hermes 的详细上传 / 发布步骤
 - `platformDesc/Skills Platform平台.md`
   - 平台研究草稿
 - `platformDesc/AIsa Skills 如何跨平台兼容.md`
@@ -159,6 +194,48 @@ Any AI working in this repository should:
 - 去掉部分跨平台字段
 - Twitter 变体中已去掉本地浏览器自动打开入口
 
+#### 3.1 Claude 发布变体
+
+位于 `claude-release/`：
+
+- 当前包含 `targetSkills/` 下全部 51 个 skill 的 Claude-oriented 发布副本
+- 由 `scripts/build_claude_release.py` 自动生成
+
+这些目录不是母版，而是：
+
+- 面向 Claude Code / skills.sh / GitHub 公共分发的保守版本
+- `SKILL.md` frontmatter 收敛为 Claude 更友好的字段
+- 尽量移除 `__pycache__`、测试脚本、同步脚本等非运行时文件
+- 对部分高风险默认行为做了收敛，例如 OAuth 浏览器自动打开、home 目录默认持久化路径
+
+#### 3.2 Claude Plugin Marketplace 包装层
+
+位于 `claude-marketplace/`：
+
+- 当前包含 51 个独立 plugin 包装后的 Claude skill
+- 由 `scripts/build_claude_marketplace.py` 自动生成
+
+这些目录的作用：
+
+- 作为 Claude Code `/plugin marketplace add` 的 Git 仓库骨架
+- 为每个 skill 单独生成 `.claude-plugin/plugin.json`
+- 在根部生成 `.claude-plugin/marketplace.json`
+- 当前工作区里的对应外部仓库是 `D:\workplace\Aisa-One-Plugins-Claude`
+
+#### 3.3 Hermes 发布变体
+
+位于 `hermes-release/`：
+
+- 当前包含 `targetSkills/` 下全部 51 个 skill 的 Hermes-oriented 发布副本
+- 由 `scripts/build_hermes_release.py` 自动生成
+
+这些目录不是母版，而是：
+
+- 按 `communication/`、`research/`、`finance/`、`ai/`、`creative/` 等分类组织
+- `SKILL.md` frontmatter 收敛为 Hermes 更友好的字段
+- 补充 `metadata.hermes.tags`、`related_skills` 和 `required_environment_variables`
+- 尽量移除非运行时文件与高风险默认行为
+
 #### 4. 发布索引
 
 位于 `targetSkills/`：
@@ -187,8 +264,32 @@ Any AI working in this repository should:
 - `import-github-downloads-to-targetSkills.ps1`
 - `import-github-downloads-to-targetSkills.sh`
 - `import-github-downloads-to-targetSkills.py`
+- `build_claude_release.py`
+- `build_claude_marketplace.py`
+- `build_hermes_release.py`
+- `test_release_layers.py`
 
 这些脚本的作用：
+
+- `build_claude_release.py`
+  - 从 `targetSkills/` 生成 `claude-release/`
+- `build_claude_marketplace.py`
+  - 从 `claude-release/` 生成 `claude-marketplace/`
+- `build_hermes_release.py`
+  - 从 `targetSkills/` 生成 `hermes-release/`
+- `test_release_layers.py`
+  - 对 Claude / Hermes 发布层做结构校验与 smoke test
+- 其余 `publish-*` / `import-*` 脚本
+  - 用于 `targetSkills/` 与外部仓库、下载目录之间的导入导出同步
+
+发布层常用命令：
+
+```bash
+python3 scripts/build_claude_release.py
+python3 scripts/build_claude_marketplace.py
+python3 scripts/build_hermes_release.py
+PYTHON_EXE=/usr/local/python3.12/bin/python3.12 python3 scripts/test_release_layers.py
+```
 
 - 将 `targetSkills/` 下的内容同步到相邻的正式仓库目录 `../agent-skills/`
 - 保留目标仓库中的其它无关文件
@@ -200,6 +301,11 @@ Any AI working in this repository should:
 - ClawHub 导入脚本按“压缩包名”或 `SKILL.md` 中的 `name` 是否重名来去重，并保留原有功能脚本不变
 - 支持从相邻的 `../skillGet/public/downloads/github/` 递归导入 `.tar.gz`、`.tgz`、`.zip` skill 包到 `targetSkills/`
 - GitHub 导入脚本按“源目录名（归档根目录名）”和 `SKILL.md` 中的 `name` 两个维度去重，只导入未做过的 skill
+- Claude 发布构建脚本从 `targetSkills/` 生成 `claude-release/`，并同时输出 `README.md`、`index.json`、`AUDIT.md`
+- Claude marketplace 构建脚本从 `claude-release/` 生成 `claude-marketplace/`
+- Hermes 发布构建脚本从 `targetSkills/` 生成 `hermes-release/`
+- 发布层测试脚本对 Claude / Hermes 目录执行结构校验与代表性 smoke test
+- 发布层真实测试现在明确支持读取 `example/accounts` 中的账号与 Python 3.12 路径
 
 #### 5. ClawHub 辅助技能
 
@@ -252,7 +358,42 @@ ClawHub 专用发布层。
 
 - 减少 Suspicious 风险
 - 减少 parser / frontmatter 兼容风险
+
+### `claude-release/`
+
+Claude / skills.sh / GitHub 分发层。  
+这是从母版再收敛一层后的 Claude-oriented 发布副本。
+
+用途：
+
+- 提高 `SKILL.md` 在 Claude 生态中的可读性与可触发性
+- 作为后续单独公开 GitHub 仓库的候选源
+- 作为 `claudemarketplaces.com` / `skills.sh` 方向的预发布层
+- 降低非运行时文件和本地副作用默认值带来的信任风险
 - 作为 ClawHub 上传候选包
+
+### `claude-marketplace/`
+
+Claude plugin marketplace 包装层。  
+这是在 `claude-release/` 之上再包一层、面向 Claude Code plugin marketplace 的分发壳。
+
+用途：
+
+- 支持 `/plugin marketplace add`
+- 为每个 skill 生成独立 plugin 目录
+- 在一个仓库里集中分发多 skill plugin
+
+### `hermes-release/`
+
+Hermes / GitHub / tap 分发层。  
+这是从母版再收敛一层后的 Hermes-oriented 发布副本。
+
+用途：
+
+- 按 Hermes 习惯使用分类目录组织 skills
+- 提高 `SKILL.md` 在 Hermes 生态中的可发现性
+- 为后续 GitHub 安装、tap、optional-skills 候选 PR 做准备
+- 降低非运行时文件和本地副作用默认值带来的信任风险
 
 ### `targets/`
 
@@ -309,6 +450,18 @@ AI 工作辅助层。
 
 - 参考，不是当前主输出目录
 
+### `example/`
+
+账号与环境入口层。  
+这里当前最重要的是 `example/accounts`。
+
+用途：
+
+- 查找真实测试用的 AISA key
+- 查找 X/Twitter 测试账号
+- 查找 Python 3.12 路径
+- 作为发布层真实测试的统一凭据入口
+
 ### `src/`
 
 当前基本空置。  
@@ -334,6 +487,17 @@ AI 工作辅助层。
 5. 如果要优化搜索或审计 Suspicious：
    - 使用 `.agents/skills/clawhub-skill-optimizer`
    - 使用 `.agents/skills/clawhub-security-auditor`
+6. 如果目标是 Claude plugin marketplace：
+   - 先生成 `claude-release/`
+   - 再生成 `claude-marketplace/`
+   - 再同步到 `D:\workplace\Aisa-One-Plugins-Claude`
+7. 如果目标是 Hermes 分发：
+   - 先从 `targetSkills/` 生成 `hermes-release/`
+   - 再使用 `scripts/test_release_layers.py` 做结构校验和 smoke test
+8. 如果要跑真实发布测试：
+   - 先查看 `example/accounts`
+   - 再查看 `targets/release-accounts-and-environment-reference-2026-04-17.md`
+   - 最后查看 `targets/release-layer-real-test-report-2026-04-17.md`
 
 ## 6. 目前项目的阶段判断
 
@@ -350,6 +514,11 @@ AI 工作辅助层。
 - 第二批从 `agent-skills-own` 回收的通用 AIsa skills：已并入 `targetSkills/`
 - 第三批从 `clawHub` 下载目录回收的未重复 skills：已并入 `targetSkills/`
 - ClawHub 专用发布层：已开始，首批 4 个已生成
+- Claude 发布层：已完成，51 个已生成
+- Claude plugin marketplace 包装层：已完成，51 个 plugin 包装已生成
+- Hermes 发布层：已完成，51 个已生成
+- Claude / Hermes 发布层测试：已完成一轮结构校验与 smoke test
+- Claude / Hermes 发布层真实测试：已完成一轮基于真实账号、真实 Python 3.12、真实上游数据的验证
 - 正式仓库同步：尚未在本仓库内执行
 - 中文镜像 / EN-ZH 双版本发布：尚未系统化完成
 
@@ -365,6 +534,16 @@ AI 工作辅助层。
 - `aisa-twitter-post-engage`
 - `aisa-youtube-search`
 - `aisa-youtube-serp-scout`
+
+### 优先级 1.5
+
+把 `claude-release/`、`claude-marketplace/`、`hermes-release/` 分别推到对应公开仓库或分支，形成真正可安装的外部入口
+
+### 优先级 1.6
+
+继续扩大 Python 3.12 + 真实账号的运行时覆盖面：
+
+- 视需要把更多高价值 skill 纳入 Python 3.12 真实回归
 
 ### 优先级 2
 
