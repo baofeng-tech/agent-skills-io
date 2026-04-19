@@ -8,7 +8,7 @@
       "layer": "claude",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -17,28 +17,28 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGMj9hiaweIKAAIcYyNY_BvQYwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcYyQB9UAnEAoABhxjJAH1P9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/14637",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGPTNRRX0TwKAAIcY9HaK1vQMgAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcY9NDtUAnEAoABhxj00O1P9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/229110",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
         "OpenAI"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1930000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
-      "stderr_preview": ""
+      "code": 124,
+      "stdout_preview": "",
+      "stderr_preview": "\nTimeoutExpired"
     },
     {
       "layer": "claude",
       "path": "search",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -46,15 +46,15 @@
         "--count",
         "1"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"id\": \"_9IVO32dlO5jJf5MmpwmjA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.3 Instant · GPT-5.3-Codex ; Safety. Safety Approach · Security & Privacy ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
-      "stderr_preview": ""
+      "code": 124,
+      "stdout_preview": "",
+      "stderr_preview": "\nTimeoutExpired"
     },
     {
       "layer": "claude",
       "path": "prediction-market",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -62,14 +62,14 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x3ed4bb8c30c3f4dfaddf76ef5585caa099e70fb15b4e3e4e3ac7fde509d2d118\",\n      \"description\": \"In the upcoming Round 1 match between PARIVISION and MOUZ in the PGL Wallachia Group Stage, initially scheduled for April 18 at 9:10AM ET:\\n\\nThis market is about the total kills in Game 2.\\n\\nThis market wi",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x69145187c38e66f2c0e4f25e4d70c321fb34062c8b8e200d0d292920dbacd061\",\n      \"description\": \"In the upcoming MLB game between the St. Louis Cardinals and Houston Astros, scheduled for April 18 at 7:10 PM ET:\\n\\nThis market will resolve to \\\"Over\\\" if the St. Louis Cardinals and Houston Astros combin",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "stock-analysis",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/analyze_stock.py",
         "AAPL",
         "--fast",
@@ -78,37 +78,37 @@
       ],
       "code": 1,
       "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/stock-analysis/scripts/analyze_stock.py\", line 121, in <module>\n    def _extract_balanced_json(text: str) -> str | None:\nTypeError: unsupported operand type(s) for |: 'type' and 'NoneType'\n"
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/stock-analysis/scripts/analyze_stock.py\", line 25, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
     },
     {
       "layer": "claude",
       "path": "stock-watchlist",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/watchlist.py",
         "list"
       ],
-      "code": 0,
-      "stdout_preview": "📋 Watchlist is empty. Add tickers with: watchlist.py add AAPL --target 220\n",
-      "stderr_preview": ""
+      "code": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/stock-watchlist/scripts/watchlist.py\", line 30, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
     },
     {
       "layer": "claude",
       "path": "stock-portfolio",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/portfolio.py",
         "list"
       ],
       "code": 1,
       "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/stock-portfolio/scripts/portfolio.py\", line 55, in <module>\n    def get_active_portfolio(data: dict, name: str | None) -> str:\nTypeError: unsupported operand type(s) for |: 'type' and 'NoneType'\n"
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/stock-portfolio/scripts/portfolio.py\", line 32, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
     },
     {
       "layer": "claude",
       "path": "llm-router",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/llm_router_client.py",
         "models"
       ],
@@ -120,18 +120,18 @@
       "layer": "claude",
       "path": "last30days",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/test-aisa-provider.py"
       ],
-      "code": 0,
-      "stdout_preview": "[AISA Test] model=gpt-4.1-mini\n[AISA Test] url=https://api.aisa.one/v1/chat/completions\n[AISA Test] timeout=20s retries=1 prompt_chars=54\n[AISA Test] request=ok\n{\n  \"text\": \"{\\\"ok\\\": true, \\\"provider\\\": \\\"aisa\\\"}\",\n  \"parsed\": {\n    \"ok\": true,\n    \"provider\": \"aisa\"\n  }\n}\n",
-      "stderr_preview": ""
+      "code": 1,
+      "stdout_preview": "[AISA Test] model=gpt-4.1-mini\n[AISA Test] url=https://api.aisa.one/v1/chat/completions\n[AISA Test] timeout=20s retries=1 prompt_chars=54\n",
+      "stderr_preview": "[AISA Test] request=failed class=timeout type=HTTPError: URL Error: timed out\n"
     },
     {
       "layer": "claude",
       "path": "last30days-zh",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/test-aisa-provider.py"
       ],
       "code": 0,
@@ -142,7 +142,7 @@
       "layer": "hermes",
       "path": "communication/aisa-twitter-command-center",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -151,28 +151,28 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGMj9hiaweIKAAIcYyNY_BvQYwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcYyQkQgAnEAoABhxjJCRB_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/14637",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGPTdd9WgXAKAAIcY9HzHlqgAQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcY9Of9oAnEAoABhxj05_2f9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/15110",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "research/aisa-youtube-serp-scout",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
         "OpenAI"
       ],
-      "code": 124,
-      "stdout_preview": "",
-      "stderr_preview": "\nTimeoutExpired"
+      "code": 0,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1930000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "research/search",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -181,14 +181,14 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"id\": \"LYWP8u2U9429O2e1-kAwNw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.3 Instant · GPT-5.3-Codex ; Safety. Safety Approach · Security & Privacy ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"oNu5g-8fEiKhrlUejhHNXA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.3 Instant · GPT-5.3-Codex ; Safety. Safety Approach · Security & Privacy ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "finance/prediction-market",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -196,14 +196,14 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x3ed4bb8c30c3f4dfaddf76ef5585caa099e70fb15b4e3e4e3ac7fde509d2d118\",\n      \"description\": \"In the upcoming Round 1 match between PARIVISION and MOUZ in the PGL Wallachia Group Stage, initially scheduled for April 18 at 9:10AM ET:\\n\\nThis market is about the total kills in Game 2.\\n\\nThis market wi",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x69145187c38e66f2c0e4f25e4d70c321fb34062c8b8e200d0d292920dbacd061\",\n      \"description\": \"In the upcoming MLB game between the St. Louis Cardinals and Houston Astros, scheduled for April 18 at 7:10 PM ET:\\n\\nThis market will resolve to \\\"Over\\\" if the St. Louis Cardinals and Houston Astros combin",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "finance/stock-analysis",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/analyze_stock.py",
         "AAPL",
         "--fast",
@@ -212,37 +212,37 @@
       ],
       "code": 1,
       "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/stock-analysis/scripts/analyze_stock.py\", line 121, in <module>\n    def _extract_balanced_json(text: str) -> str | None:\nTypeError: unsupported operand type(s) for |: 'type' and 'NoneType'\n"
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/stock-analysis/scripts/analyze_stock.py\", line 25, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
     },
     {
       "layer": "hermes",
       "path": "finance/stock-watchlist",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/watchlist.py",
         "list"
       ],
-      "code": 0,
-      "stdout_preview": "📋 Watchlist is empty. Add tickers with: watchlist.py add AAPL --target 220\n",
-      "stderr_preview": ""
+      "code": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/stock-watchlist/scripts/watchlist.py\", line 30, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
     },
     {
       "layer": "hermes",
       "path": "finance/stock-portfolio",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/portfolio.py",
         "list"
       ],
       "code": 1,
       "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/stock-portfolio/scripts/portfolio.py\", line 55, in <module>\n    def get_active_portfolio(data: dict, name: str | None) -> str:\nTypeError: unsupported operand type(s) for |: 'type' and 'NoneType'\n"
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/stock-portfolio/scripts/portfolio.py\", line 32, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
     },
     {
       "layer": "hermes",
       "path": "ai/llm-router",
       "command": [
-        "/usr/bin/python3.9",
+        "/usr/bin/python3",
         "scripts/llm_router_client.py",
         "models"
       ],

@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import json
+import os
+import stat
 import shutil
 from pathlib import Path
 from typing import Any
@@ -14,6 +16,21 @@ import build_claude_release as base
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCE_ROOT = REPO_ROOT / "targetSkills"
 OUTPUT_ROOT = REPO_ROOT / "hermes-release"
+
+
+SAFE_EXECUTABLE_SUFFIXES = {
+    ".sh",
+    ".bash",
+    ".zsh",
+    ".fish",
+    ".py",
+    ".pl",
+    ".rb",
+    ".js",
+    ".mjs",
+    ".cjs",
+    ".ts",
+}
 
 
 def infer_category(name: str, description: str) -> str:
@@ -119,6 +136,21 @@ def normalize_body(body: str, skill_name: str) -> str:
     return body
 
 
+def normalize_permissions(skill_dir: Path) -> None:
+    """Strip executable bits from non-runtime documentation and data files."""
+    for path in skill_dir.rglob("*"):
+        if not path.is_file():
+            continue
+        if path.suffix.lower() in SAFE_EXECUTABLE_SUFFIXES or "scripts" in path.parts:
+            continue
+        mode = path.stat().st_mode
+        normalized_mode = mode & ~(
+            stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH
+        )
+        if normalized_mode != mode:
+            path.chmod(normalized_mode)
+
+
 def build_skill(src_dir: Path) -> dict[str, object]:
     frontmatter, body = base.load_frontmatter(src_dir / "SKILL.md")
     skill_frontmatter = clean_frontmatter(src_dir, frontmatter)
@@ -138,6 +170,7 @@ def build_skill(src_dir: Path) -> dict[str, object]:
     base.prune_release_tree(out_dir, audit)
     base.patch_runtime_files(out_dir, audit)
     base.rewrite_markdown_tree(out_dir, "hermes", audit)
+    normalize_permissions(out_dir)
 
     (out_dir / "SKILL.md").write_text(
         base.dump_skill(skill_frontmatter, normalize_body(body, src_dir.name)),

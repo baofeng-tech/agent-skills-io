@@ -119,6 +119,9 @@ def main() -> None:
 
     marketplace = {
         "name": "aisa-claude-marketplace",
+        "owner": {
+            "name": "AIsa",
+        },
         "metadata": {
             "description": "AIsa Claude Code marketplace for packaged skills derived from targetSkills.",
             "author": {"name": "AIsa"},

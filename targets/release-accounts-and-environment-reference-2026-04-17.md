@@ -36,9 +36,9 @@ Read `AISA_API_KEY` from [example/accounts](/mnt/d/workplace/agent-skills-io/exa
 
 Use the Python 3.12 path recorded in [example/accounts](/mnt/d/workplace/agent-skills-io/example/accounts:1).
 
-As of this test wave, the repo uses:
+Current working path in this environment:
 
-- `python3.12 path: /usr/local/python3.12/bin/python3.12`
+- `python3.12 path: /home/xiaofeng/.local/bin/python3.12`
 
 ### X/Twitter write validation
 

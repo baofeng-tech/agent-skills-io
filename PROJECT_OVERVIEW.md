@@ -267,6 +267,8 @@ Any AI working in this repository should:
 - `build_claude_release.py`
 - `build_claude_marketplace.py`
 - `build_hermes_release.py`
+- `publish-claude-release.sh`
+- `publish-hermes-release.sh`
 - `test_release_layers.py`
 
 这些脚本的作用：
@@ -277,6 +279,10 @@ Any AI working in this repository should:
   - 从 `claude-release/` 生成 `claude-marketplace/`
 - `build_hermes_release.py`
   - 从 `targetSkills/` 生成 `hermes-release/`
+- `publish-claude-release.sh`
+  - 一键构建并同步 `claude-release/`（可选同时同步 `claude-marketplace/`）到外部发布仓库
+- `publish-hermes-release.sh`
+  - 一键构建并同步 `hermes-release/` 到外部发布仓库
 - `test_release_layers.py`
   - 对 Claude / Hermes 发布层做结构校验与 smoke test
 - 其余 `publish-*` / `import-*` 脚本
