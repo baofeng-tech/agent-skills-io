@@ -2,6 +2,18 @@
 name: stock-portfolio
 description: Manage investment portfolios with live P&L tracking via AIsa API. Create, add, update, remove positions, rename, and show portfolio summary with real-time profit/loss. Use when the user wants to track investments, manage a portfolio, check P&L, or add/remove holdings.
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - finance
@@ -17,60 +29,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# Portfolio Management — AIsa Edition
+# stock-portfolio
 
-Manage investment portfolios with live P&L tracking using the AIsa API.
+Manage investment portfolios with live P&L tracking via AIsa API. Create, add, update, remove positions, rename, and show portfolio summary with real-time profit/loss. Use when the user wants to track investments, manage a portfolio, check P&L, or add/remove holdings.
 
-## Usage
+## When to Use
 
-```bash
-# Create a new portfolio
-python3 scripts/portfolio.py create "My Portfolio"
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
-# Add a position
-python3 scripts/portfolio.py add AAPL --quantity 10 --cost 150
-python3 scripts/portfolio.py add BTC-USD --quantity 0.5 --cost 40000
+## Setup
 
-# Show portfolio with live P&L
-python3 scripts/portfolio.py show
-python3 scripts/portfolio.py show --portfolio "My Portfolio"
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
-# Update a position
-python3 scripts/portfolio.py update AAPL --quantity 15 --cost 160
+## Quick Reference
 
-# Remove a position
-python3 scripts/portfolio.py remove AAPL
-
-# List all portfolios
-python3 scripts/portfolio.py list
-
-# Rename a portfolio
-python3 scripts/portfolio.py rename "My Portfolio" "Tech Holdings"
-
-# Delete a portfolio
-python3 scripts/portfolio.py delete "Old Portfolio"
-```
-
-### Actions
-
-| Action | Description |
-|--------|-------------|
-| `create NAME` | Create a new portfolio |
-| `list` | List all portfolios |
-| `show` | Show portfolio summary with live P&L |
-| `add TICKER` | Add position with `--quantity` and `--cost` |
-| `update TICKER` | Update position quantity/cost |
-| `remove TICKER` | Remove position from portfolio |
-| `rename OLD NEW` | Rename a portfolio |
-| `delete NAME` | Delete a portfolio |
-
-## Data Storage
-
-Portfolio data is stored in `./.claude-skill-data/portfolios.json` for persistence across sessions.
-
-**NOT FINANCIAL ADVICE.** For informational purposes only.
+- `python3 scripts/portfolio.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

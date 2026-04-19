@@ -2,6 +2,18 @@
 name: stock-dividend
 description: Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - finance
@@ -17,40 +29,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# Dividend Analysis — AIsa Edition
+# stock-dividend
 
-Analyze dividend metrics for one or more tickers using the AIsa API.
+Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.
 
-## Usage
+## When to Use
 
-```bash
-python3 scripts/dividends.py JNJ
-python3 scripts/dividends.py JNJ PG KO
-python3 scripts/dividends.py JNJ PG KO --output json
-```
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
-### Arguments
+## Setup
 
-- **Tickers**: One or more dividend-paying stock symbols
-- `--output json`: Append structured JSON summary
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
-## Analysis Output
+## Quick Reference
 
-For each ticker, the analysis includes:
-
-- **Core Metrics**: Yield, ex-date, frequency, last payment amount
-- **Payout Analysis**: Payout ratio, FCF payout, coverage ratio
-- **Growth**: 1Y, 3Y CAGR, 5Y CAGR, consecutive years of increases
-- **Last 5 Annual Dividends** table
-- **Safety Score (0-100)**: Based on payout ratio (25pts), FCF coverage (20pts), growth consistency (20pts), balance sheet (15pts), earnings stability (10pts), consecutive years (10pts)
-- **Income Rating**: Excellent (80+), Good (60-79), Moderate (40-59), Poor (<40)
-- **Dividend Aristocrat/King** status check
-
-When multiple tickers are provided, a ranked comparison table is included.
-
-**NOT FINANCIAL ADVICE.** For informational purposes only.
+- `python3 scripts/dividends.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

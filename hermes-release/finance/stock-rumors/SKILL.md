@@ -2,6 +2,18 @@
 name: stock-rumors
 description: Rumor Scanner — find early signals including M&A rumors, insider activity, analyst upgrades/downgrades, social whispers, and SEC/regulatory activity via AIsa API. Ranked by impact score. Use when the user asks about rumors, insider trading, M&A activity, analyst changes, or early market signals.
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - finance
@@ -18,41 +30,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# Rumor Scanner — AIsa Edition
+# stock-rumors
 
-Scan for early market signals and rumors using the AIsa API.
+Rumor Scanner — find early signals including M&A rumors, insider activity, analyst upgrades/downgrades, social whispers, and SEC/regulatory activity via AIsa API. Ranked by impact score. Use when the user asks about rumors, insider trading, M&A activity, analyst changes, or early market signals.
 
-## Usage
+## When to Use
 
-```bash
-python3 scripts/rumor_scanner.py
-python3 scripts/rumor_scanner.py --focus ma
-python3 scripts/rumor_scanner.py --focus insider
-python3 scripts/rumor_scanner.py --focus analyst
-python3 scripts/rumor_scanner.py --focus social
-python3 scripts/rumor_scanner.py --output json
-```
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
-### Arguments
+## Setup
 
-- `--focus`: Filter by `all` (default), `ma` (M&A), `insider`, `analyst`, or `social`
-- `--output json`: Append structured JSON summary
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
-## Signal Categories
+## Quick Reference
 
-- **M&A / Takeover Signals**: Acquisition, merger, buyout, strategic review keywords
-- **Insider Trading Activity**: SEC EDGAR Form 4, cluster buying, 10b5-1 deviations
-- **Analyst Actions**: Upgrades, downgrades, price target changes >15%, double-upgrades
-- **Social & News Whispers**: "hearing that", "sources say", "rumored to", unusual social spikes
-- **Regulatory / SEC Activity**: 13D/13G filings, investigations, Wells notices
-
-## Output
-
-Top 5 signals ranked by Impact Score with quality assessment, followed by an analyst note on the most actionable signals.
-
-**NOT FINANCIAL ADVICE.** Rumors are unconfirmed. For informational purposes only.
+- `python3 scripts/rumor_scanner.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

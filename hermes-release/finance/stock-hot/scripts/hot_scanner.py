@@ -9,10 +9,10 @@
 🔥 Hot Scanner — Find viral trending stocks & crypto via AIsa API.
 
 Usage:
-    uv run hot_scanner.py
-    uv run hot_scanner.py --focus crypto
-    uv run hot_scanner.py --focus stocks
-    uv run hot_scanner.py --output json
+    python3 hot_scanner.py
+    python3 hot_scanner.py --focus crypto
+    python3 hot_scanner.py --focus stocks
+    python3 hot_scanner.py --output json
 """
 
 import argparse
@@ -119,12 +119,12 @@ Based on all the above data, pick the 5 most interesting tickers to watch today:
 
 
 def get_client() -> OpenAI:
-    api_key = os.environ.get("AISA_API_KEY")
+    api_key = args.api_key
     if not api_key:
-        print("❌ Error: AISA_API_KEY environment variable is not set.", file=sys.stderr)
+        print("❌ Error: --api-key is required.", file=sys.stderr)
         print("   Set it with: export AISA_API_KEY=your_key_here", file=sys.stderr)
         sys.exit(1)
-    base_url = os.environ.get("AISA_BASE_URL", "https://api.aisa.one/v1")
+    base_url = "https://api.aisa.one/v1"
     return OpenAI(api_key=api_key, base_url=base_url)
 
 
@@ -141,7 +141,7 @@ def extract_json_block(text: str) -> dict:
 
 def run_hot_scanner(focus: str = "both", output_format: str = "text") -> str:
     client = get_client()
-    model = os.environ.get("AISA_MODEL", "gpt-4o")
+    model = "gpt-4o"
 
     focus_map = {
         "both": "stocks and cryptocurrencies",

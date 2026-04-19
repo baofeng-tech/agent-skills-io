@@ -12,13 +12,13 @@ Watchlist stored at: ~/.clawdbot/skills/stock-analysis/watchlist.json
 Current prices & signals fetched via AIsa API.
 
 Usage:
-    uv run watchlist.py add AAPL
-    uv run watchlist.py add AAPL --target 220 --stop 160
-    uv run watchlist.py add AAPL --alert-on signal
-    uv run watchlist.py list
-    uv run watchlist.py check
-    uv run watchlist.py check --notify
-    uv run watchlist.py remove AAPL
+    python3 watchlist.py add AAPL
+    python3 watchlist.py add AAPL --target 220 --stop 160
+    python3 watchlist.py add AAPL --alert-on signal
+    python3 watchlist.py list
+    python3 watchlist.py check
+    python3 watchlist.py check --notify
+    python3 watchlist.py remove AAPL
 """
 
 import argparse
@@ -33,7 +33,7 @@ from openai import OpenAI
 # ─── Storage ────────────────────────────────────────────────────────────────
 
 def get_storage_path() -> Path:
-    state_dir = os.environ.get("CLAWDBOT_STATE_DIR", str(Path.cwd() / ".claude-skill-data"))
+    state_dir = str(Path.cwd() / ".hermes-skill-data")
     p = Path(state_dir) / "skills" / "stock-analysis"
     p.mkdir(parents=True, exist_ok=True)
     return p / "watchlist.json"
@@ -53,11 +53,11 @@ def save_watchlist(data: dict) -> None:
 # ─── AIsa API ────────────────────────────────────────────────────────────────
 
 def get_client() -> OpenAI:
-    api_key = os.environ.get("AISA_API_KEY")
+    api_key = args.api_key
     if not api_key:
-        print("❌ Error: AISA_API_KEY environment variable is not set.", file=sys.stderr)
+        print("❌ Error: --api-key is required.", file=sys.stderr)
         sys.exit(1)
-    base_url = os.environ.get("AISA_BASE_URL", "https://api.aisa.one/v1")
+    base_url = "https://api.aisa.one/v1"
     return OpenAI(api_key=api_key, base_url=base_url)
 
 
@@ -66,7 +66,7 @@ def fetch_watchlist_data(tickers: list[str]) -> dict:
     if not tickers:
         return {}
     client = get_client()
-    model = os.environ.get("AISA_MODEL", "gpt-4o")
+    model = "gpt-4o"
     ticker_str = ", ".join(tickers)
     prompt = (
         f"For each of these tickers: {ticker_str}\n\n"

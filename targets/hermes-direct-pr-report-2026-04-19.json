@@ -1,0 +1,19 @@
+{
+  "repo": "baofeng-tech/Aisa-One-Skills-Hermes",
+  "default_branch": "main",
+  "results": [
+    {
+      "skill": "hermes-release/ai/aisa-provider",
+      "name": "aisa-provider",
+      "category": "ai",
+      "verdict": "safe",
+      "status": "push_failed",
+      "pr_url": null,
+      "details": {
+        "stdout": "",
+        "stderr": "ssh: connect to host ssh.github.com port 443: Connection timed out\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n"
+      },
+      "elapsed_seconds": 136.93
+    }
+  ]
+}

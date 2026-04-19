@@ -9,11 +9,11 @@
 🔮 Rumor Scanner — early signals, M&A rumors, insider activity via AIsa API.
 
 Usage:
-    uv run rumor_scanner.py
-    uv run rumor_scanner.py --output json
-    uv run rumor_scanner.py --focus ma         # M&A only
-    uv run rumor_scanner.py --focus insider    # Insider activity only
-    uv run rumor_scanner.py --focus analyst    # Analyst actions only
+    python3 rumor_scanner.py
+    python3 rumor_scanner.py --output json
+    python3 rumor_scanner.py --focus ma         # M&A only
+    python3 rumor_scanner.py --focus insider    # Insider activity only
+    python3 rumor_scanner.py --focus analyst    # Analyst actions only
 """
 
 import argparse
@@ -156,12 +156,12 @@ FOCUS_DESCRIPTIONS = {
 
 
 def get_client() -> OpenAI:
-    api_key = os.environ.get("AISA_API_KEY")
+    api_key = args.api_key
     if not api_key:
-        print("❌ Error: AISA_API_KEY environment variable is not set.", file=sys.stderr)
+        print("❌ Error: --api-key is required.", file=sys.stderr)
         print("   Set it with: export AISA_API_KEY=your_key_here", file=sys.stderr)
         sys.exit(1)
-    base_url = os.environ.get("AISA_BASE_URL", "https://api.aisa.one/v1")
+    base_url = "https://api.aisa.one/v1"
     return OpenAI(api_key=api_key, base_url=base_url)
 
 
@@ -178,7 +178,7 @@ def extract_json_block(text: str) -> dict:
 
 def run_rumor_scanner(focus: str = "all", output_format: str = "text") -> str:
     client = get_client()
-    model = os.environ.get("AISA_MODEL", "gpt-4o")
+    model = "gpt-4o"
 
     focus_desc = FOCUS_DESCRIPTIONS.get(focus, FOCUS_DESCRIPTIONS["all"])
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")

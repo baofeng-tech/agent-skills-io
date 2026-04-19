@@ -3,6 +3,18 @@ name: aisa-tavily
 description: 'AI-optimized web search via AIsa''s Tavily API proxy. Returns concise, relevant results for AI agents through AIsa''s unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction.'
 homepage: https://aisa.one
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - node
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - research
@@ -16,39 +28,23 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# AIsa Tavily Search
+# aisa-tavily
 
-AI-optimized web search using Tavily API through AIsa's unified gateway. Designed for AI agents - returns clean, relevant content.
+AI-optimized web search via AIsa's Tavily API proxy. Returns concise, relevant results for AI agents through AIsa's unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction.
 
-## Search
+## When to Use
 
-```bash
-node scripts/search.mjs "query"
-node scripts/search.mjs "query" -n 10
-node scripts/search.mjs "query" --deep
-node scripts/search.mjs "query" --topic news
-```
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
-## Options
+## Setup
 
-- `-n <count>`: Number of results (default: 5, max: 20)
-- `--deep`: Use advanced search for deeper research (slower, more comprehensive)
-- `--topic <topic>`: Search topic - `general` (default) or `news`
-- `--days <n>`: For news topic, limit to last n days
-
-## Extract content from URL
-
-```bash
-node scripts/extract.mjs "https://example.com/article"
-```
-
-Notes:
-- Needs `AISA_API_KEY` from https://marketplace.aisa.one
-- Powered by AIsa's unified API gateway (https://aisa.one)
-- Use `--deep` for complex research questions
-- Use `--topic news` for current events
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

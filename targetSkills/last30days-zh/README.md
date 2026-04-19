@@ -4,7 +4,7 @@
 
 包含：
 
-- 运行时脚本
+- 运行时研究 CLI
 - 中文 `SKILL.md`
 - `.codex-plugin/plugin.json`
 - 许可证和包元数据
@@ -21,5 +21,4 @@
 
 - `AISA_API_KEY` 提供规划、重排、综合、X/Twitter、YouTube、Polymarket 和 grounded web search。
 - Reddit 与 Hacker News 走公开路径。
-- GitHub 仍走官方 GitHub API 路径，需要时再配置 `GH_TOKEN` 或 `GITHUB_TOKEN`。
-
+- 对外发布层现在聚焦 `last30days.py` 研究主链，不再把旧的 watchlist / briefing / GitHub 扩展面作为默认技能表面。

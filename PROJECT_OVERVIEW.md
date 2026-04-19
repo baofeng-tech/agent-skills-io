@@ -87,6 +87,8 @@ Any AI working in this repository should:
   - 官方文档链接索引
 - `targets/aisa-universal-skill-template.md`
   - AIsa 通用 skill 模板
+- `targets/skill-modification-rules-2026-04-19.md`
+  - 新增的 skill 修改硬规则，约束零依赖、`metadata.aisa`、运行时文件范围和 Hermes 发布层收敛方式
 - `targets/openclaw-twitter-cross-platform-example.md`
   - 真实 skill 的跨平台改造示例
 - `targets/targetSkills-test-matrix-2026-04-17.md`
@@ -232,9 +234,12 @@ Any AI working in this repository should:
 这些目录不是母版，而是：
 
 - 按 `communication/`、`research/`、`finance/`、`ai/`、`creative/` 等分类组织
-- `SKILL.md` frontmatter 收敛为 Hermes 更友好的字段
-- 补充 `metadata.hermes.tags`、`related_skills` 和 `required_environment_variables`
-- 尽量移除非运行时文件与高风险默认行为
+- `SKILL.md` frontmatter 现在同时收敛到 `metadata.aisa` 和 `metadata.hermes`
+- 发布层默认做 runtime-only 包装，尽量移除 `references/`、测试脚本、评估脚本和高风险命令示例
+- 对常见 AISA Python 客户端做显式 `--api-key` / repo-local state 的 Hermes 安全补丁
+- 当前 Hermes 官方复扫结果为：51 个 `safe`
+- `last30days` / `last30days-zh` 已经从 Guard 阻塞项降为 `SAFE`
+- 当前剩余阻塞不再是技能内容，而是 Hermes CLI 侧缺少 GitHub API 凭证（`GITHUB_TOKEN` / `gh auth login`）
 
 #### 4. 发布索引
 
@@ -309,7 +314,7 @@ PYTHON_EXE=/usr/local/python3.12/bin/python3.12 python3 scripts/test_release_lay
 - GitHub 导入脚本按“源目录名（归档根目录名）”和 `SKILL.md` 中的 `name` 两个维度去重，只导入未做过的 skill
 - Claude 发布构建脚本从 `targetSkills/` 生成 `claude-release/`，并同时输出 `README.md`、`index.json`、`AUDIT.md`
 - Claude marketplace 构建脚本从 `claude-release/` 生成 `claude-marketplace/`
-- Hermes 发布构建脚本从 `targetSkills/` 生成 `hermes-release/`
+- Hermes 发布构建脚本从 `targetSkills/` 生成 `hermes-release/`，并额外做 runtime-only 文档收缩、显式 API key 补丁、repo-local state 收敛
 - 发布层测试脚本对 Claude / Hermes 目录执行结构校验与代表性 smoke test
 - 发布层真实测试现在明确支持读取 `example/accounts` 中的账号与 Python 3.12 路径
 
@@ -500,6 +505,8 @@ AI 工作辅助层。
 7. 如果目标是 Hermes 分发：
    - 先从 `targetSkills/` 生成 `hermes-release/`
    - 再使用 `scripts/test_release_layers.py` 做结构校验和 smoke test
+   - 再用 Hermes Guard 复扫，优先确认哪些 skill 已达 `safe`
+   - 最后同步到 `D:\workplace\Aisa-One-Skills-Hermes` 并执行 `skill -> fork -> PR`
 8. 如果要跑真实发布测试：
    - 先查看 `example/accounts`
    - 再查看 `targets/release-accounts-and-environment-reference-2026-04-17.md`
@@ -523,9 +530,13 @@ AI 工作辅助层。
 - Claude 发布层：已完成，51 个已生成
 - Claude plugin marketplace 包装层：已完成，51 个 plugin 包装已生成
 - Hermes 发布层：已完成，51 个已生成
+- Hermes Guard 批量降风险：已完成一轮，51 个 skill 已进入 `safe`
 - Claude / Hermes 发布层测试：已完成一轮结构校验与 smoke test
 - Claude / Hermes 发布层真实测试：已完成一轮基于真实账号、真实 Python 3.12、真实上游数据的验证
-- 正式仓库同步：尚未在本仓库内执行
+- Claude 外部发布仓库同步：已完成并推到最新
+- Claude marketplace 外部发布仓库同步：已完成并推到最新
+- Hermes 外部发布仓库同步：已完成并推到最新
+- Claude marketplace 真安装验证：`last30days` / `last30days-zh` 已从 `aisa-claude-marketplace` 安装成功
 - 中文镜像 / EN-ZH 双版本发布：尚未系统化完成
 
 ## 7. 现在最重要的下一步
@@ -544,6 +555,12 @@ AI 工作辅助层。
 ### 优先级 1.5
 
 把 `claude-release/`、`claude-marketplace/`、`hermes-release/` 分别推到对应公开仓库或分支，形成真正可安装的外部入口
+
+当前 Hermes 方向已经进一步细化为：
+
+- 保持 `hermes-release/` 的 Guard 结果维持在 `safe`
+- 对 51 个 `safe` skill 继续执行 Hermes `skills publish` 的 `fork -> PR` 批处理
+- 当前 `last30days` / `last30days-zh` 已不再是 Guard 阻塞项，但仍建议长期保持“无状态研究主链”形态，避免重新膨胀回研究应用
 
 ### 优先级 1.6
 

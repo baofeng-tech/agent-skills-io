@@ -15,7 +15,7 @@ from scripts.stock_analyst import AIsaStockAnalyst
 async def main():
     """Test API data retrieval."""
     
-    api_key = os.environ.get("AISA_API_KEY")
+    api_key = args.api_key
     if not api_key:
         print("Error: AISA_API_KEY not set")
         return

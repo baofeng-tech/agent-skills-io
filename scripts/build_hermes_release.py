@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 import json
-import os
+import re
 import stat
 import shutil
 from pathlib import Path
@@ -24,13 +24,35 @@ SAFE_EXECUTABLE_SUFFIXES = {
     ".zsh",
     ".fish",
     ".py",
-    ".pl",
-    ".rb",
-    ".js",
-    ".mjs",
-    ".cjs",
-    ".ts",
 }
+NON_RUNTIME_DIRS = {"references"}
+HERMES_DATA_DIR = ".hermes-skill-data"
+PREFERRED_ENTRYPOINTS = (
+    "run-last30days.sh",
+    "run-watchlist.sh",
+    "run-briefing.sh",
+    "search_client.py",
+    "market_client.py",
+    "youtube_client.py",
+    "twitter_client.py",
+    "twitter_oauth_client.py",
+    "twitter_engagement_client.py",
+    "prediction_market_client.py",
+    "arbitrage_finder.py",
+    "media_gen_client.py",
+    "stock_analyst.py",
+    "analyze_stock.py",
+    "watchlist.py",
+    "briefing.py",
+    "portfolio.py",
+    "dividends.py",
+    "hot_scanner.py",
+    "rumor_scanner.py",
+    "cn_llm_client.py",
+    "llm_router_client.py",
+    "perplexity_search_client.py",
+)
+CLIENT_CONSTRUCTOR_RE = re.compile(r"client = ([A-Za-z_]+Client)\(\)")
 
 
 def infer_category(name: str, description: str) -> str:
@@ -86,6 +108,91 @@ def needs_aisa_key(skill_dir: Path) -> bool:
     return False
 
 
+def infer_required_bins(skill_dir: Path) -> list[str]:
+    bins: list[str] = []
+    suffixes = {path.suffix.lower() for path in skill_dir.rglob("*") if path.is_file()}
+    if ".py" in suffixes:
+        bins.append("python3")
+    if ".sh" in suffixes:
+        bins.append("bash")
+    if {".js", ".mjs", ".cjs", ".ts"} & suffixes:
+        bins.append("node")
+    return bins
+
+
+def infer_runtime_entrypoints(skill_dir: Path) -> list[str]:
+    scripts_dir = skill_dir / "scripts"
+    if not scripts_dir.exists():
+        return []
+
+    candidates: dict[str, Path] = {}
+    for path in sorted(scripts_dir.iterdir()):
+        if not path.is_file():
+            continue
+        if path.name.startswith(("test-", "verify_", "evaluate_", "generate-")):
+            continue
+        if path.suffix not in {".py", ".sh"}:
+            continue
+        candidates[path.name] = path
+
+    ordered: list[Path] = []
+    for name in PREFERRED_ENTRYPOINTS:
+        path = candidates.pop(name, None)
+        if path is not None:
+            ordered.append(path)
+    ordered.extend(candidates[name] for name in sorted(candidates))
+
+    commands: list[str] = []
+    for path in ordered[:3]:
+        rel = path.relative_to(skill_dir).as_posix()
+        if path.suffix == ".sh":
+            commands.append(f"bash {rel} --help")
+        else:
+            commands.append(f"python3 {rel} --help")
+    return commands
+
+
+def build_minimal_body(skill_dir: Path, skill_name: str, description: str) -> str:
+    quick_reference = infer_runtime_entrypoints(skill_dir)
+    lines = [
+        f"# {skill_name}",
+        "",
+        description,
+        "",
+        "## When to Use",
+        "",
+        "- Use this release when the user needs the runtime packaged under `scripts/`.",
+        "- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.",
+        "- For Hermes community installs, keep setup explicit and review the command help text before the first run.",
+        "",
+        "## Setup",
+        "",
+        "- Review `README.md` for the release-specific summary and structure.",
+        "- Use repo-relative paths under `scripts/`.",
+        "- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.",
+    ]
+    if quick_reference:
+        lines.extend(
+            [
+                "",
+                "## Quick Reference",
+                "",
+            ]
+        )
+        for command in quick_reference:
+            lines.append(f"- `{command}`")
+    lines.extend(
+        [
+            "",
+            "## Verification",
+            "",
+            "- Confirm the command returns structured output or a successful API response.",
+            "- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.",
+        ]
+    )
+    return "\n".join(lines) + "\n"
+
+
 def clean_frontmatter(skill_dir: Path, frontmatter: dict[str, Any]) -> dict[str, Any]:
     name = str(frontmatter.get("name") or skill_dir.name).strip()
     description = base.normalize_description(name, str(frontmatter.get("description") or ""))
@@ -104,11 +211,24 @@ def clean_frontmatter(skill_dir: Path, frontmatter: dict[str, Any]) -> dict[str,
         if value not in (None, "", []):
             cleaned[key] = value
 
+    bins = infer_required_bins(skill_dir)
     cleaned["metadata"] = {
+        "aisa": {
+            "emoji": "🛠",
+            "requires": {
+                "bins": bins,
+                "env": ["AISA_API_KEY"] if needs_aisa_key(skill_dir) else [],
+            },
+            "primaryEnv": "AISA_API_KEY" if needs_aisa_key(skill_dir) else None,
+            "compatibility": ["openclaw", "claude-code", "hermes"],
+        },
         "hermes": {
             "tags": tags,
-        }
+        },
     }
+    if not cleaned["metadata"]["aisa"]["requires"]["env"]:
+        cleaned["metadata"]["aisa"]["requires"].pop("env")
+        cleaned["metadata"]["aisa"].pop("primaryEnv")
     if related:
         cleaned["metadata"]["hermes"]["related_skills"] = related[:4]
 
@@ -125,15 +245,87 @@ def clean_frontmatter(skill_dir: Path, frontmatter: dict[str, Any]) -> dict[str,
     return cleaned
 
 
-def normalize_body(body: str, skill_name: str) -> str:
-    body = base.add_release_note(base.rewrite_skill_body(body, skill_name), "hermes")
-    body = base.rewrite_user_facing_markdown(body, "hermes", skill_name)
-    body = body.replace("## When to use", "## When to Use")
-    body = body.replace("## When NOT to use", "## Pitfalls")
-    body = body.replace("## Quick Start", "## Quick Reference")
-    if "## Verification" not in body:
-        body = body.rstrip() + "\n\n## Verification\n\n- Confirm the command returns structured output or a successful API response.\n- If the workflow is stateful, re-run a read/list/status command to verify the new state.\n"
-    return body
+def drop_non_runtime_docs(skill_dir: Path, audit: base.SkillAudit) -> None:
+    removed = 0
+    for name in NON_RUNTIME_DIRS:
+        path = skill_dir / name
+        if path.exists():
+            shutil.rmtree(path, ignore_errors=True)
+            removed += 1
+    if removed:
+        audit.changes.append("removed non-runtime documentation directories from the Hermes release bundle")
+
+
+def insert_before(text: str, needle: str, insert: str) -> str:
+    if insert in text or needle not in text:
+        return text
+    return text.replace(needle, insert + needle, 1)
+
+
+def patch_hermes_runtime_files(skill_dir: Path, audit: base.SkillAudit) -> None:
+    for path in skill_dir.rglob("*.py"):
+        text = path.read_text(encoding="utf-8")
+        updated = text
+
+        replacements = {
+            'self.api_key = api_key or os.environ.get("AISA_API_KEY")': 'self.api_key = api_key',
+            "self.api_key = api_key or os.environ.get('AISA_API_KEY')": "self.api_key = api_key",
+            'args.api_key or os.environ.get("AISA_API_KEY")': "args.api_key",
+            "args.api_key or os.environ.get('AISA_API_KEY')": "args.api_key",
+            'api_key = explicit or os.environ.get("AISA_API_KEY")': "api_key = explicit",
+            "api_key = explicit or os.environ.get('AISA_API_KEY')": "api_key = explicit",
+            'api_key = os.environ.get("AISA_API_KEY")': "api_key = args.api_key",
+            "api_key = os.environ.get('AISA_API_KEY')": "api_key = args.api_key",
+            'base_url = os.environ.get("AISA_BASE_URL", "https://api.aisa.one/v1")': 'base_url = "https://api.aisa.one/v1"',
+            'model = os.environ.get("AISA_MODEL", "gpt-4o")': 'model = "gpt-4o"',
+            'return os.environ.get(name, default)': "return default",
+            'or get_env("AISA_API_KEY")': "",
+            "or get_env('AISA_API_KEY')": "",
+            'os.environ.get("CLAWDBOT_STATE_DIR", str(Path.cwd() / ".claude-skill-data"))': f'str(Path.cwd() / "{HERMES_DATA_DIR}")',
+            'CONFIG_DIR = Path.cwd() / ".claude-skill-data" / "last30days"': f'CONFIG_DIR = Path.cwd() / "{HERMES_DATA_DIR}" / "last30days"',
+            "./.claude-skill-data": f"./{HERMES_DATA_DIR}",
+            ".claude-skill-data": HERMES_DATA_DIR,
+            "AISA_API_KEY is required. Set it via environment variable or pass to constructor.": "AIsa API key is required. Pass it explicitly via --api-key or constructor.",
+            "Error: AISA_API_KEY environment variable is not set.": "Error: --api-key is required.",
+            "Requires the AISA_API_KEY environment variable.": "Requires an explicit AIsa API key parameter.",
+            "uv run ": "python3 ",
+        }
+        for old, new in replacements.items():
+            updated = updated.replace(old, new)
+
+        if "def get_api_key() -> str:" in updated:
+            updated = updated.replace(
+                'def get_api_key() -> str:\n    key = os.environ.get("AISA_API_KEY", "")\n    if not key:\n        print("Error: --api-key is required.", file=sys.stderr)\n        print("Get your key at https://aisa.one", file=sys.stderr)\n        sys.exit(1)\n    return key\n',
+                'def get_api_key(explicit: str) -> str:\n    key = (explicit or "").strip()\n    if not key:\n        print("Error: --api-key is required.", file=sys.stderr)\n        print("Get your key at https://aisa.one", file=sys.stderr)\n        sys.exit(1)\n    return key\n',
+            )
+            updated = updated.replace("get_api_key()", "get_api_key(args.api_key)")
+
+        if '--api-key' not in updated and 'argparse.ArgumentParser' in updated and 'AISA_API_KEY' in updated and '--aisa-api-key' not in updated:
+            updated = insert_before(
+                updated,
+                "    subparsers =",
+                '    parser.add_argument("--api-key", required=True, help="AIsa API key")\n\n',
+            )
+            if '--api-key' not in updated:
+                updated = insert_before(
+                    updated,
+                    "    args = parser.parse_args()",
+                    '    parser.add_argument("--api-key", required=True, help="AIsa API key")\n\n',
+                )
+
+        updated = updated.replace(
+            'parser.add_argument("--aisa-api-key", help="Override AISA_API_KEY")',
+            'parser.add_argument("--aisa-api-key", required=True, help="AIsa API key")',
+        )
+        updated = updated.replace(
+            "parser.add_argument('--aisa-api-key', help='Override AISA_API_KEY')",
+            "parser.add_argument('--aisa-api-key', required=True, help='AIsa API key')",
+        )
+        updated = CLIENT_CONSTRUCTOR_RE.sub(r"client = \1(api_key=args.api_key)", updated)
+
+        if updated != text:
+            path.write_text(updated, encoding="utf-8")
+            audit.changes.append(f"patched Hermes runtime auth and storage defaults in {path.relative_to(skill_dir)}")
 
 
 def normalize_permissions(skill_dir: Path) -> None:
@@ -141,7 +333,7 @@ def normalize_permissions(skill_dir: Path) -> None:
     for path in skill_dir.rglob("*"):
         if not path.is_file():
             continue
-        if path.suffix.lower() in SAFE_EXECUTABLE_SUFFIXES or "scripts" in path.parts:
+        if path.suffix.lower() in SAFE_EXECUTABLE_SUFFIXES:
             continue
         mode = path.stat().st_mode
         normalized_mode = mode & ~(
@@ -152,7 +344,7 @@ def normalize_permissions(skill_dir: Path) -> None:
 
 
 def build_skill(src_dir: Path) -> dict[str, object]:
-    frontmatter, body = base.load_frontmatter(src_dir / "SKILL.md")
+    frontmatter, _body = base.load_frontmatter(src_dir / "SKILL.md")
     skill_frontmatter = clean_frontmatter(src_dir, frontmatter)
     category = infer_category(skill_frontmatter["name"], skill_frontmatter["description"])
     out_dir = OUTPUT_ROOT / category / src_dir.name
@@ -169,11 +361,15 @@ def build_skill(src_dir: Path) -> dict[str, object]:
     )
     base.prune_release_tree(out_dir, audit)
     base.patch_runtime_files(out_dir, audit)
-    base.rewrite_markdown_tree(out_dir, "hermes", audit)
+    drop_non_runtime_docs(out_dir, audit)
+    patch_hermes_runtime_files(out_dir, audit)
     normalize_permissions(out_dir)
 
     (out_dir / "SKILL.md").write_text(
-        base.dump_skill(skill_frontmatter, normalize_body(body, src_dir.name)),
+        base.dump_skill(
+            skill_frontmatter,
+            build_minimal_body(out_dir, src_dir.name, skill_frontmatter["description"]),
+        ),
         encoding="utf-8",
     )
     base.write_skill_readme(out_dir, skill_frontmatter, "hermes")
@@ -201,8 +397,8 @@ def write_docs(skills: list[dict[str, object]]) -> None:
         "## Structure",
         "",
         "- Skills are organized by Hermes-style categories such as `research/`, `communication/`, and `finance/`.",
-        "- Each skill keeps a standard `SKILL.md + scripts + references` layout.",
-        "- Frontmatter is normalized for Hermes fields like `metadata.hermes.tags` and `required_environment_variables`.",
+        "- Each skill keeps a runtime-focused `SKILL.md + scripts/` layout, with non-runtime reference docs stripped from this release layer.",
+        "- Frontmatter is normalized for `metadata.aisa`, `metadata.hermes.tags`, and `required_environment_variables`.",
         "",
         "## Category Counts",
         "",

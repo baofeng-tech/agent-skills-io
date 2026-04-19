@@ -561,7 +561,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def resolve_runtime_inputs(args: argparse.Namespace) -> tuple[str, str, List[str], str, Optional[str], bool]:
-    api_key = args.api_key or os.environ.get("AISA_API_KEY")
+    api_key = args.api_key
     ticker = (args.ticker or "").strip().upper()
 
     # Preserve the previous interactive flow as a fallback when the caller

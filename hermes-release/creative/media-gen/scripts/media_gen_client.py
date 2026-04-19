@@ -30,7 +30,7 @@ VIDEO_BASE_URL = "https://api.aisa.one/apis/v1"
 
 
 def _get_api_key(explicit: Optional[str] = None) -> str:
-    api_key = explicit or os.environ.get("AISA_API_KEY")
+    api_key = explicit
     if not api_key:
         raise ValueError("AISA_API_KEY is required (env or --api-key).")
     return api_key

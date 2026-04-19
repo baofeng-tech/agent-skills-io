@@ -9,11 +9,11 @@
 Stock & crypto analysis using AIsa API (Yahoo Finance + Financial Data tools).
 
 Usage:
-    uv run analyze_stock.py AAPL
-    uv run analyze_stock.py AAPL MSFT GOOGL
-    uv run analyze_stock.py BTC-USD ETH-USD
-    uv run analyze_stock.py AAPL --output json
-    uv run analyze_stock.py AAPL --fast
+    python3 analyze_stock.py AAPL
+    python3 analyze_stock.py AAPL MSFT GOOGL
+    python3 analyze_stock.py BTC-USD ETH-USD
+    python3 analyze_stock.py AAPL --output json
+    python3 analyze_stock.py AAPL --fast
 """
 
 import argparse
@@ -109,12 +109,12 @@ For CRYPTO, use:
 
 
 def get_client() -> OpenAI:
-    api_key = os.environ.get("AISA_API_KEY")
+    api_key = args.api_key
     if not api_key:
-        print("❌ Error: AISA_API_KEY environment variable is not set.", file=sys.stderr)
+        print("❌ Error: --api-key is required.", file=sys.stderr)
         print("   Set it with: export AISA_API_KEY=your_key_here", file=sys.stderr)
         sys.exit(1)
-    base_url = os.environ.get("AISA_BASE_URL", "https://api.aisa.one/v1")
+    base_url = "https://api.aisa.one/v1"
     return OpenAI(api_key=api_key, base_url=base_url)
 
 
@@ -185,7 +185,7 @@ def detect_asset_type(ticker: str) -> str:
 
 def analyze(tickers: list[str], output_format: str = "text", fast: bool = False) -> str:
     client = get_client()
-    model = os.environ.get("AISA_MODEL", "gpt-4o")
+    model = "gpt-4o"
 
     # Determine asset types
     types = set(detect_asset_type(t) for t in tickers)

@@ -301,7 +301,7 @@ def print_json(response: Dict[str, Any], exit_code: int = 0) -> None:
 
 
 def command_list_tweets(args: argparse.Namespace) -> None:
-    client = TwitterClient()
+    client = TwitterClient(api_key=args.api_key)
     user_resolution = resolve_user(client, args.user)
     if not user_resolution["ok"]:
         fail(
@@ -402,7 +402,7 @@ def execute_user_action(
 
 
 def command_like_latest(args: argparse.Namespace) -> None:
-    client = TwitterClient()
+    client = TwitterClient(api_key=args.api_key)
     user_resolution = resolve_user(client, args.user)
     if not user_resolution["ok"]:
         fail(
@@ -447,7 +447,7 @@ def command_like_tweet(args: argparse.Namespace) -> None:
 
 
 def command_follow_user(args: argparse.Namespace) -> None:
-    client = TwitterClient()
+    client = TwitterClient(api_key=args.api_key)
     user_resolution = resolve_user(client, args.user)
     if not user_resolution["ok"]:
         fail(

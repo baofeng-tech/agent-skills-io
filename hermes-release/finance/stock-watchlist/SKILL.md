@@ -2,6 +2,18 @@
 name: stock-watchlist
 description: Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - finance
@@ -17,48 +29,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# Watchlist Management — AIsa Edition
+# stock-watchlist
 
-Manage a watchlist with price target and stop-loss alerts using the AIsa API.
+Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.
 
-## Usage
+## When to Use
 
-```bash
-# Add a ticker with price target and stop-loss
-python3 scripts/watchlist.py add AAPL --target 220 --stop 160
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
-# Add with signal-change alert
-python3 scripts/watchlist.py add AAPL --alert-on signal
+## Setup
 
-# List all watchlist items
-python3 scripts/watchlist.py list
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
-# Check live prices and trigger alerts
-python3 scripts/watchlist.py check
+## Quick Reference
 
-# Check with notification
-python3 scripts/watchlist.py check --notify
-
-# Remove a ticker
-python3 scripts/watchlist.py remove AAPL
-```
-
-### Actions
-
-| Action | Description |
-|--------|-------------|
-| `add TICKER` | Add ticker with optional `--target`, `--stop`, `--alert-on signal` |
-| `remove TICKER` | Remove ticker from watchlist |
-| `list` | Show all watchlist items |
-| `check` | Fetch live prices and check alerts |
-
-## Data Storage
-
-Watchlist data is stored in `./.claude-skill-data/watchlist.json` for persistence across sessions.
-
-**NOT FINANCIAL ADVICE.** For informational purposes only.
+- `python3 scripts/watchlist.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

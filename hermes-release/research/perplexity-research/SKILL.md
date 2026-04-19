@@ -2,6 +2,18 @@
 name: perplexity-research
 description: 'Deep research using Perplexity Sonar models via AIsa API. Provides synthesized answers with citations. Supports 4 models from fast to exhaustive deep research. Use when: the user needs web search, research, source discovery, or content extraction.'
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - research
@@ -18,66 +30,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# AIsa Perplexity Deep Research
+# perplexity-research
 
-Conduct deep research using Perplexity Sonar models via the AIsa API. Returns synthesized, citation-backed answers instead of raw search results. Choose from four models depending on the depth and complexity needed.
-
-## Setup
-
-This skill requires the `AISA_API_KEY` environment variable. When installed as a Claude plugin, the key is configured via the environment variables.
-
-## Usage
-
-Run the search client with the `sonar` subcommand:
-
-```bash
-python3 scripts/search_client.py sonar --query "<research question>" --model <model_name>
-```
-
-### Arguments
-
-| Argument | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `--query` / `-q` | Yes | — | Research question or query |
-| `--model` / `-m` | No | sonar | Model to use (see below) |
-
-### Available Models
-
-| Model | Speed | Depth | Best For |
-|-------|-------|-------|----------|
-| `sonar` | Fast | Standard | Quick factual lookups |
-| `sonar-pro` | Medium | Detailed | In-depth topic exploration |
-| `sonar-reasoning-pro` | Slower | Deep | Complex reasoning and analysis |
-| `sonar-deep-research` | Slowest | Exhaustive | Comprehensive research reports |
-
-### Examples
-
-```bash
-# Quick factual lookup
-python3 scripts/search_client.py sonar --query "What is the current state of quantum computing?"
-
-# Detailed research
-python3 scripts/search_client.py sonar --query "Compare transformer and state-space model architectures" --model sonar-pro
-
-# Complex reasoning
-python3 scripts/search_client.py sonar --query "Will AGI be achieved by 2030? Analyze arguments for and against." --model sonar-reasoning-pro
-
-# Exhaustive deep research
-python3 scripts/search_client.py sonar --query "Comprehensive analysis of AI regulation frameworks worldwide" --model sonar-deep-research
-```
-
-## Output
-
-The script prints:
-- **Synthesized answer** — A coherent, well-structured response
-- **Citations** — Source URLs backing the answer
-- **Cost** — API usage cost (when available)
+Deep research using Perplexity Sonar models via AIsa API. Provides synthesized answers with citations. Supports 4 models from fast to exhaustive deep research. Use when: the user needs web search, research, source discovery, or content extraction.
 
 ## When to Use
 
-Use this skill when the user needs a synthesized, well-researched answer rather than raw search results. Best for complex questions, comparative analyses, trend reports, and any query where a thoughtful, citation-backed response is more valuable than a list of links.
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
+
+## Setup
+
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
+
+## Quick Reference
+
+- `python3 scripts/search_client.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

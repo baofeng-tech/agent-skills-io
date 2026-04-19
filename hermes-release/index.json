@@ -9,6 +9,7 @@
       "description": "Multi-source search engine powered by AIsa API. Combines Tavily web search, Scholar academic search, Smart hybrid search, and Perplexity deep research — all through a single AIsa API key. Includes confidence scoring and AI synthesis. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -19,7 +20,7 @@
       "description": "Configure AIsa as a first-class model provider for OpenClaw, enabling production access to major Chinese AI models (Qwen, DeepSeek, Kimi K2.5, Doubao) through official partnerships with Alibaba Cloud, BytePlus, and Moonshot. Use this skill when the user wants to set up Chinese AI models, configure AIsa API access, compare pricing between AIsa and other providers (OpenRouter, Bailian), switch between Qwen/DeepSeek/Kimi models, or troubleshoot AIsa provider configuration in OpenClaw. Also use when the user mentions AISA_API_KEY, asks about Chinese LLM pricing, Kimi K2.5 setup, or needs help with Qwen Key Account setup.",
       "residual_risks": [],
       "changes": [
-        "rewrote 4 markdown file(s) to reduce OpenClaw-specific release wording",
+        "removed non-runtime documentation directories from the Hermes release bundle",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -41,7 +42,9 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
-        "rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -53,7 +56,9 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
-        "rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -65,7 +70,10 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
-        "rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -77,7 +85,10 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
-        "rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -98,6 +109,7 @@
       "description": "Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/youtube_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -108,6 +120,7 @@
       "description": "China LLM Gateway - Unified interface for Chinese LLMs including Qwen, DeepSeek, GLM, Baichuan. OpenAI compatible, one API Key for all models. Use when: the user needs model routing, provider setup, or Chinese LLM access guidance.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/cn_llm_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -115,12 +128,10 @@
       "name": "last30days",
       "category": "communication",
       "path": "hermes-release/communication/last30days",
-      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output.",
+      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output.",
       "residual_risks": [],
       "changes": [
-        "removed 4 non-runtime generated/test files from the release bundle",
-        "switched default local storage to repo-local path in scripts/lib/env.py",
-        "updated config path messaging in scripts/lib/ui.py",
+        "removed 1 non-runtime generated/test files from the release bundle",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -128,12 +139,10 @@
       "name": "last30days-zh",
       "category": "communication",
       "path": "hermes-release/communication/last30days-zh",
-      "description": "聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket、GitHub 和 web search 结果。触发条件：当用户需要 recent social research、人物近况、公司动态、竞品对比、发布反应、趋势扫描时使用。支持 AISA 规划、聚类、重排和 JSON 输出。",
+      "description": "聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果。触发条件：当用户需要 recent social research、人物近况、公司动态、竞品对比、发布反应、趋势扫描时使用。支持 AISA 规划、聚类、重排和 JSON 输出。",
       "residual_risks": [],
       "changes": [
-        "removed 4 non-runtime generated/test files from the release bundle",
-        "switched default local storage to repo-local path in scripts/lib/env.py",
-        "updated config path messaging in scripts/lib/ui.py",
+        "removed 1 non-runtime generated/test files from the release bundle",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -144,7 +153,7 @@
       "description": "Unified LLM Gateway - One API for 70+ AI models. Route to GPT, Claude, Gemini, Qwen, Deepseek, Grok and more with a single API key. Use when: the user needs model routing, provider setup, or Chinese LLM access guidance.",
       "residual_risks": [],
       "changes": [
-        "rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording",
+        "patched Hermes runtime auth and storage defaults in scripts/llm_router_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -155,6 +164,7 @@
       "description": "Query real-time and historical financial data across equities and crypto—prices, market moves, metrics, and trends for analysis, alerts, and reporting. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/market_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -165,6 +175,7 @@
       "description": "Query real-time and historical financial data across equities and crypto—prices, market moves, metrics, and trends for analysis, alerts, and reporting. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/market_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -175,6 +186,7 @@
       "description": "Generate images & videos with AIsa. Gemini 3 Pro Image (image) + Qwen Wan 2.6 (video) via one API key. Use when: the user needs AI image or video generation workflows.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/media_gen_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -185,6 +197,7 @@
       "description": "Parallel multi-source search combining Web, Scholar, Smart, and Tavily results with confidence scoring and AI synthesis. Best for comprehensive research requiring cross-source validation. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -195,7 +208,7 @@
       "description": "Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Supports curl queries and the bundled Python client with locale and filter controls.",
       "residual_risks": [],
       "changes": [
-        "rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording",
+        "patched Hermes runtime auth and storage defaults in scripts/youtube_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -206,7 +219,7 @@
       "description": "Generate images & videos with AIsa. Gemini 3 Pro Image (image) + Qwen Wan 2.6 (video) via one API key. Use when: the user needs AI image or video generation workflows.",
       "residual_risks": [],
       "changes": [
-        "rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording",
+        "patched Hermes runtime auth and storage defaults in scripts/media_gen_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -217,7 +230,7 @@
       "description": "Intelligent search for agents. Multi-source retrieval with confidence scoring - web, academic, and Tavily in one unified API. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": [],
       "changes": [
-        "rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording",
+        "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -229,7 +242,9 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
-        "rewrote 2 markdown file(s) to reduce OpenClaw-specific release wording",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -241,7 +256,10 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
-        "rewrote 3 markdown file(s) to reduce OpenClaw-specific release wording",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -252,7 +270,7 @@
       "description": "YouTube SERP Scout for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
       "residual_risks": [],
       "changes": [
-        "rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording",
+        "patched Hermes runtime auth and storage defaults in scripts/youtube_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -263,6 +281,7 @@
       "description": "Deep research using Perplexity Sonar models via AIsa API. Provides synthesized answers with citations. Supports 4 models from fast to exhaustive deep research. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -273,6 +292,7 @@
       "description": "Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/perplexity_search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -283,6 +303,7 @@
       "description": "Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -293,6 +314,8 @@
       "description": "Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/arbitrage_finder.py",
+        "patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -303,6 +326,8 @@
       "description": "Find arbitrage opportunities across Polymarket and Kalshi prediction markets via AIsa API. Scan sports markets for cross-platform price discrepancies, compare real-time odds, verify orderbook liquidity. Use when user asks about: prediction market arbitrage, cross-platform price differences, sports betting arbitrage, odds comparison, risk-free profit, market inefficiencies.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/arbitrage_finder.py",
+        "patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -313,6 +338,8 @@
       "description": "通过 AIsa API 发现 Polymarket 和 Kalshi 预测市场的套利机会。扫描体育市场跨平台价差、比较实时赔率、验证订单簿流动性。适用场景：预测市场套利、跨平台价差、体育博彩套利、赔率对比、无风险利润、市场低效。 Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/arbitrage_finder.py",
+        "patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -323,6 +350,7 @@
       "description": "Cross-platform prediction market data via AIsa API. Query Polymarket and Kalshi markets, prices, orderbooks, candlesticks, positions, and trades. Use when user asks about: prediction market odds, election betting, event probabilities, market sentiment, Polymarket prices, Kalshi prices, sports betting odds, wallet PnL, or cross-platform market comparison.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -333,6 +361,7 @@
       "description": "通过 AIsa API 查询跨平台预测市场数据。支持 Polymarket 和 Kalshi 的市场行情、价格、订单簿、K线、持仓和交易记录。适用场景：查询预测市场赔率、选举博彩、事件概率、市场情绪、Polymarket 价格、Kalshi 价格、体育博彩赔率、钱包盈亏、跨平台市场对比。 Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -343,6 +372,7 @@
       "description": "Search academic papers and scholarly articles via AIsa Scholar endpoint. Supports year range filtering for targeted research. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -353,6 +383,7 @@
       "description": "Intelligent search for agents. Multi-source retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -363,6 +394,7 @@
       "description": "Intelligent hybrid search combining web and academic sources via AIsa Smart Search endpoint. Best when you need both web and scholarly results. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -373,6 +405,7 @@
       "description": "Analyze stocks and cryptocurrencies with 8-dimension scoring via AIsa API. Provides BUY/HOLD/SELL signals with confidence levels, entry/target/stop prices, and risk flags. Supports single or multi-ticker analysis with optional fast mode and JSON output. Use when the user asks to analyze a stock, check a ticker, or compare investments.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/analyze_stock.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -383,6 +416,7 @@
       "description": "Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/dividends.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -393,6 +427,7 @@
       "description": "Hot Scanner — find the most trending and high-momentum stocks and crypto right now via AIsa API. Top gainers, losers, most active by volume, crypto highlights, news catalysts, and top 5 watchlist picks. Use when the user asks about trending stocks, what's hot, market movers, or momentum plays.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/hot_scanner.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -404,6 +439,7 @@
       "residual_risks": [],
       "changes": [
         "switched default local storage to repo-local path in scripts/portfolio.py",
+        "patched Hermes runtime auth and storage defaults in scripts/portfolio.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -414,6 +450,7 @@
       "description": "Rumor Scanner — find early signals including M&A rumors, insider activity, analyst upgrades/downgrades, social whispers, and SEC/regulatory activity via AIsa API. Ranked by impact score. Use when the user asks about rumors, insider trading, M&A activity, analyst changes, or early market signals.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/rumor_scanner.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -425,6 +462,7 @@
       "residual_risks": [],
       "changes": [
         "switched default local storage to repo-local path in scripts/watchlist.py",
+        "patched Hermes runtime auth and storage defaults in scripts/watchlist.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -435,6 +473,7 @@
       "description": "Extract clean, readable content from one or more URLs using Tavily Extract via AIsa API. Useful for reading full articles without visiting the page. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -445,6 +484,7 @@
       "description": "Advanced web search via Tavily through AIsa API. Supports search depth, topic filtering (general/news/finance), time ranges, domain inclusion/exclusion, and LLM-generated answers. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -456,6 +496,10 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -467,6 +511,10 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -478,6 +526,9 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -489,6 +540,10 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -499,6 +554,8 @@
       "description": "Professional US stock analysis with financial data, news, social sentiment, and multi-model AI. Comprehensive reports at $0.02-0.10 per analysis. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/stock_analyst.py",
+        "patched Hermes runtime auth and storage defaults in scripts/test_api_data.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -509,6 +566,7 @@
       "description": "Search the web using AIsa Scholar Web endpoint. Returns structured web results with titles, URLs, and snippets. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -520,7 +578,10 @@
       "residual_risks": [],
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
-        "rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording",
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -531,6 +592,7 @@
       "description": "YouTube SERP Scout for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
       "residual_risks": [],
       "changes": [
+        "patched Hermes runtime auth and storage defaults in scripts/youtube_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },

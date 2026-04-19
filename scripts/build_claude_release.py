@@ -30,7 +30,6 @@ KEEP_TOP_LEVEL_FILES = {
     "LICENSE.txt",
     "LICENSE.md",
     "requirements.txt",
-    "pyproject.toml",
     "package.json",
     "package-lock.json",
     "index.ts",
@@ -44,9 +43,15 @@ REMOVE_FILE_NAMES = {
 }
 REMOVE_SCRIPT_PATTERNS = (
     re.compile(r"^compare\.sh$"),
+    re.compile(r"^dev-python\.sh$"),
+    re.compile(r"^evaluate_search_quality\.py$"),
+    re.compile(r"^generate-synthesis-inputs\.py$"),
+    re.compile(r"^run-evaluate\.sh$"),
     re.compile(r"^sync\.sh$"),
+    re.compile(r"^test-.*\.py$"),
     re.compile(r"^test-.*\.sh$"),
     re.compile(r"^run-tests\.sh$"),
+    re.compile(r"^verify_v3\.py$"),
 )
 
 

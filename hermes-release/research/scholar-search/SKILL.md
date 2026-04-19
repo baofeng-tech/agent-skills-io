@@ -2,6 +2,18 @@
 name: scholar-search
 description: 'Search academic papers and scholarly articles via AIsa Scholar endpoint. Supports year range filtering for targeted research. Use when: the user needs web search, research, source discovery, or content extraction.'
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - research
@@ -18,54 +30,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# AIsa Scholar Search
+# scholar-search
 
-Search academic papers and scholarly articles using the AIsa Scholar Search endpoint. Ideal for finding peer-reviewed research, conference papers, and citations. Supports year range filtering.
-
-## Setup
-
-This skill requires the `AISA_API_KEY` environment variable. When installed as a Claude plugin, the key is configured via the environment variables.
-
-## Usage
-
-Run the search client with the `scholar` subcommand:
-
-```bash
-python3 scripts/search_client.py scholar --query "<academic query>" --count <max_results> [--year-from YYYY] [--year-to YYYY]
-```
-
-### Arguments
-
-| Argument | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `--query` / `-q` | Yes | — | Academic search query |
-| `--count` / `-c` | No | 10 | Maximum number of results (1–100) |
-| `--year-from` | No | — | Year lower bound (e.g., 2023) |
-| `--year-to` | No | — | Year upper bound (e.g., 2026) |
-
-### Examples
-
-```bash
-# Search for recent transformer papers
-python3 scripts/search_client.py scholar --query "transformer architecture attention mechanism" --count 10 --year-from 2024
-
-# Search papers in a specific year range
-python3 scripts/search_client.py scholar --query "reinforcement learning from human feedback" --year-from 2022 --year-to 2025
-```
-
-## Output
-
-The script prints structured academic results including:
-- **Title** — Paper title
-- **URL** — Link to the paper or abstract
-- **Publication info** — Journal, conference, or preprint source
-- **Snippet** — Abstract excerpt
+Search academic papers and scholarly articles via AIsa Scholar endpoint. Supports year range filtering for targeted research. Use when: the user needs web search, research, source discovery, or content extraction.
 
 ## When to Use
 
-Use this skill when the user needs academic papers, scholarly articles, research citations, or peer-reviewed sources. Best for literature reviews, citation lookups, and academic research tasks.
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
+
+## Setup
+
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
+
+## Quick Reference
+
+- `python3 scripts/search_client.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

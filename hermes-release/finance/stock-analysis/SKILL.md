@@ -2,6 +2,18 @@
 name: stock-analysis
 description: Analyze stocks and cryptocurrencies with 8-dimension scoring via AIsa API. Provides BUY/HOLD/SELL signals with confidence levels, entry/target/stop prices, and risk flags. Supports single or multi-ticker analysis with optional fast mode and JSON output. Use when the user asks to analyze a stock, check a ticker, or compare investments.
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - finance
@@ -17,79 +29,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# Stock & Crypto Analysis — AIsa Edition
+# stock-analysis
 
-Analyze one or more stock or crypto tickers using the AIsa API with live Yahoo Finance data.
+Analyze stocks and cryptocurrencies with 8-dimension scoring via AIsa API. Provides BUY/HOLD/SELL signals with confidence levels, entry/target/stop prices, and risk flags. Supports single or multi-ticker analysis with optional fast mode and JSON output. Use when the user asks to analyze a stock, check a ticker, or compare investments.
+
+## When to Use
+
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
 ## Setup
 
-This skill requires an AIsa API key. Set it via plugin configuration or environment variable:
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
-```bash
-export AISA_API_KEY=your_key_here
-export AISA_BASE_URL=https://api.aisa.one/v1   # optional
-export AISA_MODEL=gpt-4o                         # optional
-```
+## Quick Reference
 
-Or use environment variables (set automatically when the plugin is enabled).
-
-## Usage
-
-Run the analysis script with one or more ticker symbols:
-
-```bash
-python3 scripts/analyze_stock.py AAPL
-python3 scripts/analyze_stock.py BTC-USD ETH-USD
-python3 scripts/analyze_stock.py AAPL MSFT GOOGL
-python3 scripts/analyze_stock.py AAPL --fast
-python3 scripts/analyze_stock.py AAPL --output json
-```
-
-### Arguments
-
-- **Tickers**: One or more stock symbols (e.g., `AAPL`, `MSFT`) or crypto symbols (e.g., `BTC-USD`, `ETH-USD`)
-- `--fast`: Skip slow analyses (insider trading, detailed news) for faster results
-- `--output json`: Append a structured JSON summary after the analysis
-
-### Multi-Ticker Comparison
-
-When multiple tickers are provided, the script produces individual analyses followed by a ranked comparison table:
-
-| Ticker | Score | Signal | Key Strength | Key Risk |
-|--------|-------|--------|-------------|----------|
-
-## 8-Dimension Scoring (Stocks)
-
-| # | Dimension | Weight |
-|---|-----------|--------|
-| 1 | Earnings Surprise | 30% |
-| 2 | Fundamentals (P/E, margins, growth) | 20% |
-| 3 | Analyst Sentiment | 20% |
-| 4 | Historical Patterns | 10% |
-| 5 | Market Context (VIX, SPY/QQQ) | 10% |
-| 6 | Sector Performance | 15% |
-| 7 | Momentum (RSI, 52w range) | 15% |
-| 8 | Sentiment (Fear/Greed, shorts, insiders) | 10% |
-
-## 3-Dimension Scoring (Crypto)
-
-| # | Dimension | Weight |
-|---|-----------|--------|
-| 1 | Market Cap & Category | 40% |
-| 2 | BTC Correlation (30-day) | 30% |
-| 3 | Momentum (RSI, range, volume) | 30% |
-
-## Risk Flags
-
-Automatically detected: Pre-earnings, Post-spike, Overbought, Risk-Off, Breaking News
-
-## Output
-
-Final recommendation includes: **Score (0-10)**, **Signal (BUY/HOLD/SELL)**, **Confidence (High/Medium/Low)**, and **Entry / Target / Stop prices**.
-
-**NOT FINANCIAL ADVICE.** For informational purposes only.
+- `python3 scripts/analyze_stock.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

@@ -3,6 +3,18 @@ name: aisa-youtube-serp-scout
 description: Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials.
 license: MIT-0
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - research
@@ -19,65 +31,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# AIsa YouTube SERP Scout
+# aisa-youtube-serp-scout
 
-Search YouTube videos, channels, and trends through the AIsa relay for content research, competitor tracking, and trend discovery.
+Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials.
 
 ## When to Use
 
-- The user wants YouTube content research, channel discovery, or trend monitoring.
-- The workflow benefits from a bundled Python client for repeated searches.
-- The task can use `AISA_API_KEY` instead of direct Google API credentials.
-
-## Pitfalls
-
-- The user needs browser automation, local scraping, or account-level YouTube actions.
-- The workflow must avoid sending search requests to `api.aisa.one`.
-- The request depends on files outside this package.
-
-## Quick Reference
-
-- Required environment variable: `AISA_API_KEY`
-- Endpoint: `https://api.aisa.one/apis/v1/youtube/search`
-- Python client: `scripts/youtube_client.py`
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
 ## Setup
 
-```bash
-export AISA_API_KEY="your-key"
-```
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
-## Common Commands
+## Quick Reference
 
-```bash
-curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AI+agents+tutorial" \
-  -H "Authorization: Bearer $AISA_API_KEY"
-
-python3 scripts/youtube_client.py search --query "AI agents tutorial"
-python3 scripts/youtube_client.py search --query "machine learning" --country us
-python3 scripts/youtube_client.py competitor --name "OpenAI" --topic "GPT tutorial"
-```
-
-## Capabilities
-
-- Search videos, channels, and playlists with `q`
-- Filter by country with `gl` and language with `hl`
-- Reuse `sp` tokens for pagination or SERP narrowing
-- Run competitor and top-video research from the bundled Python client
-
-## Guardrails
-
-- Do not ask for Google credentials or browser cookies.
-- Do not claim competitor analysis succeeded before the client returns data.
-- Do not assume missing locale values when the user needs a specific market.
-
-## Security Notes
-
-- All search requests go to `api.aisa.one`.
-- Required secret: `AISA_API_KEY`.
-- This package does not include browser automation, local scraping, or account actions.
+- `python3 scripts/youtube_client.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

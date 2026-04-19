@@ -131,13 +131,12 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 - Source: `targetSkills/last30days`
 - Output: `claude-release/last30days`
-- Description: Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output.
-- Change: removed 4 non-runtime generated/test files from the release bundle
+- Description: Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output.
+- Change: removed 1 non-runtime generated/test files from the release bundle
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
+- Change: inferred allowed-tools for Claude Code compatibility
 - Change: ensured description carries explicit trigger phrasing for search and selection
-- Change: switched default local storage to repo-local path in scripts/lib/env.py
-- Change: updated config path messaging in scripts/lib/ui.py
 - Change: replaced source README with a Claude-oriented release README
 - Change: copied runtime scripts/references only
 - Residual risk: Large runtime surface remains; verify Python 3.12+ and AISA-only flow before public publishing.
@@ -146,13 +145,12 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 - Source: `targetSkills/last30days-zh`
 - Output: `claude-release/last30days-zh`
-- Description: 聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket、GitHub 和 web search 结果。触发条件：当用户需要 recent social research、人物近况、公司动态、竞品对比、发布反应、趋势扫描时使用。支持 AISA 规划、聚类、重排和 JSON 输出。
-- Change: removed 4 non-runtime generated/test files from the release bundle
+- Description: 聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果。触发条件：当用户需要 recent social research、人物近况、公司动态、竞品对比、发布反应、趋势扫描时使用。支持 AISA 规划、聚类、重排和 JSON 输出。
+- Change: removed 1 non-runtime generated/test files from the release bundle
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
+- Change: inferred allowed-tools for Claude Code compatibility
 - Change: ensured description carries explicit trigger phrasing for search and selection
-- Change: switched default local storage to repo-local path in scripts/lib/env.py
-- Change: updated config path messaging in scripts/lib/ui.py
 - Change: replaced source README with a Claude-oriented release README
 - Change: copied runtime scripts/references only
 - Residual risk: Large runtime surface remains; verify Python 3.12+ and AISA-only flow before public publishing.

@@ -511,7 +511,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Twitter engagement client for local relay like/follow actions",
     )
-    parser.add_argument("--aisa-api-key", help="Override AISA_API_KEY")
+    parser.add_argument("--aisa-api-key", required=True, help="AIsa API key")
     parser.add_argument("--timeout", type=int, help="Override TWITTER_RELAY_TIMEOUT")
 
     subparsers = parser.add_subparsers(dest="command", required=True)

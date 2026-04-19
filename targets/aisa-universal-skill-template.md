@@ -9,6 +9,16 @@
 - 私有平台增强统一收口到扩展段说明
 - 路径统一使用相对路径
 
+## 最新硬规则
+
+这套模板现在额外约束下面几条，默认对所有新 skill 和大改动都生效：
+
+- Python 运行时默认只允许标准库，不引入 `requests`、`httpx`、`pytest` 之类第三方依赖。
+- 母版 `SKILL.md` 统一使用 `metadata.aisa`，不要再把 `metadata.openclaw` 当成母版主结构。
+- 母版正文命令统一写成 `scripts/...` 相对路径，不使用 `${SKILL_ROOT}`、`${CLAUDE_SKILL_DIR}`、`${LAST30DAYS_PYTHON}` 这类运行时专有变量。
+- 发布到公共仓库的 skill 目录只保留运行时需要的文件；测试、评估、同步、开发脚本和 `pyproject.toml` 之类不随 skill 一起发布。
+- 如果某个数据源需要第二套凭证或本地持久化能力，必须在正文里明确标成“可选扩展”，不能混进默认主路径。
+
 ## 推荐目录结构
 
 ```text
@@ -30,12 +40,19 @@ my-skill/
 name: my-skill
 description: Explain clearly what this skill does and when it should be used. Include the main user intents and trigger keywords so compatible clients can load it automatically.
 license: Apache-2.0
-compatibility: Requires python3, any required environment variables, and internet access if the skill calls external APIs. Uses relative paths for scripts and references to maximize compatibility across AgentSkills, OpenClaw, Hermes, and Claude Code.
 metadata:
-  author: AIsa
-  version: "1.0.0"
-  homepage: https://aisa.one
-  tags: category,keyword,workflow
+  aisa:
+    emoji: "🛠"
+    requires:
+      bins:
+        - python3
+      env:
+        - MY_API_KEY
+    primaryEnv: MY_API_KEY
+    compatibility:
+      - openclaw
+      - claude-code
+      - hermes
 ---
 
 # My Skill
@@ -66,7 +83,7 @@ One-paragraph summary of the skill's purpose, user value, and high-level workflo
 export MY_API_KEY="your-key"
 ```
 
-Add any other setup instructions here, such as required binaries, auth steps, or API host configuration.
+Add any other setup instructions here, such as required binaries, auth steps, or API host configuration. Keep the default path stdlib-only and runtime-only.
 
 ## Capabilities
 
@@ -113,14 +130,10 @@ When the user asks for this workflow:
 
 ## OpenClaw 适配建议
 
-如果要兼容 OpenClaw / ClawHub，可以在母版基础上增补：
+如果要兼容 OpenClaw / ClawHub，可以在母版基础上额外生成发布层，而不是把母版改成 `metadata.openclaw`：
 
 ```yaml
 metadata:
-  author: AIsa
-  version: "1.0.0"
-  homepage: https://aisa.one
-  tags: category,keyword,workflow
   openclaw:
     emoji: "🛠"
     primaryEnv: MY_API_KEY
@@ -165,7 +178,7 @@ required_environment_variables:
 
 - Hermes 基本可以直接消费母版
 - 只补平台标签、相关 skill、环境变量提示
-- 不要为了 Hermes 改掉通用结构
+- Hermes 如果要公开发布，优先生成一个 runtime-only 的发布层，把参考文档和高风险示例从发布包里拿掉
 
 ## Claude Code 适配建议
 
@@ -210,14 +223,17 @@ my-plugin/
 建议：
 
 - 用相对路径引用脚本和参考文档
-- 把依赖写到 `compatibility`
-- 把作者、版本、主页、标签写到 `metadata`
-- 把平台私有内容限制在扩展字段
+- 把运行依赖写到 `metadata.aisa.requires`
+- 把平台私有内容限制在扩展字段或单独发布层
 - 把复杂文档拆到 `references/`
+- 把可选的第二凭证路径单独标成扩展能力
+- 只发布运行时真正需要的文件
 
 避免：
 
 - 把 `{baseDir}`、`${CLAUDE_SKILL_DIR}` 写进通用母版
 - 把平台私有 frontmatter 当成跨平台必需字段
+- 在母版或发布层里引入 `requests` / `httpx` / `pyproject.toml`
+- 把测试、评估、同步脚本一起塞进最终 skill 包
 - 在正文塞过长的 API 表格
 - 在未验证成功前声称写操作完成

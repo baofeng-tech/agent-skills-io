@@ -2,6 +2,18 @@
 name: smart-search
 description: 'Intelligent hybrid search combining web and academic sources via AIsa Smart Search endpoint. Best when you need both web and scholarly results. Use when: the user needs web search, research, source discovery, or content extraction.'
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - research
@@ -18,44 +30,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# AIsa Smart Search
+# smart-search
 
-Intelligent hybrid search that combines web and academic sources using the AIsa Smart Search endpoint. Automatically blends general web results with scholarly articles for comprehensive coverage.
-
-## Setup
-
-This skill requires the `AISA_API_KEY` environment variable. When installed as a Claude plugin, the key is configured via the environment variables.
-
-## Usage
-
-Run the search client with the `smart` subcommand:
-
-```bash
-python3 scripts/search_client.py smart --query "<search query>" --count <max_results>
-```
-
-### Arguments
-
-| Argument | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `--query` / `-q` | Yes | — | Search query |
-| `--count` / `-c` | No | 10 | Maximum number of results (1–100) |
-
-### Example
-
-```bash
-python3 scripts/search_client.py smart --query "impact of large language models on software engineering" --count 10
-```
-
-## Output
-
-The script prints a mixed set of results from both web and academic sources, including titles, URLs, and content snippets.
+Intelligent hybrid search combining web and academic sources via AIsa Smart Search endpoint. Best when you need both web and scholarly results. Use when: the user needs web search, research, source discovery, or content extraction.
 
 ## When to Use
 
-Use this skill when the user's query spans both general knowledge and academic research. For example, questions about emerging technologies, scientific topics with practical applications, or any query where both web articles and papers would be valuable.
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
+
+## Setup
+
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
+
+## Quick Reference
+
+- `python3 scripts/search_client.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

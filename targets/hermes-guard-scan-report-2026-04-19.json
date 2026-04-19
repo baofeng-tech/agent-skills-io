@@ -1,0 +1,530 @@
+{
+  "summary": {
+    "safe": 49,
+    "dangerous": 2
+  },
+  "results": [
+    {
+      "skill": "aisa-provider",
+      "category": "ai",
+      "path": "hermes-release/ai/aisa-provider",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "cn-llm",
+      "category": "ai",
+      "path": "hermes-release/ai/cn-llm",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "llm-router",
+      "category": "ai",
+      "path": "hermes-release/ai/llm-router",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "aisa-twitter-api",
+      "category": "communication",
+      "path": "hermes-release/communication/aisa-twitter-api",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "aisa-twitter-command-center",
+      "category": "communication",
+      "path": "hermes-release/communication/aisa-twitter-command-center",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "aisa-twitter-engagement-suite",
+      "category": "communication",
+      "path": "hermes-release/communication/aisa-twitter-engagement-suite",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "aisa-twitter-post-engage",
+      "category": "communication",
+      "path": "hermes-release/communication/aisa-twitter-post-engage",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "last30days",
+      "category": "communication",
+      "path": "hermes-release/communication/last30days",
+      "verdict": "dangerous",
+      "finding_count": 20,
+      "findings": [
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/last30days.py",
+          "line": 218,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/store.py",
+          "line": 33,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_subprocess",
+          "severity": "medium",
+          "file": "scripts/watchlist.py",
+          "line": 180,
+          "description": "Python subprocess execution"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/lib/env.py",
+          "line": 13,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/lib/env.py",
+          "line": 85,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/lib/env.py",
+          "line": 101,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/lib/env.py",
+          "line": 102,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/lib/env.py",
+          "line": 104,
+          "description": "accesses os.environ (potential env dump)"
+        }
+      ]
+    },
+    {
+      "skill": "last30days-zh",
+      "category": "communication",
+      "path": "hermes-release/communication/last30days-zh",
+      "verdict": "dangerous",
+      "finding_count": 20,
+      "findings": [
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/last30days.py",
+          "line": 218,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/store.py",
+          "line": 33,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_subprocess",
+          "severity": "medium",
+          "file": "scripts/watchlist.py",
+          "line": 180,
+          "description": "Python subprocess execution"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/lib/env.py",
+          "line": 13,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/lib/env.py",
+          "line": 85,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/lib/env.py",
+          "line": 101,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/lib/env.py",
+          "line": 102,
+          "description": "accesses os.environ (potential env dump)"
+        },
+        {
+          "pattern_id": "python_os_environ",
+          "severity": "high",
+          "file": "scripts/lib/env.py",
+          "line": 104,
+          "description": "accesses os.environ (potential env dump)"
+        }
+      ]
+    },
+    {
+      "skill": "openclaw-twitter",
+      "category": "communication",
+      "path": "hermes-release/communication/openclaw-twitter",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "openclaw-twitter-post-engage",
+      "category": "communication",
+      "path": "hermes-release/communication/openclaw-twitter-post-engage",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "twitter",
+      "category": "communication",
+      "path": "hermes-release/communication/twitter",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "twitter-autopilot",
+      "category": "communication",
+      "path": "hermes-release/communication/twitter-autopilot",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "twitter-command-center-search-post",
+      "category": "communication",
+      "path": "hermes-release/communication/twitter-command-center-search-post",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "twitter-command-center-search-post-interact",
+      "category": "communication",
+      "path": "hermes-release/communication/twitter-command-center-search-post-interact",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "x-intelligence-automation",
+      "category": "communication",
+      "path": "hermes-release/communication/x-intelligence-automation",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "youtube-search",
+      "category": "communication",
+      "path": "hermes-release/communication/youtube-search",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "media-gen",
+      "category": "creative",
+      "path": "hermes-release/creative/media-gen",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "openclaw-media-gen",
+      "category": "creative",
+      "path": "hermes-release/creative/openclaw-media-gen",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "market",
+      "category": "finance",
+      "path": "hermes-release/finance/market",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "marketpulse",
+      "category": "finance",
+      "path": "hermes-release/finance/marketpulse",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "prediction-market",
+      "category": "finance",
+      "path": "hermes-release/finance/prediction-market",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "prediction-market-arbitrage",
+      "category": "finance",
+      "path": "hermes-release/finance/prediction-market-arbitrage",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "prediction-market-arbitrage-api",
+      "category": "finance",
+      "path": "hermes-release/finance/prediction-market-arbitrage-api",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "prediction-market-arbitrage-zh",
+      "category": "finance",
+      "path": "hermes-release/finance/prediction-market-arbitrage-zh",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "prediction-market-data",
+      "category": "finance",
+      "path": "hermes-release/finance/prediction-market-data",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "prediction-market-data-zh",
+      "category": "finance",
+      "path": "hermes-release/finance/prediction-market-data-zh",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "stock-analysis",
+      "category": "finance",
+      "path": "hermes-release/finance/stock-analysis",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "stock-dividend",
+      "category": "finance",
+      "path": "hermes-release/finance/stock-dividend",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "stock-hot",
+      "category": "finance",
+      "path": "hermes-release/finance/stock-hot",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "stock-portfolio",
+      "category": "finance",
+      "path": "hermes-release/finance/stock-portfolio",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "stock-rumors",
+      "category": "finance",
+      "path": "hermes-release/finance/stock-rumors",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "stock-watchlist",
+      "category": "finance",
+      "path": "hermes-release/finance/stock-watchlist",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "tavily-search",
+      "category": "finance",
+      "path": "hermes-release/finance/tavily-search",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "us-stock-analyst",
+      "category": "finance",
+      "path": "hermes-release/finance/us-stock-analyst",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "aisa-multi-search-engine",
+      "category": "research",
+      "path": "hermes-release/research/aisa-multi-search-engine",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "aisa-tavily",
+      "category": "research",
+      "path": "hermes-release/research/aisa-tavily",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "aisa-youtube-search",
+      "category": "research",
+      "path": "hermes-release/research/aisa-youtube-search",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "aisa-youtube-serp-scout",
+      "category": "research",
+      "path": "hermes-release/research/aisa-youtube-serp-scout",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "multi-search",
+      "category": "research",
+      "path": "hermes-release/research/multi-search",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "openclaw-aisa-youtube-aisa",
+      "category": "research",
+      "path": "hermes-release/research/openclaw-aisa-youtube-aisa",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "openclaw-search",
+      "category": "research",
+      "path": "hermes-release/research/openclaw-search",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "openclaw-youtube",
+      "category": "research",
+      "path": "hermes-release/research/openclaw-youtube",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "perplexity-research",
+      "category": "research",
+      "path": "hermes-release/research/perplexity-research",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "perplexity-search",
+      "category": "research",
+      "path": "hermes-release/research/perplexity-search",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "scholar-search",
+      "category": "research",
+      "path": "hermes-release/research/scholar-search",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "search",
+      "category": "research",
+      "path": "hermes-release/research/search",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "smart-search",
+      "category": "research",
+      "path": "hermes-release/research/smart-search",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "tavily-extract",
+      "category": "research",
+      "path": "hermes-release/research/tavily-extract",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "web-search",
+      "category": "research",
+      "path": "hermes-release/research/web-search",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "skill": "youtube",
+      "category": "research",
+      "path": "hermes-release/research/youtube",
+      "verdict": "safe",
+      "finding_count": 0,
+      "findings": []
+    }
+  ]
+}

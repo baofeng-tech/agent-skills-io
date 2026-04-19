@@ -38,7 +38,7 @@ class RelayConfigError(ValueError):
 
 
 def get_env(name: str, default: Optional[str] = None) -> Optional[str]:
-    return os.environ.get(name, default)
+    return default
 
 
 def normalize_base_url(base_url: str) -> str:
@@ -55,7 +55,7 @@ def load_config(args: argparse.Namespace) -> Dict[str, Any]:
     base_url = normalize_base_url(
         get_env("TWITTER_RELAY_BASE_URL", DEFAULT_BASE_URL)
     )
-    aisa_api_key = getattr(args, "aisa_api_key", None) or get_env("AISA_API_KEY")
+    aisa_api_key = getattr(args, "aisa_api_key", None) 
     timeout = getattr(args, "timeout", None) or int(get_env("TWITTER_RELAY_TIMEOUT", str(DEFAULT_TIMEOUT)))
 
     if not aisa_api_key:
@@ -556,7 +556,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Twitter relay client for local OAuth and posting",
     )
-    parser.add_argument("--aisa-api-key", help="Override AISA_API_KEY")
+    parser.add_argument("--aisa-api-key", required=True, help="AIsa API key")
     parser.add_argument("--timeout", type=int, help="Override TWITTER_RELAY_TIMEOUT")
 
     subparsers = parser.add_subparsers(dest="command", required=True)

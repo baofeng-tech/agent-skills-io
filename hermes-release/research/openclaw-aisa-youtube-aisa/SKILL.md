@@ -5,6 +5,18 @@ version: 1.0.0
 author: 0xjordansg-yolo
 license: MIT-0
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - research
@@ -22,76 +34,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-> Release note: This package is published for Hermes. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
+# openclaw-aisa-youtube-aisa
 
-# YouTube SERP Scout
-
-Runtime-focused release bundle for YouTube search, competitor tracking, and trend discovery through the AISA relay.
+Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Supports curl queries and the bundled Python client with locale and filter controls.
 
 ## When to Use
 
-- The user wants YouTube content research, channel discovery, or trend monitoring.
-- The workflow benefits from the bundled Python client for repeated searches.
-- The task can use `AISA_API_KEY` instead of direct Google API credentials.
-
-## Pitfalls
-
-- The user needs browser automation, local scraping, or account-level YouTube actions.
-- The workflow must avoid sending search requests to `api.aisa.one`.
-- The request depends on files outside this release bundle.
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
 ## Setup
 
-Required:
-
-- Environment variable:
-  - `AISA_API_KEY` (required)
-
-- Binaries:
-  - `python3` (required)
-  - `curl` (used for direct API calls)
-
-```bash
-export AISA_API_KEY="your-key"
-```
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
 ## Quick Reference
 
-```bash
-python3 scripts/youtube_client.py search --query "AI agents tutorial"
-python3 scripts/youtube_client.py search --query "machine learning" --country us
-python3 scripts/youtube_client.py competitor --name "OpenAI" --topic "GPT tutorial"
-```
-## Advanced / Debug Usage (Optional)
-
-Direct API access using curl:
-curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AI+agents+tutorial" \
-  -H "Authorization: Bearer $AISA_API_KEY"
-
-## Capabilities
-
-- Search videos, channels, and playlists with `q`
-- Filter by country with `gl` and language with `hl`
-- Reuse `sp` tokens for pagination or SERP narrowing
-- Run competitor and top-video research from the bundled Python client
-
-## ClawHub Suspicious Review Notes
-
-These points summarize the common reasons similar skills are marked `Suspicious` and how this release addresses them:
-
-- The package is relay-based: all search requests go to `api.aisa.one`.
-- The package is API-key-first: it requires `AISA_API_KEY` and does not ask for passwords, cookies, browser data, or other legacy secrets.
-- The frontmatter declares required bins/env under `metadata.openclaw`, matching the runtime files kept in this release bundle.
-- The release bundle is runtime-only: it keeps `SKILL.md` and `scripts/youtube_client.py`, while omitting non-runtime files such as `README.md` and `_meta.json`.
-- The package does not include browser automation, cache sync, home-directory persistence, cookie extraction, or external agent CLI wrappers.
-
-## Release Bundle Notes
-
-- `scripts/youtube_client.py` is preserved from the original bundle.
-- Search behavior and command surface are unchanged from the original runtime.
-- The only changes are packaging trim and clearer publication metadata.
+- `python3 scripts/youtube_client.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

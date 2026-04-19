@@ -25,7 +25,7 @@ class PerplexitySearchClient:
     BASE_URL = "https://api.aisa.one/apis/v1"
 
     def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key or os.environ.get("AISA_API_KEY")
+        self.api_key = api_key
         if not self.api_key:
             raise ValueError("AISA_API_KEY is required.")
 
@@ -144,6 +144,8 @@ Examples:
         """,
     )
 
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     subparsers = parser.add_subparsers(dest="command", help="Perplexity model")
     for command_name, help_text in [
         ("sonar", "Perplexity Sonar"),
@@ -167,7 +169,7 @@ def main() -> None:
         sys.exit(1)
 
     try:
-        client = PerplexitySearchClient()
+        client = PerplexitySearchClient(api_key=args.api_key)
     except ValueError as exc:
         print(json.dumps({"success": False, "error": {"code": "AUTH_ERROR", "message": str(exc)}}))
         sys.exit(1)

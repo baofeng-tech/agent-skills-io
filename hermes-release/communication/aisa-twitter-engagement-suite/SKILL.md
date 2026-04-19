@@ -3,6 +3,18 @@ name: aisa-twitter-engagement-suite
 description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 license: MIT-0
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - communication
@@ -21,51 +33,29 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# AIsa Twitter Engagement Suite
+# aisa-twitter-engagement-suite
 
-Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay.
+Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 
 ## When to Use
 
-- The user wants Twitter/X research plus posting, liking, unliking, following, or unfollowing workflows.
-- The task can use a Python client with `AISA_API_KEY` and explicit OAuth approval.
-- The workflow needs a single package that covers read, post, and engagement actions.
-
-## Pitfalls
-
-- The user needs cookie extraction, password login, or a fully local Twitter client.
-- The workflow must avoid relay-based network calls or media upload through `api.aisa.one`.
-- The task needs undocumented secrets or browser-derived auth values.
-
-## Quick Reference
-
-- Required environment variable: `AISA_API_KEY`
-- Read client: `scripts/twitter_client.py`
-- Post client: `scripts/twitter_oauth_client.py`
-- Engage client: `scripts/twitter_engagement_client.py`
-- References: `references/post_twitter.md`, `references/engage_twitter.md`
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
 ## Setup
 
-```bash
-export AISA_API_KEY="your-key"
-```
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
-## Common Commands
+## Quick Reference
 
-```bash
-python3 scripts/twitter_client.py search --query "AI agents" --type Latest
-python3 scripts/twitter_oauth_client.py authorize
-python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
-```
-
-## Capabilities
-
-- Research Twitter/X accounts, tweets, trends, lists, communities, and Spaces.
-- Publish text, image, and video posts after explicit OAuth approval.
-- Like, unlike, follow, and unfollow after authorization exists.
+- `python3 scripts/twitter_client.py --help`
+- `python3 scripts/twitter_oauth_client.py --help`
+- `python3 scripts/twitter_engagement_client.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

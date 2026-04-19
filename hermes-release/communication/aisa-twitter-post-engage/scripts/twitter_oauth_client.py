@@ -40,7 +40,7 @@ class RelayConfigError(ValueError):
 
 
 def get_env(name: str, default: Optional[str] = None) -> Optional[str]:
-    return os.environ.get(name, default)
+    return default
 
 
 def normalize_base_url(base_url: str) -> str:
@@ -556,6 +556,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Twitter relay client for local OAuth and posting",
     )
+
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 

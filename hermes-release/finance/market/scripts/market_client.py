@@ -41,10 +41,10 @@ class MarketClient:
     
     def __init__(self, api_key: Optional[str] = None):
         """Initialize the client with an API key."""
-        self.api_key = api_key or os.environ.get("AISA_API_KEY")
+        self.api_key = api_key
         if not self.api_key:
             raise ValueError(
-                "AISA_API_KEY is required. Set it via environment variable or pass to constructor."
+                "AIsa API key is required. Pass it explicitly via --api-key or constructor."
             )
     
     def _request(
@@ -367,7 +367,7 @@ Examples:
         sys.exit(1)
     
     try:
-        client = MarketClient()
+        client = MarketClient(api_key=args.api_key)
     except ValueError as e:
         print(json.dumps({"success": False, "error": {"code": "AUTH_ERROR", "message": str(e)}}))
         sys.exit(1)

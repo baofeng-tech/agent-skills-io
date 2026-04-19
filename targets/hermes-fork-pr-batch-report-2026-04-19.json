@@ -1,0 +1,27 @@
+{
+  "target_repo": "baofeng-tech/Aisa-One-Skills-Hermes",
+  "fork_owner": "xiaofengxyz",
+  "commit_pushed_to_main": "4f963a2",
+  "successful_prs": [
+    {
+      "skill": "aisa-provider",
+      "mode": "fork -> branch -> PR",
+      "pr_url": "https://github.com/baofeng-tech/Aisa-One-Skills-Hermes/pull/25"
+    }
+  ],
+  "partial_progress": [
+    {
+      "skill": "cn-llm",
+      "status": "branch_pushed_to_fork",
+      "branch": "xiaofengxyz:add-skill-cn-llm"
+    }
+  ],
+  "blocked_skills": [
+    "last30days",
+    "last30days-zh"
+  ],
+  "notes": [
+    "Hermes Guard scan reached 49 safe / 2 dangerous before publish attempts.",
+    "GitHub PR creation became intermittently unstable during batch continuation, so only confirmed PRs are listed here."
+  ]
+}

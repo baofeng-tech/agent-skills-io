@@ -1,0 +1,25 @@
+{
+  "target_repo": "baofeng-tech/Aisa-One-Skills-Hermes",
+  "fork_owner": "xiaofengxyz",
+  "base_commit": "abb7c4e3e8e453f9ad4e3eb8b7c4c3027f794bd6",
+  "requested": [
+    "last30days",
+    "last30days-zh"
+  ],
+  "results": [
+    {
+      "skill": "last30days",
+      "status": "failed",
+      "branch": "xiaofengxyz:add-skill-last30days",
+      "pr_url": null,
+      "note": "Author identity unknown\n\n*** Please tell me who you are.\n\nRun\n\n  git config --global user.email \"you@example.com\"\n  git config --global user.name \"Your Name\"\n\nto set your account's default identity.\nOmit --global to set the identity only in this repository.\n\nfatal: empty ident name (for <xiaofeng@xiaofeng.localdomain>) not allowed"
+    },
+    {
+      "skill": "last30days-zh",
+      "status": "failed",
+      "branch": "xiaofengxyz:add-skill-last30days-zh",
+      "pr_url": null,
+      "note": "Author identity unknown\n\n*** Please tell me who you are.\n\nRun\n\n  git config --global user.email \"you@example.com\"\n  git config --global user.name \"Your Name\"\n\nto set your account's default identity.\nOmit --global to set the identity only in this repository.\n\nfatal: empty ident name (for <xiaofeng@xiaofeng.localdomain>) not allowed"
+    }
+  ]
+}

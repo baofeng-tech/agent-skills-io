@@ -5,8 +5,8 @@ Hermes-oriented packaged copy of all `targetSkills/` mother skills.
 ## Structure
 
 - Skills are organized by Hermes-style categories such as `research/`, `communication/`, and `finance/`.
-- Each skill keeps a standard `SKILL.md + scripts + references` layout.
-- Frontmatter is normalized for Hermes fields like `metadata.hermes.tags` and `required_environment_variables`.
+- Each skill keeps a runtime-focused `SKILL.md + scripts/` layout, with non-runtime reference docs stripped from this release layer.
+- Frontmatter is normalized for `metadata.aisa`, `metadata.hermes.tags`, and `required_environment_variables`.
 
 ## Category Counts
 

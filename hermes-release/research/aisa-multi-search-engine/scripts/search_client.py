@@ -4,7 +4,7 @@ AIsa Multi Search Engine — Python CLI Client
 =============================================
 
 A command-line search client that calls AIsa API endpoints for multi-source
-search.  Requires the AISA_API_KEY environment variable.
+search.  Requires an explicit AIsa API key parameter.
 
 Usage:
     python3 search_client.py web      --query "latest AI news" --count 10
@@ -28,10 +28,10 @@ from typing import Any
 AISA_BASE = "https://api.aisa.one/apis/v1"
 
 
-def get_api_key() -> str:
-    key = os.environ.get("AISA_API_KEY", "")
+def get_api_key(explicit: str) -> str:
+    key = (explicit or "").strip()
     if not key:
-        print("Error: AISA_API_KEY environment variable is not set.", file=sys.stderr)
+        print("Error: --api-key is required.", file=sys.stderr)
         print("Get your key at https://aisa.one", file=sys.stderr)
         sys.exit(1)
     return key
@@ -110,7 +110,7 @@ def print_results(data: dict[str, Any], source: str) -> None:
 
 
 def cmd_web(args: argparse.Namespace) -> None:
-    api_key = get_api_key()
+    api_key = get_api_key(args.api_key)
     data = aisa_post(api_key, "/scholar/search/web", {
         "query": args.query,
         "max_num_results": args.count,
@@ -119,7 +119,7 @@ def cmd_web(args: argparse.Namespace) -> None:
 
 
 def cmd_scholar(args: argparse.Namespace) -> None:
-    api_key = get_api_key()
+    api_key = get_api_key(args.api_key)
     body: dict[str, Any] = {
         "query": args.query,
         "max_num_results": args.count,
@@ -133,7 +133,7 @@ def cmd_scholar(args: argparse.Namespace) -> None:
 
 
 def cmd_smart(args: argparse.Namespace) -> None:
-    api_key = get_api_key()
+    api_key = get_api_key(args.api_key)
     data = aisa_post(api_key, "/scholar/search/smart", {
         "query": args.query,
         "max_num_results": args.count,
@@ -142,7 +142,7 @@ def cmd_smart(args: argparse.Namespace) -> None:
 
 
 def cmd_tavily(args: argparse.Namespace) -> None:
-    api_key = get_api_key()
+    api_key = get_api_key(args.api_key)
     body: dict[str, Any] = {
         "query": args.query,
         "max_results": args.count,
@@ -159,7 +159,7 @@ def cmd_tavily(args: argparse.Namespace) -> None:
 
 
 def cmd_extract(args: argparse.Namespace) -> None:
-    api_key = get_api_key()
+    api_key = get_api_key(args.api_key)
     urls = [u.strip() for u in args.urls.split(",")]
     data = aisa_post(api_key, "/tavily/extract", {"urls": urls})
     if "results" in data and isinstance(data["results"], list):
@@ -174,7 +174,7 @@ def cmd_extract(args: argparse.Namespace) -> None:
 
 
 def cmd_sonar(args: argparse.Namespace) -> None:
-    api_key = get_api_key()
+    api_key = get_api_key(args.api_key)
     endpoint_map = {
         "sonar": "/sonar",
         "sonar-pro": "/sonar-pro",
@@ -191,7 +191,7 @@ def cmd_sonar(args: argparse.Namespace) -> None:
 
 def cmd_verity(args: argparse.Namespace) -> None:
     """Multi-source search with confidence scoring."""
-    api_key = get_api_key()
+    api_key = get_api_key(args.api_key)
     count = args.count
 
     print(f"\nSearching across multiple sources for: \"{args.query}\"\n")

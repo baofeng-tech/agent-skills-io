@@ -3,6 +3,18 @@ name: aisa-perplexity-search
 description: Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
 homepage: https://aisa.one
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - research
@@ -19,117 +31,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# AIsa Perplexity Search (`perplexity-search`)
+# perplexity-search
 
-Use this skill when the user specifically wants Perplexity-powered search answers instead of structured scholar/web retrieval.
+Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
 
-This skill covers four AIsa endpoints:
-- `/perplexity/sonar`
-- `/perplexity/sonar-pro`
-- `/perplexity/sonar-reasoning-pro`
-- `/perplexity/sonar-deep-research`
+## When to Use
 
-## Requirements
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
-- Set `AISA_API_KEY`
-- Use the bundled client at `scripts/perplexity_search_client.py`
+## Setup
 
-## Model Selection
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
-- Use `sonar` for fast, lightweight answers with citations
-- Use `sonar-pro` for stronger synthesis and comparison tasks
-- Use `sonar-reasoning-pro` for analytical or multi-step reasoning questions
-- Use `sonar-deep-research` for exhaustive reports; expect slower responses and occasional timeouts
+## Quick Reference
 
-## Python Client
-
-```bash
-python3 scripts/perplexity_search_client.py sonar --query "What changed in AI this week?"
-python3 scripts/perplexity_search_client.py sonar-pro --query "Compare coding agents with citations"
-python3 scripts/perplexity_search_client.py sonar-reasoning-pro --query "Analyze whether vertical AI agents can defend against general copilots"
-python3 scripts/perplexity_search_client.py sonar-deep-research --query "Create a deep research report on AI coding agents in 2026"
-```
-
-Add a system message when you want a more specific output format:
-
-```bash
-python3 scripts/perplexity_search_client.py sonar-pro \
-  --query "Map the top coding agent products" \
-  --system "Respond in markdown with an executive summary first."
-```
-
-## Curl Examples
-
-### Sonar
-
-```bash
-curl -X POST "https://api.aisa.one/apis/v1/perplexity/sonar" \
-  -H "Authorization: Bearer $AISA_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "sonar",
-    "messages": [
-      {"role": "user", "content": "What changed in the AI agent ecosystem this week?"}
-    ]
-  }'
-```
-
-### Sonar Pro
-
-```bash
-curl -X POST "https://api.aisa.one/apis/v1/perplexity/sonar-pro" \
-  -H "Authorization: Bearer $AISA_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "sonar-pro",
-    "messages": [
-      {"role": "user", "content": "Compare the top coding agents and cite the key differences."}
-    ]
-  }'
-```
-
-### Sonar Reasoning Pro
-
-```bash
-curl -X POST "https://api.aisa.one/apis/v1/perplexity/sonar-reasoning-pro" \
-  -H "Authorization: Bearer $AISA_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "sonar-reasoning-pro",
-    "messages": [
-      {"role": "user", "content": "Analyze whether vertical AI agents can defend against general copilots."}
-    ]
-  }'
-```
-
-### Sonar Deep Research
-
-```bash
-curl -X POST "https://api.aisa.one/apis/v1/perplexity/sonar-deep-research" \
-  -H "Authorization: Bearer $AISA_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "sonar-deep-research",
-    "messages": [
-      {"role": "user", "content": "Create a deep research report on AI coding agents in 2026."}
-    ]
-  }'
-```
-
-## Timeout Behavior
-
-- `sonar-deep-research` uses a longer timeout and automatic retries in the bundled client
-- If it still times out, narrow the query or retry later
-- If the user wants a faster answer, fall back to `sonar-pro` or `sonar-reasoning-pro`
-
-## References
-
-- [Sonar](https://docs.aisa.one/reference/post_perplexity-sonar)
-- [Sonar Pro](https://docs.aisa.one/reference/post_perplexity-sonar-pro)
-- [Sonar Reasoning Pro](https://docs.aisa.one/reference/post_perplexity-sonar-reasoning-pro)
-- [Sonar Deep Research](https://docs.aisa.one/reference/post_perplexity-sonar-deep-research)
+- `python3 scripts/perplexity_search_client.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

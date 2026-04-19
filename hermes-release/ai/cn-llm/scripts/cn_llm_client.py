@@ -61,7 +61,7 @@ class CNLLMClient:
 
     def __init__(self, api_key: Optional[str] = None):
         """Initialize the client."""
-        self.api_key = api_key or os.environ.get("AISA_API_KEY")
+        self.api_key = api_key
         if not self.api_key:
             raise ValueError(
                 "AISA_API_KEY required. Set environment variable or pass to constructor."
@@ -256,6 +256,8 @@ Examples:
         """
     )
 
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     subparsers = parser.add_subparsers(dest="command", help="Commands")
 
     # Chat command
@@ -290,7 +292,7 @@ Examples:
         sys.exit(0)
 
     try:
-        client = CNLLMClient()
+        client = CNLLMClient(api_key=args.api_key)
     except ValueError as e:
         print(json.dumps({"error": {"code": "AUTH_ERROR", "message": str(e)}}, ensure_ascii=False))
         sys.exit(1)

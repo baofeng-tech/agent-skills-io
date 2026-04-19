@@ -2,6 +2,18 @@
 name: web-search
 description: 'Search the web using AIsa Scholar Web endpoint. Returns structured web results with titles, URLs, and snippets. Use when: the user needs web search, research, source discovery, or content extraction.'
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - research
@@ -18,47 +30,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# AIsa Web Search
+# web-search
 
-Search the web using the AIsa Scholar Web Search endpoint. Returns structured results with titles, URLs, and content snippets.
-
-## Setup
-
-This skill requires the `AISA_API_KEY` environment variable. When installed as a Claude plugin, the key is configured via the environment variables.
-
-## Usage
-
-Run the search client with the `web` subcommand:
-
-```bash
-python3 scripts/search_client.py web --query "<search query>" --count <max_results>
-```
-
-### Arguments
-
-| Argument | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `--query` / `-q` | Yes | — | The search query string |
-| `--count` / `-c` | No | 10 | Maximum number of results (1–100) |
-
-### Example
-
-```bash
-python3 scripts/search_client.py web --query "latest AI agent frameworks 2026" --count 5
-```
-
-## Output
-
-The script prints structured results including:
-- **Title** — Page title
-- **URL** — Direct link to the source
-- **Snippet** — Content excerpt relevant to the query
+Search the web using AIsa Scholar Web endpoint. Returns structured web results with titles, URLs, and snippets. Use when: the user needs web search, research, source discovery, or content extraction.
 
 ## When to Use
 
-Use this skill when the user asks to search the web, find information online, look up recent events, or needs general web results. This is the most versatile search tool for broad queries.
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
+
+## Setup
+
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
+
+## Quick Reference
+
+- `python3 scripts/search_client.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

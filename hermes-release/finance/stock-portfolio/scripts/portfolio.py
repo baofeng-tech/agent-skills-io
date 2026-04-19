@@ -12,15 +12,15 @@ Portfolio data stored locally in ~/.clawdbot/skills/stock-analysis/portfolios.js
 Current prices fetched live via AIsa API.
 
 Usage:
-    uv run portfolio.py create "Tech Portfolio"
-    uv run portfolio.py list
-    uv run portfolio.py show [--portfolio NAME]
-    uv run portfolio.py delete "Portfolio Name"
-    uv run portfolio.py rename "Old Name" "New Name"
+    python3 portfolio.py create "Tech Portfolio"
+    python3 portfolio.py list
+    python3 portfolio.py show [--portfolio NAME]
+    python3 portfolio.py delete "Portfolio Name"
+    python3 portfolio.py rename "Old Name" "New Name"
 
-    uv run portfolio.py add AAPL --quantity 10 --cost 150.00 [--portfolio NAME]
-    uv run portfolio.py update AAPL --quantity 15 [--portfolio NAME]
-    uv run portfolio.py remove AAPL [--portfolio NAME]
+    python3 portfolio.py add AAPL --quantity 10 --cost 150.00 [--portfolio NAME]
+    python3 portfolio.py update AAPL --quantity 15 [--portfolio NAME]
+    python3 portfolio.py remove AAPL [--portfolio NAME]
 """
 
 import argparse
@@ -35,7 +35,7 @@ from openai import OpenAI
 # ─── Storage ────────────────────────────────────────────────────────────────
 
 def get_storage_path() -> Path:
-    state_dir = os.environ.get("CLAWDBOT_STATE_DIR", str(Path.cwd() / ".claude-skill-data"))
+    state_dir = str(Path.cwd() / ".hermes-skill-data")
     p = Path(state_dir) / "skills" / "stock-analysis"
     p.mkdir(parents=True, exist_ok=True)
     return p / "portfolios.json"
@@ -70,11 +70,11 @@ def get_active_portfolio(data: dict, name: str | None) -> str:
 # ─── AIsa API ────────────────────────────────────────────────────────────────
 
 def get_client() -> OpenAI:
-    api_key = os.environ.get("AISA_API_KEY")
+    api_key = args.api_key
     if not api_key:
-        print("❌ Error: AISA_API_KEY environment variable is not set.", file=sys.stderr)
+        print("❌ Error: --api-key is required.", file=sys.stderr)
         sys.exit(1)
-    base_url = os.environ.get("AISA_BASE_URL", "https://api.aisa.one/v1")
+    base_url = "https://api.aisa.one/v1"
     return OpenAI(api_key=api_key, base_url=base_url)
 
 
@@ -83,7 +83,7 @@ def fetch_prices(tickers: list[str]) -> dict[str, float]:
     if not tickers:
         return {}
     client = get_client()
-    model = os.environ.get("AISA_MODEL", "gpt-4o")
+    model = "gpt-4o"
     ticker_str = ", ".join(tickers)
     prompt = (
         f"Fetch the current live price for each of these tickers: {ticker_str}\n\n"

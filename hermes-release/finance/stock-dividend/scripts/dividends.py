@@ -9,9 +9,9 @@
 Dividend analysis using AIsa API with Yahoo Finance tools.
 
 Usage:
-    uv run dividends.py JNJ
-    uv run dividends.py JNJ PG KO MCD
-    uv run dividends.py JNJ --output json
+    python3 dividends.py JNJ
+    python3 dividends.py JNJ PG KO MCD
+    python3 dividends.py JNJ --output json
 """
 
 import argparse
@@ -112,12 +112,12 @@ Calculate a safety score based on:
 
 
 def get_client() -> OpenAI:
-    api_key = os.environ.get("AISA_API_KEY")
+    api_key = args.api_key
     if not api_key:
-        print("❌ Error: AISA_API_KEY environment variable is not set.", file=sys.stderr)
+        print("❌ Error: --api-key is required.", file=sys.stderr)
         print("   Set it with: export AISA_API_KEY=your_key_here", file=sys.stderr)
         sys.exit(1)
-    base_url = os.environ.get("AISA_BASE_URL", "https://api.aisa.one/v1")
+    base_url = "https://api.aisa.one/v1"
     return OpenAI(api_key=api_key, base_url=base_url)
 
 
@@ -134,7 +134,7 @@ def extract_json_block(text: str) -> dict:
 
 def analyze_dividends(tickers: list[str], output_format: str = "text") -> str:
     client = get_client()
-    model = os.environ.get("AISA_MODEL", "gpt-4o")
+    model = "gpt-4o"
 
     compare_note = ""
     if len(tickers) > 1:

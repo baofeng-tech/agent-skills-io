@@ -43,7 +43,7 @@ class AIsaClient:
     BASE_URL = "https://api.aisa.one/apis/v1"
 
     def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key or os.environ.get("AISA_API_KEY")
+        self.api_key = api_key
         if not self.api_key:
             print("Error: AISA_API_KEY is required.")
             print("Set it via:  export AISA_API_KEY=\"your-key\"")
@@ -537,6 +537,8 @@ Examples:
 """,
     )
 
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     subparsers = parser.add_subparsers(dest="command", help="Command")
 
     # scan
@@ -572,7 +574,7 @@ Examples:
         parser.print_help()
         sys.exit(1)
 
-    client = AIsaClient()
+    client = AIsaClient(api_key=args.api_key)
 
     if args.command == "scan":
         results = run_scan(client, args.sport, args.date, args.min_spread, args.min_liquidity)

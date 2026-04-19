@@ -2,6 +2,18 @@
 name: stock-hot
 description: Hot Scanner — find the most trending and high-momentum stocks and crypto right now via AIsa API. Top gainers, losers, most active by volume, crypto highlights, news catalysts, and top 5 watchlist picks. Use when the user asks about trending stocks, what's hot, market movers, or momentum plays.
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - finance
@@ -18,35 +30,27 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-# Hot Scanner — AIsa Edition
+# stock-hot
 
-Scan for the most trending and high-momentum stocks and cryptocurrencies using the AIsa API.
+Hot Scanner — find the most trending and high-momentum stocks and crypto right now via AIsa API. Top gainers, losers, most active by volume, crypto highlights, news catalysts, and top 5 watchlist picks. Use when the user asks about trending stocks, what's hot, market movers, or momentum plays.
 
-## Usage
+## When to Use
 
-```bash
-python3 scripts/hot_scanner.py
-python3 scripts/hot_scanner.py --focus stocks
-python3 scripts/hot_scanner.py --focus crypto
-python3 scripts/hot_scanner.py --output json
-```
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
-### Arguments
+## Setup
 
-- `--focus`: Filter by `stocks`, `crypto`, or `both` (default)
-- `--output json`: Append structured JSON summary
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
-## Output Sections
+## Quick Reference
 
-- **Top Stock Movers**: Gainers (>3%), losers, most active by volume
-- **Crypto Highlights**: BTC price, dominance, trending coins, gainers/losers
-- **News-Driven Movers**: 5-8 items with ticker mentions from last 6 hours
-- **Top 5 Watchlist Picks**: With risk level assessment
-- **Quick Take**: 2-3 sentence market summary
-
-**NOT FINANCIAL ADVICE.** For informational purposes only.
+- `python3 scripts/hot_scanner.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

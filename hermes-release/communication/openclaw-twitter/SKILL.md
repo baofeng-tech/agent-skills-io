@@ -4,6 +4,18 @@ description: 'Search X/Twitter profiles, tweets, trends, lists, communities, and
 author: 0xjordansg-yolo
 homepage: https://aisa.one
 metadata:
+  aisa:
+    emoji: 🛠
+    requires:
+      bins:
+      - python3
+      env:
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility:
+    - openclaw
+    - claude-code
+    - hermes
   hermes:
     tags:
     - communication
@@ -22,81 +34,28 @@ required_environment_variables:
   required_for: AIsa-backed API access
 ---
 
-> Release note: This package is published for Hermes. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
+# openclaw-twitter
 
-# Twitter
-
-Runtime-focused release bundle for Twitter/X search and posting through the AISA relay.
+Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AISA relay, then publish approved posts with OAuth. Use when: the user asks for Twitter/X research, monitoring, or posting without sharing passwords. Supports read APIs, authorization links, and media-aware posting.
 
 ## When to Use
 
-- The user wants to read profiles, timelines, mentions, followers, tweet search results, trends, lists, communities, or Spaces.
-- The user wants to draft or publish posts after completing OAuth without sharing passwords.
-- The task needs a Python client for repeatable Twitter/X automation backed by `AISA_API_KEY`.
-
-## Pitfalls
-
-- The user needs cookie extraction, browser credential scraping, or direct password login.
-- The workflow must avoid sending requests, OAuth state, or approved media through `api.aisa.one`.
-- The request is for likes, follows, or other engagement actions not covered by this package.
-
-## Quick Reference
-
-- Required env: `AISA_API_KEY`
-- Read client: `./scripts/twitter_client.py`
-- Post workflow guide: `./references/post_twitter.md`
+- Use this release when the user needs the runtime packaged under `scripts/`.
+- Prefer the bundled Python or shell entrypoints instead of copying raw API examples into the chat.
+- For Hermes community installs, keep setup explicit and review the command help text before the first run.
 
 ## Setup
 
-```bash
-export AISA_API_KEY="your-key"
-```
+- Review `README.md` for the release-specific summary and structure.
+- Use repo-relative paths under `scripts/`.
+- Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
 
-All network calls go to `https://api.aisa.one/apis/v1/...`.
+## Quick Reference
 
-## Capabilities
-
-- Read user data, timelines, mentions, followers, followings, verified followers, and follow relationships.
-- Search tweets and users, inspect replies, quotes, retweeters, thread context, and Spaces.
-- Publish text, image, and video posts after explicit OAuth approval.
-- Split long posts into threaded chunks when the publish script needs it.
-
-## Common Commands
-
-```bash
-python3 scripts/twitter_client.py user-info --username elonmusk
-python3 scripts/twitter_client.py search --query "AI agents" --type Latest
-python3 scripts/twitter_client.py trends --woeid 1
-python3 scripts/twitter_oauth_client.py status
-python3 scripts/twitter_oauth_client.py authorize
-python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa"
-```
-
-## Posting Workflow
-
-When the user asks to send, publish, reply, or quote on X/Twitter, follow `./references/post_twitter.md`.
-
-- Return the authorization link first when posting is not yet approved.
-- Use `--media-file` only for user-provided workspace files.
-- Do not invent captions, remote URLs, or extra media attachments.
-
-## ClawHub Suspicious Review Notes
-
-These points summarize the common reasons similar skills are marked `Suspicious` and how this release addresses them:
-
-- The package is relay-based: read calls, OAuth requests, and approved media uploads go to `api.aisa.one`.
-- The package is API-key-first: it requires `AISA_API_KEY` and does not ask for passwords, cookies, `CT0`, or other legacy secrets.
-- The release bundle is runtime-only: it keeps `SKILL.md`, `scripts/`, and the posting reference, while omitting non-runtime files such as `README.md` and `_meta.json`.
-- The package does not include cache sync, self-install logic, home-directory persistence, browser-cookie extraction, or external agent CLI wrappers.
-- Browser opening is optional and not the default workflow; returning the authorization link is the preferred path for this release.
-
-## Release Bundle Notes
-
-- `scripts/twitter_client.py` preserves the read API surface from the original bundle.
-- `scripts/twitter_oauth_client.py` preserves OAuth and posting behavior from the original bundle.
-- This package is optimized for publication metadata and upload safety, not for changing runtime logic.
+- `python3 scripts/twitter_client.py --help`
+- `python3 scripts/twitter_oauth_client.py --help`
 
 ## Verification
 
 - Confirm the command returns structured output or a successful API response.
-- If the workflow is stateful, re-run a read/list/status command to verify the new state.
+- If the workflow stores local state, verify it writes under a repo-local data directory rather than a home-directory default.

@@ -1,14 +1,8 @@
 ---
 name: last30days
-description: 'Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output.'
-version: 1.0.4
+description: 'Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output.'
 license: MIT
-repository: https://github.com/AIsa-team/agent-skills
-author: mvanhorn
-argument-hint: last30days OpenAI Agents SDK, last30days Peter Steinberger, last30days OpenClaw
-homepage: https://github.com/AIsa-team/agent-skills
-allowed-tools: Bash, Read, Write, AskUserQuestion, WebSearch
-user-invocable: true
+allowed-tools: Read Bash Grep
 when_to_use: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output
 ---
 
@@ -16,7 +10,7 @@ when_to_use: you need recent social research, company updates, person profiles, 
 
 # last30days
 
-Research recent evidence across social platforms, community forums, prediction markets, GitHub, and grounded web results, then merge everything into one brief.
+Research recent evidence across social platforms, community forums, prediction markets, and grounded web results, then merge everything into one brief.
 
 ## When to use
 
@@ -33,33 +27,26 @@ Research recent evidence across social platforms, community forums, prediction m
 
 - AISA-hosted planning, reranking, synthesis, grounded web search, X/Twitter search, YouTube search, and Polymarket search.
 - Public Reddit and Hacker News retrieval with fail-soft behavior.
-- Official GitHub API search when `GH_TOKEN` or `GITHUB_TOKEN` is available.
 - Hosted discovery for TikTok, Instagram, Threads, and Pinterest when enabled in runtime config.
+- Public publish bundles intentionally focus on the stateless research CLI and exclude the older watchlist / briefing / second-credential GitHub add-ons.
 
 ## Setup
 
-- `AISA_API_KEY` is the main hosted credential.
-- `GH_TOKEN` or `GITHUB_TOKEN` is optional for GitHub search only.
+- `AISA_API_KEY` is the only hosted credential used by the public skill surface.
 - Python `3.12+` is required.
-
-```bash
-for py in /usr/local/python3.12/bin/python3.12 python3.14 python3.13 python3.12 python3; do
-  command -v "$py" >/dev/null 2>&1 || continue
-  "$py" -c 'import sys; raise SystemExit(0 if sys.version_info >= (3, 12) else 1)' || continue
-  LAST30DAYS_PYTHON="$py"
-  break
-done
-```
+- Use repo-relative `scripts/` paths so the same skill layout works across compatible runtimes.
+- Repo-local config can live at `./.last30days-data/config.env`, or you can pass `--api-key` directly.
 
 ## Quick Reference
 
 ```bash
-bash "${SKILL_ROOT}/scripts/run-last30days.sh" "$ARGUMENTS" --emit=compact
-"${LAST30DAYS_PYTHON}" "${SKILL_ROOT}/scripts/last30days.py" "$ARGUMENTS" --emit=json
-"${LAST30DAYS_PYTHON}" "${SKILL_ROOT}/scripts/last30days.py" "$ARGUMENTS" --quick
-"${LAST30DAYS_PYTHON}" "${SKILL_ROOT}/scripts/last30days.py" "$ARGUMENTS" --deep
-"${LAST30DAYS_PYTHON}" "${SKILL_ROOT}/scripts/last30days.py" "$ARGUMENTS" --search=reddit,x,grounding
-"${LAST30DAYS_PYTHON}" "${SKILL_ROOT}/scripts/last30days.py" --diagnose
+bash scripts/run-last30days.sh "$ARGUMENTS" --emit=compact
+python3 scripts/last30days.py "$ARGUMENTS" --api-key="$AISA_API_KEY"
+python3 scripts/last30days.py "$ARGUMENTS" --emit=json
+python3 scripts/last30days.py "$ARGUMENTS" --quick
+python3 scripts/last30days.py "$ARGUMENTS" --deep
+python3 scripts/last30days.py "$ARGUMENTS" --search=reddit,x,grounding
+python3 scripts/last30days.py --diagnose
 ```
 
 ## Inputs And Outputs
