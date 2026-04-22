@@ -248,6 +248,8 @@ def main():
     p_check = sub.add_parser("check", help="Check for triggered alerts")
     p_check.add_argument("--notify", action="store_true", help="Print Telegram-style notification")
 
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     args = parser.parse_args()
     commands = {
         "add": cmd_add,

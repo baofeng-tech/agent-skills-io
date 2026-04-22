@@ -1,0 +1,27 @@
+{
+  "id": "perplexity-research-plugin",
+  "name": "Perplexity Research",
+  "description": "Native-first ClawHub plugin for `perplexity-research`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+  "version": "1.0.0",
+  "skills": [
+    "./skills"
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "AISA_API_KEY": {
+        "type": "string",
+        "title": "Aisa Api Key",
+        "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
+        "format": "password"
+      }
+    },
+    "required": [
+      "AISA_API_KEY"
+    ]
+  },
+  "uiHints": {
+    "emoji": "🔎"
+  }
+}

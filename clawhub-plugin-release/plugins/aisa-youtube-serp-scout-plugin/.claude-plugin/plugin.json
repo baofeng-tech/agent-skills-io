@@ -1,0 +1,11 @@
+{
+  "name": "aisa-youtube-serp-scout-plugin",
+  "description": "Native-first ClawHub plugin for `aisa-youtube-serp-scout`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.",
+  "version": "1.0.0",
+  "author": {
+    "name": "AIsa"
+  },
+  "homepage": "https://aisa.one",
+  "repository": "https://github.com/AIsa-team/agent-skills",
+  "license": "MIT-0"
+}

@@ -1,26 +1,17 @@
 ---
 name: openclaw-twitter-post-engage
-description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AISA relay. Use when: the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords. Supports read APIs, OAuth-gated posting, and follow or like operations.
-homepage: https://openclaw.ai
-author: aisadocs
-user-invocable: true
-requires:
-  bins:
-    - python3
-  env:
-    - AISA_API_KEY
+description: 'Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AISA relay. Use when: the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords. Supports read APIs, OAuth-gated posting, and follow or like operations.'
+compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
-  openclaw:
-    emoji: "🐦"
+  aisa:
+    emoji: 🐦
     requires:
       bins:
-        - python3
+      - python3
       env:
-        - AISA_API_KEY
+      - AISA_API_KEY
     primaryEnv: AISA_API_KEY
-    files:
-      - "scripts/*"
-      - "references/*"
+    compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 ---
 
 # OpenClaw Twitter Post Engage
@@ -65,11 +56,11 @@ All network calls go to `https://api.aisa.one/apis/v1/...`.
 ## Common Commands
 
 ```bash
-python3 {baseDir}/scripts/twitter_client.py search --query "AI agents" --type Latest
-python3 {baseDir}/scripts/twitter_oauth_client.py authorize
-python3 {baseDir}/scripts/twitter_oauth_client.py post --text "Hello from OpenClaw"
-python3 {baseDir}/scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
-python3 {baseDir}/scripts/twitter_engagement_client.py follow-user --user "@elonmusk"
+python3 scripts/twitter_client.py search --query "AI agents" --type Latest
+python3 scripts/twitter_oauth_client.py authorize
+python3 scripts/twitter_oauth_client.py post --text "Hello from OpenClaw"
+python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
+python3 scripts/twitter_engagement_client.py follow-user --user "@elonmusk"
 ```
 
 ## Posting and Engagement Workflow

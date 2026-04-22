@@ -31,7 +31,7 @@ python3 scripts/test_release_layers.py
 When real runtime validation needs Python 3.12:
 
 ```bash
-PYTHON_EXE=/usr/local/python3.12/bin/python3.12 python3 scripts/test_release_layers.py
+python3 scripts/test_release_layers.py
 ```
 
 ## Core Rule
@@ -140,13 +140,18 @@ Reference example:
 5. Write/update reports
 6. Push the release layer to its target repo
 
+Important sequencing note:
+
+- do not run `build_claude_release.py` and `build_claude_marketplace.py` in parallel
+- `build_claude_marketplace.py` reads `claude-release/` as input and can under-generate if the release tree is still rebuilding
+
 Concrete command sequence:
 
 ```bash
 python3 scripts/build_claude_release.py
 python3 scripts/build_claude_marketplace.py
 python3 scripts/build_hermes_release.py
-PYTHON_EXE=/usr/local/python3.12/bin/python3.12 python3 scripts/test_release_layers.py
+python3 scripts/test_release_layers.py
 ```
 
 ## Related Docs

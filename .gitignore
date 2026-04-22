@@ -2,10 +2,5 @@
 .tmp-pydeps/
 .tmp-release-test-venv/
 .tmp-skill-test-venv/
-targetSkills/last30days-zh/scripts/lib/__pycache__/__init__.cpython-312.pyc
-targetSkills/last30days-zh/scripts/lib/__pycache__/
-targetSkills/last30days/scripts/lib/__pycache__/
-targetSkills/aisa-twitter-post-engage/scripts/__pycache__/
-targetSkills/stock-analysis/scripts/__pycache__/analyze_stock.cpython-38.pyc
-scripts/__pycache__/
 example/accounts
+__pycache__/

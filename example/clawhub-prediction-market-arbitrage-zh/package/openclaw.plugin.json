@@ -1,0 +1,14 @@
+{
+  "id": "@clawhub/prediction-market-arbitrage-zh",
+  "name": "Prediction Market Arbitrage Zh",
+  "description": "Find arbitrage opportunities in prediction markets (Chinese)",
+  "version": "1.0.0",
+  "configSchema": {
+    "AISA_API_KEY": {
+      "type": "string",
+      "title": "Aisa Api Key",
+      "description": "Enter your AISA_API_KEY",
+      "format": "password"
+    }
+  }
+}

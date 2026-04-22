@@ -1,8 +1,8 @@
-# AIsa Search
+# Search
 
 Release-ready Hermes skill package generated from `targetSkills/search`.
 
-- Skill name: `aisa-search`
+- Skill name: `search`
 - Entry point: `SKILL.md`
 - Runtime assets: `scripts/`, `references/`, `assets/` when present
 

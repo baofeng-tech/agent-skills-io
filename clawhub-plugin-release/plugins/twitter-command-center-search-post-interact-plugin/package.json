@@ -1,0 +1,34 @@
+{
+  "name": "twitter-command-center-search-post-interact-plugin",
+  "version": "1.0.0",
+  "description": "Native-first ClawHub plugin for `twitter-command-center-search-post-interact`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "keywords": [
+    "aisa",
+    "clawhub",
+    "openclaw",
+    "native-plugin",
+    "agent-skill",
+    "twitter",
+    "x",
+    "search",
+    "research"
+  ],
+  "homepage": "https://aisa.one",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AIsa-team/agent-skills.git"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "compat": {
+      "pluginApi": "^1.0.0"
+    },
+    "build": {
+      "openclawVersion": "^1.0.0"
+    }
+  }
+}

@@ -13,6 +13,15 @@ import build_claude_release as base
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCE_ROOT = REPO_ROOT / "claude-release"
 OUTPUT_ROOT = REPO_ROOT / "claude-marketplace"
+MOTHER_ROOT = base.SOURCE_ROOT
+RUNTIME_IGNORE = shutil.ignore_patterns(
+    "__pycache__",
+    "*.pyc",
+    "*.pyo",
+    ".pytest_cache",
+    "node_modules",
+    ".DS_Store",
+)
 
 
 def infer_category(name: str, description: str) -> str:
@@ -44,18 +53,36 @@ def infer_tags(name: str, description: str) -> list[str]:
 
 
 def load_skills() -> list[dict[str, str]]:
+    expected_paths = {
+        path.name
+        for path in MOTHER_ROOT.iterdir()
+        if path.is_dir() and (path / "SKILL.md").exists()
+    }
     skills = []
+    loaded_paths: set[str] = set()
     for skill_dir in sorted(path for path in SOURCE_ROOT.iterdir() if path.is_dir()):
         skill_file = skill_dir / "SKILL.md"
         if not skill_file.exists():
             continue
         frontmatter, _body = base.load_frontmatter(skill_file)
+        loaded_paths.add(skill_dir.name)
         skills.append(
             {
                 "name": frontmatter.get("name", skill_dir.name),
                 "description": frontmatter.get("description", f"{skill_dir.name} Claude Code plugin"),
                 "path": skill_dir.name,
             }
+        )
+
+    missing_paths = sorted(expected_paths - loaded_paths)
+    if missing_paths:
+        preview = ", ".join(missing_paths[:5])
+        suffix = " ..." if len(missing_paths) > 5 else ""
+        raise RuntimeError(
+            "claude-release appears incomplete. "
+            f"Loaded {len(loaded_paths)} of {len(expected_paths)} expected skills; "
+            f"missing: {preview}{suffix}. "
+            "Run build_claude_release.py to completion before build_claude_marketplace.py."
         )
     return skills
 
@@ -70,6 +97,7 @@ def build_plugin(skill: dict[str, str]) -> dict[str, object]:
         SOURCE_ROOT / skill["path"],
         plugin_dir / "skills" / skill["path"],
         dirs_exist_ok=True,
+        ignore=RUNTIME_IGNORE,
     )
 
     plugin_manifest = {
@@ -141,8 +169,8 @@ def main() -> None:
         "## Test Locally",
         "",
         "```bash",
-        "claude /plugin marketplace add ./claude-marketplace",
-        "claude /plugin install aisa-twitter-command-center@aisa-claude-marketplace",
+        "claude plugin marketplace add ./claude-marketplace",
+        "claude plugin install aisa-twitter-command-center@aisa-claude-marketplace",
         "```",
         "",
         "## Notes",

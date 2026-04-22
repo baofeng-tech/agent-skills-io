@@ -104,7 +104,7 @@
     },
     {
       "name": "aisa-youtube-serp-scout",
-      "description": "Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials.",
+      "description": "Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
       "source": "./plugins/aisa-youtube-serp-scout",
       "category": "media",
       "tags": [
@@ -125,7 +125,7 @@
     },
     {
       "name": "last30days",
-      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output.",
+      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: the user needs recent multi-source research across the last 30 days.",
       "source": "./plugins/last30days",
       "category": "communication",
       "tags": [
@@ -139,7 +139,7 @@
     },
     {
       "name": "last30days-zh",
-      "description": "聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果。触发条件：当用户需要 recent social research、人物近况、公司动态、竞品对比、发布反应、趋势扫描时使用。支持 AISA 规划、聚类、重排和 JSON 输出。",
+      "description": "聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.",
       "source": "./plugins/last30days-zh",
       "category": "communication",
       "tags": [
@@ -162,9 +162,9 @@
       ]
     },
     {
-      "name": "aisa-market",
+      "name": "market",
       "description": "Query real-time and historical financial data across equities and crypto—prices, market moves, metrics, and trends for analysis, alerts, and reporting. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
-      "source": "./plugins/aisa-market",
+      "source": "./plugins/market",
       "category": "finance",
       "tags": [
         "market",
@@ -182,9 +182,9 @@
       ]
     },
     {
-      "name": "aisa-media-gen",
+      "name": "media-gen",
       "description": "Generate images & videos with AIsa. Gemini 3 Pro Image (image) + Qwen Wan 2.6 (video) via one API key. Use when: the user needs AI image or video generation workflows.",
-      "source": "./plugins/aisa-media-gen",
+      "source": "./plugins/media-gen",
       "category": "creative",
       "tags": [
         "image",
@@ -204,7 +204,7 @@
     },
     {
       "name": "openclaw-aisa-youtube-aisa",
-      "description": "Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Supports curl queries and the bundled Python client with locale and filter controls.",
+      "description": "Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
       "source": "./plugins/openclaw-aisa-youtube-aisa",
       "category": "media",
       "tags": [
@@ -283,9 +283,9 @@
       ]
     },
     {
-      "name": "aisa-perplexity-search",
+      "name": "perplexity-search",
       "description": "Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.",
-      "source": "./plugins/aisa-perplexity-search",
+      "source": "./plugins/perplexity-search",
       "category": "research",
       "tags": [
         "x",
@@ -294,9 +294,9 @@
       ]
     },
     {
-      "name": "aisa-prediction-market-data",
+      "name": "prediction-market",
       "description": "Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
-      "source": "./plugins/aisa-prediction-market-data",
+      "source": "./plugins/prediction-market",
       "category": "finance",
       "tags": [
         "market",
@@ -305,9 +305,9 @@
       ]
     },
     {
-      "name": "aisa-prediction-market-arbitrage",
+      "name": "prediction-market-arbitrage",
       "description": "Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
-      "source": "./plugins/aisa-prediction-market-arbitrage",
+      "source": "./plugins/prediction-market-arbitrage",
       "category": "finance",
       "tags": [
         "market",
@@ -369,9 +369,9 @@
       ]
     },
     {
-      "name": "aisa-search",
+      "name": "search",
       "description": "Intelligent search for agents. Multi-source retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.",
-      "source": "./plugins/aisa-search",
+      "source": "./plugins/search",
       "category": "research",
       "tags": [
         "x",
@@ -470,9 +470,9 @@
       ]
     },
     {
-      "name": "aisa-twitter",
+      "name": "twitter",
       "description": "Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.",
-      "source": "./plugins/aisa-twitter",
+      "source": "./plugins/twitter",
       "category": "communication",
       "tags": [
         "twitter",
@@ -547,9 +547,9 @@
       ]
     },
     {
-      "name": "aisa-youtube",
+      "name": "youtube",
       "description": "YouTube SERP Scout for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
-      "source": "./plugins/aisa-youtube",
+      "source": "./plugins/youtube",
       "category": "media",
       "tags": [
         "youtube",
@@ -560,16 +560,16 @@
     },
     {
       "name": "youtube-search",
-      "description": "YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.",
+      "description": "YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
       "source": "./plugins/youtube-search",
       "category": "communication",
       "tags": [
         "twitter",
-        "x",
         "youtube",
         "search",
         "research",
-        "llm"
+        "llm",
+        "video"
       ]
     }
   ]

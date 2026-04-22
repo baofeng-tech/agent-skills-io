@@ -1,21 +1,19 @@
 ---
 name: last30days
-description: "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output."
+description: 'Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: the user needs recent multi-source research across the last 30 days.'
 license: MIT
+compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, bash, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
   aisa:
-    emoji: "📰"
+    emoji: 📰
     requires:
-      env:
-        - AISA_API_KEY
       bins:
-        - python3
-        - bash
+      - python3
+      - bash
+      env:
+      - AISA_API_KEY
     primaryEnv: AISA_API_KEY
-    compatibility:
-      - openclaw
-      - claude-code
-      - hermes
+    compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, bash, environment variables AISA_API_KEY and internet access to api.aisa.one.
 ---
 
 # last30days

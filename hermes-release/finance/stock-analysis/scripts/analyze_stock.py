@@ -242,6 +242,8 @@ def main():
     parser.add_argument("tickers", nargs="+", help="Ticker symbols (e.g., AAPL BTC-USD)")
     parser.add_argument("--output", choices=["text", "json"], default="text")
     parser.add_argument("--fast", action="store_true", help="Skip slow analyses (insider, news)")
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     args = parser.parse_args()
 
     tickers = [t.upper() for t in args.tickers]

@@ -82,7 +82,7 @@
 
 - Category: `research`
 - Path: `hermes-release/research/aisa-youtube-serp-scout`
-- Description: Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials.
+- Description: Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
 - Change: patched Hermes runtime auth and storage defaults in scripts/youtube_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -98,7 +98,7 @@
 
 - Category: `communication`
 - Path: `hermes-release/communication/last30days`
-- Description: Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output.
+- Description: Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: the user needs recent multi-source research across the last 30 days.
 - Change: removed 1 non-runtime generated/test files from the release bundle
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -106,7 +106,7 @@
 
 - Category: `communication`
 - Path: `hermes-release/communication/last30days-zh`
-- Description: 聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果。触发条件：当用户需要 recent social research、人物近况、公司动态、竞品对比、发布反应、趋势扫描时使用。支持 AISA 规划、聚类、重排和 JSON 输出。
+- Description: 聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.
 - Change: removed 1 non-runtime generated/test files from the release bundle
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -154,7 +154,7 @@
 
 - Category: `research`
 - Path: `hermes-release/research/openclaw-aisa-youtube-aisa`
-- Description: Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Supports curl queries and the bundled Python client with locale and filter controls.
+- Description: Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
 - Change: patched Hermes runtime auth and storage defaults in scripts/youtube_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -450,5 +450,5 @@
 
 - Category: `communication`
 - Path: `hermes-release/communication/youtube-search`
-- Description: YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.
+- Description: YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
 - Change: replaced source README with a Hermes-oriented release README

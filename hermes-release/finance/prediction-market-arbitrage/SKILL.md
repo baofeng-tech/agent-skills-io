@@ -1,7 +1,6 @@
 ---
-name: aisa-prediction-market-arbitrage
+name: prediction-market-arbitrage
 description: 'Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
-homepage: https://aisa.one
 metadata:
   aisa:
     emoji: 🛠
@@ -21,7 +20,6 @@ metadata:
     - market
     - stock
     - prediction
-    - aisa
     related_skills:
     - market
     - prediction-market

@@ -1,7 +1,6 @@
 ---
 name: us-stock-analyst
 description: 'Professional US stock analysis with financial data, news, social sentiment, and multi-model AI. Comprehensive reports at $0.02-0.10 per analysis. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
-homepage: https://aisa.one
 allowed-tools: Read Bash Grep
 when_to_use: the user needs market data, stock analysis, watchlists, or portfolio workflows
 ---

@@ -263,7 +263,12 @@ def rewrite_user_facing_markdown(text: str, platform: str, skill_name: str) -> s
 
 
 def write_skill_readme(skill_dir: Path, frontmatter: dict[str, Any], platform: str) -> None:
-    runtime = "Claude Code" if platform == "claude" else "Hermes"
+    runtime_map = {
+        "claude": "Claude Code",
+        "hermes": "Hermes",
+        "clawhub": "ClawHub",
+    }
+    runtime = runtime_map.get(platform, "this runtime")
     name = str(frontmatter.get("name") or skill_dir.name)
     description = str(frontmatter.get("description") or f"{name} skill package.")
     title = prettify_skill_name(name)

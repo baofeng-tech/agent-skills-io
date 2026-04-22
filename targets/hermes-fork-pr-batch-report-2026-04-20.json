@@ -1,25 +1,183 @@
 {
   "target_repo": "baofeng-tech/Aisa-One-Skills-Hermes",
-  "fork_owner": "xiaofengxyz",
+  "head_owner": "baofeng-tech",
   "base_commit": "abb7c4e3e8e453f9ad4e3eb8b7c4c3027f794bd6",
-  "requested": [
-    "last30days",
-    "last30days-zh"
-  ],
+  "requested": [],
   "results": [
     {
-      "skill": "last30days",
-      "status": "failed",
-      "branch": "xiaofengxyz:add-skill-last30days",
+      "skill": "aisa-twitter-api",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-aisa-twitter-api",
       "pr_url": null,
-      "note": "Author identity unknown\n\n*** Please tell me who you are.\n\nRun\n\n  git config --global user.email \"you@example.com\"\n  git config --global user.name \"Your Name\"\n\nto set your account's default identity.\nOmit --global to set the identity only in this repository.\n\nfatal: empty ident name (for <xiaofeng@xiaofeng.localdomain>) not allowed"
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "aisa-twitter-command-center",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-aisa-twitter-command-center",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "aisa-twitter-engagement-suite",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-aisa-twitter-engagement-suite",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "aisa-twitter-post-engage",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-aisa-twitter-post-engage",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "last30days",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-last30days",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
     },
     {
       "skill": "last30days-zh",
-      "status": "failed",
-      "branch": "xiaofengxyz:add-skill-last30days-zh",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-last30days-zh",
       "pr_url": null,
-      "note": "Author identity unknown\n\n*** Please tell me who you are.\n\nRun\n\n  git config --global user.email \"you@example.com\"\n  git config --global user.name \"Your Name\"\n\nto set your account's default identity.\nOmit --global to set the identity only in this repository.\n\nfatal: empty ident name (for <xiaofeng@xiaofeng.localdomain>) not allowed"
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "llm-router",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-llm-router",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "market",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-market",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "media-gen",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-media-gen",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "openclaw-twitter",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-openclaw-twitter",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "openclaw-twitter-post-engage",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-openclaw-twitter-post-engage",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "perplexity-research",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-perplexity-research",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "perplexity-search",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-perplexity-search",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "prediction-market",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-prediction-market",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "prediction-market-arbitrage",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-prediction-market-arbitrage",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "search",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-search",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "stock-dividend",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-stock-dividend",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "stock-portfolio",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-stock-portfolio",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "stock-watchlist",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-stock-watchlist",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "tavily-extract",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-tavily-extract",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "twitter",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-twitter",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "twitter-command-center-search-post-interact",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-twitter-command-center-search-post-interact",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "web-search",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-web-search",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "x-intelligence-automation",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-x-intelligence-automation",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
+    },
+    {
+      "skill": "youtube",
+      "status": "push_only",
+      "branch": "baofeng-tech:add-skill-youtube",
+      "pr_url": null,
+      "note": "HTTP 403: {'message': 'Resource not accessible by personal access token', 'documentation_url': 'https://docs.github.com/rest/pulls/pulls#create-a-pull-request', 'status': '403'}"
     }
   ]
 }

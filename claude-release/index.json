@@ -61,7 +61,7 @@
     {
       "name": "aisa-youtube-serp-scout",
       "path": "aisa-youtube-serp-scout",
-      "description": "Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials.",
+      "description": "Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
       "residual_risks": []
     },
     {
@@ -73,7 +73,7 @@
     {
       "name": "last30days",
       "path": "last30days",
-      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: you need recent social research, company updates, person profiles, competitor comparisons, launch reactions, or trend scans. Supports AISA-powered planning, clustering, reranking, and JSON output.",
+      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: the user needs recent multi-source research across the last 30 days.",
       "residual_risks": [
         "Large runtime surface remains; verify Python 3.12+ and AISA-only flow before public publishing."
       ]
@@ -81,7 +81,7 @@
     {
       "name": "last30days-zh",
       "path": "last30days-zh",
-      "description": "聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果。触发条件：当用户需要 recent social research、人物近况、公司动态、竞品对比、发布反应、趋势扫描时使用。支持 AISA 规划、聚类、重排和 JSON 输出。",
+      "description": "聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.",
       "residual_risks": [
         "Large runtime surface remains; verify Python 3.12+ and AISA-only flow before public publishing."
       ]
@@ -119,7 +119,7 @@
     {
       "name": "openclaw-aisa-youtube-aisa",
       "path": "openclaw-aisa-youtube-aisa",
-      "description": "Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Supports curl queries and the bundled Python client with locale and filter controls.",
+      "description": "Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
       "residual_risks": []
     },
     {
@@ -335,7 +335,7 @@
     {
       "name": "youtube-search",
       "path": "youtube-search",
-      "description": "YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.",
+      "description": "YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
       "residual_risks": []
     }
   ]

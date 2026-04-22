@@ -1,7 +1,6 @@
 ---
 name: openclaw-youtube
 description: 'YouTube SERP Scout for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.'
-homepage: https://aisa.one
 allowed-tools: Read Bash Grep
 when_to_use: the user needs YouTube search, trend discovery, channel research, or SERP analysis
 ---

@@ -1,8 +1,8 @@
-# AIsa Media Gen
+# Media Gen
 
 Release-ready Hermes skill package generated from `targetSkills/media-gen`.
 
-- Skill name: `aisa-media-gen`
+- Skill name: `media-gen`
 - Entry point: `SKILL.md`
 - Runtime assets: `scripts/`, `references/`, `assets/` when present
 

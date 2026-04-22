@@ -1,8 +1,8 @@
-# AIsa Market
+# Market
 
 Release-ready Hermes skill package generated from `targetSkills/market`.
 
-- Skill name: `aisa-market`
+- Skill name: `market`
 - Entry point: `SKILL.md`
 - Runtime assets: `scripts/`, `references/`, `assets/` when present
 

@@ -1,0 +1,11 @@
+{
+  "name": "multi-search-plugin",
+  "description": "Native-first ClawHub plugin for `multi-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+  "version": "1.0.0",
+  "author": {
+    "name": "AIsa"
+  },
+  "homepage": "https://aisa.one",
+  "repository": "https://github.com/AIsa-team/agent-skills",
+  "license": "Apache-2.0"
+}

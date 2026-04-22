@@ -1,0 +1,418 @@
+{
+  "generated_at": "2026-04-21T12:49:04Z",
+  "marketplace": "aisa-claude-marketplace",
+  "source_repo": "baofeng-tech/Aisa-One-Plugins-Claude",
+  "total": 51,
+  "ok": 43,
+  "failed": 8,
+  "results": [
+    {
+      "index": 1,
+      "name": "aisa-multi-search-engine",
+      "returncode": 0,
+      "seconds": 0.9,
+      "stdout": "Installing plugin \"aisa-multi-search-engine\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: aisa-multi-search-engine@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 2,
+      "name": "aisa-provider",
+      "returncode": 0,
+      "seconds": 0.83,
+      "stdout": "Installing plugin \"aisa-provider\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: aisa-provider@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 3,
+      "name": "aisa-tavily",
+      "returncode": 0,
+      "seconds": 0.86,
+      "stdout": "Installing plugin \"aisa-tavily\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: aisa-tavily@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 4,
+      "name": "aisa-twitter-api",
+      "returncode": 0,
+      "seconds": 0.78,
+      "stdout": "Installing plugin \"aisa-twitter-api\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: aisa-twitter-api@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 5,
+      "name": "aisa-twitter-command-center",
+      "returncode": 0,
+      "seconds": 0.82,
+      "stdout": "Installing plugin \"aisa-twitter-command-center\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: aisa-twitter-command-center@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 6,
+      "name": "aisa-twitter-engagement-suite",
+      "returncode": 0,
+      "seconds": 0.81,
+      "stdout": "Installing plugin \"aisa-twitter-engagement-suite\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: aisa-twitter-engagement-suite@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 7,
+      "name": "aisa-twitter-post-engage",
+      "returncode": 0,
+      "seconds": 0.82,
+      "stdout": "Installing plugin \"aisa-twitter-post-engage\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: aisa-twitter-post-engage@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 8,
+      "name": "aisa-youtube-search",
+      "returncode": 0,
+      "seconds": 0.82,
+      "stdout": "Installing plugin \"aisa-youtube-search\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: aisa-youtube-search@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 9,
+      "name": "aisa-youtube-serp-scout",
+      "returncode": 0,
+      "seconds": 0.78,
+      "stdout": "Installing plugin \"aisa-youtube-serp-scout\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: aisa-youtube-serp-scout@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 10,
+      "name": "cn-llm",
+      "returncode": 0,
+      "seconds": 0.77,
+      "stdout": "Installing plugin \"cn-llm\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: cn-llm@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 11,
+      "name": "last30days",
+      "returncode": 0,
+      "seconds": 0.79,
+      "stdout": "Installing plugin \"last30days\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: last30days@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 12,
+      "name": "last30days-zh",
+      "returncode": 0,
+      "seconds": 0.82,
+      "stdout": "Installing plugin \"last30days-zh\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: last30days-zh@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 13,
+      "name": "llm-router",
+      "returncode": 0,
+      "seconds": 0.83,
+      "stdout": "Installing plugin \"llm-router\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: llm-router@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 14,
+      "name": "market",
+      "returncode": 1,
+      "seconds": 0.76,
+      "stdout": "",
+      "stderr": "✘ Failed to install plugin \"market@aisa-claude-marketplace\": Plugin \"market\" not found in marketplace \"aisa-claude-marketplace\""
+    },
+    {
+      "index": 15,
+      "name": "marketpulse",
+      "returncode": 0,
+      "seconds": 0.79,
+      "stdout": "Installing plugin \"marketpulse\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: marketpulse@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 16,
+      "name": "media-gen",
+      "returncode": 1,
+      "seconds": 0.82,
+      "stdout": "",
+      "stderr": "✘ Failed to install plugin \"media-gen@aisa-claude-marketplace\": Plugin \"media-gen\" not found in marketplace \"aisa-claude-marketplace\""
+    },
+    {
+      "index": 17,
+      "name": "multi-search",
+      "returncode": 0,
+      "seconds": 0.78,
+      "stdout": "Installing plugin \"multi-search\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: multi-search@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 18,
+      "name": "openclaw-aisa-youtube-aisa",
+      "returncode": 0,
+      "seconds": 0.82,
+      "stdout": "Installing plugin \"openclaw-aisa-youtube-aisa\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: openclaw-aisa-youtube-aisa@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 19,
+      "name": "openclaw-media-gen",
+      "returncode": 0,
+      "seconds": 0.79,
+      "stdout": "Installing plugin \"openclaw-media-gen\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: openclaw-media-gen@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 20,
+      "name": "openclaw-search",
+      "returncode": 0,
+      "seconds": 0.82,
+      "stdout": "Installing plugin \"openclaw-search\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: openclaw-search@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 21,
+      "name": "openclaw-twitter",
+      "returncode": 0,
+      "seconds": 0.84,
+      "stdout": "Installing plugin \"openclaw-twitter\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: openclaw-twitter@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 22,
+      "name": "openclaw-twitter-post-engage",
+      "returncode": 0,
+      "seconds": 0.8,
+      "stdout": "Installing plugin \"openclaw-twitter-post-engage\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: openclaw-twitter-post-engage@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 23,
+      "name": "openclaw-youtube",
+      "returncode": 0,
+      "seconds": 0.82,
+      "stdout": "Installing plugin \"openclaw-youtube\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: openclaw-youtube@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 24,
+      "name": "perplexity-research",
+      "returncode": 0,
+      "seconds": 0.89,
+      "stdout": "Installing plugin \"perplexity-research\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: perplexity-research@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 25,
+      "name": "perplexity-search",
+      "returncode": 1,
+      "seconds": 0.83,
+      "stdout": "",
+      "stderr": "✘ Failed to install plugin \"perplexity-search@aisa-claude-marketplace\": Plugin \"perplexity-search\" not found in marketplace \"aisa-claude-marketplace\""
+    },
+    {
+      "index": 26,
+      "name": "prediction-market",
+      "returncode": 1,
+      "seconds": 0.84,
+      "stdout": "",
+      "stderr": "✘ Failed to install plugin \"prediction-market@aisa-claude-marketplace\": Plugin \"prediction-market\" not found in marketplace \"aisa-claude-marketplace\""
+    },
+    {
+      "index": 27,
+      "name": "prediction-market-arbitrage",
+      "returncode": 1,
+      "seconds": 0.79,
+      "stdout": "",
+      "stderr": "✘ Failed to install plugin \"prediction-market-arbitrage@aisa-claude-marketplace\": Plugin \"prediction-market-arbitrage\" not found in marketplace \"aisa-claude-marketplace\""
+    },
+    {
+      "index": 28,
+      "name": "prediction-market-arbitrage-api",
+      "returncode": 0,
+      "seconds": 0.83,
+      "stdout": "Installing plugin \"prediction-market-arbitrage-api\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: prediction-market-arbitrage-api@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 29,
+      "name": "prediction-market-arbitrage-zh",
+      "returncode": 0,
+      "seconds": 0.83,
+      "stdout": "Installing plugin \"prediction-market-arbitrage-zh\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: prediction-market-arbitrage-zh@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 30,
+      "name": "prediction-market-data",
+      "returncode": 0,
+      "seconds": 0.87,
+      "stdout": "Installing plugin \"prediction-market-data\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: prediction-market-data@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 31,
+      "name": "prediction-market-data-zh",
+      "returncode": 0,
+      "seconds": 0.86,
+      "stdout": "Installing plugin \"prediction-market-data-zh\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: prediction-market-data-zh@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 32,
+      "name": "scholar-search",
+      "returncode": 0,
+      "seconds": 0.92,
+      "stdout": "Installing plugin \"scholar-search\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: scholar-search@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 33,
+      "name": "search",
+      "returncode": 1,
+      "seconds": 0.79,
+      "stdout": "",
+      "stderr": "✘ Failed to install plugin \"search@aisa-claude-marketplace\": Plugin \"search\" not found in marketplace \"aisa-claude-marketplace\""
+    },
+    {
+      "index": 34,
+      "name": "smart-search",
+      "returncode": 0,
+      "seconds": 0.8,
+      "stdout": "Installing plugin \"smart-search\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: smart-search@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 35,
+      "name": "stock-analysis",
+      "returncode": 0,
+      "seconds": 0.8,
+      "stdout": "Installing plugin \"stock-analysis\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: stock-analysis@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 36,
+      "name": "stock-dividend",
+      "returncode": 0,
+      "seconds": 0.83,
+      "stdout": "Installing plugin \"stock-dividend\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: stock-dividend@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 37,
+      "name": "stock-hot",
+      "returncode": 0,
+      "seconds": 0.82,
+      "stdout": "Installing plugin \"stock-hot\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: stock-hot@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 38,
+      "name": "stock-portfolio",
+      "returncode": 0,
+      "seconds": 0.85,
+      "stdout": "Installing plugin \"stock-portfolio\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: stock-portfolio@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 39,
+      "name": "stock-rumors",
+      "returncode": 0,
+      "seconds": 0.83,
+      "stdout": "Installing plugin \"stock-rumors\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: stock-rumors@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 40,
+      "name": "stock-watchlist",
+      "returncode": 0,
+      "seconds": 0.84,
+      "stdout": "Installing plugin \"stock-watchlist\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: stock-watchlist@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 41,
+      "name": "tavily-extract",
+      "returncode": 0,
+      "seconds": 0.79,
+      "stdout": "Installing plugin \"tavily-extract\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: tavily-extract@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 42,
+      "name": "tavily-search",
+      "returncode": 0,
+      "seconds": 0.81,
+      "stdout": "Installing plugin \"tavily-search\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: tavily-search@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 43,
+      "name": "twitter",
+      "returncode": 1,
+      "seconds": 0.79,
+      "stdout": "",
+      "stderr": "✘ Failed to install plugin \"twitter@aisa-claude-marketplace\": Plugin \"twitter\" not found in marketplace \"aisa-claude-marketplace\""
+    },
+    {
+      "index": 44,
+      "name": "twitter-autopilot",
+      "returncode": 0,
+      "seconds": 0.83,
+      "stdout": "Installing plugin \"twitter-autopilot\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: twitter-autopilot@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 45,
+      "name": "twitter-command-center-search-post",
+      "returncode": 0,
+      "seconds": 0.84,
+      "stdout": "Installing plugin \"twitter-command-center-search-post\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: twitter-command-center-search-post@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 46,
+      "name": "twitter-command-center-search-post-interact",
+      "returncode": 0,
+      "seconds": 0.82,
+      "stdout": "Installing plugin \"twitter-command-center-search-post-interact\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: twitter-command-center-search-post-interact@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 47,
+      "name": "us-stock-analyst",
+      "returncode": 0,
+      "seconds": 0.87,
+      "stdout": "Installing plugin \"us-stock-analyst\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: us-stock-analyst@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 48,
+      "name": "web-search",
+      "returncode": 0,
+      "seconds": 0.85,
+      "stdout": "Installing plugin \"web-search\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: web-search@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 49,
+      "name": "x-intelligence-automation",
+      "returncode": 0,
+      "seconds": 0.84,
+      "stdout": "Installing plugin \"x-intelligence-automation\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: x-intelligence-automation@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    },
+    {
+      "index": 50,
+      "name": "youtube",
+      "returncode": 1,
+      "seconds": 0.83,
+      "stdout": "",
+      "stderr": "✘ Failed to install plugin \"youtube@aisa-claude-marketplace\": Plugin \"youtube\" not found in marketplace \"aisa-claude-marketplace\""
+    },
+    {
+      "index": 51,
+      "name": "youtube-search",
+      "returncode": 0,
+      "seconds": 0.83,
+      "stdout": "Installing plugin \"youtube-search\" from marketplace \"aisa-claude-marketplace\"...\n✔ Successfully installed plugin: youtube-search@aisa-claude-marketplace (scope: user)",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,28 +1,25 @@
 ---
 name: clawhub-skill-optimizer
-description: "Optimize ClawHub skill packaging and metadata. Use when: publishing or refining a SKILL.md-based ClawHub skill for better search discoverability, bilingual naming, frontmatter quality, and agent invocation. Not for plugin manifest generation or Suspicious-risk auditing."
+description: "Optimize publish-ready SKILL.md packages across ClawHub, Claude, Hermes, and GitHub. Use when: refining naming, frontmatter, body structure, bilingual copy, and release-mode variants without changing runtime behavior. Not for plugin manifest generation or deep security auditing."
 ---
 
-# ClawHub Skill Optimizer
+# Publish Skill Optimizer
 
-Optimize SKILL.md-based ClawHub skills to maximize search discoverability on ClawHub (clawhub.ai / cn.clawhub-mirror.com) and agent invocation probability in OpenClaw, while choosing between a cross-platform mother-skill shape and a conservative ClawHub publish shape.
+Optimize SKILL.md-based skills for public distribution across ClawHub, Claude, Hermes, GitHub, and related runtimes, while preserving the original runtime behavior.
 
 ## When to use
 
-- When packaging a new skill for publication on ClawHub
-- When optimizing an existing skill's metadata for better search ranking
-- When generating bilingual (English + Chinese) skill versions
-- When writing or rewriting YAML frontmatter `description` fields
-- When structuring SKILL.md body for optimal agent consumption
-- When the target artifact is still a skill, not a plugin
+- When packaging or refining a skill for public distribution on ClawHub, Claude, Hermes, or GitHub
+- When optimizing skill naming, frontmatter, and body structure for better search discoverability and agent invocation
+- When generating bilingual English and Chinese variants
+- When deciding how a mother skill should differ from a platform-specific publish bundle
+- When improving first-turn clarity, task framing, and "爆款化" positioning without rewriting runtime logic
 
 ## When NOT to use
 
-- When creating skills for local-only use (not published to ClawHub)
-- When the task is about OpenClaw configuration, not skill packaging
-- When editing skill functionality or logic (this skill only optimizes metadata and structure)
-- When generating `.claude-plugin/plugin.json`, `package.json`, or `openclaw.plugin.json`; use `clawhub-plugin-packager`
-- When auditing a bundle for `Suspicious` upload risks; use `clawhub-security-auditor`
+- When the task is primarily about plugin manifests or marketplace wrappers; use `clawhub-plugin-packager`
+- When the main task is auditing security or Suspicious/upload risk; use `clawhub-security-auditor`
+- When editing business logic, API behavior, or runtime code beyond what is needed for publish-surface alignment
 
 ## Scope boundary
 
@@ -31,186 +28,149 @@ This skill owns:
 - skill naming and bilingual naming
 - YAML frontmatter quality
 - `SKILL.md` structure
-- ClawHub skill search discoverability
-- OpenClaw skill invocation wording
-- deciding between `cross-platform mode` and `clawhub publish mode`
-- producing a conservative publish-ready frontmatter when ClawHub upload is the immediate goal
+- publish-mode wording and section layout
+- search discoverability and invocation wording
+- deciding between source-skill and platform-release variants
 
 This skill does not own:
 
 - plugin manifest generation
-- release zip assembly rules for plugins
-- security/risk auditing beyond lightweight reminders
+- release zip assembly rules
+- deep security/risk auditing
+- broad runtime refactors
 
-## Core mechanism awareness
+## Release Modes
 
-Two mechanisms drive all optimization decisions:
+Choose the target mode before editing copy:
 
-**OpenClaw agent selection**: Agent sees only `<name>` + `<description>` in an XML list at session start. Agent decides based on description alone — SKILL.md body is loaded only after selection. Therefore `description` quality directly determines invocation probability.
-
-**ClawHub search**: Uses hybrid text matching + relevance scoring on `name`, `slug`, and `summary` (= frontmatter `description`). Exact keyword matches in name/slug rank highest. Usage signals (downloads, stars) also affect ranking but do NOT dominate relevance.
-
-**Critical platform difference**: clawhub.ai search does NOT support Chinese characters — pure Chinese skills are invisible on the main site. cn.clawhub-mirror.com has its own localized search that supports Chinese.
-
-## Packaging workflow
-
-Choose one mode first:
-
-- `cross-platform mode`
-  - keep AgentSkills/Hermes/Claude-compatible fields
-  - optimize search wording without stripping portability fields
+- `source mode`
+  - canonical mother skill in `targetSkills/`
+  - keep cross-platform structure
+  - prefer `metadata.aisa` as the source of truth
 - `clawhub publish mode`
-  - output a conservative ClawHub-safe frontmatter
-  - minimize non-runtime wording and unnecessary metadata
-  - prefer the true shipped runtime path over illustrative alternatives
+  - optimize for ClawHub search, parser compatibility, and low-risk upload wording
+  - prefer short high-intent descriptions and conservative publish surfaces
+- `claude publish mode`
+  - optimize for Claude Code / skills.sh readability and direct invocation
+  - remove references to files or commands not shipped in the release bundle
+- `hermes publish mode`
+  - optimize for Hermes category/tag discovery, runtime-only packaging, and community-safe wording
 
-1. Generate YAML frontmatter (apply description rules)
-2. Structure SKILL.md body (apply section rules)
-3. Generate bilingual versions (English + Chinese)
-4. Run the validation checklist
-5. Publish to ClawHub
+If one `SKILL.md` cannot satisfy all targets cleanly, generate separate publish variants rather than forcing a single noisy compromise.
 
-### Step 1: Generate YAML frontmatter
+## Core principles
 
-The frontmatter is the single most important element. Read `references/frontmatter-rules.md` for complete templates and the five description writing laws.
+### 1. Selection happens on the description first
 
-Key points for the `description` field:
-- Lead with core functionality — action verb preferred but not mandatory
-- Embed explicit trigger: "Use when:" (EN) or "触发条件：" (ZH)
-- Include exact keywords users will search for (not just semantic synonyms)
-- Keep 50-200 characters (sweet spot: 80-150)
-- No marketing language ("powerful", "best", "强大的")
+Agents usually see `name` and `description` before they read the full body. The description must therefore:
 
-**English pattern:**
+- say what the skill does in plain language
+- contain the trigger phrase `Use when:` or `触发条件：`
+- include the exact task words a user would actually search for
+- state the first useful outcome, not generic marketing
+
+### 2. "爆款化" means clearer task framing, not hype
+
+When improving a public skill, prefer:
+
+- title = user task, not internal project codename
+- first line = immediate user value
+- examples = concrete, high-intent requests
+- family positioning = each sibling skill owns a distinct job instead of keyword overlap
+
+Avoid:
+
+- generic adjectives like `powerful`, `best`, `advanced`
+- vague platform bragging
+- making multiple sibling skills compete for the same exact positioning
+
+### 3. Mother skill and publish bundle can differ
+
+The source skill can stay richer and more portable. The publish bundle should only describe the shipped runtime and shipped files.
+
+## Hard repository conventions
+
+When optimizing a published repo skill, enforce these before polishing copy:
+
+- Use minimal frontmatter with `name`, `description`, and canonical `metadata.aisa`.
+- Prefer `metadata.aisa.emoji`, `metadata.aisa.requires`, `metadata.aisa.primaryEnv`, and `metadata.aisa.compatibility`.
+- Do not leave legacy fields like `argument-hint`, `allowed-tools`, `user-invocable`, `homepage`, or `repository` in a published skill unless the target platform truly requires them.
+- Every command example must use `{baseDir}` when a runtime placeholder is needed.
+- Keep `SKILL.md` aligned to the shipped runtime only. If compare/test/sync/dev scripts are not in the publish artifact, do not mention them.
+- For Python skills, prefer stdlib-first runtime bundles. Do not describe `requests`, `httpx`, `uv`, or `pyproject.toml` as required unless the shipped runtime truly depends on them.
+- If the repo contains a richer mother skill plus slimmer publish bundles, optimize the publish bundles and do not strip the mother skill's developer workflows.
+- In stateless publish bundles, remove references to watchlists, recurring briefings, SQLite accumulation, or long-lived schedulers unless they intentionally ship.
+- If a feature depends on side-channel auth such as direct GitHub tokens and is not core to the publish runtime, remove it from publish copy instead of advertising split-auth behavior.
+- If EN and ZH variants exist, keep the same runtime surface area, safety trimming, command layout, and section structure across both.
+
+## Recommended body structure
+
+Choose only the modules that help the shipped runtime:
+
+- `When to use`
+  - always include
+- `When NOT to use`
+  - include when nearby sibling skills exist
+- `Quick Reference`
+  - include for CLI-first skills
+- `Capabilities`
+  - include for multi-function skills
+- `High-Intent Workflows`
+  - include when the skill has multiple high-value user jobs
+- `Inputs and Outputs`
+  - include when the interface is structured
+- `Example Requests`
+  - include when search/discovery matters
+- `Setup`
+  - include only what the published runtime actually needs
+
+## Description rules
+
+Preferred English pattern:
+
+```text
+[Core task]. Use when: [trigger]. Supports [important outcomes].
 ```
-[Core functionality description]. Use when: [trigger]. Supports [features].
+
+Preferred Chinese pattern:
+
+```text
+[核心任务]。触发条件：当用户需要[场景]时使用。支持[关键结果]。
 ```
 
-**Chinese pattern:**
-```
-[核心功能描述]。触发条件：当用户需要[场景]时使用。支持[特性]。
-```
+Description quality checklist:
 
-**Upload-compatibility rule for `clawhub publish mode`:**
-- Prefer a flat, conservative frontmatter shape for published skills.
-- Put `author`, `version`, `license`, and `user-invocable` at the top level when present.
-- Keep `metadata:` focused on `metadata.openclaw` only; avoid mixing unrelated sibling keys under `metadata`.
-- For relay/API-key skills, declare `primaryEnv` and `requires` both at the top level and under `metadata.openclaw`.
-- If a package was previously flagged for undeclared credentials, first compare its frontmatter shape against a known-good upload before changing runtime behavior.
-- If the shipped runtime is primarily a bundled Python client, declare `python3` as the required bin and treat `curl` as optional documentation only unless the release bundle truly depends on both paths equally.
-- Keep descriptions, setup steps, and command examples aligned with the same primary runtime path; mixed `curl` + `python` messaging can look like a metadata mismatch when only one path is actually shipped and supported.
+- 50-200 characters when possible
+- no angle brackets `<>`
+- exact task keywords present
+- no marketing fluff
+- no undocumented dependencies
 
-**Portability rule for `cross-platform mode`:**
-- Keep AgentSkills-oriented fields such as `license`, `allowed-tools`, and carefully chosen `metadata` siblings when they serve GitHub, Hermes, or Claude Code.
-- Do not force ClawHub-only top-level fields into the mother skill if they make the shared version noisier.
-- If both outcomes are needed, generate two artifacts rather than forcing one SKILL.md to satisfy every platform equally well.
+## Validation checklist
 
-### Step 2: Structure SKILL.md body
+Before publishing, verify:
 
-The body is read only after agent selects the skill. Structure should match the skill type. Read `references/body-structure.md` for detailed guidance.
+1. Frontmatter is valid and machine-readable.
+2. `name` is short, keyword-rich, and appropriate for the platform.
+3. `description` contains `Use when:` or `触发条件：`.
+4. The skill body matches the shipped runtime and shipped files.
+5. Required env vars and binaries are declared in `metadata.aisa`.
+6. EN and ZH variants have parallel runtime scope.
+7. The optimization changed wording and packaging clarity, not core runtime semantics.
+8. Sibling skills do not compete for the same exact positioning.
 
-**Recommended modules** (choose what fits, not all required):
+## Lightweight publish-risk reminders
 
-| Module | When to include | Priority |
-| :--- | :--- | :--- |
-| When to use | Always — helps agent confirm selection | Required |
-| When NOT to use | When similar skills exist — prevents misuse | Recommended |
-| Quick Reference | For CLI/command-based skills | High |
-| Capabilities | For multi-function skills | High |
-| Operations | For API-wrapper skills with callable functions | Medium |
-| Inputs/Outputs | For skills with structured parameters | Medium |
-| Example Queries | For search/query-based skills | Medium |
-| Setup/Installation | For skills requiring environment config | As needed |
+While this skill is not a full auditor, always avoid obvious publish regressions:
 
-### Step 3: Generate bilingual versions
+- do not advertise password, cookie, or browser-credential flows
+- do not describe non-runtime helper scripts as part of normal usage
+- do not default to home-directory persistence in public bundles
+- do not claim functionality that only exists in source/dev tooling
 
-Always generate both English and Chinese versions. Read `references/bilingual-rules.md` for naming conventions and Chinese localization requirements.
+## Example requests
 
-| Aspect | English (clawhub.ai) | Chinese (cn.clawhub-mirror.com) |
-| :--- | :--- | :--- |
-| Slug | `[function]` or `[function]-[qualifier]` | `[function]-zh` or `[chinese-pinyin]` |
-| Name | Concise, keyword-rich | Natural Chinese expression |
-| Description | Must contain English search keywords | Must contain Chinese search terms + keep core English terms |
-| Target site | clawhub.ai (English search only) | cn.clawhub-mirror.com (Chinese search) |
-
-### Step 4: Run validation checklist
-
-Before publishing, verify every item:
-
-| # | Check | Standard |
-| :--- | :--- | :--- |
-| 1 | Frontmatter format | Valid YAML with `name`, `description`; name is hyphen-case, max 64 chars |
-| 2 | Description content | No angle brackets `<>`, max 1024 chars |
-| 3 | Trigger in description | Contains "Use when:" (EN) or "触发条件：" (ZH) |
-| 4 | Keyword coverage | Name/slug contain primary search terms users would type |
-| 5 | Bilingual versions | Both EN and ZH with correct slug conventions |
-| 6 | Body relevance | Includes at minimum "When to use" section |
-| 7 | Chinese naturalness | No literal translation artifacts |
-| 8 | Search isolation | EN version searchable on clawhub.ai; ZH version searchable on cn.clawhub-mirror.com |
-| 9 | Security | No password requests; API key auth only |
-| 10 | Environment deps | Required bins/env declared in metadata (if applicable) |
-| 11 | Functionality preserved | Optimization did not change skill logic |
-| 12 | Mode consistency | `cross-platform mode` keeps portability fields; `clawhub publish mode` strips non-essential siblings |
-
-### Step 4.5: Suspicious Scan Lessons
-
-Recent real ClawHub uploads were flagged `Suspicious` for these exact reasons:
-
-1. **Dangerous external CLI invocation**
-   - Examples: `claude -p --dangerously-skip-permissions`, helper scripts that shell out to external agent CLIs.
-   - Why it flags: platform scanners treat this as elevated local-agent execution.
-
-2. **Copying into plugin caches or user skill directories**
-   - Examples: scripts that write into `~/.claude/plugins/cache`, `~/.openclaw/skills`, `~/.agents/skills`, or similar directories.
-   - Why it flags: scanners interpret this as self-install / persistence behavior.
-
-3. **Writing research data into user home directories by default**
-   - Examples: default paths like `~/.local/share/last30days`, `~/Documents/...`, or implicit SQLite stores in home.
-   - Why it flags: scanners interpret this as persistent local data collection.
-
-4. **Version-control or repo-rewriting helpers in the shipped package**
-   - Examples: `git show upstream/main`, scripts that overwrite `SKILL.md`, or tooling that swaps local skill versions.
-   - Why it flags: scanners interpret this as code mutation or source rewriting.
-
-5. **Publishing debug/test helpers that are not required for runtime**
-   - Examples: compare harnesses, migration helpers, test runners, sync scripts, packaging-only utilities.
-   - Why it flags: even if benign, these widen the attack surface and often include the behaviors above.
-
-6. **Transcript/raw dump wording that implies broad local persistence**
-   - Examples: comments or docs saying “always save the FULL dump to disk”.
-   - Why it flags: scanners may treat this as suspicious data retention even when it is only a debug artifact.
-
-7. **Browser cookie extraction or Keychain access code in the shipped package**
-   - Examples: files like `chrome_cookies.py`, `cookie_extract.py`, `safari_cookies.py`
-   - Why it flags: these often read browser cookie databases, call macOS `security`, call `openssl`, or otherwise touch local credential stores
-   - This maps directly to scanner labels such as `cookie extraction`, `Keychain access`, and `local sensitive credentials`
-
-8. **Legacy credential inputs still exposed in runtime config**
-   - Examples: `AUTH_TOKEN`, `CT0`, `FROM_BROWSER`, `XAI_API_KEY`, `GOOGLE_API_KEY`, `GEMINI_API_KEY`, `SCRAPECREATORS_API_KEY`
-   - Why it flags: even if no longer recommended, scanners interpret multi-provider auth and browser-derived credentials as expanded secret surface area
-   - If a skill is intended to be AISA-only or API-key-only, these legacy auth inputs should be removed from the shipped runtime, not merely undocumented
-
-How to avoid repeat flags:
-
-- Prefer API-key-only runtime paths.
-- Keep release bundles minimal: runtime code, `SKILL.md`, and essential metadata only.
-- Remove or neuter helper scripts that invoke external CLIs, mutate local installs, or persist to home directories by default.
-- Use repo-local default data paths such as `./.tool-data` when persistence is necessary.
-- Remove browser cookie extraction helpers and any code that touches Keychain, browser SQLite stores, or local credential vaults.
-- Collapse legacy auth inputs to the minimum supported set; do not ship dead compatibility secrets in `env.py` or setup code.
-- Treat Chinese and English packages the same: if one bundle still contains risky helpers, a re-upload may be reclassified even if a previous version passed.
-
-### Step 5: Publish
-
-Use `clawhub skill publish` or `openclaw skills install` to publish. Ensure both language versions are published separately.
-
-## Security rules
-
-- NEVER request user passwords in any skill
-- Use API key authentication only
-- Declare required binaries in `metadata.openclaw.requires.bins`
-- Declare required env vars in `metadata.openclaw.requires.env`
-- For maximum parser compatibility, also duplicate required env/bins at top-level `requires` and set top-level `primaryEnv`
-- Do not declare `curl` as a required bin when the published package's real execution path is a Python client and `curl` is only an illustrative example
-- Avoid shipping helper scripts that call external agent CLIs, sync into cache directories, or write persistent data into user-home locations by default
-- In `clawhub publish mode`, prefer returning authorization links over local browser-opening helpers when both flows exist
+- `Optimize this skill for ClawHub search and upload`
+- `Turn this mother skill into source mode plus Hermes publish mode`
+- `Rewrite the SKILL.md so Claude and Hermes versions each read cleanly`
+- `Make these EN/ZH variants consistent and more high-intent without changing runtime behavior`

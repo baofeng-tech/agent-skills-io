@@ -190,6 +190,8 @@ def main():
     parser = argparse.ArgumentParser(description="🔥 Hot Scanner — trending stocks & crypto via AIsa API")
     parser.add_argument("--focus", choices=["both", "stocks", "crypto"], default="both")
     parser.add_argument("--output", choices=["text", "json"], default="text")
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     args = parser.parse_args()
 
     print("🔍 Scanning for hot trends via AIsa API...\n", file=sys.stderr)

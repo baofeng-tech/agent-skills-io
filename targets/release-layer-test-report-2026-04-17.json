@@ -1,14 +1,18 @@
 {
   "structure": {
     "claude_errors": [],
-    "hermes_errors": []
+    "hermes_errors": [],
+    "clawhub_errors": [],
+    "clawhub_plugin_errors": [],
+    "agentskills_so_errors": [],
+    "agentskill_sh_errors": []
   },
   "smoke_tests": [
     {
       "layer": "claude",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/usr/bin/python3",
+        "/home/xiaofeng/.local/bin/python3.12",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -16,29 +20,29 @@
         "--type",
         "Latest"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGPTNRRX0TwKAAIcY9HaK1vQMgAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcY9NDtUAnEAoABhxj00O1P9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/229110",
+      "code": 1,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"timed out\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/usr/bin/python3",
+        "/home/xiaofeng/.local/bin/python3.12",
         "scripts/youtube_client.py",
         "search",
         "--query",
         "OpenAI"
       ],
-      "code": 124,
-      "stdout_preview": "",
-      "stderr_preview": "\nTimeoutExpired"
+      "code": 0,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 2,\n      \"subscribers\": 1930000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "search",
       "command": [
-        "/usr/bin/python3",
+        "/home/xiaofeng/.local/bin/python3.12",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -54,7 +58,7 @@
       "layer": "claude",
       "path": "prediction-market",
       "command": [
-        "/usr/bin/python3",
+        "/home/xiaofeng/.local/bin/python3.12",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -62,53 +66,14 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x69145187c38e66f2c0e4f25e4d70c321fb34062c8b8e200d0d292920dbacd061\",\n      \"description\": \"In the upcoming MLB game between the St. Louis Cardinals and Houston Astros, scheduled for April 18 at 7:10 PM ET:\\n\\nThis market will resolve to \\\"Over\\\" if the St. Louis Cardinals and Houston Astros combin",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x8827d07a83901b62374630a876f35b68f56e8e5a1bde2e188ba9bc6ce55465e6\",\n      \"description\": \"This market will resolve to \\\"Yes\\\" if the \\\"Close\\\" price for the ETH/USDT 1 hour candle that ends on the time and date specified in the title is higher than the price specified in the title. Otherwise, thi",
       "stderr_preview": ""
-    },
-    {
-      "layer": "claude",
-      "path": "stock-analysis",
-      "command": [
-        "/usr/bin/python3",
-        "scripts/analyze_stock.py",
-        "AAPL",
-        "--fast",
-        "--output",
-        "json"
-      ],
-      "code": 1,
-      "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/stock-analysis/scripts/analyze_stock.py\", line 25, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
-    },
-    {
-      "layer": "claude",
-      "path": "stock-watchlist",
-      "command": [
-        "/usr/bin/python3",
-        "scripts/watchlist.py",
-        "list"
-      ],
-      "code": 1,
-      "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/stock-watchlist/scripts/watchlist.py\", line 30, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
-    },
-    {
-      "layer": "claude",
-      "path": "stock-portfolio",
-      "command": [
-        "/usr/bin/python3",
-        "scripts/portfolio.py",
-        "list"
-      ],
-      "code": 1,
-      "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/stock-portfolio/scripts/portfolio.py\", line 32, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
     },
     {
       "layer": "claude",
       "path": "llm-router",
       "command": [
-        "/usr/bin/python3",
+        "/home/xiaofeng/.local/bin/python3.12",
         "scripts/llm_router_client.py",
         "models"
       ],
@@ -120,29 +85,126 @@
       "layer": "claude",
       "path": "last30days",
       "command": [
-        "/usr/bin/python3",
-        "scripts/test-aisa-provider.py"
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/last30days.py",
+        "--help"
       ],
-      "code": 1,
-      "stdout_preview": "[AISA Test] model=gpt-4.1-mini\n[AISA Test] url=https://api.aisa.one/v1/chat/completions\n[AISA Test] timeout=20s retries=1 prompt_chars=54\n",
-      "stderr_preview": "[AISA Test] request=failed class=timeout type=HTTPError: URL Error: timed out\n"
+      "code": 0,
+      "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--api-key API_KEY] [--config-file CONFIG_FILE] [--quick]\n                     [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research",
+      "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "last30days-zh",
       "command": [
-        "/usr/bin/python3",
-        "scripts/test-aisa-provider.py"
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/last30days.py",
+        "--help"
       ],
       "code": 0,
-      "stdout_preview": "[AISA Test] model=gpt-4.1-mini\n[AISA Test] url=https://api.aisa.one/v1/chat/completions\n[AISA Test] timeout=20s retries=1 prompt_chars=54\n[AISA Test] request=ok\n{\n  \"text\": \"{\\\"ok\\\": true, \\\"provider\\\": \\\"aisa\\\"}\",\n  \"parsed\": {\n    \"ok\": true,\n    \"provider\": \"aisa\"\n  }\n}\n",
+      "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--api-key API_KEY] [--config-file CONFIG_FILE] [--quick]\n                     [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "communication/aisa-twitter-command-center",
       "command": [
-        "/usr/bin/python3",
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/twitter_client.py",
+        "--api-key",
+        "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGcUqBeWMdQKAAIcZxRYFJugrwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcZxS0BkAnEAoABhxnFLQGP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/162885",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "research/aisa-youtube-serp-scout",
+      "command": [
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/youtube_client.py",
+        "--api-key",
+        "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 1,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"timed out\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "research/search",
+      "command": [
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/search_client.py",
+        "--api-key",
+        "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
+        "web",
+        "--query",
+        "OpenAI latest",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"id\": \"k16zk-KF0bV6hZfpV_W9Iw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.3 Instant · GPT-5.3-Codex ; Safety. Safety Approach · Security & Privacy ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "finance/prediction-market",
+      "command": [
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/prediction_market_client.py",
+        "--api-key",
+        "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x8827d07a83901b62374630a876f35b68f56e8e5a1bde2e188ba9bc6ce55465e6\",\n      \"description\": \"This market will resolve to \\\"Yes\\\" if the \\\"Close\\\" price for the ETH/USDT 1 hour candle that ends on the time and date specified in the title is higher than the price specified in the title. Otherwise, thi",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "ai/llm-router",
+      "command": [
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/llm_router_client.py",
+        "--api-key",
+        "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
+        "models"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qw",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "communication/last30days",
+      "command": [
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/last30days.py",
+        "--help"
+      ],
+      "code": 0,
+      "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--api-key API_KEY] [--config-file CONFIG_FILE] [--quick]\n                     [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "clawhub",
+      "path": "aisa-twitter-command-center",
+      "command": [
+        "/home/xiaofeng/.local/bin/python3.12",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -151,28 +213,28 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGPTdd9WgXAKAAIcY9HzHlqgAQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcY9Of9oAnEAoABhxj05_2f9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/15110",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGcU7UpbALsKAAIcZxSW69ugZQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcZxT2bcAnEAoABhxnFPZtv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/146446",
       "stderr_preview": ""
     },
     {
-      "layer": "hermes",
-      "path": "research/aisa-youtube-serp-scout",
+      "layer": "clawhub",
+      "path": "aisa-youtube-serp-scout",
       "command": [
-        "/usr/bin/python3",
+        "/home/xiaofeng/.local/bin/python3.12",
         "scripts/youtube_client.py",
         "search",
         "--query",
         "OpenAI"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1930000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 2,\n      \"subscribers\": 1930000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
       "stderr_preview": ""
     },
     {
-      "layer": "hermes",
-      "path": "research/search",
+      "layer": "clawhub",
+      "path": "search",
       "command": [
-        "/usr/bin/python3",
+        "/home/xiaofeng/.local/bin/python3.12",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -180,15 +242,15 @@
         "--count",
         "1"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"id\": \"oNu5g-8fEiKhrlUejhHNXA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.3 Instant · GPT-5.3-Codex ; Safety. Safety Approach · Security & Privacy ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
-      "stderr_preview": ""
+      "code": 124,
+      "stdout_preview": "",
+      "stderr_preview": "\nTimeoutExpired"
     },
     {
-      "layer": "hermes",
-      "path": "finance/prediction-market",
+      "layer": "clawhub",
+      "path": "prediction-market",
       "command": [
-        "/usr/bin/python3",
+        "/home/xiaofeng/.local/bin/python3.12",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -196,58 +258,19 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x69145187c38e66f2c0e4f25e4d70c321fb34062c8b8e200d0d292920dbacd061\",\n      \"description\": \"In the upcoming MLB game between the St. Louis Cardinals and Houston Astros, scheduled for April 18 at 7:10 PM ET:\\n\\nThis market will resolve to \\\"Over\\\" if the St. Louis Cardinals and Houston Astros combin",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x8827d07a83901b62374630a876f35b68f56e8e5a1bde2e188ba9bc6ce55465e6\",\n      \"description\": \"This market will resolve to \\\"Yes\\\" if the \\\"Close\\\" price for the ETH/USDT 1 hour candle that ends on the time and date specified in the title is higher than the price specified in the title. Otherwise, thi",
       "stderr_preview": ""
     },
     {
-      "layer": "hermes",
-      "path": "finance/stock-analysis",
+      "layer": "clawhub",
+      "path": "last30days",
       "command": [
-        "/usr/bin/python3",
-        "scripts/analyze_stock.py",
-        "AAPL",
-        "--fast",
-        "--output",
-        "json"
-      ],
-      "code": 1,
-      "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/stock-analysis/scripts/analyze_stock.py\", line 25, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
-    },
-    {
-      "layer": "hermes",
-      "path": "finance/stock-watchlist",
-      "command": [
-        "/usr/bin/python3",
-        "scripts/watchlist.py",
-        "list"
-      ],
-      "code": 1,
-      "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/stock-watchlist/scripts/watchlist.py\", line 30, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
-    },
-    {
-      "layer": "hermes",
-      "path": "finance/stock-portfolio",
-      "command": [
-        "/usr/bin/python3",
-        "scripts/portfolio.py",
-        "list"
-      ],
-      "code": 1,
-      "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/stock-portfolio/scripts/portfolio.py\", line 32, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
-    },
-    {
-      "layer": "hermes",
-      "path": "ai/llm-router",
-      "command": [
-        "/usr/bin/python3",
-        "scripts/llm_router_client.py",
-        "models"
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/last30days.py",
+        "--help"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qw",
+      "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--api-key API_KEY] [--config-file CONFIG_FILE] [--quick]\n                     [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research",
       "stderr_preview": ""
     }
   ]

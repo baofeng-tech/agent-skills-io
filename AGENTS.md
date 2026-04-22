@@ -82,9 +82,10 @@ When the task is about Claude / Hermes release output, prefer these entry points
 - `python3 scripts/build_claude_release.py`
 - `python3 scripts/build_claude_marketplace.py`
 - `python3 scripts/build_hermes_release.py`
-- `PYTHON_EXE=/usr/local/python3.12/bin/python3.12 python3 scripts/test_release_layers.py`
+- `python3 scripts/test_release_layers.py`
 
 These scripts are the default way to regenerate publish layers and validate them.
+Run them in order. Do not run `build_claude_marketplace.py` in parallel with `build_claude_release.py`, because the marketplace builder reads `claude-release/` as its source tree.
 
 ### Step 4: Preserve project intent
 

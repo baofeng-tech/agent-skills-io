@@ -1,21 +1,19 @@
 ---
 name: last30days-zh
-description: "聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果。触发条件：当用户需要 recent social research、人物近况、公司动态、竞品对比、发布反应、趋势扫描时使用。支持 AISA 规划、聚类、重排和 JSON 输出。"
+description: '聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.'
 license: MIT
+compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, bash, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
   aisa:
-    emoji: "📰"
+    emoji: 📰
     requires:
-      env:
-        - AISA_API_KEY
       bins:
-        - python3
-        - bash
+      - python3
+      - bash
+      env:
+      - AISA_API_KEY
     primaryEnv: AISA_API_KEY
-    compatibility:
-      - openclaw
-      - claude-code
-      - hermes
+    compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, bash, environment variables AISA_API_KEY and internet access to api.aisa.one.
 ---
 
 # last30days 中文版

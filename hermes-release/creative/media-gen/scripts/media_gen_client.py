@@ -330,6 +330,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> int:
     parser = build_parser()
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     args = parser.parse_args()
     if not getattr(args, "command", None):
         parser.print_help()

@@ -222,6 +222,8 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     subparsers = parser.add_subparsers(dest="command", help="Command")
 
     # ---- User Read Commands ----

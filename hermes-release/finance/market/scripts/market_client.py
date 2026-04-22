@@ -262,6 +262,8 @@ Examples:
         """
     )
     
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     subparsers = parser.add_subparsers(dest="asset_type", help="Asset type")
     
     # ==================== Stock Commands ====================

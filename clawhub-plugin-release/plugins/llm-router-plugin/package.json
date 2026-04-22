@@ -1,0 +1,33 @@
+{
+  "name": "llm-router-plugin",
+  "version": "1.0.0",
+  "description": "Native-first ClawHub plugin for `llm-router`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "keywords": [
+    "aisa",
+    "clawhub",
+    "openclaw",
+    "native-plugin",
+    "agent-skill",
+    "llm",
+    "router",
+    "provider"
+  ],
+  "homepage": "https://aisa.one",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AIsa-team/agent-skills.git"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "compat": {
+      "pluginApi": "^1.0.0"
+    },
+    "build": {
+      "openclawVersion": "^1.0.0"
+    }
+  }
+}

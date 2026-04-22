@@ -1,12 +1,9 @@
 ---
 name: openclaw-aisa-youtube-aisa
-description: 'Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Supports curl queries and the bundled Python client with locale and filter controls.'
-version: 1.0.0
+description: 'Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.'
 license: MIT-0
-author: 0xjordansg-yolo
 allowed-tools: Read Bash Grep
-user-invocable: true
-when_to_use: the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Supports curl queries and the bundled Python client with locale and filter controls
+when_to_use: the user needs YouTube search, trend discovery, channel research, or SERP analysis
 ---
 
 # YouTube SERP Scout

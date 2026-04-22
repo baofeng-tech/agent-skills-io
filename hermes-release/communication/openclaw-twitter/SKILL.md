@@ -1,8 +1,6 @@
 ---
 name: openclaw-twitter
 description: 'Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AISA relay, then publish approved posts with OAuth. Use when: the user asks for Twitter/X research, monitoring, or posting without sharing passwords. Supports read APIs, authorization links, and media-aware posting.'
-author: 0xjordansg-yolo
-homepage: https://aisa.one
 metadata:
   aisa:
     emoji: 🛠

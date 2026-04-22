@@ -25,11 +25,15 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 HERMES_RELEASE = REPO_ROOT / "hermes-release"
 UPSTREAM_REPO = "baofeng-tech/Aisa-One-Skills-Hermes"
-FORK_OWNER = "xiaofengxyz"
+PUBLISH_OWNER = "baofeng-tech"
+PUBLISH_REMOTE_NAME = "publish"
+PUBLISH_REMOTE_URL = f"git@github-work:{UPSTREAM_REPO}.git"
 LOCAL_HERMES_REPO = Path("/mnt/d/workplace/Aisa-One-Skills-Hermes")
 WORK_CLONE = Path("/mnt/d/workplace/hermes-pr-batch-clone")
 WINDOWS_GIT = "/mnt/d/Program Files/Git/cmd/git.exe"
 WINDOWS_CURL = "/mnt/c/Windows/System32/curl.exe"
+GIT_USER_NAME = "baofeng-tech"
+GIT_USER_EMAIL = "baofeng-tech@users.noreply.github.com"
 
 
 @dataclass
@@ -69,6 +73,13 @@ def api_request(token: str, method: str, url: str, payload: dict | None = None) 
     cmd = [
         WINDOWS_CURL,
         "-sS",
+        "--retry",
+        "4",
+        "--retry-all-errors",
+        "--connect-timeout",
+        "20",
+        "--max-time",
+        "90",
         "-w",
         "\n__STATUS__:%{http_code}",
         "-X",
@@ -81,7 +92,11 @@ def api_request(token: str, method: str, url: str, payload: dict | None = None) 
     if payload is not None:
         cmd.extend(["-H", "Content-Type: application/json", "-d", json.dumps(payload, ensure_ascii=False)])
     cmd.append(url)
-    proc = run(cmd)
+    try:
+        proc = run(cmd)
+    except subprocess.CalledProcessError as exc:
+        stderr = (exc.stderr or exc.stdout or "").strip()
+        raise RuntimeError(f"GitHub API request failed for {method} {url}: {stderr or exc.returncode}") from exc
     raw = proc.stdout.replace("\r\n", "\n")
     marker = "\n__STATUS__:"
     if marker not in raw:
@@ -95,22 +110,6 @@ def api_request(token: str, method: str, url: str, payload: dict | None = None) 
     return status, body
 
 
-def ensure_fork(token: str) -> None:
-    status, _body = api_request(token, "GET", f"https://api.github.com/repos/{FORK_OWNER}/Aisa-One-Skills-Hermes")
-    if status == 200:
-        return
-    if status != 404:
-        raise SystemExit(f"Unable to check fork repository (HTTP {status})")
-
-    status, body = api_request(
-        token,
-        "POST",
-        f"https://api.github.com/repos/{UPSTREAM_REPO}/forks",
-    )
-    if status not in {200, 202}:
-        raise SystemExit(f"Failed to create fork (HTTP {status}): {body}")
-
-
 def fetch_open_pr_skill_names(token: str) -> dict[str, str]:
     status, body = api_request(
         token,
@@ -122,6 +121,12 @@ def fetch_open_pr_skill_names(token: str) -> dict[str, str]:
 
     result: dict[str, str] = {}
     for pr in body:
+        title = str(pr.get("title", "")).strip()
+        if title.startswith("Add skill: "):
+            skill_name = title.split("Add skill: ", 1)[1].strip()
+            if skill_name:
+                result[skill_name] = pr["html_url"]
+                continue
         number = pr["number"]
         files_status, files_body = api_request(
             token,
@@ -146,11 +151,20 @@ def list_release_skills() -> dict[str, Path]:
 
 
 def ensure_clone() -> None:
-    if WORK_CLONE.exists():
-        return
-    if WORK_CLONE.parent.exists():
+    if not WORK_CLONE.exists():
         WORK_CLONE.parent.mkdir(parents=True, exist_ok=True)
-    run(["git", "clone", str(LOCAL_HERMES_REPO), str(WORK_CLONE)])
+        run(["git", "clone", str(LOCAL_HERMES_REPO), str(WORK_CLONE)])
+    run(["git", "config", "user.name", GIT_USER_NAME], cwd=WORK_CLONE)
+    run(["git", "config", "user.email", GIT_USER_EMAIL], cwd=WORK_CLONE)
+    remotes = run(["git", "remote"], cwd=WORK_CLONE).stdout.split()
+    if PUBLISH_REMOTE_NAME not in remotes:
+        run(["git", "remote", "add", PUBLISH_REMOTE_NAME, PUBLISH_REMOTE_URL], cwd=WORK_CLONE)
+    else:
+        run(["git", "remote", "set-url", PUBLISH_REMOTE_NAME, PUBLISH_REMOTE_URL], cwd=WORK_CLONE)
+    run(["git", "checkout", "main"], cwd=WORK_CLONE)
+    run(["git", "fetch", "origin", "main"], cwd=WORK_CLONE)
+    run(["git", "reset", "--hard", "origin/main"], cwd=WORK_CLONE)
+    run(["git", "clean", "-fd"], cwd=WORK_CLONE)
 
 
 def wpath(path: Path) -> str:
@@ -187,14 +201,13 @@ def commit_skill(skill_name: str) -> None:
 
 
 def push_branch(token: str, branch: str) -> None:
-    remote = f"https://x-access-token:{token}@github.com/{FORK_OWNER}/Aisa-One-Skills-Hermes.git"
     run(
         [
             WINDOWS_GIT,
             "-C",
             wpath(WORK_CLONE),
             "push",
-            remote,
+            PUBLISH_REMOTE_NAME,
             f"HEAD:refs/heads/{branch}",
             "--force",
         ]
@@ -208,7 +221,7 @@ def create_pr(token: str, skill_name: str, branch: str) -> tuple[str | None, str
         f"https://api.github.com/repos/{UPSTREAM_REPO}/pulls",
         {
             "title": f"Add skill: {skill_name}",
-            "head": f"{FORK_OWNER}:{branch}",
+            "head": f"{PUBLISH_OWNER}:{branch}",
             "base": "main",
             "body": f"Automated publish for `{skill_name}` from `hermes-release`.",
         },
@@ -237,7 +250,6 @@ def main() -> int:
     args = parser.parse_args()
 
     token = get_token()
-    ensure_fork(token)
     open_prs = fetch_open_pr_skill_names(token)
     targets = resolve_targets(args.skills, open_prs)
     release_skills = list_release_skills()
@@ -271,14 +283,14 @@ def main() -> int:
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report = {
         "target_repo": UPSTREAM_REPO,
-        "fork_owner": FORK_OWNER,
+        "head_owner": PUBLISH_OWNER,
         "base_commit": run(["git", "rev-parse", "HEAD"], cwd=LOCAL_HERMES_REPO).stdout.strip(),
         "requested": args.skills or [],
         "results": [
             {
                 "skill": item.skill,
                 "status": item.status,
-                "branch": f"{FORK_OWNER}:{item.branch}",
+                "branch": f"{PUBLISH_OWNER}:{item.branch}",
                 "pr_url": item.pr_url,
                 "note": item.note,
             }

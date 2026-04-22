@@ -1,0 +1,11 @@
+{
+  "name": "last30days-zh-plugin",
+  "description": "Native-first ClawHub plugin for `last30days-zh`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. 通过 AIsa 执行网页、多源或近 30 天研究检索。触发条件：当用户需要搜索、研究、比对或趋势归纳时使用。支持多源检索与结构化输出。",
+  "version": "1.0.0",
+  "author": {
+    "name": "AIsa"
+  },
+  "homepage": "https://aisa.one",
+  "repository": "https://github.com/AIsa-team/agent-skills",
+  "license": "MIT"
+}

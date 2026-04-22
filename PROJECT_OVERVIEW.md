@@ -17,7 +17,10 @@ Any AI working in this repository should:
 - 分析多平台 skill 规范
 - 产出跨平台母版 skill
 - 再进一步产出适合 ClawHub 上传的保守发布变体
+- 再进一步产出适合 ClawHub plugin catalog 的 native-first plugin 发布变体
 - 再进一步产出适合 Claude / skills.sh / GitHub 分发的保守发布变体
+- 再进一步产出适合 Agent Skills / agentskills.so 生态分发的标准公开变体
+- 再进一步产出适合 agentskill.sh 目录导入的标准公开变体
 - 再进一步产出适合 Hermes Hub / GitHub / tap 分发的保守发布变体
 - 沉淀一套让人类和 AI 都能快速复用的迁移、包装、发布方法
 
@@ -57,19 +60,33 @@ Any AI working in this repository should:
 
 - 保留跨平台母版在 `targetSkills/`
 - 生成更保守的 ClawHub 上传变体在 `clawhub-release/`
+- 生成可直接走 `clawhub package publish` 的 native-first plugin 包在 `clawhub-plugin-release/`
 - 收敛 frontmatter
 - 收敛高敏感文案和本地副作用入口
 
-### D. 作为技能包装方法库
+### D. 作为 Agent Skills 标准公开层
+
+- 从 `targetSkills/` 生成更标准、更中立的公开层 `agentskills-so-release/`
+- 面向 `agentskills.so`、`agentskill.sh`、GitHub 公开仓库与手工 ZIP 导入
+- 把母版中的平台私有嵌套元数据收敛成更扁平的公开 frontmatter
+
+### E. 作为 agentskill.sh 导入层
+
+- 从 `targetSkills/` 生成单独的 `agentskill-sh-release/`
+- 维持 root-level skill 目录，以适配 agentskill.sh 的 GitHub 仓库扫描与 `Analyze & Import`
+- 保持与 `agentskills-so-release/` 共源但文档与发布说明独立
+
+### F. 作为技能包装方法库
 
 - 提供迁移手册
 - 提供平台差异对照表
 - 提供索引与发布说明
 - 提供 Claude 市场结构分析与发布预处理层
 - 提供 Hermes 市场结构分析与发布预处理层
-- 提供 2 个面向 ClawHub 的辅助 skill：
+- 提供 3 个面向 ClawHub 的辅助 skill：
   - `clawhub-skill-optimizer`
   - `clawhub-security-auditor`
+  - `clawhub-plugin-packager`
 
 ## 3. 当前已经做了什么
 
@@ -101,6 +118,18 @@ Any AI working in this repository should:
   - Claude Market / Claude Code / skills.sh 当前结构、搜索优化和低风险发布方案
 - `targets/hermes-market-structure-and-upload-plan-2026-04-17.md`
   - Hermes Agent 当前 skill 规范、分类结构、搜索优化和低风险发布方案
+- `targets/targetskills-agentskills-compliance-audit-2026-04-20.md`
+  - `targetSkills/` 面向 `agentskills.io` 母版规范的审查与修复结果
+- `targets/clawhub-plugin-structure-and-upload-plan-2026-04-20.md`
+  - ClawHub plugin catalog 的 native-first / bundle-compatible 双格式结构、发布路径与爆款策略
+- `targets/agentskills-so-structure-and-upload-plan-2026-04-20.md`
+  - `agentskills.so` / `agentskill.sh` 当前观察、标准公开层设计与发布顺序
+- `targets/current-context-compression-2026-04-20.md`
+  - 当前阶段核心结论压缩版，方便后续快速接续
+- `targets/project-capability-internalization-2026-04-20.md`
+  - 把近期对话中形成的方法、脚本和流程沉淀为本项目能力
+- `targets/chat-history-daily-summary-2026-04-20.md`
+  - 近期工作按日总结与阶段性成果汇总
 - `targets/release-layer-test-report-2026-04-17.json`
   - Claude / Hermes 发布层的结构校验与 smoke test 结果
 - `targets/release-layer-real-test-report-2026-04-17.md`
@@ -111,6 +140,12 @@ Any AI working in this repository should:
   - 说明账号、环境路径、凭据入口统一从 `example/accounts` 查找
 - `targets/claude-and-hermes-upload-guide-2026-04-17.md`
   - Claude 与 Hermes 的详细上传 / 发布步骤
+- `targets/claude-hermes-inclusion-and-install-checks-2026-04-21.md`
+  - Claude standalone / Claude marketplace / Hermes tap / Hermes publish 的收录判断、可安装验证命令与当前状态快照
+- `targets/hermes-guard-and-publish-followup-2026-04-20.md`
+  - `last30days` 系列收敛、Hermes Guard 状态与后续批量发布跟踪
+- `targets/hermes-fork-pr-batch-report-2026-04-20.json`
+  - 当前 25 个 Hermes 缺口 skill 的远端分支批处理结果
 - `platformDesc/Skills Platform平台.md`
   - 平台研究草稿
 - `platformDesc/AIsa Skills 如何跨平台兼容.md`
@@ -183,18 +218,29 @@ Any AI working in this repository should:
 
 位于 `clawhub-release/`：
 
-- `aisa-twitter-command-center`
-- `aisa-twitter-post-engage`
-- `aisa-youtube-search`
-- `aisa-youtube-serp-scout`
+- 当前包含 `targetSkills/` 下全部 51 个 skill 的 ClawHub-oriented 发布副本
+- 由 `scripts/build_clawhub_release.py` 自动生成
 
 这些目录不是母版，而是：
 
 - 专门给 ClawHub 上传准备的保守版本
-- frontmatter 更扁平
-- `metadata` 收敛到 `metadata.openclaw`
-- 去掉部分跨平台字段
-- Twitter 变体中已去掉本地浏览器自动打开入口
+- frontmatter 更扁平，并保留 canonical `metadata.aisa`
+- 同时补最小 `metadata.openclaw` 兼容提示
+- 去掉部分跨平台噪音字段
+- 对 OAuth 自动打开与本地副作用默认值做收敛
+
+#### 3.0 ClawHub Plugin 发布变体
+
+位于 `clawhub-plugin-release/`：
+
+- 当前包含 51 个独立的 ClawHub bundle plugin 包
+- 由 `scripts/build_clawhub_plugin_release.py` 自动生成
+
+这些目录的作用：
+
+- 把 `clawhub-release/` 中的单 skill 包装成 `.claude-plugin/plugin.json` + `package.json` + `skills/<skill>/` 的 bundle plugin
+- 为每个 plugin 同时生成 root-flat zip
+- 作为 `clawhub package publish` 的实际输入层
 
 #### 3.1 Claude 发布变体
 
@@ -239,7 +285,43 @@ Any AI working in this repository should:
 - 对常见 AISA Python 客户端做显式 `--api-key` / repo-local state 的 Hermes 安全补丁
 - 当前 Hermes 官方复扫结果为：51 个 `safe`
 - `last30days` / `last30days-zh` 已经从 Guard 阻塞项降为 `SAFE`
-- 当前剩余阻塞不再是技能内容，而是 Hermes CLI 侧缺少 GitHub API 凭证（`GITHUB_TOKEN` / `gh auth login`）
+- 当前剩余阻塞不再是技能内容，而是 GitHub PR 创建权限
+- 仓库内已新增批量脚本，可把缺口 skill 推成远端 `add-skill-*` 分支
+
+#### 3.4 AgentSkills.so 发布变体
+
+位于 `agentskills-so-release/`：
+
+- 当前包含 `targetSkills/` 下全部 51 个 skill 的 Agent Skills 标准公开副本
+- 由 `scripts/build_agentskills_so_release.py` 自动生成
+
+这些目录不是母版，而是：
+
+- 面向 `agentskills.so` / GitHub 标准技能目录的公开层
+- frontmatter 收敛为更接近 `agentskills.io` 开放规范的 `name`、`description`、`license`、`compatibility`、flat `metadata`
+- 默认把 `repository` 指向 `https://github.com/baofeng-tech/agent-skills-so`
+- 默认把 `platforms` 收敛为 `agentskills.io,agentskills.so,github`
+- 每个 skill 生成单独 README
+- 每个 skill 同时生成 root-flat zip 以应对手工导入场景
+- 根目录额外生成 `README.md`、`PUBLISHING.md`、`AUDIT.md`、`index.json`、`index.md`、`well-known-skills-index.json`、`LICENSE`
+- 会移除标准 skill 分发层里不需要的 plugin 包装文件，例如 `package.json`、`index.ts`
+
+#### 3.5 agentskill.sh 发布变体
+
+位于 `agentskill-sh-release/`：
+
+- 当前包含 `targetSkills/` 下全部 51 个 skill 的 agentskill.sh-oriented 公开副本
+- 由 `scripts/build_agentskill_sh_release.py` 自动生成
+
+这些目录不是母版，而是：
+
+- 面向 agentskill.sh 的 GitHub repo 扫描与 `Analyze & Import`
+- 保持 root-level skill 目录与扁平 frontmatter
+- 默认把 `repository` 指向 `https://github.com/baofeng-tech/agent-skills`
+- 默认把 `platforms` 收敛为 `agentskills.io,agentskill.sh,github`
+- 每个 skill 同时生成 root-flat zip，兼容 direct URL / 手工更新路径
+- 根目录额外生成 `README.md`、`PUBLISHING.md`、`AUDIT.md`、`index.json`、`index.md`、`well-known-skills-index.json`、`LICENSE`
+- 会移除标准 skill 分发层里不需要的 plugin 包装文件，例如 `package.json`、`index.ts`
 
 #### 4. 发布索引
 
@@ -271,9 +353,17 @@ Any AI working in this repository should:
 - `import-github-downloads-to-targetSkills.py`
 - `build_claude_release.py`
 - `build_claude_marketplace.py`
+- `build_clawhub_release.py`
+- `build_clawhub_plugin_release.py`
 - `build_hermes_release.py`
+- `build_agentskills_so_release.py`
+- `batch_publish_hermes_prs.py`
 - `publish-claude-release.sh`
+- `publish-clawhub-release.sh`
+- `publish-clawhub-plugin-release.sh`
+- `publish_clawhub_batch.py`
 - `publish-hermes-release.sh`
+- `publish-agentskills-so-release.sh`
 - `test_release_layers.py`
 
 这些脚本的作用：
@@ -282,14 +372,35 @@ Any AI working in this repository should:
   - 从 `targetSkills/` 生成 `claude-release/`
 - `build_claude_marketplace.py`
   - 从 `claude-release/` 生成 `claude-marketplace/`
+- `build_clawhub_release.py`
+  - 从 `targetSkills/` 生成 `clawhub-release/`
+- `build_clawhub_plugin_release.py`
+  - 从 `clawhub-release/` 生成 `clawhub-plugin-release/`
 - `build_hermes_release.py`
   - 从 `targetSkills/` 生成 `hermes-release/`
+- `build_agentskills_so_release.py`
+  - 从 `targetSkills/` 生成 `agentskills-so-release/`
+- `build_agentskill_sh_release.py`
+  - 从 `targetSkills/` 生成 `agentskill-sh-release/`
+- `batch_publish_hermes_prs.py`
+  - 对 Hermes 缺口 skill 批量补推 `add-skill-*` 远端分支，并尝试创建 PR
 - `publish-claude-release.sh`
   - 一键构建并同步 `claude-release/`（可选同时同步 `claude-marketplace/`）到外部发布仓库
+- `publish-clawhub-release.sh`
+  - 一键规范化并生成 `clawhub-release/`
+- `publish-clawhub-plugin-release.sh`
+  - 一键规范化、生成 `clawhub-release/`，并继续生成 `clawhub-plugin-release/`
+- `publish_clawhub_batch.py`
+  - 用 1-2 个 ClawHub API token 批量续传 `clawhub-release/` skill 与 `clawhub-plugin-release/plugins/` plugin
+  - 支持远端已发布探测、按 artifact 落盘状态、保守的每 token 每小时发布上限，以及 dry-run 续跑
 - `publish-hermes-release.sh`
   - 一键构建并同步 `hermes-release/` 到外部发布仓库
+- `publish-agentskills-so-release.sh`
+  - 一键规范化并生成 `agentskills-so-release/`
+- `publish-agentskill-sh-release.sh`
+  - 一键规范化并生成 `agentskill-sh-release/`
 - `test_release_layers.py`
-  - 对 Claude / Hermes 发布层做结构校验与 smoke test
+  - 对 Claude / ClawHub / ClawHub plugin / Hermes / AgentSkills.so 发布层做结构校验，并对代表性 skill 做 smoke test
 - 其余 `publish-*` / `import-*` 脚本
   - 用于 `targetSkills/` 与外部仓库、下载目录之间的导入导出同步
 
@@ -298,8 +409,13 @@ Any AI working in this repository should:
 ```bash
 python3 scripts/build_claude_release.py
 python3 scripts/build_claude_marketplace.py
+python3 scripts/build_clawhub_release.py
+python3 scripts/build_clawhub_plugin_release.py
 python3 scripts/build_hermes_release.py
-PYTHON_EXE=/usr/local/python3.12/bin/python3.12 python3 scripts/test_release_layers.py
+python3 scripts/build_agentskills_so_release.py
+python3 scripts/build_agentskill_sh_release.py
+python3 scripts/publish_clawhub_batch.py --targets both --dry-run
+python3 scripts/test_release_layers.py
 ```
 
 - 将 `targetSkills/` 下的内容同步到相邻的正式仓库目录 `../agent-skills/`
@@ -314,8 +430,14 @@ PYTHON_EXE=/usr/local/python3.12/bin/python3.12 python3 scripts/test_release_lay
 - GitHub 导入脚本按“源目录名（归档根目录名）”和 `SKILL.md` 中的 `name` 两个维度去重，只导入未做过的 skill
 - Claude 发布构建脚本从 `targetSkills/` 生成 `claude-release/`，并同时输出 `README.md`、`index.json`、`AUDIT.md`
 - Claude marketplace 构建脚本从 `claude-release/` 生成 `claude-marketplace/`
+- ClawHub 发布构建脚本从 `targetSkills/` 生成 `clawhub-release/`
+- ClawHub plugin 构建脚本从 `clawhub-release/` 生成 `clawhub-plugin-release/`，并输出每个 plugin 的 root-flat zip
 - Hermes 发布构建脚本从 `targetSkills/` 生成 `hermes-release/`，并额外做 runtime-only 文档收缩、显式 API key 补丁、repo-local state 收敛
-- 发布层测试脚本对 Claude / Hermes 目录执行结构校验与代表性 smoke test
+- AgentSkills.so 发布构建脚本从 `targetSkills/` 生成 `agentskills-so-release/`，并把 frontmatter 收敛为更扁平的公开层
+- AgentSkills.so 发布层会补齐根目录 catalog 文件：`index.json`、`index.md`、`well-known-skills-index.json`、`LICENSE`
+- agentskill.sh 发布构建脚本从 `targetSkills/` 生成 `agentskill-sh-release/`，并保持适合 GitHub 仓库扫描的根目录结构
+- agentskill.sh 发布层也会补齐根目录 catalog 文件：`index.json`、`index.md`、`well-known-skills-index.json`、`LICENSE`
+- 发布层测试脚本对 Claude / ClawHub / ClawHub plugin / Hermes / AgentSkills.so / agentskill.sh 目录执行结构校验，并对代表性旧三层做 smoke test
 - 发布层真实测试现在明确支持读取 `example/accounts` 中的账号与 Python 3.12 路径
 
 #### 5. ClawHub 辅助技能
@@ -370,6 +492,18 @@ ClawHub 专用发布层。
 - 减少 Suspicious 风险
 - 减少 parser / frontmatter 兼容风险
 
+### `clawhub-plugin-release/`
+
+ClawHub plugin 分发层。  
+这是在 `clawhub-release/` 之上再包一层后的 bundle plugin 发布壳。
+
+用途：
+
+- 进入 ClawHub plugin catalog
+- 使用 `clawhub package publish` 发布
+- 保持 skill-first 的 bundle plugin 形态，而不是强行改写成 native code plugin
+- 同时产出 root-flat zip 以便审计和归档
+
 ### `claude-release/`
 
 Claude / skills.sh / GitHub 分发层。  
@@ -405,6 +539,33 @@ Hermes / GitHub / tap 分发层。
 - 提高 `SKILL.md` 在 Hermes 生态中的可发现性
 - 为后续 GitHub 安装、tap、optional-skills 候选 PR 做准备
 - 降低非运行时文件和本地副作用默认值带来的信任风险
+
+### `agentskills-so-release/`
+
+Agent Skills 标准生态分发层。  
+这是从母版再收敛一层后的 standards-first 公开副本。
+
+用途：
+
+- 面向 `agentskills.so`、GitHub 公开仓库
+- 使用更接近开放规范的 flat frontmatter
+- 为手工上传/导入保留单 skill zip
+- 作为比 `claude-release/` 更中立的公开技能目录
+- 根目录保留 crawler 友好的公开索引文件和 license
+- 对应外部 public repo：`baofeng-tech/agent-skills-so`
+
+### `agentskill-sh-release/`
+
+agentskill.sh 分发层。  
+这是从母版再收敛一层后的 agentskill.sh 专用公开副本。
+
+用途：
+
+- 面向 agentskill.sh 的 GitHub repo 导入与 direct URL 更新
+- 保持一 skill 一目录的 root-level 结构
+- 将平台说明明确写成 agentskill.sh 的提交与 webhook 语境
+- 根目录保留 crawler 友好的公开索引文件和 license
+- 对应外部 public repo：`baofeng-tech/agent-skills`
 
 ### `targets/`
 
@@ -495,18 +656,29 @@ AI 工作辅助层。
 4. 如果目标是 ClawHub 上传：
    - 优先从 `clawhub-release/` 继续收敛
    - 不要直接拿 `targetSkills/` 原样上传
-5. 如果要优化搜索或审计 Suspicious：
+5. 如果目标是 ClawHub plugin 发布：
+   - 先生成 `clawhub-release/`
+   - 再生成 `clawhub-plugin-release/`
+   - 用 `clawhub package publish` 发布 `plugins/<skill>-plugin`
+6. 如果要优化搜索或审计 Suspicious：
    - 使用 `.agents/skills/clawhub-skill-optimizer`
    - 使用 `.agents/skills/clawhub-security-auditor`
-6. 如果目标是 Claude plugin marketplace：
+7. 如果目标是 Claude plugin marketplace：
    - 先生成 `claude-release/`
    - 再生成 `claude-marketplace/`
    - 再同步到 `D:\workplace\Aisa-One-Plugins-Claude`
-7. 如果目标是 Hermes 分发：
+   - 再按 `targets/claude-hermes-inclusion-and-install-checks-2026-04-21.md` 里的 `marketplace list` / `plugin install` 做真实安装验证
+8. 如果目标是 Hermes 分发：
    - 先从 `targetSkills/` 生成 `hermes-release/`
+   - 再按 `targets/claude-hermes-inclusion-and-install-checks-2026-04-21.md` 里的 `tap list` / `inspect` / `install` 区分“tap 可安装”和“官方 publish 收录”
+9. 如果目标是 Agent Skills 标准生态分发：
+   - 如果目标是 `agentskills.so`，优先生成 `agentskills-so-release/`
+   - 如果目标是 `agentskill.sh`，优先生成 `agentskill-sh-release/`
+   - 如果只是沿用旧的 Claude / skills.sh / GitHub 线，仍可继续使用 `claude-release/`
    - 再使用 `scripts/test_release_layers.py` 做结构校验和 smoke test
    - 再用 Hermes Guard 复扫，优先确认哪些 skill 已达 `safe`
-   - 最后同步到 `D:\workplace\Aisa-One-Skills-Hermes` 并执行 `skill -> fork -> PR`
+   - 最后同步到 `D:\workplace\Aisa-One-Skills-Hermes`
+   - 若官方 `skills publish` 的 fork 链路不稳定，则改用 `scripts/batch_publish_hermes_prs.py` 先批量推远端 `add-skill-*` 分支，再用具备写权限的 GitHub 凭据补开 PR
 8. 如果要跑真实发布测试：
    - 先查看 `example/accounts`
    - 再查看 `targets/release-accounts-and-environment-reference-2026-04-17.md`
@@ -533,10 +705,20 @@ AI 工作辅助层。
 - Hermes Guard 批量降风险：已完成一轮，51 个 skill 已进入 `safe`
 - Claude / Hermes 发布层测试：已完成一轮结构校验与 smoke test
 - Claude / Hermes 发布层真实测试：已完成一轮基于真实账号、真实 Python 3.12、真实上游数据的验证
-- Claude 外部发布仓库同步：已完成并推到最新
-- Claude marketplace 外部发布仓库同步：已完成并推到最新
+- Claude / Claude marketplace / Hermes / agent-skills 外部发布仓库同步：2026-04-22 复核时四个外部仓库均已与 `origin/main` 对齐，不再存在“领先 1 个 commit 尚未 push”的当前阻塞
+- Claude marketplace 外部发布仓库同步：`Aisa-One-Plugins-Claude` 已与 `origin/main` 对齐
 - Hermes 外部发布仓库同步：已完成并推到最新
-- Claude marketplace 真安装验证：`last30days` / `last30days-zh` 已从 `aisa-claude-marketplace` 安装成功
+- Claude marketplace 真安装验证：本地目录源 `./claude-marketplace` 已复核为 51/51 plugin 全部安装成功；2026-04-22 复核时，当前机器对 `git@github-work:baofeng-tech/Aisa-One-Plugins-Claude` 的直接 clone 也已成功，因此旧报告中的 GitHub transport / push 阻塞不应再视为当前事实
+- ClawHub plugin 真发布环境：已接通，`clawhub` CLI 已登录并完成首批 7 个 plugin 真实发布
+- ClawHub plugin registry 识别验证：首批已发布 plugin 已可通过 `clawhub package inspect` 查到
+- ClawHub 双 token 批量续传：已新增 `scripts/publish_clawhub_batch.py`，2026-04-22 继续复核时，新重试逻辑已把 dry-run 的 `failed` 从 4 压到 1；当前 `targets/clawhub-publish-state.json` 为 `45 published / 56 planned / 1 failed`
+- ClawHub skill 真发布推进：2026-04-22 新增真实发布 8 个 skill，分别为 `aisa-provider`、`aisa-tavily`、`aisa-twitter-command-center`、`aisa-twitter-engagement-suite`、`aisa-twitter-post-engage`、`aisa-youtube-serp-scout`、`cn-llm`、`last30days-zh`
+- ClawHub 当前剩余显式阻塞：`prediction-market-arbitrage-zh-plugin` 的远端 `package inspect` 仍连续超时；短探测 3 次均返回 `rc=124`，暂更像平台侧 probe 波动而不是命名错误
+- Claude / Hermes / ClawHub timeout 复测：上一轮结构报告里残留的 4 个超时端点已在 2026-04-22 定向复测中全部成功返回，说明它们当前更像外部接口波动，不是稳定可复现的构建缺陷
+- Hermes 缺口 skill 分支级批量补推：已完成，25 个 `add-skill-*` 远端分支已存在
+- Hermes 当前最后阻塞：GitHub PAT 无 PR 创建权限，不能自动补开 Pull Request
+- `agentskills.so` 人工入口：已确认公开邮箱 `support@agentskills.so` 与 Discord 邀请链接
+- `claudemarketplaces.com` 当前检索：2026-04-21 以 `baofeng-tech/Aisa-One-Plugins-Claude`、`Aisa-One-Skills-Claude`、`aisa-claude-marketplace` 为关键词做公开检索，暂未搜到收录页；结合站点公开说明，marketplace 仍需等待 crawler 周期，standalone skills 仍依赖 GitHub / skills.sh 分发与安装量信号
 - 中文镜像 / EN-ZH 双版本发布：尚未系统化完成
 
 ## 7. 现在最重要的下一步
@@ -559,7 +741,8 @@ AI 工作辅助层。
 当前 Hermes 方向已经进一步细化为：
 
 - 保持 `hermes-release/` 的 Guard 结果维持在 `safe`
-- 对 51 个 `safe` skill 继续执行 Hermes `skills publish` 的 `fork -> PR` 批处理
+- 对已经推好的 `baofeng-tech:add-skill-*` 远端分支继续补开 PR
+- 当前主要不是内容整改问题，而是需要具备 PR 写权限的 GitHub 凭据
 - 当前 `last30days` / `last30days-zh` 已不再是 Guard 阻塞项，但仍建议长期保持“无状态研究主链”形态，避免重新膨胀回研究应用
 
 ### 优先级 1.6
@@ -567,6 +750,22 @@ AI 工作辅助层。
 继续扩大 Python 3.12 + 真实账号的运行时覆盖面：
 
 - 视需要把更多高价值 skill 纳入 Python 3.12 真实回归
+
+### 优先级 1.7
+
+继续扩大 ClawHub plugin 首发矩阵并跟进站内扫描状态：
+
+- 优先继续发布 `aisa-youtube-search-plugin`
+- 优先继续发布 `aisa-youtube-serp-scout-plugin`
+- 优先继续发布 `aisa-twitter-post-engage-plugin`
+- 观察已发布首批 7 个 plugin 的 `Scan`、展示页与安装体验
+
+### 优先级 1.8
+
+推动 `agentskills.so` 收录：
+
+- 先观察 `baofeng-tech/agent-skills-so` 是否在 crawler 周期中自然出现
+- 若仍未收录，则通过 `support@agentskills.so` 与 Discord 做人工触达
 
 ### 优先级 2
 

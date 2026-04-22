@@ -1,7 +1,6 @@
 ---
 name: llm-router
 description: 'Unified LLM Gateway - One API for 70+ AI models. Route to GPT, Claude, Gemini, Qwen, Deepseek, Grok and more with a single API key. Use when: the user needs model routing, provider setup, or Chinese LLM access guidance.'
-homepage: https://aisa.one
 allowed-tools: Read Bash Grep
 when_to_use: the user needs model routing, provider setup, or Chinese LLM access guidance
 ---

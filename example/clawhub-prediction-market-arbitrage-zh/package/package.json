@@ -1,0 +1,27 @@
+{
+  "name": "@clawhub/prediction-market-arbitrage-zh",
+  "version": "1.0.0",
+  "description": "Find arbitrage opportunities in prediction markets (Chinese)",
+  "type": "module",
+  "openclaw": {
+    "extensions": [
+      "./openclaw.plugin.json"
+    ],
+    "compat": {
+      "pluginApi": "^1.0.0"
+    },
+    "build": {
+      "openclawVersion": "^1.0.0"
+    }
+  },
+  "keywords": [
+    "openclaw",
+    "clawhub",
+    "skill",
+    "prediction"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AIsa-team/OpenClaw-Skills/tree/main/prediction-market-arbitrage-zh"
+  }
+}

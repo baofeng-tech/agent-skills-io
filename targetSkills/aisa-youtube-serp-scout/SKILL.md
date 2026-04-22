@@ -1,28 +1,19 @@
 ---
 name: aisa-youtube-serp-scout
-description: Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials.
+description: 'Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.'
 license: MIT-0
-compatibility: Requires python3, curl, AISA_API_KEY, and internet access to api.aisa.one. Uses relative script paths for compatibility across AgentSkills-compatible clients, including OpenClaw, Hermes, and Claude Code.
+compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
-  author: AIsa
-  version: "1.0.1"
-  homepage: https://aisa.one
-  tags: youtube,serp,research,competitor-analysis,trends
-  openclaw:
-    emoji: "📺"
-    primaryEnv: AISA_API_KEY
+  aisa:
+    emoji: 📺
     requires:
       bins:
-        - curl
-        - python3
+      - curl
+      - python3
       env:
-        - AISA_API_KEY
-  hermes:
-    tags:
-      - youtube
-      - research
-      - trends
-allowed-tools: Read Grep Bash
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 ---
 
 # AIsa YouTube SERP Scout

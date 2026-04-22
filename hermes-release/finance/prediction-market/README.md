@@ -1,8 +1,8 @@
-# AIsa Prediction Market Data
+# Prediction Market
 
 Release-ready Hermes skill package generated from `targetSkills/prediction-market`.
 
-- Skill name: `aisa-prediction-market-data`
+- Skill name: `prediction-market`
 - Entry point: `SKILL.md`
 - Runtime assets: `scripts/`, `references/`, `assets/` when present
 

@@ -23,6 +23,9 @@ python3 scripts/twitter_oauth_client.py status
 # Request an authorization link
 python3 scripts/twitter_oauth_client.py authorize
 
+# Optional: open the authorization link in the default browser
+python3 scripts/twitter_oauth_client.py authorize --open-browser
+
 # Publish a text post
 python3 scripts/twitter_oauth_client.py post --text "Hello from Twitter OAuth"
 
@@ -55,7 +58,7 @@ Recommended flow:
 1. Try to publish the requested content first.
 2. If posting fails because access has not been authorized yet, return an authorization link.
 3. After the user completes authorization, publish using the authorized account.
-4. Prefer returning the authorization URL instead of attempting any local browser action.
+4. Use `--open-browser` only when the user explicitly wants local browser launch instead of receiving the URL.
 
 ### Attachment Flow
 
@@ -82,7 +85,7 @@ When the user asks to publish content to X/Twitter:
 
 - Do not ask the user for their Twitter password.
 - Do not use cookie-based login or proxy-based login unless the user explicitly asks for legacy behavior.
-- Do not attempt local browser launch from the published bundle; return the authorization link instead.
+- Do not default to `--open-browser`; return the authorization link unless the user explicitly wants local browser launch.
 - Do not invent remote URLs for attachments; always use the provided local workspace file path with `--media-file`.
 - If the user provides a single image attachment, do not duplicate it or turn it into a multi-image post.
 - If the user did not provide tweet text, do not generate or attach any caption text.

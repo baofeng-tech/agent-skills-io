@@ -1,8 +1,8 @@
-# AIsa Perplexity Search
+# Perplexity Search
 
 Release-ready Hermes skill package generated from `targetSkills/perplexity-search`.
 
-- Skill name: `aisa-perplexity-search`
+- Skill name: `perplexity-search`
 - Entry point: `SKILL.md`
 - Runtime assets: `scripts/`, `references/`, `assets/` when present
 

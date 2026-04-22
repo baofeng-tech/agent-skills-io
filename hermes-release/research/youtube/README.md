@@ -1,8 +1,8 @@
-# AIsa Youtube
+# Youtube
 
 Release-ready Hermes skill package generated from `targetSkills/youtube`.
 
-- Skill name: `aisa-youtube`
+- Skill name: `youtube`
 - Entry point: `SKILL.md`
 - Runtime assets: `scripts/`, `references/`, `assets/` when present
 

@@ -340,6 +340,8 @@ def main() -> None:
     p_verity.add_argument("--count", "-c", type=int, default=5)
     p_verity.set_defaults(func=cmd_verity)
 
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     args = parser.parse_args()
     args.func(args)
 

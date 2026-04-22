@@ -1,7 +1,6 @@
 ---
 name: aisa-tavily
 description: 'AI-optimized web search via AIsa''s Tavily API proxy. Returns concise, relevant results for AI agents through AIsa''s unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction.'
-homepage: https://aisa.one
 allowed-tools: Read Bash Grep
 when_to_use: the user needs web search, research, source discovery, or content extraction
 ---

@@ -1,7 +1,6 @@
 ---
-name: aisa-youtube
+name: youtube
 description: 'YouTube SERP Scout for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.'
-homepage: https://aisa.one
 metadata:
   aisa:
     emoji: 🛠
@@ -21,7 +20,6 @@ metadata:
     - youtube
     - search
     - video
-    - aisa
     related_skills:
     - aisa-youtube-search
     - aisa-youtube-serp-scout

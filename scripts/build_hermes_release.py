@@ -300,13 +300,23 @@ def patch_hermes_runtime_files(skill_dir: Path, audit: base.SkillAudit) -> None:
             )
             updated = updated.replace("get_api_key()", "get_api_key(args.api_key)")
 
-        if '--api-key' not in updated and 'argparse.ArgumentParser' in updated and 'AISA_API_KEY' in updated and '--aisa-api-key' not in updated:
+        updated = CLIENT_CONSTRUCTOR_RE.sub(r"client = \1(api_key=args.api_key)", updated)
+
+        has_api_key_flag = (
+            'parser.add_argument("--api-key"' in updated
+            or "parser.add_argument('--api-key'" in updated
+        )
+        if 'args.api_key' in updated and not has_api_key_flag:
             updated = insert_before(
                 updated,
                 "    subparsers =",
                 '    parser.add_argument("--api-key", required=True, help="AIsa API key")\n\n',
             )
-            if '--api-key' not in updated:
+            has_api_key_flag = (
+                'parser.add_argument("--api-key"' in updated
+                or "parser.add_argument('--api-key'" in updated
+            )
+            if not has_api_key_flag:
                 updated = insert_before(
                     updated,
                     "    args = parser.parse_args()",
@@ -321,7 +331,6 @@ def patch_hermes_runtime_files(skill_dir: Path, audit: base.SkillAudit) -> None:
             "parser.add_argument('--aisa-api-key', help='Override AISA_API_KEY')",
             "parser.add_argument('--aisa-api-key', required=True, help='AIsa API key')",
         )
-        updated = CLIENT_CONSTRUCTOR_RE.sub(r"client = \1(api_key=args.api_key)", updated)
 
         if updated != text:
             path.write_text(updated, encoding="utf-8")

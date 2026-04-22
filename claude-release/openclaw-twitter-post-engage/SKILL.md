@@ -1,10 +1,7 @@
 ---
 name: openclaw-twitter-post-engage
 description: 'Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AISA relay. Use when: the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords. Supports read APIs, OAuth-gated posting, and follow or like operations.'
-author: aisadocs
-homepage: https://aisa.one
 allowed-tools: Read Bash Grep
-user-invocable: true
 when_to_use: the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords. Supports read APIs, OAuth-gated posting, and follow or like operations
 ---
 

@@ -512,6 +512,8 @@ def build_parser() -> argparse.ArgumentParser:
         description="Twitter engagement client for local relay like/follow actions",
     )
 
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     list_tweets = subparsers.add_parser("list-tweets", help="List a user's latest tweets for follow-up actions")

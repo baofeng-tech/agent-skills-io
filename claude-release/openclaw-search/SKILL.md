@@ -1,7 +1,6 @@
 ---
 name: openclaw-search
 description: 'Intelligent search for agents. Multi-source retrieval with confidence scoring - web, academic, and Tavily in one unified API. Use when: the user needs web search, research, source discovery, or content extraction.'
-homepage: https://aisa.one
 allowed-tools: Read Bash Grep
 when_to_use: the user needs web search, research, source discovery, or content extraction
 ---

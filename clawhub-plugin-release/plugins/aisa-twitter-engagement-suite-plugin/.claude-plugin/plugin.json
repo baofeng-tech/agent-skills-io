@@ -1,0 +1,11 @@
+{
+  "name": "aisa-twitter-engagement-suite-plugin",
+  "description": "Native-first ClawHub plugin for `aisa-twitter-engagement-suite`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+  "version": "1.0.0",
+  "author": {
+    "name": "AIsa"
+  },
+  "homepage": "https://aisa.one",
+  "repository": "https://github.com/AIsa-team/agent-skills",
+  "license": "MIT-0"
+}

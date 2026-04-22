@@ -185,6 +185,8 @@ def main():
     parser = argparse.ArgumentParser(description="Dividend analysis via AIsa API")
     parser.add_argument("tickers", nargs="+", help="Ticker symbols (e.g., JNJ PG KO)")
     parser.add_argument("--output", choices=["text", "json"], default="text")
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     args = parser.parse_args()
 
     tickers = [t.upper() for t in args.tickers]

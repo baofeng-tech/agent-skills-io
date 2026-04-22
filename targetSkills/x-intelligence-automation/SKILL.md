@@ -2,26 +2,17 @@
 name: x-intelligence-automation
 description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 license: Apache-2.0
-compatibility: Requires python3, AISA_API_KEY, and internet access to api.aisa.one. Uses relative paths for scripts and references to maximize compatibility across AgentSkills-compatible clients, including OpenClaw, Hermes, and Claude Code.
+compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
-  author: karensheng
-  version: "1.0.0"
-  homepage: https://aisa.one
-  tags: twitter,x,intelligence,automation,engagement
-  openclaw:
-    emoji: "🐦"
-    primaryEnv: AISA_API_KEY
+  aisa:
+    emoji: 🐦
     requires:
       bins:
-        - python3
+      - python3
       env:
-        - AISA_API_KEY
-  hermes:
-    tags:
-      - twitter
-      - intelligence
-      - automation
-allowed-tools: Read Grep Bash
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 ---
 
 # X Intelligence Automation

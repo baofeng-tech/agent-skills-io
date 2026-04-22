@@ -1,26 +1,17 @@
 ---
 name: openclaw-twitter
-description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AISA relay, then publish approved posts with OAuth. Use when: the user asks for Twitter/X research, monitoring, or posting without sharing passwords. Supports read APIs, authorization links, and media-aware posting.
-homepage: https://openclaw.ai
-author: 0xjordansg-yolo
-user-invocable: true
-requires:
-  bins:
-    - python3
-  env:
-    - AISA_API_KEY
+description: 'Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AISA relay, then publish approved posts with OAuth. Use when: the user asks for Twitter/X research, monitoring, or posting without sharing passwords. Supports read APIs, authorization links, and media-aware posting.'
+compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
-  openclaw:
-    emoji: "🐦"
+  aisa:
+    emoji: 🐦
     requires:
       bins:
-        - python3
+      - python3
       env:
-        - AISA_API_KEY
+      - AISA_API_KEY
     primaryEnv: AISA_API_KEY
-    files:
-      - "scripts/*"
-      - "references/*"
+    compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 ---
 
 # OpenClaw Twitter
@@ -63,12 +54,12 @@ All network calls go to `https://api.aisa.one/apis/v1/...`.
 ## Common Commands
 
 ```bash
-python3 {baseDir}/scripts/twitter_client.py user-info --username elonmusk
-python3 {baseDir}/scripts/twitter_client.py search --query "AI agents" --type Latest
-python3 {baseDir}/scripts/twitter_client.py trends --woeid 1
-python3 {baseDir}/scripts/twitter_oauth_client.py status
-python3 {baseDir}/scripts/twitter_oauth_client.py authorize
-python3 {baseDir}/scripts/twitter_oauth_client.py post --text "Hello from OpenClaw"
+python3 scripts/twitter_client.py user-info --username elonmusk
+python3 scripts/twitter_client.py search --query "AI agents" --type Latest
+python3 scripts/twitter_client.py trends --woeid 1
+python3 scripts/twitter_oauth_client.py status
+python3 scripts/twitter_oauth_client.py authorize
+python3 scripts/twitter_oauth_client.py post --text "Hello from OpenClaw"
 ```
 
 ## Posting Workflow

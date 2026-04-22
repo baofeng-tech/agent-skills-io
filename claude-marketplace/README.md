@@ -5,8 +5,8 @@ Local Git-based Claude Code marketplace wrapper for the generated AIsa skills.
 ## Test Locally
 
 ```bash
-claude /plugin marketplace add ./claude-marketplace
-claude /plugin install aisa-twitter-command-center@aisa-claude-marketplace
+claude plugin marketplace add ./claude-marketplace
+claude plugin install aisa-twitter-command-center@aisa-claude-marketplace
 ```
 
 ## Notes

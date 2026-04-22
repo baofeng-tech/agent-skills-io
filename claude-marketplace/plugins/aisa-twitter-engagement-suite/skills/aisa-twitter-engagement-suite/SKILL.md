@@ -2,7 +2,7 @@
 name: aisa-twitter-engagement-suite
 description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 license: MIT-0
-allowed-tools: Read Grep Bash
+allowed-tools: Read Bash Grep
 when_to_use: the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords
 ---
 

@@ -1,0 +1,11 @@
+{
+  "name": "perplexity-search",
+  "description": "Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.",
+  "version": "1.0.0",
+  "author": {
+    "name": "AIsa"
+  },
+  "homepage": "https://aisa.one",
+  "repository": "https://github.com/AIsa-team/agent-skills",
+  "license": "MIT"
+}

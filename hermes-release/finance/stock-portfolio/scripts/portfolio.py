@@ -302,6 +302,8 @@ def main():
     p_rename.add_argument("old_name")
     p_rename.add_argument("new_name")
 
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     args = parser.parse_args()
 
     commands = {

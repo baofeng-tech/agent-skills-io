@@ -1,8 +1,8 @@
-# AIsa Prediction Market Arbitrage
+# Prediction Market Arbitrage
 
 Release-ready Hermes skill package generated from `targetSkills/prediction-market-arbitrage`.
 
-- Skill name: `aisa-prediction-market-arbitrage`
+- Skill name: `prediction-market-arbitrage`
 - Entry point: `SKILL.md`
 - Runtime assets: `scripts/`, `references/`, `assets/` when present
 

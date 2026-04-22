@@ -1,0 +1,32 @@
+{
+  "name": "prediction-market-data-zh-plugin",
+  "version": "1.0.0",
+  "description": "Native-first ClawHub plugin for `prediction-market-data-zh`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. 通过 AIsa 查询股票、加密、预测市场与投资分析数据。触发条件：当用户需要市场研究、筛选、价格走势或组合分析时使用。支持研究与分析输出。",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "aisa",
+    "clawhub",
+    "openclaw",
+    "native-plugin",
+    "agent-skill",
+    "market",
+    "prediction"
+  ],
+  "homepage": "https://aisa.one",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AIsa-team/agent-skills.git"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "compat": {
+      "pluginApi": "^1.0.0"
+    },
+    "build": {
+      "openclawVersion": "^1.0.0"
+    }
+  }
+}

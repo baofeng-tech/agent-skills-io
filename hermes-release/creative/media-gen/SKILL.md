@@ -1,7 +1,6 @@
 ---
-name: aisa-media-gen
+name: media-gen
 description: 'Generate images & videos with AIsa. Gemini 3 Pro Image (image) + Qwen Wan 2.6 (video) via one API key. Use when: the user needs AI image or video generation workflows.'
-homepage: https://aisa.one
 metadata:
   aisa:
     emoji: 🛠

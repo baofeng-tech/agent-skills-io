@@ -1,7 +1,6 @@
 ---
-name: aisa-search
+name: search
 description: 'Intelligent search for agents. Multi-source retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.'
-homepage: https://aisa.one
 metadata:
   aisa:
     emoji: 🛠
@@ -20,9 +19,7 @@ metadata:
     - research
     - x
     - search
-    - aisa
     related_skills:
-    - search
     - aisa-multi-search-engine
 required_environment_variables:
 - name: AISA_API_KEY

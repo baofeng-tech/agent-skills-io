@@ -217,6 +217,8 @@ def main():
     parser = argparse.ArgumentParser(description="🔮 Rumor Scanner — early signals via AIsa API")
     parser.add_argument("--focus", choices=["all", "ma", "insider", "analyst", "social"], default="all")
     parser.add_argument("--output", choices=["text", "json"], default="text")
+    parser.add_argument("--api-key", required=True, help="AIsa API key")
+
     args = parser.parse_args()
 
     print("🔍 Scanning for early signals & rumors via AIsa API...\n", file=sys.stderr)

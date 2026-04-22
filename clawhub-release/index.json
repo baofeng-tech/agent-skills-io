@@ -1,0 +1,580 @@
+{
+  "generated_at": "2026-04-20",
+  "source": "targetSkills",
+  "skills": [
+    {
+      "name": "aisa-multi-search-engine",
+      "path": "clawhub-release/aisa-multi-search-engine",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "aisa-provider",
+      "path": "clawhub-release/aisa-provider",
+      "description": "Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "aisa-tavily",
+      "path": "clawhub-release/aisa-tavily",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "aisa-twitter-api",
+      "path": "clawhub-release/aisa-twitter-api",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "aisa-twitter-command-center",
+      "path": "clawhub-release/aisa-twitter-command-center",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "aisa-twitter-engagement-suite",
+      "path": "clawhub-release/aisa-twitter-engagement-suite",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "aisa-twitter-post-engage",
+      "path": "clawhub-release/aisa-twitter-post-engage",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "aisa-youtube-search",
+      "path": "clawhub-release/aisa-youtube-search",
+      "description": "Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "aisa-youtube-serp-scout",
+      "path": "clawhub-release/aisa-youtube-serp-scout",
+      "description": "Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "cn-llm",
+      "path": "clawhub-release/cn-llm",
+      "description": "Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "last30days",
+      "path": "clawhub-release/last30days",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "removed 1 non-runtime generated/test files from the release bundle",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "last30days-zh",
+      "path": "clawhub-release/last30days-zh",
+      "description": "通过 AIsa 执行网页、多源或近 30 天研究检索。触发条件：当用户需要搜索、研究、比对或趋势归纳时使用。支持多源检索与结构化输出。",
+      "changes": [
+        "removed 1 non-runtime generated/test files from the release bundle",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "llm-router",
+      "path": "clawhub-release/llm-router",
+      "description": "Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "market",
+      "path": "clawhub-release/market",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "marketpulse",
+      "path": "clawhub-release/marketpulse",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "media-gen",
+      "path": "clawhub-release/media-gen",
+      "description": "Generate AI images or videos through AIsa. Use when: the user needs creative generation, asset drafts, or media workflows. Supports image and video generation.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "multi-search",
+      "path": "clawhub-release/multi-search",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "openclaw-aisa-youtube-aisa",
+      "path": "clawhub-release/openclaw-aisa-youtube-aisa",
+      "description": "Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "openclaw-media-gen",
+      "path": "clawhub-release/openclaw-media-gen",
+      "description": "Generate AI images or videos through AIsa. Use when: the user needs creative generation, asset drafts, or media workflows. Supports image and video generation.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "openclaw-search",
+      "path": "clawhub-release/openclaw-search",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "openclaw-twitter",
+      "path": "clawhub-release/openclaw-twitter",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "openclaw-twitter-post-engage",
+      "path": "clawhub-release/openclaw-twitter-post-engage",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "openclaw-youtube",
+      "path": "clawhub-release/openclaw-youtube",
+      "description": "Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "perplexity-research",
+      "path": "clawhub-release/perplexity-research",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "perplexity-search",
+      "path": "clawhub-release/perplexity-search",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "prediction-market",
+      "path": "clawhub-release/prediction-market",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "prediction-market-arbitrage",
+      "path": "clawhub-release/prediction-market-arbitrage",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "prediction-market-arbitrage-api",
+      "path": "clawhub-release/prediction-market-arbitrage-api",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "prediction-market-arbitrage-zh",
+      "path": "clawhub-release/prediction-market-arbitrage-zh",
+      "description": "通过 AIsa 查询股票、加密、预测市场与投资分析数据。触发条件：当用户需要市场研究、筛选、价格走势或组合分析时使用。支持研究与分析输出。",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "prediction-market-data",
+      "path": "clawhub-release/prediction-market-data",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "prediction-market-data-zh",
+      "path": "clawhub-release/prediction-market-data-zh",
+      "description": "通过 AIsa 查询股票、加密、预测市场与投资分析数据。触发条件：当用户需要市场研究、筛选、价格走势或组合分析时使用。支持研究与分析输出。",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "scholar-search",
+      "path": "clawhub-release/scholar-search",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "search",
+      "path": "clawhub-release/search",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "smart-search",
+      "path": "clawhub-release/smart-search",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "stock-analysis",
+      "path": "clawhub-release/stock-analysis",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "stock-dividend",
+      "path": "clawhub-release/stock-dividend",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "stock-hot",
+      "path": "clawhub-release/stock-hot",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "stock-portfolio",
+      "path": "clawhub-release/stock-portfolio",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "switched default local storage to repo-local path in scripts/portfolio.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "stock-rumors",
+      "path": "clawhub-release/stock-rumors",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "stock-watchlist",
+      "path": "clawhub-release/stock-watchlist",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "switched default local storage to repo-local path in scripts/watchlist.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "tavily-extract",
+      "path": "clawhub-release/tavily-extract",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "tavily-search",
+      "path": "clawhub-release/tavily-search",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "twitter",
+      "path": "clawhub-release/twitter",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "twitter-autopilot",
+      "path": "clawhub-release/twitter-autopilot",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "twitter-command-center-search-post",
+      "path": "clawhub-release/twitter-command-center-search-post",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "twitter-command-center-search-post-interact",
+      "path": "clawhub-release/twitter-command-center-search-post-interact",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "us-stock-analyst",
+      "path": "clawhub-release/us-stock-analyst",
+      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "web-search",
+      "path": "clawhub-release/web-search",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "x-intelligence-automation",
+      "path": "clawhub-release/x-intelligence-automation",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "youtube",
+      "path": "clawhub-release/youtube",
+      "description": "Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "youtube-search",
+      "path": "clawhub-release/youtube-search",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa"
+      ],
+      "residual_risks": []
+    }
+  ]
+}

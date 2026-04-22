@@ -557,8 +557,6 @@ def build_parser() -> argparse.ArgumentParser:
         description="Twitter relay client for local OAuth and posting",
     )
 
-    parser.add_argument("--api-key", required=True, help="AIsa API key")
-
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     authorize = subparsers.add_parser("authorize", help="Request an authorization URL from the relay service")

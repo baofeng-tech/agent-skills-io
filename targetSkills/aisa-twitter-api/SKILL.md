@@ -2,26 +2,17 @@
 name: aisa-twitter-api
 description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
 license: Apache-2.0
-compatibility: Requires python3, AISA_API_KEY, and internet access to api.aisa.one. Uses relative paths for scripts and references to maximize compatibility across AgentSkills-compatible clients, including OpenClaw, Hermes, and Claude Code.
+compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
-  author: AIsa
-  version: "1.0.0"
-  homepage: https://aisa.one
-  tags: twitter,x,social-media,research,posting
-  openclaw:
-    emoji: "🐦"
-    primaryEnv: AISA_API_KEY
+  aisa:
+    emoji: 🐦
     requires:
       bins:
-        - python3
+      - python3
       env:
-        - AISA_API_KEY
-  hermes:
-    tags:
-      - twitter
-      - research
-      - posting
-allowed-tools: Read Grep Bash
+      - AISA_API_KEY
+    primaryEnv: AISA_API_KEY
+    compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 ---
 
 # AIsa Twitter API
