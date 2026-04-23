@@ -1,0 +1,121 @@
+Unified skill pipeline plan
+  upstream: /mnt/d/workplace/agent-skills
+  baseline: none
+  head:     8540704351b447a37b9f3aa333a9229b532de4c8
+  - crypto-market-data: copy
+  - last30days: skip (Upstream last30days currently includes extra briefing/watchlist/GitHub setup surfaces. This repo keeps a curated public mother-skill variant, so merge it manually after runtime review.)
+  - marketpulse: copy
+  - media-gen: copy
+  - multi-source-search: copy
+  - perplexity-search: copy
+  - prediction-market-arbitrage: copy
+  - prediction-market-data: copy
+  - twitter-autopilot: copy
+  - youtube-serp: copy
+Normalized 9 of 54 target skills.
+Rebuilt targetSkills catalog for 54 skills.
+Built 54 ClawHub-ready skills into clawhub-release
+[1/54] building aisa-multi-search-engine
+[2/54] building aisa-provider
+[3/54] building aisa-tavily
+[4/54] building aisa-twitter-api
+[5/54] building aisa-twitter-command-center
+[6/54] building aisa-twitter-engagement-suite
+[7/54] building aisa-twitter-post-engage
+[8/54] building aisa-youtube-search
+[9/54] building aisa-youtube-serp-scout
+[10/54] building cn-llm
+[11/54] building crypto-market-data
+[12/54] building last30days
+[13/54] building last30days-zh
+[14/54] building llm-router
+[15/54] building market
+[16/54] building marketpulse
+[17/54] building media-gen
+[18/54] building multi-search
+[19/54] building multi-source-search
+[20/54] building openclaw-aisa-youtube-aisa
+[21/54] building openclaw-media-gen
+[22/54] building openclaw-search
+[23/54] building openclaw-twitter
+[24/54] building openclaw-twitter-post-engage
+[25/54] building openclaw-youtube
+[26/54] building perplexity-research
+[27/54] building perplexity-search
+[28/54] building prediction-market
+[29/54] building prediction-market-arbitrage
+[30/54] building prediction-market-arbitrage-api
+[31/54] building prediction-market-arbitrage-zh
+[32/54] building prediction-market-data
+[33/54] building prediction-market-data-zh
+[34/54] building scholar-search
+[35/54] building search
+[36/54] building smart-search
+[37/54] building stock-analysis
+[38/54] building stock-dividend
+[39/54] building stock-hot
+[40/54] building stock-portfolio
+[41/54] building stock-rumors
+[42/54] building stock-watchlist
+[43/54] building tavily-extract
+[44/54] building tavily-search
+[45/54] building twitter
+[46/54] building twitter-autopilot
+[47/54] building twitter-command-center-search-post
+[48/54] building twitter-command-center-search-post-interact
+[49/54] building us-stock-analyst
+[50/54] building web-search
+[51/54] building x-intelligence-automation
+[52/54] building youtube
+[53/54] building youtube-search
+[54/54] building youtube-serp
+Built 54 ClawHub native-first plugins into clawhub-plugin-release
+Built 54 Claude-ready skills into claude-release
+Built 54 Claude marketplace plugins into claude-marketplace
+Built 54 Hermes-ready skills into hermes-release
+Built 54 AgentSkills-ready skills into agentskills-so-release
+Built 54 agentskill.sh-ready skills into agentskill-sh-release
+targets/release-layer-test-report-2026-04-17.json
+Published targetSkills contents to /mnt/d/workplace/agent-skills-io/.tmp-self-hosted-dry-run/publish-repos/agent-skills
+[1/4] Skip build (requested).
+[3/4] Syncing /mnt/d/workplace/agent-skills-io/claude-release -> /mnt/d/workplace/agent-skills-io/.tmp-self-hosted-dry-run/publish-repos/Aisa-One-Skills-Claude ...
+[4/4] Syncing /mnt/d/workplace/agent-skills-io/claude-marketplace -> /mnt/d/workplace/agent-skills-io/.tmp-self-hosted-dry-run/publish-repos/Aisa-One-Plugins-Claude ...
+Done.
+
+Next steps (claude-release):
+  cd "/mnt/d/workplace/agent-skills-io/.tmp-self-hosted-dry-run/publish-repos/Aisa-One-Skills-Claude"
+  git add .
+  git commit -m 'chore: publish claude-release'
+  git push
+
+Optional install hints:
+  skills.sh <owner>/<repo>/<skill-name>
+  claude --print "/skills"
+
+Next steps (claude-marketplace):
+  cd "/mnt/d/workplace/agent-skills-io/.tmp-self-hosted-dry-run/publish-repos/Aisa-One-Plugins-Claude"
+  git add .
+  git commit -m 'chore: publish claude-marketplace'
+  git push
+
+Marketplace hints:
+  /plugin marketplace add <owner>/<repo>
+  /plugin install aisa-multi-search-engine@aisa-claude-marketplace
+[1/3] Skip build (requested).
+[2/3] Syncing /mnt/d/workplace/agent-skills-io/hermes-release -> /mnt/d/workplace/agent-skills-io/.tmp-self-hosted-dry-run/publish-repos/Aisa-One-Skills-Hermes-sim ...
+[3/3] Done.
+
+Next steps:
+  cd "/mnt/d/workplace/agent-skills-io/.tmp-self-hosted-dry-run/publish-repos/Aisa-One-Skills-Hermes-sim"
+  git add .
+  git commit -m 'chore: publish hermes-release'
+  git push
+
+Install example after push:
+  hermes skills install github:<owner>/<repo>/research/aisa-multi-search-engine
+
+Unified skill pipeline summary
+  synced:  9
+  created: 0
+  skipped: 1
+  publish: 3 step(s)

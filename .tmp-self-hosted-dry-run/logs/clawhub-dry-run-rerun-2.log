@@ -1,0 +1,46 @@
+Resolved 3 ClawHub token(s).
+Warning: source repo has uncommitted changes. Plugin source attribution will point at the current HEAD commit.
+Resolved 91 pending artifact(s).
+[token-2] authenticated as 
+[token-2] waiting 6.0s before starting publishes
+[token-1] authenticated as 
+[token-3] authenticated
+[token-3] waiting 12.0s before starting publishes
+[token-2] probe retry 1/2 for aisa-twitter-api: - Fetching skill | ✖ Request timed out after 15s | Error: Request timed out after 15s
+[token-3] remote slug exists for marketpulse, but local version 1.0.0 is not among remote versions [1, 1.0.1]; attempting publish
+[token-3] dry-run skill:marketpulse@1.0.0
+[token-1] remote slug exists for crypto-market-data, but local version 1.0.0 is not among remote versions [1.0.2, 3]; attempting publish
+[token-1] dry-run skill:crypto-market-data@1.0.0
+[token-2] remote slug exists for aisa-twitter-api, but local version 1.0.0 is not among remote versions [1.0.1, 2]; attempting publish
+[token-2] dry-run skill:aisa-twitter-api@1.0.0
+[token-3] remote slug exists for media-gen, but local version 1.0.0 is not among remote versions [1, 1.1.0]; attempting publish
+[token-3] dry-run skill:media-gen@1.0.0
+[token-1] remote slug exists for multi-search, but local version 1.0.0 is not among remote versions [1, 1.1.0]; attempting publish
+[token-1] dry-run skill:multi-search@1.0.0
+[token-2] dry-run skill:multi-source-search@1.0.0
+[token-1] remote slug exists for openclaw-twitter, but local version 1.0.0 is not among remote versions [1.0.3, 3]; attempting publish
+[token-1] dry-run skill:openclaw-twitter@1.0.0
+[token-2] remote slug exists for openclaw-twitter-post-engage, but local version 1.0.0 is not among remote versions [2.0.3, 4]; attempting publish
+[token-2] dry-run skill:openclaw-twitter-post-engage@1.0.0
+[token-3] remote slug exists for openclaw-media-gen, but local version 1.0.0 is not among remote versions [1, 1.1.0]; attempting publish
+[token-3] dry-run skill:openclaw-media-gen@1.0.0
+[token-1] remote slug exists for perplexity-research, but local version 1.0.0 is not among remote versions [2, 2.0.0]; attempting publish
+[token-1] dry-run skill:perplexity-research@1.0.0
+[token-3] remote slug exists for prediction-market, but local version 1.0.0 is not among remote versions [1.0.1, 2]; attempting publish
+[token-3] dry-run skill:prediction-market@1.0.0
+[token-2] dry-run skill:perplexity-search@1.0.0
+[token-3] skip remote-existing skill:prediction-market-arbitrage-zh@1.0.0
+[token-2] skip remote-existing skill:prediction-market-data@1.0.0
+[token-1] skip remote-existing skill:prediction-market-arbitrage@1.0.0
+[token-2] remote slug exists for scholar-search, but local version 1.0.0 is not among remote versions [1.0.4, 5]; attempting publish
+[token-2] dry-run skill:scholar-search@1.0.0
+[token-1] dry-run skill:search@1.0.0
+[token-3] probe retry 1/2 for prediction-market-data-zh: - Fetching skill | ✖ Request timed out after 15s | Error: Request timed out after 15s
+[token-2] remote slug exists for smart-search, but local version 1.0.0 is not among remote versions [13, 4.1.0]; attempting publish
+[token-2] dry-run skill:smart-search@1.0.0
+[token-2] skip remote-existing skill:stock-dividend@1.0.0
+[token-1] remote slug exists for stock-analysis, but local version 1.0.0 is not among remote versions [10, 6.2.0]; attempting publish
+[token-1] dry-run skill:stock-analysis@1.0.0
+[token-1] skip remote-existing skill:stock-portfolio@1.0.0
+[token-3] remote slug exists for prediction-market-data-zh, but local version 1.0.0 is not among remote versions [1.0.1, 2]; attempting publish
+[token-3] dry-run skill:prediction-market-data-zh@1.0.0

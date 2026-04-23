@@ -1,0 +1,944 @@
+{
+  "generated_at": "2026-04-23T16:01:18.973596+00:00",
+  "artifacts": {
+    "skill:aisa-multi-search-engine": {
+      "key": "skill:aisa-multi-search-engine",
+      "kind": "skill",
+      "name": "aisa-multi-search-engine",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-multi-search-engine",
+      "status": "published",
+      "published_at": "2026-04-23T14:20:20.218955+00:00",
+      "last_checked_at": "2026-04-23T14:20:20.218968+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "publish_mode": "remote-existing"
+    },
+    "skill:aisa-provider": {
+      "key": "skill:aisa-provider",
+      "kind": "skill",
+      "name": "aisa-provider",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-provider",
+      "status": "published",
+      "published_at": "2026-04-23T14:20:45.714589+00:00",
+      "last_checked_at": "2026-04-23T14:20:45.714601+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "publish_mode": "remote-existing"
+    },
+    "skill:aisa-tavily": {
+      "key": "skill:aisa-tavily",
+      "kind": "skill",
+      "name": "aisa-tavily",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-tavily",
+      "status": "published",
+      "published_at": "2026-04-23T14:20:44.907836+00:00",
+      "last_checked_at": "2026-04-23T14:20:44.907850+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "publish_mode": "remote-existing"
+    },
+    "skill:aisa-twitter-api": {
+      "key": "skill:aisa-twitter-api",
+      "kind": "skill",
+      "name": "aisa-twitter-api",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-twitter-api",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:56:02.268632+00:00",
+      "token_slot": "token-2"
+    },
+    "skill:aisa-twitter-command-center": {
+      "key": "skill:aisa-twitter-command-center",
+      "kind": "skill",
+      "name": "aisa-twitter-command-center",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-twitter-command-center",
+      "status": "published",
+      "published_at": "2026-04-23T14:21:12.939612+00:00",
+      "last_checked_at": "2026-04-23T14:21:12.939625+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "publish_mode": "remote-existing"
+    },
+    "skill:aisa-twitter-engagement-suite": {
+      "key": "skill:aisa-twitter-engagement-suite",
+      "kind": "skill",
+      "name": "aisa-twitter-engagement-suite",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-twitter-engagement-suite",
+      "status": "published",
+      "published_at": "2026-04-23T14:21:47.413519+00:00",
+      "last_checked_at": "2026-04-23T14:21:47.413531+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "publish_mode": "remote-existing"
+    },
+    "skill:aisa-twitter-post-engage": {
+      "key": "skill:aisa-twitter-post-engage",
+      "kind": "skill",
+      "name": "aisa-twitter-post-engage",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-twitter-post-engage",
+      "status": "published",
+      "published_at": "2026-04-23T14:22:29.543214+00:00",
+      "last_checked_at": "2026-04-23T14:22:29.543227+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "publish_mode": "remote-existing"
+    },
+    "skill:aisa-youtube-search": {
+      "key": "skill:aisa-youtube-search",
+      "kind": "skill",
+      "name": "aisa-youtube-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-youtube-search",
+      "status": "published",
+      "published_at": "2026-04-23T14:22:02.243605+00:00",
+      "last_checked_at": "2026-04-23T14:22:02.243621+00:00",
+      "last_error": null,
+      "token_slot": "token-3",
+      "publish_mode": "remote-existing"
+    },
+    "skill:aisa-youtube-serp-scout": {
+      "key": "skill:aisa-youtube-serp-scout",
+      "kind": "skill",
+      "name": "aisa-youtube-serp-scout",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-youtube-serp-scout",
+      "status": "published",
+      "published_at": "2026-04-23T14:22:12.815659+00:00",
+      "last_checked_at": "2026-04-23T14:22:12.815671+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "publish_mode": "remote-existing"
+    },
+    "skill:cn-llm": {
+      "key": "skill:cn-llm",
+      "kind": "skill",
+      "name": "cn-llm",
+      "version": "1.0.0",
+      "path": "clawhub-release/cn-llm",
+      "status": "published",
+      "published_at": "2026-04-23T14:22:36.094585+00:00",
+      "last_checked_at": "2026-04-23T14:22:36.094597+00:00",
+      "last_error": null,
+      "token_slot": "token-3",
+      "publish_mode": "remote-existing"
+    },
+    "skill:crypto-market-data": {
+      "key": "skill:crypto-market-data",
+      "kind": "skill",
+      "name": "crypto-market-data",
+      "version": "1.0.0",
+      "path": "clawhub-release/crypto-market-data",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:55:50.148173+00:00",
+      "token_slot": "token-1"
+    },
+    "skill:last30days": {
+      "key": "skill:last30days",
+      "kind": "skill",
+      "name": "last30days",
+      "version": "1.0.0",
+      "path": "clawhub-release/last30days",
+      "status": "published",
+      "published_at": "2026-04-23T14:23:08.894625+00:00",
+      "last_checked_at": "2026-04-23T14:23:08.894641+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "publish_mode": "remote-existing"
+    },
+    "skill:last30days-zh": {
+      "key": "skill:last30days-zh",
+      "kind": "skill",
+      "name": "last30days-zh",
+      "version": "1.0.0",
+      "path": "clawhub-release/last30days-zh",
+      "status": "published",
+      "published_at": "2026-04-23T14:24:15.640364+00:00",
+      "last_checked_at": "2026-04-23T14:24:15.640376+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "publish_mode": "remote-existing"
+    },
+    "skill:llm-router": {
+      "key": "skill:llm-router",
+      "kind": "skill",
+      "name": "llm-router",
+      "version": "1.0.0",
+      "path": "clawhub-release/llm-router",
+      "status": "published",
+      "published_at": "2026-04-23T14:23:20.742017+00:00",
+      "last_checked_at": "2026-04-23T14:23:20.742030+00:00",
+      "last_error": null,
+      "token_slot": "token-3",
+      "publish_mode": "remote-existing"
+    },
+    "skill:market": {
+      "key": "skill:market",
+      "kind": "skill",
+      "name": "market",
+      "version": "1.0.0",
+      "path": "clawhub-release/market",
+      "status": "published",
+      "published_at": "2026-04-23T14:23:50.368635+00:00",
+      "last_checked_at": "2026-04-23T14:23:50.368647+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "publish_mode": "remote-existing"
+    },
+    "skill:marketpulse": {
+      "key": "skill:marketpulse",
+      "kind": "skill",
+      "name": "marketpulse",
+      "version": "1.0.0",
+      "path": "clawhub-release/marketpulse",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:55:18.079800+00:00",
+      "token_slot": "token-3"
+    },
+    "skill:media-gen": {
+      "key": "skill:media-gen",
+      "kind": "skill",
+      "name": "media-gen",
+      "version": "1.0.0",
+      "path": "clawhub-release/media-gen",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:56:19.052424+00:00",
+      "token_slot": "token-3"
+    },
+    "skill:multi-search": {
+      "key": "skill:multi-search",
+      "kind": "skill",
+      "name": "multi-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/multi-search",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:56:27.141714+00:00",
+      "token_slot": "token-1"
+    },
+    "skill:multi-source-search": {
+      "key": "skill:multi-source-search",
+      "kind": "skill",
+      "name": "multi-source-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/multi-source-search",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:56:28.409824+00:00",
+      "token_slot": "token-2"
+    },
+    "skill:openclaw-aisa-youtube-aisa": {
+      "key": "skill:openclaw-aisa-youtube-aisa",
+      "kind": "skill",
+      "name": "openclaw-aisa-youtube-aisa",
+      "version": "1.0.0",
+      "path": "clawhub-release/openclaw-aisa-youtube-aisa",
+      "status": "published",
+      "published_at": "2026-04-23T14:24:33.866837+00:00",
+      "last_checked_at": "2026-04-23T14:24:33.866850+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "publish_mode": "remote-existing"
+    },
+    "skill:openclaw-media-gen": {
+      "key": "skill:openclaw-media-gen",
+      "kind": "skill",
+      "name": "openclaw-media-gen",
+      "version": "1.0.0",
+      "path": "clawhub-release/openclaw-media-gen",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:57:03.767817+00:00",
+      "token_slot": "token-3"
+    },
+    "skill:openclaw-search": {
+      "key": "skill:openclaw-search",
+      "kind": "skill",
+      "name": "openclaw-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/openclaw-search",
+      "status": "published",
+      "published_at": "2026-04-23T14:25:07.548550+00:00",
+      "last_checked_at": "2026-04-23T14:25:07.548566+00:00",
+      "last_error": null,
+      "token_slot": "token-3",
+      "publish_mode": "remote-existing"
+    },
+    "skill:openclaw-twitter": {
+      "key": "skill:openclaw-twitter",
+      "kind": "skill",
+      "name": "openclaw-twitter",
+      "version": "1.0.0",
+      "path": "clawhub-release/openclaw-twitter",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:56:49.947069+00:00",
+      "token_slot": "token-1"
+    },
+    "skill:openclaw-twitter-post-engage": {
+      "key": "skill:openclaw-twitter-post-engage",
+      "kind": "skill",
+      "name": "openclaw-twitter-post-engage",
+      "version": "1.0.0",
+      "path": "clawhub-release/openclaw-twitter-post-engage",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:56:55.807594+00:00",
+      "token_slot": "token-2"
+    },
+    "skill:openclaw-youtube": {
+      "key": "skill:openclaw-youtube",
+      "kind": "skill",
+      "name": "openclaw-youtube",
+      "version": "1.0.0",
+      "path": "clawhub-release/openclaw-youtube",
+      "status": "published",
+      "published_at": "2026-04-23T14:25:36.809790+00:00",
+      "last_checked_at": "2026-04-23T14:25:36.809803+00:00",
+      "last_error": null,
+      "token_slot": "token-3",
+      "publish_mode": "remote-existing"
+    },
+    "skill:perplexity-research": {
+      "key": "skill:perplexity-research",
+      "kind": "skill",
+      "name": "perplexity-research",
+      "version": "1.0.0",
+      "path": "clawhub-release/perplexity-research",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:57:34.502768+00:00",
+      "token_slot": "token-1"
+    },
+    "skill:perplexity-search": {
+      "key": "skill:perplexity-search",
+      "kind": "skill",
+      "name": "perplexity-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/perplexity-search",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:57:56.586203+00:00",
+      "token_slot": "token-2"
+    },
+    "skill:prediction-market": {
+      "key": "skill:prediction-market",
+      "kind": "skill",
+      "name": "prediction-market",
+      "version": "1.0.0",
+      "path": "clawhub-release/prediction-market",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:57:48.199959+00:00",
+      "token_slot": "token-3"
+    },
+    "skill:prediction-market-arbitrage": {
+      "key": "skill:prediction-market-arbitrage",
+      "kind": "skill",
+      "name": "prediction-market-arbitrage",
+      "version": "1.0.0",
+      "path": "clawhub-release/prediction-market-arbitrage",
+      "status": "published",
+      "published_at": "2026-04-23T15:58:42.273112+00:00",
+      "last_checked_at": "2026-04-23T15:58:42.273123+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "publish_mode": "remote-existing"
+    },
+    "skill:prediction-market-arbitrage-api": {
+      "key": "skill:prediction-market-arbitrage-api",
+      "kind": "skill",
+      "name": "prediction-market-arbitrage-api",
+      "version": "1.0.0",
+      "path": "clawhub-release/prediction-market-arbitrage-api",
+      "status": "published",
+      "published_at": "2026-04-23T14:26:21.120900+00:00",
+      "last_checked_at": "2026-04-23T14:26:21.120912+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "publish_mode": "remote-existing"
+    },
+    "skill:prediction-market-arbitrage-zh": {
+      "key": "skill:prediction-market-arbitrage-zh",
+      "kind": "skill",
+      "name": "prediction-market-arbitrage-zh",
+      "version": "1.0.0",
+      "path": "clawhub-release/prediction-market-arbitrage-zh",
+      "status": "published",
+      "published_at": "2026-04-23T15:58:20.164570+00:00",
+      "last_checked_at": "2026-04-23T15:58:20.164581+00:00",
+      "last_error": null,
+      "token_slot": "token-3",
+      "publish_mode": "remote-existing"
+    },
+    "skill:prediction-market-data": {
+      "key": "skill:prediction-market-data",
+      "kind": "skill",
+      "name": "prediction-market-data",
+      "version": "1.0.0",
+      "path": "clawhub-release/prediction-market-data",
+      "status": "published",
+      "published_at": "2026-04-23T15:58:30.645901+00:00",
+      "last_checked_at": "2026-04-23T15:58:30.645912+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "publish_mode": "remote-existing"
+    },
+    "skill:prediction-market-data-zh": {
+      "key": "skill:prediction-market-data-zh",
+      "kind": "skill",
+      "name": "prediction-market-data-zh",
+      "version": "1.0.0",
+      "path": "clawhub-release/prediction-market-data-zh",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T16:01:18.973577+00:00",
+      "token_slot": "token-3"
+    },
+    "skill:scholar-search": {
+      "key": "skill:scholar-search",
+      "kind": "skill",
+      "name": "scholar-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/scholar-search",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:59:06.235572+00:00",
+      "token_slot": "token-2"
+    },
+    "skill:search": {
+      "key": "skill:search",
+      "kind": "skill",
+      "name": "search",
+      "version": "1.0.0",
+      "path": "clawhub-release/search",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T15:59:53.299958+00:00",
+      "token_slot": "token-1"
+    },
+    "skill:smart-search": {
+      "key": "skill:smart-search",
+      "kind": "skill",
+      "name": "smart-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/smart-search",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T16:00:04.252987+00:00",
+      "token_slot": "token-2"
+    },
+    "skill:stock-analysis": {
+      "key": "skill:stock-analysis",
+      "kind": "skill",
+      "name": "stock-analysis",
+      "version": "1.0.0",
+      "path": "clawhub-release/stock-analysis",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T16:00:38.489557+00:00",
+      "token_slot": "token-1"
+    },
+    "skill:stock-dividend": {
+      "key": "skill:stock-dividend",
+      "kind": "skill",
+      "name": "stock-dividend",
+      "version": "1.0.0",
+      "path": "clawhub-release/stock-dividend",
+      "status": "published",
+      "published_at": "2026-04-23T16:00:21.615181+00:00",
+      "last_checked_at": "2026-04-23T16:00:21.615193+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "publish_mode": "remote-existing"
+    },
+    "skill:stock-hot": {
+      "key": "skill:stock-hot",
+      "kind": "skill",
+      "name": "stock-hot",
+      "version": "1.0.0",
+      "path": "clawhub-release/stock-hot"
+    },
+    "skill:stock-portfolio": {
+      "key": "skill:stock-portfolio",
+      "kind": "skill",
+      "name": "stock-portfolio",
+      "version": "1.0.0",
+      "path": "clawhub-release/stock-portfolio",
+      "status": "published",
+      "published_at": "2026-04-23T16:01:13.063236+00:00",
+      "last_checked_at": "2026-04-23T16:01:13.063248+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "publish_mode": "remote-existing"
+    },
+    "skill:stock-rumors": {
+      "key": "skill:stock-rumors",
+      "kind": "skill",
+      "name": "stock-rumors",
+      "version": "1.0.0",
+      "path": "clawhub-release/stock-rumors"
+    },
+    "skill:stock-watchlist": {
+      "key": "skill:stock-watchlist",
+      "kind": "skill",
+      "name": "stock-watchlist",
+      "version": "1.0.0",
+      "path": "clawhub-release/stock-watchlist"
+    },
+    "skill:tavily-extract": {
+      "key": "skill:tavily-extract",
+      "kind": "skill",
+      "name": "tavily-extract",
+      "version": "1.0.0",
+      "path": "clawhub-release/tavily-extract"
+    },
+    "skill:tavily-search": {
+      "key": "skill:tavily-search",
+      "kind": "skill",
+      "name": "tavily-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/tavily-search"
+    },
+    "skill:twitter": {
+      "key": "skill:twitter",
+      "kind": "skill",
+      "name": "twitter",
+      "version": "1.0.0",
+      "path": "clawhub-release/twitter"
+    },
+    "skill:twitter-autopilot": {
+      "key": "skill:twitter-autopilot",
+      "kind": "skill",
+      "name": "twitter-autopilot",
+      "version": "1.0.0",
+      "path": "clawhub-release/twitter-autopilot"
+    },
+    "skill:twitter-command-center-search-post": {
+      "key": "skill:twitter-command-center-search-post",
+      "kind": "skill",
+      "name": "twitter-command-center-search-post",
+      "version": "1.0.0",
+      "path": "clawhub-release/twitter-command-center-search-post"
+    },
+    "skill:twitter-command-center-search-post-interact": {
+      "key": "skill:twitter-command-center-search-post-interact",
+      "kind": "skill",
+      "name": "twitter-command-center-search-post-interact",
+      "version": "1.0.0",
+      "path": "clawhub-release/twitter-command-center-search-post-interact"
+    },
+    "skill:us-stock-analyst": {
+      "key": "skill:us-stock-analyst",
+      "kind": "skill",
+      "name": "us-stock-analyst",
+      "version": "1.0.0",
+      "path": "clawhub-release/us-stock-analyst"
+    },
+    "skill:web-search": {
+      "key": "skill:web-search",
+      "kind": "skill",
+      "name": "web-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/web-search"
+    },
+    "skill:x-intelligence-automation": {
+      "key": "skill:x-intelligence-automation",
+      "kind": "skill",
+      "name": "x-intelligence-automation",
+      "version": "1.0.0",
+      "path": "clawhub-release/x-intelligence-automation"
+    },
+    "skill:youtube": {
+      "key": "skill:youtube",
+      "kind": "skill",
+      "name": "youtube",
+      "version": "1.0.0",
+      "path": "clawhub-release/youtube"
+    },
+    "skill:youtube-search": {
+      "key": "skill:youtube-search",
+      "kind": "skill",
+      "name": "youtube-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/youtube-search"
+    },
+    "skill:youtube-serp": {
+      "key": "skill:youtube-serp",
+      "kind": "skill",
+      "name": "youtube-serp",
+      "version": "1.0.0",
+      "path": "clawhub-release/youtube-serp"
+    },
+    "plugin:aisa-multi-search-engine-plugin": {
+      "key": "plugin:aisa-multi-search-engine-plugin",
+      "kind": "plugin",
+      "name": "aisa-multi-search-engine-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-multi-search-engine-plugin"
+    },
+    "plugin:aisa-provider-plugin": {
+      "key": "plugin:aisa-provider-plugin",
+      "kind": "plugin",
+      "name": "aisa-provider-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-provider-plugin"
+    },
+    "plugin:aisa-tavily-plugin": {
+      "key": "plugin:aisa-tavily-plugin",
+      "kind": "plugin",
+      "name": "aisa-tavily-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-tavily-plugin"
+    },
+    "plugin:aisa-twitter-api-plugin": {
+      "key": "plugin:aisa-twitter-api-plugin",
+      "kind": "plugin",
+      "name": "aisa-twitter-api-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-twitter-api-plugin"
+    },
+    "plugin:aisa-twitter-command-center-plugin": {
+      "key": "plugin:aisa-twitter-command-center-plugin",
+      "kind": "plugin",
+      "name": "aisa-twitter-command-center-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-twitter-command-center-plugin"
+    },
+    "plugin:aisa-twitter-engagement-suite-plugin": {
+      "key": "plugin:aisa-twitter-engagement-suite-plugin",
+      "kind": "plugin",
+      "name": "aisa-twitter-engagement-suite-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-twitter-engagement-suite-plugin"
+    },
+    "plugin:aisa-twitter-post-engage-plugin": {
+      "key": "plugin:aisa-twitter-post-engage-plugin",
+      "kind": "plugin",
+      "name": "aisa-twitter-post-engage-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-twitter-post-engage-plugin"
+    },
+    "plugin:aisa-youtube-search-plugin": {
+      "key": "plugin:aisa-youtube-search-plugin",
+      "kind": "plugin",
+      "name": "aisa-youtube-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-youtube-search-plugin"
+    },
+    "plugin:aisa-youtube-serp-scout-plugin": {
+      "key": "plugin:aisa-youtube-serp-scout-plugin",
+      "kind": "plugin",
+      "name": "aisa-youtube-serp-scout-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-youtube-serp-scout-plugin"
+    },
+    "plugin:cn-llm-plugin": {
+      "key": "plugin:cn-llm-plugin",
+      "kind": "plugin",
+      "name": "cn-llm-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/cn-llm-plugin"
+    },
+    "plugin:crypto-market-data-plugin": {
+      "key": "plugin:crypto-market-data-plugin",
+      "kind": "plugin",
+      "name": "crypto-market-data-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/crypto-market-data-plugin"
+    },
+    "plugin:last30days-plugin": {
+      "key": "plugin:last30days-plugin",
+      "kind": "plugin",
+      "name": "last30days-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/last30days-plugin"
+    },
+    "plugin:last30days-zh-plugin": {
+      "key": "plugin:last30days-zh-plugin",
+      "kind": "plugin",
+      "name": "last30days-zh-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/last30days-zh-plugin"
+    },
+    "plugin:llm-router-plugin": {
+      "key": "plugin:llm-router-plugin",
+      "kind": "plugin",
+      "name": "llm-router-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/llm-router-plugin"
+    },
+    "plugin:market-plugin": {
+      "key": "plugin:market-plugin",
+      "kind": "plugin",
+      "name": "market-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/market-plugin"
+    },
+    "plugin:marketpulse-plugin": {
+      "key": "plugin:marketpulse-plugin",
+      "kind": "plugin",
+      "name": "marketpulse-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/marketpulse-plugin"
+    },
+    "plugin:media-gen-plugin": {
+      "key": "plugin:media-gen-plugin",
+      "kind": "plugin",
+      "name": "media-gen-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/media-gen-plugin"
+    },
+    "plugin:multi-search-plugin": {
+      "key": "plugin:multi-search-plugin",
+      "kind": "plugin",
+      "name": "multi-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/multi-search-plugin"
+    },
+    "plugin:multi-source-search-plugin": {
+      "key": "plugin:multi-source-search-plugin",
+      "kind": "plugin",
+      "name": "multi-source-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/multi-source-search-plugin"
+    },
+    "plugin:openclaw-aisa-youtube-aisa-plugin": {
+      "key": "plugin:openclaw-aisa-youtube-aisa-plugin",
+      "kind": "plugin",
+      "name": "openclaw-aisa-youtube-aisa-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/openclaw-aisa-youtube-aisa-plugin"
+    },
+    "plugin:openclaw-media-gen-plugin": {
+      "key": "plugin:openclaw-media-gen-plugin",
+      "kind": "plugin",
+      "name": "openclaw-media-gen-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/openclaw-media-gen-plugin"
+    },
+    "plugin:openclaw-search-plugin": {
+      "key": "plugin:openclaw-search-plugin",
+      "kind": "plugin",
+      "name": "openclaw-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/openclaw-search-plugin"
+    },
+    "plugin:openclaw-twitter-plugin": {
+      "key": "plugin:openclaw-twitter-plugin",
+      "kind": "plugin",
+      "name": "openclaw-twitter-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/openclaw-twitter-plugin"
+    },
+    "plugin:openclaw-twitter-post-engage-plugin": {
+      "key": "plugin:openclaw-twitter-post-engage-plugin",
+      "kind": "plugin",
+      "name": "openclaw-twitter-post-engage-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/openclaw-twitter-post-engage-plugin"
+    },
+    "plugin:openclaw-youtube-plugin": {
+      "key": "plugin:openclaw-youtube-plugin",
+      "kind": "plugin",
+      "name": "openclaw-youtube-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/openclaw-youtube-plugin"
+    },
+    "plugin:perplexity-research-plugin": {
+      "key": "plugin:perplexity-research-plugin",
+      "kind": "plugin",
+      "name": "perplexity-research-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/perplexity-research-plugin"
+    },
+    "plugin:perplexity-search-plugin": {
+      "key": "plugin:perplexity-search-plugin",
+      "kind": "plugin",
+      "name": "perplexity-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/perplexity-search-plugin"
+    },
+    "plugin:prediction-market-arbitrage-api-plugin": {
+      "key": "plugin:prediction-market-arbitrage-api-plugin",
+      "kind": "plugin",
+      "name": "prediction-market-arbitrage-api-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/prediction-market-arbitrage-api-plugin"
+    },
+    "plugin:prediction-market-arbitrage-plugin": {
+      "key": "plugin:prediction-market-arbitrage-plugin",
+      "kind": "plugin",
+      "name": "prediction-market-arbitrage-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/prediction-market-arbitrage-plugin"
+    },
+    "plugin:prediction-market-arbitrage-zh-plugin": {
+      "key": "plugin:prediction-market-arbitrage-zh-plugin",
+      "kind": "plugin",
+      "name": "prediction-market-arbitrage-zh-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/prediction-market-arbitrage-zh-plugin"
+    },
+    "plugin:prediction-market-data-plugin": {
+      "key": "plugin:prediction-market-data-plugin",
+      "kind": "plugin",
+      "name": "prediction-market-data-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/prediction-market-data-plugin"
+    },
+    "plugin:prediction-market-data-zh-plugin": {
+      "key": "plugin:prediction-market-data-zh-plugin",
+      "kind": "plugin",
+      "name": "prediction-market-data-zh-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/prediction-market-data-zh-plugin"
+    },
+    "plugin:prediction-market-plugin": {
+      "key": "plugin:prediction-market-plugin",
+      "kind": "plugin",
+      "name": "prediction-market-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/prediction-market-plugin"
+    },
+    "plugin:scholar-search-plugin": {
+      "key": "plugin:scholar-search-plugin",
+      "kind": "plugin",
+      "name": "scholar-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/scholar-search-plugin"
+    },
+    "plugin:search-plugin": {
+      "key": "plugin:search-plugin",
+      "kind": "plugin",
+      "name": "search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/search-plugin"
+    },
+    "plugin:smart-search-plugin": {
+      "key": "plugin:smart-search-plugin",
+      "kind": "plugin",
+      "name": "smart-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/smart-search-plugin"
+    },
+    "plugin:stock-analysis-plugin": {
+      "key": "plugin:stock-analysis-plugin",
+      "kind": "plugin",
+      "name": "stock-analysis-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/stock-analysis-plugin"
+    },
+    "plugin:stock-dividend-plugin": {
+      "key": "plugin:stock-dividend-plugin",
+      "kind": "plugin",
+      "name": "stock-dividend-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/stock-dividend-plugin"
+    },
+    "plugin:stock-hot-plugin": {
+      "key": "plugin:stock-hot-plugin",
+      "kind": "plugin",
+      "name": "stock-hot-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/stock-hot-plugin"
+    },
+    "plugin:stock-portfolio-plugin": {
+      "key": "plugin:stock-portfolio-plugin",
+      "kind": "plugin",
+      "name": "stock-portfolio-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/stock-portfolio-plugin"
+    },
+    "plugin:stock-rumors-plugin": {
+      "key": "plugin:stock-rumors-plugin",
+      "kind": "plugin",
+      "name": "stock-rumors-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/stock-rumors-plugin"
+    },
+    "plugin:stock-watchlist-plugin": {
+      "key": "plugin:stock-watchlist-plugin",
+      "kind": "plugin",
+      "name": "stock-watchlist-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/stock-watchlist-plugin"
+    },
+    "plugin:tavily-extract-plugin": {
+      "key": "plugin:tavily-extract-plugin",
+      "kind": "plugin",
+      "name": "tavily-extract-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/tavily-extract-plugin"
+    },
+    "plugin:tavily-search-plugin": {
+      "key": "plugin:tavily-search-plugin",
+      "kind": "plugin",
+      "name": "tavily-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/tavily-search-plugin"
+    },
+    "plugin:twitter-autopilot-plugin": {
+      "key": "plugin:twitter-autopilot-plugin",
+      "kind": "plugin",
+      "name": "twitter-autopilot-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/twitter-autopilot-plugin"
+    },
+    "plugin:twitter-command-center-search-post-interact-plugin": {
+      "key": "plugin:twitter-command-center-search-post-interact-plugin",
+      "kind": "plugin",
+      "name": "twitter-command-center-search-post-interact-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/twitter-command-center-search-post-interact-plugin"
+    },
+    "plugin:twitter-command-center-search-post-plugin": {
+      "key": "plugin:twitter-command-center-search-post-plugin",
+      "kind": "plugin",
+      "name": "twitter-command-center-search-post-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/twitter-command-center-search-post-plugin"
+    },
+    "plugin:twitter-plugin": {
+      "key": "plugin:twitter-plugin",
+      "kind": "plugin",
+      "name": "twitter-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/twitter-plugin"
+    },
+    "plugin:us-stock-analyst-plugin": {
+      "key": "plugin:us-stock-analyst-plugin",
+      "kind": "plugin",
+      "name": "us-stock-analyst-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/us-stock-analyst-plugin"
+    },
+    "plugin:web-search-plugin": {
+      "key": "plugin:web-search-plugin",
+      "kind": "plugin",
+      "name": "web-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/web-search-plugin"
+    },
+    "plugin:x-intelligence-automation-plugin": {
+      "key": "plugin:x-intelligence-automation-plugin",
+      "kind": "plugin",
+      "name": "x-intelligence-automation-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/x-intelligence-automation-plugin"
+    },
+    "plugin:youtube-plugin": {
+      "key": "plugin:youtube-plugin",
+      "kind": "plugin",
+      "name": "youtube-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/youtube-plugin"
+    },
+    "plugin:youtube-search-plugin": {
+      "key": "plugin:youtube-search-plugin",
+      "kind": "plugin",
+      "name": "youtube-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/youtube-search-plugin"
+    },
+    "plugin:youtube-serp-plugin": {
+      "key": "plugin:youtube-serp-plugin",
+      "kind": "plugin",
+      "name": "youtube-serp-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/youtube-serp-plugin"
+    }
+  }
+}

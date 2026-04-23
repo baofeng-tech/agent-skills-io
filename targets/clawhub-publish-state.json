@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-23T11:28:48.296092+00:00",
+  "generated_at": "2026-04-23T11:32:22.777239+00:00",
   "artifacts": {
     "plugin:aisa-multi-search-engine-plugin": {
       "key": "plugin:aisa-multi-search-engine-plugin",
@@ -467,9 +467,15 @@
       "name": "search-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/search-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:48:02.938199+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-23T11:30:30.671739+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:30:30.671724+00:00",
+      "last_attempt_at": "2026-04-23T11:30:30.671737+00:00",
+      "last_error": null,
+      "release_ref": "rd79h1xjpqewam9v258rty2qdh85d5a5",
+      "publish_mode": "published"
     },
     "plugin:smart-search-plugin": {
       "key": "plugin:smart-search-plugin",
@@ -603,9 +609,15 @@
       "name": "tavily-search-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/tavily-search-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:49:36.761922+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-23T11:30:33.007584+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:30:33.007570+00:00",
+      "last_attempt_at": "2026-04-23T11:30:33.007583+00:00",
+      "last_error": null,
+      "release_ref": "rd78wt744tjhv5wq6xfrww8j0185ckma",
+      "publish_mode": "published"
     },
     "plugin:twitter-autopilot-plugin": {
       "key": "plugin:twitter-autopilot-plugin",
@@ -661,9 +673,15 @@
       "name": "twitter-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/twitter-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:50:23.753849+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-23T11:30:33.974130+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:30:33.974117+00:00",
+      "last_attempt_at": "2026-04-23T11:30:33.974129+00:00",
+      "last_error": null,
+      "release_ref": "rd7bcd0gedrw4cvaf0pbhcewj585cvhk",
+      "publish_mode": "published"
     },
     "plugin:us-stock-analyst-plugin": {
       "key": "plugin:us-stock-analyst-plugin",
@@ -671,9 +689,15 @@
       "name": "us-stock-analyst-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/us-stock-analyst-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:50:30.572483+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-23T11:31:11.536040+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:31:11.536027+00:00",
+      "last_attempt_at": "2026-04-23T11:31:11.536039+00:00",
+      "last_error": null,
+      "release_ref": "rd73dg54kqfn3fyb1e0x9c7p5585dnwd",
+      "publish_mode": "published"
     },
     "plugin:web-search-plugin": {
       "key": "plugin:web-search-plugin",
@@ -681,9 +705,15 @@
       "name": "web-search-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/web-search-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:50:43.049611+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-23T11:31:07.560477+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:31:07.560464+00:00",
+      "last_attempt_at": "2026-04-23T11:31:07.560476+00:00",
+      "last_error": null,
+      "release_ref": "rd7fjmsqnaanw6d7v2bww93qds85dqas",
+      "publish_mode": "published"
     },
     "plugin:x-intelligence-automation-plugin": {
       "key": "plugin:x-intelligence-automation-plugin",
@@ -691,9 +721,15 @@
       "name": "x-intelligence-automation-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/x-intelligence-automation-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:50:52.160726+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-23T11:31:18.470085+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:31:18.470070+00:00",
+      "last_attempt_at": "2026-04-23T11:31:18.470084+00:00",
+      "last_error": null,
+      "release_ref": "rd7bsae56pj7r6brnyctbdy2v985c1yw",
+      "publish_mode": "published"
     },
     "plugin:youtube-plugin": {
       "key": "plugin:youtube-plugin",
@@ -701,9 +737,15 @@
       "name": "youtube-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/youtube-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:51:19.731175+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-23T11:31:56.935124+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:31:56.935111+00:00",
+      "last_attempt_at": "2026-04-23T11:31:56.935123+00:00",
+      "last_error": null,
+      "release_ref": "rd7db2myyt7gkmzrjr20tajvyx85cc5c",
+      "publish_mode": "published"
     },
     "plugin:youtube-search-plugin": {
       "key": "plugin:youtube-search-plugin",
@@ -711,9 +753,15 @@
       "name": "youtube-search-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/youtube-search-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:51:16.277793+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-23T11:31:59.289829+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:31:59.289816+00:00",
+      "last_attempt_at": "2026-04-23T11:31:59.289828+00:00",
+      "last_error": null,
+      "release_ref": "rd74r61w8nfpx0y8kgas8nmrr585da2v",
+      "publish_mode": "published"
     },
     "skill:aisa-multi-search-engine": {
       "key": "skill:aisa-multi-search-engine",
@@ -1540,21 +1588,48 @@
       "kind": "plugin",
       "name": "crypto-market-data-plugin",
       "version": "1.0.0",
-      "path": "clawhub-plugin-release/plugins/crypto-market-data-plugin"
+      "path": "clawhub-plugin-release/plugins/crypto-market-data-plugin",
+      "status": "published",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:29:58.459003+00:00",
+      "last_attempt_at": "2026-04-23T11:29:58.459016+00:00",
+      "last_checked_at": "2026-04-23T11:29:58.459017+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "release_ref": "rd74ejqv0k2z06hr7zp6gz4m0n85dxnx",
+      "publish_mode": "published"
     },
     "plugin:multi-source-search-plugin": {
       "key": "plugin:multi-source-search-plugin",
       "kind": "plugin",
       "name": "multi-source-search-plugin",
       "version": "1.0.0",
-      "path": "clawhub-plugin-release/plugins/multi-source-search-plugin"
+      "path": "clawhub-plugin-release/plugins/multi-source-search-plugin",
+      "status": "published",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:30:00.286966+00:00",
+      "last_attempt_at": "2026-04-23T11:30:00.286978+00:00",
+      "last_checked_at": "2026-04-23T11:30:00.286980+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "release_ref": "rd7b4b3k3938vc3vbz4qd9tst185d3g6",
+      "publish_mode": "published"
     },
     "plugin:youtube-serp-plugin": {
       "key": "plugin:youtube-serp-plugin",
       "kind": "plugin",
       "name": "youtube-serp-plugin",
       "version": "1.0.0",
-      "path": "clawhub-plugin-release/plugins/youtube-serp-plugin"
+      "path": "clawhub-plugin-release/plugins/youtube-serp-plugin",
+      "status": "published",
+      "attempts": 1,
+      "published_at": "2026-04-23T11:32:22.777221+00:00",
+      "last_attempt_at": "2026-04-23T11:32:22.777233+00:00",
+      "last_checked_at": "2026-04-23T11:32:22.777234+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "release_ref": "rd76wz6n04jwbzvcrzdys71a5985cjmn",
+      "publish_mode": "published"
     }
   }
 }
