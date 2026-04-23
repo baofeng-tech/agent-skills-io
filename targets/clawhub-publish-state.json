@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-22T05:48:35.893085+00:00",
+  "generated_at": "2026-04-23T11:28:48.296092+00:00",
   "artifacts": {
     "plugin:aisa-multi-search-engine-plugin": {
       "key": "plugin:aisa-multi-search-engine-plugin",
@@ -19,12 +19,14 @@
       "name": "aisa-provider-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/aisa-provider-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:44:00.584356+00:00",
+      "status": "published",
+      "last_checked_at": "2026-04-22T07:36:37.471513+00:00",
       "token_slot": "token-2",
-      "attempts": 1,
-      "last_attempt_at": "2026-04-21T12:59:44.392174+00:00",
-      "last_error": "- Preparing aisa-provider-plugin@1.0.0 | ✖ fetch failed | Error: fetch failed"
+      "attempts": 2,
+      "last_attempt_at": "2026-04-22T07:36:37.471511+00:00",
+      "last_error": null,
+      "published_at": "2026-04-22T07:36:37.471493+00:00",
+      "release_ref": "rd7cej56ctdn4wchzn37xffgg585bbya"
     },
     "plugin:aisa-tavily-plugin": {
       "key": "plugin:aisa-tavily-plugin",
@@ -32,12 +34,14 @@
       "name": "aisa-tavily-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/aisa-tavily-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:44:08.372543+00:00",
+      "status": "published",
+      "last_checked_at": "2026-04-22T07:38:55.958567+00:00",
       "token_slot": "token-1",
-      "attempts": 1,
-      "last_attempt_at": "2026-04-21T13:02:18.914531+00:00",
-      "last_error": "- Preparing aisa-tavily-plugin@1.0.0 | ✖ fetch failed | Error: fetch failed"
+      "attempts": 2,
+      "last_attempt_at": "2026-04-22T07:38:55.958565+00:00",
+      "last_error": null,
+      "published_at": "2026-04-22T07:38:55.958551+00:00",
+      "release_ref": "rd70n4zbmehc5smb3n8k0z7tbd85a9d8"
     },
     "plugin:aisa-twitter-api-plugin": {
       "key": "plugin:aisa-twitter-api-plugin",
@@ -72,9 +76,14 @@
       "name": "aisa-twitter-engagement-suite-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/aisa-twitter-engagement-suite-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:44:20.401597+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T07:38:27.144299+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T07:38:27.144285+00:00",
+      "last_attempt_at": "2026-04-22T07:38:27.144298+00:00",
+      "last_error": null,
+      "release_ref": "rd7cb53t8ce2pc5rsyzxtfkyas85ay3r"
     },
     "plugin:aisa-twitter-post-engage-plugin": {
       "key": "plugin:aisa-twitter-post-engage-plugin",
@@ -118,9 +127,14 @@
       "name": "cn-llm-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/cn-llm-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:44:27.519407+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T07:41:37.470896+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T07:41:37.470877+00:00",
+      "last_attempt_at": "2026-04-22T07:41:37.470894+00:00",
+      "last_error": null,
+      "release_ref": "rd7d5nehs844622sgqpfnq5kth85awq2"
     },
     "plugin:last30days-plugin": {
       "key": "plugin:last30days-plugin",
@@ -140,9 +154,14 @@
       "name": "last30days-zh-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:44:39.901004+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T07:40:41.638727+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T07:40:41.638709+00:00",
+      "last_attempt_at": "2026-04-22T07:40:41.638726+00:00",
+      "last_error": null,
+      "release_ref": "rd79t34w8g0yy724ezfmjzamh185b1r6"
     },
     "plugin:llm-router-plugin": {
       "key": "plugin:llm-router-plugin",
@@ -150,9 +169,14 @@
       "name": "llm-router-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/llm-router-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:44:50.562567+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T07:41:45.398486+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T07:41:45.398472+00:00",
+      "last_attempt_at": "2026-04-22T07:41:45.398485+00:00",
+      "last_error": null,
+      "release_ref": "rd7brbph78f2888mpcr9pqdf4185bk0m"
     },
     "plugin:market-plugin": {
       "key": "plugin:market-plugin",
@@ -172,9 +196,14 @@
       "name": "marketpulse-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/marketpulse-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:45:02.651124+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T07:42:39.211909+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T07:42:39.211894+00:00",
+      "last_attempt_at": "2026-04-22T07:42:39.211908+00:00",
+      "last_error": null,
+      "release_ref": "rd71s76nm036hxcs5m0596bsnn85a7vy"
     },
     "plugin:media-gen-plugin": {
       "key": "plugin:media-gen-plugin",
@@ -182,9 +211,14 @@
       "name": "media-gen-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/media-gen-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:45:10.023126+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T07:43:43.263366+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T07:43:43.263329+00:00",
+      "last_attempt_at": "2026-04-22T07:43:43.263364+00:00",
+      "last_error": null,
+      "release_ref": "rd79x5fdnw28vtcnj6q25128sn85b3gm"
     },
     "plugin:multi-search-plugin": {
       "key": "plugin:multi-search-plugin",
@@ -192,9 +226,14 @@
       "name": "multi-search-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/multi-search-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:45:21.154785+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T15:11:25.530690+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T15:11:25.530676+00:00",
+      "last_attempt_at": "2026-04-22T15:11:25.530688+00:00",
+      "last_error": null,
+      "release_ref": "rd7bcf4wbwrwnfzsv6f9j8zts585ak7b"
     },
     "plugin:openclaw-aisa-youtube-aisa-plugin": {
       "key": "plugin:openclaw-aisa-youtube-aisa-plugin",
@@ -202,9 +241,14 @@
       "name": "openclaw-aisa-youtube-aisa-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/openclaw-aisa-youtube-aisa-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:45:31.266283+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T15:12:05.744727+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T15:12:05.744706+00:00",
+      "last_attempt_at": "2026-04-22T15:12:05.744725+00:00",
+      "last_error": null,
+      "release_ref": "rd704j277fgpmskaqr8tvg2ex585a40a"
     },
     "plugin:openclaw-media-gen-plugin": {
       "key": "plugin:openclaw-media-gen-plugin",
@@ -212,9 +256,14 @@
       "name": "openclaw-media-gen-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/openclaw-media-gen-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:45:42.258410+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T15:13:01.029320+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T15:13:01.029306+00:00",
+      "last_attempt_at": "2026-04-22T15:13:01.029319+00:00",
+      "last_error": null,
+      "release_ref": "rd77vr5fn05h54nc29fgax0x9x85a6ys"
     },
     "plugin:openclaw-search-plugin": {
       "key": "plugin:openclaw-search-plugin",
@@ -222,9 +271,14 @@
       "name": "openclaw-search-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/openclaw-search-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:45:53.872112+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T15:13:20.066787+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T15:13:20.066769+00:00",
+      "last_attempt_at": "2026-04-22T15:13:20.066785+00:00",
+      "last_error": null,
+      "release_ref": "rd77mt61fw1en6xr0rb21xv9zx85bchw"
     },
     "plugin:openclaw-twitter-plugin": {
       "key": "plugin:openclaw-twitter-plugin",
@@ -232,9 +286,14 @@
       "name": "openclaw-twitter-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/openclaw-twitter-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:46:04.991982+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T15:14:17.185505+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T15:14:17.185491+00:00",
+      "last_attempt_at": "2026-04-22T15:14:17.185504+00:00",
+      "last_error": null,
+      "release_ref": "rd7e7rkp38pwxahrr4t0szbwcn85bhvb"
     },
     "plugin:openclaw-twitter-post-engage-plugin": {
       "key": "plugin:openclaw-twitter-post-engage-plugin",
@@ -242,9 +301,14 @@
       "name": "openclaw-twitter-post-engage-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/openclaw-twitter-post-engage-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:46:16.906526+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T15:14:36.576255+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T15:14:36.576237+00:00",
+      "last_attempt_at": "2026-04-22T15:14:36.576253+00:00",
+      "last_error": null,
+      "release_ref": "rd7brqg64h1npgb1yvb32atysd85b2x3"
     },
     "plugin:openclaw-youtube-plugin": {
       "key": "plugin:openclaw-youtube-plugin",
@@ -252,9 +316,14 @@
       "name": "openclaw-youtube-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/openclaw-youtube-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:46:25.759757+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T15:15:58.395327+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T15:15:58.395300+00:00",
+      "last_attempt_at": "2026-04-22T15:15:58.395325+00:00",
+      "last_error": null,
+      "release_ref": "rd7dacd81jtsa1gbsy8r5wvx2d85ac5x"
     },
     "plugin:perplexity-research-plugin": {
       "key": "plugin:perplexity-research-plugin",
@@ -262,9 +331,14 @@
       "name": "perplexity-research-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/perplexity-research-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:46:36.373064+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T15:15:59.245390+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T15:15:59.245376+00:00",
+      "last_attempt_at": "2026-04-22T15:15:59.245389+00:00",
+      "last_error": null,
+      "release_ref": "rd7bg8r87tb6xbsv6vcad9x09d85a2y7"
     },
     "plugin:perplexity-search-plugin": {
       "key": "plugin:perplexity-search-plugin",
@@ -272,9 +346,14 @@
       "name": "perplexity-search-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/perplexity-search-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:46:45.215741+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:12:15.759445+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:12:15.759429+00:00",
+      "last_attempt_at": "2026-04-22T17:12:15.759443+00:00",
+      "last_error": null,
+      "release_ref": "rd74aye304c38w8qfgdgghnej585ac12"
     },
     "plugin:prediction-market-arbitrage-api-plugin": {
       "key": "plugin:prediction-market-arbitrage-api-plugin",
@@ -282,9 +361,14 @@
       "name": "prediction-market-arbitrage-api-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/prediction-market-arbitrage-api-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:46:57.185716+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:14:10.102172+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:14:10.102156+00:00",
+      "last_attempt_at": "2026-04-22T17:14:10.102171+00:00",
+      "last_error": null,
+      "release_ref": "rd77xfn59w0dmeywg0jqbm8sw585bf19"
     },
     "plugin:prediction-market-arbitrage-plugin": {
       "key": "plugin:prediction-market-arbitrage-plugin",
@@ -292,9 +376,14 @@
       "name": "prediction-market-arbitrage-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/prediction-market-arbitrage-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:47:06.665998+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T19:42:23.264168+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-22T19:42:23.264152+00:00",
+      "last_attempt_at": "2026-04-22T19:42:23.264166+00:00",
+      "last_error": null,
+      "release_ref": "rd77xkqych8ntx30bb8aa72ymd85bmp1"
     },
     "plugin:prediction-market-arbitrage-zh-plugin": {
       "key": "plugin:prediction-market-arbitrage-zh-plugin",
@@ -302,12 +391,14 @@
       "name": "prediction-market-arbitrage-zh-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/prediction-market-arbitrage-zh-plugin",
-      "status": "planned",
-      "attempts": 1,
-      "last_attempt_at": "2026-04-21T16:35:04.898919+00:00",
-      "last_checked_at": "2026-04-22T05:47:16.973364+00:00",
-      "last_error": "remote probe failed for prediction-market-arbitrage-zh-plugin: - Fetching package | ✖ Request timed out after 15s | Error: Request timed out after 15s",
-      "token_slot": "token-1"
+      "status": "published",
+      "attempts": 2,
+      "last_attempt_at": "2026-04-22T19:43:32.470917+00:00",
+      "last_checked_at": "2026-04-22T19:43:32.470918+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "published_at": "2026-04-22T19:43:32.470904+00:00",
+      "release_ref": "rd78x059tb1e6mc0xfewgjr7n985aga8"
     },
     "plugin:prediction-market-data-plugin": {
       "key": "plugin:prediction-market-data-plugin",
@@ -315,9 +406,14 @@
       "name": "prediction-market-data-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/prediction-market-data-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:47:24.631474+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T19:43:25.329055+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-22T19:43:25.329040+00:00",
+      "last_attempt_at": "2026-04-22T19:43:25.329053+00:00",
+      "last_error": null,
+      "release_ref": "rd7e1r5vfsy8c9qwc6ddtw24dd85bjkg"
     },
     "plugin:prediction-market-data-zh-plugin": {
       "key": "plugin:prediction-market-data-zh-plugin",
@@ -325,9 +421,14 @@
       "name": "prediction-market-data-zh-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/prediction-market-data-zh-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:47:35.714488+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T19:46:36.611453+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T19:46:36.611418+00:00",
+      "last_attempt_at": "2026-04-22T19:46:36.611451+00:00",
+      "last_error": null,
+      "release_ref": "rd760zactwjk7vcjaekd7abn8s85bfcq"
     },
     "plugin:prediction-market-plugin": {
       "key": "plugin:prediction-market-plugin",
@@ -335,9 +436,14 @@
       "name": "prediction-market-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/prediction-market-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:47:44.344054+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T19:44:37.980110+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-22T19:44:37.980080+00:00",
+      "last_attempt_at": "2026-04-22T19:44:37.980108+00:00",
+      "last_error": null,
+      "release_ref": "rd77krpjkr0d2w2bj5fmzjzgdh85awrx"
     },
     "plugin:scholar-search-plugin": {
       "key": "plugin:scholar-search-plugin",
@@ -345,9 +451,15 @@
       "name": "scholar-search-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/scholar-search-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:47:54.638344+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-23T03:37:29.911434+00:00",
+      "token_slot": "token-3",
+      "attempts": 2,
+      "last_attempt_at": "2026-04-23T03:37:29.911433+00:00",
+      "last_error": null,
+      "published_at": "2026-04-23T03:37:29.911420+00:00",
+      "release_ref": "rd7e0dhjb522my0kn3n8y6h7sn85d013",
+      "publish_mode": "published"
     },
     "plugin:search-plugin": {
       "key": "plugin:search-plugin",
@@ -365,9 +477,14 @@
       "name": "smart-search-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/smart-search-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:48:15.595820+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T19:48:12.264738+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T19:48:12.264719+00:00",
+      "last_attempt_at": "2026-04-22T19:48:12.264736+00:00",
+      "last_error": null,
+      "release_ref": "rd76e0p1tng6acdn4hwcjmxzh185aqsn"
     },
     "plugin:stock-analysis-plugin": {
       "key": "plugin:stock-analysis-plugin",
@@ -375,9 +492,14 @@
       "name": "stock-analysis-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/stock-analysis-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:48:26.217207+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T19:48:19.287020+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T19:48:19.287006+00:00",
+      "last_attempt_at": "2026-04-22T19:48:19.287019+00:00",
+      "last_error": null,
+      "release_ref": "rd7ere6h9gxgkddj3026d842a585b5r1"
     },
     "plugin:stock-dividend-plugin": {
       "key": "plugin:stock-dividend-plugin",
@@ -385,9 +507,15 @@
       "name": "stock-dividend-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/stock-dividend-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:48:35.893066+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-23T03:38:19.409853+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-23T03:38:19.409839+00:00",
+      "last_attempt_at": "2026-04-23T03:38:19.409851+00:00",
+      "last_error": null,
+      "release_ref": "rd7bs18ayrzkycaak5k0ze88cx85c9vt",
+      "publish_mode": "published"
     },
     "plugin:stock-hot-plugin": {
       "key": "plugin:stock-hot-plugin",
@@ -395,9 +523,15 @@
       "name": "stock-hot-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/stock-hot-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-21T16:36:38.344029+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-23T03:38:40.369241+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-23T03:38:40.369227+00:00",
+      "last_attempt_at": "2026-04-23T03:38:40.369240+00:00",
+      "last_error": null,
+      "release_ref": "rd7f8118d01g6xh7a5g6stsycx85d3w2",
+      "publish_mode": "published"
     },
     "plugin:stock-portfolio-plugin": {
       "key": "plugin:stock-portfolio-plugin",
@@ -405,9 +539,15 @@
       "name": "stock-portfolio-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/stock-portfolio-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-21T16:36:48.925354+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-23T03:39:14.305816+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-23T03:39:14.305802+00:00",
+      "last_attempt_at": "2026-04-23T03:39:14.305815+00:00",
+      "last_error": null,
+      "release_ref": "rd73tmvfrc1z043m3exv9x44ed85cs82",
+      "publish_mode": "published"
     },
     "plugin:stock-rumors-plugin": {
       "key": "plugin:stock-rumors-plugin",
@@ -415,9 +555,15 @@
       "name": "stock-rumors-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/stock-rumors-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-21T16:37:22.229371+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-23T03:39:48.485865+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-23T03:39:48.485851+00:00",
+      "last_attempt_at": "2026-04-23T03:39:48.485864+00:00",
+      "last_error": null,
+      "release_ref": "rd77386k1qmykchcxafwq9z1y985c9qm",
+      "publish_mode": "published"
     },
     "plugin:stock-watchlist-plugin": {
       "key": "plugin:stock-watchlist-plugin",
@@ -425,9 +571,15 @@
       "name": "stock-watchlist-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/stock-watchlist-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-21T16:37:19.245144+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-23T03:39:30.247278+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-23T03:39:30.247256+00:00",
+      "last_attempt_at": "2026-04-23T03:39:30.247269+00:00",
+      "last_error": null,
+      "release_ref": "rd784rrkj54hz8zyvyf9e5p89n85d244",
+      "publish_mode": "published"
     },
     "plugin:tavily-extract-plugin": {
       "key": "plugin:tavily-extract-plugin",
@@ -435,9 +587,15 @@
       "name": "tavily-extract-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/tavily-extract-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-21T16:37:49.765726+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-23T03:40:34.983046+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-23T03:40:34.983033+00:00",
+      "last_attempt_at": "2026-04-23T03:40:34.983045+00:00",
+      "last_error": null,
+      "release_ref": "rd7dbzerzz27fmzzkwwmvxrp6s85dnb4",
+      "publish_mode": "published"
     },
     "plugin:tavily-search-plugin": {
       "key": "plugin:tavily-search-plugin",
@@ -446,8 +604,8 @@
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/tavily-search-plugin",
       "status": "planned",
-      "last_checked_at": "2026-04-21T16:37:37.047742+00:00",
-      "token_slot": "token-2"
+      "last_checked_at": "2026-04-22T05:49:36.761922+00:00",
+      "token_slot": "token-1"
     },
     "plugin:twitter-autopilot-plugin": {
       "key": "plugin:twitter-autopilot-plugin",
@@ -455,9 +613,15 @@
       "name": "twitter-autopilot-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/twitter-autopilot-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-21T16:37:59.150791+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-23T03:40:48.923487+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-23T03:40:48.923474+00:00",
+      "last_attempt_at": "2026-04-23T03:40:48.923486+00:00",
+      "last_error": null,
+      "release_ref": "rd7ftmx8vhrx37nz747zk6e0x185db69",
+      "publish_mode": "published"
     },
     "plugin:twitter-command-center-search-post-interact-plugin": {
       "key": "plugin:twitter-command-center-search-post-interact-plugin",
@@ -465,9 +629,15 @@
       "name": "twitter-command-center-search-post-interact-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/twitter-command-center-search-post-interact-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-21T16:38:22.307870+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-23T03:41:35.592700+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-23T03:41:35.592684+00:00",
+      "last_attempt_at": "2026-04-23T03:41:35.592698+00:00",
+      "last_error": null,
+      "release_ref": "rd72k7s2wts9baqb2wrcvpvdd185c9zm",
+      "publish_mode": "published"
     },
     "plugin:twitter-command-center-search-post-plugin": {
       "key": "plugin:twitter-command-center-search-post-plugin",
@@ -475,9 +645,15 @@
       "name": "twitter-command-center-search-post-plugin",
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/twitter-command-center-search-post-plugin",
-      "status": "planned",
-      "last_checked_at": "2026-04-21T16:38:37.988296+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-23T03:41:55.366536+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-23T03:41:55.366522+00:00",
+      "last_attempt_at": "2026-04-23T03:41:55.366534+00:00",
+      "last_error": null,
+      "release_ref": "rd70cnh0cqnaee3dqh8g0z5f7s85ch28",
+      "publish_mode": "published"
     },
     "plugin:twitter-plugin": {
       "key": "plugin:twitter-plugin",
@@ -486,7 +662,7 @@
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/twitter-plugin",
       "status": "planned",
-      "last_checked_at": "2026-04-21T16:39:03.572485+00:00",
+      "last_checked_at": "2026-04-22T05:50:23.753849+00:00",
       "token_slot": "token-1"
     },
     "plugin:us-stock-analyst-plugin": {
@@ -496,7 +672,7 @@
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/us-stock-analyst-plugin",
       "status": "planned",
-      "last_checked_at": "2026-04-21T16:39:14.263573+00:00",
+      "last_checked_at": "2026-04-22T05:50:30.572483+00:00",
       "token_slot": "token-2"
     },
     "plugin:web-search-plugin": {
@@ -506,7 +682,7 @@
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/web-search-plugin",
       "status": "planned",
-      "last_checked_at": "2026-04-21T16:40:10.704581+00:00",
+      "last_checked_at": "2026-04-22T05:50:43.049611+00:00",
       "token_slot": "token-1"
     },
     "plugin:x-intelligence-automation-plugin": {
@@ -516,7 +692,7 @@
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/x-intelligence-automation-plugin",
       "status": "planned",
-      "last_checked_at": "2026-04-21T16:39:35.289832+00:00",
+      "last_checked_at": "2026-04-22T05:50:52.160726+00:00",
       "token_slot": "token-2"
     },
     "plugin:youtube-plugin": {
@@ -526,8 +702,8 @@
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/youtube-plugin",
       "status": "planned",
-      "last_checked_at": "2026-04-21T16:40:05.182702+00:00",
-      "token_slot": "token-2"
+      "last_checked_at": "2026-04-22T05:51:19.731175+00:00",
+      "token_slot": "token-1"
     },
     "plugin:youtube-search-plugin": {
       "key": "plugin:youtube-search-plugin",
@@ -536,14 +712,14 @@
       "version": "1.0.0",
       "path": "clawhub-plugin-release/plugins/youtube-search-plugin",
       "status": "planned",
-      "last_checked_at": "2026-04-21T16:40:36.265253+00:00",
+      "last_checked_at": "2026-04-22T05:51:16.277793+00:00",
       "token_slot": "token-2"
     },
     "skill:aisa-multi-search-engine": {
       "key": "skill:aisa-multi-search-engine",
       "kind": "skill",
       "name": "aisa-multi-search-engine",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "clawhub-release/aisa-multi-search-engine",
       "status": "published",
       "published_at": "2026-04-21T16:16:02.828163+00:00",
@@ -654,7 +830,7 @@
       "key": "skill:aisa-youtube-serp-scout",
       "kind": "skill",
       "name": "aisa-youtube-serp-scout",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "clawhub-release/aisa-youtube-serp-scout",
       "status": "published",
       "last_checked_at": "2026-04-21T18:45:09.920532+00:00",
@@ -684,7 +860,7 @@
       "key": "skill:last30days",
       "kind": "skill",
       "name": "last30days",
-      "version": "1.0.0",
+      "version": "1.0.3",
       "path": "clawhub-release/last30days",
       "status": "published",
       "published_at": "2026-04-21T16:17:47.099550+00:00",
@@ -696,7 +872,7 @@
       "key": "skill:last30days-zh",
       "kind": "skill",
       "name": "last30days-zh",
-      "version": "1.0.0",
+      "version": "1.0.3",
       "path": "clawhub-release/last30days-zh",
       "status": "published",
       "last_checked_at": "2026-04-21T18:46:21.209950+00:00",
@@ -713,9 +889,14 @@
       "name": "llm-router",
       "version": "1.0.0",
       "path": "clawhub-release/llm-router",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:41:46.861154+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:07:03.219627+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:07:03.219613+00:00",
+      "last_attempt_at": "2026-04-22T17:07:03.219625+00:00",
+      "last_error": null,
+      "release_ref": "k97fqp1n6vx6y6zx937ecqpyah85bp7k"
     },
     "skill:market": {
       "key": "skill:market",
@@ -723,35 +904,50 @@
       "name": "market",
       "version": "1.0.0",
       "path": "clawhub-release/market",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:41:48.075572+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:07:01.574221+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:07:01.574209+00:00",
+      "last_attempt_at": "2026-04-22T17:07:01.574220+00:00",
+      "last_error": null,
+      "release_ref": "k979zpnjwyzc2tndx8m2re22dh85apb4"
     },
     "skill:marketpulse": {
       "key": "skill:marketpulse",
       "kind": "skill",
       "name": "marketpulse",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "clawhub-release/marketpulse",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:42:03.031840+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:08:20.181999+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:08:20.181986+00:00",
+      "last_attempt_at": "2026-04-22T17:08:20.181998+00:00",
+      "last_error": null,
+      "release_ref": "k978g4p70rh0h49cgfbjkayy0n85bv58"
     },
     "skill:media-gen": {
       "key": "skill:media-gen",
       "kind": "skill",
       "name": "media-gen",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "clawhub-release/media-gen",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:42:05.243406+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:08:03.069078+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:08:03.069065+00:00",
+      "last_attempt_at": "2026-04-22T17:08:03.069077+00:00",
+      "last_error": null,
+      "release_ref": "k977ngzabfwjz8z0tv0g90csys85as9r"
     },
     "skill:multi-search": {
       "key": "skill:multi-search",
       "kind": "skill",
       "name": "multi-search",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "clawhub-release/multi-search",
       "status": "published",
       "published_at": "2026-04-21T16:18:42.561863+00:00",
@@ -775,11 +971,16 @@
       "key": "skill:openclaw-media-gen",
       "kind": "skill",
       "name": "openclaw-media-gen",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "clawhub-release/openclaw-media-gen",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:42:17.142848+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:07:47.697394+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:07:47.697378+00:00",
+      "last_attempt_at": "2026-04-22T17:07:47.697392+00:00",
+      "last_error": null,
+      "release_ref": "k97e2523rzn7skreaktnyswsm585a65f"
     },
     "skill:openclaw-search": {
       "key": "skill:openclaw-search",
@@ -787,12 +988,14 @@
       "name": "openclaw-search",
       "version": "1.0.0",
       "path": "clawhub-release/openclaw-search",
-      "status": "planned",
-      "attempts": 1,
-      "last_attempt_at": "2026-04-21T16:20:22.812538+00:00",
-      "last_checked_at": "2026-04-22T05:42:19.630287+00:00",
-      "last_error": "remote probe failed for openclaw-search: - Fetching skill | ✖ Request timed out after 15s | Error: Request timed out after 15s",
-      "token_slot": "token-1"
+      "status": "published",
+      "attempts": 2,
+      "last_attempt_at": "2026-04-22T17:08:36.581763+00:00",
+      "last_checked_at": "2026-04-22T17:08:36.581765+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "published_at": "2026-04-22T17:08:36.581750+00:00",
+      "release_ref": "k97axhqh1bs866zt46p8bvdyg185a0z5"
     },
     "skill:openclaw-twitter": {
       "key": "skill:openclaw-twitter",
@@ -824,9 +1027,14 @@
       "name": "openclaw-youtube",
       "version": "1.0.0",
       "path": "clawhub-release/openclaw-youtube",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:42:35.685898+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:08:48.007236+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:08:48.007222+00:00",
+      "last_attempt_at": "2026-04-22T17:08:48.007234+00:00",
+      "last_error": null,
+      "release_ref": "k978kmktfrzrfgj6c882h4ty3985amy7"
     },
     "skill:perplexity-research": {
       "key": "skill:perplexity-research",
@@ -844,11 +1052,14 @@
       "key": "skill:perplexity-search",
       "kind": "skill",
       "name": "perplexity-search",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "clawhub-release/perplexity-search",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:42:39.671678+00:00",
-      "token_slot": "token-1"
+      "status": "failed",
+      "last_checked_at": "2026-04-22T17:08:49.418557+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "last_attempt_at": "2026-04-22T17:08:49.418543+00:00",
+      "last_error": "✖ Uncaught ConvexError: This slug is locked to a deleted or banned account. If you believe you are the rightful owner, please contact security@openclaw.ai to reclaim it. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 177/180, reset in 15s) | Error: Uncaught ConvexError: This slug is locked to a deleted or banned account. If you believe you are the rightful owner, please contact security@openclaw.ai to reclaim it. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 177/180, reset in 15s)"
     },
     "skill:prediction-market": {
       "key": "skill:prediction-market",
@@ -866,7 +1077,7 @@
       "key": "skill:prediction-market-arbitrage",
       "kind": "skill",
       "name": "prediction-market-arbitrage",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "clawhub-release/prediction-market-arbitrage",
       "status": "published",
       "published_at": "2026-04-21T16:21:22.679422+00:00",
@@ -902,7 +1113,7 @@
       "key": "skill:prediction-market-data",
       "kind": "skill",
       "name": "prediction-market-data",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "clawhub-release/prediction-market-data",
       "status": "published",
       "published_at": "2026-04-21T16:22:19.823246+00:00",
@@ -940,9 +1151,12 @@
       "name": "search",
       "version": "1.0.0",
       "path": "clawhub-release/search",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:42:54.528211+00:00",
-      "token_slot": "token-2"
+      "status": "failed",
+      "last_checked_at": "2026-04-22T17:09:14.876936+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "last_attempt_at": "2026-04-22T17:09:14.876923+00:00",
+      "last_error": "✖ Uncaught ConvexError: Slug is already taken. Choose a different slug. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 179/180, reset in 50s) | Error: Uncaught ConvexError: Slug is already taken. Choose a different slug. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 179/180, reset in 50s)"
     },
     "skill:smart-search": {
       "key": "skill:smart-search",
@@ -1050,9 +1264,12 @@
       "name": "tavily-search",
       "version": "1.0.0",
       "path": "clawhub-release/tavily-search",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:42:55.574619+00:00",
-      "token_slot": "token-1"
+      "status": "failed",
+      "last_checked_at": "2026-04-22T17:09:18.737230+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "last_attempt_at": "2026-04-22T17:09:18.737218+00:00",
+      "last_error": "✖ Uncaught ConvexError: Slug is already taken. Choose a different slug. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 178/180, reset in 46s) | Error: Uncaught ConvexError: Slug is already taken. Choose a different slug. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 178/180, reset in 46s)"
     },
     "skill:twitter": {
       "key": "skill:twitter",
@@ -1060,15 +1277,18 @@
       "name": "twitter",
       "version": "1.0.0",
       "path": "clawhub-release/twitter",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:43:10.154117+00:00",
-      "token_slot": "token-2"
+      "status": "failed",
+      "last_checked_at": "2026-04-22T17:09:37.960237+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "last_attempt_at": "2026-04-22T17:09:37.960222+00:00",
+      "last_error": "✖ Uncaught ConvexError: Slug is already taken. Choose a different slug. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 178/180, reset in 27s) | Error: Uncaught ConvexError: Slug is already taken. Choose a different slug. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 178/180, reset in 27s)"
     },
     "skill:twitter-autopilot": {
       "key": "skill:twitter-autopilot",
       "kind": "skill",
       "name": "twitter-autopilot",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "clawhub-release/twitter-autopilot",
       "status": "published",
       "published_at": "2026-04-21T16:26:58.600661+00:00",
@@ -1082,9 +1302,14 @@
       "name": "twitter-command-center-search-post",
       "version": "1.0.0",
       "path": "clawhub-release/twitter-command-center-search-post",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:43:26.525511+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:09:49.640551+00:00",
+      "token_slot": "token-1",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:09:49.640536+00:00",
+      "last_attempt_at": "2026-04-22T17:09:49.640550+00:00",
+      "last_error": null,
+      "release_ref": "k976yjhn5xgssrffx7yn0ejj6d85av0d"
     },
     "skill:twitter-command-center-search-post-interact": {
       "key": "skill:twitter-command-center-search-post-interact",
@@ -1092,9 +1317,14 @@
       "name": "twitter-command-center-search-post-interact",
       "version": "1.0.0",
       "path": "clawhub-release/twitter-command-center-search-post-interact",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:43:40.869149+00:00",
-      "token_slot": "token-2"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:09:52.490753+00:00",
+      "token_slot": "token-2",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:09:52.490739+00:00",
+      "last_attempt_at": "2026-04-22T17:09:52.490752+00:00",
+      "last_error": null,
+      "release_ref": "k97343sqqfcjc3bn7v2evk56zs85b82e"
     },
     "skill:us-stock-analyst": {
       "key": "skill:us-stock-analyst",
@@ -1102,9 +1332,14 @@
       "name": "us-stock-analyst",
       "version": "1.0.0",
       "path": "clawhub-release/us-stock-analyst",
-      "status": "planned",
-      "last_checked_at": "2026-04-22T05:43:48.419759+00:00",
-      "token_slot": "token-1"
+      "status": "published",
+      "last_checked_at": "2026-04-22T17:10:51.995367+00:00",
+      "token_slot": "token-3",
+      "attempts": 1,
+      "published_at": "2026-04-22T17:10:51.995340+00:00",
+      "last_attempt_at": "2026-04-22T17:10:51.995366+00:00",
+      "last_error": null,
+      "release_ref": "k97fde86n0b22s8q79yst5yw7185a75j"
     },
     "skill:web-search": {
       "key": "skill:web-search",
@@ -1153,6 +1388,173 @@
       "last_checked_at": "2026-04-21T16:28:47.904229+00:00",
       "last_error": null,
       "token_slot": "token-2"
+    },
+    "skill:aisa-perplexity-search": {
+      "key": "skill:aisa-perplexity-search",
+      "kind": "skill",
+      "name": "aisa-perplexity-search",
+      "version": "1.0.1",
+      "path": "clawhub-release/aisa-perplexity-search",
+      "status": "failed",
+      "attempts": 1,
+      "last_attempt_at": "2026-04-22T19:38:22.670417+00:00",
+      "last_checked_at": "2026-04-22T19:38:22.670432+00:00",
+      "last_error": "✖ Uncaught ConvexError: Slug is already taken. Choose a different slug. Existing skill: /renning22/aisa-perplexity-search | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 178/180, reset in 41s) | Error: Uncaught ConvexError: Slug is already taken. Choose a different slug. Existing skill: /renning22/aisa-perplexity-search | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 178/180, reset in 41s)",
+      "token_slot": "token-3"
+    },
+    "skill:aisa-search": {
+      "key": "skill:aisa-search",
+      "kind": "skill",
+      "name": "aisa-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-search",
+      "status": "published",
+      "attempts": 1,
+      "published_at": "2026-04-22T19:38:09.005803+00:00",
+      "last_attempt_at": "2026-04-22T19:38:09.005830+00:00",
+      "last_checked_at": "2026-04-22T19:38:09.005833+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "release_ref": "k976egx7fnp1k569aav79xfk3585beqd"
+    },
+    "skill:aisa-tavily-search": {
+      "key": "skill:aisa-tavily-search",
+      "kind": "skill",
+      "name": "aisa-tavily-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-tavily-search",
+      "status": "published",
+      "attempts": 1,
+      "published_at": "2026-04-22T19:38:51.241004+00:00",
+      "last_attempt_at": "2026-04-22T19:38:51.241021+00:00",
+      "last_checked_at": "2026-04-22T19:38:51.241022+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "release_ref": "k97csamn3hckq5zy52af17wepd85at90"
+    },
+    "skill:aisa-twitter": {
+      "key": "skill:aisa-twitter",
+      "kind": "skill",
+      "name": "aisa-twitter",
+      "version": "1.0.0",
+      "path": "clawhub-release/aisa-twitter",
+      "status": "published",
+      "published_at": "2026-04-22T19:38:21.849216+00:00",
+      "last_checked_at": "2026-04-22T19:38:21.849230+00:00",
+      "last_error": null,
+      "token_slot": "token-1"
+    },
+    "plugin:aisa-perplexity-search-plugin": {
+      "key": "plugin:aisa-perplexity-search-plugin",
+      "kind": "plugin",
+      "name": "aisa-perplexity-search-plugin",
+      "version": "1.0.1",
+      "path": "clawhub-plugin-release/plugins/aisa-perplexity-search-plugin",
+      "status": "failed",
+      "attempts": 1,
+      "last_attempt_at": "2026-04-22T19:43:18.862576+00:00",
+      "last_checked_at": "2026-04-22T19:43:18.862591+00:00",
+      "last_error": "- Preparing aisa-perplexity-search-plugin@1.0.1 | ✖ fetch failed | Error: fetch failed",
+      "token_slot": "token-1"
+    },
+    "plugin:aisa-search-plugin": {
+      "key": "plugin:aisa-search-plugin",
+      "kind": "plugin",
+      "name": "aisa-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-search-plugin",
+      "status": "published",
+      "attempts": 1,
+      "published_at": "2026-04-22T19:41:36.256534+00:00",
+      "last_attempt_at": "2026-04-22T19:41:36.256562+00:00",
+      "last_checked_at": "2026-04-22T19:41:36.256564+00:00",
+      "last_error": null,
+      "token_slot": "token-3",
+      "release_ref": "rd7ezdqd1nr5k0gw6th3h9z1xd85afsb"
+    },
+    "plugin:aisa-tavily-search-plugin": {
+      "key": "plugin:aisa-tavily-search-plugin",
+      "kind": "plugin",
+      "name": "aisa-tavily-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-tavily-search-plugin",
+      "status": "published",
+      "attempts": 1,
+      "published_at": "2026-04-22T19:40:30.443913+00:00",
+      "last_attempt_at": "2026-04-22T19:40:30.444022+00:00",
+      "last_checked_at": "2026-04-22T19:40:30.444033+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "release_ref": "rd7ew5vjkar7zdetc7the4avm585bzvt"
+    },
+    "plugin:aisa-twitter-plugin": {
+      "key": "plugin:aisa-twitter-plugin",
+      "kind": "plugin",
+      "name": "aisa-twitter-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/aisa-twitter-plugin",
+      "status": "published",
+      "attempts": 2,
+      "last_attempt_at": "2026-04-23T03:37:31.894612+00:00",
+      "last_checked_at": "2026-04-23T03:37:31.894613+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "published_at": "2026-04-23T03:37:31.894600+00:00",
+      "release_ref": "rd7cjxj1a1x38y2hxy0d74873x85dxx7",
+      "publish_mode": "published"
+    },
+    "skill:aisa-perplexity-sonar-search": {
+      "key": "skill:aisa-perplexity-sonar-search",
+      "kind": "skill",
+      "name": "aisa-perplexity-sonar-search",
+      "version": "1.0.1",
+      "path": "clawhub-release/aisa-perplexity-sonar-search",
+      "status": "published",
+      "attempts": 1,
+      "published_at": "2026-04-22T20:03:44.778333+00:00",
+      "last_attempt_at": "2026-04-22T20:03:44.778352+00:00",
+      "last_checked_at": "2026-04-22T20:03:44.778354+00:00",
+      "last_error": null,
+      "token_slot": "token-1",
+      "release_ref": "k975d0mw4xsrcv6hpr9q89ze2185bg67",
+      "publish_mode": "published"
+    },
+    "plugin:aisa-perplexity-sonar-search-plugin": {
+      "key": "plugin:aisa-perplexity-sonar-search-plugin",
+      "kind": "plugin",
+      "name": "aisa-perplexity-sonar-search-plugin",
+      "version": "1.0.1",
+      "path": "clawhub-plugin-release/plugins/aisa-perplexity-sonar-search-plugin",
+      "status": "published",
+      "attempts": 1,
+      "published_at": "2026-04-23T03:38:05.277872+00:00",
+      "last_attempt_at": "2026-04-23T03:38:05.277885+00:00",
+      "last_checked_at": "2026-04-23T03:38:05.277886+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "release_ref": "rd728w9gnstcn91xm7v32kn6eh85cy9w",
+      "publish_mode": "published"
+    },
+    "plugin:crypto-market-data-plugin": {
+      "key": "plugin:crypto-market-data-plugin",
+      "kind": "plugin",
+      "name": "crypto-market-data-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/crypto-market-data-plugin"
+    },
+    "plugin:multi-source-search-plugin": {
+      "key": "plugin:multi-source-search-plugin",
+      "kind": "plugin",
+      "name": "multi-source-search-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/multi-source-search-plugin"
+    },
+    "plugin:youtube-serp-plugin": {
+      "key": "plugin:youtube-serp-plugin",
+      "kind": "plugin",
+      "name": "youtube-serp-plugin",
+      "version": "1.0.0",
+      "path": "clawhub-plugin-release/plugins/youtube-serp-plugin"
     }
   }
 }

@@ -5,8 +5,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 CLAUDE_SOURCE="$REPO_ROOT/claude-release"
 MARKET_SOURCE="$REPO_ROOT/claude-marketplace"
-CLAUDE_DEST="${REPO_ROOT}/../Aisa-One-Skills-Claude"
-MARKET_DEST="${REPO_ROOT}/../Aisa-One-Plugins-Claude"
+CLAUDE_DEST="${PUBLISH_CLAUDE_DEST:-${REPO_ROOT}/../Aisa-One-Skills-Claude}"
+MARKET_DEST="${PUBLISH_CLAUDE_MARKETPLACE_DEST:-${REPO_ROOT}/../Aisa-One-Plugins-Claude}"
 SKIP_BUILD=0
 WITH_MARKETPLACE=0
 

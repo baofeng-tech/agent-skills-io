@@ -201,40 +201,59 @@ def smoke_tests() -> list[dict[str, object]]:
         return cmd
 
     tests = [
-        ("claude", "aisa-twitter-command-center", [python_exe, "scripts/twitter_client.py", "search", "--query", "OpenAI", "--type", "Latest"]),
-        ("claude", "aisa-youtube-serp-scout", [python_exe, "scripts/youtube_client.py", "search", "--query", "OpenAI"]),
-        ("claude", "search", [python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"]),
-        ("claude", "prediction-market", [python_exe, "scripts/prediction_market_client.py", "polymarket", "markets", "--limit", "1"]),
-        ("claude", "llm-router", [python_exe, "scripts/llm_router_client.py", "models"]),
-        ("claude", "last30days", [python_exe, "scripts/last30days.py", "--help"]),
-        ("claude", "last30days-zh", [python_exe, "scripts/last30days.py", "--help"]),
-        ("hermes", "communication/aisa-twitter-command-center", maybe_with_api_key([python_exe, "scripts/twitter_client.py", "search", "--query", "OpenAI", "--type", "Latest"], explicit=True)),
-        ("hermes", "research/aisa-youtube-serp-scout", maybe_with_api_key([python_exe, "scripts/youtube_client.py", "search", "--query", "OpenAI"], explicit=True)),
-        ("hermes", "research/search", maybe_with_api_key([python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"], explicit=True)),
-        ("hermes", "finance/prediction-market", maybe_with_api_key([python_exe, "scripts/prediction_market_client.py", "polymarket", "markets", "--limit", "1"], explicit=True)),
-        ("hermes", "ai/llm-router", maybe_with_api_key([python_exe, "scripts/llm_router_client.py", "models"], explicit=True)),
-        ("hermes", "communication/last30days", [python_exe, "scripts/last30days.py", "--help"]),
-        ("clawhub", "aisa-twitter-command-center", [python_exe, "scripts/twitter_client.py", "search", "--query", "OpenAI", "--type", "Latest"]),
-        ("clawhub", "aisa-youtube-serp-scout", [python_exe, "scripts/youtube_client.py", "search", "--query", "OpenAI"]),
-        ("clawhub", "search", [python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"]),
-        ("clawhub", "prediction-market", [python_exe, "scripts/prediction_market_client.py", "polymarket", "markets", "--limit", "1"]),
-        ("clawhub", "last30days", [python_exe, "scripts/last30days.py", "--help"]),
+        ("claude", ["aisa-twitter-command-center"], [python_exe, "scripts/twitter_client.py", "search", "--query", "OpenAI", "--type", "Latest"]),
+        ("claude", ["aisa-youtube-serp-scout"], [python_exe, "scripts/youtube_client.py", "search", "--query", "OpenAI"]),
+        ("claude", ["search"], [python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"]),
+        ("claude", ["prediction-market"], [python_exe, "scripts/prediction_market_client.py", "polymarket", "markets", "--limit", "1"]),
+        ("claude", ["llm-router"], [python_exe, "scripts/llm_router_client.py", "models"]),
+        ("claude", ["last30days"], [python_exe, "scripts/last30days.py", "--help"]),
+        ("claude", ["last30days-zh"], [python_exe, "scripts/last30days.py", "--help"]),
+        ("hermes", ["communication/aisa-twitter-command-center"], maybe_with_api_key([python_exe, "scripts/twitter_client.py", "search", "--query", "OpenAI", "--type", "Latest"], explicit=True)),
+        ("hermes", ["research/aisa-youtube-serp-scout"], maybe_with_api_key([python_exe, "scripts/youtube_client.py", "search", "--query", "OpenAI"], explicit=True)),
+        ("hermes", ["research/search"], maybe_with_api_key([python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"], explicit=True)),
+        ("hermes", ["finance/prediction-market"], maybe_with_api_key([python_exe, "scripts/prediction_market_client.py", "polymarket", "markets", "--limit", "1"], explicit=True)),
+        ("hermes", ["ai/llm-router"], maybe_with_api_key([python_exe, "scripts/llm_router_client.py", "models"], explicit=True)),
+        ("hermes", ["communication/last30days"], [python_exe, "scripts/last30days.py", "--help"]),
+        ("clawhub", ["aisa-twitter-command-center"], [python_exe, "scripts/twitter_client.py", "search", "--query", "OpenAI", "--type", "Latest"]),
+        ("clawhub", ["aisa-youtube-serp-scout"], [python_exe, "scripts/youtube_client.py", "search", "--query", "OpenAI"]),
+        ("clawhub", ["aisa-search", "search"], [python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"]),
+        ("clawhub", ["prediction-market"], [python_exe, "scripts/prediction_market_client.py", "polymarket", "markets", "--limit", "1"]),
+        ("clawhub", ["last30days"], [python_exe, "scripts/last30days.py", "--help"]),
     ]
 
     results: list[dict[str, object]] = []
-    for layer, rel_path, cmd in tests:
+    for layer, rel_paths, cmd in tests:
         if layer == "claude":
             base_dir = CLAUDE_ROOT
         elif layer == "hermes":
             base_dir = HERMES_ROOT
         else:
             base_dir = CLAWHUB_ROOT
-        cwd = base_dir / rel_path
+        cwd = None
+        chosen_path = None
+        for candidate in rel_paths:
+            candidate_path = base_dir / candidate
+            if candidate_path.exists():
+                cwd = candidate_path
+                chosen_path = candidate
+                break
+        if cwd is None or chosen_path is None:
+            results.append(
+                {
+                    "layer": layer,
+                    "path": rel_paths[0],
+                    "command": cmd,
+                    "code": 127,
+                    "stdout_preview": "",
+                    "stderr_preview": f"Missing test path candidates: {rel_paths}",
+                }
+            )
+            continue
         code, stdout, stderr = run(cmd, cwd=cwd, env=env)
         results.append(
             {
                 "layer": layer,
-                "path": rel_path,
+                "path": chosen_path,
                 "command": cmd,
                 "code": code,
                 "stdout_preview": stdout[:400],

@@ -1,11 +1,14 @@
 ---
 name: perplexity-search
 description: Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
+license: MIT
 allowed-tools: Read Bash Grep
 when_to_use: the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports
 ---
 
-# AIsa Perplexity Search (`perplexity-search`)
+> Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
+
+# Perplexity-Search
 
 Use this skill when the user specifically wants Perplexity-powered search answers instead of structured scholar/web retrieval.
 
@@ -14,6 +17,22 @@ This skill covers four AIsa endpoints:
 - `/perplexity/sonar-pro`
 - `/perplexity/sonar-reasoning-pro`
 - `/perplexity/sonar-deep-research`
+
+## Compatibility
+
+Works with any [agentskills.io](https://agentskills.io)-compatible
+harness, including:
+
+- **Claude Code** and **Claude** (Anthropic)
+- **OpenAI Codex**
+- **Cursor**
+- **Gemini CLI** (Google)
+- **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
+- and any other harness that implements the [Agent Skills
+  specification](https://agentskills.io/specification)
+
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at
+[aisa.one](https://aisa.one)).
 
 ## Requirements
 
@@ -110,7 +129,7 @@ curl -X POST "https://api.aisa.one/apis/v1/perplexity/sonar-deep-research" \
 
 ## References
 
-- [Sonar](https://docs.aisa.one/reference/post_perplexity-sonar)
-- [Sonar Pro](https://docs.aisa.one/reference/post_perplexity-sonar-pro)
-- [Sonar Reasoning Pro](https://docs.aisa.one/reference/post_perplexity-sonar-reasoning-pro)
-- [Sonar Deep Research](https://docs.aisa.one/reference/post_perplexity-sonar-deep-research)
+- [Sonar](https://aisa.one/docs/api-reference/perplexity/post_perplexity-sonar)
+- [Sonar Pro](https://aisa.one/docs/api-reference/perplexity/post_perplexity-sonar-pro)
+- [Sonar Reasoning Pro](https://aisa.one/docs/api-reference/perplexity/post_perplexity-sonar-reasoning-pro)
+- [Sonar Deep Research](https://aisa.one/docs/api-reference/perplexity/post_perplexity-sonar-deep-research)

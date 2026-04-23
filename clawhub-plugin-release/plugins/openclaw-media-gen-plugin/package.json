@@ -2,7 +2,7 @@
   "name": "openclaw-media-gen-plugin",
   "version": "1.0.0",
   "description": "Native-first ClawHub plugin for `openclaw-media-gen`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Generate AI images or videos through AIsa. Use when: the user needs creative generation, asset drafts, or media workflows. Supports image and video generation.",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "type": "module",
   "keywords": [
     "aisa",

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SOURCE_DIR="${1:-targetSkills}"
-DEST_DIR="${2:-../agent-skills}"
+DEST_DIR="${2:-${PUBLISH_AGENT_SKILLS_DEST:-../agent-skills}}"
 
 if [[ ! -d "$SOURCE_DIR" ]]; then
   echo "Source directory not found: $SOURCE_DIR" >&2

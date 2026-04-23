@@ -71,9 +71,15 @@
       "residual_risks": []
     },
     {
+      "name": "crypto-market-data",
+      "path": "crypto-market-data",
+      "description": "Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use for crypto research, price tracking, on-chain token lookup, portfolio analysis, and market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
+      "residual_risks": []
+    },
+    {
       "name": "last30days",
       "path": "last30days",
-      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: the user needs recent multi-source research across the last 30 days.",
+      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web search. Use when: the user needs recent multi-source research across the last 30 days.",
       "residual_risks": [
         "Large runtime surface remains; verify Python 3.12+ and AISA-only flow before public publishing."
       ]
@@ -101,19 +107,25 @@
     {
       "name": "marketpulse",
       "path": "marketpulse",
-      "description": "Query real-time and historical financial data across equities and crypto—prices, market moves, metrics, and trends for analysis, alerts, and reporting. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
+      "description": "Query real-time and historical financial data for equities—prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": []
     },
     {
       "name": "media-gen",
       "path": "media-gen",
-      "description": "Generate images & videos with AIsa. Gemini 3 Pro Image (image) + Qwen Wan 2.6 (video) via one API key. Use when: the user needs AI image or video generation workflows.",
+      "description": "Generate images and videos with AIsa. Four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image + image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.",
       "residual_risks": []
     },
     {
       "name": "multi-search",
       "path": "multi-search",
       "description": "Parallel multi-source search combining Web, Scholar, Smart, and Tavily results with confidence scoring and AI synthesis. Best for comprehensive research requiring cross-source validation. Use when: the user needs web search, research, source discovery, or content extraction.",
+      "residual_risks": []
+    },
+    {
+      "name": "multi-source-search",
+      "path": "multi-source-search",
+      "description": "Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.",
       "residual_risks": []
     },
     {
@@ -125,7 +137,7 @@
     {
       "name": "openclaw-media-gen",
       "path": "openclaw-media-gen",
-      "description": "Generate images & videos with AIsa. Gemini 3 Pro Image (image) + Qwen Wan 2.6 (video) via one API key. Use when: the user needs AI image or video generation workflows.",
+      "description": "Generate images and videos with AIsa. Four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image + image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.",
       "residual_risks": []
     },
     {
@@ -195,7 +207,7 @@
     {
       "name": "prediction-market-data",
       "path": "prediction-market-data",
-      "description": "Cross-platform prediction market data via AIsa API. Query Polymarket and Kalshi markets, prices, orderbooks, candlesticks, positions, and trades. Use when user asks about: prediction market odds, election betting, event probabilities, market sentiment, Polymarket prices, Kalshi prices, sports betting odds, wallet PnL, or cross-platform market comparison.",
+      "description": "Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": []
     },
     {
@@ -285,7 +297,7 @@
     {
       "name": "twitter-autopilot",
       "path": "twitter-autopilot",
-      "description": "Search and read X (Twitter) data via AIsa API: user profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publish posts, like/unlike tweets, and follow/unfollow users through OAuth relay — no passwords or cookies needed. Use when asked about Twitter/X data, social listening, influencer monitoring, trending topics, competitor intel, posting to X, or engaging with tweets.",
+      "description": "Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.",
       "residual_risks": [
         "OAuth flow still requires the user to open the returned authorization URL manually."
       ]
@@ -336,6 +348,12 @@
       "name": "youtube-search",
       "path": "youtube-search",
       "description": "YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
+      "residual_risks": []
+    },
+    {
+      "name": "youtube-serp",
+      "path": "youtube-serp",
+      "description": "YouTube SERP for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
       "residual_risks": []
     }
   ]

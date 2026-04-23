@@ -1,15 +1,34 @@
 ---
 name: prediction-market-arbitrage
 description: 'Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
+license: MIT
 allowed-tools: Read Bash Grep
 when_to_use: the user needs market data, stock analysis, watchlists, or portfolio workflows
 ---
 
-# AIsa Prediction Market Arbitrage (`prediction-market-arbitrage`) ⚖️
+> Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
+
+# Cross-Platform Prediction Market Arbitrage ⚖️
 
 **Find arbitrage opportunities across prediction markets for autonomous agents. Powered by AIsa.**
 
 One API key. Match events across Polymarket and Kalshi to detect price discrepancies and potential risk-free profit opportunities.
+
+## Compatibility
+
+Works with any [agentskills.io](https://agentskills.io)-compatible
+harness, including:
+
+- **Claude Code** and **Claude** (Anthropic)
+- **OpenAI Codex**
+- **Cursor**
+- **Gemini CLI** (Google)
+- **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
+- and any other harness that implements the [Agent Skills
+  specification](https://agentskills.io/specification)
+
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at
+[aisa.one](https://aisa.one)).
 
 ## What Can You Do?
 
@@ -152,8 +171,6 @@ This constraint is required because a literal brace placeholder may be interpret
 |-----|------|
 | Prediction market read query | $0.01 |
 
-Every response includes `usage.cost` and `usage.credits_remaining`.
-
 ## Get Started
 
 1. Sign up at [aisa.one](https://aisa.one)
@@ -163,4 +180,4 @@ Every response includes `usage.cost` and `usage.credits_remaining`.
 
 ## Full API Reference
 
-See [API Reference](https://docs.aisa.one/reference/) for complete endpoint documentation.
+See [API Reference](https://aisa.one/docs/api-reference/) for complete endpoint documentation.

@@ -1,6 +1,7 @@
 ---
 name: aisa-multi-search-engine
 description: 'Multi-source search engine powered by AIsa API. Combines Tavily web search, Scholar academic search, Smart hybrid search, and Perplexity deep research — all through a single AIsa API key. Includes confidence scoring and AI synthesis. Use when: the user needs web search, research, source discovery, or content extraction.'
+license: MIT
 metadata:
   aisa:
     emoji: 🛠

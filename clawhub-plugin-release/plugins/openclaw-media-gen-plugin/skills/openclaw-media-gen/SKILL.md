@@ -3,7 +3,7 @@ name: openclaw-media-gen
 description: 'Generate AI images or videos through AIsa. Use when: the user needs creative generation, asset drafts, or media workflows. Supports image and video generation.'
 author: AIsa
 version: 1.0.0
-license: Apache-2.0
+license: MIT
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

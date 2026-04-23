@@ -3,7 +3,7 @@ name: marketpulse
 description: 'Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.'
 author: AIsa
 version: 1.0.0
-license: Apache-2.0
+license: MIT
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

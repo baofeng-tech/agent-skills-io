@@ -25,10 +25,10 @@ def detect_domain(name: str, description: str) -> str:
         return "twitter"
     if "youtube" in lower:
         return "youtube"
-    if any(token in lower for token in ("stock", "market", "portfolio", "dividend", "prediction", "finance")):
-        return "finance"
     if any(token in lower for token in ("search", "tavily", "perplexity", "scholar", "web-search", "multi-search")):
         return "search"
+    if any(token in lower for token in ("stock", "market", "portfolio", "dividend", "prediction", "finance")):
+        return "finance"
     if any(token in lower for token in ("media", "image", "video")):
         return "media"
     if any(token in lower for token in ("llm", "provider", "router", "model", "qwen", "deepseek")):
@@ -95,6 +95,29 @@ def infer_entrypoints(skill_dir: Path) -> list[str]:
         if len(commands) >= 3:
             break
     return commands
+
+
+def resolve_clawhub_slug(skill_dir: Path, frontmatter: dict[str, Any]) -> str:
+    metadata = frontmatter.get("metadata") if isinstance(frontmatter.get("metadata"), dict) else {}
+    candidates: list[Any] = [
+        frontmatter.get("clawhub-slug"),
+        frontmatter.get("clawhub_slug"),
+    ]
+    for scope in ("clawhub", "openclaw", "aisa"):
+        scoped = metadata.get(scope) if isinstance(metadata, dict) else None
+        if not isinstance(scoped, dict):
+            continue
+        candidates.extend(
+            [
+                scoped.get("slug"),
+                scoped.get("clawhubSlug"),
+                scoped.get("clawhub_slug"),
+            ]
+        )
+    for candidate in candidates:
+        if isinstance(candidate, str) and candidate.strip():
+            return candidate.strip()
+    return skill_dir.name
 
 
 def build_description(name: str, domain: str, zh: bool) -> str:
@@ -262,9 +285,10 @@ def build_body(skill_dir: Path, skill_name: str, description: str, domain: str, 
     return "\n".join(lines) + "\n"
 
 
-def clean_frontmatter(skill_dir: Path, frontmatter: dict[str, Any]) -> dict[str, Any]:
-    name = str(frontmatter.get("name") or skill_dir.name).strip()
-    domain = detect_domain(name, str(frontmatter.get("description") or ""))
+def clean_frontmatter(skill_dir: Path, frontmatter: dict[str, Any], publish_name: str) -> dict[str, Any]:
+    canonical_name = str(frontmatter.get("name") or skill_dir.name).strip()
+    name = publish_name.strip() or canonical_name
+    domain = detect_domain(canonical_name, str(frontmatter.get("description") or ""))
     description = build_description(name, domain, is_zh_variant(name))
     bins = infer_required_bins(skill_dir)
     envs = ["AISA_API_KEY"] if needs_aisa_key(skill_dir) else []
@@ -323,18 +347,19 @@ def clean_frontmatter(skill_dir: Path, frontmatter: dict[str, Any]) -> dict[str,
 
 
 def build_skill(src_dir: Path) -> base.SkillAudit:
-    out_dir = OUTPUT_ROOT / src_dir.name
+    frontmatter, _body = base.load_frontmatter(src_dir / "SKILL.md")
+    publish_name = resolve_clawhub_slug(src_dir, frontmatter)
+    out_dir = OUTPUT_ROOT / publish_name
     shutil.rmtree(out_dir, ignore_errors=True)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     kept = base.copy_tree(src_dir, out_dir)
-    frontmatter, _body = base.load_frontmatter(src_dir / "SKILL.md")
-    cleaned_frontmatter = clean_frontmatter(src_dir, frontmatter)
-    domain = detect_domain(src_dir.name, str(frontmatter.get("description") or cleaned_frontmatter["description"]))
+    cleaned_frontmatter = clean_frontmatter(src_dir, frontmatter, publish_name)
+    domain = detect_domain(publish_name, str(frontmatter.get("description") or cleaned_frontmatter["description"]))
     zh = is_zh_variant(src_dir.name)
 
     audit = base.SkillAudit(
-        name=src_dir.name,
+        name=publish_name,
         source_path=str(src_dir.relative_to(REPO_ROOT)),
         output_path=str(out_dir.relative_to(REPO_ROOT)),
         description=cleaned_frontmatter["description"],
@@ -345,7 +370,7 @@ def build_skill(src_dir: Path) -> base.SkillAudit:
     (out_dir / "SKILL.md").write_text(
         base.dump_skill(
             cleaned_frontmatter,
-            build_body(out_dir, src_dir.name, cleaned_frontmatter["description"], domain, zh),
+            build_body(out_dir, publish_name, cleaned_frontmatter["description"], domain, zh),
         ),
         encoding="utf-8",
     )

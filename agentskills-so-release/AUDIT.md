@@ -1,6 +1,6 @@
 # AgentSkills.so Release Audit
 
-- Generated skills: 51
+- Generated skills: 54
 - Frontmatter mode: Agent Skills spec-leaning with flat metadata.
 - Archive mode: root-flat ZIP per skill for manual import flows.
 - Repository target: `https://github.com/baofeng-tech/agent-skills-so`
@@ -66,11 +66,17 @@
 - Zip: `agentskills-so-release/zips/cn-llm.zip`
 - Description: China LLM Gateway - Unified interface for Chinese LLMs including Qwen, DeepSeek, GLM, Baichuan. OpenAI compatible, one API Key for all models. Use when: the user needs model routing, provider setup, or Chinese LLM access guidance.
 
+## crypto-market-data
+
+- Path: `agentskills-so-release/crypto-market-data`
+- Zip: `agentskills-so-release/zips/crypto-market-data.zip`
+- Description: Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use for crypto research, price tracking, on-chain token lookup, portfolio analysis, and market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+
 ## last30days
 
 - Path: `agentskills-so-release/last30days`
 - Zip: `agentskills-so-release/zips/last30days.zip`
-- Description: Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: the user needs recent multi-source research across the last 30 days.
+- Description: Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web search. Use when: the user needs recent multi-source research across the last 30 days.
 
 ## last30days-zh
 
@@ -94,19 +100,25 @@
 
 - Path: `agentskills-so-release/marketpulse`
 - Zip: `agentskills-so-release/zips/marketpulse.zip`
-- Description: Query real-time and historical financial data across equities and crypto—prices, market moves, metrics, and trends for analysis, alerts, and reporting. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Description: Query real-time and historical financial data for equities—prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
 
 ## media-gen
 
 - Path: `agentskills-so-release/media-gen`
 - Zip: `agentskills-so-release/zips/media-gen.zip`
-- Description: Generate images & videos with AIsa. Gemini 3 Pro Image (image) + Qwen Wan 2.6 (video) via one API key. Use when: the user needs AI image or video generation workflows.
+- Description: Generate images and videos with AIsa. Four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image + image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
 
 ## multi-search
 
 - Path: `agentskills-so-release/multi-search`
 - Zip: `agentskills-so-release/zips/multi-search.zip`
 - Description: Parallel multi-source search combining Web, Scholar, Smart, and Tavily results with confidence scoring and AI synthesis. Best for comprehensive research requiring cross-source validation. Use when: the user needs web search, research, source discovery, or content extraction.
+
+## multi-source-search
+
+- Path: `agentskills-so-release/multi-source-search`
+- Zip: `agentskills-so-release/zips/multi-source-search.zip`
+- Description: Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.
 
 ## openclaw-aisa-youtube-aisa
 
@@ -118,7 +130,7 @@
 
 - Path: `agentskills-so-release/openclaw-media-gen`
 - Zip: `agentskills-so-release/zips/openclaw-media-gen.zip`
-- Description: Generate images & videos with AIsa. Gemini 3 Pro Image (image) + Qwen Wan 2.6 (video) via one API key. Use when: the user needs AI image or video generation workflows.
+- Description: Generate images and videos with AIsa. Four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image + image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
 
 ## openclaw-search
 
@@ -184,7 +196,7 @@
 
 - Path: `agentskills-so-release/prediction-market-data`
 - Zip: `agentskills-so-release/zips/prediction-market-data.zip`
-- Description: Cross-platform prediction market data via AIsa API. Query Polymarket and Kalshi markets, prices, orderbooks, candlesticks, positions, and trades. Use when user asks about: prediction market odds, election betting, event probabilities, market sentiment, Polymarket prices, Kalshi prices, sports betting odds, wallet PnL, or cross-platform market comparison.
+- Description: Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
 
 ## prediction-market-data-zh
 
@@ -268,7 +280,7 @@
 
 - Path: `agentskills-so-release/twitter-autopilot`
 - Zip: `agentskills-so-release/zips/twitter-autopilot.zip`
-- Description: Search and read X (Twitter) data via AIsa API: user profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publish posts, like/unlike tweets, and follow/unfollow users through OAuth relay — no passwords or cookies needed. Use when asked about Twitter/X data, social listening, influencer monitoring, trending topics, competitor intel, posting to X, or engaging with tweets.
+- Description: Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.
 
 ## twitter-command-center-search-post
 
@@ -311,3 +323,9 @@
 - Path: `agentskills-so-release/youtube-search`
 - Zip: `agentskills-so-release/zips/youtube-search.zip`
 - Description: YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
+
+## youtube-serp
+
+- Path: `agentskills-so-release/youtube-serp`
+- Zip: `agentskills-so-release/zips/youtube-serp.zip`
+- Description: YouTube SERP for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.

@@ -1,16 +1,34 @@
 ---
 name: twitter-autopilot
-description: 'Search and read X (Twitter) data via AIsa API: user profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publish posts, like/unlike tweets, and follow/unfollow users through OAuth relay — no passwords or cookies needed. Use when asked about Twitter/X data, social listening, influencer monitoring, trending topics, competitor intel, posting to X, or engaging with tweets.'
-license: Apache-2.0
+description: 'Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.'
+license: MIT
 allowed-tools: Read Bash Grep
-when_to_use: asked about Twitter/X data, social listening, influencer monitoring, trending topics, competitor intel, posting to X, or engaging with tweets
+when_to_use: the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords
 ---
+
+> Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
 
 # Twitter Autopilot 🐦
 
 **Twitter/X data access and automation for autonomous agents. Powered by AIsa.**
 
 One API key. Full Twitter intelligence.
+
+## Compatibility
+
+Works with any [agentskills.io](https://agentskills.io)-compatible
+harness, including:
+
+- **Claude Code** and **Claude** (Anthropic)
+- **OpenAI Codex**
+- **Cursor**
+- **Gemini CLI** (Google)
+- **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
+- and any other harness that implements the [Agent Skills
+  specification](https://agentskills.io/specification)
+
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at
+[aisa.one](https://aisa.one)).
 
 ## What Can You Do?
 
@@ -260,8 +278,6 @@ python3 scripts/twitter_engagement_client.py unfollow-user --user "@elonmusk"
 |-----|------|
 | Twitter read query | ~$0.0004 |
 
-Every response includes `usage.cost` and `usage.credits_remaining`.
-
 ## Get Started
 
 1. Sign up at [aisa.one](https://aisa.one)
@@ -271,4 +287,4 @@ Every response includes `usage.cost` and `usage.credits_remaining`.
 
 ## Full API Reference
 
-See [API Reference](https://docs.aisa.one/reference/) for complete endpoint documentation.
+See [API Reference](https://aisa.one/docs/api-reference/) for complete endpoint documentation.

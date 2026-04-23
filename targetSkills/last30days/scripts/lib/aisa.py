@@ -253,8 +253,8 @@ def parse_polymarket_response(response: dict[str, Any], *, topic: str = "") -> l
         if not question:
             continue
         url = _first(item, "url")
-        slug = _first(item, "slug")
-        market_id = _first(item, "id", "market_id")
+        slug = _first(item, "market_slug", "slug")
+        market_id = _first(item, "condition_id", "id", "market_id")
         if not url:
             if slug:
                 url = f"https://polymarket.com/event/{slug}"
@@ -267,9 +267,9 @@ def parse_polymarket_response(response: dict[str, Any], *, topic: str = "") -> l
                 "id": f"AP{index + 1}",
                 "title": question,
                 "url": url,
-                "date": _normalize_date(_first(item, "updatedAt", "end_date", "date")),
+                "date": _normalize_date(_first(item, "end_time", "updatedAt", "end_date", "date", "start_time")),
                 "probability": _normalize_probability(_first(item, "probability", "yes_price", "price")),
-                "volume": _to_float(_first(item, "volume")),
+                "volume": _to_float(_first(item, "volume_total", "volume_1_month", "volume_1_week", "volume")),
                 "container": "Polymarket",
                 "why_relevant": "AIsa Polymarket search",
                 "relevance": _query_relevance(topic, question) if topic else 0.8,

@@ -1,6 +1,6 @@
 ---
 name: last30days
-description: 'Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and web search. Use when: the user needs recent multi-source research across the last 30 days.'
+description: 'Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web search. Use when: the user needs recent multi-source research across the last 30 days.'
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, bash, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -34,7 +34,14 @@ Research recent evidence across social platforms, community forums, prediction m
 - AISA-hosted planning, reranking, synthesis, grounded web search, X/Twitter search, YouTube search, and Polymarket search.
 - Public Reddit and Hacker News retrieval with fail-soft behavior.
 - Hosted discovery for TikTok, Instagram, Threads, and Pinterest when enabled in runtime config.
-- Public publish bundles intentionally focus on the stateless research CLI and exclude the older watchlist / briefing / second-credential GitHub add-ons.
+- Public publish bundles intentionally focus on the stateless research CLI and exclude the older watchlist / briefing / GitHub-token add-on surfaces.
+
+## Conservative Publish Boundary
+
+- The shipped runtime is `scripts/last30days.py` plus `scripts/run-last30days.sh`.
+- `AISA_API_KEY` is the only hosted credential expected by the public mother skill.
+- Repo-local config defaults to `./.last30days-data/config.env`.
+- This public variant intentionally does not require `GH_TOKEN`, `GITHUB_TOKEN`, `~/.config/last30days/.env`, the older watchlist flow, the briefing flow, or the local store flow.
 
 ## Setup
 
@@ -52,6 +59,7 @@ python3 scripts/last30days.py "$ARGUMENTS" --emit=json
 python3 scripts/last30days.py "$ARGUMENTS" --quick
 python3 scripts/last30days.py "$ARGUMENTS" --deep
 python3 scripts/last30days.py "$ARGUMENTS" --search=reddit,x,grounding
+python3 scripts/last30days.py "$ARGUMENTS" --lookback-days=14
 python3 scripts/last30days.py --diagnose
 ```
 
@@ -65,4 +73,5 @@ python3 scripts/last30days.py --diagnose
 - `last30days OpenAI Agents SDK`
 - `last30days Peter Steinberger`
 - `last30days OpenClaw vs Codex`
+- `last30days Figma launch --deep`
 - `last30days Kanye West --quick`

@@ -45,6 +45,47 @@
   - `clawhub-release/search`
   - 因此这些项当前应视为外部接口波动，而不是稳定构建缺陷
 
+## 0.2 2026-04-22 plugin 真发布续跑结果
+
+- 用户再次执行 `python3 scripts/publish_clawhub_batch.py --skip-build --targets both --dry-run` 时看到：
+  - `published: 0`
+  - `skipped: 57`
+  - `pending: 0`
+- 这里的 `pending: 0` 含义是：
+  - 这一轮 dry-run 把 57 个本地 `planned` 队列全部探测处理完了
+  - 它们在本轮被记为 `skip` 或继续维持 `planned` / `published`
+  - 不是说整个系统里已经没有待发布 plugin
+- 2026-04-22 继续核对时，真实状态是：
+  - `45 published / 57 planned`
+  - 其中 plugin 为 `8 published / 43 planned`
+- 随后执行：
+
+```bash
+python3 scripts/publish_clawhub_batch.py --skip-build --targets plugin --per-token-per-hour 4
+```
+
+- 本轮 plugin 真发布结果：
+  - `published: 8`
+  - `failed: 0`
+  - `pending: 35`
+  - 两个 token 都按每小时 4 次的保守上限停止
+- 本轮新增真实发布的 plugin：
+  - `aisa-provider-plugin`
+  - `aisa-tavily-plugin`
+  - `aisa-twitter-engagement-suite-plugin`
+  - `cn-llm-plugin`
+  - `last30days-zh-plugin`
+  - `llm-router-plugin`
+  - `marketpulse-plugin`
+  - `media-gen-plugin`
+- 其中已实测可通过 `clawhub package inspect` 查到的新增 plugin 包括：
+  - `cn-llm-plugin`
+  - `media-gen-plugin`
+- 该轮完成后，当前状态文件汇总为：
+  - `53 published`
+  - `49 planned`
+  - 其中 plugin 为 `16 published / 35 planned`
+
 ## 1. ClawHub：双 token 批量续传脚本已补齐
 
 新增脚本：

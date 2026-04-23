@@ -20,4 +20,4 @@ This directory is intended to be pushed as the root of a public GitHub repositor
 
 ## Generated Skill Count
 
-- 51
+- 54

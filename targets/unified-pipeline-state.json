@@ -1,0 +1,52 @@
+{
+  "last_synced_commit": "8540704351b447a37b9f3aa333a9229b532de4c8",
+  "last_detected_commit": "8540704351b447a37b9f3aa333a9229b532de4c8",
+  "last_run": {
+    "started_at": "2026-04-23T05:33:05.711830+00:00",
+    "source_mode": "local",
+    "upstream_root": "/mnt/d/workplace/agent-skills",
+    "upstream_branch": "main",
+    "upstream_head": "8540704351b447a37b9f3aa333a9229b532de4c8",
+    "baseline_commit": null,
+    "selection": "changed",
+    "include_working_tree": true,
+    "planned_skills": [
+      "crypto-market-data",
+      "last30days",
+      "marketpulse",
+      "media-gen",
+      "multi-source-search",
+      "perplexity-search",
+      "prediction-market-arbitrage",
+      "prediction-market-data",
+      "twitter-autopilot",
+      "youtube-serp"
+    ],
+    "synced_skills": [
+      "crypto-market-data",
+      "marketpulse",
+      "media-gen",
+      "multi-source-search",
+      "perplexity-search",
+      "prediction-market-arbitrage",
+      "prediction-market-data",
+      "twitter-autopilot",
+      "youtube-serp"
+    ],
+    "created_skills": [],
+    "skipped_skills": [
+      {
+        "name": "last30days",
+        "reason": "Upstream last30days currently includes extra briefing/watchlist/GitHub setup surfaces. This repo keeps a curated public mother-skill variant, so merge it manually after runtime review."
+      }
+    ],
+    "publish_steps": [],
+    "completed_at": "2026-04-23T05:33:07.604055+00:00"
+  },
+  "pending_manual_review": [
+    {
+      "name": "last30days",
+      "reason": "Upstream last30days currently includes extra briefing/watchlist/GitHub setup surfaces. This repo keeps a curated public mother-skill variant, so merge it manually after runtime review."
+    }
+  ]
+}

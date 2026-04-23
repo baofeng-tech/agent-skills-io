@@ -73,6 +73,13 @@
       "description": "Native-first ClawHub plugin for `cn-llm`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations."
     },
     {
+      "plugin": "crypto-market-data-plugin",
+      "skill": "crypto-market-data",
+      "path": "clawhub-plugin-release/plugins/crypto-market-data-plugin",
+      "zip": "clawhub-plugin-release/zips/crypto-market-data-plugin.zip",
+      "description": "Native-first ClawHub plugin for `crypto-market-data`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval."
+    },
+    {
       "plugin": "last30days-plugin",
       "skill": "last30days",
       "path": "clawhub-plugin-release/plugins/last30days-plugin",
@@ -120,6 +127,13 @@
       "path": "clawhub-plugin-release/plugins/multi-search-plugin",
       "zip": "clawhub-plugin-release/zips/multi-search-plugin.zip",
       "description": "Native-first ClawHub plugin for `multi-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval."
+    },
+    {
+      "plugin": "multi-source-search-plugin",
+      "skill": "multi-source-search",
+      "path": "clawhub-plugin-release/plugins/multi-source-search-plugin",
+      "zip": "clawhub-plugin-release/zips/multi-source-search-plugin.zip",
+      "description": "Native-first ClawHub plugin for `multi-source-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval."
     },
     {
       "plugin": "openclaw-aisa-youtube-aisa-plugin",
@@ -294,7 +308,7 @@
       "skill": "tavily-search",
       "path": "clawhub-plugin-release/plugins/tavily-search-plugin",
       "zip": "clawhub-plugin-release/zips/tavily-search-plugin.zip",
-      "description": "Native-first ClawHub plugin for `tavily-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs."
+      "description": "Native-first ClawHub plugin for `tavily-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval."
     },
     {
       "plugin": "twitter-plugin",
@@ -358,6 +372,13 @@
       "path": "clawhub-plugin-release/plugins/youtube-search-plugin",
       "zip": "clawhub-plugin-release/zips/youtube-search-plugin.zip",
       "description": "Native-first ClawHub plugin for `youtube-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting."
+    },
+    {
+      "plugin": "youtube-serp-plugin",
+      "skill": "youtube-serp",
+      "path": "clawhub-plugin-release/plugins/youtube-serp-plugin",
+      "zip": "clawhub-plugin-release/zips/youtube-serp-plugin.zip",
+      "description": "Native-first ClawHub plugin for `youtube-serp`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis."
     }
   ]
 }

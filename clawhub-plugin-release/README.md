@@ -34,6 +34,7 @@ done
 - `aisa-youtube-search-plugin` → `aisa-youtube-search`
 - `aisa-youtube-serp-scout-plugin` → `aisa-youtube-serp-scout`
 - `cn-llm-plugin` → `cn-llm`
+- `crypto-market-data-plugin` → `crypto-market-data`
 - `last30days-plugin` → `last30days`
 - `last30days-zh-plugin` → `last30days-zh`
 - `llm-router-plugin` → `llm-router`
@@ -41,6 +42,7 @@ done
 - `marketpulse-plugin` → `marketpulse`
 - `media-gen-plugin` → `media-gen`
 - `multi-search-plugin` → `multi-search`
+- `multi-source-search-plugin` → `multi-source-search`
 - `openclaw-aisa-youtube-aisa-plugin` → `openclaw-aisa-youtube-aisa`
 - `openclaw-media-gen-plugin` → `openclaw-media-gen`
 - `openclaw-search-plugin` → `openclaw-search`
@@ -75,3 +77,4 @@ done
 - `x-intelligence-automation-plugin` → `x-intelligence-automation`
 - `youtube-plugin` → `youtube`
 - `youtube-search-plugin` → `youtube-search`
+- `youtube-serp-plugin` → `youtube-serp`

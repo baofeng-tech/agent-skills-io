@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 SOURCE_DIR="$REPO_ROOT/hermes-release"
-DEST_DIR="${REPO_ROOT}/../Aisa-One-Skills-Hermes"
+DEST_DIR="${PUBLISH_HERMES_DEST:-${REPO_ROOT}/../Aisa-One-Skills-Hermes}"
 SKIP_BUILD=0
 
 usage() {

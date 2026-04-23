@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Batch-publish ClawHub skills and plugins with dual-token scheduling."""
+"""Batch-publish ClawHub skills and plugins with multi-token scheduling."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ import sys
 import threading
 import time
 from collections import deque
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -43,7 +43,14 @@ TRANSIENT_PROBE_PATTERNS = (
     re.compile(r"temporary", re.IGNORECASE),
     re.compile(r"network", re.IGNORECASE),
 )
-TOKEN_KEYS = ("clawhub_ApI_token", "clawhub_ApI_token2")
+ALREADY_EXISTS_PATTERNS = (
+    re.compile(r"already\s+exists", re.IGNORECASE),
+    re.compile(r"already\s+published", re.IGNORECASE),
+    re.compile(r"\b409\b"),
+    re.compile(r"\bconflict\b", re.IGNORECASE),
+    re.compile(r"\bduplicate\b", re.IGNORECASE),
+)
+TOKEN_KEY_PATTERN = re.compile(r"^clawhubapitoken(?P<index>\d*)$")
 
 
 def utc_now() -> datetime:
@@ -52,6 +59,15 @@ def utc_now() -> datetime:
 
 def iso_now() -> str:
     return utc_now().isoformat()
+
+
+def parse_iso_datetime(value: str | None) -> datetime | None:
+    if not value or not isinstance(value, str):
+        return None
+    try:
+        return datetime.fromisoformat(value)
+    except ValueError:
+        return None
 
 
 def normalize_key(raw: str) -> str:
@@ -129,6 +145,23 @@ def parse_accounts_file(path: Path) -> dict[str, str]:
     return values
 
 
+def token_sort_key(key: str) -> tuple[int, str]:
+    match = TOKEN_KEY_PATTERN.match(key)
+    if not match:
+        return (sys.maxsize, key)
+    raw_index = match.group("index")
+    index = int(raw_index) if raw_index else 1
+    return (index, key)
+
+
+def extract_account_tokens(account_values: dict[str, str]) -> list[str]:
+    return [
+        account_values[key]
+        for key in sorted(account_values, key=token_sort_key)
+        if TOKEN_KEY_PATTERN.match(key)
+    ]
+
+
 def resolve_tokens(args: argparse.Namespace) -> list[str]:
     tokens: list[str] = []
     seen: set[str] = set()
@@ -142,15 +175,25 @@ def resolve_tokens(args: argparse.Namespace) -> list[str]:
     for token in args.token or []:
         add(token.strip())
 
-    for env_name in ("CLAWHUB_TOKEN", "CLAWHUB_TOKEN_1", "CLAWHUB_TOKEN_2"):
-        add(os.environ.get(env_name, "").strip())
+    env_tokens: list[tuple[int, str]] = []
+    for env_name, value in os.environ.items():
+        if not value:
+            continue
+        if env_name == "CLAWHUB_TOKEN":
+            env_tokens.append((1, value))
+            continue
+        match = re.fullmatch(r"CLAWHUB_TOKEN_(\d+)", env_name)
+        if match:
+            env_tokens.append((int(match.group(1)), value))
+    for _index, value in sorted(env_tokens, key=lambda item: item[0]):
+        add(value.strip())
 
     if args.accounts_file:
         account_values = parse_accounts_file(Path(args.accounts_file))
-        for key in TOKEN_KEYS:
-            add(account_values.get(normalize_key(key)))
+        for value in extract_account_tokens(account_values):
+            add(value)
 
-    return tokens[:2]
+    return tokens
 
 
 def detect_git_source(repo_root: Path) -> dict[str, str]:
@@ -276,6 +319,30 @@ class StateStore:
         with self.lock:
             return dict(self.data.get("artifacts", {}).get(artifact.key, {}))
 
+    def recent_publish_times(self, slot: str, *, window_seconds: int = 3600) -> list[float]:
+        cutoff = utc_now().timestamp() - window_seconds
+        timestamps: list[float] = []
+        with self.lock:
+            for meta in self.data.get("artifacts", {}).values():
+                if not isinstance(meta, dict):
+                    continue
+                if meta.get("status") != "published" or meta.get("token_slot") != slot:
+                    continue
+                publish_mode = meta.get("publish_mode")
+                if publish_mode not in (None, "published"):
+                    continue
+                if publish_mode is None and int(meta.get("attempts") or 0) <= 0:
+                    continue
+                published_at = parse_iso_datetime(meta.get("published_at"))
+                if published_at is None:
+                    continue
+                if published_at.tzinfo is None:
+                    published_at = published_at.replace(tzinfo=timezone.utc)
+                timestamp = published_at.timestamp()
+                if timestamp >= cutoff:
+                    timestamps.append(timestamp)
+        return sorted(timestamps)
+
 
 class SharedQueue:
     def __init__(self, artifacts: list[Artifact]) -> None:
@@ -310,6 +377,7 @@ class Worker(threading.Thread):
         self,
         *,
         slot: str,
+        slot_index: int,
         token: str,
         args: argparse.Namespace,
         queue: SharedQueue,
@@ -318,6 +386,7 @@ class Worker(threading.Thread):
     ) -> None:
         super().__init__(daemon=True)
         self.slot = slot
+        self.slot_index = slot_index
         self.token = token
         self.args = args
         self.queue = queue
@@ -325,7 +394,7 @@ class Worker(threading.Thread):
         self.source_info = source_info
         self.result = WorkerResult(slot=slot)
         self.config_path = Path(args.config_root) / f"{slot}.json"
-        self.publish_times: deque[float] = deque()
+        self.publish_times: deque[float] = deque(self.state.recent_publish_times(slot))
 
     def log(self, message: str) -> None:
         print(f"[{self.slot}] {message}", flush=True)
@@ -347,6 +416,9 @@ class Worker(threading.Thread):
             self.log(f"authenticated as {whoami.stdout.strip()}")
         else:
             self.log("authenticated")
+        carried = len(self.publish_times)
+        if carried:
+            self.log(f"carrying forward {carried} real publish(es) from the past hour")
 
     def run(self) -> None:
         try:
@@ -356,6 +428,11 @@ class Worker(threading.Thread):
             self.result.notes.append(str(exc))
             self.log(f"login failed: {exc}")
             return
+
+        start_delay = self.args.worker_start_stagger_seconds * max(self.slot_index - 1, 0)
+        if start_delay > 0:
+            self.log(f"waiting {start_delay:.1f}s before starting publishes")
+            time.sleep(start_delay)
 
         while True:
             artifact = self.queue.pop()
@@ -380,6 +457,7 @@ class Worker(threading.Thread):
                         last_checked_at=iso_now(),
                         last_error=None,
                         token_slot=self.slot,
+                        publish_mode="remote-existing",
                     )
                     self.result.skipped += 1
                     self.log(f"skip remote-existing {artifact.kind}:{artifact.name}@{artifact.version}")
@@ -412,11 +490,29 @@ class Worker(threading.Thread):
                     last_error=None,
                     token_slot=self.slot,
                     release_ref=release_ref,
+                    publish_mode="published",
                 )
                 self.result.published += 1
                 self.log(f"published {artifact.kind}:{artifact.name}@{artifact.version}")
             except PublishError as exc:
                 attempts = self.state.get(artifact).get("attempts", 0) + 1
+                if exc.already_exists:
+                    self.state.mark(
+                        artifact,
+                        status="published",
+                        attempts=attempts,
+                        published_at=iso_now(),
+                        last_attempt_at=iso_now(),
+                        last_checked_at=iso_now(),
+                        last_error=None,
+                        token_slot=self.slot,
+                        publish_mode="publish-existing",
+                    )
+                    self.result.skipped += 1
+                    self.log(
+                        f"skip publish-existing {artifact.kind}:{artifact.name}@{artifact.version}: {exc.message}"
+                    )
+                    continue
                 status = "rate_limited" if exc.rate_limited else "failed"
                 self.state.mark(
                     artifact,
@@ -449,7 +545,21 @@ class Worker(threading.Thread):
             else:
                 result = self.clawhub(["package", "inspect", artifact.name, "--json"], timeout=120)
             if result.returncode == 0:
-                return True
+                probe = parse_remote_probe(result.stdout, artifact.version)
+                if probe.version_exists:
+                    return True
+                if probe.known_versions:
+                    versions = ", ".join(probe.known_versions)
+                    self.log(
+                        f"remote slug exists for {artifact.name}, but local version {artifact.version} "
+                        f"is not among remote versions [{versions}]; attempting publish"
+                    )
+                else:
+                    self.log(
+                        f"remote slug exists for {artifact.name}, but inspect did not expose version details; "
+                        f"attempting publish for {artifact.version}"
+                    )
+                return False
             text = f"{result.stdout}\n{result.stderr}"
             if any(pattern.search(text) for pattern in NOT_FOUND_PATTERNS):
                 return False
@@ -506,18 +616,79 @@ class Worker(threading.Thread):
         if result.returncode == 0:
             return result
         error_text = clean_error(f"{result.stdout}\n{result.stderr}")
-        raise PublishError(error_text, rate_limited=is_rate_limited(error_text))
+        raise PublishError(
+            error_text,
+            rate_limited=is_rate_limited(error_text),
+            already_exists=is_already_exists(error_text),
+        )
 
 
 class PublishError(RuntimeError):
-    def __init__(self, message: str, *, rate_limited: bool = False) -> None:
+    def __init__(
+        self,
+        message: str,
+        *,
+        rate_limited: bool = False,
+        already_exists: bool = False,
+    ) -> None:
         super().__init__(message)
         self.message = message
         self.rate_limited = rate_limited
+        self.already_exists = already_exists
+
+
+@dataclass(frozen=True)
+class RemoteProbe:
+    version_exists: bool
+    known_versions: list[str] = field(default_factory=list)
+
+
+def try_parse_json(text: str) -> Any | None:
+    stripped = text.strip()
+    if not stripped:
+        return None
+    try:
+        return json.loads(stripped)
+    except json.JSONDecodeError:
+        return None
+
+
+def collect_version_strings(payload: Any) -> set[str]:
+    versions: set[str] = set()
+
+    def visit(value: Any, *, key_hint: str | None = None) -> None:
+        if isinstance(value, dict):
+            for key, inner in value.items():
+                normalized = normalize_key(str(key))
+                if "version" in normalized and isinstance(inner, (str, int, float)):
+                    versions.add(str(inner))
+                visit(inner, key_hint=normalized)
+            return
+        if isinstance(value, list):
+            for item in value:
+                visit(item, key_hint=key_hint)
+            return
+        if key_hint and "version" in key_hint and isinstance(value, (str, int, float)):
+            versions.add(str(value))
+
+    visit(payload)
+    return versions
+
+
+def parse_remote_probe(text: str, version: str) -> RemoteProbe:
+    payload = try_parse_json(text)
+    if payload is None:
+        return RemoteProbe(version_exists=False, known_versions=[])
+    known_versions = sorted(collect_version_strings(payload))
+    return RemoteProbe(version_exists=version in known_versions, known_versions=known_versions)
 
 
 def is_rate_limited(text: str) -> bool:
     return any(pattern.search(text) for pattern in RATE_LIMIT_PATTERNS)
+
+
+def is_already_exists(text: str) -> bool:
+    return any(pattern.search(text) for pattern in ALREADY_EXISTS_PATTERNS)
 
 
 def is_transient_probe_error(text: str) -> bool:
@@ -615,7 +786,7 @@ def filter_pending(artifacts: list[Artifact], state: StateStore, force: bool) ->
 
 def build_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Publish unpublished ClawHub skills/plugins with dual-token scheduling.",
+        description="Publish unpublished ClawHub skills/plugins with multi-token scheduling.",
     )
     parser.add_argument(
         "--targets",
@@ -626,12 +797,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--accounts-file",
         default=str(DEFAULT_ACCOUNTS_FILE),
-        help="Optional credentials file containing clawhub_ApI_token entries.",
+        help="Optional credentials file containing clawhub_ApI_token, clawhub_ApI_token2, clawhub_ApI_token3... entries.",
     )
     parser.add_argument(
         "--token",
         action="append",
-        help="ClawHub API token. Repeat for a second token.",
+        help="ClawHub API token. Repeat to add more workers.",
     )
     parser.add_argument(
         "--state-file",
@@ -663,6 +834,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
         type=int,
         default=4,
         help="Conservative hourly publish cap for each token.",
+    )
+    parser.add_argument(
+        "--worker-start-stagger-seconds",
+        type=float,
+        default=6.0,
+        help="Delay between worker start times so multiple accounts do not publish in the same instant.",
     )
     parser.add_argument(
         "--tags",
@@ -732,6 +909,8 @@ def main() -> int:
         parser.error("No ClawHub tokens found. Provide --token or use example/accounts.")
     if len(tokens) < 2:
         print("Only one ClawHub token resolved; continuing with a single worker.", flush=True)
+    else:
+        print(f"Resolved {len(tokens)} ClawHub token(s).", flush=True)
 
     maybe_build(args)
 
@@ -764,6 +943,7 @@ def main() -> int:
     workers = [
         Worker(
             slot=f"token-{index}",
+            slot_index=index,
             token=token,
             args=args,
             queue=queue,

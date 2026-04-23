@@ -1,6 +1,6 @@
 ---
 name: tavily-search
-description: 'Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.'
+description: 'Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.'
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -13,7 +13,7 @@ requires:
   - AISA_API_KEY
 metadata:
   aisa:
-    emoji: 📊
+    emoji: 🔎
     requires:
       bins:
       - python3
@@ -25,7 +25,7 @@ metadata:
     - claude-code
     - hermes
   openclaw:
-    emoji: 📊
+    emoji: 🔎
     requires:
       bins:
       - python3
@@ -36,19 +36,19 @@ metadata:
 
 # Tavily Search
 
-Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
+Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 
 ## When to use
 
-- The user needs stocks, crypto, prediction market, or portfolio research.
-- The user wants prices, screening, valuation, or event-driven analysis.
-- The user wants structured financial output for downstream analysis.
+- The user needs web, multi-source, or last-30-days research.
+- The user wants competitor scans, trend discovery, or structured search output.
+- The user wants one skill to cover multiple retrieval surfaces.
 
 ## High-Intent Workflows
 
-- Check price action and market movement.
-- Screen assets or equities that match filters.
-- Research portfolios, dividends, or market opportunities.
+- Search and summarize recent evidence.
+- Compare two tools or companies using recent signals.
+- Turn multi-source retrieval into a research brief.
 
 ## Quick Reference
 
@@ -62,12 +62,12 @@ Query stocks, crypto, prediction markets, and portfolio research through AIsa. U
 
 ## Example Requests
 
-- Query NVDA price history and analyst expectations
-- Find stocks matching a screening rule
-- Check BTC and ETH market data for a portfolio view
+- Research OpenAI Agents SDK over the last 30 days
+- Compare OpenClaw and Codex using recent public discussion
+- Search recent sentiment around a product launch
 
 ## Guardrails
 
-- Do not invent prices or financial metrics.
-- Do not turn examples into financial advice.
-- If an upstream endpoint is limited, say so directly.
+- Do not present test-only helpers as public features.
+- Do not claim sources that were not actually queried.
+- If some providers time out, report that honestly.

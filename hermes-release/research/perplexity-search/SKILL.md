@@ -1,6 +1,7 @@
 ---
 name: perplexity-search
 description: Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
+license: MIT
 metadata:
   aisa:
     emoji: 🛠

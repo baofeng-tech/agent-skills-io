@@ -116,6 +116,17 @@
       "residual_risks": []
     },
     {
+      "name": "crypto-market-data",
+      "path": "clawhub-release/crypto-market-data",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
       "name": "last30days",
       "path": "clawhub-release/last30days",
       "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
@@ -186,6 +197,17 @@
     {
       "name": "multi-search",
       "path": "clawhub-release/multi-search",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "multi-source-search",
+      "path": "clawhub-release/multi-source-search",
       "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
       "changes": [
         "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
@@ -465,7 +487,7 @@
     {
       "name": "tavily-search",
       "path": "clawhub-release/tavily-search",
-      "description": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
       "changes": [
         "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
         "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
@@ -573,6 +595,17 @@
       "changes": [
         "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
         "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "youtube-serp",
+      "path": "clawhub-release/youtube-serp",
+      "description": "Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.",
+      "changes": [
+        "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
       ],
       "residual_risks": []
     }

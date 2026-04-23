@@ -93,6 +93,15 @@
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
+## crypto-market-data
+
+- Source: `targetSkills/crypto-market-data`
+- Output: `clawhub-release/crypto-market-data`
+- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
+- Change: copied runtime scripts and essential references only
+
 ## last30days
 
 - Source: `targetSkills/last30days`
@@ -153,6 +162,15 @@
 
 - Source: `targetSkills/multi-search`
 - Output: `clawhub-release/multi-search`
+- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
+- Change: copied runtime scripts and essential references only
+
+## multi-source-search
+
+- Source: `targetSkills/multi-source-search`
+- Output: `clawhub-release/multi-source-search`
 - Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
@@ -382,7 +400,7 @@
 
 - Source: `targetSkills/tavily-search`
 - Output: `clawhub-release/tavily-search`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
+- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
@@ -471,3 +489,12 @@
 - Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
+
+## youtube-serp
+
+- Source: `targetSkills/youtube-serp`
+- Output: `clawhub-release/youtube-serp`
+- Description: Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.
+- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
+- Change: copied runtime scripts and essential references only

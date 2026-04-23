@@ -33,6 +33,7 @@ Agent Skills open-standard release layer generated from `targetSkills/`.
 - `aisa-youtube-search`
 - `aisa-youtube-serp-scout`
 - `cn-llm`
+- `crypto-market-data`
 - `last30days`
 - `last30days-zh`
 - `llm-router`
@@ -40,6 +41,7 @@ Agent Skills open-standard release layer generated from `targetSkills/`.
 - `marketpulse`
 - `media-gen`
 - `multi-search`
+- `multi-source-search`
 - `openclaw-aisa-youtube-aisa`
 - `openclaw-media-gen`
 - `openclaw-search`
@@ -74,3 +76,4 @@ Agent Skills open-standard release layer generated from `targetSkills/`.
 - `x-intelligence-automation`
 - `youtube`
 - `youtube-search`
+- `youtube-serp`

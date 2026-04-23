@@ -1,0 +1,298 @@
+name: Unified Skill Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      selection:
+        description: "Sync scope"
+        required: false
+        default: changed
+        type: choice
+        options:
+          - changed
+          - all
+      skills:
+        description: "Optional comma-separated skill list"
+        required: false
+        default: ""
+        type: string
+      dry_run:
+        description: "Plan only, skip copy/build/test"
+        required: false
+        default: false
+        type: boolean
+      run_self_hosted_publish:
+        description: "Also run the optional self-hosted publish lane"
+        required: false
+        default: false
+        type: boolean
+      sync_adjacent_repos:
+        description: "In self-hosted mode, sync downstream GitHub publish repos"
+        required: false
+        default: false
+        type: boolean
+      push_adjacent_repos:
+        description: "In self-hosted mode, commit and push synced downstream repos"
+        required: false
+        default: true
+        type: boolean
+      clawhub_publish:
+        description: "In self-hosted mode, continue into ClawHub batch publish"
+        required: false
+        default: none
+        type: choice
+        options:
+          - none
+          - skill
+          - plugin
+          - both
+      clawhub_dry_run:
+        description: "In self-hosted mode, pass --dry-run to ClawHub publish"
+        required: false
+        default: true
+        type: boolean
+  schedule:
+    - cron: "21 2 * * *"
+
+concurrency:
+  group: unified-skill-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync-build-test:
+    runs-on: ubuntu-latest
+    env:
+      PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || 'changed' }}
+      PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
+      PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
+      AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
+      UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: python3 -m pip install --upgrade pip PyYAML
+
+      - name: Run unified skill pipeline
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          UPSTREAM_URL="https://github.com/AIsa-team/agent-skills.git"
+          if [[ -n "${UPSTREAM_REPO_TOKEN:-}" ]]; then
+            UPSTREAM_URL="https://x-access-token:${UPSTREAM_REPO_TOKEN}@github.com/AIsa-team/agent-skills.git"
+          fi
+
+          EXTRA_ARGS=("--upstream-repo-url" "$UPSTREAM_URL")
+
+          if [[ -n "${PIPELINE_SKILLS:-}" ]]; then
+            EXTRA_ARGS+=("--skills" "$PIPELINE_SKILLS")
+          else
+            EXTRA_ARGS+=("--selection" "${PIPELINE_SELECTION:-changed}")
+          fi
+
+          if [[ "${PIPELINE_DRY_RUN:-false}" == "true" ]]; then
+            EXTRA_ARGS+=("--dry-run" "--skip-build" "--skip-test")
+          fi
+
+          python3 scripts/unified_skill_pipeline.py "${EXTRA_ARGS[@]}"
+
+      - name: Upload pipeline artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unified-skill-pipeline-artifacts
+          path: |
+            targets/unified-pipeline-state.json
+            targets/release-layer-test-report-2026-04-17.json
+            targetSkills/index.json
+            targetSkills/index.md
+            targetSkills/well-known-skills-index.json
+          if-no-files-found: ignore
+
+      - name: Commit regenerated outputs
+        if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet; then
+            echo "No repo changes to commit."
+            exit 0
+          fi
+
+          git add -A
+          git commit -m "chore: sync upstream skills and rebuild release layers"
+          git push
+
+  self-hosted-publish:
+    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish == 'true' }}
+    needs: sync-build-test
+    runs-on: self-hosted
+    env:
+      PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || 'changed' }}
+      PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
+      PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
+      PIPELINE_SYNC_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_adjacent_repos || 'false' }}
+      PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || 'true' }}
+      PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || 'none' }}
+      PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || 'true' }}
+      AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
+      UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
+      DOWNSTREAM_REPO_TOKEN: ${{ secrets.DOWNSTREAM_REPO_TOKEN }}
+      CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
+      CLAWHUB_TOKEN_2: ${{ secrets.CLAWHUB_TOKEN_2 }}
+      CLAWHUB_TOKEN_3: ${{ secrets.CLAWHUB_TOKEN_3 }}
+      PUBLISH_REPOS_ROOT: ${{ github.workspace }}/publish-repos
+      PUBLISH_AGENT_SKILLS_DEST: ${{ github.workspace }}/publish-repos/agent-skills
+      PUBLISH_CLAUDE_DEST: ${{ github.workspace }}/publish-repos/Aisa-One-Skills-Claude
+      PUBLISH_CLAUDE_MARKETPLACE_DEST: ${{ github.workspace }}/publish-repos/Aisa-One-Plugins-Claude
+      PUBLISH_HERMES_DEST: ${{ github.workspace }}/publish-repos/Aisa-One-Skills-Hermes
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: python3 -m pip install --upgrade pip PyYAML
+
+      - name: Prepare downstream publish repos
+        if: ${{ env.PIPELINE_SYNC_ADJACENT == 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p "$PUBLISH_REPOS_ROOT"
+
+          ensure_repo() {
+            local repo="$1"
+            local ref="$2"
+            local dest="$3"
+            local clone_url
+
+            if [[ -n "${DOWNSTREAM_REPO_TOKEN:-}" ]]; then
+              clone_url="https://x-access-token:${DOWNSTREAM_REPO_TOKEN}@github.com/${repo}.git"
+            else
+              clone_url="git@github-work:${repo}.git"
+            fi
+
+            if [[ -d "$dest/.git" ]]; then
+              git -C "$dest" fetch origin "$ref"
+              git -C "$dest" checkout "$ref"
+              git -C "$dest" pull --ff-only origin "$ref"
+            else
+              rm -rf "$dest"
+              git clone --branch "$ref" --single-branch "$clone_url" "$dest"
+            fi
+          }
+
+          ensure_repo "AIsa-team/agent-skills" "main" "$PUBLISH_AGENT_SKILLS_DEST"
+          ensure_repo "baofeng-tech/Aisa-One-Skills-Claude" "main" "$PUBLISH_CLAUDE_DEST"
+          ensure_repo "baofeng-tech/Aisa-One-Plugins-Claude" "main" "$PUBLISH_CLAUDE_MARKETPLACE_DEST"
+          ensure_repo "baofeng-tech/Aisa-One-Skills-Hermes" "main" "$PUBLISH_HERMES_DEST"
+
+      - name: Run self-hosted publish lane
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          UPSTREAM_URL="https://github.com/AIsa-team/agent-skills.git"
+          if [[ -n "${UPSTREAM_REPO_TOKEN:-}" ]]; then
+            UPSTREAM_URL="https://x-access-token:${UPSTREAM_REPO_TOKEN}@github.com/AIsa-team/agent-skills.git"
+          fi
+
+          EXTRA_ARGS=("--upstream-repo-url" "$UPSTREAM_URL")
+
+          if [[ -n "${PIPELINE_SKILLS:-}" ]]; then
+            EXTRA_ARGS+=("--skills" "$PIPELINE_SKILLS")
+          else
+            EXTRA_ARGS+=("--selection" "${PIPELINE_SELECTION:-changed}")
+          fi
+
+          if [[ "${PIPELINE_SYNC_ADJACENT:-false}" == "true" ]]; then
+            EXTRA_ARGS+=("--sync-adjacent-repos")
+          fi
+
+          if [[ "${PIPELINE_CLAWHUB_PUBLISH:-none}" != "none" ]]; then
+            EXTRA_ARGS+=("--clawhub-publish" "${PIPELINE_CLAWHUB_PUBLISH}")
+            if [[ "${PIPELINE_CLAWHUB_DRY_RUN:-true}" == "true" ]]; then
+              EXTRA_ARGS+=("--clawhub-dry-run")
+            fi
+          fi
+
+          if [[ "${PIPELINE_DRY_RUN:-false}" == "true" ]]; then
+            EXTRA_ARGS+=("--dry-run" "--skip-build" "--skip-test")
+          fi
+
+          python3 scripts/unified_skill_pipeline.py "${EXTRA_ARGS[@]}"
+
+      - name: Commit and push downstream publish repos
+        if: ${{ success() && env.PIPELINE_SYNC_ADJACENT == 'true' && env.PIPELINE_PUSH_ADJACENT == 'true' && env.PIPELINE_DRY_RUN != 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          commit_and_push() {
+            local repo_path="$1"
+            local label="$2"
+
+            if [[ ! -d "$repo_path/.git" ]]; then
+              echo "Skip $label: repo not prepared."
+              return 0
+            fi
+
+            if [[ -z "$(git -C "$repo_path" status --porcelain)" ]]; then
+              echo "No changes in $label."
+              return 0
+            fi
+
+            git -C "$repo_path" config user.name "github-actions[bot]"
+            git -C "$repo_path" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git -C "$repo_path" add -A
+
+            if git -C "$repo_path" diff --cached --quiet; then
+              echo "No staged changes in $label."
+              return 0
+            fi
+
+            git -C "$repo_path" commit -m "chore: publish from unified skill pipeline"
+            git -C "$repo_path" push
+          }
+
+          commit_and_push "$PUBLISH_AGENT_SKILLS_DEST" "agent-skills"
+          commit_and_push "$PUBLISH_CLAUDE_DEST" "Aisa-One-Skills-Claude"
+          commit_and_push "$PUBLISH_CLAUDE_MARKETPLACE_DEST" "Aisa-One-Plugins-Claude"
+          commit_and_push "$PUBLISH_HERMES_DEST" "Aisa-One-Skills-Hermes"
+
+      - name: Upload self-hosted publish artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unified-skill-pipeline-self-hosted-artifacts
+          path: |
+            targets/unified-pipeline-state.json
+            targets/clawhub-publish-state.json
+            targets/release-layer-test-report-2026-04-17.json
+            targetSkills/index.json
+            targetSkills/index.md
+            targetSkills/well-known-skills-index.json
+          if-no-files-found: ignore

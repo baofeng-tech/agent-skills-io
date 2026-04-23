@@ -19,3 +19,51 @@ Any AI or collaborator working in this repo should:
 3. Update it after structural, workflow, or output changes
 
 More detailed repo rules live in [AGENTS.md](/mnt/d/workplace/agent-skills-io/AGENTS.md:1).
+
+## Key Docs
+
+- [Repo Runbook And Script Reference](/mnt/d/workplace/agent-skills-io/targets/repo-runbook-and-script-reference.md:1)
+- [Platform Skill And Plugin Methodology](/mnt/d/workplace/agent-skills-io/targets/platform-skill-plugin-methodology.md:1)
+- [Unified Pipeline And GitHub Actions](/mnt/d/workplace/agent-skills-io/targets/unified-pipeline-and-github-actions.md:1)
+
+## Recommended Commands
+
+Preview the next upstream sync:
+
+```bash
+python3 scripts/unified_skill_pipeline.py \
+  --upstream-local-path /mnt/d/workplace/agent-skills \
+  --include-working-tree \
+  --dry-run
+```
+
+Sync upstream updates into `targetSkills/`, rebuild every release layer, and run validation:
+
+```bash
+python3 scripts/unified_skill_pipeline.py \
+  --upstream-local-path /mnt/d/workplace/agent-skills \
+  --include-working-tree
+```
+
+Run a release-only rebuild from the current mother skills:
+
+```bash
+python3 scripts/normalize_target_skills.py
+python3 scripts/build_targetskills_catalog.py
+python3 scripts/build_clawhub_release.py
+python3 scripts/build_clawhub_plugin_release.py
+python3 scripts/build_claude_release.py
+python3 scripts/build_claude_marketplace.py
+python3 scripts/build_hermes_release.py
+python3 scripts/build_agentskills_so_release.py
+python3 scripts/build_agentskill_sh_release.py
+python3 scripts/test_release_layers.py
+```
+
+## Operational Notes
+
+- `targetSkills/` is the mother-skill source of truth.
+- Generated release layers should be rebuilt from `targetSkills/`, not hand-edited as primary sources.
+- Local credentials can be looked up from `example/accounts`, but CI should use secrets instead.
+- `AIsa-team/agent-skills` is currently public, so `UPSTREAM_REPO_TOKEN` is optional fallback rather than a default requirement.
+- `.github/workflows/unified-skill-pipeline.yml` now supports a hosted sync/build/test lane and an optional self-hosted true publish lane.

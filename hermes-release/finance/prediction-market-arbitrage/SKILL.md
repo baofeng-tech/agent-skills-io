@@ -1,6 +1,7 @@
 ---
 name: prediction-market-arbitrage
 description: 'Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
+license: MIT
 metadata:
   aisa:
     emoji: 🛠

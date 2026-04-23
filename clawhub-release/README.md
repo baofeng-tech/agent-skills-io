@@ -21,6 +21,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `aisa-youtube-search`
 - `aisa-youtube-serp-scout`
 - `cn-llm`
+- `crypto-market-data`
 - `last30days`
 - `last30days-zh`
 - `llm-router`
@@ -28,6 +29,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `marketpulse`
 - `media-gen`
 - `multi-search`
+- `multi-source-search`
 - `openclaw-aisa-youtube-aisa`
 - `openclaw-media-gen`
 - `openclaw-search`
@@ -62,3 +64,4 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `x-intelligence-automation`
 - `youtube`
 - `youtube-search`
+- `youtube-serp`

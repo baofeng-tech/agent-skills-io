@@ -1,6 +1,7 @@
 ---
 name: multi-search
 description: 'Parallel multi-source search combining Web, Scholar, Smart, and Tavily results with confidence scoring and AI synthesis. Best for comprehensive research requiring cross-source validation. Use when: the user needs web search, research, source discovery, or content extraction.'
+license: MIT
 metadata:
   aisa:
     emoji: 🛠

@@ -3,7 +3,7 @@ name: multi-search
 description: 'Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.'
 author: AIsa
 version: 1.0.0
-license: Apache-2.0
+license: MIT
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

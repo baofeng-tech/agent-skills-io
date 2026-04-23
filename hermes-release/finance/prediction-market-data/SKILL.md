@@ -1,6 +1,6 @@
 ---
 name: prediction-market-data
-description: 'Cross-platform prediction market data via AIsa API. Query Polymarket and Kalshi markets, prices, orderbooks, candlesticks, positions, and trades. Use when user asks about: prediction market odds, election betting, event probabilities, market sentiment, Polymarket prices, Kalshi prices, sports betting odds, wallet PnL, or cross-platform market comparison.'
+description: 'Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
 license: MIT
 metadata:
   aisa:
@@ -19,8 +19,8 @@ metadata:
     tags:
     - finance
     - market
+    - stock
     - prediction
-    - aisa
     related_skills:
     - market
     - prediction-market
@@ -33,7 +33,7 @@ required_environment_variables:
 
 # prediction-market-data
 
-Cross-platform prediction market data via AIsa API. Query Polymarket and Kalshi markets, prices, orderbooks, candlesticks, positions, and trades. Use when user asks about: prediction market odds, election betting, event probabilities, market sentiment, Polymarket prices, Kalshi prices, sports betting odds, wallet PnL, or cross-platform market comparison.
+Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
 
 ## When to Use
 
