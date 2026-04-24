@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+from clawhub_live_status import ArtifactRef, scan_artifact_status, scan_needs_retry, scan_result_to_state
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -374,6 +375,7 @@ class WorkerResult:
     published: int = 0
     skipped: int = 0
     failed: int = 0
+    suspicious: int = 0
     rate_limited: bool = False
     notes: list[str] = field(default_factory=list)
 
@@ -426,6 +428,69 @@ class Worker(threading.Thread):
         if carried:
             self.log(f"carrying forward {carried} real publish(es) from the past hour")
 
+    def inspect_payload(self, artifact: Artifact) -> Any | None:
+        try:
+            if artifact.kind == "skill":
+                result = self.clawhub(["inspect", artifact.name, "--json"], timeout=self.args.scan_inspect_timeout)
+            else:
+                result = self.clawhub(
+                    ["package", "inspect", artifact.name, "--json"],
+                    timeout=self.args.scan_inspect_timeout,
+                )
+        except subprocess.TimeoutExpired:
+            return None
+        if result.returncode != 0:
+            return None
+        return try_parse_json(result.stdout)
+
+    def post_publish_scan(self, artifact: Artifact) -> None:
+        if not self.args.post_publish_scan:
+            return
+
+        current_state = self.state.get(artifact)
+        cached_scan = current_state.get("live_scan") if isinstance(current_state.get("live_scan"), dict) else {}
+        artifact_ref = ArtifactRef(
+            key=artifact.key,
+            kind=artifact.kind,
+            name=artifact.name,
+            version=artifact.version,
+            path=artifact.path,
+            release_ref=str(current_state.get("release_ref") or "") or None,
+            detail_url=str(cached_scan.get("detail_url") or "") or None,
+        )
+
+        for attempt in range(1, self.args.scan_retries + 1):
+            result = scan_artifact_status(
+                artifact_ref,
+                inspect_payload_getter=lambda _artifact_ref: self.inspect_payload(artifact),
+                render_mode=self.args.scan_render_mode,
+                request_timeout=self.args.scan_request_timeout,
+                render_timeout_ms=self.args.scan_render_timeout_ms,
+                render_wait_ms=self.args.scan_render_wait_ms,
+            )
+            self.state.mark(artifact, live_scan=scan_result_to_state(result))
+            if result.suspicious:
+                self.result.suspicious += 1
+                self.log(
+                    f"live scan flagged suspicious {artifact.kind}:{artifact.name} "
+                    f"(vt={result.virus_total or '-'}, openclaw={result.openclaw_verdict or '-'})"
+                )
+                if result.suspicious_reason:
+                    self.log(f"live scan reason: {result.suspicious_reason}")
+                return
+            if not scan_needs_retry(result) or attempt >= self.args.scan_retries:
+                status_label = "pending" if result.pending else "ok"
+                self.log(
+                    f"live scan {status_label} {artifact.kind}:{artifact.name} "
+                    f"(vt={result.virus_total or '-'}, openclaw={result.openclaw_verdict or '-'})"
+                )
+                return
+            self.log(
+                f"live scan pending for {artifact.kind}:{artifact.name}; "
+                f"retrying in {self.args.scan_retry_delay:.1f}s"
+            )
+            time.sleep(self.args.scan_retry_delay)
+
     def run(self) -> None:
         try:
             self.login()
@@ -467,6 +532,7 @@ class Worker(threading.Thread):
                     )
                     self.result.skipped += 1
                     self.log(f"skip remote-existing {artifact.kind}:{artifact.name}@{artifact.version}")
+                    self.post_publish_scan(artifact)
                     continue
 
                 if self.args.dry_run:
@@ -504,6 +570,7 @@ class Worker(threading.Thread):
                 )
                 self.result.published += 1
                 self.log(f"published {artifact.kind}:{artifact.name}@{artifact.version}")
+                self.post_publish_scan(artifact)
             except PublishError as exc:
                 attempts = self.state.get(artifact).get("attempts", 0) + 1
                 if exc.already_exists:
@@ -522,6 +589,7 @@ class Worker(threading.Thread):
                     self.log(
                         f"skip publish-existing {artifact.kind}:{artifact.name}@{artifact.version}: {exc.message}"
                     )
+                    self.post_publish_scan(artifact)
                     continue
                 status = "rate_limited" if exc.rate_limited else "failed"
                 self.state.mark(
@@ -897,6 +965,53 @@ def build_argument_parser() -> argparse.ArgumentParser:
         help="Seconds to wait between transient remote probe retries.",
     )
     parser.add_argument(
+        "--post-publish-scan",
+        action="store_true",
+        help="After a publish or remote-existing skip, check the live ClawHub page for VirusTotal/OpenClaw scan status.",
+    )
+    parser.add_argument(
+        "--scan-retries",
+        type=int,
+        default=4,
+        help="Retry count for post-publish live scan checks when the page is still pending.",
+    )
+    parser.add_argument(
+        "--scan-retry-delay",
+        type=float,
+        default=15.0,
+        help="Seconds to wait between post-publish live scan retries.",
+    )
+    parser.add_argument(
+        "--scan-render-mode",
+        choices=("off", "auto", "always"),
+        default="auto",
+        help="Whether post-publish live scans should use Playwright rendering for dynamic pages.",
+    )
+    parser.add_argument(
+        "--scan-request-timeout",
+        type=int,
+        default=20,
+        help="HTTP timeout in seconds for post-publish live scans.",
+    )
+    parser.add_argument(
+        "--scan-render-timeout-ms",
+        type=int,
+        default=20000,
+        help="Navigation timeout for Playwright-based post-publish live scans.",
+    )
+    parser.add_argument(
+        "--scan-render-wait-ms",
+        type=int,
+        default=5000,
+        help="Extra wait window for dynamic page HTML to stabilize during post-publish live scans.",
+    )
+    parser.add_argument(
+        "--scan-inspect-timeout",
+        type=int,
+        default=25,
+        help="Timeout in seconds for `clawhub inspect` during post-publish skill URL resolution.",
+    )
+    parser.add_argument(
         "--skip-build",
         action="store_true",
         help="Skip rebuilding the ClawHub release layers first.",
@@ -918,16 +1033,18 @@ def print_summary(results: list[WorkerResult], pending_after: int) -> None:
     published = sum(item.published for item in results)
     skipped = sum(item.skipped for item in results)
     failed = sum(item.failed for item in results)
+    suspicious = sum(item.suspicious for item in results)
     print("", flush=True)
     print("ClawHub batch summary", flush=True)
     print(f"  published: {published}", flush=True)
     print(f"  skipped:   {skipped}", flush=True)
     print(f"  failed:    {failed}", flush=True)
+    print(f"  suspicious:{suspicious}", flush=True)
     print(f"  pending:   {pending_after}", flush=True)
     for item in results:
         note = f" ({'; '.join(item.notes)})" if item.notes else ""
         print(
-            f"  {item.slot}: published={item.published}, skipped={item.skipped}, failed={item.failed}, rate_limited={item.rate_limited}{note}",
+            f"  {item.slot}: published={item.published}, skipped={item.skipped}, failed={item.failed}, suspicious={item.suspicious}, rate_limited={item.rate_limited}{note}",
             flush=True,
         )
 

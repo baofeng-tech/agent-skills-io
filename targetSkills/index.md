@@ -2,7 +2,7 @@
 
 This catalog lists the current cross-platform mother skills in `targetSkills/`.
 
-- Generated at: `2026-04-23`
+- Generated at: `2026-04-24`
 - Repository target: `https://github.com/AIsa-team/agent-skills`
 - Branch target: `agentskills`
 - Total skills: `54`
@@ -24,7 +24,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `aisa-twitter-api`
   - Category: `twitter`
   - Path: `aisa-twitter-api`
-  - Description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
+  - Description: Twitter/X command center for research, monitoring, watchlists, and approved posting through AIsa. Use when: the user needs one flagship skill for trend tracking, competitor monitoring, or publish-ready Twitter workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting.
 - `aisa-twitter-command-center`
   - Category: `twitter`
   - Path: `aisa-twitter-command-center`
@@ -84,7 +84,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `multi-source-search`
   - Category: `search`
   - Path: `multi-source-search`
-  - Description: Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.
+  - Description: Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.
 - `openclaw-aisa-youtube-aisa`
   - Category: `youtube`
   - Path: `openclaw-aisa-youtube-aisa`
@@ -148,7 +148,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `search`
   - Category: `search`
   - Path: `search`
-  - Description: Intelligent search for agents. Multi-source retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.
+  - Description: Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
 - `smart-search`
   - Category: `search`
   - Path: `smart-search`

@@ -55,6 +55,12 @@ python3 scripts/build_agentskill_sh_release.py
 python3 scripts/test_release_layers.py
 ```
 
+Check live ClawHub VirusTotal / OpenClaw verdicts from the saved publish state:
+
+```bash
+python3 scripts/clawhub_live_status.py --targets both
+```
+
 ## Operational Notes
 
 - `targetSkills/` is the mother-skill source of truth.
@@ -66,3 +72,4 @@ python3 scripts/test_release_layers.py
 - `.github/workflows/unified-skill-pipeline.yml` now supports:
   - hosted sync/build/test on schedule or manual dispatch
   - self-hosted true publish for `AIsa-team/agent-skills` (`agentskills` branch), `baofeng-tech/agent-skills-so`, `baofeng-tech/agent-skills`, Claude, Claude marketplace, Hermes, and optional ClawHub batch publish
+- `scripts/publish_clawhub_batch.py` now supports optional `--post-publish-scan` checks so each publish can immediately probe the live ClawHub page for `VirusTotal`, `OpenClaw`, and `Suspicious` signals.

@@ -31,7 +31,7 @@
 
 - Source: `targetSkills/aisa-twitter-api`
 - Output: `clawhub-release/aisa-twitter-api`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
@@ -171,7 +171,7 @@
 
 - Source: `targetSkills/multi-source-search`
 - Output: `clawhub-release/multi-source-search`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+- Description: Run confidence-scored multi-source retrieval through AIsa. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
@@ -317,7 +317,7 @@
 
 - Source: `targetSkills/search`
 - Output: `clawhub-release/search`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+- Description: Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only

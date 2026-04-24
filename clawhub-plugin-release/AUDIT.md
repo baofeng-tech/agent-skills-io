@@ -30,7 +30,7 @@
 - Skill: `aisa-twitter-api`
 - Directory: `clawhub-plugin-release/plugins/aisa-twitter-api-plugin`
 - Zip: `clawhub-plugin-release/zips/aisa-twitter-api-plugin.zip`
-- Description: Native-first ClawHub plugin for `aisa-twitter-api`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Native-first ClawHub plugin for `aisa-twitter-api`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.
 
 ## aisa-twitter-command-center-plugin
 
@@ -135,7 +135,7 @@
 - Skill: `multi-source-search`
 - Directory: `clawhub-plugin-release/plugins/multi-source-search-plugin`
 - Zip: `clawhub-plugin-release/zips/multi-source-search-plugin.zip`
-- Description: Native-first ClawHub plugin for `multi-source-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+- Description: Native-first ClawHub plugin for `multi-source-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run confidence-scored multi-source retrieval through AIsa. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.
 
 ## openclaw-aisa-youtube-aisa-plugin
 
@@ -247,7 +247,7 @@
 - Skill: `search`
 - Directory: `clawhub-plugin-release/plugins/search-plugin`
 - Zip: `clawhub-plugin-release/zips/search-plugin.zip`
-- Description: Native-first ClawHub plugin for `search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+- Description: Native-first ClawHub plugin for `search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
 
 ## smart-search-plugin
 
@@ -289,7 +289,7 @@
 - Skill: `stock-rumors`
 - Directory: `clawhub-plugin-release/plugins/stock-rumors-plugin`
 - Zip: `clawhub-plugin-release/zips/stock-rumors-plugin.zip`
-- Description: Native-first ClawHub plugin for `stock-rumors`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Rumor Scanner — find early signals including M&A rumors, insider activity, analyst upgrades/downgrades, social whispers, and SEC/regulatory activity via AIsa API. Ranked by impact score. Use when the user asks about rumors, insider trading, M&A activity, analyst changes, or early market signals.
+- Description: Native-first ClawHub plugin for `stock-rumors`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
 
 ## stock-watchlist-plugin
 

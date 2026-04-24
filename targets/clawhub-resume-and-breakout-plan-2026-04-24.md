@@ -3,6 +3,8 @@
 ## 1. 当前状态压缩结论
 
 - 当前可以直接基于 `targets/clawhub-publish-state.json` 续跑 ClawHub，不必默认重做前面的 build / test / sync。
+- 已新增 `scripts/clawhub_live_status.py`，可以独立回查已发布 artifact 的 `VirusTotal`、`OpenClaw verdict` 与 `Suspicious` 原因，并写回 publish state。
+- `scripts/publish_clawhub_batch.py` 已支持可选 `--post-publish-scan`，可在发布或探测到远端已存在后立即做 live scan。
 - 本地已有 20 个改动过的 skill 家族同步到了这些生成层：
   - `clawhub-release/`
   - `clawhub-plugin-release/`
@@ -166,6 +168,11 @@ bash scripts/publish-targetSkills-to-agent-skills.sh targetSkills ../agent-skill
 - 同步更新对应 plugin surface
 - 发布到 ClawHub 验证真实反馈
 
+当前已落地：
+
+- 母 skill 已收紧为 `Twitter/X command center` 旗舰位
+- 发布层已同步强化 watchlist / competitor monitoring / publish-ready 的入口表述
+
 ### 第 6 阶段：再做一个“线上技能 -> AIsa API”实验
 
 首推方向：
@@ -184,6 +191,15 @@ bash scripts/publish-targetSkills-to-agent-skills.sh targetSkills ../agent-skill
 - `skill-vetter`
   - 适合后续做安全审计 lane
   - 但更适合作为第二波，不建议抢在搜索 lane 前面
+
+当前已落地：
+
+- `search`
+  - 调整为搜索旗舰位 `AIsa Search Command Center`
+- `multi-source-search`
+  - 调整为增长变体 `Multi-Source Search Verification Engine`
+- `build_clawhub_release.py`
+  - 已增加按 skill slug 区分的 publish profile，避免 ClawHub 发布层把搜索兄弟 skill 再次压成同一套泛化文案
 
 ## 4. 本轮建议先执行的最小闭环
 

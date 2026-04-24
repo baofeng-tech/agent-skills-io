@@ -79,6 +79,7 @@ Use it when you need to:
 | Script | Use for | Key options |
 | --- | --- | --- |
 | `scripts/test_release_layers.py` | Structure validation plus representative smoke tests across generated layers | none |
+| `scripts/clawhub_live_status.py` | Resolve live ClawHub detail pages and record `VirusTotal` / `OpenClaw` / `Suspicious` scan output into state | `--targets`, `--artifact`, `--include-status`, `--render-mode` |
 
 ### Publish / Sync
 
@@ -134,9 +135,35 @@ Use it when you need to:
 | `--publish-timeout <seconds>` | Timeout for each publish command |
 | `--probe-retries <int>` | Retry count for transient remote probe failures |
 | `--probe-retry-delay <seconds>` | Delay between remote probe retries |
+| `--post-publish-scan` | After publish or remote-existing skip, probe the live ClawHub page for scan status |
+| `--scan-retries <int>` | Retry count for post-publish live scan checks when scan output is still pending |
+| `--scan-retry-delay <seconds>` | Delay between post-publish live scan retries |
+| `--scan-render-mode off|auto|always` | Whether post-publish scan should use Playwright rendering for dynamic pages |
+| `--scan-request-timeout <seconds>` | HTTP timeout for post-publish live scans |
+| `--scan-render-timeout-ms <ms>` | Navigation timeout for Playwright-based live scans |
+| `--scan-render-wait-ms <ms>` | Extra dynamic-page stabilization wait for Playwright-based live scans |
+| `--scan-inspect-timeout <seconds>` | Timeout for `clawhub inspect` during post-publish skill URL resolution |
 | `--skip-build` | Skip normalize/build before publish |
 | `--force` | Ignore saved state and republish/reprobe everything |
 | `--dry-run` | Probe and plan only, do not publish |
+
+### `scripts/clawhub_live_status.py`
+
+| Option | Meaning |
+| --- | --- |
+| `--state-file <path>` | Publish state JSON to read artifacts from and write back live scan results into |
+| `--output-file <path>` | Standalone live-status JSON report |
+| `--targets skill|plugin|both` | Which artifact kinds to scan |
+| `--artifact <key>` | Optional artifact key such as `skill:search` or `plugin:twitter-plugin`; repeat as needed |
+| `--include-status <status>` | Which publish-state statuses to include; repeat to include more than one |
+| `--accounts-file <path>` | Optional local credentials file for skill URL resolution through `clawhub inspect` |
+| `--token <token>` | Optional explicit ClawHub token for skill URL resolution |
+| `--config-root <path>` | Temporary ClawHub CLI config directory for the scanner |
+| `--render-mode off|auto|always` | Whether to use Playwright rendering when the detail page is dynamic |
+| `--request-timeout <seconds>` | HTTP fetch timeout |
+| `--render-timeout-ms <ms>` | Navigation timeout for Playwright rendering |
+| `--render-wait-ms <ms>` | Extra wait window for dynamic HTML stabilization |
+| `--inspect-timeout <seconds>` | Timeout for `clawhub inspect` during skill URL resolution |
 
 ### `scripts/import-github-downloads-to-targetSkills.py`
 
@@ -196,6 +223,23 @@ python3 scripts/test_release_layers.py
 python3 scripts/publish_clawhub_batch.py --targets both --dry-run
 python3 scripts/publish_clawhub_batch.py --targets skill --per-token-per-hour 4
 python3 scripts/publish_clawhub_batch.py --targets plugin --per-token-per-hour 4
+```
+
+### Check live ClawHub scan status from saved publish state
+
+```bash
+python3 scripts/clawhub_live_status.py --targets both
+python3 scripts/clawhub_live_status.py --targets skill --artifact skill:search
+```
+
+### Continue ClawHub publish and probe `VirusTotal` / `OpenClaw` immediately after upload
+
+```bash
+python3 scripts/publish_clawhub_batch.py \
+  --targets skill \
+  --skip-build \
+  --per-token-per-hour 4 \
+  --post-publish-scan
 ```
 
 ## Operational Notes

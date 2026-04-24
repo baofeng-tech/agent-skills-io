@@ -1,6 +1,6 @@
 ---
 name: multi-source-search
-description: 'Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.'
+description: 'Run confidence-scored multi-source retrieval through AIsa. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.'
 author: AIsa
 version: 1.0.0
 license: MIT
@@ -34,21 +34,21 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Multi Source Search
+# Multi-Source Search Verification Engine
 
-Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+Run confidence-scored multi-source retrieval through AIsa. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.
 
 ## When to use
 
-- The user needs web, multi-source, or last-30-days research.
-- The user wants competitor scans, trend discovery, or structured search output.
-- The user wants one skill to cover multiple retrieval surfaces.
+- The user wants the same topic checked across multiple search surfaces instead of trusting one provider.
+- The user needs confidence scoring, consensus checks, or a comparison across multiple search lanes.
+- The user wants synthesis-ready validation before making a recommendation.
 
 ## High-Intent Workflows
 
-- Search and summarize recent evidence.
-- Compare two tools or companies using recent signals.
-- Turn multi-source retrieval into a research brief.
+- Run parallel retrieval and compare the returned signals.
+- Check whether a claim appears across multiple search surfaces.
+- Turn multi-source retrieval into a confidence-scored research brief.
 
 ## Quick Reference
 
@@ -62,12 +62,12 @@ Run web, multi-source, or last-30-days research through AIsa. Use when: the user
 
 ## Example Requests
 
-- Research OpenAI Agents SDK over the last 30 days
-- Compare OpenClaw and Codex using recent public discussion
-- Search recent sentiment around a product launch
+- Compare how three search surfaces describe the latest browser-use agent products
+- Verify whether a market claim appears in web, scholar, and cited answer results
+- Run a confidence-scored research pass on multi-agent IDEs before writing a recommendation
 
 ## Guardrails
 
-- Do not present test-only helpers as public features.
-- Do not claim sources that were not actually queried.
-- If some providers time out, report that honestly.
+- Do not market this package as the generic one-search entry point.
+- Do not claim consensus that the returned results do not support.
+- If some providers time out, explain how that affects the score.

@@ -21,12 +21,12 @@ Scan for early market signals and rumors using the AIsa API.
 ## Usage
 
 ```bash
-python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py"
-python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py" --focus ma
-python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py" --focus insider
-python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py" --focus analyst
-python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py" --focus social
-python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py" --output json
+python3 scripts/rumor_scanner.py
+python3 scripts/rumor_scanner.py --focus ma
+python3 scripts/rumor_scanner.py --focus insider
+python3 scripts/rumor_scanner.py --focus analyst
+python3 scripts/rumor_scanner.py --focus social
+python3 scripts/rumor_scanner.py --output json
 ```
 
 ### Arguments

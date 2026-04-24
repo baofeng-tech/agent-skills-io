@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-04-23",
+  "generated_at": "2026-04-24",
   "provider": {
     "name": "AIsa",
     "repository": "https://github.com/AIsa-team/agent-skills",
@@ -25,7 +25,7 @@
     },
     {
       "name": "aisa-twitter-api",
-      "description": "Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.",
+      "description": "Twitter/X command center for research, monitoring, watchlists, and approved posting through AIsa. Use when: the user needs one flagship skill for trend tracking, competitor monitoring, or publish-ready Twitter workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting.",
       "location": "https://github.com/AIsa-team/agent-skills/tree/agentskills/aisa-twitter-api"
     },
     {
@@ -100,7 +100,7 @@
     },
     {
       "name": "multi-source-search",
-      "description": "Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.",
+      "description": "Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.",
       "location": "https://github.com/AIsa-team/agent-skills/tree/agentskills/multi-source-search"
     },
     {
@@ -180,7 +180,7 @@
     },
     {
       "name": "search",
-      "description": "Intelligent search for agents. Multi-source retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.",
+      "description": "Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.",
       "location": "https://github.com/AIsa-team/agent-skills/tree/agentskills/search"
     },
     {

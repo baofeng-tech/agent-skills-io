@@ -1,6 +1,6 @@
 ---
 name: search
-description: 'Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.'
+description: 'Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.'
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -34,21 +34,21 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Search
+# AIsa Search Command Center
 
-Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
 
 ## When to use
 
-- The user needs web, multi-source, or last-30-days research.
-- The user wants competitor scans, trend discovery, or structured search output.
-- The user wants one skill to cover multiple retrieval surfaces.
+- The user needs one flagship search skill for live lookup, source discovery, or citation-ready research.
+- The user wants to move between web search, scholar search, Tavily, and deep research without switching packages.
+- The user wants a search lane that can expand from fast lookup into broader synthesis.
 
 ## High-Intent Workflows
 
-- Search and summarize recent evidence.
-- Compare two tools or companies using recent signals.
-- Turn multi-source retrieval into a research brief.
+- Search quickly, then expand into cited answers.
+- Pull academic or extracted-page evidence when the first pass needs stronger support.
+- Turn a short query into a deep research report.
 
 ## Quick Reference
 
@@ -62,12 +62,12 @@ Run web, multi-source, or last-30-days research through AIsa. Use when: the user
 
 ## Example Requests
 
-- Research OpenAI Agents SDK over the last 30 days
-- Compare OpenClaw and Codex using recent public discussion
-- Search recent sentiment around a product launch
+- Search the latest AI agent launches and show the most relevant sources first
+- Find papers and cited analysis on multimodal reasoning from the last 18 months
+- Build a deep research report on browser-use agents with sources and tradeoffs
 
 ## Guardrails
 
 - Do not present test-only helpers as public features.
-- Do not claim sources that were not actually queried.
+- Do not market cross-source consensus scoring as this package's primary lane.
 - If some providers time out, report that honestly.

@@ -1,8 +1,8 @@
 ---
 name: aisa-twitter-api
-description: 'Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.'
+description: 'Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.'
 author: AIsa
-version: 1.0.1
+version: 1.0.0
 license: Apache-2.0
 user-invocable: true
 primaryEnv: AISA_API_KEY
@@ -34,21 +34,21 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# AIsa Twitter API
+# AIsa Twitter API Command Center
 
-Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.
 
 ## When to use
 
-- The user needs Twitter/X research, monitoring, posting, or engagement workflows.
-- The user wants profiles, timelines, trends, lists, communities, or Spaces.
+- The user needs one flagship Twitter/X skill for research, monitoring, watchlists, or posting.
+- The user wants to move between search, monitoring, and publish-ready workflows without switching skills.
 - The user wants approved posting without sharing passwords.
 
 ## High-Intent Workflows
 
-- Research an account or conversation thread.
-- Monitor a keyword, trend, or competitor.
-- Authorize and publish a post after explicit approval.
+- Research a creator, competitor, or narrative shift.
+- Monitor a keyword, watchlist, or launch reaction.
+- Authorize and publish a post only after explicit approval.
 
 ## Quick Reference
 
@@ -63,12 +63,12 @@ Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa.
 
 ## Example Requests
 
-- Research recent AI agent conversations on X
-- Search how users are reacting to a product launch on Twitter
-- Authorize and publish a short product update post
+- Research what AI agent builders are saying on X this week
+- Track what changed across a competitor watchlist today
+- Authorize and publish a short product update with an image
 
 ## Guardrails
 
 - Do not ask for passwords, cookies, or browser credentials.
+- Do not market growth actions as this package's primary lane.
 - Do not claim posting succeeded until the API confirms it.
-- Return authorization links instead of relying on auto-open behavior.

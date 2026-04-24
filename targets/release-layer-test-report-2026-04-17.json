@@ -20,8 +20,8 @@
         "--type",
         "Latest"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGmItdsX0GwKAAIcaYgwjdYQhQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcaYjCSQAnEAoABhxpiMJI_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/166220",
+      "code": 1,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"timed out\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -35,7 +35,7 @@
         "OpenAI"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 3,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
       "stderr_preview": ""
     },
     {
@@ -51,7 +51,7 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"id\": \"QlYvnAcySK62uQzlVKsWKw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach · Security & Privacy ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"g5XOQJNiM689WOPjhlg82w\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -65,8 +65,8 @@
         "--limit",
         "1"
       ],
-      "code": 1,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"timed out\"\n  }\n}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x709f4c529ea10623d58d1172517046c31f08a017e81360d10239055ae6d6a1e2\",\n      \"description\": \"This market will resolve to \\\"Yes\\\" if the \\\"Close\\\" price for the ETH/USDT 1 hour candle that ends on the time and date specified in the title is higher than the price specified in the title. Otherwise, thi",
       "stderr_preview": ""
     },
     {
@@ -120,7 +120,7 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGmJCF-boAYKAAIcaYhaJxbA0AAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcaYkOQ0AnEAoABhxpiQ5DP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"\",\n        \"createdAt\": \"Thu Jul 09 19:11:2",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGrSkXwboVwKAAIcatHxZ1YQbQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcatKXd4AnEAoABhxq0pd3f9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"\",\n        \"createdAt\": \"Fri Jul 22 03:00:",
       "stderr_preview": ""
     },
     {
@@ -135,8 +135,8 @@
         "--query",
         "OpenAI"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "code": 1,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"timed out\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -154,7 +154,7 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"id\": \"OeNsYBJKQkJHuMZ58mLtUQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach · Security & Privacy ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"awzB3HxhKPre_jSkuTUzSQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -171,7 +171,7 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x4f5a851fb62bee2fe8bee02a9b03e980c827284fd76662b16e811850506cf77c\",\n      \"description\": \"This market refers to the Dota 2 Grand final match between Carstensz and Ivory in the EPL World Series Southeast Asia Playoffs, initially scheduled for April 23 at 2:50AM ET.\\n\\nThis market will resolve to \\",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x709f4c529ea10623d58d1172517046c31f08a017e81360d10239055ae6d6a1e2\",\n      \"description\": \"This market will resolve to \\\"Yes\\\" if the \\\"Close\\\" price for the ETH/USDT 1 hour candle that ends on the time and date specified in the title is higher than the price specified in the title. Otherwise, thi",
       "stderr_preview": ""
     },
     {
@@ -213,7 +213,7 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGmJFIiXkPsKAAIcaYhyR9fBaAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcaYkbhUAnEAoABhxpiRuFP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/19192",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGrS0ZzXcWIKAAIcatI_CReRlAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcatLbcUAnEAoABhxq0ttxP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/12667",
       "stderr_preview": ""
     },
     {
@@ -226,8 +226,8 @@
         "--query",
         "OpenAI"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 3,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "code": 1,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"timed out\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -242,9 +242,9 @@
         "--count",
         "1"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"id\": \"jOibPEpN5obJw1LZzuhgsw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach · Security & Privacy ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
-      "stderr_preview": ""
+      "code": 124,
+      "stdout_preview": "",
+      "stderr_preview": "\nTimeoutExpired"
     },
     {
       "layer": "clawhub",
@@ -257,8 +257,8 @@
         "--limit",
         "1"
       ],
-      "code": 1,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"timed out\"\n  }\n}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x709f4c529ea10623d58d1172517046c31f08a017e81360d10239055ae6d6a1e2\",\n      \"description\": \"This market will resolve to \\\"Yes\\\" if the \\\"Close\\\" price for the ETH/USDT 1 hour candle that ends on the time and date specified in the title is higher than the price specified in the title. Otherwise, thi",
       "stderr_preview": ""
     },
     {

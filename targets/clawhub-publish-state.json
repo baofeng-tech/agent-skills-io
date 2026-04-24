@@ -57,7 +57,25 @@
       "last_attempt_at": "2026-04-23T21:01:23.542993+00:00",
       "last_error": null,
       "release_ref": "rd7c16qzcbxhtj52y1qggh8gxd85c6v4",
-      "publish_mode": "published"
+      "publish_mode": "published",
+      "live_scan": {
+        "key": "plugin:aisa-twitter-api-plugin",
+        "kind": "plugin",
+        "name": "aisa-twitter-api-plugin",
+        "version": "1.0.1",
+        "detail_url": "https://clawhub.ai/plugins/aisa-twitter-api-plugin",
+        "page_found": true,
+        "fetch_mode": "http",
+        "scan_status": "clean",
+        "virus_total": "benign",
+        "openclaw_verdict": "benign",
+        "openclaw_confidence": "high confidence",
+        "suspicious": false,
+        "suspicious_reason": "This package appears to do what it says: run the bundled Python clients to query and post via the AIsa relay (api.aisa.one). Before installing, confirm you trust the AIsa relay and are comfortable that any local media you attach will be uploaded to that service. Provide only the AISA_API_KEY (no Twitter passwords), and note the small manifest mismatch: the top-level registry metadata omitted the required AISA_API_KEY even though the packaged manifests and SKILL.md do require it. If you need stronger guarantees, review api.aisa.one's privacy/security documentation and inspect the included python scripts (they are bundled here) to verify no unexpected data paths or persistence are introduced.",
+        "pending": false,
+        "warnings": [],
+        "checked_at": "2026-04-24T14:06:11.119629+00:00"
+      }
     },
     "plugin:aisa-twitter-command-center-plugin": {
       "key": "plugin:aisa-twitter-command-center-plugin",
@@ -774,7 +792,27 @@
       "published_at": "2026-04-21T16:16:02.828163+00:00",
       "last_checked_at": "2026-04-21T16:16:02.828177+00:00",
       "last_error": null,
-      "token_slot": "token-1"
+      "token_slot": "token-1",
+      "live_scan": {
+        "key": "skill:aisa-multi-search-engine",
+        "kind": "skill",
+        "name": "aisa-multi-search-engine",
+        "version": "1.0.1",
+        "detail_url": null,
+        "page_found": false,
+        "fetch_mode": "unresolved",
+        "scan_status": null,
+        "virus_total": null,
+        "openclaw_verdict": null,
+        "openclaw_confidence": null,
+        "suspicious": false,
+        "suspicious_reason": null,
+        "pending": true,
+        "warnings": [
+          "Could not resolve a ClawHub detail URL for this artifact."
+        ],
+        "checked_at": "2026-04-24T14:24:13.172950+00:00"
+      }
     },
     "skill:aisa-provider": {
       "key": "skill:aisa-provider",

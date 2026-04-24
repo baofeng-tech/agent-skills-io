@@ -1,6 +1,6 @@
-# AIsa Search
+# AIsa Search Command Center
 
-Intelligent search for autonomous agents with structured retrieval plus Perplexity Sonar answer endpoints.
+Flagship AIsa search lane for live lookup, source discovery, cited answers, and deep research.
 
 ## Features
 
@@ -10,6 +10,12 @@ Intelligent search for autonomous agents with structured retrieval plus Perplexi
 - Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, and Sonar Deep Research
 - Tavily integration
 - Verity-style multi-source retrieval
+
+## Best For
+
+- Fast live search when the user wants one broad search entry point
+- Citation-ready answers without switching skills
+- Deep research reports that may expand from short lookup to wider synthesis
 
 ## Quick Start
 

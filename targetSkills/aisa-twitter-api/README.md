@@ -1,12 +1,12 @@
 # AIsa Twitter API
 
-Cross-platform Twitter/X research and posting skill for AgentSkills-compatible clients.
+Flagship Twitter/X command center for research, monitoring, watchlists, and approved posting through AIsa.
 
 ## What it does
 
 - Search Twitter/X profiles, tweets, trends, lists, communities, and Spaces
 - Inspect timelines, mentions, replies, quotes, and thread context
-- Support approved posting workflows through OAuth
+- Support watchlist-style monitoring and approved posting workflows through OAuth
 
 ## Setup
 

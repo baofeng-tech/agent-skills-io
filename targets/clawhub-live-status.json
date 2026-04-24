@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-04-24T14:24:13.181267+00:00",
+  "summary": {
+    "total": 1,
+    "suspicious": 0,
+    "pending": 1,
+    "resolved_urls": 0
+  },
+  "artifacts": [
+    {
+      "key": "skill:aisa-multi-search-engine",
+      "kind": "skill",
+      "name": "aisa-multi-search-engine",
+      "version": "1.0.1",
+      "detail_url": null,
+      "page_found": false,
+      "fetch_mode": "unresolved",
+      "scan_status": null,
+      "virus_total": null,
+      "openclaw_verdict": null,
+      "openclaw_confidence": null,
+      "suspicious": false,
+      "suspicious_reason": null,
+      "pending": true,
+      "warnings": [
+        "Could not resolve a ClawHub detail URL for this artifact."
+      ],
+      "checked_at": "2026-04-24T14:24:13.172950+00:00"
+    }
+  ]
+}

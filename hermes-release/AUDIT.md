@@ -29,7 +29,7 @@
 
 - Category: `communication`
 - Path: `hermes-release/communication/aisa-twitter-api`
-- Description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
+- Description: Twitter/X command center for research, monitoring, watchlists, and approved posting through AIsa. Use when: the user needs one flagship skill for trend tracking, competitor monitoring, or publish-ready Twitter workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_client.py
@@ -162,7 +162,7 @@
 
 - Category: `research`
 - Path: `hermes-release/research/multi-source-search`
-- Description: Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.
+- Description: Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.
 - Change: patched Hermes runtime auth and storage defaults in scripts/search_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -300,7 +300,7 @@
 
 - Category: `research`
 - Path: `hermes-release/research/search`
-- Description: Intelligent search for agents. Multi-source retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.
+- Description: Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
 - Change: patched Hermes runtime auth and storage defaults in scripts/search_client.py
 - Change: replaced source README with a Hermes-oriented release README
 

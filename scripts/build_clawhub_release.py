@@ -36,6 +36,27 @@ def detect_domain(name: str, description: str) -> str:
     return "automation"
 
 
+def release_profile(name: str, domain: str) -> str:
+    lowered = name.lower()
+    if lowered == "aisa-twitter-api":
+        return "twitter_api"
+    if lowered == "search":
+        return "search_flagship"
+    if lowered == "multi-source-search":
+        return "search_verification"
+    return domain
+
+
+def release_heading(name: str, domain: str) -> str:
+    profile = release_profile(name, domain)
+    headings = {
+        "twitter_api": "AIsa Twitter API Command Center",
+        "search_flagship": "AIsa Search Command Center",
+        "search_verification": "Multi-Source Search Verification Engine",
+    }
+    return headings.get(profile, base.prettify_skill_name(name))
+
+
 def is_zh_variant(name: str) -> bool:
     return name.endswith("-zh") or re.search(r"[\u4e00-\u9fff]", name) is not None
 
@@ -121,31 +142,39 @@ def resolve_clawhub_slug(skill_dir: Path, frontmatter: dict[str, Any]) -> str:
 
 
 def build_description(name: str, domain: str, zh: bool) -> str:
+    profile = release_profile(name, domain)
     if zh:
         templates = {
             "twitter": "通过 AIsa 搜索 X/Twitter 账号、推文、趋势与经 OAuth 授权的发布流程。触发条件：当用户需要 Twitter 研究、监控或互动操作时使用。支持搜索、监控与授权发布。",
+            "twitter_api": "通过 AIsa 执行 Twitter/X 研究、监控、观察列表与经 OAuth 授权的发布。触发条件：当用户需要一个旗舰 Twitter 技能来跟踪趋势、竞品或发布内容时使用。支持搜索、监控与授权发布。",
             "youtube": "通过 AIsa 搜索 YouTube 视频、频道、趋势与排名结果。触发条件：当用户需要选题研究、竞品分析或频道检索时使用。支持视频发现与趋势分析。",
             "search": "通过 AIsa 执行网页、多源或近 30 天研究检索。触发条件：当用户需要搜索、研究、比对或趋势归纳时使用。支持多源检索与结构化输出。",
+            "search_flagship": "通过 AIsa 执行网页、学术、Tavily 与深度研究检索。触发条件：当用户需要一个旗舰搜索技能来做实时查询、来源发现或引用型研究时使用。支持快速检索、答案生成与深度研究。",
+            "search_verification": "通过 AIsa 做多来源对比检索与置信度判断。触发条件：当用户需要交叉验证、共识检查或一份比较多个检索面的研究输出时使用。支持并行检索、置信度评分与结构化综合。",
             "finance": "通过 AIsa 查询股票、加密、预测市场与投资分析数据。触发条件：当用户需要市场研究、筛选、价格走势或组合分析时使用。支持研究与分析输出。",
             "media": "通过 AIsa 生成图片或视频素材。触发条件：当用户需要 AI 媒体生成或创意资产产出时使用。支持图像与视频工作流。",
             "ai": "通过 AIsa 使用模型路由、Provider 配置或中文大模型能力。触发条件：当用户需要模型接入、路由或 Provider 设置时使用。支持统一模型工作流。",
             "automation": f"使用 {name} 提供的自动化工作流。触发条件：当用户需要该领域的专用自动化能力时使用。支持公开发布的运行时能力。",
         }
-        return templates[domain]
+        return templates[profile]
 
     templates = {
         "twitter": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+        "twitter_api": "Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.",
         "youtube": "Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.",
         "search": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+        "search_flagship": "Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.",
+        "search_verification": "Run confidence-scored multi-source retrieval through AIsa. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.",
         "finance": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
         "media": "Generate AI images or videos through AIsa. Use when: the user needs creative generation, asset drafts, or media workflows. Supports image and video generation.",
         "ai": "Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.",
         "automation": f"Use {name} for domain-specific automation. Use when: the user needs this workflow's specialized runtime behavior. Supports the packaged public workflow only.",
     }
-    return templates[domain]
+    return templates[profile]
 
 
-def domain_sections(domain: str, zh: bool) -> tuple[list[str], list[str], list[str], list[str]]:
+def domain_sections(skill_name: str, domain: str, zh: bool) -> tuple[list[str], list[str], list[str], list[str]]:
+    profile = release_profile(skill_name, domain)
     if zh:
         mapping = {
             "twitter": (
@@ -153,6 +182,12 @@ def domain_sections(domain: str, zh: bool) -> tuple[list[str], list[str], list[s
                 ["研究某个账号近期动态。", "监控热点关键词或趋势。", "完成 OAuth 授权后发帖或互动。"] ,
                 ["研究马斯克最近 30 天关于 AI 的推文趋势", "搜索某个产品在 X 上的讨论反馈", "授权后发一条产品更新推文"] ,
                 ["不要请求密码、Cookie 或浏览器凭据。", "不要在未确认 API 成功前声称已发布。", "公开包默认返回授权链接，而不是自动打开浏览器。"] ,
+            ),
+            "twitter_api": (
+                ["用户需要一个旗舰 Twitter/X 技能做研究、监控、观察列表或发布。", "用户想在搜索、监控与发帖之间切换，而不更换技能。", "用户需要在不提供密码的前提下完成授权发布。"] ,
+                ["研究创作者、竞品或叙事变化。", "监控关键词、账号列表或产品发布反应。", "在完成 OAuth 授权后发出一条确认过的帖子。"] ,
+                ["研究 AI agent 创作者最近一周在 X 上的讨论", "跟踪竞品账号列表今天发生了什么变化", "授权后发布一条带图片的产品更新"] ,
+                ["不要请求密码、Cookie 或浏览器凭据。", "不要把互动增长动作写成这个包的主职责。", "不要在未确认 API 成功前声称已发布。"] ,
             ),
             "youtube": (
                 ["用户需要搜索 YouTube 视频、频道或趋势。", "用户需要做选题、竞品或 SERP 排名研究。", "用户需要快速拿到公开视频结果。"] ,
@@ -165,6 +200,18 @@ def domain_sections(domain: str, zh: bool) -> tuple[list[str], list[str], list[s
                 ["先搜索再归纳最近动态。", "对两个产品做近期对比研究。", "把多来源结果整理成结构化输出。"] ,
                 ["研究 OpenAI Agents SDK 最近 30 天讨论", "比较 OpenClaw 和 Codex 最近的反馈", "搜索某个品牌最近一周的社区反应"] ,
                 ["不要把开发测试脚本当成公开功能。", "不要承诺未实际返回的来源。", "如果某些来源超时，要按真实情况说明。"] ,
+            ),
+            "search_flagship": (
+                ["用户需要一个旗舰搜索技能来做实时查询、来源发现或引用型研究。", "用户想在网页检索、学术检索、Tavily 与深度研究之间切换，而不更换技能。", "用户需要从快速查询扩展到长篇研究输出。"] ,
+                ["先快速检索，再扩展成带引用的答案。", "补学术或页面提取证据来强化第一轮结论。", "把短查询升级为深度研究报告。"] ,
+                ["搜索最新的 AI coding agent 发布并给我最相关的来源", "找过去 18 个月多模态推理的论文与引用分析", "生成一份 browser-use agents 的深度研究报告"] ,
+                ["不要把开发测试脚本当成公开功能。", "不要把多来源共识验证说成这个包的主职责。", "如果某些来源超时，要按真实情况说明。"] ,
+            ),
+            "search_verification": (
+                ["用户需要对同一主题做多来源交叉验证，而不是只查一个来源。", "用户需要置信度评分、共识检查或比较多个搜索面。", "用户需要一份适合进一步综合的验证型研究输出。"] ,
+                ["并行检索多个来源并比较结果。", "验证某个结论是否在不同搜索面都出现。", "把多来源检索结果整理成一份带置信度的研究摘要。"] ,
+                ["比较三个搜索面如何描述 browser-use agent 产品", "验证一个市场观点是否同时出现在 web、scholar 和 cited answer 结果里", "对 multi-agent IDE 做一轮带置信度评分的研究"] ,
+                ["不要把它写成通用单一搜索入口。", "不要承诺未实际返回的共识结论。", "如果某些来源超时，要明确说明评分会受影响。"] ,
             ),
             "finance": (
                 ["用户需要股票、加密、预测市场或投资研究数据。", "用户需要价格、筛选、估值、组合或事件分析。", "用户需要结构化金融输出用于进一步分析。"] ,
@@ -194,27 +241,45 @@ def domain_sections(domain: str, zh: bool) -> tuple[list[str], list[str], list[s
         return mapping[domain]
 
     mapping = {
-        "twitter": (
-            ["The user needs Twitter/X research, monitoring, posting, or engagement workflows.", "The user wants profiles, timelines, trends, lists, communities, or Spaces.", "The user wants approved posting without sharing passwords."],
-            ["Research an account or conversation thread.", "Monitor a keyword, trend, or competitor.", "Authorize and publish a post after explicit approval."],
-            ["Research recent AI agent conversations on X", "Search how users are reacting to a product launch on Twitter", "Authorize and publish a short product update post"],
-            ["Do not ask for passwords, cookies, or browser credentials.", "Do not claim posting succeeded until the API confirms it.", "Return authorization links instead of relying on auto-open behavior."],
-        ),
-        "youtube": (
-            ["The user needs YouTube video, channel, or trend discovery.", "The user wants content research, SERP scouting, or competitor review.", "The user wants public YouTube results quickly."],
-            ["Find top-ranking videos for a topic.", "Inspect a competitor channel's recent content direction.", "Scan trend-heavy queries for content opportunities."],
+            "twitter": (
+                ["The user needs Twitter/X research, monitoring, posting, or engagement workflows.", "The user wants profiles, timelines, trends, lists, communities, or Spaces.", "The user wants approved posting without sharing passwords."],
+                ["Research an account or conversation thread.", "Monitor a keyword, trend, or competitor.", "Authorize and publish a post after explicit approval."],
+                ["Research recent AI agent conversations on X", "Search how users are reacting to a product launch on Twitter", "Authorize and publish a short product update post"],
+                ["Do not ask for passwords, cookies, or browser credentials.", "Do not claim posting succeeded until the API confirms it.", "Return authorization links instead of relying on auto-open behavior."],
+            ),
+            "twitter_api": (
+                ["The user needs one flagship Twitter/X skill for research, monitoring, watchlists, or posting.", "The user wants to move between search, monitoring, and publish-ready workflows without switching skills.", "The user wants approved posting without sharing passwords."],
+                ["Research a creator, competitor, or narrative shift.", "Monitor a keyword, watchlist, or launch reaction.", "Authorize and publish a post only after explicit approval."],
+                ["Research what AI agent builders are saying on X this week", "Track what changed across a competitor watchlist today", "Authorize and publish a short product update with an image"],
+                ["Do not ask for passwords, cookies, or browser credentials.", "Do not market growth actions as this package's primary lane.", "Do not claim posting succeeded until the API confirms it."],
+            ),
+            "youtube": (
+                ["The user needs YouTube video, channel, or trend discovery.", "The user wants content research, SERP scouting, or competitor review.", "The user wants public YouTube results quickly."],
+                ["Find top-ranking videos for a topic.", "Inspect a competitor channel's recent content direction.", "Scan trend-heavy queries for content opportunities."],
             ["Search top YouTube videos about OpenAI Agents", "Review a competitor channel's recent uploads", "Find high-ranking videos for AI coding tutorials"],
             ["Do not invent video titles, URLs, or metrics.", "Summaries should stay grounded in returned results.", "If the upstream returns no results, say so clearly."],
         ),
-        "search": (
-            ["The user needs web, multi-source, or last-30-days research.", "The user wants competitor scans, trend discovery, or structured search output.", "The user wants one skill to cover multiple retrieval surfaces."],
-            ["Search and summarize recent evidence.", "Compare two tools or companies using recent signals.", "Turn multi-source retrieval into a research brief."],
-            ["Research OpenAI Agents SDK over the last 30 days", "Compare OpenClaw and Codex using recent public discussion", "Search recent sentiment around a product launch"],
-            ["Do not present test-only helpers as public features.", "Do not claim sources that were not actually queried.", "If some providers time out, report that honestly."],
-        ),
-        "finance": (
-            ["The user needs stocks, crypto, prediction market, or portfolio research.", "The user wants prices, screening, valuation, or event-driven analysis.", "The user wants structured financial output for downstream analysis."],
-            ["Check price action and market movement.", "Screen assets or equities that match filters.", "Research portfolios, dividends, or market opportunities."],
+            "search": (
+                ["The user needs web, multi-source, or last-30-days research.", "The user wants competitor scans, trend discovery, or structured search output.", "The user wants one skill to cover multiple retrieval surfaces."],
+                ["Search and summarize recent evidence.", "Compare two tools or companies using recent signals.", "Turn multi-source retrieval into a research brief."],
+                ["Research OpenAI Agents SDK over the last 30 days", "Compare OpenClaw and Codex using recent public discussion", "Search recent sentiment around a product launch"],
+                ["Do not present test-only helpers as public features.", "Do not claim sources that were not actually queried.", "If some providers time out, report that honestly."],
+            ),
+            "search_flagship": (
+                ["The user needs one flagship search skill for live lookup, source discovery, or citation-ready research.", "The user wants to move between web search, scholar search, Tavily, and deep research without switching packages.", "The user wants a search lane that can expand from fast lookup into broader synthesis."],
+                ["Search quickly, then expand into cited answers.", "Pull academic or extracted-page evidence when the first pass needs stronger support.", "Turn a short query into a deep research report."],
+                ["Search the latest AI agent launches and show the most relevant sources first", "Find papers and cited analysis on multimodal reasoning from the last 18 months", "Build a deep research report on browser-use agents with sources and tradeoffs"],
+                ["Do not present test-only helpers as public features.", "Do not market cross-source consensus scoring as this package's primary lane.", "If some providers time out, report that honestly."],
+            ),
+            "search_verification": (
+                ["The user wants the same topic checked across multiple search surfaces instead of trusting one provider.", "The user needs confidence scoring, consensus checks, or a comparison across multiple search lanes.", "The user wants synthesis-ready validation before making a recommendation."],
+                ["Run parallel retrieval and compare the returned signals.", "Check whether a claim appears across multiple search surfaces.", "Turn multi-source retrieval into a confidence-scored research brief."],
+                ["Compare how three search surfaces describe the latest browser-use agent products", "Verify whether a market claim appears in web, scholar, and cited answer results", "Run a confidence-scored research pass on multi-agent IDEs before writing a recommendation"],
+                ["Do not market this package as the generic one-search entry point.", "Do not claim consensus that the returned results do not support.", "If some providers time out, explain how that affects the score."],
+            ),
+            "finance": (
+                ["The user needs stocks, crypto, prediction market, or portfolio research.", "The user wants prices, screening, valuation, or event-driven analysis.", "The user wants structured financial output for downstream analysis."],
+                ["Check price action and market movement.", "Screen assets or equities that match filters.", "Research portfolios, dividends, or market opportunities."],
             ["Query NVDA price history and analyst expectations", "Find stocks matching a screening rule", "Check BTC and ETH market data for a portfolio view"],
             ["Do not invent prices or financial metrics.", "Do not turn examples into financial advice.", "If an upstream endpoint is limited, say so directly."],
         ),
@@ -237,11 +302,11 @@ def domain_sections(domain: str, zh: bool) -> tuple[list[str], list[str], list[s
             ["Do not reference unpublished developer tools.", "Do not claim functionality outside the shipped bundle.", "Keep instructions aligned with the packaged runtime."],
         ),
     }
-    return mapping[domain]
+    return mapping[profile]
 
 
 def build_body(skill_dir: Path, skill_name: str, description: str, domain: str, zh: bool) -> str:
-    when_to_use, workflows, example_requests, guardrails = domain_sections(domain, zh)
+    when_to_use, workflows, example_requests, guardrails = domain_sections(skill_name, domain, zh)
     quick_reference = infer_entrypoints(skill_dir)
     setup_lines = [
         "- `AISA_API_KEY` is required for AIsa-backed API access.",
@@ -255,7 +320,7 @@ def build_body(skill_dir: Path, skill_name: str, description: str, domain: str, 
             "- 如果脚本提供显式鉴权参数，优先使用该参数。",
         ]
 
-    lines = [f"# {base.prettify_skill_name(skill_name)}", "", description]
+    lines = [f"# {release_heading(skill_name, domain)}", "", description]
 
     lines.extend(["", "## When to use" if not zh else "## 适用场景", ""])
     for item in when_to_use:

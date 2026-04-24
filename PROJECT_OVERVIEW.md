@@ -74,6 +74,8 @@ Any AI working in this repository should:
 - 生成可直接走 `clawhub package publish` 的 native-first plugin 包在 `clawhub-plugin-release/`
 - 收敛 frontmatter
 - 收敛高敏感文案和本地副作用入口
+- 支持在发布后回查 ClawHub 详情页的 `VirusTotal`、`OpenClaw verdict` 与 `Suspicious` 原因
+- 支持把 live scan 状态写回 `targets/clawhub-publish-state.json` 并输出独立状态报告
 
 ### D. 作为 Agent Skills 标准公开层
 
@@ -155,6 +157,8 @@ Any AI working in this repository should:
   - Claude standalone / Claude marketplace / Hermes tap / Hermes publish 的收录判断、可安装验证命令与当前状态快照
 - `targets/repo-runbook-and-script-reference.md`
   - 仓库执行流、脚本用途、参数与常用命令的统一参考
+- `targets/clawhub-resume-and-breakout-plan-2026-04-24.md`
+  - 当前 ClawHub 续跑、版本收口、爆款改造与 skillGet 证据接入的执行计划
 - `targets/platform-skill-plugin-methodology.md`
   - 本项目如何使用全局优化/打包/审计 skill 来约束母版和各平台 skill/plugin
 - `targets/unified-pipeline-and-github-actions.md`
@@ -233,6 +237,13 @@ Any AI working in this repository should:
 - 使用相对路径
 - 面向 GitHub / AgentSkills / Hermes / Claude Code 的母版结构
 - 已经配好 README、SKILL、索引文件
+
+新增的 ClawHub 发布辅助脚本：
+
+- `scripts/clawhub_live_status.py`
+  - 可独立扫描已发布 skill/plugin 的 ClawHub live status，提取 `VirusTotal`、`OpenClaw` 与 `Suspicious` 原因
+- `scripts/publish_clawhub_batch.py`
+  - 现在支持可选 `--post-publish-scan`，在发布或探测到远端已存在后立即做 live scan
 
 #### 3. ClawHub 发布变体
 
