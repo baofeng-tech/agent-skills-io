@@ -31,18 +31,13 @@ More detailed repo rules live in [AGENTS.md](/mnt/d/workplace/agent-skills-io/AG
 Preview the next upstream sync:
 
 ```bash
-python3 scripts/unified_skill_pipeline.py \
-  --upstream-local-path /mnt/d/workplace/agent-skills \
-  --include-working-tree \
-  --dry-run
+python3 scripts/unified_skill_pipeline.py --dry-run
 ```
 
 Sync upstream updates into `targetSkills/`, rebuild every release layer, and run validation:
 
 ```bash
-python3 scripts/unified_skill_pipeline.py \
-  --upstream-local-path /mnt/d/workplace/agent-skills \
-  --include-working-tree
+python3 scripts/unified_skill_pipeline.py
 ```
 
 Run a release-only rebuild from the current mother skills:
@@ -63,10 +58,11 @@ python3 scripts/test_release_layers.py
 ## Operational Notes
 
 - `targetSkills/` is the mother-skill source of truth.
+- For larger upstream deltas, `AIsa-team/agent-skills` is the authority to follow before reshaping into mother skills and downstream releases here.
 - Generated release layers should be rebuilt from `targetSkills/`, not hand-edited as primary sources.
 - Local credentials can be looked up from `example/accounts`, but CI should use secrets instead.
 - `AIsa-team/agent-skills` is currently public, so `UPSTREAM_REPO_TOKEN` is optional fallback rather than a default requirement.
+- Do not use `/mnt/d/workplace/agent-skills` as this repo's automation source; that local checkout is reserved for manual company-skill authoring/upload work.
 - `.github/workflows/unified-skill-pipeline.yml` now supports:
-  - hosted sync/build/test on schedule, manual dispatch, or upstream `repository_dispatch`
+  - hosted sync/build/test on schedule or manual dispatch
   - self-hosted true publish for `AIsa-team/agent-skills` (`agentskills` branch), `baofeng-tech/agent-skills-so`, `baofeng-tech/agent-skills`, Claude, Claude marketplace, Hermes, and optional ClawHub batch publish
-- `AIsa-team/agent-skills` can now trigger this repo immediately on push through a small upstream dispatcher workflow, instead of waiting for the daily cron.

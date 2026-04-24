@@ -18,6 +18,8 @@ Execution style for this repo:
 - Do not stop to ask for permission on normal repo analysis, editing, validation, workflow updates, or publishing-flow work
 - Make the best plan you can as the acting engineer
 - Then execute against that plan end-to-end, only pausing when a branch choice has real hidden consequences
+- When upstream changes are large or structural, treat `AIsa-team/agent-skills` as the authoritative source first, then adapt that upstream state into mother skills and platform release layers here
+- Do not use `/mnt/d/workplace/agent-skills` as this repo's automation input source; that local checkout is reserved for manual company-skill authoring and upload work
 
 ### Before doing substantial work
 

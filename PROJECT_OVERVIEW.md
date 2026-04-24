@@ -9,6 +9,8 @@ Any AI working in this repository should:
 3. Update this file before finishing if the project structure, outputs, workflow, or current status changed
 4. Review the previous task first, and check whether any unfinished issue or obvious optimization should be handled before starting the new task
 5. Assume repo-working permission is already granted unless the user explicitly narrows it, then make the best plan and execute it
+6. When upstream changes are large, treat `AIsa-team/agent-skills` as the authoritative source first, then reshape into mother skills and platform release layers here
+7. Do not use the local `D:\workplace\agent-skills` checkout as this repo's automation source; it is reserved for manual company-skill authoring and upload work
 
 ## 1. 项目一句话目的
 
@@ -36,6 +38,7 @@ Any AI working in this repository should:
 - `D:\workplace\agent-skills`
   - 承接 `targetSkills/` 的正式发布副本
   - 默认推送到 `AIsa-team/agent-skills` 的 `agentskills` 分支
+  - 仅作为发布目标与人工工作区，不作为本仓库自动化同步输入源
 - `D:\workplace\agent-skills-own`
   - 承接 `agentskill-sh-release/` 的 GitHub 导入层副本
 - `D:\workplace\agent-skills-so`
@@ -59,6 +62,7 @@ Any AI working in this repository should:
 
 ### B. 作为跨平台 skill 设计工作区
 
+- 当上游改动较大时，先以 `AIsa-team/agent-skills` 为准做能力与结构对齐
 - 以 `AgentSkills` 规范为母版
 - 对比 `OpenClaw / ClawHub`、`Hermes`、`Claude Code`
 - 生成统一的 `SKILL.md` 骨架、目录结构和发布索引
@@ -453,7 +457,7 @@ python3 scripts/build_hermes_release.py
 python3 scripts/build_agentskills_so_release.py
 python3 scripts/build_agentskill_sh_release.py
 python3 scripts/build_targetskills_catalog.py
-python3 scripts/unified_skill_pipeline.py --upstream-local-path /mnt/d/workplace/agent-skills --include-working-tree --dry-run
+python3 scripts/unified_skill_pipeline.py --dry-run
 python3 scripts/publish_clawhub_batch.py --targets both --dry-run
 python3 scripts/test_release_layers.py
 ```
@@ -773,7 +777,7 @@ GitHub Actions 工作流层。
 - 统一调度与自动化：已新增 `scripts/unified_skill_pipeline.py`、`scripts/build_targetskills_catalog.py` 与 `.github/workflows/unified-skill-pipeline.yml`
 - `last30days` 保守合并：已在 2026-04-23 完成一轮人工回灌，保留“无状态 research CLI”母版边界，并吸收安全子集更新后重新回灌各平台发布层
 - GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；当前下游 GitHub 目标已覆盖 `AIsa-team/agent-skills@agentskills`、`baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
-- 上游 push 触发：已补充 `AIsa-team/agent-skills` -> `agent-skills-io` 的 `repository_dispatch` 触发链，支持上游 push 后立即启动统一流水线
+- 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发
 - 手工审核 hold 持续跟踪：被 `MANUAL_REVIEW_RULES` 跳过的 skill 不再因为基线前移而从后续自动巡检里“消失”
 - `agentskills.so` 人工入口：已确认公开邮箱 `support@agentskills.so` 与 Discord 邀请链接
 - `claudemarketplaces.com` 当前检索：2026-04-21 以 `baofeng-tech/Aisa-One-Plugins-Claude`、`Aisa-One-Skills-Claude`、`aisa-claude-marketplace` 为关键词做公开检索，暂未搜到收录页；结合站点公开说明，marketplace 仍需等待 crawler 周期，standalone skills 仍依赖 GitHub / skills.sh 分发与安装量信号

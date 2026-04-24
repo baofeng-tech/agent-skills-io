@@ -30,44 +30,43 @@ The scheduler handles one repeatable sequence:
 ### Preview the next sync
 
 ```bash
-python3 scripts/unified_skill_pipeline.py \
-  --upstream-local-path /mnt/d/workplace/agent-skills \
-  --include-working-tree \
-  --dry-run
+python3 scripts/unified_skill_pipeline.py --dry-run
 ```
 
-### Sync current local upstream edits
+### Sync from the default upstream GitHub repo
 
 ```bash
-python3 scripts/unified_skill_pipeline.py \
-  --upstream-local-path /mnt/d/workplace/agent-skills \
-  --include-working-tree
+python3 scripts/unified_skill_pipeline.py
 ```
 
 ### Force a full upstream refresh
 
 ```bash
-python3 scripts/unified_skill_pipeline.py \
-  --upstream-local-path /mnt/d/workplace/agent-skills \
-  --selection all
+python3 scripts/unified_skill_pipeline.py --selection all
 ```
 
 ### Sync only selected skills
 
 ```bash
 python3 scripts/unified_skill_pipeline.py \
-  --upstream-local-path /mnt/d/workplace/agent-skills \
   --skills crypto-market-data,multi-source-search,youtube-serp
 ```
 
-### Continue into local sibling-repo sync
+### Continue into downstream repo sync
 
 ```bash
 python3 scripts/unified_skill_pipeline.py \
-  --upstream-local-path /mnt/d/workplace/agent-skills \
-  --include-working-tree \
   --sync-adjacent-repos
 ```
+
+### Important local-repo note
+
+Do not use `/mnt/d/workplace/agent-skills` as this repo's automation input in this environment.
+
+Why:
+
+- that checkout is reserved for manual company-skill authoring and upload work
+- automation in this repo should fetch from `AIsa-team/agent-skills` directly so the baseline is stable and repeatable
 
 ## Current Sync Decisions
 
@@ -111,7 +110,7 @@ The repo includes:
 The workflow now has two lanes:
 
 - hosted lane
-  - safe default for scheduled, manual, or upstream-dispatched sync, rebuild, validation, artifact upload, and committing generated outputs back into this repo
+  - safe default for scheduled or manual sync, rebuild, validation, artifact upload, and committing generated outputs back into this repo
 - self-hosted lane
   - true publish continuation for downstream GitHub repo publish and optional ClawHub batch publish
 
@@ -126,7 +125,7 @@ The workflow now has two lanes:
 
 ### What the self-hosted lane adds
 
-When `run_self_hosted_publish=true` on a manual dispatch, or when an upstream `repository_dispatch` arrives from `AIsa-team/agent-skills`, the workflow also:
+When `run_self_hosted_publish=true` on a manual dispatch, the workflow also:
 
 1. prepares downstream publish repos in a dedicated workspace area
 2. reruns the unified pipeline with optional `--sync-adjacent-repos`
@@ -208,13 +207,6 @@ As of 2026-04-23, the upstream repo is publicly readable, so this token should b
 - `CLAWHUB_TOKEN_2`
 - `CLAWHUB_TOKEN_3`
 
-### Upstream push-dispatch secret
-
-This secret lives in `AIsa-team/agent-skills`, not in this repo:
-
-- `AGENT_SKILLS_IO_DISPATCH_TOKEN`
-  - PAT or fine-grained token that can call `repository_dispatch` on `baofeng-tech/agent-skills-io`
-
 ## What Still Needs Your Help
 
 These are environment-side tasks rather than repo-code tasks:
@@ -222,7 +214,6 @@ These are environment-side tasks rather than repo-code tasks:
 1. If `AIsa-team/agent-skills` ever becomes private to the runner, add `UPSTREAM_REPO_TOKEN`.
 2. For self-hosted true publish, make sure the runner has either downstream Git SSH auth or `DOWNSTREAM_REPO_TOKEN`.
 3. If you want ClawHub publish continuation in self-hosted mode, provide `CLAWHUB_TOKEN*` and the `clawhub` CLI runtime on that runner.
-4. In `AIsa-team/agent-skills`, add `AGENT_SKILLS_IO_DISPATCH_TOKEN` so upstream pushes can trigger this repo immediately instead of waiting for cron.
 
 ## Recommended Operating Model
 
@@ -236,7 +227,7 @@ Use the hosted lane for:
 - smoke-test regression watch
 - committing generated repo state
 
-### Upstream push or manual self-hosted publish continuation
+### Manual self-hosted publish continuation
 
 Use the self-hosted lane for:
 

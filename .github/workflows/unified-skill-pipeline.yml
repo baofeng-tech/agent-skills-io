@@ -53,9 +53,6 @@ on:
         type: boolean
   schedule:
     - cron: "21 2 * * *"
-  repository_dispatch:
-    types:
-      - upstream-agent-skills-push
 
 concurrency:
   group: unified-skill-pipeline-${{ github.ref }}
@@ -68,9 +65,9 @@ jobs:
   sync-build-test:
     runs-on: ubuntu-latest
     env:
-      PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || github.event_name == 'repository_dispatch' && github.event.client_payload.selection || 'changed' }}
-      PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || github.event_name == 'repository_dispatch' && github.event.client_payload.skills || '' }}
-      PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || github.event_name == 'repository_dispatch' && github.event.client_payload.dry_run || 'false' }}
+      PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || 'changed' }}
+      PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
+      PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
     steps:
@@ -142,17 +139,17 @@ jobs:
           git push
 
   self-hosted-publish:
-    if: ${{ github.event_name == 'repository_dispatch' || (github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish == 'true') }}
+    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish == 'true' }}
     needs: sync-build-test
     runs-on: self-hosted
     env:
-      PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || github.event_name == 'repository_dispatch' && github.event.client_payload.selection || 'changed' }}
-      PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || github.event_name == 'repository_dispatch' && github.event.client_payload.skills || '' }}
-      PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || github.event_name == 'repository_dispatch' && github.event.client_payload.dry_run || 'false' }}
-      PIPELINE_SYNC_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_adjacent_repos || github.event_name == 'repository_dispatch' && github.event.client_payload.sync_adjacent_repos || 'true' }}
-      PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || github.event_name == 'repository_dispatch' && github.event.client_payload.push_adjacent_repos || 'true' }}
-      PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || github.event_name == 'repository_dispatch' && github.event.client_payload.clawhub_publish || 'both' }}
-      PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || github.event_name == 'repository_dispatch' && github.event.client_payload.clawhub_dry_run || 'false' }}
+      PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || 'changed' }}
+      PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
+      PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
+      PIPELINE_SYNC_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_adjacent_repos || 'false' }}
+      PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || 'true' }}
+      PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || 'none' }}
+      PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || 'true' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
       DOWNSTREAM_REPO_TOKEN: ${{ secrets.DOWNSTREAM_REPO_TOKEN }}

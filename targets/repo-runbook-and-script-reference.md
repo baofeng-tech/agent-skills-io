@@ -100,7 +100,7 @@ Use it when you need to:
 
 | Option | Meaning |
 | --- | --- |
-| `--upstream-local-path <path>` | Use a local upstream checkout such as `/mnt/d/workplace/agent-skills` instead of cloning |
+| `--upstream-local-path <path>` | Use a local upstream checkout instead of cloning; avoid `/mnt/d/workplace/agent-skills` in this workspace because that repo is reserved for manual company upload work |
 | `--upstream-repo-url <url>` | Git URL used when the scheduler clones or fetches upstream |
 | `--upstream-branch <name>` | Upstream branch to diff against, default `main` |
 | `--upstream-cache-dir <path>` | Clone/fetch cache dir used when no local path is provided |
@@ -163,21 +163,16 @@ Use it when you need to:
 
 ## Common Commands
 
-### Local upstream sync from `D:\workplace\agent-skills`
+### Default upstream sync from GitHub
 
 ```bash
-python3 scripts/unified_skill_pipeline.py \
-  --upstream-local-path /mnt/d/workplace/agent-skills \
-  --include-working-tree
+python3 scripts/unified_skill_pipeline.py
 ```
 
 ### Preview the next sync without touching files
 
 ```bash
-python3 scripts/unified_skill_pipeline.py \
-  --upstream-local-path /mnt/d/workplace/agent-skills \
-  --include-working-tree \
-  --dry-run
+python3 scripts/unified_skill_pipeline.py --dry-run
 ```
 
 ### Rebuild all release layers from current `targetSkills/`
