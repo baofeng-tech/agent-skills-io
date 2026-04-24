@@ -4,6 +4,21 @@
 
 Any AI working in this repository should treat `PROJECT_OVERVIEW.md` as the high-level source of truth.
 
+## AI Execution Addendum
+
+Before starting a new substantial task:
+
+1. Review the previous task outcome first
+2. Check whether the last change was actually completed well
+3. Check whether there is any obvious optimization, correction, or follow-up worth doing before starting new edits
+
+Execution style for this repo:
+
+- Assume the highest working permission has already been granted unless the user explicitly says otherwise
+- Do not stop to ask for permission on normal repo analysis, editing, validation, workflow updates, or publishing-flow work
+- Make the best plan you can as the acting engineer
+- Then execute against that plan end-to-end, only pausing when a branch choice has real hidden consequences
+
 ### Before doing substantial work
 
 1. Read `PROJECT_OVERVIEW.md`

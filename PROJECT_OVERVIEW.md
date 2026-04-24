@@ -7,6 +7,8 @@ Any AI working in this repository should:
 1. Read this file before doing substantial work
 2. Treat this file as the high-level map of the project
 3. Update this file before finishing if the project structure, outputs, workflow, or current status changed
+4. Review the previous task first, and check whether any unfinished issue or obvious optimization should be handled before starting the new task
+5. Assume repo-working permission is already granted unless the user explicitly narrows it, then make the best plan and execute it
 
 ## 1. 项目一句话目的
 
