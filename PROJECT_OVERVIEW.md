@@ -31,8 +31,13 @@ Any AI working in this repository should:
 
 当前工作区里的外部发布仓库包括：
 
+- `D:\workplace\agent-skills`
+  - 承接 `targetSkills/` 的正式发布副本
+  - 默认推送到 `AIsa-team/agent-skills` 的 `agentskills` 分支
 - `D:\workplace\agent-skills-own`
-  - 承接 `targetSkills/` 的平铺母 skill 副本
+  - 承接 `agentskill-sh-release/` 的 GitHub 导入层副本
+- `D:\workplace\agent-skills-so`
+  - 承接 `agentskills-so-release/` 的公开分发层副本
 - `D:\workplace\Aisa-One-Skills-Claude`
   - 承接 `claude-release/`
 - `D:\workplace\Aisa-One-Plugins-Claude`
@@ -419,13 +424,15 @@ Any AI working in this repository should:
   - 一键构建并同步 `hermes-release/` 到外部发布仓库
   - 支持通过 `PUBLISH_HERMES_DEST` 给 CI / self-hosted workflow 注入目标路径
 - `publish-agentskills-so-release.sh`
-  - 一键规范化并生成 `agentskills-so-release/`
+  - 一键规范化、生成 `agentskills-so-release/`，并同步到外部发布仓库
+  - 支持通过 `PUBLISH_AGENTSKILLS_SO_DEST` 给 CI / self-hosted workflow 注入目标路径
 - `publish-agentskill-sh-release.sh`
-  - 一键规范化并生成 `agentskill-sh-release/`
+  - 一键规范化、生成 `agentskill-sh-release/`，并同步到外部发布仓库
+  - 支持通过 `PUBLISH_AGENTSKILL_SH_DEST` 给 CI / self-hosted workflow 注入目标路径
 - `unified_skill_pipeline.py`
   - 统一调度“上游 diff 检测 -> 母版同步 -> catalog 重建 -> 各平台构建 -> 校验 -> 可选发布续跑”
-  - 支持本地上游仓库路径、Git clone/fetch、仅变更 skill、显式 skill 列表、ClawHub dry-run 续接
-  - 现已与 GitHub Actions 的 hosted 校验轨 + optional self-hosted 真发布轨配套
+  - 支持本地上游仓库路径、Git clone/fetch、仅变更 skill、显式 skill 列表、人工审核 hold 持续追踪、ClawHub dry-run 续接
+  - 现已与 GitHub Actions 的 hosted 校验轨 + optional / auto self-hosted 真发布轨配套
 - `one_click_distribute_all.sh`
   - 旧的一键全量构建脚本，保留为本地快速重建入口
 - `test_release_layers.py`
@@ -763,7 +770,9 @@ GitHub Actions 工作流层。
 - Hermes 当前最后阻塞：GitHub PAT 无 PR 创建权限，不能自动补开 Pull Request
 - 统一调度与自动化：已新增 `scripts/unified_skill_pipeline.py`、`scripts/build_targetskills_catalog.py` 与 `.github/workflows/unified-skill-pipeline.yml`
 - `last30days` 保守合并：已在 2026-04-23 完成一轮人工回灌，保留“无状态 research CLI”母版边界，并吸收安全子集更新后重新回灌各平台发布层
-- GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + optional self-hosted 下游仓库 push / ClawHub publish 双轨
+- GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；当前下游 GitHub 目标已覆盖 `AIsa-team/agent-skills@agentskills`、`baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
+- 上游 push 触发：已补充 `AIsa-team/agent-skills` -> `agent-skills-io` 的 `repository_dispatch` 触发链，支持上游 push 后立即启动统一流水线
+- 手工审核 hold 持续跟踪：被 `MANUAL_REVIEW_RULES` 跳过的 skill 不再因为基线前移而从后续自动巡检里“消失”
 - `agentskills.so` 人工入口：已确认公开邮箱 `support@agentskills.so` 与 Discord 邀请链接
 - `claudemarketplaces.com` 当前检索：2026-04-21 以 `baofeng-tech/Aisa-One-Plugins-Claude`、`Aisa-One-Skills-Claude`、`aisa-claude-marketplace` 为关键词做公开检索，暂未搜到收录页；结合站点公开说明，marketplace 仍需等待 crawler 周期，standalone skills 仍依赖 GitHub / skills.sh 分发与安装量信号
 - 中文镜像 / EN-ZH 双版本发布：尚未系统化完成

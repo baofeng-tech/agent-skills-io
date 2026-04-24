@@ -66,4 +66,7 @@ python3 scripts/test_release_layers.py
 - Generated release layers should be rebuilt from `targetSkills/`, not hand-edited as primary sources.
 - Local credentials can be looked up from `example/accounts`, but CI should use secrets instead.
 - `AIsa-team/agent-skills` is currently public, so `UPSTREAM_REPO_TOKEN` is optional fallback rather than a default requirement.
-- `.github/workflows/unified-skill-pipeline.yml` now supports a hosted sync/build/test lane and an optional self-hosted true publish lane.
+- `.github/workflows/unified-skill-pipeline.yml` now supports:
+  - hosted sync/build/test on schedule, manual dispatch, or upstream `repository_dispatch`
+  - self-hosted true publish for `AIsa-team/agent-skills` (`agentskills` branch), `baofeng-tech/agent-skills-so`, `baofeng-tech/agent-skills`, Claude, Claude marketplace, Hermes, and optional ClawHub batch publish
+- `AIsa-team/agent-skills` can now trigger this repo immediately on push through a small upstream dispatcher workflow, instead of waiting for the daily cron.

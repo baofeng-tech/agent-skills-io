@@ -111,9 +111,9 @@ The repo includes:
 The workflow now has two lanes:
 
 - hosted lane
-  - safe default for scheduled or manual sync, rebuild, validation, artifact upload, and committing generated outputs back into this repo
-- optional self-hosted lane
-  - manual-only continuation for downstream GitHub repo publish and optional ClawHub batch publish
+  - safe default for scheduled, manual, or upstream-dispatched sync, rebuild, validation, artifact upload, and committing generated outputs back into this repo
+- self-hosted lane
+  - true publish continuation for downstream GitHub repo publish and optional ClawHub batch publish
 
 ### What the hosted lane does
 
@@ -126,7 +126,7 @@ The workflow now has two lanes:
 
 ### What the self-hosted lane adds
 
-When `run_self_hosted_publish=true` on a manual dispatch, the workflow also:
+When `run_self_hosted_publish=true` on a manual dispatch, or when an upstream `repository_dispatch` arrives from `AIsa-team/agent-skills`, the workflow also:
 
 1. prepares downstream publish repos in a dedicated workspace area
 2. reruns the unified pipeline with optional `--sync-adjacent-repos`
@@ -139,11 +139,22 @@ When `run_self_hosted_publish=true` on a manual dispatch, the workflow also:
 The self-hosted lane now supports CI-injected publish destinations through:
 
 - `PUBLISH_AGENT_SKILLS_DEST`
+- `PUBLISH_AGENTSKILLS_SO_DEST`
+- `PUBLISH_AGENTSKILL_SH_DEST`
 - `PUBLISH_CLAUDE_DEST`
 - `PUBLISH_CLAUDE_MARKETPLACE_DEST`
 - `PUBLISH_HERMES_DEST`
 
 That lets the workflow publish into workspace-managed downstream clones instead of assuming a fixed local sibling layout.
+
+Current downstream defaults are:
+
+- `AIsa-team/agent-skills` on branch `agentskills`
+- `baofeng-tech/agent-skills-so` on branch `main`
+- `baofeng-tech/agent-skills` on branch `main`
+- `baofeng-tech/Aisa-One-Skills-Claude` on branch `main`
+- `baofeng-tech/Aisa-One-Plugins-Claude` on branch `main`
+- `baofeng-tech/Aisa-One-Skills-Hermes` on branch `main`
 
 ## What The Workflow Assumes
 
@@ -197,6 +208,13 @@ As of 2026-04-23, the upstream repo is publicly readable, so this token should b
 - `CLAWHUB_TOKEN_2`
 - `CLAWHUB_TOKEN_3`
 
+### Upstream push-dispatch secret
+
+This secret lives in `AIsa-team/agent-skills`, not in this repo:
+
+- `AGENT_SKILLS_IO_DISPATCH_TOKEN`
+  - PAT or fine-grained token that can call `repository_dispatch` on `baofeng-tech/agent-skills-io`
+
 ## What Still Needs Your Help
 
 These are environment-side tasks rather than repo-code tasks:
@@ -204,11 +222,7 @@ These are environment-side tasks rather than repo-code tasks:
 1. If `AIsa-team/agent-skills` ever becomes private to the runner, add `UPSTREAM_REPO_TOKEN`.
 2. For self-hosted true publish, make sure the runner has either downstream Git SSH auth or `DOWNSTREAM_REPO_TOKEN`.
 3. If you want ClawHub publish continuation in self-hosted mode, provide `CLAWHUB_TOKEN*` and the `clawhub` CLI runtime on that runner.
-4. If you want GitHub Actions to push into sibling publish repos directly, confirm whether CI should mirror into:
-   - `Aisa-One-Skills-Claude`
-   - `Aisa-One-Plugins-Claude`
-   - `Aisa-One-Skills-Hermes`
-   - any public Agent Skills release repos
+4. In `AIsa-team/agent-skills`, add `AGENT_SKILLS_IO_DISPATCH_TOKEN` so upstream pushes can trigger this repo immediately instead of waiting for cron.
 
 ## Recommended Operating Model
 
@@ -222,12 +236,12 @@ Use the hosted lane for:
 - smoke-test regression watch
 - committing generated repo state
 
-### Manual self-hosted publish continuation
+### Upstream push or manual self-hosted publish continuation
 
 Use the self-hosted lane for:
 
 - `publish_clawhub_batch.py`
-- downstream GitHub publish to `agent-skills`, Claude, Claude marketplace, and Hermes repos
+- downstream GitHub publish to the official `AIsa-team/agent-skills@agentskills`, `agent-skills-so`, the public `baofeng-tech/agent-skills` import repo, Claude, Claude marketplace, and Hermes repos
 - any step that needs live marketplace CLI auth or repo auth
 
 Recommended manual-dispatch pattern:

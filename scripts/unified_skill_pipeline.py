@@ -147,6 +147,23 @@ def write_state(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def extract_pending_manual_review_names(raw: Any) -> list[str]:
+    if not isinstance(raw, list):
+        return []
+    names: list[str] = []
+    seen: set[str] = set()
+    for item in raw:
+        if isinstance(item, dict):
+            name = str(item.get("name") or "").strip()
+        else:
+            name = str(item or "").strip()
+        if not name or name in seen:
+            continue
+        seen.add(name)
+        names.append(name)
+    return names
+
+
 def ensure_upstream_repo(args: argparse.Namespace) -> tuple[Path, str]:
     if args.upstream_local_path:
         root = Path(args.upstream_local_path).resolve()
@@ -226,6 +243,7 @@ def map_changed_skills(
     selection: str,
     include_working_tree: bool,
     explicit_skills: list[str],
+    pending_manual_review_skills: list[str],
 ) -> list[SkillPlan]:
     source_skills = discover_skill_dirs(upstream_root)
 
@@ -248,6 +266,8 @@ def map_changed_skills(
                 if Path(path).parts and Path(path).parts[0] in source_skills
             }
         )
+        if pending_manual_review_skills:
+            skill_names = sorted(set(skill_names) | {name for name in pending_manual_review_skills if name in source_skills})
 
     plans: list[SkillPlan] = []
     for name in skill_names:
@@ -326,6 +346,8 @@ def run_publish_steps(args: argparse.Namespace, summary: RunSummary) -> None:
     if args.sync_adjacent_repos:
         commands = [
             ["bash", "scripts/publish-targetSkills-to-agent-skills.sh"],
+            ["bash", "scripts/publish-agentskills-so-release.sh", "--skip-build"],
+            ["bash", "scripts/publish-agentskill-sh-release.sh", "--skip-build"],
             ["bash", "scripts/publish-claude-release.sh", "--with-marketplace", "--skip-build"],
             ["bash", "scripts/publish-hermes-release.sh", "--skip-build"],
         ]
@@ -431,6 +453,7 @@ def main() -> int:
     state_path = Path(args.state_file).resolve()
     state = read_state(state_path)
     previous_commit = state.get("last_synced_commit")
+    pending_manual_review_names = extract_pending_manual_review_names(state.get("pending_manual_review"))
     explicit_skills = [item.strip() for item in args.skills.split(",") if item.strip()]
 
     upstream_root, source_mode = ensure_upstream_repo(args)
@@ -445,6 +468,7 @@ def main() -> int:
         selection=args.selection,
         include_working_tree=args.include_working_tree,
         explicit_skills=explicit_skills,
+        pending_manual_review_skills=pending_manual_review_names,
     )
 
     summary = RunSummary(
