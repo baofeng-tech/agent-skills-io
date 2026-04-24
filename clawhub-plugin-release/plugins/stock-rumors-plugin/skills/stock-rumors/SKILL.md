@@ -1,16 +1,7 @@
 ---
 name: stock-rumors
-description: 'Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.'
-author: AIsa
-version: 1.0.0
-license: Apache-2.0
-user-invocable: true
-primaryEnv: AISA_API_KEY
-requires:
-  bins:
-  - python3
-  env:
-  - AISA_API_KEY
+description: Rumor Scanner — find early signals including M&A rumors, insider activity, analyst upgrades/downgrades, social whispers, and SEC/regulatory activity via AIsa API. Ranked by impact score. Use when the user asks about rumors, insider trading, M&A activity, analyst changes, or early market signals.
+compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
   aisa:
     emoji: 📊
@@ -20,54 +11,39 @@ metadata:
       env:
       - AISA_API_KEY
     primaryEnv: AISA_API_KEY
-    compatibility:
-    - openclaw
-    - claude-code
-    - hermes
-  openclaw:
-    emoji: 📊
-    requires:
-      bins:
-      - python3
-      env:
-      - AISA_API_KEY
-    primaryEnv: AISA_API_KEY
+    compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 ---
 
-# Stock Rumors
+# Rumor Scanner — AIsa Edition
 
-Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
+Scan for early market signals and rumors using the AIsa API.
 
-## When to use
+## Usage
 
-- The user needs stocks, crypto, prediction market, or portfolio research.
-- The user wants prices, screening, valuation, or event-driven analysis.
-- The user wants structured financial output for downstream analysis.
+```bash
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py"
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py" --focus ma
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py" --focus insider
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py" --focus analyst
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py" --focus social
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-rumors/scripts/rumor_scanner.py" --output json
+```
 
-## High-Intent Workflows
+### Arguments
 
-- Check price action and market movement.
-- Screen assets or equities that match filters.
-- Research portfolios, dividends, or market opportunities.
+- `--focus`: Filter by `all` (default), `ma` (M&A), `insider`, `analyst`, or `social`
+- `--output json`: Append structured JSON summary
 
-## Quick Reference
+## Signal Categories
 
-- `python3 scripts/rumor_scanner.py --help`
+- **M&A / Takeover Signals**: Acquisition, merger, buyout, strategic review keywords
+- **Insider Trading Activity**: SEC EDGAR Form 4, cluster buying, 10b5-1 deviations
+- **Analyst Actions**: Upgrades, downgrades, price target changes >15%, double-upgrades
+- **Social & News Whispers**: "hearing that", "sources say", "rumored to", unusual social spikes
+- **Regulatory / SEC Activity**: 13D/13G filings, investigations, Wells notices
 
-## Setup
+## Output
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
+Top 5 signals ranked by Impact Score with quality assessment, followed by an analyst note on the most actionable signals.
 
-## Example Requests
-
-- Query NVDA price history and analyst expectations
-- Find stocks matching a screening rule
-- Check BTC and ETH market data for a portfolio view
-
-## Guardrails
-
-- Do not invent prices or financial metrics.
-- Do not turn examples into financial advice.
-- If an upstream endpoint is limited, say so directly.
+**NOT FINANCIAL ADVICE.** Rumors are unconfirmed. For informational purposes only.

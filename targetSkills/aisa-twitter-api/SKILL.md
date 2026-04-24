@@ -1,6 +1,7 @@
 ---
 name: aisa-twitter-api
-description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
+description: Twitter API command center for X research, monitoring, trend discovery, and approved posting through the AIsa relay. Use when the user needs one skill for search, watchlists, and publish-ready Twitter workflows without sharing passwords.
+version: 1.0.1
 license: Apache-2.0
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -15,13 +16,13 @@ metadata:
     compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 ---
 
-# AIsa Twitter API
+# AIsa Twitter API Command Center
 
-Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth.
+Run Twitter/X research, monitoring, trend discovery, and approved posting from one AIsa-backed command center.
 
 ## When to use
 
-- The user wants Twitter/X research, monitoring, or content discovery.
+- The user wants one Twitter/X skill for research, monitoring, or content discovery.
 - The user wants to inspect profiles, timelines, mentions, trends, replies, quotes, lists, communities, or Spaces.
 - The user wants to draft or publish posts after explicit OAuth approval without sharing passwords.
 
@@ -50,6 +51,12 @@ export AISA_API_KEY="your-key"
 - Search tweets and users, inspect replies, quotes, retweeters, thread context, trends, lists, communities, and Spaces.
 - Publish text, image, and video posts after explicit OAuth approval.
 
+## High-Intent Workflows
+
+- Research a creator, competitor, or narrative before writing.
+- Monitor a keyword, launch, or trend and pull supporting tweets fast.
+- Draft and publish a post only after the user explicitly approves OAuth.
+
 ## Common Commands
 
 ```bash
@@ -63,6 +70,12 @@ python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa"
 - Do not ask for Twitter passwords or browser cookies.
 - Do not invent captions, tweet URLs, or attachment files.
 - Do not claim external posting succeeded until the API confirms success.
+
+## Example Requests
+
+- Research what builders on X are saying about AI agents this week.
+- Track reactions to our product launch and pull representative tweets.
+- Authorize and publish a short Twitter post with an attached image.
 
 ## Security Notes
 

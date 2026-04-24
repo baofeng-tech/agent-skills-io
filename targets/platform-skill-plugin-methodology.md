@@ -132,6 +132,33 @@ What these sources establish:
 - root-level skill directories and flat public metadata improve crawler compatibility
 - publish layers should look like clean public catalogs, not workspace snapshots
 
+## External Market Evidence From `../skillGet`
+
+This repo also treats the adjacent `../skillGet` workspace as an evidence layer for breakout positioning, not just as an import source.
+
+Primary sources:
+
+- `../skillGet/dist/reports/AISA_All_Skills_Breakout_Plan_ZH.md`
+- `../skillGet/dist/reports/ClawHub_Viral_Boss_Report_ZH.md`
+- `../skillGet/dist/reports/ClawHub_Plugin_Viral_Report_ZH.md`
+- `../skillGet/dist/data/clawhub-top200-aisa-conversion-plan.json`
+- `../skillGet/dist/data/aisa-api-analysis.json`
+
+What these sources establish:
+
+- which AIsa-native lanes deserve `flagship`, `growth-variant`, or `supporting-variant` treatment
+- which titles, JTBD frames, and sibling ladders match current ClawHub demand
+- which online skills are worth converting into new AIsa API packages
+- which plugin lanes should stay bundle-first versus graduating into native code plugins later
+
+Use this evidence in addition to repo-local rules:
+
+- use `AISA_All_Skills_Breakout_Plan_ZH.md` when deciding which existing AIsa skill to upgrade first
+- use `ClawHub_Viral_Boss_Report_ZH.md` when sharpening task-first naming and example requests
+- use `ClawHub_Plugin_Viral_Report_ZH.md` when deciding whether the package needs stronger trust, source-linked proof, or a narrower plugin JTBD
+- use `clawhub-top200-aisa-conversion-plan.json` when selecting one online non-AIsa skill to adapt into a new AIsa API experiment
+- use `aisa-api-analysis.json` to confirm the target lane maps onto real AIsa endpoint coverage before promising it in copy
+
 ## Practical Rule Matrix
 
 | Concern | Rule | Why |
@@ -155,6 +182,7 @@ Apply optimizer logic first:
 - check `description`
 - check `metadata.aisa`
 - check whether the body still matches the real runtime
+- check whether `../skillGet` suggests this skill should act as a flagship, sibling, or supporting variant instead of competing with a nearby AIsa package
 
 ### When you create or regenerate a release layer
 
@@ -163,6 +191,7 @@ Apply packager logic second:
 - trim to runtime-only files
 - emit the correct wrapper structure for the target platform
 - keep plugin manifests and embedded skill contents semantically aligned
+- make sure the release artifact still supports the same breakout claim that the title, description, and README now make
 
 ### When you prepare for a real upload
 
@@ -172,6 +201,7 @@ Apply auditor logic last:
 - look for docs/runtime drift
 - look for unsafe default state paths
 - look for auth stories that are broader than the shipped runtime needs
+- look back at `../skillGet` demand evidence so you do not ship two sibling skills that are chasing the same exact ClawHub search surface
 
 ## Repo-Specific Interpretation
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-23T11:32:22.777239+00:00",
+  "generated_at": "2026-04-23T21:01:23.542993+00:00",
   "artifacts": {
     "plugin:aisa-multi-search-engine-plugin": {
       "key": "plugin:aisa-multi-search-engine-plugin",
@@ -47,16 +47,17 @@
       "key": "plugin:aisa-twitter-api-plugin",
       "kind": "plugin",
       "name": "aisa-twitter-api-plugin",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "clawhub-plugin-release/plugins/aisa-twitter-api-plugin",
       "status": "published",
-      "last_checked_at": "2026-04-21T13:03:06.828524+00:00",
+      "last_checked_at": "2026-04-23T21:01:23.542993+00:00",
       "token_slot": "token-2",
-      "attempts": 1,
-      "published_at": "2026-04-21T13:03:06.828511+00:00",
-      "last_attempt_at": "2026-04-21T13:03:06.828522+00:00",
+      "attempts": 2,
+      "published_at": "2026-04-23T21:01:23.542993+00:00",
+      "last_attempt_at": "2026-04-23T21:01:23.542993+00:00",
       "last_error": null,
-      "release_ref": "rd7dk2kccrw0tx5zkjfwx4j561858wmd"
+      "release_ref": "rd7c16qzcbxhtj52y1qggh8gxd85c6v4",
+      "publish_mode": "published"
     },
     "plugin:aisa-twitter-command-center-plugin": {
       "key": "plugin:aisa-twitter-command-center-plugin",
@@ -809,13 +810,14 @@
       "key": "skill:aisa-twitter-api",
       "kind": "skill",
       "name": "aisa-twitter-api",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "clawhub-release/aisa-twitter-api",
       "status": "published",
       "published_at": "2026-04-21T16:16:45.265127+00:00",
-      "last_checked_at": "2026-04-21T16:16:45.265143+00:00",
+      "last_checked_at": "2026-04-23T21:01:23.542993+00:00",
       "last_error": null,
-      "token_slot": "token-1"
+      "token_slot": "token-1",
+      "publish_mode": "remote-existing"
     },
     "skill:aisa-twitter-command-center": {
       "key": "skill:aisa-twitter-command-center",
@@ -1103,8 +1105,8 @@
       "version": "1.0.1",
       "path": "clawhub-release/perplexity-search",
       "status": "failed",
-      "last_checked_at": "2026-04-22T17:08:49.418557+00:00",
-      "token_slot": "token-3",
+      "last_checked_at": "2026-04-23T18:38:13.565908+00:00",
+      "token_slot": "token-1",
       "attempts": 1,
       "last_attempt_at": "2026-04-22T17:08:49.418543+00:00",
       "last_error": "✖ Uncaught ConvexError: This slug is locked to a deleted or banned account. If you believe you are the rightful owner, please contact security@openclaw.ai to reclaim it. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 177/180, reset in 15s) | Error: Uncaught ConvexError: This slug is locked to a deleted or banned account. If you believe you are the rightful owner, please contact security@openclaw.ai to reclaim it. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 177/180, reset in 15s)"
@@ -1200,8 +1202,8 @@
       "version": "1.0.0",
       "path": "clawhub-release/search",
       "status": "failed",
-      "last_checked_at": "2026-04-22T17:09:14.876936+00:00",
-      "token_slot": "token-1",
+      "last_checked_at": "2026-04-23T18:38:22.037306+00:00",
+      "token_slot": "token-3",
       "attempts": 1,
       "last_attempt_at": "2026-04-22T17:09:14.876923+00:00",
       "last_error": "✖ Uncaught ConvexError: Slug is already taken. Choose a different slug. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 179/180, reset in 50s) | Error: Uncaught ConvexError: Slug is already taken. Choose a different slug. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 179/180, reset in 50s)"
@@ -1313,7 +1315,7 @@
       "version": "1.0.0",
       "path": "clawhub-release/tavily-search",
       "status": "failed",
-      "last_checked_at": "2026-04-22T17:09:18.737230+00:00",
+      "last_checked_at": "2026-04-23T18:38:23.071156+00:00",
       "token_slot": "token-2",
       "attempts": 1,
       "last_attempt_at": "2026-04-22T17:09:18.737218+00:00",
@@ -1326,8 +1328,8 @@
       "version": "1.0.0",
       "path": "clawhub-release/twitter",
       "status": "failed",
-      "last_checked_at": "2026-04-22T17:09:37.960237+00:00",
-      "token_slot": "token-3",
+      "last_checked_at": "2026-04-23T18:38:34.721701+00:00",
+      "token_slot": "token-1",
       "attempts": 1,
       "last_attempt_at": "2026-04-22T17:09:37.960222+00:00",
       "last_error": "✖ Uncaught ConvexError: Slug is already taken. Choose a different slug. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 178/180, reset in 27s) | Error: Uncaught ConvexError: Slug is already taken. Choose a different slug. | at handler (../../convex/skills.ts:6246:15) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 178/180, reset in 27s)"
@@ -1630,6 +1632,36 @@
       "token_slot": "token-2",
       "release_ref": "rd76wz6n04jwbzvcrzdys71a5985cjmn",
       "publish_mode": "published"
+    },
+    "skill:crypto-market-data": {
+      "key": "skill:crypto-market-data",
+      "kind": "skill",
+      "name": "crypto-market-data",
+      "version": "1.0.0",
+      "path": "clawhub-release/crypto-market-data",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T18:37:55.440137+00:00",
+      "token_slot": "token-1"
+    },
+    "skill:multi-source-search": {
+      "key": "skill:multi-source-search",
+      "kind": "skill",
+      "name": "multi-source-search",
+      "version": "1.0.0",
+      "path": "clawhub-release/multi-source-search",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T18:38:06.638337+00:00",
+      "token_slot": "token-2"
+    },
+    "skill:youtube-serp": {
+      "key": "skill:youtube-serp",
+      "kind": "skill",
+      "name": "youtube-serp",
+      "version": "1.0.0",
+      "path": "clawhub-release/youtube-serp",
+      "status": "planned",
+      "last_checked_at": "2026-04-23T18:38:48.552049+00:00",
+      "token_slot": "token-3"
     }
   }
 }

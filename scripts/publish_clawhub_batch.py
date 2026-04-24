@@ -283,12 +283,15 @@ class StateStore:
         with self.lock:
             artifacts = self.data.setdefault("artifacts", {})
             current = artifacts.get(artifact.key, {})
+            next_version = artifact.version
+            if should_preserve_state_version(current.get("version"), artifact.version):
+                next_version = str(current.get("version"))
             current.update(
                 {
                     "key": artifact.key,
                     "kind": artifact.kind,
                     "name": artifact.name,
-                    "version": artifact.version,
+                    "version": next_version,
                     "path": artifact.path,
                 }
             )
@@ -310,7 +313,10 @@ class StateStore:
                 },
             )
             current.update(updates)
-            current["version"] = artifact.version
+            if should_preserve_state_version(current.get("version"), artifact.version):
+                current["version"] = current.get("version")
+            else:
+                current["version"] = artifact.version
             current["path"] = artifact.path
             self.data["generated_at"] = iso_now()
             self.save()
@@ -464,9 +470,13 @@ class Worker(threading.Thread):
                     continue
 
                 if self.args.dry_run:
+                    current_state = self.state.get(artifact)
+                    status = str(current_state.get("status") or "planned")
+                    if status not in {"published", "failed", "rate_limited"}:
+                        status = "planned"
                     self.state.mark(
                         artifact,
-                        status="planned",
+                        status=status,
                         last_checked_at=iso_now(),
                         token_slot=self.slot,
                     )
@@ -703,6 +713,28 @@ def clean_error(text: str) -> str:
 def extract_release_ref(text: str) -> str | None:
     match = re.search(r"\(([^()]+)\)\s*$", text.strip())
     return match.group(1) if match else None
+
+
+def parse_version_parts(value: str | None) -> tuple[int, ...]:
+    if not value:
+        return ()
+    parts: list[int] = []
+    for raw in str(value).split("."):
+        raw = raw.strip()
+        if not raw:
+            return ()
+        if not raw.isdigit():
+            return ()
+        parts.append(int(raw))
+    return tuple(parts)
+
+
+def should_preserve_state_version(current_version: str | None, artifact_version: str) -> bool:
+    current_parts = parse_version_parts(current_version)
+    artifact_parts = parse_version_parts(artifact_version)
+    if not current_parts or not artifact_parts:
+        return False
+    return current_parts > artifact_parts
 
 
 def discover_skill_artifacts(root: Path) -> list[Artifact]:

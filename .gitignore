@@ -2,5 +2,7 @@
 .tmp-pydeps/
 .tmp-release-test-venv/
 .tmp-skill-test-venv/
+.tmp-self-hosted-dry-run/
+targets/unified-pipeline-state.self-hosted-dry-run.json
 example/accounts
 __pycache__/
