@@ -1,3 +1,4 @@
+.cache/
 .tmp-py312-release/
 .tmp-pydeps/
 .tmp-release-test-venv/
