@@ -2,12 +2,12 @@
   "last_synced_commit": "8db3204607d3449431e2332319cb52a98a011724",
   "last_detected_commit": "8db3204607d3449431e2332319cb52a98a011724",
   "last_run": {
-    "started_at": "2026-04-24T09:14:17.274589+00:00",
+    "started_at": "2026-04-25T06:56:13.110203+00:00",
     "source_mode": "clone",
     "upstream_root": "/home/runner/work/agent-skills-io/agent-skills-io/.cache/upstream-agent-skills",
     "upstream_branch": "main",
     "upstream_head": "8db3204607d3449431e2332319cb52a98a011724",
-    "baseline_commit": "8540704351b447a37b9f3aa333a9229b532de4c8",
+    "baseline_commit": "8db3204607d3449431e2332319cb52a98a011724",
     "selection": "changed",
     "include_working_tree": false,
     "planned_skills": [
@@ -22,7 +22,7 @@
       }
     ],
     "publish_steps": [],
-    "completed_at": "2026-04-24T09:14:17.274682+00:00"
+    "completed_at": "2026-04-25T06:56:13.110265+00:00"
   },
   "pending_manual_review": [
     {
