@@ -39,6 +39,10 @@ python3 scripts/unified_skill_pipeline.py --dry-run
 python3 scripts/unified_skill_pipeline.py
 ```
 
+Current default upstream branch:
+
+- `AIsa-team/agent-skills@agentskills`
+
 ### Force a full upstream refresh
 
 ```bash
@@ -114,6 +118,15 @@ The workflow now has two lanes:
 - self-hosted lane
   - true publish continuation for downstream GitHub repo publish and optional ClawHub batch publish
 
+Current scheduler details:
+
+- hosted lane cron is `21 */2 * * *`
+- that means the sync/build/test lane now runs every 2 hours
+- edit `.github/workflows/unified-skill-pipeline.yml` under `on.schedule[0].cron` if you want to change that cadence later
+- workflow-level env now pins `UPSTREAM_BRANCH=agentskills`, so the scheduled sync follows the published AIsa upstream branch by default
+- hosted auto-commit now uses `persist-credentials: false` plus explicit token push, which avoids the earlier `actions/checkout` post-job `exit code 128` cleanup failure
+- workflow-level env also sets `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true` to get ahead of the current GitHub-hosted Node 20 deprecation warning
+
 ### What the hosted lane does
 
 1. checks out this repo
@@ -122,6 +135,14 @@ The workflow now has two lanes:
 4. runs `scripts/unified_skill_pipeline.py`
 5. uploads state and test artifacts
 6. auto-commits regenerated outputs back into this repo when files changed
+
+### Upstream-authority rule
+
+For skill sync and future manual edits:
+
+- if a skill already exists in `AIsa-team/agent-skills@agentskills`, that upstream runtime is the first source to diff against
+- publish-surface cleanup should preserve runtime completeness unless the task explicitly asks for a behavior change
+- conservative narrowing belongs in generated release layers or manual-review exceptions, not as a silent breakage of the mother skill
 
 ### What the self-hosted lane adds
 
@@ -181,6 +202,15 @@ The self-hosted lane closes the publish gap when the runner provides either:
 - or a `DOWNSTREAM_REPO_TOKEN` secret for cross-repo clone and push
 
 If `clawhub_publish` is enabled, the runner also needs the `clawhub` CLI plus the relevant publish tokens.
+
+### Practical fallback for this workspace
+
+In this repo's current environment, WSL/Linux HTTP access to some `clawhub.ai` endpoints can be flaky even when the same machine's Windows side can reach them.
+
+That means a valid self-hosted operating pattern is:
+
+- keep source generation in this repo as usual
+- invoke `py -3 scripts/publish_clawhub_batch.py` or `py -3 scripts/clawhub_live_status.py` through `cmd.exe /c` from the Windows side when live ClawHub publish or scan calls need reliable network access
 
 ## Secrets And Permissions
 

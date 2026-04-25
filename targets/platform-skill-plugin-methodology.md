@@ -81,13 +81,16 @@ Primary sources:
 - `PROJECT_OVERVIEW.md`
 - `targets/skill-modification-rules-2026-04-19.md`
 - `targets/targetskills-agentskills-compliance-audit-2026-04-20.md`
+- `targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md`
 
 What these sources establish:
 
 - `targetSkills/` is the source of truth
+- if a skill already exists in `AIsa-team/agent-skills@agentskills`, treat that upstream runtime as the first baseline before local copy optimization
 - canonical source frontmatter should center on `metadata.aisa`
 - mother skills should prefer relative paths and cross-platform wording
 - platform-private metadata should not dominate the mother skill
+- copy optimization must not silently remove upstream runtime capability
 
 ### Claude / Hermes publish rules
 
@@ -110,6 +113,7 @@ Primary sources:
 
 - `targets/clawhub-plugin-structure-and-upload-plan-2026-04-20.md`
 - `targets/claude-clawhub-publish-followup-2026-04-21.md`
+- `targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md`
 - `scripts/build_clawhub_plugin_release.py`
 
 What these sources establish:
@@ -117,6 +121,8 @@ What these sources establish:
 - package skill-first assets as native-first plugins without rewriting the core workflow
 - keep plugin manifests, README, and embedded `skills/` aligned
 - prefer trust, coherence, and scanner-friendly packaging over noisy feature expansion
+- relay targets, media uploads, OAuth steps, env vars, and registry metadata must all describe the same real side effects
+- pending scan output, clean scan output, and `Suspicious` output are different states and should be documented distinctly
 
 ### Agent Skills public-layer rules
 
@@ -169,6 +175,7 @@ Use this evidence in addition to repo-local rules:
 | Runtime surface | Exclude compare/test/sync/dev helpers from publish bundles | Reduce upload risk and reviewer distrust |
 | State writes | Prefer repo-local persistence in publish layers | Lower security flags and keep side effects visible |
 | OAuth / actions | Make approval and side effects explicit | Avoid unsafe automation defaults |
+| Upstream baseline | Diff against `AIsa-team/agent-skills@agentskills` before editing an existing skill | Preserve runtime completeness and avoid local drift |
 | EN / ZH parity | Keep runtime scope aligned across language variants | Prevent drift and marketplace trust mismatch |
 | Plugin packaging | One sharp JTBD per artifact | Better install clarity and portfolio positioning |
 
@@ -210,5 +217,15 @@ In this project, the three global skills are effectively translated into code an
 - optimizer -> mother-skill normalization plus publish-copy wording decisions
 - packager -> release build scripts and wrapper generators
 - auditor -> smoke tests, guardrail docs, follow-up reports, and publish review checklists
+
+## 2026-04-25 Internalized Suspicious Lessons
+
+The current repo now treats these as reusable method, not one-off incident notes:
+
+- relay-based skills must say exactly where keys, OAuth callbacks, and media uploads go
+- public copy must not look like prompt injection or hidden autonomous instructions
+- env-var requirements must match across `SKILL.md`, README, manifests, and registry-facing metadata
+- if a scan is still pending, do not describe it as clean or suspicious yet
+- when a skill already exists upstream, start from that runtime and preserve feature completeness before applying publish-surface edits
 
 That is why the repo should keep these three skill lenses explicit in docs for future humans and future AI agents.

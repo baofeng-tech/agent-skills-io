@@ -7,6 +7,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import threading
@@ -112,6 +113,18 @@ def run_command(
     cwd: Path = REPO_ROOT,
     timeout: int = 600,
 ) -> subprocess.CompletedProcess[str]:
+    if args and args[0] == "clawhub":
+        clawhub_bin = (
+            os.environ.get("CLAWHUB_BIN", "").strip()
+            or shutil.which("clawhub")
+            or shutil.which("clawhub.cmd")
+            or shutil.which("clawhub.exe")
+        )
+        if clawhub_bin:
+            if os.name == "nt" and clawhub_bin.lower().endswith((".cmd", ".bat")):
+                args = ["cmd.exe", "/c", clawhub_bin, *args[1:]]
+            else:
+                args = [clawhub_bin, *args[1:]]
     merged_env = os.environ.copy()
     if env:
         merged_env.update(env)
@@ -120,6 +133,8 @@ def run_command(
         cwd=str(cwd),
         env=merged_env,
         text=True,
+        encoding="utf-8",
+        errors="replace",
         capture_output=True,
         timeout=timeout,
         check=False,
@@ -285,8 +300,12 @@ class StateStore:
             artifacts = self.data.setdefault("artifacts", {})
             current = artifacts.get(artifact.key, {})
             next_version = artifact.version
-            if should_preserve_state_version(current.get("version"), artifact.version):
-                next_version = str(current.get("version"))
+            current_status = str(current.get("status") or "")
+            current_version = current.get("version")
+            if current_status == "published" and current_version:
+                next_version = str(current_version)
+            elif should_preserve_state_version(current_version, artifact.version):
+                next_version = str(current_version)
             current.update(
                 {
                     "key": artifact.key,
@@ -463,6 +482,7 @@ class Worker(threading.Thread):
             result = scan_artifact_status(
                 artifact_ref,
                 inspect_payload_getter=lambda _artifact_ref: self.inspect_payload(artifact),
+                skill_owner_candidates=self.args.scan_skill_owner,
                 render_mode=self.args.scan_render_mode,
                 request_timeout=self.args.scan_request_timeout,
                 render_timeout_ms=self.args.scan_render_timeout_ms,
@@ -722,6 +742,8 @@ class RemoteProbe:
 
 
 def try_parse_json(text: str) -> Any | None:
+    if not isinstance(text, str):
+        return None
     stripped = text.strip()
     if not stripped:
         return None
@@ -820,7 +842,7 @@ def discover_skill_artifacts(root: Path) -> list[Artifact]:
                 kind="skill",
                 name=skill_dir.name,
                 version=version,
-                path=str(skill_dir.relative_to(REPO_ROOT)),
+                path=str(skill_dir.resolve()),
                 display_name=display_name,
             )
         )
@@ -843,7 +865,7 @@ def discover_plugin_artifacts(root: Path, source_repo_root: Path) -> list[Artifa
                 kind="plugin",
                 name=str(package_json["name"]),
                 version=str(package_json.get("version") or "1.0.0"),
-                path=str(plugin_dir.relative_to(REPO_ROOT)),
+                path=str(plugin_dir.resolve()),
                 display_name=str(manifest.get("name") or titleize_slug(plugin_dir.name)),
                 source_path=source_path,
             )
@@ -1010,6 +1032,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
         type=int,
         default=25,
         help="Timeout in seconds for `clawhub inspect` during post-publish skill URL resolution.",
+    )
+    parser.add_argument(
+        "--scan-skill-owner",
+        action="append",
+        default=[],
+        help="Optional skill owner handle(s) used to guess skill detail URLs when inspect does not resolve them.",
     )
     parser.add_argument(
         "--skip-build",

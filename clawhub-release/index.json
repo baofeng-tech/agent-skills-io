@@ -36,9 +36,9 @@
       "residual_risks": []
     },
     {
-      "name": "aisa-twitter-api",
-      "path": "clawhub-release/aisa-twitter-api",
-      "description": "Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.",
+      "name": "aisa-twitter-api-command-center",
+      "path": "clawhub-release/aisa-twitter-api-command-center",
+      "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
@@ -116,8 +116,8 @@
       "residual_risks": []
     },
     {
-      "name": "crypto-market-data",
-      "path": "clawhub-release/crypto-market-data",
+      "name": "aisa-crypto-market-data",
+      "path": "clawhub-release/aisa-crypto-market-data",
       "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
       "changes": [
         "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
@@ -296,8 +296,8 @@
       "residual_risks": []
     },
     {
-      "name": "perplexity-search",
-      "path": "clawhub-release/perplexity-search",
+      "name": "aisa-perplexity-search-sonar",
+      "path": "clawhub-release/aisa-perplexity-search-sonar",
       "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
       "changes": [
         "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
@@ -384,9 +384,9 @@
       "residual_risks": []
     },
     {
-      "name": "search",
-      "path": "clawhub-release/search",
-      "description": "Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.",
+      "name": "aisa-search-command-center",
+      "path": "clawhub-release/aisa-search-command-center",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
       "changes": [
         "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
         "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
@@ -485,8 +485,8 @@
       "residual_risks": []
     },
     {
-      "name": "tavily-search",
-      "path": "clawhub-release/tavily-search",
+      "name": "aisa-tavily-search",
+      "path": "clawhub-release/aisa-tavily-search",
       "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
       "changes": [
         "generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests",
@@ -496,8 +496,8 @@
       "residual_risks": []
     },
     {
-      "name": "twitter",
-      "path": "clawhub-release/twitter",
+      "name": "aisa-twitter-research-engage-relay",
+      "path": "clawhub-release/aisa-twitter-research-engage-relay",
       "description": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",

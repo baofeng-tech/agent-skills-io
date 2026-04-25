@@ -187,10 +187,12 @@ def smoke_tests() -> list[dict[str, object]]:
         env["AISA_API_KEY"] = aisa_key
     python_exe = (
         os.environ.get("PYTHON_EXE")
+        or (sys.executable if sys.executable and Path(sys.executable).exists() else None)
         or shutil.which("python3.12")
         or ("/usr/local/python3.12/bin/python3.12" if Path("/usr/local/python3.12/bin/python3.12").exists() else None)
         or shutil.which("python3.9")
         or shutil.which("python3")
+        or shutil.which("python")
         or "python3"
     )
 
@@ -216,7 +218,7 @@ def smoke_tests() -> list[dict[str, object]]:
         ("hermes", ["communication/last30days"], [python_exe, "scripts/last30days.py", "--help"]),
         ("clawhub", ["aisa-twitter-command-center"], [python_exe, "scripts/twitter_client.py", "search", "--query", "OpenAI", "--type", "Latest"]),
         ("clawhub", ["aisa-youtube-serp-scout"], [python_exe, "scripts/youtube_client.py", "search", "--query", "OpenAI"]),
-        ("clawhub", ["aisa-search", "search"], [python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"]),
+        ("clawhub", ["aisa-search-command-center", "aisa-search", "search"], [python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"]),
         ("clawhub", ["prediction-market"], [python_exe, "scripts/prediction_market_client.py", "polymarket", "markets", "--limit", "1"]),
         ("clawhub", ["last30days"], [python_exe, "scripts/last30days.py", "--help"]),
     ]

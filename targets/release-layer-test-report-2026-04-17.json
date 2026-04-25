@@ -12,7 +12,7 @@
       "layer": "claude",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -20,29 +20,29 @@
         "--type",
         "Latest"
       ],
-      "code": 1,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"timed out\"\n  }\n}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGuYZTwW8GkKAAIca5eYu5dQcwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUca5hzYwAnEAoABhxrmHNi_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/17206",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/youtube_client.py",
         "search",
         "--query",
         "OpenAI"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 3,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 2,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "search",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -51,14 +51,14 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"id\": \"g5XOQJNiM689WOPjhlg82w\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"AtBmVNHeoxfackUmOwveOw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "prediction-market",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -66,14 +66,14 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x709f4c529ea10623d58d1172517046c31f08a017e81360d10239055ae6d6a1e2\",\n      \"description\": \"This market will resolve to \\\"Yes\\\" if the \\\"Close\\\" price for the ETH/USDT 1 hour candle that ends on the time and date specified in the title is higher than the price specified in the title. Otherwise, thi",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x853e8b07262e00dd1952fcebfd3fe1393a0c7a98712fbd41da3fbef5ba44612d\",\n      \"description\": \"This market will immediately resolve to \\\"Yes\\\" if any Binance 1-minute candle for XRP (XRP/USDT) on the date specified in the title, between 12:00 AM ET and 11:59 PM ET has a final \\\"High\\\" price equal to o",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "llm-router",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/llm_router_client.py",
         "models"
       ],
@@ -85,31 +85,31 @@
       "layer": "claude",
       "path": "last30days",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/last30days.py",
         "--help"
       ],
-      "code": 0,
-      "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--api-key API_KEY] [--config-file CONFIG_FILE] [--quick]\n                     [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research",
-      "stderr_preview": ""
+      "code": 1,
+      "stdout_preview": "",
+      "stderr_preview": "last30days v1 requires Python 3.12+.\nDetected Python 3.10.11.\nUse python3.12 if it is available in PATH, or any other Python 3.12+ interpreter, then rerun this command.\n"
     },
     {
       "layer": "claude",
       "path": "last30days-zh",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/last30days.py",
         "--help"
       ],
-      "code": 0,
-      "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--api-key API_KEY] [--config-file CONFIG_FILE] [--quick]\n                     [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research",
-      "stderr_preview": ""
+      "code": 1,
+      "stdout_preview": "",
+      "stderr_preview": "last30days v1 requires Python 3.12+.\nDetected Python 3.10.11.\nUse python3.12 if it is available in PATH, or any other Python 3.12+ interpreter, then rerun this command.\n"
     },
     {
       "layer": "hermes",
       "path": "communication/aisa-twitter-command-center",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/twitter_client.py",
         "--api-key",
         "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
@@ -120,14 +120,14 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGrSkXwboVwKAAIcatHxZ1YQbQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcatKXd4AnEAoABhxq0pd3f9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"\",\n        \"createdAt\": \"Fri Jul 22 03:00:",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGuYZTwW8GkKAAIca5eYu5dQcwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUca5h9vQAnEAoABhxrmH28_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/17206",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "research/aisa-youtube-serp-scout",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/youtube_client.py",
         "--api-key",
         "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
@@ -135,15 +135,15 @@
         "--query",
         "OpenAI"
       ],
-      "code": 1,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"timed out\"\n  }\n}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 2,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "research/search",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/search_client.py",
         "--api-key",
         "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
@@ -154,14 +154,14 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"id\": \"awzB3HxhKPre_jSkuTUzSQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"BIW81ZqZiBEkHxNi5MEWuQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "finance/prediction-market",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/prediction_market_client.py",
         "--api-key",
         "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
@@ -171,14 +171,14 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x709f4c529ea10623d58d1172517046c31f08a017e81360d10239055ae6d6a1e2\",\n      \"description\": \"This market will resolve to \\\"Yes\\\" if the \\\"Close\\\" price for the ETH/USDT 1 hour candle that ends on the time and date specified in the title is higher than the price specified in the title. Otherwise, thi",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x853e8b07262e00dd1952fcebfd3fe1393a0c7a98712fbd41da3fbef5ba44612d\",\n      \"description\": \"This market will immediately resolve to \\\"Yes\\\" if any Binance 1-minute candle for XRP (XRP/USDT) on the date specified in the title, between 12:00 AM ET and 11:59 PM ET has a final \\\"High\\\" price equal to o",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "ai/llm-router",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/llm_router_client.py",
         "--api-key",
         "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
@@ -192,19 +192,19 @@
       "layer": "hermes",
       "path": "communication/last30days",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/last30days.py",
         "--help"
       ],
-      "code": 0,
-      "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--api-key API_KEY] [--config-file CONFIG_FILE] [--quick]\n                     [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research",
-      "stderr_preview": ""
+      "code": 1,
+      "stdout_preview": "",
+      "stderr_preview": "last30days v1 requires Python 3.12+.\nDetected Python 3.10.11.\nUse python3.12 if it is available in PATH, or any other Python 3.12+ interpreter, then rerun this command.\n"
     },
     {
       "layer": "clawhub",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -213,28 +213,28 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGrS0ZzXcWIKAAIcatI_CReRlAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcatLbcUAnEAoABhxq0ttxP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/12667",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHGuYfQOa4foKAAIca5fNjBsg8gAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUca5iG3cAnEAoABhxrmIbdv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/25446",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/youtube_client.py",
         "search",
         "--query",
         "OpenAI"
       ],
-      "code": 1,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"timed out\"\n  }\n}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 2,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
-      "path": "search",
+      "path": "aisa-search-command-center",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -242,15 +242,15 @@
         "--count",
         "1"
       ],
-      "code": 124,
-      "stdout_preview": "",
-      "stderr_preview": "\nTimeoutExpired"
+      "code": 0,
+      "stdout_preview": "{\n  \"id\": \"4uEsjLh5dwC2tFdAaD65Tw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "prediction-market",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -258,20 +258,20 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x709f4c529ea10623d58d1172517046c31f08a017e81360d10239055ae6d6a1e2\",\n      \"description\": \"This market will resolve to \\\"Yes\\\" if the \\\"Close\\\" price for the ETH/USDT 1 hour candle that ends on the time and date specified in the title is higher than the price specified in the title. Otherwise, thi",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x853e8b07262e00dd1952fcebfd3fe1393a0c7a98712fbd41da3fbef5ba44612d\",\n      \"description\": \"This market will immediately resolve to \\\"Yes\\\" if any Binance 1-minute candle for XRP (XRP/USDT) on the date specified in the title, between 12:00 AM ET and 11:59 PM ET has a final \\\"High\\\" price equal to o",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "last30days",
       "command": [
-        "/home/xiaofeng/.local/bin/python3.12",
+        "D:\\Program Files\\python\\python.exe",
         "scripts/last30days.py",
         "--help"
       ],
-      "code": 0,
-      "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--api-key API_KEY] [--config-file CONFIG_FILE] [--quick]\n                     [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research",
-      "stderr_preview": ""
+      "code": 1,
+      "stdout_preview": "",
+      "stderr_preview": "last30days v1 requires Python 3.12+.\nDetected Python 3.10.11.\nUse python3.12 if it is available in PATH, or any other Python 3.12+ interpreter, then rerun this command.\n"
     }
   ]
 }

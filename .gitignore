@@ -6,3 +6,10 @@
 targets/unified-pipeline-state.self-hosted-dry-run.json
 example/accounts
 __pycache__/
+.tmp-clawhub-republish-v105/
+.tmp-clawhub-republish-v103/
+.tmp-clawhub-republish-v104/
+.tmp-clawhub-republish-v102/
+.tmp-clawhub-republish-next/
+.tmp-clawhub-republish/
+.tmp-clawhub-batch/

@@ -103,7 +103,7 @@ Use it when you need to:
 | --- | --- |
 | `--upstream-local-path <path>` | Use a local upstream checkout instead of cloning; avoid `/mnt/d/workplace/agent-skills` in this workspace because that repo is reserved for manual company upload work |
 | `--upstream-repo-url <url>` | Git URL used when the scheduler clones or fetches upstream |
-| `--upstream-branch <name>` | Upstream branch to diff against, default `main` |
+| `--upstream-branch <name>` | Upstream branch to diff against, default `agentskills` |
 | `--upstream-cache-dir <path>` | Clone/fetch cache dir used when no local path is provided |
 | `--state-file <path>` | JSON file that stores the last synced commit and the last run summary |
 | `--selection changed` | Sync only skills changed since the saved baseline commit |
@@ -143,6 +143,7 @@ Use it when you need to:
 | `--scan-render-timeout-ms <ms>` | Navigation timeout for Playwright-based live scans |
 | `--scan-render-wait-ms <ms>` | Extra dynamic-page stabilization wait for Playwright-based live scans |
 | `--scan-inspect-timeout <seconds>` | Timeout for `clawhub inspect` during post-publish skill URL resolution |
+| `--scan-skill-owner <handle>` | Optional fallback owner hint for skill-page URL resolution during post-publish scans; repeat to add more candidates |
 | `--skip-build` | Skip normalize/build before publish |
 | `--force` | Ignore saved state and republish/reprobe everything |
 | `--dry-run` | Probe and plan only, do not publish |
@@ -164,6 +165,7 @@ Use it when you need to:
 | `--render-timeout-ms <ms>` | Navigation timeout for Playwright rendering |
 | `--render-wait-ms <ms>` | Extra wait window for dynamic HTML stabilization |
 | `--inspect-timeout <seconds>` | Timeout for `clawhub inspect` during skill URL resolution |
+| `--skill-owner <handle>` | Optional fallback owner hint for skill detail URLs when `clawhub inspect` does not resolve a page; repeat to add more candidates |
 
 ### `scripts/import-github-downloads-to-targetSkills.py`
 
@@ -201,6 +203,13 @@ python3 scripts/unified_skill_pipeline.py
 ```bash
 python3 scripts/unified_skill_pipeline.py --dry-run
 ```
+
+### Change the hosted GitHub Actions schedule
+
+- File: `.github/workflows/unified-skill-pipeline.yml`
+- Field: `on.schedule[0].cron`
+- Current value: `21 */2 * * *`
+- Meaning: hosted auto sync/build/test runs every 2 hours
 
 ### Rebuild all release layers from current `targetSkills/`
 
@@ -242,11 +251,20 @@ python3 scripts/publish_clawhub_batch.py \
   --post-publish-scan
 ```
 
+### Windows-side fallback when WSL cannot reach ClawHub reliably
+
+```bash
+cmd.exe /c "cd /d D:\workplace\agent-skills-io && py -3 scripts\publish_clawhub_batch.py --targets both --skip-build --post-publish-scan"
+cmd.exe /c "cd /d D:\workplace\agent-skills-io && py -3 scripts\clawhub_live_status.py --targets both --render-mode off"
+```
+
 ## Operational Notes
 
 - `targetSkills/` is the mother-skill source of truth.
 - Do not hand-edit generated release layers when the real change belongs in `targetSkills/`.
 - `scripts/build_claude_marketplace.py` must run after `scripts/build_claude_release.py`.
+- `scripts/clawhub_live_status.py` now writes explicit `scan_status` values such as `pending` and `unresolved` instead of leaving those states implicit.
+- If a ClawHub skill or plugin slug belongs to another publisher, prefer a ClawHub-only `clawhub-slug` alias in the mother skill rather than forcing a same-slug version bump.
 - The unified pipeline intentionally separates:
   - upstream sync
   - mother-skill normalization

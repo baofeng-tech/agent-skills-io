@@ -63,6 +63,7 @@ Any AI working in this repository should:
 ### B. 作为跨平台 skill 设计工作区
 
 - 当上游改动较大时，先以 `AIsa-team/agent-skills` 为准做能力与结构对齐
+- 对已存在于 `AIsa-team/agent-skills@agentskills` 的 skill，默认先以该上游版本为运行时基线，再做本仓库的母版/发布层收敛
 - 以 `AgentSkills` 规范为母版
 - 对比 `OpenClaw / ClawHub`、`Hermes`、`Claude Code`
 - 生成统一的 `SKILL.md` 骨架、目录结构和发布索引
@@ -159,6 +160,8 @@ Any AI working in this repository should:
   - 仓库执行流、脚本用途、参数与常用命令的统一参考
 - `targets/clawhub-resume-and-breakout-plan-2026-04-24.md`
   - 当前 ClawHub 续跑、版本收口、爆款改造与 skillGet 证据接入的执行计划
+- `targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md`
+  - 已上线 skill/plugin 的 `Suspicious` 原因、对应修改方式，以及沉淀进全局优化/打包/审计 skill 的能力摘要
 - `targets/platform-skill-plugin-methodology.md`
   - 本项目如何使用全局优化/打包/审计 skill 来约束母版和各平台 skill/plugin
 - `targets/unified-pipeline-and-github-actions.md`
@@ -242,8 +245,10 @@ Any AI working in this repository should:
 
 - `scripts/clawhub_live_status.py`
   - 可独立扫描已发布 skill/plugin 的 ClawHub live status，提取 `VirusTotal`、`OpenClaw` 与 `Suspicious` 原因
+  - 现在会把 `pending` / `unresolved` 写成显式 `scan_status`，并支持在 skill 页 URL 不稳定时传入 owner hint
 - `scripts/publish_clawhub_batch.py`
   - 现在支持可选 `--post-publish-scan`，在发布或探测到远端已存在后立即做 live scan
+  - 现在支持为 post-publish scan 传入 skill owner hint，并可在 Windows 侧 `py -3` 环境下直接续发
 
 #### 3. ClawHub 发布变体
 
@@ -788,7 +793,10 @@ GitHub Actions 工作流层。
 - 统一调度与自动化：已新增 `scripts/unified_skill_pipeline.py`、`scripts/build_targetskills_catalog.py` 与 `.github/workflows/unified-skill-pipeline.yml`
 - `last30days` 保守合并：已在 2026-04-23 完成一轮人工回灌，保留“无状态 research CLI”母版边界，并吸收安全子集更新后重新回灌各平台发布层
 - GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；当前下游 GitHub 目标已覆盖 `AIsa-team/agent-skills@agentskills`、`baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
-- 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发
+- 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每 2 小时一次（`21 */2 * * *`）
+- GitHub Actions checkout 后置失败修复：hosted lane 已改为 `persist-credentials: false` + explicit token push，避免此前的 post-job `exit code 128`
+- ClawHub 2026-04-25 真实续发：已通过 Windows 侧 `py -3` + `clawhub` 继续完成一轮真实 skill/plugin 续发，并把 live scan 状态回写主 publish state
+- ClawHub `twitter` 测试结论：新 ClawHub 专用 slug `aisa-twitter-research-engage-relay` 已真实发布到 `1.0.5`；skill 与 plugin 页当前都已回到 `openclaw=benign`，两者都仍处于 `VirusTotal=pending`；这轮修复实际覆盖了 relay disclosure、plugin 顶层 metadata、summary description 前置 requirement，以及 `twitter_client.py` 对 `TWITTER_RELAY_BASE_URL` 的运行时对齐
 - 手工审核 hold 持续跟踪：被 `MANUAL_REVIEW_RULES` 跳过的 skill 不再因为基线前移而从后续自动巡检里“消失”
 - `agentskills.so` 人工入口：已确认公开邮箱 `support@agentskills.so` 与 Discord 邀请链接
 - `claudemarketplaces.com` 当前检索：2026-04-21 以 `baofeng-tech/Aisa-One-Plugins-Claude`、`Aisa-One-Skills-Claude`、`aisa-claude-marketplace` 为关键词做公开检索，暂未搜到收录页；结合站点公开说明，marketplace 仍需等待 crawler 周期，standalone skills 仍依赖 GitHub / skills.sh 分发与安装量信号

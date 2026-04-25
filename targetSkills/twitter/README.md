@@ -7,13 +7,15 @@ This skill provides comprehensive capabilities to **read, search, engage, write,
 ## Features
 
 - **Read & Search**: Access user info, tweets, advanced search, trends, followers, lists, communities, and Spaces without requiring user login.
-- **Engagement via Relay**: Like/unlike tweets and follow/unfollow users through the local OAuth relay service.
+- **Engagement via Relay**: Like/unlike tweets and follow/unfollow users through the AIsa OAuth relay service, configurable with `TWITTER_RELAY_BASE_URL`.
 - **Write & Post (OAuth)**: Publish text, images, and videos, create threads, and quote/reply to tweets securely via user OAuth authorization.
 
 ## Installation
 
 ```bash
 export AISA_API_KEY="your-key"
+export TWITTER_RELAY_BASE_URL="https://api.aisa.one/apis/v1/twitter"  # optional
+export TWITTER_RELAY_TIMEOUT="30"  # optional
 ```
 
 ## Quick Start
@@ -35,7 +37,7 @@ python scripts/twitter_oauth_client.py post --text "Hello from AIsa!"
 python scripts/twitter_oauth_client.py post --text "Check out this image" --media-file ./photo.png
 ```
 
-### Engagement (Requires OAuth Relay)
+### Engagement (Requires AIsa OAuth Relay)
 ```bash
 # Like the latest tweet from a user
 python scripts/twitter_engagement_client.py like-latest --user "@elonmusk"

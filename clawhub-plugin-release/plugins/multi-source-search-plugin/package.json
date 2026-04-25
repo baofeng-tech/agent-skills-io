@@ -1,7 +1,7 @@
 {
   "name": "multi-source-search-plugin",
   "version": "1.0.0",
-  "description": "Native-first ClawHub plugin for `multi-source-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run confidence-scored multi-source retrieval through AIsa. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `multi-source-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run confidence-scored multi-source retrieval through AIsa. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -17,6 +17,36 @@
     "type": "git",
     "url": "https://github.com/AIsa-team/agent-skills.git"
   },
+  "metadata": {
+    "aisa": {
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          "AISA_API_KEY"
+        ]
+      },
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
+    }
+  },
+  "aisa": {
+    "requires": {
+      "bins": [
+        "python3"
+      ],
+      "env": [
+        "AISA_API_KEY"
+      ]
+    },
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
   "openclaw": {
     "extensions": [
       "./index.ts"
@@ -26,6 +56,18 @@
     },
     "build": {
       "openclawVersion": "^1.0.0"
+    },
+    "runtimeRequirements": {
+      "bins": [
+        "python3"
+      ],
+      "env": [
+        "AISA_API_KEY"
+      ],
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
     }
   }
 }

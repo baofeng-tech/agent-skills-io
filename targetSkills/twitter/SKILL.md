@@ -1,6 +1,8 @@
 ---
 name: twitter
 description: 'Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.'
+clawhub-slug: aisa-twitter-research-engage-relay
+version: 1.0.5
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
   aisa:
@@ -60,6 +62,10 @@ If the user asks to send, publish, or reply, or quote on X/Twitter, handle that 
 
 ```bash
 export AISA_API_KEY="your-key"
+
+# Optional: override the default AIsa relay for OAuth, posting, and engagement
+export TWITTER_RELAY_BASE_URL="https://api.aisa.one/apis/v1/twitter"
+export TWITTER_RELAY_TIMEOUT="30"
 ```
 
 ## Core Capabilities
@@ -222,7 +228,7 @@ python3 scripts/twitter_client.py community-members --community-id 1708485837274
 python3 scripts/twitter_client.py community-tweets --community-id 1708485837274263614
 python3 scripts/twitter_client.py community-search --query "AI"
 
-# Engagement operations through the local relay
+# Engagement operations through the configured AIsa relay
 python3 scripts/twitter_engagement_client.py list-tweets --user "@elonmusk" --limit 10
 python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
 python3 scripts/twitter_engagement_client.py unlike-latest --user "@elonmusk"

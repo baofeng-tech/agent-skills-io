@@ -1,6 +1,7 @@
 ---
 name: crypto-market-data
 description: 'Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use for crypto research, price tracking, on-chain token lookup, portfolio analysis, and market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
+clawhub-slug: aisa-crypto-market-data
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:

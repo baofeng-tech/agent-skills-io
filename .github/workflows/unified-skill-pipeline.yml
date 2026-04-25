@@ -1,5 +1,9 @@
 name: Unified Skill Pipeline
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  UPSTREAM_BRANCH: agentskills
+
 on:
   workflow_dispatch:
     inputs:
@@ -52,7 +56,8 @@ on:
         default: true
         type: boolean
   schedule:
-    - cron: "21 2 * * *"
+    # Edit this cron to change the hosted auto-sync cadence.
+    - cron: "21 */2 * * *"
 
 concurrency:
   group: unified-skill-pipeline-${{ github.ref }}
@@ -75,6 +80,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -94,7 +100,7 @@ jobs:
             UPSTREAM_URL="https://x-access-token:${UPSTREAM_REPO_TOKEN}@github.com/AIsa-team/agent-skills.git"
           fi
 
-          EXTRA_ARGS=("--upstream-repo-url" "$UPSTREAM_URL")
+          EXTRA_ARGS=("--upstream-branch" "${UPSTREAM_BRANCH}" "--upstream-repo-url" "$UPSTREAM_URL")
 
           if [[ -n "${PIPELINE_SKILLS:-}" ]]; then
             EXTRA_ARGS+=("--skills" "$PIPELINE_SKILLS")
@@ -124,6 +130,8 @@ jobs:
       - name: Commit regenerated outputs
         if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' }}
         shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -136,7 +144,7 @@ jobs:
 
           git add -A
           git commit -m "chore: sync upstream skills and rebuild release layers"
-          git push
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"
 
   self-hosted-publish:
     if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish == 'true' }}
@@ -168,6 +176,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -224,7 +233,7 @@ jobs:
             UPSTREAM_URL="https://x-access-token:${UPSTREAM_REPO_TOKEN}@github.com/AIsa-team/agent-skills.git"
           fi
 
-          EXTRA_ARGS=("--upstream-repo-url" "$UPSTREAM_URL")
+          EXTRA_ARGS=("--upstream-branch" "${UPSTREAM_BRANCH}" "--upstream-repo-url" "$UPSTREAM_URL")
 
           if [[ -n "${PIPELINE_SKILLS:-}" ]]; then
             EXTRA_ARGS+=("--skills" "$PIPELINE_SKILLS")

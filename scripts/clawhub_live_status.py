@@ -9,6 +9,7 @@ import html
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import urllib.error
@@ -27,6 +28,7 @@ DEFAULT_CONFIG_ROOT = REPO_ROOT / ".tmp-clawhub-auth"
 USER_AGENT = "Mozilla/5.0 (compatible; agent-skills-io/1.0; ClawHub live status scanner)"
 STATUS_WORDS = {"benign", "clean", "pending", "suspicious", "malicious", "warning", "safe", "unknown"}
 TOKEN_KEY_PATTERN = re.compile(r"^clawhubapitoken(?P<index>\d*)$")
+DEFAULT_SKILL_OWNER_CANDIDATES = ("aisapay",)
 
 
 def iso_now() -> str:
@@ -39,6 +41,19 @@ def normalize_key(raw: str) -> str:
 
 def clean_text(value: str | None) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
+
+
+def normalize_owner_candidates(values: list[str] | tuple[str, ...] | None) -> list[str]:
+    candidates: list[str] = []
+    seen: set[str] = set()
+    for raw in values or []:
+        for piece in re.split(r"[,\s]+", str(raw or "").strip()):
+            owner = clean_text(piece).lstrip("@")
+            if not owner or owner in seen:
+                continue
+            seen.add(owner)
+            candidates.append(owner)
+    return candidates
 
 
 def parse_accounts_file(path: Path) -> dict[str, str]:
@@ -121,6 +136,18 @@ def run_command(
     cwd: Path = REPO_ROOT,
     timeout: int = 120,
 ) -> subprocess.CompletedProcess[str]:
+    if args and args[0] == "clawhub":
+        clawhub_bin = (
+            os.environ.get("CLAWHUB_BIN", "").strip()
+            or shutil.which("clawhub")
+            or shutil.which("clawhub.cmd")
+            or shutil.which("clawhub.exe")
+        )
+        if clawhub_bin:
+            if os.name == "nt" and clawhub_bin.lower().endswith((".cmd", ".bat")):
+                args = ["cmd.exe", "/c", clawhub_bin, *args[1:]]
+            else:
+                args = [clawhub_bin, *args[1:]]
     merged_env = os.environ.copy()
     if env:
         merged_env.update(env)
@@ -129,6 +156,8 @@ def run_command(
         cwd=str(cwd),
         env=merged_env,
         text=True,
+        encoding="utf-8",
+        errors="replace",
         capture_output=True,
         timeout=timeout,
         check=False,
@@ -368,6 +397,7 @@ class ArtifactRef:
     path: str | None = None
     release_ref: str | None = None
     detail_url: str | None = None
+    skill_owner_candidates: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -381,13 +411,64 @@ class ScanResult:
     fetch_mode: str
     scan_status: str | None = None
     virus_total: str | None = None
+    virus_total_report_url: str | None = None
     openclaw_verdict: str | None = None
     openclaw_confidence: str | None = None
+    publisher_handle: str | None = None
     suspicious: bool = False
     suspicious_reason: str | None = None
     pending: bool = False
     warnings: list[str] = field(default_factory=list)
     checked_at: str = field(default_factory=iso_now)
+
+
+def extract_virustotal_report_url(page_html: str) -> str | None:
+    patterns = [
+        r'href="([^"]*virustotal\.com[^"]*)"\s*[^>]*>\s*View report',
+        r'href="([^"]*virustotal\.com[^"]*)"',
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, page_html, re.IGNORECASE)
+        if match:
+            return html.unescape(match.group(1))
+    return None
+
+
+def extract_publisher_handle(lines: list[str]) -> str | None:
+    text = "\n".join(lines)
+    match = re.search(r"by\s*@?\s*([A-Za-z0-9][A-Za-z0-9_-]*)", text, re.IGNORECASE)
+    if match:
+        return match.group(1)
+    match = re.search(r"@([A-Za-z0-9][A-Za-z0-9_-]*)", text)
+    return match.group(1) if match else None
+
+
+def candidate_detail_urls(
+    artifact: ArtifactRef,
+    payload: Any | None,
+    skill_owner_candidates: list[str],
+) -> list[str]:
+    candidates: list[str] = []
+    seen: set[str] = set()
+
+    def add(url: str | None) -> None:
+        if not url:
+            return
+        cleaned = clean_text(url)
+        if not cleaned or cleaned in seen:
+            return
+        seen.add(cleaned)
+        candidates.append(cleaned)
+
+    add(artifact.detail_url)
+    add(choose_clawhub_url(payload, artifact.kind, artifact.name) if payload is not None else None)
+
+    if artifact.kind == "plugin":
+        add(f"https://clawhub.ai/plugins/{artifact.name}")
+    else:
+        for owner in skill_owner_candidates:
+            add(f"https://clawhub.ai/{owner}/{artifact.name}")
+    return candidates
 
 
 def scan_needs_retry(result: ScanResult) -> bool:
@@ -398,22 +479,25 @@ def scan_artifact_status(
     artifact: ArtifactRef,
     *,
     inspect_payload_getter: Callable[[ArtifactRef], Any | None] | None = None,
+    skill_owner_candidates: list[str] | None = None,
     render_mode: str = "auto",
     request_timeout: int = 20,
     render_timeout_ms: int = 20000,
     render_wait_ms: int = 5000,
 ) -> ScanResult:
     warnings: list[str] = []
-    detail_url = artifact.detail_url
     payload: Any | None = None
-    if detail_url is None and inspect_payload_getter is not None:
+    if artifact.detail_url is None and inspect_payload_getter is not None:
         payload = inspect_payload_getter(artifact)
-        if payload is not None:
-            detail_url = choose_clawhub_url(payload, artifact.kind, artifact.name)
-    if detail_url is None and artifact.kind == "plugin":
-        detail_url = f"https://clawhub.ai/plugins/{artifact.name}"
+    owner_candidates = normalize_owner_candidates(artifact.skill_owner_candidates)
+    owner_candidates.extend(
+        owner for owner in normalize_owner_candidates(skill_owner_candidates) if owner not in owner_candidates
+    )
+    if artifact.kind == "skill" and not owner_candidates:
+        owner_candidates = list(DEFAULT_SKILL_OWNER_CANDIDATES)
 
-    if detail_url is None:
+    candidate_urls = candidate_detail_urls(artifact, payload, owner_candidates)
+    if not candidate_urls:
         return ScanResult(
             key=artifact.key,
             kind=artifact.kind,
@@ -422,42 +506,61 @@ def scan_artifact_status(
             detail_url=None,
             page_found=False,
             fetch_mode="unresolved",
+            scan_status="unresolved",
             pending=True,
             warnings=["Could not resolve a ClawHub detail URL for this artifact."],
         )
 
-    artifact.detail_url = detail_url
+    detail_url: str | None = None
     page_html = ""
     fetch_mode = "http"
-    try:
-        page_html = fetch_html(detail_url, request_timeout)
-    except urllib.error.HTTPError as exc:
+    last_fetch_warning: str | None = None
+    for candidate_url in candidate_urls:
+        try:
+            page_html = fetch_html(candidate_url, request_timeout)
+            detail_url = candidate_url
+            break
+        except urllib.error.HTTPError as exc:
+            last_fetch_warning = f"HTTP {exc.code} while fetching detail page."
+        except Exception as exc:  # noqa: BLE001
+            last_fetch_warning = clean_text(str(exc)) or "Failed to fetch detail page."
+        if render_mode != "off":
+            rendered_html, render_error = render_html(
+                candidate_url,
+                timeout_ms=render_timeout_ms,
+                wait_ms=render_wait_ms,
+            )
+            if rendered_html:
+                page_html = rendered_html
+                detail_url = candidate_url
+                fetch_mode = "rendered"
+                break
+            if render_error:
+                last_fetch_warning = f"{last_fetch_warning or 'Fetch failed.'} Render fallback failed: {render_error}"
+        if last_fetch_warning and "HTTP 404" in last_fetch_warning:
+            continue
+
+    if detail_url is None:
         return ScanResult(
             key=artifact.key,
             kind=artifact.kind,
             name=artifact.name,
             version=artifact.version,
-            detail_url=detail_url,
+            detail_url=candidate_urls[0],
             page_found=False,
             fetch_mode="http",
+            scan_status="unresolved",
             pending=True,
-            warnings=[f"HTTP {exc.code} while fetching detail page."],
-        )
-    except Exception as exc:  # noqa: BLE001
-        return ScanResult(
-            key=artifact.key,
-            kind=artifact.kind,
-            name=artifact.name,
-            version=artifact.version,
-            detail_url=detail_url,
-            page_found=False,
-            fetch_mode="http",
-            pending=True,
-            warnings=[clean_text(str(exc)) or "Failed to fetch detail page."],
+            warnings=[last_fetch_warning or "Failed to fetch detail page."],
         )
 
+    artifact.detail_url = detail_url
     lines = extract_text_lines(page_html)
-    if render_mode != "off" and (render_mode == "always" or needs_render(artifact.kind, lines, page_html)):
+    if (
+        fetch_mode != "rendered"
+        and render_mode != "off"
+        and (render_mode == "always" or needs_render(artifact.kind, lines, page_html))
+    ):
         rendered_html, render_error = render_html(
             detail_url,
             timeout_ms=render_timeout_ms,
@@ -471,16 +574,25 @@ def scan_artifact_status(
             warnings.append(f"Render fallback failed: {render_error}")
 
     virus_total = extract_status_after_label(lines, "VirusTotal")
+    virus_total_report_url = extract_virustotal_report_url(page_html)
     openclaw_verdict = extract_status_after_label(lines, "OpenClaw")
     openclaw_confidence = extract_openclaw_confidence(lines)
     scan_status = extract_scan_status(lines)
     suspicious_reason = extract_suspicious_reason(page_html, lines) or None
+    publisher_handle = extract_publisher_handle(lines)
     suspicious = any(status in {"suspicious", "malicious"} for status in (virus_total, openclaw_verdict, scan_status))
     pending = not suspicious and (
         not has_security_signals(lines)
         or virus_total in {None, "pending"}
         or openclaw_verdict in {None, "pending"}
     )
+    if scan_status is None:
+        if pending:
+            scan_status = "pending"
+        elif suspicious:
+            scan_status = "suspicious"
+        elif virus_total in {"benign", "clean", "safe"} and openclaw_verdict in {"benign", "clean", "safe"}:
+            scan_status = "clean"
     if pending and not suspicious_reason:
         warnings.append("Security scan output is still incomplete or pending.")
 
@@ -494,8 +606,10 @@ def scan_artifact_status(
         fetch_mode=fetch_mode,
         scan_status=scan_status,
         virus_total=virus_total,
+        virus_total_report_url=virus_total_report_url,
         openclaw_verdict=openclaw_verdict,
         openclaw_confidence=openclaw_confidence,
+        publisher_handle=publisher_handle,
         suspicious=suspicious,
         suspicious_reason=suspicious_reason,
         pending=pending,
@@ -587,6 +701,9 @@ def load_artifacts_from_state(
                 path=str(meta.get("path") or "") or None,
                 release_ref=str(meta.get("release_ref") or "") or None,
                 detail_url=str(live_scan.get("detail_url") or "") or None,
+                skill_owner_candidates=normalize_owner_candidates(
+                    [str(live_scan.get("publisher_handle") or "")] if live_scan else []
+                ),
             )
         )
     return artifacts
@@ -649,6 +766,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
         action="append",
         default=[],
         help="Optional explicit ClawHub token used for inspect-based skill URL resolution.",
+    )
+    parser.add_argument(
+        "--skill-owner",
+        action="append",
+        default=[],
+        help="Optional skill owner handle(s) used to guess skill detail URLs when inspect does not resolve them.",
     )
     parser.add_argument(
         "--config-root",
@@ -722,11 +845,13 @@ def main() -> int:
             )
 
     payload = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {"artifacts": {}}
+    skill_owner_candidates = normalize_owner_candidates(args.skill_owner) or list(DEFAULT_SKILL_OWNER_CANDIDATES)
     results: list[ScanResult] = []
     for artifact in artifacts:
         result = scan_artifact_status(
             artifact,
             inspect_payload_getter=session.inspect_payload if session else None,
+            skill_owner_candidates=skill_owner_candidates,
             render_mode=args.render_mode,
             request_timeout=args.request_timeout,
             render_timeout_ms=args.render_timeout_ms,

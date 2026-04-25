@@ -17,7 +17,7 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_UPSTREAM_URL = "https://github.com/AIsa-team/agent-skills.git"
-DEFAULT_UPSTREAM_BRANCH = "main"
+DEFAULT_UPSTREAM_BRANCH = "agentskills"
 DEFAULT_UPSTREAM_CACHE = REPO_ROOT / ".cache" / "upstream-agent-skills"
 DEFAULT_TARGET_ROOT = REPO_ROOT / "targetSkills"
 DEFAULT_STATE_FILE = REPO_ROOT / "targets" / "unified-pipeline-state.json"
@@ -386,7 +386,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--upstream-branch",
         default=DEFAULT_UPSTREAM_BRANCH,
-        help="Upstream branch to diff against.",
+        help="Upstream branch to diff against. Defaults to the published AIsa source branch `agentskills`.",
     )
     parser.add_argument(
         "--upstream-cache-dir",

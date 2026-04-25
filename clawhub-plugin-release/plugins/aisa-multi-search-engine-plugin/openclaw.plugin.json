@@ -1,7 +1,7 @@
 {
   "id": "aisa-multi-search-engine-plugin",
   "name": "AIsa Multi Search Engine",
-  "description": "Native-first ClawHub plugin for `aisa-multi-search-engine`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+  "description": "Requires python3, node, and AISA_API_KEY. Native-first ClawHub plugin for `aisa-multi-search-engine`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
   "version": "1.0.0",
   "skills": [
     "./skills"
@@ -20,6 +20,36 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "runtimeRequirements": {
+    "bins": [
+      "python3",
+      "node"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
+  "metadata": {
+    "aisa": {
+      "requires": {
+        "bins": [
+          "python3",
+          "node"
+        ],
+        "env": [
+          "AISA_API_KEY"
+        ]
+      },
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
+    }
   },
   "uiHints": {
     "emoji": "🔎"

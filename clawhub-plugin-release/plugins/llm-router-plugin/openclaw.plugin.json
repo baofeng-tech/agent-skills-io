@@ -1,7 +1,7 @@
 {
   "id": "llm-router-plugin",
   "name": "LLM Router",
-  "description": "Native-first ClawHub plugin for `llm-router`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `llm-router`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.",
   "version": "1.0.0",
   "skills": [
     "./skills"
@@ -20,6 +20,34 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "runtimeRequirements": {
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
+  "metadata": {
+    "aisa": {
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          "AISA_API_KEY"
+        ]
+      },
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
+    }
   },
   "uiHints": {
     "emoji": "🤖"

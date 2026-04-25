@@ -1,11 +1,27 @@
 {
   "name": "prediction-market-arbitrage-api-plugin",
-  "description": "Native-first ClawHub plugin for `prediction-market-arbitrage-api`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `prediction-market-arbitrage-api`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
   "version": "1.0.0",
   "author": {
     "name": "AIsa"
   },
   "homepage": "https://aisa.one",
   "repository": "https://github.com/AIsa-team/agent-skills",
-  "license": "MIT"
+  "license": "MIT",
+  "metadata": {
+    "aisa": {
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          "AISA_API_KEY"
+        ]
+      },
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
+    }
+  }
 }

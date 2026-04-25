@@ -1,7 +1,7 @@
 {
   "id": "aisa-provider-plugin",
   "name": "AIsa Provider",
-  "description": "Native-first ClawHub plugin for `aisa-provider`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.",
+  "description": "Requires AISA_API_KEY. Native-first ClawHub plugin for `aisa-provider`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.",
   "version": "1.0.0",
   "skills": [
     "./skills"
@@ -20,6 +20,28 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "runtimeRequirements": {
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
+  "metadata": {
+    "aisa": {
+      "requires": {
+        "env": [
+          "AISA_API_KEY"
+        ]
+      },
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
+    }
   },
   "uiHints": {
     "emoji": "🤖"

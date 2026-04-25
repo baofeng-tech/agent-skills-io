@@ -1,7 +1,7 @@
 {
   "id": "stock-rumors-plugin",
   "name": "Stock Rumors",
-  "description": "Native-first ClawHub plugin for `stock-rumors`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `stock-rumors`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
   "version": "1.0.0",
   "skills": [
     "./skills"
@@ -20,6 +20,34 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "runtimeRequirements": {
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
+  "metadata": {
+    "aisa": {
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          "AISA_API_KEY"
+        ]
+      },
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
+    }
   },
   "uiHints": {
     "emoji": "📊"

@@ -1,7 +1,7 @@
 {
   "name": "perplexity-research-plugin",
   "version": "1.0.0",
-  "description": "Native-first ClawHub plugin for `perplexity-research`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `perplexity-research`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
   "license": "Apache-2.0",
   "type": "module",
   "keywords": [
@@ -19,6 +19,36 @@
     "type": "git",
     "url": "https://github.com/AIsa-team/agent-skills.git"
   },
+  "metadata": {
+    "aisa": {
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          "AISA_API_KEY"
+        ]
+      },
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
+    }
+  },
+  "aisa": {
+    "requires": {
+      "bins": [
+        "python3"
+      ],
+      "env": [
+        "AISA_API_KEY"
+      ]
+    },
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
   "openclaw": {
     "extensions": [
       "./index.ts"
@@ -28,6 +58,18 @@
     },
     "build": {
       "openclawVersion": "^1.0.0"
+    },
+    "runtimeRequirements": {
+      "bins": [
+        "python3"
+      ],
+      "env": [
+        "AISA_API_KEY"
+      ],
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
     }
   }
 }

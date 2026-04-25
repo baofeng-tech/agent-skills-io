@@ -17,6 +17,32 @@ SOURCE_ROOT = REPO_ROOT / "targetSkills"
 OUTPUT_ROOT = REPO_ROOT / "clawhub-release"
 
 
+def parse_version_parts(value: Any) -> tuple[int, ...]:
+    if value is None:
+        return ()
+    parts: list[int] = []
+    for raw in str(value).split("."):
+        raw = raw.strip()
+        if not raw or not raw.isdigit():
+            return ()
+        parts.append(int(raw))
+    return tuple(parts)
+
+
+def choose_release_version(source_version: Any, existing_version: Any) -> str:
+    source_text = str(source_version).strip() if source_version not in (None, "") else ""
+    existing_text = str(existing_version).strip() if existing_version not in (None, "") else ""
+    source_parts = parse_version_parts(source_text)
+    existing_parts = parse_version_parts(existing_text)
+    if source_parts and existing_parts:
+        return existing_text if existing_parts > source_parts else source_text
+    if source_text:
+        return source_text
+    if existing_text:
+        return existing_text
+    return "1.0.0"
+
+
 def detect_domain(name: str, description: str) -> str:
     lower = f"{name} {description}".lower()
     if "last30days" in lower:
@@ -116,6 +142,15 @@ def infer_entrypoints(skill_dir: Path) -> list[str]:
         if len(commands) >= 3:
             break
     return commands
+
+
+def infer_optional_envs(skill_dir: Path, profile: str) -> list[str]:
+    scripts_dir = skill_dir / "scripts"
+    if profile in {"twitter", "twitter_api"}:
+        return ["TWITTER_RELAY_BASE_URL", "TWITTER_RELAY_TIMEOUT"]
+    if (scripts_dir / "twitter_oauth_client.py").exists() or (scripts_dir / "twitter_engagement_client.py").exists():
+        return ["TWITTER_RELAY_BASE_URL", "TWITTER_RELAY_TIMEOUT"]
+    return []
 
 
 def resolve_clawhub_slug(skill_dir: Path, frontmatter: dict[str, Any]) -> str:
@@ -307,6 +342,7 @@ def domain_sections(skill_name: str, domain: str, zh: bool) -> tuple[list[str], 
 
 def build_body(skill_dir: Path, skill_name: str, description: str, domain: str, zh: bool) -> str:
     when_to_use, workflows, example_requests, guardrails = domain_sections(skill_name, domain, zh)
+    profile = release_profile(skill_name, domain)
     quick_reference = infer_entrypoints(skill_dir)
     setup_lines = [
         "- `AISA_API_KEY` is required for AIsa-backed API access.",
@@ -319,6 +355,29 @@ def build_body(skill_dir: Path, skill_name: str, description: str, domain: str, 
             "- 使用公开包里的相对 `scripts/` 路径。",
             "- 如果脚本提供显式鉴权参数，优先使用该参数。",
         ]
+    if profile in {"twitter", "twitter_api"}:
+        if zh:
+            setup_lines.extend(
+                [
+                    "- 可选：设置 `TWITTER_RELAY_BASE_URL` 来覆盖默认 relay `https://api.aisa.one/apis/v1/twitter`。",
+                    "- 可选：设置 `TWITTER_RELAY_TIMEOUT` 来调整 relay 请求超时秒数。",
+                    "- OAuth 请求以及经用户批准的媒体上传默认都会通过 `https://api.aisa.one/apis/v1/twitter` 中继。",
+                    "- 只需要提供 `AISA_API_KEY`，不要使用密码、Cookie 或浏览器凭据导出。",
+                ]
+            )
+            guardrails.append("只在用户明确附加本地文件时上传媒体，且要说明这些文件会先传到当前配置的 AIsa relay。")
+        else:
+            setup_lines.extend(
+                [
+                    "- Optional: set `TWITTER_RELAY_BASE_URL` to override the default relay `https://api.aisa.one/apis/v1/twitter`.",
+                    "- Optional: set `TWITTER_RELAY_TIMEOUT` to tune relay request timeouts in seconds.",
+                    "- OAuth requests and any user-approved media uploads use the configured AIsa relay and default to `https://api.aisa.one/apis/v1/twitter`.",
+                    "- Provide only `AISA_API_KEY`; do not use passwords, cookies, or browser credential export.",
+                ]
+            )
+            guardrails.append(
+                "Only upload local files the user explicitly attached, and make it clear those files are sent to the configured AIsa relay first."
+            )
 
     lines = [f"# {release_heading(skill_name, domain)}", "", description]
 
@@ -350,14 +409,22 @@ def build_body(skill_dir: Path, skill_name: str, description: str, domain: str, 
     return "\n".join(lines) + "\n"
 
 
-def clean_frontmatter(skill_dir: Path, frontmatter: dict[str, Any], publish_name: str) -> dict[str, Any]:
+def clean_frontmatter(
+    skill_dir: Path,
+    frontmatter: dict[str, Any],
+    publish_name: str,
+    *,
+    existing_version: str | None = None,
+) -> dict[str, Any]:
     canonical_name = str(frontmatter.get("name") or skill_dir.name).strip()
     name = publish_name.strip() or canonical_name
     domain = detect_domain(canonical_name, str(frontmatter.get("description") or ""))
+    profile = release_profile(name, domain)
     description = build_description(name, domain, is_zh_variant(name))
     bins = infer_required_bins(skill_dir)
     envs = ["AISA_API_KEY"] if needs_aisa_key(skill_dir) else []
-    version = frontmatter.get("version") or "1.0.0"
+    optional_envs = infer_optional_envs(skill_dir, profile)
+    version = choose_release_version(frontmatter.get("version"), existing_version)
     license_value = frontmatter.get("license") or "Apache-2.0"
     cleaned: dict[str, Any] = {
         "name": name,
@@ -382,6 +449,7 @@ def clean_frontmatter(skill_dir: Path, frontmatter: dict[str, Any], publish_name
                 "bins": bins,
                 "env": envs,
             },
+            "optionalEnv": optional_envs,
             "primaryEnv": "AISA_API_KEY" if envs else None,
             "compatibility": ["openclaw", "claude-code", "hermes"],
         },
@@ -391,6 +459,7 @@ def clean_frontmatter(skill_dir: Path, frontmatter: dict[str, Any], publish_name
                 "bins": bins,
                 "env": envs,
             },
+            "optionalEnv": optional_envs,
             "primaryEnv": "AISA_API_KEY" if envs else None,
         },
     }
@@ -415,11 +484,19 @@ def build_skill(src_dir: Path) -> base.SkillAudit:
     frontmatter, _body = base.load_frontmatter(src_dir / "SKILL.md")
     publish_name = resolve_clawhub_slug(src_dir, frontmatter)
     out_dir = OUTPUT_ROOT / publish_name
+    existing_frontmatter: dict[str, Any] = {}
+    if (out_dir / "SKILL.md").exists():
+        existing_frontmatter, _existing_body = base.load_frontmatter(out_dir / "SKILL.md")
     shutil.rmtree(out_dir, ignore_errors=True)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     kept = base.copy_tree(src_dir, out_dir)
-    cleaned_frontmatter = clean_frontmatter(src_dir, frontmatter, publish_name)
+    cleaned_frontmatter = clean_frontmatter(
+        src_dir,
+        frontmatter,
+        publish_name,
+        existing_version=str(existing_frontmatter.get("version") or "") or None,
+    )
     domain = detect_domain(publish_name, str(frontmatter.get("description") or cleaned_frontmatter["description"]))
     zh = is_zh_variant(src_dir.name)
 
