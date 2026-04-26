@@ -289,14 +289,57 @@ def extract_response_text(config: ClientConfig, payload: dict[str, Any]) -> str:
     return "\n".join(str(part.get("text") or "").strip() for part in parts if isinstance(part, dict)).strip()
 
 
+def iter_balanced_json_objects(text: str) -> list[str]:
+    objects: list[str] = []
+    seen: set[str] = set()
+    in_string = False
+    escaped = False
+    depth = 0
+    start: int | None = None
+
+    for index, char in enumerate(text):
+        if in_string:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == '"':
+                in_string = False
+            continue
+
+        if char == '"':
+            in_string = True
+            continue
+        if char == "{":
+            if depth == 0:
+                start = index
+            depth += 1
+            continue
+        if char == "}" and depth > 0:
+            depth -= 1
+            if depth == 0 and start is not None:
+                candidate = text[start : index + 1].strip()
+                if candidate and candidate not in seen:
+                    seen.add(candidate)
+                    objects.append(candidate)
+                start = None
+    return objects
+
+
 def extract_json(text: str) -> dict[str, Any]:
-    candidates = [text.strip()]
-    fence_match = re.search(r"```json\s*(\{[\s\S]*\})\s*```", text, re.IGNORECASE)
-    if fence_match:
-        candidates.insert(0, fence_match.group(1).strip())
-    brace_match = re.search(r"(\{[\s\S]*\})", text)
-    if brace_match:
-        candidates.append(brace_match.group(1).strip())
+    candidates: list[str] = []
+
+    def add_candidate(value: str) -> None:
+        cleaned = value.strip().lstrip("\ufeff")
+        if cleaned and cleaned not in candidates:
+            candidates.append(cleaned)
+
+    add_candidate(text)
+    for fenced in re.findall(r"```(?:json)?\s*([\s\S]*?)```", text, re.IGNORECASE):
+        add_candidate(fenced)
+    for candidate in iter_balanced_json_objects(text):
+        add_candidate(candidate)
+
     for candidate in candidates:
         if not candidate:
             continue
@@ -307,6 +350,27 @@ def extract_json(text: str) -> dict[str, Any]:
         if isinstance(value, dict):
             return value
     raise RuntimeError("Model output was not valid JSON.")
+
+
+def coerce_json_response(config: ClientConfig, raw_response: str) -> str:
+    repair_messages = [
+        {
+            "role": "system",
+            "content": (
+                "You convert prior model output into strict JSON only. "
+                "Return a single JSON object with keys summary, skill_md, readme_md, notes and no surrounding prose."
+            ),
+        },
+        {
+            "role": "user",
+            "content": (
+                "Reformat the following output into strict JSON only. "
+                "Do not change the meaning of the fields.\n\n"
+                f"{raw_response}"
+            ),
+        },
+    ]
+    return extract_response_text(config, request_payload(config, repair_messages))
 
 
 def validate_proposal(skill_dir: Path, proposal: dict[str, Any]) -> None:
@@ -360,7 +424,11 @@ def main() -> int:
     for skill_dir in skill_dirs:
         messages = build_messages(skill_dir, context)
         raw_response = extract_response_text(config, request_payload(config, messages))
-        proposal = extract_json(raw_response)
+        try:
+            proposal = extract_json(raw_response)
+        except RuntimeError:
+            raw_response = coerce_json_response(config, raw_response)
+            proposal = extract_json(raw_response)
         validate_proposal(skill_dir, proposal)
 
         proposal_path = proposal_root / f"{skill_dir.name}.json"
