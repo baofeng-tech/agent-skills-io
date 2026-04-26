@@ -73,7 +73,7 @@ python3 scripts/clawhub_live_status.py --targets both
   - hosted sync/build/test on schedule or manual dispatch
   - hosted suspicious diagnosis update (`targets/clawhub-suspicious-diagnosis.json`) plus optional diagnosis PR
   - self-hosted true publish for `AIsa-team/agent-skills` (`main` branch), `baofeng-tech/agent-skills-so`, `baofeng-tech/agent-skills`, Claude, Claude marketplace, Hermes, and optional ClawHub batch publish
-  - optional self-hosted suspicious-remediation loop for targeted ClawHub artifacts such as `skill:aisa-twitter-api` and `plugin:aisa-twitter-engagement-suite-plugin`
+  - optional self-hosted suspicious-remediation loop for targeted ClawHub artifacts such as `skill:aisa-twitter-api-command-center` and `plugin:aisa-twitter-engagement-suite-plugin`
 - hosted upstream sync now targets `AIsa-team/agent-skills@main` by default
 - workflow dispatch now supports explicit LLM refinement (`run_llm_step`, `llm_apply`, `sync_repo_skills`) before release rebuild/publish
 - workflow dispatch now also supports targeted suspicious remediation (`run_suspicious_repair`, `suspicious_artifacts`) that can apply repo-local LLM refinement and force a republish of matching artifacts

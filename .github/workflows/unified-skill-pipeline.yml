@@ -83,7 +83,7 @@ on:
       suspicious_artifacts:
         description: "Optional comma-separated suspicious artifact keys to target"
         required: false
-        default: "skill:aisa-twitter-api,plugin:aisa-twitter-engagement-suite-plugin"
+        default: "skill:aisa-twitter-api-command-center,plugin:aisa-twitter-engagement-suite-plugin"
         type: string
   schedule:
     - cron: "21 */2 * * *"
@@ -250,7 +250,7 @@ jobs:
       PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || 'both' }}
       PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || 'false' }}
       PIPELINE_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || 'false' }}
-      PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || 'skill:aisa-twitter-api,plugin:aisa-twitter-engagement-suite-plugin' }}
+      PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || 'skill:aisa-twitter-api-command-center,plugin:aisa-twitter-engagement-suite-plugin' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
       AI_API_KEY: ${{ secrets.AI_API_KEY }}

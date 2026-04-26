@@ -173,7 +173,7 @@ Current workflow-dispatch controls for this lane:
 
 Current default targeted blocker set:
 
-- `skill:aisa-twitter-api`
+- `skill:aisa-twitter-api-command-center`
 - `plugin:aisa-twitter-engagement-suite-plugin`
 
 ### Suspicious diagnosis chain
@@ -336,4 +336,4 @@ Recommended manual-dispatch pattern:
 - enable `sync_adjacent_repos=true` when you want downstream GitHub publish
 - set `clawhub_publish=skill`, `plugin`, or `both` only when the self-hosted runner is ready for live publish
 - keep `clawhub_dry_run=true` for the first publish rehearsal, then flip it to `false` for real continuation
-- enable `run_suspicious_repair=true` plus `suspicious_artifacts=skill:aisa-twitter-api,plugin:aisa-twitter-engagement-suite-plugin` when you want the runner to diagnose, minimally rewrite, and republish that live blocker set
+- enable `run_suspicious_repair=true` plus `suspicious_artifacts=skill:aisa-twitter-api-command-center,plugin:aisa-twitter-engagement-suite-plugin` when you want the runner to diagnose, minimally rewrite, and republish that live blocker set

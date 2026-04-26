@@ -1,16 +1,16 @@
 {
   "summary": {
-    "artifacts": 39,
-    "blockers": 32,
+    "artifacts": 38,
+    "blockers": 31,
     "warnings": 7,
     "pending": 2,
     "rules": {
       "metadata_env_mismatch": 30,
-      "oauth_upload_side_effects": 10,
+      "oauth_upload_side_effects": 9,
       "pending_scan": 20,
       "platform_trust_gap": 21,
       "prompt_scaffold_copy": 1,
-      "relay_trust_surface": 21
+      "relay_trust_surface": 20
     }
   },
   "artifacts": [
@@ -713,35 +713,6 @@
       "local_path": "clawhub-release/aisa-twitter",
       "release_ref": null,
       "reason": "The package is a coherent Twitter/X relay client that contacts api.aisa.one and requires an AISA_API_KEY, but the registry metadata and package frontmatter disagree about required env and versioning—confirm the missing environment declaration and trust in the relay before installing."
-    },
-    {
-      "key": "skill:aisa-twitter-api",
-      "kind": "skill",
-      "name": "aisa-twitter-api",
-      "severity": "blocker",
-      "scan_status": "suspicious",
-      "virus_total": "benign",
-      "openclaw_verdict": "suspicious",
-      "suspicious": true,
-      "pending": false,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/aisapay/aisa-twitter-api",
-      "local_path": ".tmp-clawhub-batch\\skills\\aisa-twitter-api",
-      "release_ref": null,
-      "reason": "The skill does what its name/description claim (search/post to X) but routes all traffic, OAuth, and uploaded media through a third-party relay (aisa.one) and has a few minor mismatches that increase privacy/exfiltration risk."
     },
     {
       "key": "skill:openclaw-aisa-youtube-aisa",

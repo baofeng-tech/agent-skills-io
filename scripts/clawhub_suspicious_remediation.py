@@ -278,7 +278,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--artifacts",
         default="",
-        help="Comma-separated exact artifact keys such as skill:aisa-twitter-api,plugin:aisa-twitter-api-plugin.",
+        help="Comma-separated exact artifact keys such as skill:aisa-twitter-api-command-center,plugin:aisa-twitter-engagement-suite-plugin.",
     )
     parser.add_argument(
         "--contains",

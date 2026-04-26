@@ -14,6 +14,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TARGET_ROOT = REPO_ROOT / "targetSkills"
@@ -46,6 +48,43 @@ class ClientConfig:
     base_url: str
     api_key: str
     model: str
+
+
+def split_skill_document(text: str) -> tuple[dict[str, Any] | None, str]:
+    if not text.startswith("---"):
+        return None, text
+    parts = text.split("---", 2)
+    if len(parts) < 3:
+        return None, text
+    try:
+        frontmatter = yaml.safe_load(parts[1]) or {}
+    except yaml.YAMLError:
+        return None, text
+    if not isinstance(frontmatter, dict):
+        return None, text
+    return frontmatter, parts[2].lstrip("\r\n")
+
+
+def render_skill_document(frontmatter: dict[str, Any], body: str) -> str:
+    frontmatter_text = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True).strip()
+    body_text = body.lstrip("\r\n").rstrip()
+    return f"---\n{frontmatter_text}\n---\n\n{body_text}\n"
+
+
+def stabilize_skill_md(skill_dir: Path, proposal_skill_md: str) -> str:
+    original_frontmatter, original_body = split_skill_document(load_text(skill_dir / "SKILL.md"))
+    proposal_frontmatter, proposal_body = split_skill_document(proposal_skill_md)
+    if original_frontmatter is None or proposal_frontmatter is None:
+        return proposal_skill_md
+
+    # Keep release/runtime frontmatter stable and only allow the LLM to refresh
+    # user-facing copy such as the description and markdown body.
+    merged_frontmatter = dict(original_frontmatter)
+    proposed_description = proposal_frontmatter.get("description")
+    if isinstance(proposed_description, str) and proposed_description.strip():
+        merged_frontmatter["description"] = proposed_description.strip()
+
+    return render_skill_document(merged_frontmatter, proposal_body or original_body)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -429,6 +468,7 @@ def main() -> int:
         except RuntimeError:
             raw_response = coerce_json_response(config, raw_response)
             proposal = extract_json(raw_response)
+        proposal["skill_md"] = stabilize_skill_md(skill_dir, str(proposal.get("skill_md") or ""))
         validate_proposal(skill_dir, proposal)
 
         proposal_path = proposal_root / f"{skill_dir.name}.json"

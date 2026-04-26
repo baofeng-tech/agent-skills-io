@@ -10,8 +10,11 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+TARGET_SKILL_ROOT = REPO_ROOT / "targetSkills"
 DEFAULT_STATUS_FILE = REPO_ROOT / "targets" / "clawhub-live-status.json"
 DEFAULT_PUBLISH_STATE = REPO_ROOT / "targets" / "clawhub-publish-state.json"
 DEFAULT_OUTPUT_FILE = REPO_ROOT / "targets" / "clawhub-suspicious-diagnosis.json"
@@ -87,6 +90,105 @@ def normalize_text(value: str | None) -> str:
     return re.sub(r"\s+", " ", value or "").strip().lower()
 
 
+def load_frontmatter(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith("---"):
+        return {}
+    parts = text.split("---", 2)
+    if len(parts) < 3:
+        return {}
+    data = yaml.safe_load(parts[1]) or {}
+    return data if isinstance(data, dict) else {}
+
+
+def resolve_clawhub_slug(skill_name: str, frontmatter: dict[str, Any]) -> str:
+    metadata = frontmatter.get("metadata") if isinstance(frontmatter.get("metadata"), dict) else {}
+    candidates: list[Any] = [
+        frontmatter.get("clawhub-slug"),
+        frontmatter.get("clawhub_slug"),
+    ]
+    for scope in ("clawhub", "openclaw", "aisa"):
+        scoped = metadata.get(scope) if isinstance(metadata, dict) else None
+        if not isinstance(scoped, dict):
+            continue
+        candidates.extend(
+            [
+                scoped.get("slug"),
+                scoped.get("clawhubSlug"),
+                scoped.get("clawhub_slug"),
+            ]
+        )
+    for candidate in candidates:
+        if isinstance(candidate, str) and candidate.strip():
+            return candidate.strip()
+    return skill_name
+
+
+def build_clawhub_alias_maps() -> tuple[dict[str, str], dict[str, str]]:
+    source_to_alias: dict[str, str] = {}
+    alias_to_source: dict[str, str] = {}
+    if not TARGET_SKILL_ROOT.exists():
+        return source_to_alias, alias_to_source
+
+    for skill_dir in sorted(path for path in TARGET_SKILL_ROOT.iterdir() if path.is_dir()):
+        frontmatter = load_frontmatter(skill_dir / "SKILL.md")
+        alias = resolve_clawhub_slug(skill_dir.name, frontmatter)
+        source_to_alias[skill_dir.name] = alias
+        alias_to_source[alias] = skill_dir.name
+    return source_to_alias, alias_to_source
+
+
+def resolve_source_skill_name(kind: str, name: str, alias_to_source: dict[str, str]) -> str | None:
+    if kind == "skill":
+        if (TARGET_SKILL_ROOT / name / "SKILL.md").exists():
+            return name
+        return alias_to_source.get(name)
+
+    if kind == "plugin" and name.endswith("-plugin"):
+        base = name[: -len("-plugin")]
+        if (TARGET_SKILL_ROOT / base / "SKILL.md").exists():
+            return base
+        return alias_to_source.get(base)
+
+    return None
+
+
+def current_artifact_key(kind: str, source_skill: str, source_to_alias: dict[str, str]) -> str:
+    alias = source_to_alias.get(source_skill) or source_skill
+    if kind == "plugin":
+        return f"plugin:{alias}-plugin"
+    return f"skill:{alias}"
+
+
+def is_superseded_by_clean_alias(
+    item: dict[str, Any],
+    status_lookup: dict[str, dict[str, Any]],
+    source_to_alias: dict[str, str],
+    alias_to_source: dict[str, str],
+) -> bool:
+    kind = str(item.get("kind") or "").strip()
+    name = str(item.get("name") or "").strip()
+    key = str(item.get("key") or "").strip()
+    if kind not in {"skill", "plugin"} or not name or not key:
+        return False
+
+    source_skill = resolve_source_skill_name(kind, name, alias_to_source)
+    if not source_skill:
+        return False
+
+    current_key = current_artifact_key(kind, source_skill, source_to_alias)
+    if current_key == key:
+        return False
+
+    current_item = status_lookup.get(current_key)
+    if not isinstance(current_item, dict):
+        return False
+
+    return not bool(current_item.get("suspicious")) and not bool(current_item.get("pending"))
+
+
 def classify_rules(item: dict[str, Any]) -> list[str]:
     reason = normalize_text(item.get("suspicious_reason"))
     status = normalize_text(item.get("scan_status"))
@@ -132,10 +234,18 @@ def render_artifact_record(item: dict[str, Any], publish_meta: dict[str, Any]) -
 
 def build_payload(status_payload: dict[str, Any], publish_payload: dict[str, Any]) -> dict[str, Any]:
     publish_artifacts = publish_payload.get("artifacts") or {}
+    source_to_alias, alias_to_source = build_clawhub_alias_maps()
+    status_items = [item for item in (status_payload.get("artifacts") or []) if isinstance(item, dict)]
+    status_lookup = {
+        str(item.get("key") or "").strip(): item
+        for item in status_items
+        if str(item.get("key") or "").strip()
+    }
     artifacts = [
         render_artifact_record(item, publish_artifacts.get(str(item.get("key") or ""), {}))
-        for item in (status_payload.get("artifacts") or [])
+        for item in status_items
         if item.get("suspicious") or item.get("pending")
+        if not is_superseded_by_clean_alias(item, status_lookup, source_to_alias, alias_to_source)
     ]
     artifacts.sort(key=lambda item: (item["severity"] != "blocker", item["kind"], item["name"]))
     rule_counter = Counter(rule_id for artifact in artifacts for rule_id in artifact["rule_ids"])

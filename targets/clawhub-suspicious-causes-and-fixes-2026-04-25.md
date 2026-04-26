@@ -126,19 +126,19 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`39`
-- `blocker`：`32`
+- 诊断对象数：`38`
+- `blocker`：`31`
 - `warning`：`7`
 - `pending`：`2`
 
 ### 当前高频规则
 
 - `metadata_env_mismatch`: `30`
-- `oauth_upload_side_effects`: `10`
+- `oauth_upload_side_effects`: `9`
 - `pending_scan`: `20`
 - `platform_trust_gap`: `21`
 - `prompt_scaffold_copy`: `1`
-- `relay_trust_surface`: `21`
+- `relay_trust_surface`: `20`
 
 ### 当前重点对象
 
