@@ -795,8 +795,9 @@ GitHub Actions 工作流层。
 - GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；当前下游 GitHub 目标已覆盖 `AIsa-team/agent-skills@main`、`baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每 2 小时一次（`21 */2 * * *`）
 - GitHub Actions checkout 后置失败修复：hosted lane 已改为 `persist-credentials: false` + explicit token push，避免此前的 post-job `exit code 128`
-- GitHub Actions suspicious 修复闭环：workflow dispatch 已支持显式 LLM 精修（`run_llm_step` / `llm_apply` / `sync_repo_skills`），并新增 self-hosted 的 targeted suspicious remediation，可针对 `skill:aisa-twitter-api`、`plugin:aisa-twitter-api-plugin` 这类指定 artifact 做诊断、最小改写、定向重发与回写
+- GitHub Actions suspicious 修复闭环：workflow dispatch 已支持显式 LLM 精修（`run_llm_step` / `llm_apply` / `sync_repo_skills`），并新增 self-hosted 的 targeted suspicious remediation，可针对 `skill:aisa-twitter-api`、`plugin:aisa-twitter-engagement-suite-plugin` 这类指定 artifact 做诊断、最小改写、定向重发与回写
 - GitHub Actions self-hosted 与 hosted 衔接：self-hosted lane 在准备下游发布前会先 fast-forward 到远端最新 `main`，避免 hosted lane 先行 auto-commit 后造成后续 non-fast-forward push 失败
+- GitHub Actions self-hosted 凭据回退：当 `DOWNSTREAM_REPO_TOKEN`、ClawHub tokens、AI config 等 CI secrets 未配置时，当前 runner 会回退读取本机 `/mnt/d/workplace/agent-skills-io/example/accounts`，并优先使用公开 HTTPS clone 准备下游仓库，避免 SSH 超时卡死在发布前置阶段
 - ClawHub 2026-04-25 真实续发：已通过 Windows 侧 `py -3` + `clawhub` 继续完成一轮真实 skill/plugin 续发，并把 live scan 状态回写主 publish state
 - ClawHub `twitter` 测试结论：新 ClawHub 专用 slug `aisa-twitter-research-engage-relay` 已真实发布到 `1.0.5`；skill 与 plugin 页当前都已回到 `openclaw=benign`，两者都仍处于 `VirusTotal=pending`；这轮修复实际覆盖了 relay disclosure、plugin 顶层 metadata、summary description 前置 requirement，以及 `twitter_client.py` 对 `TWITTER_RELAY_BASE_URL` 的运行时对齐
 - `last30days` 当前策略：不再通过 `MANUAL_REVIEW_RULES` 跳过统一同步；如果上游扩大了公开发布面，应在 release layer、诊断规则或 targeted remediation 里显式收口，而不是停留在母版同步入口
