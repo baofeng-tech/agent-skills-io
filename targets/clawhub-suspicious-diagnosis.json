@@ -1,19 +1,270 @@
 {
   "summary": {
-    "artifacts": 61,
-    "blockers": 20,
-    "warnings": 41,
-    "pending": 36,
+    "artifacts": 39,
+    "blockers": 32,
+    "warnings": 7,
+    "pending": 2,
     "rules": {
-      "metadata_env_mismatch": 18,
-      "oauth_upload_side_effects": 7,
-      "pending_scan": 44,
-      "platform_trust_gap": 13,
+      "metadata_env_mismatch": 30,
+      "oauth_upload_side_effects": 10,
+      "pending_scan": 20,
+      "platform_trust_gap": 21,
       "prompt_scaffold_copy": 1,
-      "relay_trust_surface": 12
+      "relay_trust_surface": 21
     }
   },
   "artifacts": [
+    {
+      "key": "plugin:aisa-multi-search-engine-plugin",
+      "kind": "plugin",
+      "name": "aisa-multi-search-engine-plugin",
+      "severity": "blocker",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "benign",
+      "suspicious": false,
+      "pending": true,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "pending_scan"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "Security scan output is not final yet."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/aisa-multi-search-engine-plugin",
+      "local_path": "clawhub-plugin-release/plugins/aisa-multi-search-engine-plugin",
+      "release_ref": null,
+      "reason": "Detected: suspicious.env_credential_access"
+    },
+    {
+      "key": "plugin:aisa-perplexity-search-sonar-plugin",
+      "kind": "plugin",
+      "name": "aisa-perplexity-search-sonar-plugin",
+      "severity": "blocker",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "pending_scan",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "Security scan output is not final yet.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/aisa-perplexity-search-sonar-plugin",
+      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-perplexity-search-sonar-plugin",
+      "release_ref": "rd793hcmfwpqtqwj53zht0hs7d85expt",
+      "reason": "The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing."
+    },
+    {
+      "key": "plugin:aisa-provider-plugin",
+      "kind": "plugin",
+      "name": "aisa-provider-plugin",
+      "severity": "blocker",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "pending_scan",
+        "platform_trust_gap",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "Security scan output is not final yet.",
+        "Trust and provenance surfaces are weaker than the package behavior requires.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved.",
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/aisa-provider-plugin",
+      "local_path": "clawhub-plugin-release/plugins/aisa-provider-plugin",
+      "release_ref": "rd7cej56ctdn4wchzn37xffgg585bbya",
+      "reason": "The package is mostly coherent for an API-provider plugin (it legitimately needs an AISA_API_KEY), but there are mismatches between the registry metadata and the packaged files and a few packaging/instruction gaps that should be resolved before trusting it with credentials."
+    },
+    {
+      "key": "plugin:aisa-tavily-plugin",
+      "kind": "plugin",
+      "name": "aisa-tavily-plugin",
+      "severity": "blocker",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "pending_scan",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "Security scan output is not final yet.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/aisa-tavily-plugin",
+      "local_path": "clawhub-plugin-release/plugins/aisa-tavily-plugin",
+      "release_ref": "rd70n4zbmehc5smb3n8k0z7tbd85a9d8",
+      "reason": "The package's code and SKILL.md consistently require a single AISA_API_KEY and call aisa.one APIs (which matches the research purpose), but the registry-level metadata omits those requirements — an incoherence that warrants caution before installing."
+    },
+    {
+      "key": "plugin:aisa-tavily-search-plugin",
+      "kind": "plugin",
+      "name": "aisa-tavily-search-plugin",
+      "severity": "blocker",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "pending_scan",
+        "platform_trust_gap",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "Security scan output is not final yet.",
+        "Trust and provenance surfaces are weaker than the package behavior requires.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved.",
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/aisa-tavily-search-plugin",
+      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-tavily-search-plugin",
+      "release_ref": null,
+      "reason": "The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials."
+    },
+    {
+      "key": "plugin:aisa-twitter-engagement-suite-plugin",
+      "kind": "plugin",
+      "name": "aisa-twitter-engagement-suite-plugin",
+      "severity": "blocker",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "oauth_upload_side_effects",
+        "pending_scan",
+        "platform_trust_gap",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Security scan output is not final yet.",
+        "Trust and provenance surfaces are weaker than the package behavior requires.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved.",
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-engagement-suite-plugin",
+      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-engagement-suite-plugin",
+      "release_ref": "rd7cb53t8ce2pc5rsyzxtfkyas85ay3r",
+      "reason": "The package's code and instructions match a Twitter/X engagement skill that uses a relay (api.aisa.one) and requires an AISA_API_KEY, but registry metadata and some packaging fields are inconsistent and this skill will upload local attachments to an external service — review the relay trust and the API key scope before installing."
+    },
+    {
+      "key": "plugin:aisa-twitter-post-engage-plugin",
+      "kind": "plugin",
+      "name": "aisa-twitter-post-engage-plugin",
+      "severity": "blocker",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "oauth_upload_side_effects",
+        "pending_scan",
+        "platform_trust_gap",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Security scan output is not final yet.",
+        "Trust and provenance surfaces are weaker than the package behavior requires.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved.",
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-post-engage-plugin",
+      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-post-engage-plugin",
+      "release_ref": null,
+      "reason": "The package is largely coherent for a Twitter/X relay-based engagement and OAuth posting skill, but there are metadata inconsistencies (the registry metadata claims no required credentials while the shipped manifests and scripts require AISA_API_KEY) that should be clarified before installing."
+    },
     {
       "key": "plugin:last30days-plugin",
       "kind": "plugin",
@@ -118,6 +369,39 @@
       "reason": "The package's code and SKILL.md are coherent with a Twitter/X engagement/posting skill (using an AIsa relay) but the registry metadata and top-level claims contradict the actual requirements and there is reliance on a third-party relay (AISA_API_KEY) that the user must trust."
     },
     {
+      "key": "plugin:prediction-market-arbitrage-api-plugin",
+      "kind": "plugin",
+      "name": "prediction-market-arbitrage-api-plugin",
+      "severity": "blocker",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "pending_scan",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "Security scan output is not final yet.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/prediction-market-arbitrage-api-plugin",
+      "local_path": "clawhub-plugin-release/plugins/prediction-market-arbitrage-api-plugin",
+      "release_ref": "rd77xfn59w0dmeywg0jqbm8sw585bf19",
+      "reason": "The package appears to implement a prediction-market arbitrage client that only talks to api.aisa.one and requires an AISA_API_KEY, but the registry metadata advertised at the top is inconsistent with the shipped manifests (missing declared env/binary requirements), so review before installing."
+    },
+    {
       "key": "plugin:smart-search-plugin",
       "kind": "plugin",
       "name": "smart-search-plugin",
@@ -184,6 +468,39 @@
       "reason": "The package mostly matches a stock-analysis skill, but the published registry metadata (saying no env vars/credentials required) contradicts the embedded plugin and SKILL.md which require an AISA_API_KEY and contact an external AIsa API — this mismatch should be clarified before installing."
     },
     {
+      "key": "plugin:stock-rumors-plugin",
+      "kind": "plugin",
+      "name": "stock-rumors-plugin",
+      "severity": "blocker",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "pending_scan",
+        "platform_trust_gap"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "Security scan output is not final yet.",
+        "Trust and provenance surfaces are weaker than the package behavior requires."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved.",
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/stock-rumors-plugin",
+      "local_path": "clawhub-plugin-release/plugins/stock-rumors-plugin",
+      "release_ref": "rd77386k1qmykchcxafwq9z1y985c9qm",
+      "reason": "The package generally matches its stated purpose (stock/rumor scanning using an AIsa API key) but the runtime instructions and script contain mismatches (claims to 'fetch live data', undeclared environment variables, and reliance on an LLM to 'scan' sources) that warrant caution before installing or running with a real API key."
+    },
+    {
       "key": "plugin:twitter-command-center-search-post-plugin",
       "kind": "plugin",
       "name": "twitter-command-center-search-post-plugin",
@@ -223,6 +540,47 @@
       "local_path": "clawhub-plugin-release/plugins/twitter-command-center-search-post-plugin",
       "release_ref": "rd70cnh0cqnaee3dqh8g0z5f7s85ch28",
       "reason": "The package is functionally aligned with its Twitter/X posting/search purpose, but it relies on an external relay (api.aisa.one) that will receive your AISA_API_KEY and any uploaded media, and the runtime reads a few environment variables that the manifest/SKILL.md don't fully declare — you should review/trust the relay before installing."
+    },
+    {
+      "key": "plugin:x-intelligence-automation-plugin",
+      "kind": "plugin",
+      "name": "x-intelligence-automation-plugin",
+      "severity": "blocker",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "oauth_upload_side_effects",
+        "pending_scan",
+        "platform_trust_gap",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Security scan output is not final yet.",
+        "Trust and provenance surfaces are weaker than the package behavior requires.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved.",
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/x-intelligence-automation-plugin",
+      "local_path": "clawhub-plugin-release/plugins/x-intelligence-automation-plugin",
+      "release_ref": "rd7bsae56pj7r6brnyctbdy2v985c1yw",
+      "reason": "The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing."
     },
     {
       "key": "plugin:youtube-plugin",
@@ -448,6 +806,35 @@
       "reason": "The skill largely matches its stated Twitter/X read-and-post purpose, but it centralizes all operations through a third‑party relay (aisa.one) using a single AISA_API_KEY, uploads local media to that external service, and references environment variables not declared in metadata — these are coherence and privacy concerns you should understand before installing."
     },
     {
+      "key": "skill:openclaw-twitter-post-engage",
+      "kind": "skill",
+      "name": "openclaw-twitter-post-engage",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "benign",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/aisapay/openclaw-twitter-post-engage",
+      "local_path": "clawhub-release\\openclaw-twitter-post-engage",
+      "release_ref": null,
+      "reason": "The skill mostly does what it says (uses aisa.one relay to read, post, and engage on X), but there are environment/credential mismatches and data-flow details that don't match the declared metadata and that a user should understand before installing."
+    },
+    {
       "key": "skill:perplexity-research",
       "kind": "skill",
       "name": "perplexity-research",
@@ -647,361 +1034,40 @@
       "reason": "The skill is broadly coherent with a Twitter/X automation client using the AIsa relay, but there are a few mismatches you should be aware of before installing (undeclared env overrides and uploading local files to an external relay)."
     },
     {
-      "key": "plugin:aisa-crypto-market-data-plugin",
-      "kind": "plugin",
-      "name": "aisa-crypto-market-data-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
+      "key": "skill:youtube",
+      "kind": "skill",
+      "name": "youtube",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
       "rule_ids": [
-        "pending_scan"
+        "metadata_env_mismatch",
+        "platform_trust_gap"
       ],
       "rule_summaries": [
-        "Security scan output is not final yet."
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-crypto-market-data-plugin",
-      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-crypto-market-data-plugin",
-      "release_ref": "rd7828ajeddcwkpsbw5qt6an9x85e4px",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-multi-search-engine-plugin",
-      "kind": "plugin",
-      "name": "aisa-multi-search-engine-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-multi-search-engine-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-multi-search-engine-plugin",
+      "detail_url": "https://clawhub.ai/aisapay/youtube",
+      "local_path": "clawhub-release\\youtube",
       "release_ref": null,
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-perplexity-search-sonar-plugin",
-      "kind": "plugin",
-      "name": "aisa-perplexity-search-sonar-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-perplexity-search-sonar-plugin",
-      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-perplexity-search-sonar-plugin",
-      "release_ref": "rd793hcmfwpqtqwj53zht0hs7d85expt",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-perplexity-sonar-search-plugin",
-      "kind": "plugin",
-      "name": "aisa-perplexity-sonar-search-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-perplexity-sonar-search-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-perplexity-sonar-search-plugin",
-      "release_ref": "rd728w9gnstcn91xm7v32kn6eh85cy9w",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-provider-plugin",
-      "kind": "plugin",
-      "name": "aisa-provider-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-provider-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-provider-plugin",
-      "release_ref": "rd7cej56ctdn4wchzn37xffgg585bbya",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-search-command-center-plugin",
-      "kind": "plugin",
-      "name": "aisa-search-command-center-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-search-command-center-plugin",
-      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-search-command-center-plugin",
-      "release_ref": "rd76jmg0f7mqkdsr47n0jgbkb585eqjv",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-search-plugin",
-      "kind": "plugin",
-      "name": "aisa-search-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-search-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-search-plugin",
-      "release_ref": "rd7ezdqd1nr5k0gw6th3h9z1xd85afsb",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-tavily-plugin",
-      "kind": "plugin",
-      "name": "aisa-tavily-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-tavily-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-tavily-plugin",
-      "release_ref": "rd70n4zbmehc5smb3n8k0z7tbd85a9d8",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-tavily-search-plugin",
-      "kind": "plugin",
-      "name": "aisa-tavily-search-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-tavily-search-plugin",
-      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-tavily-search-plugin",
-      "release_ref": null,
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-twitter-api-command-center-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-api-command-center-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-api-command-center-plugin",
-      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-twitter-api-command-center-plugin",
-      "release_ref": "rd7ecx2pzff6hfrxhs25hv2qc585emtc",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-twitter-command-center-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-command-center-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-command-center-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-command-center-plugin",
-      "release_ref": null,
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-twitter-engagement-suite-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-engagement-suite-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-engagement-suite-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-engagement-suite-plugin",
-      "release_ref": "rd7cb53t8ce2pc5rsyzxtfkyas85ay3r",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-twitter-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-plugin",
-      "release_ref": "rd7cjxj1a1x38y2hxy0d74873x85dxx7",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-twitter-post-engage-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-post-engage-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-post-engage-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-post-engage-plugin",
-      "release_ref": null,
-      "reason": null
+      "reason": "The skill's stated YouTube functionality matches its instructions, but metadata inconsistencies and the requirement to install/run a third‑party npm package (and build/run code from GitHub) create a moderate trust risk that you should review before installing."
     },
     {
       "key": "plugin:aisa-twitter-research-engage-plugin",
       "kind": "plugin",
       "name": "aisa-twitter-research-engage-plugin",
       "severity": "warning",
-      "scan_status": "unresolved",
+      "scan_status": "pending",
       "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
@@ -1022,454 +1088,33 @@
       "reason": null
     },
     {
-      "key": "plugin:aisa-twitter-research-engage-relay-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-research-engage-relay-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-research-engage-relay-plugin",
-      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-republish-v105\\plugins\\aisa-twitter-research-engage-relay-plugin",
-      "release_ref": "rd789r4jfzgpc3cartsk84gj8s85e8nn",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-youtube-search-plugin",
-      "kind": "plugin",
-      "name": "aisa-youtube-search-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-youtube-search-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-youtube-search-plugin",
-      "release_ref": null,
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-youtube-serp-scout-plugin",
-      "kind": "plugin",
-      "name": "aisa-youtube-serp-scout-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-youtube-serp-scout-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-youtube-serp-scout-plugin",
-      "release_ref": null,
-      "reason": null
-    },
-    {
       "key": "plugin:last30days-zh-plugin",
       "kind": "plugin",
       "name": "last30days-zh-plugin",
       "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "openclaw_verdict": "suspicious",
+      "suspicious": true,
+      "pending": false,
       "rule_ids": [
-        "pending_scan"
+        "pending_scan",
+        "platform_trust_gap"
       ],
       "rule_summaries": [
-        "Security scan output is not final yet."
+        "Security scan output is not final yet.",
+        "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
         "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
+        "Retry live scan before treating the package as resolved.",
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
       "local_path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
       "release_ref": "rd79t34w8g0yy724ezfmjzamh185b1r6",
-      "reason": null
-    },
-    {
-      "key": "plugin:marketpulse-plugin",
-      "kind": "plugin",
-      "name": "marketpulse-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/marketpulse-plugin",
-      "local_path": "clawhub-plugin-release/plugins/marketpulse-plugin",
-      "release_ref": "rd71s76nm036hxcs5m0596bsnn85a7vy",
-      "reason": null
-    },
-    {
-      "key": "plugin:openclaw-aisa-youtube-aisa-plugin",
-      "kind": "plugin",
-      "name": "openclaw-aisa-youtube-aisa-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/openclaw-aisa-youtube-aisa-plugin",
-      "local_path": "clawhub-plugin-release/plugins/openclaw-aisa-youtube-aisa-plugin",
-      "release_ref": "rd704j277fgpmskaqr8tvg2ex585a40a",
-      "reason": null
-    },
-    {
-      "key": "plugin:openclaw-twitter-plugin",
-      "kind": "plugin",
-      "name": "openclaw-twitter-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/openclaw-twitter-plugin",
-      "local_path": "clawhub-plugin-release/plugins/openclaw-twitter-plugin",
-      "release_ref": "rd7e7rkp38pwxahrr4t0szbwcn85bhvb",
-      "reason": null
-    },
-    {
-      "key": "plugin:perplexity-search-plugin",
-      "kind": "plugin",
-      "name": "perplexity-search-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/perplexity-search-plugin",
-      "local_path": "clawhub-plugin-release/plugins/perplexity-search-plugin",
-      "release_ref": "rd74aye304c38w8qfgdgghnej585ac12",
-      "reason": null
-    },
-    {
-      "key": "plugin:prediction-market-arbitrage-api-plugin",
-      "kind": "plugin",
-      "name": "prediction-market-arbitrage-api-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/prediction-market-arbitrage-api-plugin",
-      "local_path": "clawhub-plugin-release/plugins/prediction-market-arbitrage-api-plugin",
-      "release_ref": "rd77xfn59w0dmeywg0jqbm8sw585bf19",
-      "reason": null
-    },
-    {
-      "key": "plugin:prediction-market-data-plugin",
-      "kind": "plugin",
-      "name": "prediction-market-data-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/prediction-market-data-plugin",
-      "local_path": "clawhub-plugin-release/plugins/prediction-market-data-plugin",
-      "release_ref": "rd7e1r5vfsy8c9qwc6ddtw24dd85bjkg",
-      "reason": null
-    },
-    {
-      "key": "plugin:stock-hot-plugin",
-      "kind": "plugin",
-      "name": "stock-hot-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/stock-hot-plugin",
-      "local_path": "clawhub-plugin-release/plugins/stock-hot-plugin",
-      "release_ref": "rd7f8118d01g6xh7a5g6stsycx85d3w2",
-      "reason": null
-    },
-    {
-      "key": "plugin:stock-rumors-plugin",
-      "kind": "plugin",
-      "name": "stock-rumors-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/stock-rumors-plugin",
-      "local_path": "clawhub-plugin-release/plugins/stock-rumors-plugin",
-      "release_ref": "rd77386k1qmykchcxafwq9z1y985c9qm",
-      "reason": null
-    },
-    {
-      "key": "plugin:stock-watchlist-plugin",
-      "kind": "plugin",
-      "name": "stock-watchlist-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/stock-watchlist-plugin",
-      "local_path": "clawhub-plugin-release/plugins/stock-watchlist-plugin",
-      "release_ref": "rd784rrkj54hz8zyvyf9e5p89n85d244",
-      "reason": null
-    },
-    {
-      "key": "plugin:twitter-command-center-search-post-interact-plugin",
-      "kind": "plugin",
-      "name": "twitter-command-center-search-post-interact-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/twitter-command-center-search-post-interact-plugin",
-      "local_path": "clawhub-plugin-release/plugins/twitter-command-center-search-post-interact-plugin",
-      "release_ref": "rd72k7s2wts9baqb2wrcvpvdd185c9zm",
-      "reason": null
-    },
-    {
-      "key": "plugin:twitter-plugin",
-      "kind": "plugin",
-      "name": "twitter-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/twitter-plugin",
-      "local_path": "clawhub-plugin-release/plugins/twitter-plugin",
-      "release_ref": "rd7bcd0gedrw4cvaf0pbhcewj585cvhk",
-      "reason": null
-    },
-    {
-      "key": "plugin:x-intelligence-automation-plugin",
-      "kind": "plugin",
-      "name": "x-intelligence-automation-plugin",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/x-intelligence-automation-plugin",
-      "local_path": "clawhub-plugin-release/plugins/x-intelligence-automation-plugin",
-      "release_ref": "rd7bsae56pj7r6brnyctbdy2v985c1yw",
-      "reason": null
-    },
-    {
-      "key": "skill:aisa-tavily",
-      "kind": "skill",
-      "name": "aisa-tavily",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisapay/aisa-tavily",
-      "local_path": "clawhub-release\\aisa-tavily",
-      "release_ref": "k97eprs9w52050gwcb4vayc3j9858dk0",
-      "reason": null
-    },
-    {
-      "key": "skill:aisa-twitter-engagement-suite",
-      "kind": "skill",
-      "name": "aisa-twitter-engagement-suite",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisapay/aisa-twitter-engagement-suite",
-      "local_path": "clawhub-release\\aisa-twitter-engagement-suite",
-      "release_ref": "k97a1xstbq69hxw9qn3gz6a341859bbz",
-      "reason": null
+      "reason": "The package mostly matches its stated purpose (web/multi-source 30-day research) but includes repo-local config reads and a default probe of a host.docker.internal API endpoint that is unexpected and worth reviewing before install."
     },
     {
       "key": "skill:aisa-twitter-post-engage",
@@ -1524,56 +1169,6 @@
       "local_path": "clawhub-release\\last30days",
       "release_ref": null,
       "reason": "The skill's code and instructions largely match its stated purpose (recent social/web research), but the SKILL.md contains highly prescriptive prompts and a flagged prompt-injection pattern — something to review before trusting it with API keys or autonomous runs."
-    },
-    {
-      "key": "skill:marketpulse",
-      "kind": "skill",
-      "name": "marketpulse",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisapay/marketpulse",
-      "local_path": "clawhub-release\\marketpulse",
-      "release_ref": "k978g4p70rh0h49cgfbjkayy0n85bv58",
-      "reason": null
-    },
-    {
-      "key": "skill:openclaw-twitter-post-engage",
-      "kind": "skill",
-      "name": "openclaw-twitter-post-engage",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisapay/openclaw-twitter-post-engage",
-      "local_path": "clawhub-release\\openclaw-twitter-post-engage",
-      "release_ref": null,
-      "reason": null
     },
     {
       "key": "skill:prediction-market",
@@ -1649,31 +1244,6 @@
       "local_path": "clawhub-release\\web-search",
       "release_ref": null,
       "reason": "Detected: suspicious.vt_suspicious"
-    },
-    {
-      "key": "skill:youtube",
-      "kind": "skill",
-      "name": "youtube",
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisapay/youtube",
-      "local_path": "clawhub-release\\youtube",
-      "release_ref": null,
-      "reason": null
     }
   ]
 }
