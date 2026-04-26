@@ -423,6 +423,17 @@ def validate_proposal(skill_dir: Path, proposal: dict[str, Any]) -> None:
             raise RuntimeError(f"{skill_dir.name}: proposal dropped required env reference {env_name}")
 
 
+def validate_raw_skill_md(skill_dir: Path, raw_skill_md: str) -> None:
+    frontmatter, _body = split_skill_document(raw_skill_md)
+    if frontmatter is None:
+        raise RuntimeError(f"{skill_dir.name}: proposal missing SKILL.md frontmatter")
+    proposed_name = str(frontmatter.get("name") or "").strip()
+    if proposed_name != skill_dir.name:
+        raise RuntimeError(
+            f"{skill_dir.name}: proposal targeted unexpected skill name {proposed_name or '(missing)'}"
+        )
+
+
 def write_text(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content.rstrip() + "\n", encoding="utf-8")
@@ -462,14 +473,36 @@ def main() -> int:
     proposal_root.mkdir(parents=True, exist_ok=True)
     for skill_dir in skill_dirs:
         messages = build_messages(skill_dir, context)
-        raw_response = extract_response_text(config, request_payload(config, messages))
+        raw_response = ""
+        proposal: dict[str, Any] = {}
         try:
-            proposal = extract_json(raw_response)
-        except RuntimeError:
-            raw_response = coerce_json_response(config, raw_response)
-            proposal = extract_json(raw_response)
-        proposal["skill_md"] = stabilize_skill_md(skill_dir, str(proposal.get("skill_md") or ""))
-        validate_proposal(skill_dir, proposal)
+            raw_response = extract_response_text(config, request_payload(config, messages))
+            try:
+                proposal = extract_json(raw_response)
+            except RuntimeError:
+                raw_response = coerce_json_response(config, raw_response)
+                proposal = extract_json(raw_response)
+
+            raw_skill_md = str(proposal.get("skill_md") or "")
+            validate_raw_skill_md(skill_dir, raw_skill_md)
+            proposal["skill_md"] = stabilize_skill_md(skill_dir, raw_skill_md)
+            validate_proposal(skill_dir, proposal)
+        except Exception as exc:
+            proposal_path = proposal_root / f"{skill_dir.name}.json"
+            error_payload = {
+                "skill": skill_dir.name,
+                "error": str(exc),
+                "summary": proposal.get("summary"),
+                "notes": proposal.get("notes") or [],
+                "skill_md": proposal.get("skill_md"),
+                "readme_md": proposal.get("readme_md"),
+                "raw_response": raw_response,
+            }
+            write_text(proposal_path, json.dumps(error_payload, indent=2, ensure_ascii=False))
+            if args.if_available:
+                print(f"skipped: {skill_dir.name} ({exc})")
+                continue
+            raise
 
         proposal_path = proposal_root / f"{skill_dir.name}.json"
         proposal_payload = {
