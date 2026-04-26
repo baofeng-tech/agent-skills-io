@@ -74,13 +74,7 @@ BUILD_STEPS = [
     ["python3", "scripts/build_agentskill_sh_release.py"],
 ]
 TEST_STEP = ["python3", "scripts/test_release_layers.py"]
-MANUAL_REVIEW_RULES = {
-    "last30days": (
-        "skip",
-        "Upstream last30days currently includes extra briefing/watchlist/GitHub setup surfaces. "
-        "This repo keeps a curated public mother-skill variant, so merge it manually after runtime review.",
-    ),
-}
+MANUAL_REVIEW_RULES: dict[str, tuple[str, str]] = {}
 
 
 @dataclass

@@ -791,7 +791,7 @@ GitHub Actions 工作流层。
 - Hermes 缺口 skill 分支级批量补推：已完成，25 个 `add-skill-*` 远端分支已存在
 - Hermes 当前最后阻塞：GitHub PAT 无 PR 创建权限，不能自动补开 Pull Request
 - 统一调度与自动化：已新增 `scripts/unified_skill_pipeline.py`、`scripts/build_targetskills_catalog.py` 与 `.github/workflows/unified-skill-pipeline.yml`
-- `last30days` 保守合并：已在 2026-04-23 完成一轮人工回灌，保留“无状态 research CLI”母版边界，并吸收安全子集更新后重新回灌各平台发布层
+- `last30days` 上游跟随策略：已从 2026-04-26 起取消统一调度层的人工 hold，改为直接跟随 `AIsa-team/agent-skills@main`，保守收敛放到发布层与 suspicious 诊断 / 修复链路中处理
 - GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；当前下游 GitHub 目标已覆盖 `AIsa-team/agent-skills@main`、`baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每 2 小时一次（`21 */2 * * *`）
 - GitHub Actions checkout 后置失败修复：hosted lane 已改为 `persist-credentials: false` + explicit token push，避免此前的 post-job `exit code 128`
@@ -799,7 +799,7 @@ GitHub Actions 工作流层。
 - GitHub Actions self-hosted 与 hosted 衔接：self-hosted lane 在准备下游发布前会先 fast-forward 到远端最新 `main`，避免 hosted lane 先行 auto-commit 后造成后续 non-fast-forward push 失败
 - ClawHub 2026-04-25 真实续发：已通过 Windows 侧 `py -3` + `clawhub` 继续完成一轮真实 skill/plugin 续发，并把 live scan 状态回写主 publish state
 - ClawHub `twitter` 测试结论：新 ClawHub 专用 slug `aisa-twitter-research-engage-relay` 已真实发布到 `1.0.5`；skill 与 plugin 页当前都已回到 `openclaw=benign`，两者都仍处于 `VirusTotal=pending`；这轮修复实际覆盖了 relay disclosure、plugin 顶层 metadata、summary description 前置 requirement，以及 `twitter_client.py` 对 `TWITTER_RELAY_BASE_URL` 的运行时对齐
-- 手工审核 hold 持续跟踪：被 `MANUAL_REVIEW_RULES` 跳过的 skill 不再因为基线前移而从后续自动巡检里“消失”
+- `last30days` 当前策略：不再通过 `MANUAL_REVIEW_RULES` 跳过统一同步；如果上游扩大了公开发布面，应在 release layer、诊断规则或 targeted remediation 里显式收口，而不是停留在母版同步入口
 - `agentskills.so` 人工入口：已确认公开邮箱 `support@agentskills.so` 与 Discord 邀请链接
 - `claudemarketplaces.com` 当前检索：2026-04-21 以 `baofeng-tech/Aisa-One-Plugins-Claude`、`Aisa-One-Skills-Claude`、`aisa-claude-marketplace` 为关键词做公开检索，暂未搜到收录页；结合站点公开说明，marketplace 仍需等待 crawler 周期，standalone skills 仍依赖 GitHub / skills.sh 分发与安装量信号
 - 中文镜像 / EN-ZH 双版本发布：尚未系统化完成

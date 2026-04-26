@@ -85,25 +85,17 @@ As of 2026-04-23, the scheduler uses these repo-specific decisions:
 - `perplexity-search`
 - `prediction-market-arbitrage`
 - `prediction-market-data`
+- `last30days`
 - `twitter-autopilot`
 - `youtube-serp`
 
-### Manual review hold
+As of 2026-04-26, `last30days` no longer stays behind a scheduler-level manual-review hold.
 
-- `last30days`
+What changed:
 
-Why `last30days` stays on manual review:
-
-- the upstream working tree currently includes extra briefing, watchlist, GitHub setup, and expanded helper surfaces
-- this repo intentionally keeps a more conservative public mother-skill variant
-- blindly copying the new upstream tree would broaden the shipped runtime and publish surface without a focused review
-
-Current status of that hold:
-
-- on 2026-04-23, this repo manually merged the safe subset of upstream `last30days` changes
-- the public mother skill kept its stateless research CLI boundary
-- safe parser compatibility updates were merged for date parsing and Polymarket field handling
-- automatic upstream sync for `last30days` is still held, so future upstream changes continue to require manual review
+- this repo now follows `AIsa-team/agent-skills@main` directly for `last30days` during unified sync
+- any conservative narrowing should happen in release-layer packaging, live diagnosis, or targeted suspicious remediation
+- the mother skill should preserve upstream runtime completeness instead of silently lagging behind
 
 ## GitHub Actions
 
