@@ -31,6 +31,8 @@ def load_aisa_key() -> str | None:
     env_key = os.environ.get("AISA_API_KEY")
     if env_key:
         return env_key
+    if not ACCOUNTS_PATH.exists():
+        return None
     text = ACCOUNTS_PATH.read_text(encoding="utf-8")
     match = re.search(r"(sk-[A-Za-z0-9]+)", text)
     return match.group(1) if match else None
