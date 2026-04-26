@@ -83,7 +83,7 @@ on:
       suspicious_artifacts:
         description: "Optional comma-separated suspicious artifact keys to target"
         required: false
-        default: "skill:aisa-twitter-api,plugin:aisa-twitter-api-plugin"
+        default: "skill:aisa-twitter-api,plugin:aisa-twitter-engagement-suite-plugin"
         type: string
   schedule:
     - cron: "21 */2 * * *"
@@ -250,7 +250,7 @@ jobs:
       PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || 'both' }}
       PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || 'false' }}
       PIPELINE_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || 'false' }}
-      PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || 'skill:aisa-twitter-api,plugin:aisa-twitter-api-plugin' }}
+      PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || 'skill:aisa-twitter-api,plugin:aisa-twitter-engagement-suite-plugin' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
       AI_API_KEY: ${{ secrets.AI_API_KEY }}
@@ -282,6 +282,65 @@ jobs:
       - name: Install Python dependencies
         run: python3 -m pip install --upgrade pip PyYAML
 
+      - name: Load local credential fallbacks for self-hosted runner
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          ACCOUNTS_FILE=""
+          for candidate in \
+            "$GITHUB_WORKSPACE/example/accounts" \
+            "/mnt/d/workplace/agent-skills-io/example/accounts"
+          do
+            if [[ -f "$candidate" ]]; then
+              ACCOUNTS_FILE="$candidate"
+              break
+            fi
+          done
+
+          if [[ -z "$ACCOUNTS_FILE" ]]; then
+            echo "No local accounts fallback found."
+            exit 0
+          fi
+
+          python3 - "$ACCOUNTS_FILE" "$GITHUB_ENV" <<'PY'
+          import os
+          import sys
+          from pathlib import Path
+
+          accounts_path = Path(sys.argv[1])
+          env_path = Path(sys.argv[2])
+          raw: dict[str, str] = {}
+          for line in accounts_path.read_text(encoding="utf-8", errors="ignore").splitlines():
+              stripped = line.strip()
+              if not stripped or stripped.startswith("#") or "=" not in stripped:
+                  continue
+              key, value = stripped.split("=", 1)
+              raw[key.strip()] = value.strip()
+
+          fallbacks = {
+              "AISA_API_KEY": raw.get("AISA_API_KEY", ""),
+              "AI_BASE_URL": raw.get("AI_BASE_URL", ""),
+              "AI_API_KEY": raw.get("AI_API_KEY", ""),
+              "AI_MODEL": raw.get("AI_MODEL", ""),
+              "UPSTREAM_REPO_TOKEN": raw.get("UPSTREAM_REPO_TOKEN") or raw.get("GITHUB_TOKEN", ""),
+              "DOWNSTREAM_REPO_TOKEN": raw.get("DOWNSTREAM_REPO_TOKEN") or raw.get("GITHUB_TOKEN", ""),
+              "CLAWHUB_TOKEN": raw.get("CLAWHUB_TOKEN") or raw.get("clawhub_ApI_token", ""),
+              "CLAWHUB_TOKEN_2": raw.get("CLAWHUB_TOKEN_2") or raw.get("clawhub_ApI_token2", ""),
+              "CLAWHUB_TOKEN_3": raw.get("CLAWHUB_TOKEN_3") or raw.get("clawhub_ApI_token3", ""),
+          }
+
+          exports = {key: value for key, value in fallbacks.items() if value and not os.environ.get(key)}
+          if not exports:
+              print("No self-hosted fallback vars were needed.")
+              raise SystemExit(0)
+
+          with env_path.open("a", encoding="utf-8") as handle:
+              for key, value in exports.items():
+                  handle.write(f"{key}<<__EOF__\n{value}\n__EOF__\n")
+          print("Loaded self-hosted fallback vars:", ", ".join(sorted(exports)))
+          PY
+
       - name: Fast-forward self-hosted checkout to latest main
         shell: bash
         env:
@@ -302,13 +361,7 @@ jobs:
             local repo="$1"
             local ref="$2"
             local dest="$3"
-            local clone_url
-
-            if [[ -n "${DOWNSTREAM_REPO_TOKEN:-}" ]]; then
-              clone_url="https://x-access-token:${DOWNSTREAM_REPO_TOKEN}@github.com/${repo}.git"
-            else
-              clone_url="git@github-work:${repo}.git"
-            fi
+            local clone_url="https://github.com/${repo}.git"
 
             if [[ -d "$dest/.git" ]]; then
               git -C "$dest" fetch origin "$ref"
@@ -439,6 +492,8 @@ jobs:
           commit_and_push() {
             local repo_path="$1"
             local label="$2"
+            local repo="$3"
+            local ref="$4"
 
             if [[ ! -d "$repo_path/.git" ]]; then
               echo "Skip $label: repo not prepared."
@@ -460,15 +515,19 @@ jobs:
             fi
 
             git -C "$repo_path" commit -m "chore: publish from unified skill pipeline"
-            git -C "$repo_path" push
+            if [[ -n "${DOWNSTREAM_REPO_TOKEN:-}" ]]; then
+              git -C "$repo_path" push "https://x-access-token:${DOWNSTREAM_REPO_TOKEN}@github.com/${repo}.git" "HEAD:${ref}"
+            else
+              git -C "$repo_path" push origin "HEAD:${ref}"
+            fi
           }
 
-          commit_and_push "$PUBLISH_AGENT_SKILLS_DEST" "agent-skills"
-          commit_and_push "$PUBLISH_AGENTSKILLS_SO_DEST" "agent-skills-so"
-          commit_and_push "$PUBLISH_AGENTSKILL_SH_DEST" "agent-skills-public"
-          commit_and_push "$PUBLISH_CLAUDE_DEST" "Aisa-One-Skills-Claude"
-          commit_and_push "$PUBLISH_CLAUDE_MARKETPLACE_DEST" "Aisa-One-Plugins-Claude"
-          commit_and_push "$PUBLISH_HERMES_DEST" "Aisa-One-Skills-Hermes"
+          commit_and_push "$PUBLISH_AGENT_SKILLS_DEST" "agent-skills" "AIsa-team/agent-skills" "main"
+          commit_and_push "$PUBLISH_AGENTSKILLS_SO_DEST" "agent-skills-so" "baofeng-tech/agent-skills-so" "main"
+          commit_and_push "$PUBLISH_AGENTSKILL_SH_DEST" "agent-skills-public" "baofeng-tech/agent-skills" "main"
+          commit_and_push "$PUBLISH_CLAUDE_DEST" "Aisa-One-Skills-Claude" "baofeng-tech/Aisa-One-Skills-Claude" "main"
+          commit_and_push "$PUBLISH_CLAUDE_MARKETPLACE_DEST" "Aisa-One-Plugins-Claude" "baofeng-tech/Aisa-One-Plugins-Claude" "main"
+          commit_and_push "$PUBLISH_HERMES_DEST" "Aisa-One-Skills-Hermes" "baofeng-tech/Aisa-One-Skills-Hermes" "main"
 
       - name: Upload self-hosted publish artifacts
         if: always()
