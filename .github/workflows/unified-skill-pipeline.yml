@@ -124,6 +124,15 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Fast-forward self-hosted checkout to latest main
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git fetch "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "${GITHUB_REF_NAME}"
+          git merge --ff-only FETCH_HEAD
+
       - name: Install Python dependencies
         run: python3 -m pip install --upgrade pip PyYAML
 

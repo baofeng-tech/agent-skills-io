@@ -208,6 +208,13 @@ When `run_self_hosted_publish=true` on a manual dispatch, the workflow also:
 6. commits and pushes changed downstream GitHub publish repos
 7. uploads self-hosted publish-state artifacts
 
+Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL.
+
+Why:
+
+- the hosted lane may auto-commit regenerated repo state first
+- without a fast-forward, the self-hosted job could later fail its own repo push with a non-fast-forward rejection
+
 ### Downstream repo preparation
 
 The self-hosted lane now supports CI-injected publish destinations through:

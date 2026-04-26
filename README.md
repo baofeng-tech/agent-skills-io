@@ -80,6 +80,7 @@ python3 scripts/clawhub_live_status.py --targets both
 - the hosted schedule currently runs every 2 hours via cron `21 */2 * * *`
 - edit `.github/workflows/unified-skill-pipeline.yml` under `on.schedule[0].cron` if you want to change that hosted cadence later
 - the hosted auto-commit path now avoids the earlier checkout post-job `exit code 128` by disabling persisted checkout credentials and pushing with an explicit token URL
+- the self-hosted lane now fast-forwards its checkout to the latest `main` before downstream publish/remediation work so hosted auto-commits do not cause a later non-fast-forward push failure
 - the workflow now also opts into Node 24 for JavaScript-based GitHub Actions to avoid the current hosted-run deprecation warning
 - `scripts/publish_clawhub_batch.py` now supports optional `--post-publish-scan` checks so each publish can immediately probe the live ClawHub page for `VirusTotal`, `OpenClaw`, and `Suspicious` signals.
 - `scripts/publish_clawhub_batch.py` now also supports repeated `--artifact` filters so workflow-driven remediation can republish only the affected ClawHub skill/plugin keys.
