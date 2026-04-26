@@ -30,7 +30,7 @@
         "suspicious_reason": "Detected: suspicious.env_credential_access",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-25T13:03:57.533980+00:00"
+        "checked_at": "2026-04-26T09:19:20.434036+00:00"
       }
     },
     "plugin:aisa-provider-plugin": {
@@ -65,7 +65,7 @@
         "suspicious_reason": "The package is mostly coherent for an API-provider plugin (it legitimately needs an AISA_API_KEY), but there are mismatches between the registry metadata and the packaged files and a few packaging/instruction gaps that should be resolved before trusting it with credentials.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:09.262785+00:00"
+        "checked_at": "2026-04-26T09:19:23.436641+00:00"
       }
     },
     "plugin:aisa-tavily-plugin": {
@@ -100,7 +100,7 @@
         "suspicious_reason": "The package's code and SKILL.md consistently require a single AISA_API_KEY and call aisa.one APIs (which matches the research purpose), but the registry-level metadata omits those requirements — an incoherence that warrants caution before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:18.066473+00:00"
+        "checked_at": "2026-04-26T09:19:26.725216+00:00"
       }
     },
     "plugin:aisa-twitter-api-plugin": {
@@ -136,7 +136,7 @@
         "suspicious_reason": "This package appears to do what it says: run the bundled Python clients to query and post via the AIsa relay (api.aisa.one). Before installing, confirm you trust the AIsa relay and are comfortable that any local media you attach will be uploaded to that service. Provide only the AISA_API_KEY (no Twitter passwords), and note the small manifest mismatch: the top-level registry metadata omitted the required AISA_API_KEY even though the packaged manifests and SKILL.md do require it. If you need stronger guarantees, review api.aisa.one's privacy/security documentation and inspect the included python scripts (they are bundled here) to verify no unexpected data paths or persistence are introduced.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:23.272262+00:00"
+        "checked_at": "2026-04-26T09:19:29.808106+00:00"
       }
     },
     "plugin:aisa-twitter-command-center-plugin": {
@@ -168,7 +168,7 @@
         "suspicious_reason": "This package appears to do what it says: it runs local Python clients that call the AIsa relay (https://api.aisa.one) and requires one secret (AISA_API_KEY). Before installing, confirm you trust the AIsa relay and issuer of the API key. Treat AISA_API_KEY as sensitive (do not reuse high-privilege keys), and revoke it if you stop using the skill. Be aware that any workspace files you pass as attachments will be uploaded to the relay and then to X/Twitter. If you want to limit risk, test read-only workflows first, require explicit user confirmation before any publish action, and review the included python scripts locally to verify behavior (they are present in the package). If you have concerns about autonomous posting, restrict or audit agent autonomy or require manual confirmation before posting.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:26.720695+00:00"
+        "checked_at": "2026-04-26T09:19:30.831392+00:00"
       }
     },
     "plugin:aisa-twitter-engagement-suite-plugin": {
@@ -203,7 +203,7 @@
         "suspicious_reason": "The package's code and instructions match a Twitter/X engagement skill that uses a relay (api.aisa.one) and requires an AISA_API_KEY, but registry metadata and some packaging fields are inconsistent and this skill will upload local attachments to an external service — review the relay trust and the API key scope before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:30.352681+00:00"
+        "checked_at": "2026-04-26T09:19:31.980136+00:00"
       }
     },
     "plugin:aisa-twitter-post-engage-plugin": {
@@ -235,7 +235,7 @@
         "suspicious_reason": "The package is largely coherent for a Twitter/X relay-based engagement and OAuth posting skill, but there are metadata inconsistencies (the registry metadata claims no required credentials while the shipped manifests and scripts require AISA_API_KEY) that should be clarified before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:38.165691+00:00"
+        "checked_at": "2026-04-26T09:19:34.007684+00:00"
       }
     },
     "plugin:aisa-youtube-search-plugin": {
@@ -267,7 +267,7 @@
         "suspicious_reason": "This package appears to be what it claims: a wrapper that invokes the bundled AIsa YouTube search skill and requires an AISA_API_KEY. Before installing, verify that you intend to provide an AISA_API_KEY (the plugin manifest requires it) and that the key you supply is scoped appropriately (avoid reusing high-privilege or long-lived secrets). Review the embedded SKILL.md and any scripts in the skills/ folder if you want to confirm exact network targets or CLI commands. The only real inconsistency is a metadata omission that lists \"no required env vars\" in the registry summary—treat that as a documentation error and rely on the manifest/SKILL.md which do require AISA_API_KEY. If you do not trust the AIsa service or the key, do not install or provide credentials.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:45.271504+00:00"
+        "checked_at": "2026-04-26T09:19:37.170769+00:00"
       }
     },
     "plugin:aisa-youtube-serp-scout-plugin": {
@@ -299,7 +299,7 @@
         "suspicious_reason": "This package is internally consistent: it runs a local Python client that calls api.aisa.one and requires an AISA_API_KEY. Before installing, confirm you trust the AIsa service and are comfortable supplying an API key (it will be sent as a Bearer token to the aisa.one API). Verify billing/usage implications of that API key, and if you need tighter privacy, review the script locally to confirm it only sends the queries you expect. Autonomous invocation is allowed by default (normal for skills); if you don't want the agent to call it without confirmation, disable or restrict the skill in your agent settings.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:49.399421+00:00"
+        "checked_at": "2026-04-26T09:19:38.202513+00:00"
       }
     },
     "plugin:cn-llm-plugin": {
@@ -334,7 +334,7 @@
         "suspicious_reason": "This package appears coherent with its stated purpose, but consider these practical precautions before installing: (1) AISA_API_KEY grants access to your AIsa account and could incur billing — only use a key you trust and consider a scoped/restricted key if available. (2) The included Python client sends any prompt/content to https://api.aisa.one; avoid sending sensitive PII or secrets through the skill. (3) Review the bundled scripts (skills/cn-llm/scripts/cn_llm_client.py) yourself if you have concerns; it is small and readable. (4) Store and rotate the API key securely (avoid committing it to repos), and remove the plugin and revoke the key if you stop using the service. (5) If you need higher assurance, run the client in an isolated environment or sandbox first.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:53.118279+00:00"
+        "checked_at": "2026-04-26T09:19:43.966646+00:00"
       }
     },
     "plugin:last30days-plugin": {
@@ -366,7 +366,7 @@
         "suspicious_reason": "The package appears to implement a legitimate AIsa-backed research tool, but the manifest and bundled runtime disagree with the registry metadata about required secrets and there are a few runtime behaviors (local HTTP probes, bundled executable scripts) that warrant caution before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:00.260550+00:00"
+        "checked_at": "2026-04-26T09:19:46.177507+00:00"
       }
     },
     "plugin:last30days-zh-plugin": {
@@ -401,7 +401,7 @@
         "suspicious_reason": "The package mostly matches its stated purpose (web/multi-source 30-day research) but includes repo-local config reads and a default probe of a host.docker.internal API endpoint that is unexpected and worth reviewing before install.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:04.064590+00:00"
+        "checked_at": "2026-04-26T09:19:47.264988+00:00"
       }
     },
     "plugin:llm-router-plugin": {
@@ -436,7 +436,7 @@
         "suspicious_reason": "This package will send messages and (optionally) images to AIsa's API (api.aisa.one) using the AISA_API_KEY you supply. Only provide an API key you trust with the data you'll send; avoid sending sensitive secrets or PII through the router. Verify AIsa's data-retention and billing policies before use and ensure you understand which models and providers may incur costs. If you require offline or self-hosted routing, this package is not suitable without code changes.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:09.957027+00:00"
+        "checked_at": "2026-04-26T09:19:48.326499+00:00"
       }
     },
     "plugin:market-plugin": {
@@ -468,7 +468,7 @@
         "suspicious_reason": "The package is plausibly what it claims (a market data client) and only needs a single API key, but there are internal inconsistencies in the manifest/registry metadata (missing required env/binary declarations) that should be resolved before trusting it.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:13.655165+00:00"
+        "checked_at": "2026-04-26T09:19:49.307164+00:00"
       }
     },
     "plugin:marketpulse-plugin": {
@@ -503,7 +503,7 @@
         "suspicious_reason": "This package is internally consistent: it includes a Python client that sends your AISA_API_KEY to api.aisa.one to fetch market data. Before installing, ensure you trust the upstream service (aisa.one) with any tickers or portfolio data you send, keep your AISA_API_KEY secret, and only provide the single required API key (no other credentials are requested). If you need higher assurance, inspect the included market_client.py locally to confirm behavior and consider running it in a sandboxed environment. Also be aware that queries and portfolio data will be transmitted to the AIsa API and may be logged or rate-limited by that service.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:17.355187+00:00"
+        "checked_at": "2026-04-26T09:19:50.443685+00:00"
       }
     },
     "plugin:media-gen-plugin": {
@@ -538,7 +538,7 @@
         "suspicious_reason": "This package appears to do what it says: it runs a local Python client that calls AIsa's media API and saves returned images/videos to disk. Before installing/providing AISA_API_KEY, confirm you trust the AIsa service and the package provenance (note the small metadata mismatch between the package and listed source). Be aware the client will make outbound HTTPS requests to api.aisa.one and may download signed URLs (saved to local files). If you need tighter control, run the included script in an isolated environment, inspect the script locally, and consider using a scoped API key with limited permissions or quotas.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:20.902085+00:00"
+        "checked_at": "2026-04-26T09:19:51.449521+00:00"
       }
     },
     "plugin:multi-search-plugin": {
@@ -573,7 +573,7 @@
         "suspicious_reason": "This skill sends your queries, URLs, and any text you pass to the AIsa service at api.aisa.one using the AISA_API_KEY you provide. Before installing, confirm you trust the AIsa service and do not submit sensitive secrets or internal-only URLs. Check billing/usage policies for your AISA_API_KEY, and ensure the key has appropriate scope/limits. If you need stronger privacy, avoid sending PII or confidential documents. If the author/owner mismatch (registry vs package metadata) concerns you, verify the package source or obtain the skill directly from a trusted vendor repository.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:24.949722+00:00"
+        "checked_at": "2026-04-26T09:19:52.518784+00:00"
       }
     },
     "plugin:openclaw-aisa-youtube-aisa-plugin": {
@@ -608,7 +608,7 @@
         "suspicious_reason": "This package appears internally consistent for a YouTube research skill. Before installing: (1) confirm you trust the remote service (api.aisa.one) because your AISA_API_KEY will be sent there; (2) ensure the API key you supply has limited scope/quotas and is revocable; (3) run the Python script in an isolated environment if you want to limit exposure; and (4) review the included scripts (youtube_client.py) yourself to confirm behavior and logging meets your privacy/compliance needs.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:30.491114+00:00"
+        "checked_at": "2026-04-26T09:19:54.636587+00:00"
       }
     },
     "plugin:openclaw-media-gen-plugin": {
@@ -643,7 +643,7 @@
         "suspicious_reason": "This skill is coherent with its stated purpose: it runs a bundled Python CLI that sends prompts to api.aisa.one using AISA_API_KEY and saves returned media to disk. Before installing: 1) Ensure you trust the AIsa service (api.aisa.one) because prompts and any media will be transmitted to that endpoint. 2) Provide only a dedicated API key (don't reuse high-privilege or unrelated credentials). 3) Be aware the client will download returned media (files written to your working directory). 4) Note minor metadata inconsistencies (repository/homepage entries) — if provenance matters, verify the publisher and upstream repository before use.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:33.735631+00:00"
+        "checked_at": "2026-04-26T09:19:55.593642+00:00"
       }
     },
     "plugin:openclaw-search-plugin": {
@@ -678,7 +678,7 @@
         "suspicious_reason": "This package looks like a normal wrapper around an AIsa search client, but check two things before installing: (1) verify which metadata the platform honors — the embedded manifests require python3 and an AISA_API_KEY even though the top-level registry summary omitted them; (2) treat your AISA_API_KEY like any secret: only provide a key scoped minimally for search queries, and review the bundled scripts (skills/openclaw-search/scripts/search_client.py) to confirm it only talks to api.aisa.one. If you need higher assurance, ask the publisher to fix the registry metadata so required binaries and env vars are consistent, and confirm there are no additional network endpoints or hidden behaviors in the truncated portion of the script.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:36.497986+00:00"
+        "checked_at": "2026-04-26T09:19:56.632644+00:00"
       }
     },
     "plugin:openclaw-twitter-plugin": {
@@ -713,7 +713,7 @@
         "suspicious_reason": "This skill is internally consistent for Twitter/X research and posting via an AIsa relay, but note these key points before installing: (1) you must provide AISA_API_KEY — that single key lets the relay act for reads and OAuth-posting, so only use a key you trust and rotate it if needed; (2) posting with attachments will upload local workspace files to https://api.aisa.one — do not attach sensitive files you don't want sent to an external service; (3) the package's Python scripts may open a browser only when you request --open-browser, and the skill promises not to ask for Twitter passwords; (4) if you need stronger guarantees, review the relay's privacy/security policy or run the scripts in a sandboxed environment and audit network traffic before supplying real credentials.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:40.044247+00:00"
+        "checked_at": "2026-04-26T09:19:57.727359+00:00"
       }
     },
     "plugin:openclaw-twitter-post-engage-plugin": {
@@ -748,7 +748,7 @@
         "suspicious_reason": "The package's code and SKILL.md are coherent with a Twitter/X engagement/posting skill (using an AIsa relay) but the registry metadata and top-level claims contradict the actual requirements and there is reliance on a third-party relay (AISA_API_KEY) that the user must trust.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:43.411506+00:00"
+        "checked_at": "2026-04-26T09:19:58.773234+00:00"
       }
     },
     "plugin:openclaw-youtube-plugin": {
@@ -783,7 +783,7 @@
         "suspicious_reason": "This skill appears coherent: it runs a local Python client that calls AIsa's API and requires one API key (AISA_API_KEY). Before installing, verify you trust the AIsa service (aisa.one) and the source repo, keep your API key secret, and be aware that the skill will send search queries to the aisa.one endpoint (network traffic and any associated usage costs). If you need higher assurance, inspect the full python script in your environment and confirm the repository origin and commit history match the publisher you trust.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:46.640747+00:00"
+        "checked_at": "2026-04-26T09:19:59.838282+00:00"
       }
     },
     "plugin:perplexity-research-plugin": {
@@ -818,7 +818,7 @@
         "suspicious_reason": "This skill is coherent: it uses AISA_API_KEY to send queries to https://api.aisa.one and returns results. Before installing, ensure you trust Aisa (aisa.one) and are comfortable that your API key will be used for network calls and may incur usage/charges. Also note a metadata inconsistency in the registry listing (it claimed no env vars required while the packaged skill requires AISA_API_KEY); confirm you supply the key only if you intend to let the skill make remote queries. If you need stricter isolation, run the included Python script manually in a controlled environment rather than enabling autonomous invocation.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:50.155524+00:00"
+        "checked_at": "2026-04-26T09:20:00.887593+00:00"
       }
     },
     "plugin:perplexity-search-plugin": {
@@ -853,7 +853,7 @@
         "suspicious_reason": "This package appears to be a straightforward client for AIsa Perplexity Sonar. Before installing, ensure AISA_API_KEY is from a trusted source and scoped appropriately (do not reuse highly privileged keys). Review your organization policy for sending queries to external APIs and, if you need to audit network traffic, confirm calls to api.aisa.one are acceptable. If you require higher assurance, inspect the included Python script yourself (it is present in the package and uses only urllib.request) and verify the API endpoints and behavior match your expectations.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:53.959941+00:00"
+        "checked_at": "2026-04-26T09:20:01.948809+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-api-plugin": {
@@ -888,7 +888,7 @@
         "suspicious_reason": "The package appears to implement a prediction-market arbitrage client that only talks to api.aisa.one and requires an AISA_API_KEY, but the registry metadata advertised at the top is inconsistent with the shipped manifests (missing declared env/binary requirements), so review before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:57.387960+00:00"
+        "checked_at": "2026-04-26T09:20:03.062989+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-plugin": {
@@ -923,7 +923,7 @@
         "suspicious_reason": "This skill will send requests to https://api.aisa.one using the AISA_API_KEY you supply. Only provide this key if you trust that service and consider using a scoped/limited key if supported. The scripts may be given wallet addresses or market IDs (these are privacy-sensitive inputs); avoid passing private keys or secrets. Review the Python script sources before running and run them in an isolated environment if you have high security requirements.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:01.132124+00:00"
+        "checked_at": "2026-04-26T09:20:04.094096+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-zh-plugin": {
@@ -958,7 +958,7 @@
         "suspicious_reason": "This skill legitimately requires one API key (AISA_API_KEY) and will send requests to https://api.aisa.one. Before installing: 1) Verify you trust the AIsa service and review its privacy/billing terms; the API key will be used server-side by that provider. 2) Do not pass private keys, secrets, or other sensitive identifiers (only public wallet addresses or market slugs as needed). 3) Inspect the included Python scripts if you want assurance of behavior (they perform GET requests, compute spreads, and estimate liquidity). 4) Run the scripts in a controlled environment and monitor network/billing usage if you are concerned about exfiltration or unexpected queries.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:04.790775+00:00"
+        "checked_at": "2026-04-26T09:20:05.129362+00:00"
       }
     },
     "plugin:prediction-market-data-plugin": {
@@ -993,7 +993,7 @@
         "suspicious_reason": "This package appears to do what it claims: run the included Python client which calls AIsa's API (api.aisa.one) using AISA_API_KEY. Before installing, confirm you trust the AIsa provider and the api.aisa.one domain; create a least-privilege API key if possible; avoid reusing high-privilege keys. Inspect the bundled script if you want to verify behavior locally. Run the skill in a restricted environment or sandbox if you have security concerns, and remember that outputs are market data/research only — they are not financial advice.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:08.477920+00:00"
+        "checked_at": "2026-04-26T09:20:06.174131+00:00"
       }
     },
     "plugin:prediction-market-data-zh-plugin": {
@@ -1028,7 +1028,7 @@
         "suspicious_reason": "This skill is coherent: it runs a bundled Python client that queries AIsa's API and requires an AISA_API_KEY. Before installing, confirm you trust the AIsa service (api.aisa.one) because your API key and queries will be sent there. Review the included Python script if you want to verify exactly what fields are sent or logged. Because no other credentials or system paths are requested and there are no remote install steps, the main risk is exposure of the AISA_API_KEY and any data you send to that third party — treat the key like any API secret (limit its permissions if possible, rotate/revoke if compromised).",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:12.162736+00:00"
+        "checked_at": "2026-04-26T09:20:07.186749+00:00"
       }
     },
     "plugin:prediction-market-plugin": {
@@ -1063,7 +1063,7 @@
         "suspicious_reason": "This package appears to be coherent: it bundles a Python client that contacts api.aisa.one and requires an AISA_API_KEY. Before installing: (1) confirm you trust the AIsa service (api.aisa.one) and the publisher; (2) provide the AISA_API_KEY only if you intend the agent to query your paid/privileged AIsa account; (3) note the package requires python3 at runtime and will make network calls to AIsa — review network policies and billing implications; (4) be aware the registry metadata omitted the declared requirements in the embedded SKILL.md (python3 and AISA_API_KEY), so ensure your runtime supplies those. If you need stronger assurance, inspect the full Python script locally (it's included) and verify the endpoints and behavior before granting the API key.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:16.822826+00:00"
+        "checked_at": "2026-04-26T09:20:08.285169+00:00"
       }
     },
     "plugin:scholar-search-plugin": {
@@ -1099,7 +1099,7 @@
         "suspicious_reason": "This package appears coherent and limited to calling AIsa APIs. Before installing, consider: (1) only supply an AISA_API_KEY you trust — treat it like any API secret and rotate/revoke if exposed; (2) the client will send queries and any provided URLs/content to api.aisa.one (review AIsa's privacy/terms if you will transmit sensitive text or customer data); (3) avoid sending PII or private documents to the service unless you accept that those will be processed by AIsa; (4) if you require stricter controls, run the Python script in a network-limited environment or inspect/modify it to meet your data-handling policies.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:20.910450+00:00"
+        "checked_at": "2026-04-26T09:20:09.313039+00:00"
       }
     },
     "plugin:search-plugin": {
@@ -1135,7 +1135,7 @@
         "suspicious_reason": "This skill will run the included Python script and send requests to https://api.aisa.one using the AISA_API_KEY you provide. Only supply an API key you trust for this provider and avoid reusing high-privilege secrets. If you want to limit risk, create a scoped/limited AIsa key, run the skill in a network-restricted or sandboxed environment, and review network logs or key usage after first use. If you don't trust the aisa.one service or the key requirements, do not install.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:24.880872+00:00"
+        "checked_at": "2026-04-26T09:20:10.435012+00:00"
       }
     },
     "plugin:smart-search-plugin": {
@@ -1170,7 +1170,7 @@
         "suspicious_reason": "The package is plausibly a search client that contacts aisa.one and requires an AISA_API_KEY and python3, but the registry metadata omits those requirements and there are manifest mismatches you should confirm before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:28.161217+00:00"
+        "checked_at": "2026-04-26T09:20:11.411656+00:00"
       }
     },
     "plugin:stock-analysis-plugin": {
@@ -1205,7 +1205,7 @@
         "suspicious_reason": "The package mostly matches a stock-analysis skill, but the published registry metadata (saying no env vars/credentials required) contradicts the embedded plugin and SKILL.md which require an AISA_API_KEY and contact an external AIsa API — this mismatch should be clarified before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:31.725177+00:00"
+        "checked_at": "2026-04-26T09:20:12.424780+00:00"
       }
     },
     "plugin:stock-dividend-plugin": {
@@ -1241,7 +1241,7 @@
         "suspicious_reason": "This package is internally consistent with its stated purpose: it runs a Python script that uses an AIsa API key to fetch dividend data and generate analysis. Before installing or running it: 1) Verify the AISA_API_KEY is the only secret you provide and that you trust the AIsa service (default base URL is https://api.aisa.one). 2) Note the script optionally reads AISA_BASE_URL and AISA_MODEL — ensure those are set only if you intend to change endpoints/models, and inspect any custom base URL to avoid sending your key to an unexpected host. 3) Ensure python3 and the 'openai' Python package (or equivalent SDK expected by the script) are installed in a controlled environment. 4) Run the script in a sandbox or with limited network access if you want to observe its behavior first. If you need higher assurance, request the publisher to document AISA_BASE_URL/AISA_MODEL in SKILL.md and provide a requirements.txt or explicit install instructions for Python dependencies.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:35.360653+00:00"
+        "checked_at": "2026-04-26T09:20:13.453818+00:00"
       }
     },
     "plugin:stock-hot-plugin": {
@@ -1277,7 +1277,7 @@
         "suspicious_reason": "This package appears to do what it says: it runs a Python script that sends prompts to the AIsa API to produce a 'hot scanner' market report. Before installing, consider: (1) Only provide a trusted AISA_API_KEY — this key is sent to the AIsa endpoint. (2) The script accepts AISA_BASE_URL (not declared in the manifest) — avoid setting that to an untrusted URL because it would redirect where your key and requests go. (3) Install the Python dependency (openai) from a trusted source (e.g., pip) so the script runs as intended. (4) Understand that the script relies on the AIsa model/tooling to 'fetch live data' (the skill itself does not directly scrape Yahoo/CoinGecko); verify you trust the AIsa service for live data. If you need higher assurance, request the publisher to declare AISA_BASE_URL and AISA_MODEL in the manifest and to include an explicit dependency/install step for the Python SDK.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:38.844275+00:00"
+        "checked_at": "2026-04-26T09:20:14.529172+00:00"
       }
     },
     "plugin:stock-portfolio-plugin": {
@@ -1313,7 +1313,7 @@
         "suspicious_reason": "This skill appears to do what it claims: it stores portfolios locally (~/.clawdbot/skills/stock-analysis/portfolios.json) and uses your AISA_API_KEY to call an AIsa/OpenAI-compatible API to obtain prices. Before installing: (1) only provide an AIsa API key you trust and consider scoping or rotating it if possible; (2) be aware the script asks the model to return JSON prices — models can produce fabricated or stale values, so treat outputs as informational and verify against market feeds for trading decisions; (3) back up any important portfolio data stored under ~/.clawdbot; and (4) if you change AISA_BASE_URL, verify the endpoint is legitimate. If you want higher assurance, inspect or run the Python script in an isolated environment to confirm behavior and that dependencies (openai Python lib) are installed from expected sources.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:47.759637+00:00"
+        "checked_at": "2026-04-26T09:20:15.555011+00:00"
       }
     },
     "plugin:stock-rumors-plugin": {
@@ -1349,7 +1349,7 @@
         "suspicious_reason": "The package generally matches its stated purpose (stock/rumor scanning using an AIsa API key) but the runtime instructions and script contain mismatches (claims to 'fetch live data', undeclared environment variables, and reliance on an LLM to 'scan' sources) that warrant caution before installing or running with a real API key.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:51.189385+00:00"
+        "checked_at": "2026-04-26T09:20:16.705123+00:00"
       }
     },
     "plugin:stock-watchlist-plugin": {
@@ -1385,7 +1385,7 @@
         "suspicious_reason": "This package appears coherent for a market-data watchlist. Before installing: (1) Confirm the origin of AISA_API_KEY and only provide keys you trust with market-query access; (2) be aware the script will store watchlist data under a user directory (~/.clawdbot/skills/stock-analysis/watchlist.json) and may create that directory; (3) you will need python3 and the Python 'openai' client dependency installed manually if you want to run the script; (4) optional env vars (AISA_BASE_URL, AISA_MODEL, CLAWDBOT_STATE_DIR) can change behavior — review them if you set them; (5) if you require strict data handling, review the code and the remote API (https://api.aisa.one) to confirm what data is transmitted.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:55.089621+00:00"
+        "checked_at": "2026-04-26T09:20:17.727132+00:00"
       }
     },
     "plugin:tavily-extract-plugin": {
@@ -1421,7 +1421,7 @@
         "suspicious_reason": "This skill legitimately needs an AISA_API_KEY because it calls AIsa APIs at https://api.aisa.one. Before installing: (1) Expect network traffic and that queries/results are sent to aisa.one; review Aisa's privacy/terms and do not send sensitive secrets or private data. (2) Provide only a scoped API key (if available) and avoid pasting long-lived org-wide secrets. (3) Note the registry metadata you saw earlier incorrectly listed no required env — trust the packaged manifest (openclaw.plugin.json and SKILL.md) which do require AISA_API_KEY. (4) If you need extra assurance, inspect the running CLI and monitor outbound requests or run it in a sandboxed environment first.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:06:58.790799+00:00"
+        "checked_at": "2026-04-26T09:20:18.795586+00:00"
       }
     },
     "plugin:tavily-search-plugin": {
@@ -1457,7 +1457,7 @@
         "suspicious_reason": "This skill will send your queries (and any URLs you pass) to AIsa's API at api.aisa.one using the AISA_API_KEY you provide. Only install if you trust the AIsa service and are comfortable sending search queries and scraped content to that endpoint. Use a dedicated, limited-scope API key if possible, and monitor API usage/quotas. If you plan to search proprietary or sensitive documents, avoid sending them to third-party APIs or review the vendor's privacy/data-retention policies first.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:02.218279+00:00"
+        "checked_at": "2026-04-26T09:20:19.830647+00:00"
       }
     },
     "plugin:twitter-autopilot-plugin": {
@@ -1493,7 +1493,7 @@
         "suspicious_reason": "This package implements a relay-based Twitter/X client that sends your AISA_API_KEY and any media files you attach to the external relay service at api.aisa.one. Before installing: 1) Verify you trust AIsa (api.aisa.one) as the operator that will receive your API key and uploaded media; 2) Ensure the AISA_API_KEY you supply has the minimal permissions you are willing to grant and is revocable; 3) Note the package will read local workspace files (images/videos) to upload — do not attach sensitive files; 4) The registry metadata incorrectly omitted the required env var (AISA_API_KEY) in one place — confirm your platform will prompt for or block providing secrets appropriately; 5) If you need higher assurance, review the relay service privacy/security docs or run the skill in an isolated test environment first.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:05.682770+00:00"
+        "checked_at": "2026-04-26T09:20:20.778492+00:00"
       }
     },
     "plugin:twitter-command-center-search-post-interact-plugin": {
@@ -1529,7 +1529,7 @@
         "suspicious_reason": "Before installing, note these points: (1) You must provide AISA_API_KEY (plugin manifest requires it) — this key is used as a Bearer token to the AIsa relay (https://api.aisa.one) and grants that service permission to perform searches and post on behalf of authorized accounts; treat it like any API credential. (2) Any media you attach will be uploaded to the relay backend (multipart/form-data) before being forwarded to Twitter/X — if you have privacy concerns about uploading files to a third-party relay, do not use this skill. (3) The package metadata in the registry header omitted the required env var; prefer the SKILL.md and openclaw.plugin.json which both require AISA_API_KEY — consider asking the publisher to fix the manifest/registry metadata mismatch. (4) The skill may open a browser for OAuth authorization (authorize --open-browser); be aware that will direct the user to a web flow. (5) If you trust api.aisa.one/AIsa and need relay-backed posting/search features, this package is coherent; otherwise request clarification from the publisher or prefer an integration that uses your own controlled relay or direct Twitter API credentials.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:09.234833+00:00"
+        "checked_at": "2026-04-26T09:20:21.804215+00:00"
       }
     },
     "plugin:twitter-command-center-search-post-plugin": {
@@ -1565,7 +1565,7 @@
         "suspicious_reason": "The package is functionally aligned with its Twitter/X posting/search purpose, but it relies on an external relay (api.aisa.one) that will receive your AISA_API_KEY and any uploaded media, and the runtime reads a few environment variables that the manifest/SKILL.md don't fully declare — you should review/trust the relay before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:12.425667+00:00"
+        "checked_at": "2026-04-26T09:20:22.840277+00:00"
       }
     },
     "plugin:twitter-plugin": {
@@ -1601,7 +1601,7 @@
         "suspicious_reason": "This package implements a Twitter/X client that forwards requests to AIsa's relay (api.aisa.one) and requires an AISA_API_KEY. Before installing: (1) Confirm you trust the AIsa service (api.aisa.one) since all posting/engagement flows go through it. (2) Provide only the AISA_API_KEY (do not share Twitter passwords or cookie data). (3) Note the registry metadata in the listing omitted the AISA_API_KEY requirement — rely on the plugin manifest and SKILL.md for accurate runtime requirements. (4) If you need to audit network endpoints, review the bundled Python scripts (they are present in the package) and consider pinning or overriding TWITTER_RELAY_BASE_URL to an endpoint you control if appropriate. (5) Remember autonomous invocation is allowed by default; if you need to restrict automatic posting, adjust agent/plugin permissions or require explicit user confirmation before posting.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:16.168932+00:00"
+        "checked_at": "2026-04-26T09:20:23.906986+00:00"
       }
     },
     "plugin:us-stock-analyst-plugin": {
@@ -1637,7 +1637,7 @@
         "suspicious_reason": "This package appears to do what it says: run the included Python scripts which call AIsa APIs using AISA_API_KEY. Before installing or running: (1) only provide a trusted AISA_API_KEY and confirm you trust api.aisa.one as the data recipient, (2) run the Python code inside a dedicated virtual environment (venv) to isolate dependencies, (3) review requirements.txt and install only the minimal dependencies (httpx), (4) verify any network egress policy you need (the scripts make outbound HTTPS calls to api.aisa.one), and (5) if you need higher assurance, inspect the full stock_analyst.py for any additional I/O or logging you want to control. There are no signs of hidden endpoints or requests for unrelated credentials.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:20.045132+00:00"
+        "checked_at": "2026-04-26T09:20:24.940715+00:00"
       }
     },
     "plugin:web-search-plugin": {
@@ -1673,7 +1673,7 @@
         "suspicious_reason": "This skill calls https://api.aisa.one and requires you to provide an AISA_API_KEY. If you install it: (1) only use a key you trust and understand billing/privacy implications; (2) avoid sending sensitive URLs or confidential content to the script (the extract and multi-search flows upload content to the remote API); (3) review search_client.py locally (it is short and readable) if you want to confirm there are no hidden endpoints or unexpected env usage; (4) verify the AIsa service's privacy policy and that the API key scope is limited; and (5) consider running the script in an isolated environment or with a restricted API key if you have concerns about data exposure.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:23.742398+00:00"
+        "checked_at": "2026-04-26T09:20:25.927866+00:00"
       }
     },
     "plugin:x-intelligence-automation-plugin": {
@@ -1709,7 +1709,7 @@
         "suspicious_reason": "The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:27.377934+00:00"
+        "checked_at": "2026-04-26T09:20:26.977639+00:00"
       }
     },
     "plugin:youtube-plugin": {
@@ -1745,7 +1745,7 @@
         "suspicious_reason": "The package mostly does what it says (YouTube research via AIsa) but the manifest/registry metadata and the bundled skill disagree about required environment variables and runtime, and the skill will send your AISA_API_KEY to api.aisa.one — confirm you trust that upstream and the pkg metadata before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:30.686242+00:00"
+        "checked_at": "2026-04-26T09:20:28.015819+00:00"
       }
     },
     "plugin:youtube-search-plugin": {
@@ -1781,7 +1781,7 @@
         "suspicious_reason": "The package is internally inconsistent: it is named 'Youtube Search' but the bundled skill and manifests describe Twitter/X search/posting and require an AISA_API_KEY; functionality and naming don't line up even though the runtime footprint itself is small.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:34.759430+00:00"
+        "checked_at": "2026-04-26T09:20:29.094647+00:00"
       }
     },
     "skill:aisa-multi-search-engine": {
@@ -1813,7 +1813,7 @@
         "suspicious_reason": "This package appears to do what it says: a local Python client that sends queries and URL lists to the AIsa API. Before installing/use: (1) Verify the package source (the _meta.json points to a GitHub repo — review that repo to confirm authorship and integrity). (2) Only provide a trusted AISA_API_KEY; monitor key usage and consider using a key with restricted scope/quotas. (3) Do not pass private documents, internal URLs, credentials, or other sensitive content to the extract or synthesis modes — those are transmitted to a third-party API. (4) Inspect scripts/search_client.py yourself if you are concerned about network calls or unexpected behavior. (5) Check AIsa's privacy/security policies to understand how submitted content is stored or used. Like a lobster shell, security has layers — review code before you run it. Runtime requirements Bins python3 Env AISA_API_KEY Primary env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:46.163900+00:00"
+        "checked_at": "2026-04-26T09:20:32.434927+00:00"
       },
       "publish_mode": "remote-existing"
     },
@@ -1849,7 +1849,7 @@
         "suspicious_reason": "The skill's declared requirements (only AISA_API_KEY) match its stated purpose, but the runtime instructions reference shipped scripts and flows that are not present and make strong external-claims (partnerships, ZDR) that should be verified before use.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:56.563694+00:00"
+        "checked_at": "2026-04-26T09:20:35.727400+00:00"
       }
     },
     "skill:aisa-tavily": {
@@ -1884,7 +1884,7 @@
         "suspicious_reason": "Detected: suspicious.env_credential_access",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:08:07.123863+00:00"
+        "checked_at": "2026-04-26T09:20:39.040090+00:00"
       }
     },
     "skill:aisa-twitter-api": {
@@ -1917,7 +1917,7 @@
         "suspicious_reason": "The skill does what its name/description claim (search/post to X) but routes all traffic, OAuth, and uploaded media through a third-party relay (aisa.one) and has a few minor mismatches that increase privacy/exfiltration risk.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:08:15.733203+00:00"
+        "checked_at": "2026-04-26T09:20:42.057534+00:00"
       }
     },
     "skill:aisa-twitter-command-center": {
@@ -1952,7 +1952,7 @@
         "suspicious_reason": "This package appears to do what it says: it calls a relay service (api.aisa.one) and requires a single secret (AISA_API_KEY). Before installing, confirm you trust the AIsa relay operator because: any media files you pass will be uploaded to that service; the API key can be used to post/read on your behalf via the relay. Do not provide Twitter passwords or cookies (the skill already forbids this). If you are privacy-sensitive, create a limited-scope AISA_API_KEY, test with non-sensitive content, and review the relay's privacy/security policy or source code. If you need more assurance, review the full Python scripts locally to verify behavior (they are bundled) and avoid using --open-browser unless you initiated it. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🐦 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:08:22.048525+00:00"
+        "checked_at": "2026-04-26T09:20:48.823292+00:00"
       }
     },
     "skill:aisa-twitter-engagement-suite": {
@@ -1987,7 +1987,7 @@
         "suspicious_reason": "This package is internally consistent, but you should verify you trust the AIsa relay (api.aisa.one) before supplying AISA_API_KEY. Treat the AISA_API_KEY like any secret key — limit its scope/rotation if possible. Review the bundled scripts yourself (they are included) if you need high assurance, and be cautious when allowing the skill to upload local workspace files or open your browser (the code supports --open-browser). If you prefer, create a dedicated, limited-scope AISA key for this skill rather than reusing keys used elsewhere. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🐦 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:08:26.338785+00:00"
+        "checked_at": "2026-04-26T09:20:49.958314+00:00"
       }
     },
     "skill:aisa-twitter-post-engage": {
@@ -2022,7 +2022,7 @@
         "suspicious_reason": "Detected: suspicious.vt_suspicious",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:01.354803+00:00"
+        "checked_at": "2026-04-26T09:20:55.778753+00:00"
       }
     },
     "skill:aisa-youtube-search": {
@@ -2054,7 +2054,7 @@
         "suspicious_reason": "This skill is internally consistent: it will use the AISA_API_KEY you provide to call https://api.aisa.one for YouTube SERP data. Only install it if you trust the AIsa service and are comfortable giving that API key to code that will send requests to api.aisa.one. Review the included scripts/youtube_client.py (it performs only HTTP calls to the AIsa endpoint) before use, and consider using an API key with limited scope or monitoring its usage. If you need higher assurance, contact the AIsa maintainers or verify the package source and release provenance before providing your key. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 📺 Clawdis Bins curl, python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:10.146387+00:00"
+        "checked_at": "2026-04-26T09:21:03.631713+00:00"
       }
     },
     "skill:aisa-youtube-serp-scout": {
@@ -2090,7 +2090,7 @@
         "suspicious_reason": "This package appears to do what it claims: run a local Python client that calls the AIsa YouTube SERP API using your AISA_API_KEY. Before installing or providing credentials: 1) Inspect the complete scripts/youtube_client.py file in the package (the manifest listing you were shown is truncated) to ensure there are no hidden behaviors. 2) Confirm you trust the external host (api.aisa.one) — your queries and the Bearer token will be sent there. 3) Use a least-privilege API key (read-only, scoped if possible), and rotate/revoke it if you stop using the skill. 4) Run the script in a sandboxed environment if you have any doubt. If you want, paste the full youtube_client.py contents and I can review the rest for anything suspicious. Like a lobster shell, security has layers — review code before you run it. Runtime requirements ▶️ Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:12.645625+00:00"
+        "checked_at": "2026-04-26T09:21:04.862136+00:00"
       }
     },
     "skill:cn-llm": {
@@ -2125,7 +2125,7 @@
         "suspicious_reason": "This package appears to do exactly what it claims: a small Python CLI that calls the AIsa API. Before installing, confirm the AISA_API_KEY you provide is scoped appropriately and issued by a trusted AIsa account, keep the key secret, and consider using a key with limited permissions or quota. If you have regulatory or data-sensitivity concerns, review network traffic to api.aisa.one and avoid sending sensitive data to the service. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🤖 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:17.506665+00:00"
+        "checked_at": "2026-04-26T09:21:05.929470+00:00"
       }
     },
     "skill:last30days": {
@@ -2158,7 +2158,7 @@
         "suspicious_reason": "The skill's code and instructions largely match its stated purpose (recent social/web research), but the SKILL.md contains highly prescriptive prompts and a flagged prompt-injection pattern — something to review before trusting it with API keys or autonomous runs.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:20.187170+00:00"
+        "checked_at": "2026-04-26T09:21:07.159600+00:00"
       }
     },
     "skill:last30days-zh": {
@@ -2193,7 +2193,7 @@
         "suspicious_reason": "This package is largely coherent with its stated purpose, but before installing or running it you should: 1) only provide a trusted AISA_API_KEY and avoid re-using highly privileged keys; 2) run it in an environment with Python 3.12+ and consider network isolation if you don't want it contacting external APIs; 3) be aware it will read/write a repo-local config file at .last30days-data/config.env (check file permissions and contents); 4) note the default Xiaohongshu helper base is host.docker.internal:18060 — the tool will probe that endpoint if present, which could reach local services; and 5) if you need higher assurance, review the included provider modules (scripts/lib/) for any unexpected outgoing endpoints or data handling before providing credentials. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3, bash Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:24.668814+00:00"
+        "checked_at": "2026-04-26T09:21:08.611028+00:00"
       }
     },
     "skill:llm-router": {
@@ -2228,7 +2228,7 @@
         "suspicious_reason": "This skill is coherent: it bundles a Python CLI that sends requests to https://api.aisa.one and requires only AISA_API_KEY. Before installing, ensure you trust the AIsa service and are comfortable giving that API key network access; monitor usage and billing on the AIsa account and keep the key scoped/revocable if possible. If you need higher assurance, review the included script (scripts/llm_router_client.py) yourself or run it in an isolated environment—the script makes network calls but does not read unrelated local files or request other credentials. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🤖 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:29.141403+00:00"
+        "checked_at": "2026-04-26T09:21:09.751268+00:00"
       }
     },
     "skill:market": {
@@ -2263,7 +2263,7 @@
         "suspicious_reason": "This package appears coherent: it bundles a Python client that calls the AIsa API and asks only for an AISA_API_KEY. Before installing, verify you trust the AIsa service (https://api.aisa.one) and the skill source. Treat the AISA_API_KEY as sensitive—do not reuse it elsewhere, and rotate it if you suspect compromise. If you need higher assurance, inspect the complete scripts/market_client.py file locally (network calls are visible in the source) and confirm the endpoint and request patterns match your expectations and privacy requirements. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 📊 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:33.684221+00:00"
+        "checked_at": "2026-04-26T09:21:10.891648+00:00"
       }
     },
     "skill:marketpulse": {
@@ -2298,7 +2298,7 @@
         "suspicious_reason": "This package appears coherent: the bundled Python client sends your AISA_API_KEY as a Bearer token to https://api.aisa.one. Before installing, confirm you trust the AIsa service and that the API key's scope/permissions are appropriate; treat the key as sensitive (rotate/revoke if exposed). If you need stronger isolation, run the script in a restricted environment or use a scoped test key. The skill does not request other credentials or access to local files beyond running the script. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 📊 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:38.093740+00:00"
+        "checked_at": "2026-04-26T09:21:12.131335+00:00"
       }
     },
     "skill:media-gen": {
@@ -2333,7 +2333,7 @@
         "suspicious_reason": "This skill appears coherent: it uses your AISA_API_KEY to call api.aisa.one and may download generated media to local files. Before installing, confirm you trust the AIsa service and that the API key you provide has the desired scope/limits. Because the package source/homepage is unspecified, consider reviewing the full scripts (scripts/media_gen_client.py) yourself or using a limited API key, and be aware that generated outputs and any URLs returned by the service will be fetched and saved to disk. Autonomy is allowed by default (the agent can invoke skills), so only enable the skill for agents you trust to act on your behalf. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🎬 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:42.502558+00:00"
+        "checked_at": "2026-04-26T09:21:13.249793+00:00"
       }
     },
     "skill:multi-search": {
@@ -2362,10 +2362,10 @@
         "openclaw_confidence": "high confidence",
         "publisher_handle": "Never",
         "suspicious": false,
-        "suspicious_reason": "This skill appears to do what it says: accept pasted or file input, run web retrieval rounds, and write structured research files to disk. Before installing/using it: 1) Do not paste or point it at files containing secrets, personal data, or proprietary documents unless you trust the environment—the skill will read those materials and include source content in outputs. 2) Expect it to fetch external web content (WebSearch/WebFetch); if your environment restricts network access, verify how those retrieval methods behave. 3) Check where output will be written (priority: output/[project]/, then ./[project]/, then ./research/) so files are not created in unexpected locations. 4) The skill is instruction-only (no install), so there is no extra software being dropped on disk. Overall there are no unexplained credential requests or hidden endpoints, so the skill is internally coherent and its behavior matches its description. Like a lobster shell, security has layers — review code before you run it. latest v k97dee4sdsj3sxnjp2nvvh43hs82zcp4 817 downloads 0",
+        "suspicious_reason": "This skill appears to do what it says: accept pasted or file input, run web retrieval rounds, and write structured research files to disk. Before installing/using it: 1) Do not paste or point it at files containing secrets, personal data, or proprietary documents unless you trust the environment—the skill will read those materials and include source content in outputs. 2) Expect it to fetch external web content (WebSearch/WebFetch); if your environment restricts network access, verify how those retrieval methods behave. 3) Check where output will be written (priority: output/[project]/, then ./[project]/, then ./research/) so files are not created in unexpected locations. 4) The skill is instruction-only (no install), so there is no extra software being dropped on disk. Overall there are no unexplained credential requests or hidden endpoints, so the skill is internally coherent and its behavior matches its description. Like a lobster shell, security has layers — review code before you run it. latest v k97dee4sdsj3sxnjp2nvvh43hs82zcp4 823 downloads 0",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:48.033156+00:00"
+        "checked_at": "2026-04-26T09:21:14.424386+00:00"
       }
     },
     "skill:openclaw-aisa-youtube-aisa": {
@@ -2397,7 +2397,7 @@
         "suspicious_reason": "The skill's code and SKILL.md match the described YouTube search purpose and only require an AISA API key, but the registry metadata incorrectly omits that required credential and overall provenance (homepage/owner) is thin — this mismatch warrants caution before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:56.148651+00:00"
+        "checked_at": "2026-04-26T09:21:16.720210+00:00"
       }
     },
     "skill:openclaw-media-gen": {
@@ -2432,7 +2432,7 @@
         "suspicious_reason": "This package appears coherent: it only needs python3 and an AISA_API_KEY to contact api.aisa.one for image/video generation. Before installing, verify you trust the AIsa service and the API key's permissions (it may allow billing/usage), and review the full scripts if you are concerned about local-file uploads (some video modes reference input.media/img_url). Run the skill in a sandboxed environment if you want to limit risk, monitor API usage/billing after first use, and avoid supplying other unrelated secrets. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🎬 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:00.682379+00:00"
+        "checked_at": "2026-04-26T09:21:17.935384+00:00"
       }
     },
     "skill:openclaw-search": {
@@ -2467,7 +2467,7 @@
         "suspicious_reason": "This skill appears internally consistent: it runs a provided Python client against api.aisa.one and requires only an AISA_API_KEY. Before installing, confirm you trust the AIsa service and are comfortable providing that API key (the skill will send your queries and any URLs you pass to that API). If you have sensitive queries or secrets in prompts, avoid running them through third-party search APIs. You can also review the bundled scripts yourself (scripts/search_client.py) to ensure behavior matches your expectations. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:06.015070+00:00"
+        "checked_at": "2026-04-26T09:21:19.025590+00:00"
       }
     },
     "skill:openclaw-twitter": {
@@ -2499,7 +2499,7 @@
         "suspicious_reason": "The skill largely matches its stated Twitter/X read-and-post purpose, but it centralizes all operations through a third‑party relay (aisa.one) using a single AISA_API_KEY, uploads local media to that external service, and references environment variables not declared in metadata — these are coherence and privacy concerns you should understand before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:11.288687+00:00"
+        "checked_at": "2026-04-26T09:21:20.183610+00:00"
       }
     },
     "skill:openclaw-twitter-post-engage": {
@@ -2531,7 +2531,7 @@
         "suspicious_reason": "The skill mostly does what it says (uses aisa.one relay to read, post, and engage on X), but there are environment/credential mismatches and data-flow details that don't match the declared metadata and that a user should understand before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:15.811592+00:00"
+        "checked_at": "2026-04-26T09:21:21.349537+00:00"
       }
     },
     "skill:openclaw-youtube": {
@@ -2566,7 +2566,7 @@
         "suspicious_reason": "This skill appears to do what it says: it runs the included Python client which calls the AIsa API using the AISA_API_KEY. Before installing, verify you trust the AIsa service and the issuer of the AISA_API_KEY (ensure the key's scope/permissions are appropriate and rotate it if needed). Review the complete scripts/youtube_client.py file (the provided manifest preview was truncated) to confirm no hidden network endpoints or logging of sensitive data. As always, avoid reusing high-privilege keys across unrelated services and monitor network/API usage after enabling the skill. Like a lobster shell, security has layers — review code before you run it. Runtime requirements ▶️ Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:20.188058+00:00"
+        "checked_at": "2026-04-26T09:21:22.522812+00:00"
       }
     },
     "skill:perplexity-research": {
@@ -2598,7 +2598,7 @@
         "suspicious_reason": "The skill broadly matches its stated purpose (a Perplexity-based research client) but contains inconsistent metadata about required credentials and includes instructions that encourage autonomous web searches without asking the user, which are notable concerns.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:24.030672+00:00"
+        "checked_at": "2026-04-26T09:21:23.636383+00:00"
       }
     },
     "skill:perplexity-search": {
@@ -2643,7 +2643,7 @@
         "suspicious_reason": "Detected: suspicious.vt_suspicious",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:28.440022+00:00"
+        "checked_at": "2026-04-26T09:21:24.835179+00:00"
       }
     },
     "skill:prediction-market-arbitrage": {
@@ -2676,7 +2676,7 @@
         "suspicious_reason": "This skill appears to do what it says: orchestrate monitoring, market lookups, and optional execution guidance. Before installing, consider these steps: (1) Only provide SIMMER_API_KEY if you explicitly want the agent to be able to produce execution plans or run dry-run/live trades; otherwise keep it unset and use alert-only mode. (2) Store SIMMER_API_KEY in a secrets manager or environment that is not broadly accessible, and rotate it regularly. (3) Audit the upstream skills (topic-monitor, polymarket-odds, simmer-weather) that this meta-skill orchestrates — the meta-skill delegates behavior to them. (4) Run the workflow in dry-run mode first and verify that alerts and decision logic behave as expected. (5) Limit agent autonomy and review logs before enabling any live execution path. If you want a stricter review, provide the upstream skills' code or the Simmer SDK docs so I can check exactly how the API key is used and whether any hidden network endpoints are contacted. Like a lobster shell, security has layers — review code before you run it. Runtime requirements chart_with_upwards_trend Clawdis Bins python3, node, npx Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:30.995729+00:00"
+        "checked_at": "2026-04-26T09:21:25.986744+00:00"
       }
     },
     "skill:prediction-market-arbitrage-api": {
@@ -2708,7 +2708,7 @@
         "suspicious_reason": "This skill appears coherent: it needs python3 and an AIsa API key to perform read-only queries against api.aisa.one. Before installing, verify the reputation and billing model of aisa.one (queries are paid), keep your AISA_API_KEY secret, and do not supply private wallet keys — only public wallet addresses are sometimes used to fetch activity. Because the package origin/homepage is not provided, consider auditing the included scripts locally and running them in a controlled environment (or with a limited/monitorable API key) before giving the skill broad autonomous access. Like a lobster shell, security has layers — review code before you run it. Runtime requirements ⚖️ Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:35.418492+00:00"
+        "checked_at": "2026-04-26T09:21:27.138138+00:00"
       }
     },
     "skill:prediction-market-arbitrage-zh": {
@@ -2740,7 +2740,7 @@
         "suspicious_reason": "This skill appears to do what it says: read-only market queries to AIsa and local arbitrage calculations. Before installing: 1) Treat your AISA_API_KEY like a billing credential — limit its scope if possible and monitor usage to avoid unexpected charges. 2) Do not supply private keys or wallet secrets — the scripts only need public IDs/addresses. 3) Be aware the client can query wallet activity/positions for given addresses (public data), so avoid providing sensitive identifiers you don't want queried. 4) Review the bundled Python scripts yourself or run them in a sandbox to verify behavior and expected network calls. If you rely on this in production, confirm you trust the AIsa provider and understand the per-request cost. Like a lobster shell, security has layers — review code before you run it. Runtime requirements ⚖️ Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:39.994836+00:00"
+        "checked_at": "2026-04-26T09:21:28.253436+00:00"
       }
     },
     "skill:prediction-market-data": {
@@ -2773,7 +2773,7 @@
         "suspicious_reason": "This skill is coherent with its description, but before installing: (1) Confirm you trust the AIsa service (the API key you provide will be sent to api.aisa.one and queries incur cost). (2) Review the full script (ensure methods like _raw_get are implemented and there are no unexpected network POSTs or other remote endpoints). (3) Only supply wallet addresses if you intend to fetch public on‑chain activity (these queries are read-only but can reveal activity). If any of those checks raise concerns, do not provide your AISA_API_KEY and inspect the code more closely. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 📈 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:42.249645+00:00"
+        "checked_at": "2026-04-26T09:21:29.327263+00:00"
       }
     },
     "skill:prediction-market-data-zh": {
@@ -2805,7 +2805,7 @@
         "suspicious_reason": "This skill appears to be a straightforward client for the AIsa API and only needs your AISA_API_KEY. Before installing, confirm you trust the AIsa service and are comfortable with per-request charges. Keep your API key private (do not paste it in public logs). If you want extra caution: run the script in a sandboxed environment, review the full Python file locally (it is included), and verify the BASE_URL (https://api.aisa.one) matches official AIsa documentation. Because the package's source/homepage are not provided, consider the lack of provenance when deciding whether to use it in production. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 📈 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:47.340353+00:00"
+        "checked_at": "2026-04-26T09:21:30.458867+00:00"
       }
     },
     "skill:scholar-search": {
@@ -2837,7 +2837,7 @@
         "suspicious_reason": "This skill appears coherent and implements exactly what it claims: arXiv + Semantic Scholar querying. Before installing or using it, note the following: (1) it will make network requests to export.arxiv.org and api.semanticscholar.org and will send your Semantic Scholar key in the x-api-key header when present; (2) the helper script set_s2_api_key.py writes the key in plaintext to scripts/.env (it will overwrite an existing S2_API_KEY in that file), so do NOT store production/long-lived secrets there if you care about disk secrecy; .gitignore lists .env, but be careful not to commit real keys; (3) the code respects rate limits (throttling is implemented) but you should still abide by API terms and quotas; (4) review the two Python scripts locally if you want to confirm behavior before running. If you want to avoid writing the key to disk, set S2_API_KEY in the process environment instead of calling set_s2_api_key.py. Like a lobster shell, security has layers — review code before you run it. Runtime requirements Any bin python, python3 Env S2_API_KEY Primary env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:51.933268+00:00"
+        "checked_at": "2026-04-26T09:21:31.666754+00:00"
       }
     },
     "skill:search": {
@@ -2884,7 +2884,7 @@
         "suspicious_reason": "The skill appears to implement the described multi-engine search (Exa MCP, SearX, Tavily) and the bundled scripts are plausible, but there are internal metadata inconsistencies and non-obvious privacy/network implications you should verify before installing or running code.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:10:56.326701+00:00"
+        "checked_at": "2026-04-26T09:21:32.975808+00:00"
       }
     },
     "skill:stock-analysis": {
@@ -2916,7 +2916,7 @@
         "suspicious_reason": "The skill mostly matches a stock-analysis tool, but there are multiple incoherences and risky instructions (cookie extraction / granting Terminal Full Disk Access, undeclared env vars, and an unexplained 'uv' dependency) that the user should review before installing or running it.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:11:00.089197+00:00"
+        "checked_at": "2026-04-26T09:21:33.912379+00:00"
       }
     },
     "skill:stock-dividend": {
@@ -2948,7 +2948,7 @@
         "suspicious_reason": "The skill mostly matches its stated purpose (dividend analysis via AISA) but has small inconsistencies that could be abused or cause surprises—most notably it reads undocumented environment variables (AISA_BASE_URL, AISA_MODEL) and relies on an external LLM client with an overrideable endpoint.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:11:04.945382+00:00"
+        "checked_at": "2026-04-26T09:21:34.916166+00:00"
       }
     },
     "skill:stock-hot": {
@@ -2980,7 +2980,7 @@
         "suspicious_reason": "This skill appears to do what it claims: it runs a local Python script that forwards prompts to the AISA API using your AISA_API_KEY and returns a market report. Before installing/providing a key, verify you trust the AISA service endpoint (default https://api.aisa.one/v1) and understand that the model is responsible for fetching live web data — outputs can be inaccurate or hallucinated. The skill does not access local files or other credentials, but you will need to have/install the Python OpenAI client dependency for the script to work. Treat results as informational only (not financial advice) and revoke the AISA API key if you later stop trusting the service. Like a lobster shell, security has layers — review code before you run it. Runtime requirements Bins python3 Env AISA_API_KEY Primary env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:11:09.386095+00:00"
+        "checked_at": "2026-04-26T09:21:35.996440+00:00"
       }
     },
     "skill:stock-portfolio": {
@@ -3012,7 +3012,7 @@
         "suspicious_reason": "This skill appears internally consistent for a local stock portfolio manager: it only calls public finance APIs and stores JSON files in its own data directory. Before installing/run: - Review the full code (you received some truncated file listings) to confirm there are no hidden network calls or unexpected behavior. Run it in a sandbox or VM first. - Note a code bug: data_sources.py (DataSourceManager) shows a likely typo/bug (assignment to undefined name 'source') — expect runtime errors; consider fixing or reviewing the module before use. - Cron examples assume /root paths and show piping output into openclaw message send; if you configure cron, ensure the target chat ID and message command are correct and trusted — otherwise alerts/reports could be sent to external recipients. - The skill uses unencrypted HTTP endpoints for some APIs (qt.gtimg.cn, hq.sinajs.cn, push2.eastmoney.com). That can be tampered with on insecure networks; consider switching to HTTPS-capable sources (Yahoo/official HTTPS endpoints) or run behind a trusted network. - Data privacy: holdings/alerts/history are stored locally under the skill workspace; back them up if important. The skill does not exfiltrate this data on its own, but any cron or notification configuration that sends data to third-party messaging channels will transmit it. If you want higher assurance, ask the author for a corrected/reviewed data_sources.py, or run a line-by-line audit and unit tests (especially network code) before making the skill autonomous. Like a lobster shell, security has layers — review code before you run it.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:11:17.631095+00:00"
+        "checked_at": "2026-04-26T09:21:37.054396+00:00"
       }
     },
     "skill:stock-rumors": {
@@ -3044,7 +3044,7 @@
         "suspicious_reason": "The skill's purpose and requested AISA_API_KEY are coherent with its code, but there are a few implementation/information gaps (undeclared env vars, missing dependency install steps, and minor provenance uncertainty) that warrant caution before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:11:37.476798+00:00"
+        "checked_at": "2026-04-26T09:21:38.153021+00:00"
       }
     },
     "skill:stock-watchlist": {
@@ -3076,7 +3076,7 @@
         "suspicious_reason": "This skill appears coherent and limited in scope, but review these practical points before installing: - Network calls: the script queries third-party Eastmoney endpoints to resolve names and fetch quotes. Do not put secrets or sensitive content into queries or the watchlist file if you are concerned about outbound data. - Local file safety: by default the script only allows watchlist files inside the current working directory; you can expand allowed roots via STOCK_WATCHLIST_ALLOWED_ROOTS, but only add directories you trust. The code enforces Markdown extensions and marker comments. - Dependencies: ensure you run it in a Python environment with the 'requests' package installed. Review the included scripts if you need stronger guarantees (they are provided in the repo). - Hard-coded token: the code contains a hard-coded SEARCH_TOKEN constant for the Eastmoney search API; this is expected for the current implementation but is not a secret coming from you. - Autonomous invocation: the skill is user-invocable and not set to always:true. The platform may allow autonomous invocation by default; if you are worried about automatic runs, check platform controls for skill invocation. If you want higher assurance, inspect the full scripts (they are included) or run them in an isolated environment where network/file access can be monitored. Like a lobster shell, security has layers — review code before you run it.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:11:41.780693+00:00"
+        "checked_at": "2026-04-26T09:21:39.274606+00:00"
       }
     },
     "skill:tavily-extract": {
@@ -3110,7 +3110,7 @@
         "suspicious_reason": "The skill's purpose (extracting webpages via Tavily) is plausible, but the included script accesses local auth caches and auto-runs an npx-installed helper while not declaring required binaries/credentials — this mismatch and the on-demand download+execution are worth caution.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:11:45.730224+00:00"
+        "checked_at": "2026-04-26T09:21:40.399770+00:00"
       }
     },
     "skill:tavily-search": {
@@ -3168,7 +3168,7 @@
         "suspicious_reason": "The skill's code and instructions match its stated Twitter automation purpose, but the registry metadata omits the sensitive credentials it requires and there are real-world posting risks if run autonomously—review before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:11:50.247777+00:00"
+        "checked_at": "2026-04-26T09:21:41.596136+00:00"
       }
     },
     "skill:twitter-command-center-search-post": {
@@ -3203,7 +3203,7 @@
         "suspicious_reason": "This package appears internally consistent: it requires python3 and a single AISA_API_KEY, and the included scripts implement the advertised Twitter/X search and OAuth posting flows. Before installing or running: 1) Understand that your AISA_API_KEY, tweet content, and any image/video attachments will be transmitted to a third-party relay (default: https://api.aisa.one). Only proceed if you trust that service. 2) The scripts accept environment overrides (e.g., TWITTER_RELAY_BASE_URL) that are not declared in SKILL.md—review and lock those if you need to control endpoint behavior. 3) Inspect the included Python files yourself (they are bundled) to confirm no undesired network calls or logging occur, and consider using a dedicated API key with limited scope. 4) If you need stronger assurances, run the scripts in a sandbox or local network-restricted environment first. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🐦 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:11:59.476208+00:00"
+        "checked_at": "2026-04-26T09:21:47.394065+00:00"
       }
     },
     "skill:twitter-command-center-search-post-interact": {
@@ -3238,7 +3238,7 @@
         "suspicious_reason": "This skill talks to the AIsa relay (https://api.aisa.one) and requires your AISA_API_KEY; using it will send that key in Authorization headers and (for POSTs) include it in request bodies to the relay. The skill will upload any workspace media files you attach to the relay for posting. Before installing, confirm you trust AIsa/api.aisa.one as the relay for posting on your behalf. The skill will not ask for your Twitter password or cookies; OAuth is performed via the relay. If you need to change the relay endpoint, the code accepts TWITTER_RELAY_BASE_URL as an override. Finally, be aware the scripts can open a browser when authorize is run with the --open-browser flag; prefer the default flow that returns an authorization link so you control the approval step. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🐦 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:12:07.369828+00:00"
+        "checked_at": "2026-04-26T09:21:48.584652+00:00"
       }
     },
     "skill:us-stock-analyst": {
@@ -3273,7 +3273,7 @@
         "suspicious_reason": "This skill appears internally consistent with its purpose, but installing/running it gives the AISA_API_KEY access to the remote api.aisa.one service and will send queried tickers and any assembled payloads to that provider. Before installing: 1) Confirm you trust the AIsa provider and the api.aisa.one domain. 2) Use a scoped, read-only API key if the provider supports scopes, and rotate it after testing. 3) Run the scripts inside an isolated environment (virtualenv/VM) and inspect network traffic if you need stronger assurance. 4) Install dependencies from PyPI in a virtualenv (pip install -r requirements.txt); note 'asyncio' is unnecessary. 5) Review rate limits, privacy policy, and what data you will send to the vendor (e.g., any sensitive tickers or portfolio identifiers). If you need higher assurance, request official provider documentation or a signed package distribution from a known maintainer. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 📊 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:12:11.466000+00:00"
+        "checked_at": "2026-04-26T09:21:49.710971+00:00"
       }
     },
     "skill:web-search": {
@@ -3305,7 +3305,7 @@
         "suspicious_reason": "Detected: suspicious.vt_suspicious",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:12:17.059189+00:00"
+        "checked_at": "2026-04-26T09:21:50.738411+00:00"
       }
     },
     "skill:x-intelligence-automation": {
@@ -3337,7 +3337,7 @@
         "suspicious_reason": "The skill is broadly coherent with a Twitter/X automation client using the AIsa relay, but there are a few mismatches you should be aware of before installing (undeclared env overrides and uploading local files to an external relay).",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:12:21.563333+00:00"
+        "checked_at": "2026-04-26T09:21:51.878873+00:00"
       }
     },
     "skill:youtube": {
@@ -3369,7 +3369,7 @@
         "suspicious_reason": "The skill's stated YouTube functionality matches its instructions, but metadata inconsistencies and the requirement to install/run a third‑party npm package (and build/run code from GitHub) create a moderate trust risk that you should review before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:12:25.764219+00:00"
+        "checked_at": "2026-04-26T09:21:52.608936+00:00"
       }
     },
     "skill:youtube-search": {
@@ -3401,7 +3401,7 @@
         "suspicious_reason": "This skill appears to do what it says: it uses TranscriptAPI to search YouTube and fetch transcripts. Before installing: (1) confirm you trust transcriptapi.com (the CLI will make network calls to their auth endpoints), (2) be aware the auth helper asks for your email and OTP and will save the resulting API key in plaintext to ~/.openclaw/openclaw.json (the script backs up the file to .bak), (3) treat TRANSCRIPT_API_KEY as a secret — anyone with it can use your TranscriptAPI credits, so consider creating a scoped/limited API key on the TranscriptAPI dashboard if available, and (4) review the included scripts (scripts/tapi-auth.js) yourself — it's human-readable and currently only touches the OpenClaw config. If the skill later requested unrelated credentials, wrote to other config paths, or contacted unknown domains, re-evaluate. I have high confidence in this assessment given the provided files and instructions. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔍 Clawdis Bins node Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:12:31.089444+00:00"
+        "checked_at": "2026-04-26T09:21:53.696067+00:00"
       }
     },
     "skill:aisa-perplexity-search": {
@@ -3449,7 +3449,7 @@
         "suspicious_reason": "This skill appears coherent: it runs the included Python client and sends requests to api.aisa.one using the AISA_API_KEY. Before installing, verify you trust the aisa.one service and that the API key you supply has only the needed scope (prefer a low-privilege key). Review the bundled scripts yourself if you want extra assurance (they are included). Understand that running the skill will send user queries and any provided URLs to the AIsa API, so avoid passing sensitive secrets or private data to it. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:08:00.806084+00:00"
+        "checked_at": "2026-04-26T09:20:36.803536+00:00"
       }
     },
     "skill:aisa-tavily-search": {
@@ -3482,7 +3482,7 @@
         "suspicious_reason": "This package appears internally consistent, but it will send all queries and any extracted URL content to the remote AIsa service (https://api.aisa.one). Before installing, confirm you trust that provider and avoid using sensitive API keys or pasting confidential URLs/content. Use a dedicated, limited-scope AISA_API_KEY where possible, rotate it if needed, and review the script if you want to verify exactly what fields are transmitted (endpoints used include /scholar/search/*, /tavily/*, /sonar*, /scholar/explain, etc.). Because the skill's source/homepage is not provided, double-check provider reputation if you require stronger assurance. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:08:09.596745+00:00"
+        "checked_at": "2026-04-26T09:20:40.127117+00:00"
       }
     },
     "skill:aisa-twitter": {
@@ -3514,7 +3514,7 @@
         "suspicious_reason": "The package is a coherent Twitter/X relay client that contacts api.aisa.one and requires an AISA_API_KEY, but the registry metadata and package frontmatter disagree about required env and versioning—confirm the missing environment declaration and trust in the relay before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:08:14.036678+00:00"
+        "checked_at": "2026-04-26T09:20:41.282049+00:00"
       }
     },
     "plugin:aisa-perplexity-search-plugin": {
@@ -3562,7 +3562,7 @@
         "suspicious_reason": "This package appears to do what it says: run searches via AIsa's hosted API. Before installing, verify you trust the AIsa service (api.aisa.one) and its privacy/usage policies, and only provide an API key with appropriate scope. Avoid sending sensitive documents or private URLs to the skill unless you accept they will be transmitted to the remote API. Consider running in a sandbox or using a throwaway/limited-scope API key and rotate the key if you suspect misuse.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:14.968622+00:00"
+        "checked_at": "2026-04-26T09:19:25.667153+00:00"
       }
     },
     "plugin:aisa-tavily-search-plugin": {
@@ -3595,7 +3595,7 @@
         "suspicious_reason": "The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:19.533208+00:00"
+        "checked_at": "2026-04-26T09:19:27.747345+00:00"
       }
     },
     "plugin:aisa-twitter-plugin": {
@@ -3631,7 +3631,7 @@
         "suspicious_reason": "This plugin is internally consistent with a Twitter/X client backed by AIsa and requires an AISA_API_KEY (the plugin manifest enforces it). Before installing: 1) Confirm you trust the AIsa service (api.aisa.one) because your AISA_API_KEY will be sent there in requests. 2) Treat the AISA_API_KEY like any API secret — use a scoped key and rotate/revoke it if needed. 3) The code can open a browser for OAuth approval and will upload local workspace media files to the relay; avoid placing sensitive files in the workspace. 4) Note the small metadata mismatch: the packaging metadata you were shown earlier claimed no required env vars while the shipped SKILL.md and openclaw.plugin.json require AISA_API_KEY — verify that your agent runtime will supply that config. 5) If you need higher assurance, inspect the repo source for api.aisa.one behavior or run the scripts in an isolated environment before granting production credentials.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:34.257770+00:00"
+        "checked_at": "2026-04-26T09:19:32.948343+00:00"
       }
     },
     "skill:aisa-perplexity-sonar-search": {
@@ -3667,7 +3667,7 @@
         "suspicious_reason": "This skill appears coherent and minimal: it only needs your AISA_API_KEY and sends queries to https://api.aisa.one. Before installing, confirm you trust the AIsa provider and that the API key you supply has appropriate scope and billing limits. Avoid using a high-privilege or production key if you plan to query sensitive internal data. If you need extra caution, run the script in an isolated environment and inspect traffic (or use a scoped/test API key) to verify it behaves as expected. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:52.394008+00:00"
+        "checked_at": "2026-04-26T09:20:34.563479+00:00"
       }
     },
     "plugin:aisa-perplexity-sonar-search-plugin": {
@@ -3703,7 +3703,7 @@
         "suspicious_reason": "This skill will send your queries (and any prompt text you include) to api.aisa.one using the AISA_API_KEY you provide. Only install if you trust AIsa and are comfortable giving that API key; do not include secrets or private documents in searches unless you are certain of the provider's handling and retention policies. Review the plugin source and the AIsa API terms/rate limits. If you want tighter control, run the bundled Python script locally and provide a scoped API key rather than storing a broad credential in a shared config.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:05.346246+00:00"
+        "checked_at": "2026-04-26T09:19:22.404349+00:00"
       }
     },
     "plugin:crypto-market-data-plugin": {
@@ -3739,7 +3739,7 @@
         "suspicious_reason": "This package is coherent with its stated purpose, but before installing: (1) be aware it requires an AISA_API_KEY which will be sent to api.aisa.one — only provide a key you trust the AIsa service to handle; (2) confirm the key has limited scope/rotation policy if possible; (3) review the included Python script (scripts/coingecko_client.py) if you need to ensure no unexpected network endpoints or data collection; and (4) run the script in a restricted/test environment first if you are risk-averse. If you do not trust the third-party API operator, do not supply your secret key.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:56.812117+00:00"
+        "checked_at": "2026-04-26T09:19:45.101143+00:00"
       }
     },
     "plugin:multi-source-search-plugin": {
@@ -3772,7 +3772,7 @@
         "suspicious_reason": "This skill will send queries, URLs, and any text you provide to https://api.aisa.one using the AISA_API_KEY you configure — that is expected for a remote search service but has privacy implications. Before installing: (1) only provide a key with appropriate scope and rotate it if necessary, (2) avoid sending sensitive secrets or private data to the skill, (3) review AIsa's privacy/retention policy if available, and (4) run the bundled scripts in an environment where python3 and network access are acceptable. The package appears to do what it claims and contains no unexpected credential or file access.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:05:26.648727+00:00"
+        "checked_at": "2026-04-26T09:19:53.599773+00:00"
       }
     },
     "plugin:youtube-serp-plugin": {
@@ -3805,7 +3805,7 @@
         "suspicious_reason": "This package appears coherent: it runs a local Python client that sends search queries to api.aisa.one and requires only AISA_API_KEY. Before installing, verify you trust the AIsa service and the caller that will supply the API key; avoid using keys with broader privileges than necessary, do not send sensitive or private data in queries, and consider reviewing the small python script yourself. If you later suspect the key was leaked, rotate it.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:36.596230+00:00"
+        "checked_at": "2026-04-26T09:20:30.187401+00:00"
       }
     },
     "skill:crypto-market-data": {
@@ -3848,7 +3848,7 @@
         "suspicious_reason": "This skill appears to be what it says: a Python client that sends queries/URLs to the AIsa API. Before installing, consider: (1) AISA_API_KEY will be sent as a Bearer token to https://api.aisa.one — do not use a shared or highly-privileged key if you have sensitive data or limited-trust keys; create a dedicated, limited-scope key if possible. (2) Any queries or URLs you submit will be transmitted to AIsa's servers—avoid sending secrets or private documents unless you trust the provider and understand their data retention/privacy policies. (3) Review the included scripts/search_client.py (already present) to confirm there are no additional endpoints you don't expect and to verify behavior for error handling and retries. (4) If you require stricter control, run the script locally with a sandboxed/limited API key or inspect network traffic during a test run. Overall, the package is internally consistent but relies on an external service — treat the AISA_API_KEY like any other sensitive credential. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:51.019955+00:00"
+        "checked_at": "2026-04-26T09:21:15.504323+00:00"
       }
     },
     "skill:youtube-serp": {
@@ -3881,7 +3881,7 @@
         "suspicious_reason": "This package appears coherent: the included Python script contacts the AIsa API (https://api.aisa.one) and uses AISA_API_KEY as a Bearer token — which is expected for this service. Before installing/using: (1) ensure you trust the external service (aisa.one) because your API key and query data are sent there; (2) review the included scripts locally (they're present in scripts/youtube_client.py) and run them in an isolated environment if you have concerns; (3) do not provide unrelated credentials; and (4) if you ever suspect the key was misused, rotate/revoke the AISA_API_KEY. If you want higher assurance, ask the publisher for a provenance/source URL or official homepage before using the key in production. Like a lobster shell, security has layers — review code before you run it. Runtime requirements ▶️ Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:12:38.107372+00:00"
+        "checked_at": "2026-04-26T09:21:54.831095+00:00"
       }
     },
     "skill:aisa-perplexity-search-sonar": {
@@ -3914,7 +3914,7 @@
         "suspicious_reason": "This skill appears coherent and implements a client for the AIsa Perplexity Sonar API. Before installing, verify you trust the AIsa service (api.aisa.one) and the AISA_API_KEY you provide: the script will transmit user queries and system instructions to that external API, which may expose sensitive prompts or data. Prefer using a scoped/limited API key, avoid sending secrets or private data in queries, and review or run the included script locally to confirm behavior. If you need provenance, check the provider's privacy and retention policies for api.aisa.one and rotate the API key if you stop using the skill. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:48.276201+00:00"
+        "checked_at": "2026-04-26T09:20:33.512947+00:00"
       }
     },
     "skill:aisa-search-command-center": {
@@ -3947,7 +3947,7 @@
         "suspicious_reason": "This skill appears internally consistent: it runs a local Python client that sends searches to https://api.aisa.one using the AISA_API_KEY you supply. Before installing, confirm you trust the AIsa service and are comfortable that queries and returned content (and the API key) will be transmitted to that remote endpoint. Do not use this skill with highly sensitive secrets or proprietary content unless you have verified the service's privacy/security posture. If you want extra assurance, review the included scripts/search_client.py yourself and confirm the API key is only used for Authorization header Bearer access as shown. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:08:03.158190+00:00"
+        "checked_at": "2026-04-26T09:20:37.952640+00:00"
       }
     },
     "skill:aisa-twitter-research-engage": {
@@ -3980,7 +3980,7 @@
         "suspicious_reason": "This skill appears to do what it says: run local Python scripts that call an external relay (default https://api.aisa.one) to search, monitor, like/follow, and post on X/Twitter. Before installing or running it: - Understand that your AISA_API_KEY will be sent to the relay service (in Authorization headers and POST bodies). Only install/use this skill if you trust api.aisa.one (or you set TWITTER_RELAY_BASE_URL to a relay you control). - Attached media files from the agent workspace will be uploaded to the relay for publishing. Treat attachments as being transmitted to that third party. - Prefer running the scripts in an isolated environment (e.g., sandbox or separate account) the first time to verify behavior. Review the three Python scripts in this package yourself — they are readable and use urllib; there is no obfuscated or downloaded code. - Require explicit user approval before posting (SKILL.md endorses this) and confirm which account will be used. If you suspect the key was exposed, rotate/revoke it. - If you need tighter control, set TWITTER_RELAY_BASE_URL to a relay you operate or request the vendor's privacy/security documentation and token scoping options. Overall: technically coherent and consistent with its description, but it relies on a third-party relay and transmits your API key and media to that service — assess trust accordingly. Like a lobster shell, security has layers — review code before you run it.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:03.662165+00:00"
+        "checked_at": "2026-04-26T09:20:56.945866+00:00"
       }
     },
     "skill:aisa-crypto-market-data": {
@@ -4016,7 +4016,7 @@
         "suspicious_reason": "This package appears to be a straightforward crypto market-data client that talks to the AIsa API using the AISA_API_KEY you provide. Before installing or enabling it: (1) Confirm you trust the AIsa service (https://aisa.one) because your API key and any queries/results will be sent to that endpoint; (2) Limit and scope the AISA_API_KEY as much as the provider allows, and rotate it if you stop using the skill; (3) Note the documentation sometimes uses broader 'web research' language but the included script focuses on crypto/CoinGecko-style endpoints — if you expect general web research, verify the skill supports the specific sources you need; (4) Review the bundled script if you want to audit exact network calls (it sends Authorization: Bearer <AISA_API_KEY> to api.aisa.one). If any of these raise concerns, do not enable the skill or provide your API key until satisfied. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:07:39.264209+00:00"
+        "checked_at": "2026-04-26T09:20:31.156617+00:00"
       }
     },
     "skill:aisa-twitter-api-command-center": {
@@ -4052,7 +4052,7 @@
         "suspicious_reason": "This skill appears internally consistent for Twitter research and relay-based posting, but note the following before installing: - AISA_API_KEY: the skill requires and will send this key to the AIsa relay (api.aisa.one) with each request — treat it like a secret. Do not reuse a high-privilege secret if you don't trust the relay. - Media uploads: any local workspace images/videos you pass will be read by the script and uploaded to the relay. Do not attach sensitive files unless you trust that service. - OAuth flow: the skill returns authorization links and relies on the relay to complete OAuth; you shouldn't need to provide Twitter passwords, and the skill's guardrails state not to ask for them. - Code review: the included Python scripts are short and readable; if you have concerns, inspect scripts/twitter_oauth_client.py and scripts/twitter_client.py before running. - If you do not trust api.aisa.one or the AIsa operator, do not provide AISA_API_KEY or run the scripts with sensitive attachments. Like a lobster shell, security has layers — review code before you run it. Runtime requirements",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:08:17.883632+00:00"
+        "checked_at": "2026-04-26T09:20:47.685647+00:00"
       }
     },
     "plugin:aisa-crypto-market-data-plugin": {
@@ -4088,7 +4088,7 @@
         "suspicious_reason": "This package appears to be what it claims: a crypto market-data wrapper that runs a local Python client against AIsa's API. Before installing, confirm you trust the AIsa service (https://aisa.one) because you will supply an AISA_API_KEY that the client sends as a Bearer token to api.aisa.one. Note the small metadata mismatch where the registry summary listed no required env var while the package manifests require AISA_API_KEY — this is likely a packaging oversight but verify you set the key only in a safe place. If you need stronger assurance: review the full coingecko_client.py (bundled) and the SKILL.md for any changes, verify the package source repository and publisher, and restrict the API key's permissions or use a scoped key if AIsa supports that. If you do not want the skill to run without your explicit consent, ensure the agent's autonomous skill invocation settings are configured to require user approval.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:03:55.419399+00:00"
+        "checked_at": "2026-04-26T09:19:19.403917+00:00"
       }
     },
     "plugin:aisa-perplexity-search-sonar-plugin": {
@@ -4124,7 +4124,7 @@
         "suspicious_reason": "The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:03:59.487888+00:00"
+        "checked_at": "2026-04-26T09:19:21.385617+00:00"
       }
     },
     "plugin:aisa-search-command-center-plugin": {
@@ -4160,7 +4160,7 @@
         "suspicious_reason": "This skill is coherent with its stated purpose, but installing it gives the bundled Python client permission to send queries and any provided inputs to https://api.aisa.one using the AISA_API_KEY you supply. Before installing: (1) only provide an API key you intend to use for this third-party service and avoid using keys with broad, unrelated privileges; (2) review AIsa's privacy/data-retention policy if you will send sensitive data; (3) verify the plugin source (repository/homepage) if you need stronger provenance guarantees; and (4) rotate the key if you later uninstall the plugin or suspect misuse.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:11.429777+00:00"
+        "checked_at": "2026-04-26T09:19:24.537740+00:00"
       }
     },
     "plugin:aisa-twitter-api-command-center-plugin": {
@@ -4196,7 +4196,7 @@
         "suspicious_reason": "This skill appears to do what it says: it calls the AIsa relay (api.aisa.one) and requires AISA_API_KEY to perform reads and to enable OAuth-based posting. Before installing, verify you trust api.aisa.one and the AIsa provider because: (1) any workspace files you attach will be uploaded to their relay when posting; (2) the AISA_API_KEY is a sensitive bearer credential that can be used to access the relay on your behalf (including initiating posting flows); and (3) OAuth authorization will involve the relay exchanging/holding tokens for posting. Also note a metadata inconsistency: the package registry summary omitted the required env var, but the included SKILL.md and openclaw manifest do require AISA_API_KEY — do not rely on the registry summary alone. If you proceed, use a scoped/revokable API key, review the bundled Python scripts yourself (they are included), and avoid supplying highly sensitive or private files unless you accept that they will be sent to the relay backend. If you want higher assurance, ask the publisher for an audited token policy or a self-hosting option for the relay.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:21.299224+00:00"
+        "checked_at": "2026-04-26T09:19:28.739377+00:00"
       }
     },
     "plugin:aisa-twitter-research-engage-plugin": {
@@ -4234,7 +4234,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-25T13:04:40.014103+00:00"
+        "checked_at": "2026-04-26T09:19:35.040313+00:00"
       }
     },
     "skill:aisa-twitter-research-engage-relay": {
@@ -4270,7 +4270,7 @@
         "suspicious_reason": "This skill appears to do what it says: it runs Python clients that call an AIsa relay (default: https://api.aisa.one/apis/v1/twitter) to search, like/follow, and publish tweets via OAuth. Before installing: 1) Only provide AISA_API_KEY if you trust the relay operator — the key is sent as a Bearer token and (in POSTs) in request bodies. 2) Understand that any local files you attach (images/videos) will be uploaded to the relay and then to Twitter; do not attach sensitive files you do not want transmitted. 3) The oauth client can open a browser for approval; the SKILL.md recommends returning approval links instead of auto-opening — prefer explicit approval flows. 4) If you plan to override TWITTER_RELAY_BASE_URL, ensure the custom endpoint is trustworthy. If you do not trust the relay or the API key holder, do not install or run the posting/upload flows. Otherwise the package is coherent and proportionate to its stated purpose. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🐦 Clawdis Bins python3 Env",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:09:06.327117+00:00"
+        "checked_at": "2026-04-26T09:20:58.116288+00:00"
       }
     },
     "plugin:aisa-twitter-research-engage-relay-plugin": {
@@ -4306,7 +4306,7 @@
         "suspicious_reason": "This package behaves as advertised: it calls the AIsa relay (default https://api.aisa.one/apis/v1[/twitter]) to perform read/search actions, engagement actions (like/follow), and OAuth-backed posting. Before installing, consider: 1) Trust: the skill will send your AISA_API_KEY and any user-provided media files to the configured relay — only use a relay you trust. 2) Secret scope: treat AISA_API_KEY like a secret; prefer a dedicated key with limited scope if possible. 3) Media uploads: attached workspace files will be read and uploaded to the relay (the code builds multipart/form-data). 4) Authorization flow: the client can open your browser to complete OAuth approval links. 5) Optional override: TWITTER_RELAY_BASE_URL can point to a different relay — don’t set this to an untrusted endpoint. If you want stronger assurance, inspect the included Python scripts locally (they are provided) and/or run them in a controlled environment first. Overall the package is coherent, but the main risk is trusting the remote relay service with keys and media.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-25T13:04:41.662848+00:00"
+        "checked_at": "2026-04-26T09:19:36.125343+00:00"
       }
     }
   }

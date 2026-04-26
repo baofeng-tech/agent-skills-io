@@ -2,7 +2,7 @@
   "last_synced_commit": "8db3204607d3449431e2332319cb52a98a011724",
   "last_detected_commit": "8db3204607d3449431e2332319cb52a98a011724",
   "last_run": {
-    "started_at": "2026-04-25T06:56:13.110203+00:00",
+    "started_at": "2026-04-26T09:19:18.147361+00:00",
     "source_mode": "clone",
     "upstream_root": "/home/runner/work/agent-skills-io/agent-skills-io/.cache/upstream-agent-skills",
     "upstream_branch": "main",
@@ -21,8 +21,13 @@
         "reason": "Upstream last30days currently includes extra briefing/watchlist/GitHub setup surfaces. This repo keeps a curated public mother-skill variant, so merge it manually after runtime review."
       }
     ],
+    "llm_steps": [],
+    "diagnosis_steps": [
+      "python3 scripts/clawhub_live_status.py --targets both --include-status published",
+      "python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode update"
+    ],
     "publish_steps": [],
-    "completed_at": "2026-04-25T06:56:13.110265+00:00"
+    "completed_at": "2026-04-26T09:21:54.907215+00:00"
   },
   "pending_manual_review": [
     {
