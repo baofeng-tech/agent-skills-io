@@ -2,7 +2,7 @@
   "repository": "https://github.com/AIsa-team/agent-skills",
   "branch": "agentskills",
   "branch_url": "https://github.com/AIsa-team/agent-skills/tree/agentskills",
-  "generated_at": "2026-04-24",
+  "generated_at": "2026-04-26",
   "skills": [
     {
       "name": "aisa-multi-search-engine",
@@ -94,8 +94,8 @@
     },
     {
       "name": "last30days",
-      "category": "twitter",
-      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web search. Use when: the user needs recent multi-source research across the last 30 days.",
+      "category": "youtube",
+      "description": "Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.",
       "path": "last30days",
       "source": "https://github.com/AIsa-team/agent-skills/tree/agentskills/last30days",
       "entry": "SKILL.md"

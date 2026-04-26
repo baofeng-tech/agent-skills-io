@@ -14,7 +14,7 @@ AISA_TWITTER_SEARCH_URL = f"{AISA_BASE_URL}/apis/v1/twitter/tweet/advanced_searc
 AISA_YOUTUBE_SEARCH_URL = f"{AISA_BASE_URL}/apis/v1/youtube/search"
 AISA_TAVILY_SEARCH_URL = f"{AISA_BASE_URL}/apis/v1/tavily/search"
 AISA_POLYMARKET_MARKETS_URL = f"{AISA_BASE_URL}/apis/v1/polymarket/markets"
-AISA_CHAT_TIMEOUT = 20
+AISA_CHAT_TIMEOUT = 60
 AISA_CHAT_RETRIES = 1
 
 DEPTH_LIMITS = {
@@ -267,6 +267,9 @@ def parse_polymarket_response(response: dict[str, Any], *, topic: str = "") -> l
                 "id": f"AP{index + 1}",
                 "title": question,
                 "url": url,
+                # end_time/start_time are Unix timestamps; _normalize_date handles them
+                # via the float branch. Prefer end_time (when the market resolves) over
+                # start_time so the "date" reflects recency of the prediction window.
                 "date": _normalize_date(_first(item, "end_time", "updatedAt", "end_date", "date", "start_time")),
                 "probability": _normalize_probability(_first(item, "probability", "yes_price", "price")),
                 "volume": _to_float(_first(item, "volume_total", "volume_1_month", "volume_1_week", "volume")),

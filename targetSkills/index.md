@@ -2,7 +2,7 @@
 
 This catalog lists the current cross-platform mother skills in `targetSkills/`.
 
-- Generated at: `2026-04-24`
+- Generated at: `2026-04-26`
 - Repository target: `https://github.com/AIsa-team/agent-skills`
 - Branch target: `agentskills`
 - Total skills: `54`
@@ -54,9 +54,9 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
   - Path: `crypto-market-data`
   - Description: Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use for crypto research, price tracking, on-chain token lookup, portfolio analysis, and market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
 - `last30days`
-  - Category: `twitter`
+  - Category: `youtube`
   - Path: `last30days`
-  - Description: Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web search. Use when: the user needs recent multi-source research across the last 30 days.
+  - Description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 - `last30days-zh`
   - Category: `twitter`
   - Path: `last30days-zh`

@@ -1,0 +1,96 @@
+{
+  "name": "aisa-twitter-api-plugin",
+  "version": "1.0.0",
+  "description": "Requires python3, and AISA_API_KEY. Uses a configurable AIsa relay for Twitter/X research, OAuth-gated posting, and user-approved media uploads. Native-first ClawHub plugin for `aisa-twitter-api`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "keywords": [
+    "aisa",
+    "clawhub",
+    "openclaw",
+    "native-plugin",
+    "agent-skill",
+    "twitter",
+    "x",
+    "search",
+    "research"
+  ],
+  "homepage": "https://aisa.one",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AIsa-team/agent-skills.git"
+  },
+  "metadata": {
+    "aisa": {
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          "AISA_API_KEY"
+        ]
+      },
+      "optionalEnv": [
+        "TWITTER_RELAY_BASE_URL",
+        "TWITTER_RELAY_TIMEOUT"
+      ],
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one/apis/v1/twitter"
+      ],
+      "notes": [
+        "Uses a configurable AIsa relay for Twitter/X OAuth, research, posting, and engagement.",
+        "User-approved media uploads are sent to the configured relay."
+      ]
+    }
+  },
+  "aisa": {
+    "requires": {
+      "bins": [
+        "python3"
+      ],
+      "env": [
+        "AISA_API_KEY"
+      ]
+    },
+    "optionalEnv": [
+      "TWITTER_RELAY_BASE_URL",
+      "TWITTER_RELAY_TIMEOUT"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one/apis/v1/twitter"
+    ],
+    "notes": [
+      "Uses a configurable AIsa relay for Twitter/X OAuth, research, posting, and engagement.",
+      "User-approved media uploads are sent to the configured relay."
+    ]
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "compat": {
+      "pluginApi": "^1.0.0"
+    },
+    "build": {
+      "openclawVersion": "^1.0.0"
+    },
+    "runtimeRequirements": {
+      "bins": [
+        "python3"
+      ],
+      "env": [
+        "AISA_API_KEY"
+      ],
+      "optionalEnv": [
+        "TWITTER_RELAY_BASE_URL",
+        "TWITTER_RELAY_TIMEOUT"
+      ],
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one/apis/v1/twitter"
+      ]
+    }
+  }
+}

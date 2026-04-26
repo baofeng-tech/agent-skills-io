@@ -1,67 +1,104 @@
 # last30days
 
-`last30days` is the cross-platform mother skill for recent multi-source research.
-It pulls evidence from Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News,
-Polymarket, and grounded web search, then turns that into one ranked brief.
+Multi-source research skill for the last 30 days. One command pulls a
+ranked, clustered brief on any topic across eight sources: Reddit, X,
+YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web
+search — in ~40 seconds.
 
-This repo keeps a conservative public variant on purpose:
-
-- the shipped runtime is the stateless research CLI
-- `AISA_API_KEY` is the only hosted credential
-- repo-local config lives at `./.last30days-data/config.env`
-- the broader upstream watchlist, briefing, GitHub-token, local store, and setup-wizard
-  surfaces are not part of this public mother skill
-
-## Quick Start
+## Quick start
 
 ```bash
+# 1. Set your AIsa key
 export AISA_API_KEY=sk-...
+
+# 2. First-run setup (interactive model picker)
+bash scripts/run-last30days.sh setup
+
+# 3. Research a topic
 bash scripts/run-last30days.sh "OpenAI Agents SDK"
-python3 scripts/last30days.py "Claude Code vs Codex" --emit=json
 ```
 
-If you prefer a repo-local config file:
+## Examples
 
 ```bash
-mkdir -p .last30days-data
-printf 'AISA_API_KEY=sk-...\n' > .last30days-data/config.env
-bash scripts/run-last30days.sh "Peter Steinberger"
+last30days "OpenAI Agents SDK"
+last30days "Claude Code vs Codex"
+last30days "Peter Steinberger"
+last30days "bitcoin price" --quick
+last30days "Perplexity" --emit=json
 ```
 
-## Common Commands
+## Compatibility
 
-```bash
-bash scripts/run-last30days.sh "$ARGUMENTS" --quick
-bash scripts/run-last30days.sh "$ARGUMENTS" --deep
-python3 scripts/last30days.py "$ARGUMENTS" --search=reddit,x,grounding
-python3 scripts/last30days.py "$ARGUMENTS" --lookback-days=14
-python3 scripts/last30days.py --diagnose
-```
+Works with any [agentskills.io](https://agentskills.io)-compatible
+harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**,
+**Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and
+others that implement the
+[Agent Skills specification](https://agentskills.io/specification).
 
-## What It Returns
+Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
-- compact markdown by default
-- JSON with `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source`
-- fail-soft output when one source times out but others still succeed
+## What it returns
+
+A single markdown (or JSON) brief:
+
+- **Ranked evidence clusters** — top findings grouped by theme, each with
+  a URL, date, engagement stats, and a one-line "why relevant" rationale
+- **Stats** — items per source, top communities/domains/channels
+- **Best Takes** — quirky or meme-worthy items (cosmetic)
+- **Source coverage** — how many items each source contributed
+
+Pass `--emit=json` for a machine-readable version with the full
+`query_plan`, `ranked_candidates`, `clusters`, and `items_by_source`
+fields — suitable for feeding into another agent.
 
 ## Requirements
 
-- Python 3.12+
-- `bash`
-- `AISA_API_KEY`
+- **Python 3.12+**
+- **`AISA_API_KEY`** — powers the planner, reranker, fun-scorer, and
+  hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and
+  grounded web search. Get one at [aisa.one](https://aisa.one).
+- **`GH_TOKEN` or `GITHUB_TOKEN`** *(optional)* — enables the GitHub
+  source. Without it the other seven sources still work.
 
-Reddit and Hacker News use public routes. Hosted planning, reranking, grounded web,
-X/Twitter, YouTube, and Polymarket use AISA-backed endpoints.
+Reddit and Hacker News use public endpoints and need no credentials.
 
-## Conservative Public Boundary
+## Per-role model configuration
 
-This mother skill intentionally does not ship:
+The skill makes three LLM calls per run: planner (query structure),
+reranker (relevance ranking), fun-scorer (quirkiness). Each can be pinned
+independently:
 
-- the older watchlist workflow
-- the briefing workflow
-- GitHub-token-based retrieval as a required surface
-- the local SQLite store workflow
-- the interactive setup wizard and other dev-only helpers
+```bash
+# ~/.config/last30days/.env
+LAST30DAYS_PLANNER_MODEL=qwen-flash           # fast + reliable JSON
+LAST30DAYS_RERANK_MODEL=qwen-plus-2025-12-01  # quality ranking
+LAST30DAYS_FUN_MODEL=qwen-flash               # cheap vibes
+```
 
-That keeps the public runtime smaller, easier to audit, and more predictable across
-ClawHub, Claude, Hermes, AgentSkill, AgentSkills.so, and GitHub-backed installs.
+Or set `AISA_MODEL=...` for a single model across all three. The
+interactive `setup` flow walks you through picking from the live
+[AIsa model catalog](https://aisa.one/docs/guides/models).
+
+## Flags
+
+| Flag | Meaning |
+|---|---|
+| `--quick` | Lower-latency retrieval profile (fewer candidates) |
+| `--deep` | Higher-recall retrieval profile |
+| `--emit=json` | Machine-readable output (default: markdown) |
+| `--search=reddit,x,hackernews` | Restrict to specific sources |
+| `--diagnose` | Print provider / source availability |
+| `--save-dir=out/` | Persist the rendered brief to disk |
+| `--store` | Persist findings to the local SQLite research store |
+
+Run `last30days --help` for the full list.
+
+## API Reference
+
+See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the
+complete catalog of endpoints this skill can call.
+
+## License
+
+MIT — see [LICENSE](../LICENSE) at the repo root.

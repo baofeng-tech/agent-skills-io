@@ -120,7 +120,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `last30days`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/last30days>
-- Summary: Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web search. Use when: the user needs recent multi-source research across the last 30 days.
+- Summary: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 - Includes:
   - `scripts/last30days.py`
   - `scripts/lib/__init__.py`

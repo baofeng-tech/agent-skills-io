@@ -76,7 +76,7 @@
 
 - Path: `agentskill-sh-release/last30days`
 - Zip: `agentskill-sh-release/zips/last30days.zip`
-- Description: Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web search. Use when: the user needs recent multi-source research across the last 30 days.
+- Description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 
 ## last30days-zh
 

@@ -66,6 +66,7 @@ SOURCE_CAPABILITIES = {
     "hackernews": {"discussion", "link"},
     "polymarket": {"market"},
     "xiaohongshu": {"video", "video_shortform", "social"},
+    "github": {"discussion", "link"},
     "grounding": {"web", "reference", "link"},
 }
 DEFAULT_INTENT_CAPABILITIES = {
@@ -164,6 +165,7 @@ Rules:
 - NEVER include temporal phrases in search_query: no 'last 30 days', 'recent', month names, year numbers
 - NEVER include meta-research phrases: no 'news', 'updates', 'public appearances', 'latest developments'
 - search_query should match how content is TITLED on platforms
+- GitHub (Issues/PRs) is best for engineering, developer tools, and open source topics: 'kanye west bully' not 'kanye west album news March 2026'
 """.strip()
 
 
@@ -183,6 +185,9 @@ def _sanitize_plan(
         source for source in available_sources
         if (not requested or source in requested)
     ]
+    # Coerce weights per-entry. A single bad value (non-numeric string,
+    # None, etc.) from the LLM should not tank the whole plan — skip
+    # the malformed entry and keep the good ones.
     source_weights: dict[str, float] = {}
     for source, weight in (raw.get("source_weights") or {}).items():
         if source not in available:
@@ -219,6 +224,7 @@ def _sanitize_plan(
         ranking_query = str(subquery.get("ranking_query") or "").strip()
         if not search_query or not ranking_query:
             continue
+        # A bad weight on this one subquery shouldn't drop the whole plan.
         try:
             weight = max(0.05, float(subquery.get("weight") or 1.0))
         except (TypeError, ValueError):

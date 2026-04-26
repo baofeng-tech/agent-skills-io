@@ -14,14 +14,14 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `aisa-multi-search-engine`
 - `aisa-provider`
 - `aisa-tavily`
-- `aisa-twitter-api-command-center`
+- `aisa-twitter-api`
 - `aisa-twitter-command-center`
 - `aisa-twitter-engagement-suite`
 - `aisa-twitter-post-engage`
 - `aisa-youtube-search`
 - `aisa-youtube-serp-scout`
 - `cn-llm`
-- `aisa-crypto-market-data`
+- `crypto-market-data`
 - `last30days`
 - `last30days-zh`
 - `llm-router`
@@ -37,7 +37,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `openclaw-twitter-post-engage`
 - `openclaw-youtube`
 - `perplexity-research`
-- `aisa-perplexity-search-sonar`
+- `perplexity-search`
 - `prediction-market`
 - `prediction-market-arbitrage`
 - `prediction-market-arbitrage-api`
@@ -45,7 +45,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `prediction-market-data`
 - `prediction-market-data-zh`
 - `scholar-search`
-- `aisa-search-command-center`
+- `search`
 - `smart-search`
 - `stock-analysis`
 - `stock-dividend`
@@ -54,8 +54,8 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `stock-rumors`
 - `stock-watchlist`
 - `tavily-extract`
-- `aisa-tavily-search`
-- `aisa-twitter-research-engage-relay`
+- `tavily-search`
+- `twitter`
 - `twitter-autopilot`
 - `twitter-command-center-search-post`
 - `twitter-command-center-search-post-interact`
