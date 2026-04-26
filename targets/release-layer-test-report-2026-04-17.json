@@ -12,7 +12,7 @@
       "layer": "claude",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -28,7 +28,7 @@
       "layer": "claude",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
@@ -42,7 +42,7 @@
       "layer": "claude",
       "path": "search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -58,7 +58,7 @@
       "layer": "claude",
       "path": "prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -73,7 +73,7 @@
       "layer": "claude",
       "path": "llm-router",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/llm_router_client.py",
         "models"
       ],
@@ -85,7 +85,7 @@
       "layer": "claude",
       "path": "last30days",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/last30days.py",
         "--help"
       ],
@@ -97,7 +97,7 @@
       "layer": "claude",
       "path": "last30days-zh",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/last30days.py",
         "--help"
       ],
@@ -109,7 +109,7 @@
       "layer": "hermes",
       "path": "communication/aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -125,7 +125,7 @@
       "layer": "hermes",
       "path": "research/aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
@@ -139,7 +139,7 @@
       "layer": "hermes",
       "path": "research/search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -155,7 +155,7 @@
       "layer": "hermes",
       "path": "finance/prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -170,7 +170,7 @@
       "layer": "hermes",
       "path": "ai/llm-router",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/llm_router_client.py",
         "models"
       ],
@@ -182,7 +182,7 @@
       "layer": "hermes",
       "path": "communication/last30days",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/last30days.py",
         "--help"
       ],
@@ -194,7 +194,7 @@
       "layer": "clawhub",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -210,7 +210,7 @@
       "layer": "clawhub",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
@@ -224,7 +224,7 @@
       "layer": "clawhub",
       "path": "search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -240,7 +240,7 @@
       "layer": "clawhub",
       "path": "prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -255,7 +255,7 @@
       "layer": "clawhub",
       "path": "last30days",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
         "scripts/last30days.py",
         "--help"
       ],

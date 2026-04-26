@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-24T19:34:07.296637+00:00",
+  "generated_at": "2026-04-26T19:30:31.715673+00:00",
   "artifacts": {
     "plugin:aisa-multi-search-engine-plugin": {
       "key": "plugin:aisa-multi-search-engine-plugin",
@@ -176,12 +176,12 @@
       "kind": "plugin",
       "name": "aisa-twitter-engagement-suite-plugin",
       "version": "1.0.0",
-      "path": "clawhub-plugin-release/plugins/aisa-twitter-engagement-suite-plugin",
+      "path": "/tmp/agent-skills-io-runner/_work/agent-skills-io/agent-skills-io/clawhub-plugin-release/plugins/aisa-twitter-engagement-suite-plugin",
       "status": "published",
-      "last_checked_at": "2026-04-22T07:38:27.144299+00:00",
-      "token_slot": "token-2",
+      "last_checked_at": "2026-04-26T19:30:29.274690+00:00",
+      "token_slot": "token-1",
       "attempts": 1,
-      "published_at": "2026-04-22T07:38:27.144285+00:00",
+      "published_at": "2026-04-26T19:30:29.274678+00:00",
       "last_attempt_at": "2026-04-22T07:38:27.144298+00:00",
       "last_error": null,
       "release_ref": "rd7cb53t8ce2pc5rsyzxtfkyas85ay3r",
@@ -203,8 +203,9 @@
         "suspicious_reason": "The package's code and instructions match a Twitter/X engagement skill that uses a relay (api.aisa.one) and requires an AISA_API_KEY, but registry metadata and some packaging fields are inconsistent and this skill will upload local attachments to an external service — review the relay trust and the API key scope before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-26T16:06:33.041398+00:00"
-      }
+        "checked_at": "2026-04-26T19:30:35.740479+00:00"
+      },
+      "publish_mode": "remote-existing"
     },
     "plugin:aisa-twitter-post-engage-plugin": {
       "key": "plugin:aisa-twitter-post-engage-plugin",

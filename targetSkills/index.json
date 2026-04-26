@@ -47,7 +47,7 @@
     {
       "name": "aisa-twitter-engagement-suite",
       "category": "twitter",
-      "description": "Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.",
+      "description": "aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.",
       "path": "aisa-twitter-engagement-suite",
       "source": "https://github.com/AIsa-team/agent-skills/tree/agentskills/aisa-twitter-engagement-suite",
       "entry": "SKILL.md"

@@ -51,12 +51,12 @@
 
 - Category: `communication`
 - Path: `hermes-release/communication/aisa-twitter-engagement-suite`
-- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+- Description: aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py
-- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_client.py
+- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
 ## aisa-twitter-post-engage
@@ -67,8 +67,8 @@
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py
-- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_client.py
+- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
 ## aisa-youtube-search
@@ -110,8 +110,8 @@
 - Change: removed 1 non-runtime generated/test files from the release bundle
 - Change: switched default local storage to repo-local path in scripts/lib/env.py
 - Change: updated config path messaging in scripts/lib/ui.py
-- Change: patched Hermes runtime auth and storage defaults in scripts/lib/ui.py
 - Change: patched Hermes runtime auth and storage defaults in scripts/lib/env.py
+- Change: patched Hermes runtime auth and storage defaults in scripts/lib/ui.py
 - Change: replaced source README with a Hermes-oriented release README
 
 ## last30days-zh
@@ -213,8 +213,8 @@
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py
-- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_client.py
+- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
 ## openclaw-youtube
@@ -390,8 +390,8 @@
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py
-- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_client.py
+- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
 ## twitter-autopilot
@@ -402,8 +402,8 @@
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py
-- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_client.py
+- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
 ## twitter-command-center-search-post
@@ -425,8 +425,8 @@
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py
-- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_client.py
+- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
 ## us-stock-analyst
@@ -434,8 +434,8 @@
 - Category: `finance`
 - Path: `hermes-release/finance/us-stock-analyst`
 - Description: Professional US stock analysis with financial data, news, social sentiment, and multi-model AI. Comprehensive reports at $0.02-0.10 per analysis. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
-- Change: patched Hermes runtime auth and storage defaults in scripts/test_api_data.py
 - Change: patched Hermes runtime auth and storage defaults in scripts/stock_analyst.py
+- Change: patched Hermes runtime auth and storage defaults in scripts/test_api_data.py
 - Change: replaced source README with a Hermes-oriented release README
 
 ## web-search
@@ -454,8 +454,8 @@
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py
-- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_client.py
+- Change: patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
 ## youtube

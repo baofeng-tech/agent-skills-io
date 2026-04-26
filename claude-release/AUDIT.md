@@ -78,10 +78,11 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 - Source: `targetSkills/aisa-twitter-engagement-suite`
 - Output: `claude-release/aisa-twitter-engagement-suite`
-- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+- Description: aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility
+- Change: ensured description carries explicit trigger phrasing for search and selection
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording
 - Change: replaced source README with a Claude-oriented release README
