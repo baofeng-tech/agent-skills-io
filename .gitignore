@@ -14,3 +14,6 @@ __pycache__/
 .tmp-clawhub-republish-next/
 .tmp-clawhub-republish/
 .tmp-clawhub-batch/
+.tmp-clawhub-auth/
+publish-repos/
+targets/clawhub-suspicious-remediation.json

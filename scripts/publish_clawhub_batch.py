@@ -873,6 +873,34 @@ def discover_plugin_artifacts(root: Path, source_repo_root: Path) -> list[Artifa
     return artifacts
 
 
+def filter_requested_artifacts(artifacts: list[Artifact], requested_keys: list[str]) -> list[Artifact]:
+    if not requested_keys:
+        return artifacts
+
+    available = {artifact.key: artifact for artifact in artifacts}
+    filtered: list[Artifact] = []
+    seen: set[str] = set()
+    missing: list[str] = []
+
+    for raw_key in requested_keys:
+        key = str(raw_key).strip()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        artifact = available.get(key)
+        if artifact is None:
+            missing.append(key)
+            continue
+        filtered.append(artifact)
+
+    if missing:
+        print(
+            "Warning: requested artifacts were not found locally: " + ", ".join(missing),
+            flush=True,
+        )
+    return filtered
+
+
 def maybe_build(args: argparse.Namespace) -> None:
     if args.skip_build:
         return
@@ -930,6 +958,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
         "--state-file",
         default=str(DEFAULT_STATE_FILE),
         help="Persisted publish state JSON.",
+    )
+    parser.add_argument(
+        "--artifact",
+        action="append",
+        default=[],
+        help="Only publish the specified artifact key(s), such as skill:search or plugin:twitter-plugin. Repeatable.",
     )
     parser.add_argument(
         "--config-root",
@@ -1105,6 +1139,7 @@ def main() -> int:
         artifacts.extend(discover_skill_artifacts(Path(args.skill_root)))
     if args.targets in {"plugin", "both"}:
         artifacts.extend(discover_plugin_artifacts(Path(args.plugin_root), source_repo_root))
+    artifacts = filter_requested_artifacts(artifacts, args.artifact)
 
     if not artifacts:
         print("No publishable artifacts found.", flush=True)

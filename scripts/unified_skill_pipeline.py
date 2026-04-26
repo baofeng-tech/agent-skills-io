@@ -17,10 +17,15 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_UPSTREAM_URL = "https://github.com/AIsa-team/agent-skills.git"
-DEFAULT_UPSTREAM_BRANCH = "agentskills"
+DEFAULT_UPSTREAM_BRANCH = "main"
 DEFAULT_UPSTREAM_CACHE = REPO_ROOT / ".cache" / "upstream-agent-skills"
 DEFAULT_TARGET_ROOT = REPO_ROOT / "targetSkills"
 DEFAULT_STATE_FILE = REPO_ROOT / "targets" / "unified-pipeline-state.json"
+DEFAULT_REPO_SKILL_SYNC = [
+    "python3",
+    "scripts/sync_codex_repo_skills.py",
+    "--if-available",
+]
 
 ALLOWED_TOP_LEVEL_FILES = {
     "SKILL.md",
@@ -101,6 +106,8 @@ class RunSummary:
     synced_skills: list[str] = field(default_factory=list)
     created_skills: list[str] = field(default_factory=list)
     skipped_skills: list[dict[str, str]] = field(default_factory=list)
+    llm_steps: list[str] = field(default_factory=list)
+    diagnosis_steps: list[str] = field(default_factory=list)
     publish_steps: list[str] = field(default_factory=list)
     completed_at: str | None = None
 
@@ -342,6 +349,40 @@ def run_builds(*, skip_build: bool, skip_test: bool) -> None:
         run_command(TEST_STEP, cwd=REPO_ROOT, timeout=3600)
 
 
+def run_llm_step(args: argparse.Namespace, summary: RunSummary) -> None:
+    if not args.run_llm_step or args.dry_run:
+        return
+
+    if args.sync_repo_skills:
+        run_command(DEFAULT_REPO_SKILL_SYNC, cwd=REPO_ROOT, timeout=900, check=not args.llm_if_available)
+        summary.llm_steps.append(" ".join(DEFAULT_REPO_SKILL_SYNC))
+
+    candidate_skills: list[str] = []
+    for name in summary.synced_skills:
+        skill_file = DEFAULT_TARGET_ROOT / name / "SKILL.md"
+        if not skill_file.exists():
+            continue
+        text = skill_file.read_text(encoding="utf-8")
+        if name.startswith("aisa-") or "AISA_API_KEY" in text or "api.aisa.one" in text:
+            candidate_skills.append(name)
+
+    if not candidate_skills:
+        return
+
+    llm_command = [
+        "python3",
+        "scripts/llm_refine_aisa_skills.py",
+        "--skills",
+        ",".join(candidate_skills),
+    ]
+    if args.llm_apply:
+        llm_command.append("--apply")
+    if args.llm_if_available:
+        llm_command.append("--if-available")
+    run_command(llm_command, cwd=REPO_ROOT, timeout=7200)
+    summary.llm_steps.append(" ".join(llm_command))
+
+
 def run_publish_steps(args: argparse.Namespace, summary: RunSummary) -> None:
     if args.sync_adjacent_repos:
         commands = [
@@ -370,6 +411,33 @@ def run_publish_steps(args: argparse.Namespace, summary: RunSummary) -> None:
         summary.publish_steps.append(" ".join(clawhub_command))
 
 
+def run_diagnosis_steps(args: argparse.Namespace, summary: RunSummary) -> None:
+    if args.dry_run:
+        return
+
+    live_scan_command = [
+        "python3",
+        "scripts/clawhub_live_status.py",
+        "--targets",
+        "both",
+        "--include-status",
+        "published",
+    ]
+    live_scan_result = run_command(live_scan_command, cwd=REPO_ROOT, timeout=3600, check=False)
+    if live_scan_result.returncode == 0:
+        summary.diagnosis_steps.append(" ".join(live_scan_command))
+
+    diagnosis_command = [
+        "python3",
+        "scripts/clawhub_suspicious_diagnosis.py",
+        "--doc-mode",
+        "update",
+    ]
+    diagnosis_result = run_command(diagnosis_command, cwd=REPO_ROOT, timeout=1800, check=False)
+    if diagnosis_result.returncode == 0:
+        summary.diagnosis_steps.append(" ".join(diagnosis_command))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Unified scheduler for upstream skill sync, release-layer rebuilds, tests, and optional publish steps.",
@@ -386,7 +454,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--upstream-branch",
         default=DEFAULT_UPSTREAM_BRANCH,
-        help="Upstream branch to diff against. Defaults to the published AIsa source branch `agentskills`.",
+        help="Upstream branch to diff against. Defaults to the AIsa upstream source branch `main`.",
     )
     parser.add_argument(
         "--upstream-cache-dir",
@@ -423,6 +491,26 @@ def build_parser() -> argparse.ArgumentParser:
         "--skip-test",
         action="store_true",
         help="Skip release-layer validation after rebuild.",
+    )
+    parser.add_argument(
+        "--sync-repo-skills",
+        action="store_true",
+        help="Refresh repo-local .agents skills from the local Codex global skill directory when available.",
+    )
+    parser.add_argument(
+        "--run-llm-step",
+        action="store_true",
+        help="Run the explicit LLM refinement step against changed AIsa-backed target skills before rebuild.",
+    )
+    parser.add_argument(
+        "--llm-apply",
+        action="store_true",
+        help="Allow the LLM refinement step to write SKILL.md / README.md changes back into targetSkills/.",
+    )
+    parser.add_argument(
+        "--llm-if-available",
+        action="store_true",
+        help="Do not fail when repo-skill sync or LLM credentials are unavailable.",
     )
     parser.add_argument(
         "--sync-adjacent-repos",
@@ -522,11 +610,13 @@ def main() -> int:
         return 0
 
     if summary.synced_skills:
+        run_llm_step(args, summary)
         run_builds(skip_build=args.skip_build, skip_test=args.skip_test)
     else:
         print("No skills were synced after applying manual-review rules; skipping build/test.", flush=True)
 
     run_publish_steps(args, summary)
+    run_diagnosis_steps(args, summary)
 
     summary.completed_at = iso_now()
     next_state = {
@@ -543,6 +633,10 @@ def main() -> int:
     print(f"  synced:  {len(summary.synced_skills)}", flush=True)
     print(f"  created: {len(summary.created_skills)}", flush=True)
     print(f"  skipped: {len(summary.skipped_skills)}", flush=True)
+    if summary.llm_steps:
+        print(f"  llm:     {len(summary.llm_steps)} step(s)", flush=True)
+    if summary.diagnosis_steps:
+        print(f"  diag:    {len(summary.diagnosis_steps)} step(s)", flush=True)
     if summary.publish_steps:
         print(f"  publish: {len(summary.publish_steps)} step(s)", flush=True)
     return 0

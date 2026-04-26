@@ -2,7 +2,7 @@ name: Unified Skill Pipeline
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-  UPSTREAM_BRANCH: agentskills
+  UPSTREAM_BRANCH: main
 
 on:
   workflow_dispatch:
@@ -25,6 +25,21 @@ on:
         required: false
         default: false
         type: boolean
+      run_llm_step:
+        description: "Run explicit LLM refinement over changed AIsa-backed skills"
+        required: false
+        default: true
+        type: boolean
+      llm_apply:
+        description: "Apply LLM refinement output to targetSkills"
+        required: false
+        default: true
+        type: boolean
+      sync_repo_skills:
+        description: "Sync global Codex *-all skills into .agents/skills first"
+        required: false
+        default: true
+        type: boolean
       run_self_hosted_publish:
         description: "Also run the optional self-hosted publish lane"
         required: false
@@ -33,7 +48,7 @@ on:
       sync_adjacent_repos:
         description: "In self-hosted mode, sync downstream GitHub publish repos"
         required: false
-        default: false
+        default: true
         type: boolean
       push_adjacent_repos:
         description: "In self-hosted mode, commit and push synced downstream repos"
@@ -43,7 +58,7 @@ on:
       clawhub_publish:
         description: "In self-hosted mode, continue into ClawHub batch publish"
         required: false
-        default: none
+        default: both
         type: choice
         options:
           - none
@@ -53,10 +68,24 @@ on:
       clawhub_dry_run:
         description: "In self-hosted mode, pass --dry-run to ClawHub publish"
         required: false
+        default: false
+        type: boolean
+      diagnosis_doc_update:
+        description: "Update suspicious diagnosis snapshot in rules doc"
+        required: false
         default: true
         type: boolean
+      run_suspicious_repair:
+        description: "After diagnosis, remediate matching suspicious artifacts and republish them"
+        required: false
+        default: false
+        type: boolean
+      suspicious_artifacts:
+        description: "Optional comma-separated suspicious artifact keys to target"
+        required: false
+        default: "skill:aisa-twitter-api,plugin:aisa-twitter-api-plugin"
+        type: string
   schedule:
-    # Edit this cron to change the hosted auto-sync cadence.
     - cron: "21 */2 * * *"
 
 concurrency:
@@ -65,6 +94,7 @@ concurrency:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   sync-build-test:
@@ -73,7 +103,14 @@ jobs:
       PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || 'changed' }}
       PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
       PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
+      PIPELINE_RUN_LLM_STEP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_llm_step || 'true' }}
+      PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || 'true' }}
+      PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || 'true' }}
+      PIPELINE_DIAGNOSIS_DOC_UPDATE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.diagnosis_doc_update || 'true' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
+      AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+      AI_API_KEY: ${{ secrets.AI_API_KEY }}
+      AI_MODEL: ${{ secrets.AI_MODEL }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
     steps:
       - name: Checkout repo
@@ -108,24 +145,32 @@ jobs:
             EXTRA_ARGS+=("--selection" "${PIPELINE_SELECTION:-changed}")
           fi
 
+          if [[ "${PIPELINE_RUN_LLM_STEP:-true}" == "true" ]]; then
+            EXTRA_ARGS+=("--run-llm-step" "--llm-if-available")
+            if [[ "${PIPELINE_LLM_APPLY:-true}" == "true" ]]; then
+              EXTRA_ARGS+=("--llm-apply")
+            fi
+            if [[ "${PIPELINE_SYNC_REPO_SKILLS:-true}" == "true" ]]; then
+              EXTRA_ARGS+=("--sync-repo-skills")
+            fi
+          fi
+
           if [[ "${PIPELINE_DRY_RUN:-false}" == "true" ]]; then
             EXTRA_ARGS+=("--dry-run" "--skip-build" "--skip-test")
           fi
 
           python3 scripts/unified_skill_pipeline.py "${EXTRA_ARGS[@]}"
 
-      - name: Upload pipeline artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: unified-skill-pipeline-artifacts
-          path: |
-            targets/unified-pipeline-state.json
-            targets/release-layer-test-report-2026-04-17.json
-            targetSkills/index.json
-            targetSkills/index.md
-            targetSkills/well-known-skills-index.json
-          if-no-files-found: ignore
+      - name: Generate ClawHub suspicious diagnosis JSON
+        if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          DOC_MODE="skip"
+          if [[ "${PIPELINE_DIAGNOSIS_DOC_UPDATE:-true}" == "true" ]]; then
+            DOC_MODE="update"
+          fi
+          python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode "$DOC_MODE"
 
       - name: Commit regenerated outputs
         if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' }}
@@ -143,8 +188,51 @@ jobs:
           fi
 
           git add -A
-          git commit -m "chore: sync upstream skills and rebuild release layers"
+          git commit -m "chore: sync upstream, rebuild layers, and refresh diagnosis"
           git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Upload pipeline artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unified-skill-pipeline-artifacts
+          path: |
+            targets/unified-pipeline-state.json
+            targets/release-layer-test-report-2026-04-17.json
+            targets/clawhub-publish-state.json
+            targets/clawhub-live-status.json
+            targets/clawhub-suspicious-diagnosis.json
+            targetSkills/index.json
+            targetSkills/index.md
+            targetSkills/well-known-skills-index.json
+          if-no-files-found: ignore
+
+  diagnosis-pr:
+    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run != 'true' }}
+    needs: sync-build-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Create diagnosis PR when changes exist
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ github.token }}
+          commit-message: "chore: refresh clawhub suspicious diagnosis"
+          title: "chore: refresh ClawHub suspicious diagnosis snapshot"
+          body: |
+            Automated update from unified skill pipeline:
+            - refresh `targets/clawhub-suspicious-diagnosis.json`
+            - refresh auto snapshot block in suspicious-rules doc
+          branch: "bot/clawhub-suspicious-diagnosis"
+          delete-branch: true
+          add-paths: |
+            targets/clawhub-suspicious-diagnosis.json
+            targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md
 
   self-hosted-publish:
     if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish == 'true' }}
@@ -154,11 +242,19 @@ jobs:
       PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || 'changed' }}
       PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
       PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
-      PIPELINE_SYNC_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_adjacent_repos || 'false' }}
+      PIPELINE_RUN_LLM_STEP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_llm_step || 'true' }}
+      PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || 'true' }}
+      PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || 'true' }}
+      PIPELINE_SYNC_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_adjacent_repos || 'true' }}
       PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || 'true' }}
-      PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || 'none' }}
-      PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || 'true' }}
+      PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || 'both' }}
+      PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || 'false' }}
+      PIPELINE_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || 'false' }}
+      PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || 'skill:aisa-twitter-api,plugin:aisa-twitter-api-plugin' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
+      AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+      AI_API_KEY: ${{ secrets.AI_API_KEY }}
+      AI_MODEL: ${{ secrets.AI_MODEL }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
       DOWNSTREAM_REPO_TOKEN: ${{ secrets.DOWNSTREAM_REPO_TOKEN }}
       CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
@@ -191,7 +287,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
           mkdir -p "$PUBLISH_REPOS_ROOT"
 
           ensure_repo() {
@@ -216,7 +311,7 @@ jobs:
             fi
           }
 
-          ensure_repo "AIsa-team/agent-skills" "agentskills" "$PUBLISH_AGENT_SKILLS_DEST"
+          ensure_repo "AIsa-team/agent-skills" "main" "$PUBLISH_AGENT_SKILLS_DEST"
           ensure_repo "baofeng-tech/agent-skills-so" "main" "$PUBLISH_AGENTSKILLS_SO_DEST"
           ensure_repo "baofeng-tech/agent-skills" "main" "$PUBLISH_AGENTSKILL_SH_DEST"
           ensure_repo "baofeng-tech/Aisa-One-Skills-Claude" "main" "$PUBLISH_CLAUDE_DEST"
@@ -241,13 +336,23 @@ jobs:
             EXTRA_ARGS+=("--selection" "${PIPELINE_SELECTION:-changed}")
           fi
 
-          if [[ "${PIPELINE_SYNC_ADJACENT:-false}" == "true" ]]; then
+          if [[ "${PIPELINE_RUN_LLM_STEP:-true}" == "true" ]]; then
+            EXTRA_ARGS+=("--run-llm-step" "--llm-if-available")
+            if [[ "${PIPELINE_LLM_APPLY:-true}" == "true" ]]; then
+              EXTRA_ARGS+=("--llm-apply")
+            fi
+            if [[ "${PIPELINE_SYNC_REPO_SKILLS:-true}" == "true" ]]; then
+              EXTRA_ARGS+=("--sync-repo-skills")
+            fi
+          fi
+
+          if [[ "${PIPELINE_SYNC_ADJACENT:-true}" == "true" ]]; then
             EXTRA_ARGS+=("--sync-adjacent-repos")
           fi
 
           if [[ "${PIPELINE_CLAWHUB_PUBLISH:-none}" != "none" ]]; then
             EXTRA_ARGS+=("--clawhub-publish" "${PIPELINE_CLAWHUB_PUBLISH}")
-            if [[ "${PIPELINE_CLAWHUB_DRY_RUN:-true}" == "true" ]]; then
+            if [[ "${PIPELINE_CLAWHUB_DRY_RUN:-false}" == "true" ]]; then
               EXTRA_ARGS+=("--clawhub-dry-run")
             fi
           fi
@@ -257,6 +362,64 @@ jobs:
           fi
 
           python3 scripts/unified_skill_pipeline.py "${EXTRA_ARGS[@]}"
+
+      - name: Refresh suspicious diagnosis
+        if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' }}
+        run: python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode update
+
+      - name: Remediate suspicious artifacts and republish
+        if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' && env.PIPELINE_RUN_SUSPICIOUS_REPAIR == 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          EXTRA_ARGS=(
+            "--apply"
+            "--sync-repo-skills"
+            "--llm-if-available"
+            "--severity" "blocker"
+            "--status" "suspicious"
+            "--clawhub-publish" "${PIPELINE_CLAWHUB_PUBLISH:-both}"
+            "--post-publish-scan"
+          )
+
+          if [[ -n "${PIPELINE_SUSPICIOUS_ARTIFACTS:-}" ]]; then
+            EXTRA_ARGS+=("--artifacts" "${PIPELINE_SUSPICIOUS_ARTIFACTS}")
+          fi
+
+          if [[ "${PIPELINE_SYNC_ADJACENT:-true}" == "true" ]]; then
+            EXTRA_ARGS+=("--sync-adjacent-repos")
+          fi
+
+          if [[ "${PIPELINE_CLAWHUB_DRY_RUN:-false}" == "true" ]]; then
+            EXTRA_ARGS+=("--clawhub-dry-run")
+          fi
+
+          python3 scripts/clawhub_suspicious_remediation.py "${EXTRA_ARGS[@]}"
+
+      - name: Commit self-hosted repo changes
+        if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' }}
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "No repo changes to commit."
+            exit 0
+          fi
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No staged repo changes."
+            exit 0
+          fi
+
+          git commit -m "chore: self-hosted publish remediation updates"
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"
 
       - name: Commit and push downstream publish repos
         if: ${{ success() && env.PIPELINE_SYNC_ADJACENT == 'true' && env.PIPELINE_PUSH_ADJACENT == 'true' && env.PIPELINE_DRY_RUN != 'true' }}
@@ -306,6 +469,8 @@ jobs:
           path: |
             targets/unified-pipeline-state.json
             targets/clawhub-publish-state.json
+            targets/clawhub-live-status.json
+            targets/clawhub-suspicious-diagnosis.json
             targets/release-layer-test-report-2026-04-17.json
             targetSkills/index.json
             targetSkills/index.md

@@ -64,18 +64,23 @@ python3 scripts/clawhub_live_status.py --targets both
 ## Operational Notes
 
 - `targetSkills/` is the mother-skill source of truth.
-- For larger upstream deltas, `AIsa-team/agent-skills@agentskills` is the authority to follow before reshaping into mother skills and downstream releases here.
+- For larger upstream deltas, `AIsa-team/agent-skills@main` is the authority to follow before reshaping into mother skills and downstream releases here.
 - Generated release layers should be rebuilt from `targetSkills/`, not hand-edited as primary sources.
 - Local credentials can be looked up from `example/accounts`, but CI should use secrets instead.
 - `AIsa-team/agent-skills` is currently public, so `UPSTREAM_REPO_TOKEN` is optional fallback rather than a default requirement.
 - Do not use `/mnt/d/workplace/agent-skills` as this repo's automation source; that local checkout is reserved for manual company-skill authoring/upload work.
 - `.github/workflows/unified-skill-pipeline.yml` now supports:
   - hosted sync/build/test on schedule or manual dispatch
-  - self-hosted true publish for `AIsa-team/agent-skills` (`agentskills` branch), `baofeng-tech/agent-skills-so`, `baofeng-tech/agent-skills`, Claude, Claude marketplace, Hermes, and optional ClawHub batch publish
-- hosted upstream sync now targets `AIsa-team/agent-skills@agentskills` by default
+  - hosted suspicious diagnosis update (`targets/clawhub-suspicious-diagnosis.json`) plus optional diagnosis PR
+  - self-hosted true publish for `AIsa-team/agent-skills` (`main` branch), `baofeng-tech/agent-skills-so`, `baofeng-tech/agent-skills`, Claude, Claude marketplace, Hermes, and optional ClawHub batch publish
+  - optional self-hosted suspicious-remediation loop for targeted ClawHub artifacts such as `skill:aisa-twitter-api` and `plugin:aisa-twitter-api-plugin`
+- hosted upstream sync now targets `AIsa-team/agent-skills@main` by default
+- workflow dispatch now supports explicit LLM refinement (`run_llm_step`, `llm_apply`, `sync_repo_skills`) before release rebuild/publish
+- workflow dispatch now also supports targeted suspicious remediation (`run_suspicious_repair`, `suspicious_artifacts`) that can apply repo-local LLM refinement and force a republish of matching artifacts
 - the hosted schedule currently runs every 2 hours via cron `21 */2 * * *`
 - edit `.github/workflows/unified-skill-pipeline.yml` under `on.schedule[0].cron` if you want to change that hosted cadence later
 - the hosted auto-commit path now avoids the earlier checkout post-job `exit code 128` by disabling persisted checkout credentials and pushing with an explicit token URL
 - the workflow now also opts into Node 24 for JavaScript-based GitHub Actions to avoid the current hosted-run deprecation warning
 - `scripts/publish_clawhub_batch.py` now supports optional `--post-publish-scan` checks so each publish can immediately probe the live ClawHub page for `VirusTotal`, `OpenClaw`, and `Suspicious` signals.
+- `scripts/publish_clawhub_batch.py` now also supports repeated `--artifact` filters so workflow-driven remediation can republish only the affected ClawHub skill/plugin keys.
 - if WSL-side ClawHub network access is flaky, this workspace can publish or scan through `cmd.exe /c ... py -3 scripts\\publish_clawhub_batch.py` and `scripts\\clawhub_live_status.py` on the Windows side without changing repo structure.

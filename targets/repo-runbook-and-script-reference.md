@@ -80,6 +80,7 @@ Use it when you need to:
 | --- | --- | --- |
 | `scripts/test_release_layers.py` | Structure validation plus representative smoke tests across generated layers | none |
 | `scripts/clawhub_live_status.py` | Resolve live ClawHub detail pages and record `VirusTotal` / `OpenClaw` / `Suspicious` scan output into state | `--targets`, `--artifact`, `--include-status`, `--render-mode` |
+| `scripts/clawhub_suspicious_remediation.py` | Select suspicious blocker artifacts, map them back to mother skills, optionally run repo-local LLM refinement, rebuild, sync, and force-republish only the targeted artifacts | `--artifacts`, `--contains`, `--apply`, `--sync-repo-skills`, `--clawhub-publish`, `--post-publish-scan` |
 
 ### Publish / Sync
 
@@ -125,6 +126,7 @@ Use it when you need to:
 | `--accounts-file <path>` | Optional local credentials file containing `clawhub_ApI_token*` entries |
 | `--token <token>` | Repeatable token input for extra workers |
 | `--state-file <path>` | Local publish state JSON |
+| `--artifact <key>` | Only publish the specified artifact key such as `skill:search` or `plugin:twitter-plugin`; repeat to target more than one |
 | `--config-root <path>` | Per-token ClawHub CLI config directory |
 | `--skill-root <path>` | Skill publish source directory |
 | `--plugin-root <path>` | Plugin publish source directory |
@@ -166,6 +168,24 @@ Use it when you need to:
 | `--render-wait-ms <ms>` | Extra wait window for dynamic HTML stabilization |
 | `--inspect-timeout <seconds>` | Timeout for `clawhub inspect` during skill URL resolution |
 | `--skill-owner <handle>` | Optional fallback owner hint for skill detail URLs when `clawhub inspect` does not resolve a page; repeat to add more candidates |
+
+### `scripts/clawhub_suspicious_remediation.py`
+
+| Option | Meaning |
+| --- | --- |
+| `--diagnosis-file <path>` | Input diagnosis JSON, usually `targets/clawhub-suspicious-diagnosis.json` |
+| `--report-file <path>` | Output remediation-plan JSON |
+| `--artifacts <csv>` | Exact suspicious artifact keys to target |
+| `--contains <csv>` | Substring filter matched against key/name/reason/local path |
+| `--severity blocker|warning|all` | Which diagnosis severity to target |
+| `--status suspicious|pending|any` | Which live scan state to target |
+| `--apply` | Actually run LLM refinement and downstream rebuild/publish steps |
+| `--sync-repo-skills` | Refresh repo-local `.agents/skills` before refinement |
+| `--llm-if-available` | Skip cleanly when LLM credentials are unavailable |
+| `--sync-adjacent-repos` | Re-sync downstream publish repos after rebuilding |
+| `--clawhub-publish skill|plugin|both|none` | Force-republish only the selected artifact keys |
+| `--clawhub-dry-run` | Rehearse the targeted republish without uploading |
+| `--post-publish-scan` | Probe live ClawHub scan output immediately after targeted republish |
 
 ### `scripts/import-github-downloads-to-targetSkills.py`
 

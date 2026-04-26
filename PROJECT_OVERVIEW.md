@@ -31,13 +31,13 @@ Any AI working in this repository should:
 正式发布目标仓库不是这里，而是：
 
 - `https://github.com/AIsa-team/agent-skills`
-- 分支：`agentskills`
+- 分支：`main`
 
 当前工作区里的外部发布仓库包括：
 
 - `D:\workplace\agent-skills`
   - 承接 `targetSkills/` 的正式发布副本
-  - 默认推送到 `AIsa-team/agent-skills` 的 `agentskills` 分支
+  - 默认推送到 `AIsa-team/agent-skills` 的 `main` 分支
   - 仅作为发布目标与人工工作区，不作为本仓库自动化同步输入源
 - `D:\workplace\agent-skills-own`
   - 承接 `agentskill-sh-release/` 的 GitHub 导入层副本
@@ -63,7 +63,7 @@ Any AI working in this repository should:
 ### B. 作为跨平台 skill 设计工作区
 
 - 当上游改动较大时，先以 `AIsa-team/agent-skills` 为准做能力与结构对齐
-- 对已存在于 `AIsa-team/agent-skills@agentskills` 的 skill，默认先以该上游版本为运行时基线，再做本仓库的母版/发布层收敛
+- 对已存在于 `AIsa-team/agent-skills@main` 的 skill，默认先以该上游版本为运行时基线，再做本仓库的母版/发布层收敛
 - 以 `AgentSkills` 规范为母版
 - 对比 `OpenClaw / ClawHub`、`Hermes`、`Claude Code`
 - 生成统一的 `SKILL.md` 骨架、目录结构和发布索引
@@ -792,9 +792,10 @@ GitHub Actions 工作流层。
 - Hermes 当前最后阻塞：GitHub PAT 无 PR 创建权限，不能自动补开 Pull Request
 - 统一调度与自动化：已新增 `scripts/unified_skill_pipeline.py`、`scripts/build_targetskills_catalog.py` 与 `.github/workflows/unified-skill-pipeline.yml`
 - `last30days` 保守合并：已在 2026-04-23 完成一轮人工回灌，保留“无状态 research CLI”母版边界，并吸收安全子集更新后重新回灌各平台发布层
-- GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；当前下游 GitHub 目标已覆盖 `AIsa-team/agent-skills@agentskills`、`baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
+- GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；当前下游 GitHub 目标已覆盖 `AIsa-team/agent-skills@main`、`baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每 2 小时一次（`21 */2 * * *`）
 - GitHub Actions checkout 后置失败修复：hosted lane 已改为 `persist-credentials: false` + explicit token push，避免此前的 post-job `exit code 128`
+- GitHub Actions suspicious 修复闭环：workflow dispatch 已支持显式 LLM 精修（`run_llm_step` / `llm_apply` / `sync_repo_skills`），并新增 self-hosted 的 targeted suspicious remediation，可针对 `skill:aisa-twitter-api`、`plugin:aisa-twitter-api-plugin` 这类指定 artifact 做诊断、最小改写、定向重发与回写
 - ClawHub 2026-04-25 真实续发：已通过 Windows 侧 `py -3` + `clawhub` 继续完成一轮真实 skill/plugin 续发，并把 live scan 状态回写主 publish state
 - ClawHub `twitter` 测试结论：新 ClawHub 专用 slug `aisa-twitter-research-engage-relay` 已真实发布到 `1.0.5`；skill 与 plugin 页当前都已回到 `openclaw=benign`，两者都仍处于 `VirusTotal=pending`；这轮修复实际覆盖了 relay disclosure、plugin 顶层 metadata、summary description 前置 requirement，以及 `twitter_client.py` 对 `TWITTER_RELAY_BASE_URL` 的运行时对齐
 - 手工审核 hold 持续跟踪：被 `MANUAL_REVIEW_RULES` 跳过的 skill 不再因为基线前移而从后续自动巡检里“消失”

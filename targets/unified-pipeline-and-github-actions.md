@@ -41,7 +41,7 @@ python3 scripts/unified_skill_pipeline.py
 
 Current default upstream branch:
 
-- `AIsa-team/agent-skills@agentskills`
+- `AIsa-team/agent-skills@main`
 
 ### Force a full upstream refresh
 
@@ -123,7 +123,7 @@ Current scheduler details:
 - hosted lane cron is `21 */2 * * *`
 - that means the sync/build/test lane now runs every 2 hours
 - edit `.github/workflows/unified-skill-pipeline.yml` under `on.schedule[0].cron` if you want to change that cadence later
-- workflow-level env now pins `UPSTREAM_BRANCH=agentskills`, so the scheduled sync follows the published AIsa upstream branch by default
+- workflow-level env now pins `UPSTREAM_BRANCH=main`, so the scheduled sync follows the AIsa upstream `main` branch by default
 - hosted auto-commit now uses `persist-credentials: false` plus explicit token push, which avoids the earlier `actions/checkout` post-job `exit code 128` cleanup failure
 - workflow-level env also sets `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true` to get ahead of the current GitHub-hosted Node 20 deprecation warning
 
@@ -133,14 +133,66 @@ Current scheduler details:
 2. installs Python 3.12 plus `PyYAML`
 3. fetches upstream `AIsa-team/agent-skills`
 4. runs `scripts/unified_skill_pipeline.py`
-5. uploads state and test artifacts
-6. auto-commits regenerated outputs back into this repo when files changed
+5. optionally runs explicit LLM refinement for changed AIsa-backed skills (`--run-llm-step`)
+6. refreshes ClawHub suspicious diagnosis JSON and rules-doc snapshot block
+7. uploads state and test artifacts
+8. auto-commits regenerated outputs back into this repo when files changed
+
+### Explicit LLM refinement step
+
+The pipeline now supports an explicit model-execution stage between sync and build:
+
+- `scripts/sync_codex_repo_skills.py`
+  - syncs global `*-all` skills into `.agents/skills`
+- `scripts/llm_refine_aisa_skills.py`
+  - uses AISA/OpenAI-compatible endpoints to refine changed AIsa-backed `targetSkills/*`
+  - supports:
+    - `https://api.aisa.one/v1/chat/completions`
+    - `https://api.aisa.one/v1/messages`
+    - `https://api.aisa.one/v1/models/{model}:generateContent`
+  - supports fallback env config:
+    - `AI_BASE_URL`
+    - `AI_API_KEY`
+    - `AI_MODEL`
+
+In workflow-dispatch mode, the controls are:
+
+- `run_llm_step`
+- `llm_apply`
+- `sync_repo_skills`
+
+### Suspicious remediation loop
+
+The self-hosted lane now also supports an optional repair path for live ClawHub blockers:
+
+- `scripts/clawhub_suspicious_remediation.py`
+  - reads `targets/clawhub-suspicious-diagnosis.json`
+  - selects matching `blocker` artifacts in `suspicious` state
+  - maps them back to `targetSkills/*`
+  - runs repo-local `.agents/skills` context plus `scripts/llm_refine_aisa_skills.py`
+  - rebuilds every release layer
+  - optionally re-syncs downstream publish repos
+  - optionally re-publishes only the selected artifact keys through `scripts/publish_clawhub_batch.py --artifact ... --force`
+
+Current workflow-dispatch controls for this lane:
+
+- `run_suspicious_repair`
+- `suspicious_artifacts`
+
+### Suspicious diagnosis chain
+
+The hosted lane now supports:
+
+1. ClawHub live-status refresh (`scripts/clawhub_live_status.py`)
+2. diagnosis JSON generation (`targets/clawhub-suspicious-diagnosis.json`)
+3. optional rules-doc snapshot update in `targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md`
+4. optional PR creation for diagnosis-only updates (`diagnosis-pr` job)
 
 ### Upstream-authority rule
 
 For skill sync and future manual edits:
 
-- if a skill already exists in `AIsa-team/agent-skills@agentskills`, that upstream runtime is the first source to diff against
+- if a skill already exists in `AIsa-team/agent-skills@main`, that upstream runtime is the first source to diff against
 - publish-surface cleanup should preserve runtime completeness unless the task explicitly asks for a behavior change
 - conservative narrowing belongs in generated release layers or manual-review exceptions, not as a silent breakage of the mother skill
 
@@ -151,8 +203,10 @@ When `run_self_hosted_publish=true` on a manual dispatch, the workflow also:
 1. prepares downstream publish repos in a dedicated workspace area
 2. reruns the unified pipeline with optional `--sync-adjacent-repos`
 3. optionally continues into `publish_clawhub_batch.py`
-4. commits and pushes changed downstream GitHub publish repos
-5. uploads self-hosted publish-state artifacts
+4. optionally runs the suspicious-remediation loop and force-republishes only the matching artifacts
+5. commits self-hosted repo changes back into this repo when files changed
+6. commits and pushes changed downstream GitHub publish repos
+7. uploads self-hosted publish-state artifacts
 
 ### Downstream repo preparation
 
@@ -169,7 +223,7 @@ That lets the workflow publish into workspace-managed downstream clones instead 
 
 Current downstream defaults are:
 
-- `AIsa-team/agent-skills` on branch `agentskills`
+- `AIsa-team/agent-skills` on branch `main`
 - `baofeng-tech/agent-skills-so` on branch `main`
 - `baofeng-tech/agent-skills` on branch `main`
 - `baofeng-tech/Aisa-One-Skills-Claude` on branch `main`
@@ -272,3 +326,4 @@ Recommended manual-dispatch pattern:
 - enable `sync_adjacent_repos=true` when you want downstream GitHub publish
 - set `clawhub_publish=skill`, `plugin`, or `both` only when the self-hosted runner is ready for live publish
 - keep `clawhub_dry_run=true` for the first publish rehearsal, then flip it to `false` for real continuation
+- enable `run_suspicious_repair=true` plus `suspicious_artifacts=skill:aisa-twitter-api,plugin:aisa-twitter-api-plugin` when you want the runner to diagnose, minimally rewrite, and republish that live blocker set
