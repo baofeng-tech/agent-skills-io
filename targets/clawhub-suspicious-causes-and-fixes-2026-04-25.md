@@ -122,3 +122,72 @@
 4. 检查是否新增了 relay、upload、OAuth、home-dir persistence 等真实 side effects
 5. 检查发布包里是否混入非运行时文件
 6. live scan 时把 `pending`、`clean`、`suspicious` 分开记录
+
+<!-- AUTO-DIAGNOSIS:BEGIN -->
+## 最新自动诊断快照
+
+- 诊断对象数：`61`
+- `blocker`：`20`
+- `warning`：`41`
+- `pending`：`36`
+
+### 当前高频规则
+
+- `metadata_env_mismatch`: `18`
+- `oauth_upload_side_effects`: `7`
+- `pending_scan`: `44`
+- `platform_trust_gap`: `13`
+- `prompt_scaffold_copy`: `1`
+- `relay_trust_surface`: `12`
+
+### 当前重点对象
+
+- `plugin:last30days-plugin`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, pending_scan`
+  reason: The package appears to implement a legitimate AIsa-backed research tool, but the manifest and bundled runtime disagree with the registry metadata about required secrets and there are a few runtime behaviors (local HTTP probes, bundled executable scripts) that warrant caution before installing.
+- `plugin:market-plugin`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap`
+  reason: The package is plausibly what it claims (a market data client) and only needs a single API key, but there are internal inconsistencies in the manifest/registry metadata (missing required env/binary declarations) that should be resolved before trusting it.
+- `plugin:openclaw-twitter-post-engage-plugin`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
+  reason: The package's code and SKILL.md are coherent with a Twitter/X engagement/posting skill (using an AIsa relay) but the registry metadata and top-level claims contradict the actual requirements and there is reliance on a third-party relay (AISA_API_KEY) that the user must trust.
+- `plugin:smart-search-plugin`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
+  reason: The package is plausibly a search client that contacts aisa.one and requires an AISA_API_KEY and python3, but the registry metadata omits those requirements and there are manifest mismatches you should confirm before installing.
+- `plugin:stock-analysis-plugin`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
+  reason: The package mostly matches a stock-analysis skill, but the published registry metadata (saying no env vars/credentials required) contradicts the embedded plugin and SKILL.md which require an AISA_API_KEY and contact an external AIsa API — this mismatch should be clarified before installing.
+- `plugin:twitter-command-center-search-post-plugin`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
+  reason: The package is functionally aligned with its Twitter/X posting/search purpose, but it relies on an external relay (api.aisa.one) that will receive your AISA_API_KEY and any uploaded media, and the runtime reads a few environment variables that the manifest/SKILL.md don't fully declare — you should review/trust the relay before installing.
+- `plugin:youtube-plugin`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
+  reason: The package mostly does what it says (YouTube research via AIsa) but the manifest/registry metadata and the bundled skill disagree about required environment variables and runtime, and the skill will send your AISA_API_KEY to api.aisa.one — confirm you trust that upstream and the pkg metadata before installing.
+- `plugin:youtube-search-plugin`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, oauth_upload_side_effects, pending_scan, relay_trust_surface`
+  reason: The package is internally inconsistent: it is named 'Youtube Search' but the bundled skill and manifests describe Twitter/X search/posting and require an AISA_API_KEY; functionality and naming don't line up even though the runtime footprint itself is small.
+- `skill:aisa-provider`
+  severity: `blocker` | status: `suspicious`
+  rules: `relay_trust_surface`
+  reason: The skill's declared requirements (only AISA_API_KEY) match its stated purpose, but the runtime instructions reference shipped scripts and flows that are not present and make strong external-claims (partnerships, ZDR) that should be verified before use.
+- `skill:aisa-twitter`
+  severity: `blocker` | status: `suspicious`
+  rules: `metadata_env_mismatch, platform_trust_gap, relay_trust_surface`
+  reason: The package is a coherent Twitter/X relay client that contacts api.aisa.one and requires an AISA_API_KEY, but the registry metadata and package frontmatter disagree about required env and versioning—confirm the missing environment declaration and trust in the relay before installing.
+- `skill:aisa-twitter-api`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects, relay_trust_surface`
+  reason: The skill does what its name/description claim (search/post to X) but routes all traffic, OAuth, and uploaded media through a third-party relay (aisa.one) and has a few minor mismatches that increase privacy/exfiltration risk.
+- `skill:openclaw-aisa-youtube-aisa`
+  severity: `blocker` | status: `suspicious`
+  rules: `metadata_env_mismatch, platform_trust_gap`
+  reason: The skill's code and SKILL.md match the described YouTube search purpose and only require an AISA API key, but the registry metadata incorrectly omits that required credential and overall provenance (homepage/owner) is thin — this mismatch warrants caution before installing.
+<!-- AUTO-DIAGNOSIS:END -->
