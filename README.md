@@ -81,7 +81,7 @@ python3 scripts/clawhub_live_status.py --targets both
 - the repo-local skill-refinement helper defaults to shared `AISA_API_KEY` / `AISA_*`, supports explicit internal override via `SKILL_REFINER_API_KEY`, `SKILL_REFINER_BASE_URL`, and `SKILL_REFINER_MODEL`, and keeps legacy `AI_*` only as a last-resort compatibility fallback
 - on this self-hosted runner, the workflow now falls back to `/mnt/d/workplace/agent-skills-io/example/accounts` for downstream GitHub PAT, ClawHub tokens, and skill-refiner config when those CI secrets are blank
 - self-hosted downstream checkout now prefers public `https://github.com/<repo>.git` clone URLs, so repo preparation no longer blocks on `git@github-work` SSH timeouts before publish work even starts
-- the hosted schedule currently runs every 2 hours via cron `21 */2 * * *`
+- the hosted schedule currently runs every 4 hours via cron `21 */4 * * *`
 - edit `.github/workflows/unified-skill-pipeline.yml` under `on.schedule[0].cron` if you want to change that hosted cadence later
 - the hosted auto-commit path now avoids the earlier checkout post-job `exit code 128` by disabling persisted checkout credentials and pushing with an explicit token URL
 - the self-hosted lane now fast-forwards its checkout to the latest `main` before downstream publish/remediation work so hosted auto-commits do not cause a later non-fast-forward push failure

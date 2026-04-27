@@ -41,7 +41,7 @@
 
 - Source: `targetSkills/aisa-twitter-command-center`
 - Output: `clawhub-release/aisa-twitter-command-center`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Run Twitter/X watchlists, competitor monitoring, trend scans, and OAuth-gated follow-through through AIsa. Use when: the user needs a monitoring-first Twitter desk for recurring account sweeps, launch reactions, or trend tracking. Supports search, monitoring, and approved posting after review.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
@@ -51,7 +51,7 @@
 
 - Source: `targetSkills/aisa-twitter-engagement-suite`
 - Output: `clawhub-release/aisa-twitter-engagement-suite`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
@@ -61,7 +61,7 @@
 
 - Source: `targetSkills/aisa-twitter-post-engage`
 - Output: `clawhub-release/aisa-twitter-post-engage`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Run Twitter/X post-launch follow-through through AIsa. Use when: the user already has a draft, launch tweet, or reply target and needs one skill to publish and then manage early interactions. Supports posting, reply context, and lightweight engagement.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa

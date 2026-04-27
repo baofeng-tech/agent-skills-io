@@ -228,8 +228,8 @@ python3 scripts/unified_skill_pipeline.py --dry-run
 
 - File: `.github/workflows/unified-skill-pipeline.yml`
 - Field: `on.schedule[0].cron`
-- Current value: `21 */2 * * *`
-- Meaning: hosted auto sync/build/test runs every 2 hours
+- Current value: `21 */4 * * *`
+- Meaning: hosted auto sync/build/test runs every 4 hours
 
 ### Rebuild all release layers from current `targetSkills/`
 

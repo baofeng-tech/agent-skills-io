@@ -1,6 +1,6 @@
 ---
 name: aisa-twitter-command-center
-description: 'Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.'
+description: 'Run Twitter/X watchlists, competitor monitoring, trend scans, and OAuth-gated follow-through through AIsa. Use when: the user needs a monitoring-first Twitter desk for recurring account sweeps, launch reactions, or trend tracking. Supports search, monitoring, and approved posting after review.'
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -40,21 +40,21 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# AIsa Twitter Command Center
+# AIsa Twitter Watchlist Desk
 
-Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+Run Twitter/X watchlists, competitor monitoring, trend scans, and OAuth-gated follow-through through AIsa. Use when: the user needs a monitoring-first Twitter desk for recurring account sweeps, launch reactions, or trend tracking. Supports search, monitoring, and approved posting after review.
 
 ## When to use
 
-- The user needs Twitter/X research, monitoring, posting, or engagement workflows.
-- The user wants profiles, timelines, trends, lists, communities, or Spaces.
-- The user wants approved posting without sharing passwords.
+- The user needs recurring Twitter/X monitoring, watchlists, competitor sweeps, or trend scans.
+- The user wants profiles, timelines, trends, lists, communities, or Spaces checked on a repeated basis.
+- The user may follow the monitoring pass with an approved post, but monitoring stays primary.
 
 ## High-Intent Workflows
 
-- Research an account or conversation thread.
-- Monitor a keyword, trend, or competitor.
-- Authorize and publish a post after explicit approval.
+- Track what changed across a competitor watchlist today.
+- Monitor reactions to a launch, narrative, or keyword over time.
+- Review a monitoring pass before deciding whether to publish.
 
 ## Quick Reference
 
@@ -73,13 +73,13 @@ Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa.
 
 ## Example Requests
 
-- Research recent AI agent conversations on X
-- Search how users are reacting to a product launch on Twitter
-- Authorize and publish a short product update post
+- Track a competitor watchlist and summarize what changed today
+- Monitor how X is reacting to our launch this week
+- Review a trend desk before publishing a follow-up post
 
 ## Guardrails
 
-- Do not ask for passwords, cookies, or browser credentials.
+- Do not market this package as the flagship general-purpose Twitter lane.
+- Do not treat likes, follows, or replies as the core job of this package.
 - Do not claim posting succeeded until the API confirms it.
-- Return authorization links instead of relying on auto-open behavior.
 - Only upload local files the user explicitly attached, and make it clear those files are sent to the configured AIsa relay first.

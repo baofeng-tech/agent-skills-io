@@ -15,6 +15,13 @@ import build_claude_release as base
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCE_ROOT = REPO_ROOT / "targetSkills"
 OUTPUT_ROOT = REPO_ROOT / "clawhub-release"
+TWITTER_PROFILES = {
+    "twitter",
+    "twitter_api",
+    "twitter_watchlist",
+    "twitter_engagement",
+    "twitter_post_engage",
+}
 
 
 def parse_version_parts(value: Any) -> tuple[int, ...]:
@@ -66,6 +73,12 @@ def release_profile(name: str, domain: str) -> str:
     lowered = name.lower()
     if lowered == "aisa-twitter-api":
         return "twitter_api"
+    if lowered == "aisa-twitter-command-center":
+        return "twitter_watchlist"
+    if lowered == "aisa-twitter-engagement-suite":
+        return "twitter_engagement"
+    if lowered == "aisa-twitter-post-engage":
+        return "twitter_post_engage"
     if lowered == "search":
         return "search_flagship"
     if lowered == "multi-source-search":
@@ -77,6 +90,9 @@ def release_heading(name: str, domain: str) -> str:
     profile = release_profile(name, domain)
     headings = {
         "twitter_api": "AIsa Twitter API Command Center",
+        "twitter_watchlist": "AIsa Twitter Watchlist Desk",
+        "twitter_engagement": "AIsa Twitter Engagement Suite",
+        "twitter_post_engage": "AIsa Twitter Post-Launch Follow-Through",
         "search_flagship": "AIsa Search Command Center",
         "search_verification": "Multi-Source Search Verification Engine",
     }
@@ -146,7 +162,7 @@ def infer_entrypoints(skill_dir: Path) -> list[str]:
 
 def infer_optional_envs(skill_dir: Path, profile: str) -> list[str]:
     scripts_dir = skill_dir / "scripts"
-    if profile in {"twitter", "twitter_api"}:
+    if profile in TWITTER_PROFILES:
         return ["TWITTER_RELAY_BASE_URL", "TWITTER_RELAY_TIMEOUT"]
     if (scripts_dir / "twitter_oauth_client.py").exists() or (scripts_dir / "twitter_engagement_client.py").exists():
         return ["TWITTER_RELAY_BASE_URL", "TWITTER_RELAY_TIMEOUT"]
@@ -182,6 +198,9 @@ def build_description(name: str, domain: str, zh: bool) -> str:
         templates = {
             "twitter": "通过 AIsa 搜索 X/Twitter 账号、推文、趋势与经 OAuth 授权的发布流程。触发条件：当用户需要 Twitter 研究、监控或互动操作时使用。支持搜索、监控与授权发布。",
             "twitter_api": "通过 AIsa 执行 Twitter/X 研究、监控、观察列表与经 OAuth 授权的发布。触发条件：当用户需要一个旗舰 Twitter 技能来跟踪趋势、竞品或发布内容时使用。支持搜索、监控与授权发布。",
+            "twitter_watchlist": "通过 AIsa 把 X/Twitter 作为观察列表与趋势监控工作台来使用。触发条件：当用户需要竞品追踪、观察列表、趋势扫描或账号巡检时使用。支持监控、搜索与经授权的跟进发布。",
+            "twitter_engagement": "通过 AIsa 执行 X/Twitter 的点赞、关注、回复与经授权发布。触发条件：当用户已经知道要互动的账号或推文，并需要显式授权的互动动作时使用。支持研究上下文、互动与授权发布。",
+            "twitter_post_engage": "通过 AIsa 执行 X/Twitter 发帖后的跟进动作。触发条件：当用户已经有草稿、活动或发帖目标，并需要发布后继续处理早期互动时使用。支持发帖、回复上下文与轻量互动。",
             "youtube": "通过 AIsa 搜索 YouTube 视频、频道、趋势与排名结果。触发条件：当用户需要选题研究、竞品分析或频道检索时使用。支持视频发现与趋势分析。",
             "search": "通过 AIsa 执行网页、多源或近 30 天研究检索。触发条件：当用户需要搜索、研究、比对或趋势归纳时使用。支持多源检索与结构化输出。",
             "search_flagship": "通过 AIsa 执行网页、学术、Tavily 与深度研究检索。触发条件：当用户需要一个旗舰搜索技能来做实时查询、来源发现或引用型研究时使用。支持快速检索、答案生成与深度研究。",
@@ -196,6 +215,9 @@ def build_description(name: str, domain: str, zh: bool) -> str:
     templates = {
         "twitter": "Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
         "twitter_api": "Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.",
+        "twitter_watchlist": "Run Twitter/X watchlists, competitor monitoring, trend scans, and OAuth-gated follow-through through AIsa. Use when: the user needs a monitoring-first Twitter desk for recurring account sweeps, launch reactions, or trend tracking. Supports search, monitoring, and approved posting after review.",
+        "twitter_engagement": "Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.",
+        "twitter_post_engage": "Run Twitter/X post-launch follow-through through AIsa. Use when: the user already has a draft, launch tweet, or reply target and needs one skill to publish and then manage early interactions. Supports posting, reply context, and lightweight engagement.",
         "youtube": "Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.",
         "search": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
         "search_flagship": "Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.",
@@ -223,6 +245,24 @@ def domain_sections(skill_name: str, domain: str, zh: bool) -> tuple[list[str], 
                 ["研究创作者、竞品或叙事变化。", "监控关键词、账号列表或产品发布反应。", "在完成 OAuth 授权后发出一条确认过的帖子。"] ,
                 ["研究 AI agent 创作者最近一周在 X 上的讨论", "跟踪竞品账号列表今天发生了什么变化", "授权后发布一条带图片的产品更新"] ,
                 ["不要请求密码、Cookie 或浏览器凭据。", "不要把互动增长动作写成这个包的主职责。", "不要在未确认 API 成功前声称已发布。"] ,
+            ),
+            "twitter_watchlist": (
+                ["用户需要用 X/Twitter 做观察列表、竞品追踪或趋势巡检。", "用户要定期查看账号、时间线、趋势、列表、社区或 Spaces。", "用户可能会在监控后执行一条经授权的跟进发布。"] ,
+                ["跟踪竞品账号列表今天发生了什么变化。", "监控某个关键词、主题或产品发布反应。", "先完成观察，再决定是否经授权发帖。"] ,
+                ["跟踪一组竞品账号今天的新动态", "监控某个产品发布在 X 上的趋势变化", "看完观察列表后再决定是否发一条跟进帖"] ,
+                ["不要把它写成通用旗舰入口。", "不要把点赞、关注等互动动作当成这个包的主职责。", "不要在未确认 API 成功前声称已发布。"] ,
+            ),
+            "twitter_engagement": (
+                ["用户已经知道要点赞、关注、回复或互动的目标。", "用户需要显式授权的互动工作流，而不是只做监控。", "用户需要在不提供密码的前提下完成互动或发帖。"] ,
+                ["对一条已确认的推文执行点赞或关注动作。", "在研究上下文后执行回复、互动或发帖。", "把账号级互动动作串到一个经授权流程里。"] ,
+                ["先研究目标账号，再点赞最近一条推文", "对一条发帖结果做跟进互动", "授权后回复或关注某个目标账号"] ,
+                ["不要请求密码、Cookie 或浏览器凭据。", "不要把互动写成静默自动执行。", "不要在未确认 API 成功前声称互动已完成。"] ,
+            ),
+            "twitter_post_engage": (
+                ["用户已经有草稿、活动、发帖目标或回复目标。", "用户需要一个发帖后继续跟进早期互动的工作流。", "用户需要在不提供密码的前提下完成经授权的发帖与轻量互动。"] ,
+                ["先完成一条发帖，再跟进最早的互动动作。", "围绕某个 launch tweet 做发帖后的回复与轻量互动。", "在已有上下文下完成发帖、回复与跟进。"] ,
+                ["授权后发布一条产品更新并继续跟进第一波反馈", "围绕某条 launch tweet 做发帖后回复与轻量互动", "先发帖再关注与话题相关的目标账号"] ,
+                ["不要把它写成长期运营或重度互动总控台。", "不要请求密码、Cookie 或浏览器凭据。", "不要在未确认 API 成功前声称发帖或互动已完成。"] ,
             ),
             "youtube": (
                 ["用户需要搜索 YouTube 视频、频道或趋势。", "用户需要做选题、竞品或 SERP 排名研究。", "用户需要快速拿到公开视频结果。"] ,
@@ -287,6 +327,24 @@ def domain_sections(skill_name: str, domain: str, zh: bool) -> tuple[list[str], 
                 ["Research a creator, competitor, or narrative shift.", "Monitor a keyword, watchlist, or launch reaction.", "Authorize and publish a post only after explicit approval."],
                 ["Research what AI agent builders are saying on X this week", "Track what changed across a competitor watchlist today", "Authorize and publish a short product update with an image"],
                 ["Do not ask for passwords, cookies, or browser credentials.", "Do not market growth actions as this package's primary lane.", "Do not claim posting succeeded until the API confirms it."],
+            ),
+            "twitter_watchlist": (
+                ["The user needs recurring Twitter/X monitoring, watchlists, competitor sweeps, or trend scans.", "The user wants profiles, timelines, trends, lists, communities, or Spaces checked on a repeated basis.", "The user may follow the monitoring pass with an approved post, but monitoring stays primary."],
+                ["Track what changed across a competitor watchlist today.", "Monitor reactions to a launch, narrative, or keyword over time.", "Review a monitoring pass before deciding whether to publish."],
+                ["Track a competitor watchlist and summarize what changed today", "Monitor how X is reacting to our launch this week", "Review a trend desk before publishing a follow-up post"],
+                ["Do not market this package as the flagship general-purpose Twitter lane.", "Do not treat likes, follows, or replies as the core job of this package.", "Do not claim posting succeeded until the API confirms it."],
+            ),
+            "twitter_engagement": (
+                ["The user already knows which tweet, account, or campaign needs action.", "The user needs explicit likes, follows, replies, or other engagement workflows after review.", "The user wants approved posting and engagement without sharing passwords."],
+                ["Research the target, then like or follow with explicit approval.", "Use engagement actions as follow-through after a post or campaign review.", "Combine read context, posting, and engagement in one approved workflow."],
+                ["Research a target account and like its latest tweet", "Authorize a reply or follow-up action after a launch post", "Run a reply, like, or follow workflow on a confirmed target"],
+                ["Do not ask for passwords, cookies, or browser credentials.", "Do not make likes, follows, replies, or uploads sound silent or automatic.", "Do not claim an engagement action succeeded until the API confirms it."],
+            ),
+            "twitter_post_engage": (
+                ["The user already has a draft, launch tweet, campaign, or reply target.", "The user needs one workflow to publish first and then handle the earliest follow-through actions.", "The user wants approved posting and lightweight engagement without sharing passwords."],
+                ["Publish a confirmed update and handle the first wave of reactions.", "Move from a draft or launch tweet into reply and follow-through actions.", "Use one workflow for post-launch context, posting, and lightweight engagement."],
+                ["Authorize a product update post and handle the first follow-up actions", "Publish a launch tweet and then review or reply to early reactions", "Start from a draft and move into post-launch engagement"],
+                ["Do not market this package as a long-running social-growth control tower.", "Do not ask for passwords, cookies, or browser credentials.", "Do not claim posting or engagement succeeded until the API confirms it."],
             ),
             "youtube": (
                 ["The user needs YouTube video, channel, or trend discovery.", "The user wants content research, SERP scouting, or competitor review.", "The user wants public YouTube results quickly."],
@@ -355,7 +413,7 @@ def build_body(skill_dir: Path, skill_name: str, description: str, domain: str, 
             "- 使用公开包里的相对 `scripts/` 路径。",
             "- 如果脚本提供显式鉴权参数，优先使用该参数。",
         ]
-    if profile in {"twitter", "twitter_api"}:
+    if profile in TWITTER_PROFILES:
         if zh:
             setup_lines.extend(
                 [

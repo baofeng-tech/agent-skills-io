@@ -112,8 +112,8 @@ The workflow now has two lanes:
 
 Current scheduler details:
 
-- hosted lane cron is `21 */2 * * *`
-- that means the sync/build/test lane now runs every 2 hours
+- hosted lane cron is `21 */4 * * *`
+- that means the sync/build/test lane now runs every 4 hours
 - edit `.github/workflows/unified-skill-pipeline.yml` under `on.schedule[0].cron` if you want to change that cadence later
 - workflow-level env now pins `UPSTREAM_BRANCH=main`, so the scheduled sync follows the AIsa upstream `main` branch by default
 - hosted auto-commit now uses `persist-credentials: false` plus explicit token push, which avoids the earlier `actions/checkout` post-job `exit code 128` cleanup failure

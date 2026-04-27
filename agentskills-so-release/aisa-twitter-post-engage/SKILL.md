@@ -1,6 +1,6 @@
 ---
 name: aisa-twitter-post-engage
-description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+description: 'Post-launch Twitter/X follow-through for search, approved posting, and lightweight engagement through the AIsa relay. Use when: the user already has a draft, campaign, launch tweet, or reply target and needs one focused skill to publish and then handle early interactions without sharing passwords. Supports posting, reply context, likes, and follows after explicit approval.'
 license: Apache-2.0
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -8,31 +8,32 @@ metadata:
   version: 1.0.0
   homepage: https://aisa.one
   repository: https://github.com/baofeng-tech/agent-skills-so
-  tags: twitter,x,search,research,aisa
+  tags: twitter,x,search,aisa
   platforms: agentskills.io,agentskills.so,github
   primary_env: AISA_API_KEY
 allowed-tools: Read Bash Grep
 ---
 
-# AIsa Twitter Post Engage
+# AIsa Twitter Post-Launch Follow-Through
 
-Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay.
+Publish on X/Twitter through the AIsa relay, then handle the first wave of replies, likes, and follow actions with explicit approval.
 
 ## When to use
 
-- The user wants Twitter/X research plus posting, liking, unliking, following, or unfollowing workflows.
+- The user already has a draft, campaign, announcement, or reply target and needs post-and-follow-through support.
+- The workflow needs one package that covers read context, publishing, and lightweight engagement after the post goes live.
 - The task can use a Python client with `AISA_API_KEY` and explicit OAuth approval.
-- The workflow needs a single package that covers read, post, and engagement actions.
 
 ## When NOT to use
 
-- The user needs cookie extraction, password login, or a fully local Twitter client.
+- The user mainly needs broad Twitter/X research or recurring monitoring; use `aisa-twitter-api` or `aisa-twitter-command-center`.
+- The task is a larger ongoing engagement program better handled by `aisa-twitter-engagement-suite`.
 - The workflow must avoid relay-based network calls or media upload through `api.aisa.one`.
-- The task needs undocumented secrets or browser-derived auth values.
 
 ## Quick Reference
 
 - Required environment variable: `AISA_API_KEY`
+- Relay target: `https://api.aisa.one`
 - Read client: `scripts/twitter_client.py`
 - Post client: `scripts/twitter_oauth_client.py`
 - Engage client: `scripts/twitter_engagement_client.py`
@@ -51,6 +52,7 @@ All network calls go to `https://api.aisa.one/apis/v1/...`.
 - Read user, tweet, trend, list, community, and Spaces data.
 - Publish text, image, and video posts after explicit OAuth approval.
 - Like, unlike, follow, and unfollow through the engagement client once authorization exists.
+- Move from pre-post research into immediate post-launch follow-through without switching skills.
 
 ## Common Commands
 
@@ -73,3 +75,9 @@ python3 scripts/twitter_engagement_client.py follow-user --user "@elonmusk"
 - Do not ask for passwords, browser cookies, or undocumented secrets.
 - Do not guess target accounts or tweet IDs when multiple candidates exist.
 - Do not claim engagement or posting succeeded unless the relay request returns success.
+
+## Security Notes
+
+- This workflow is relay-based and sends API requests, OAuth approvals, and approved media uploads to `api.aisa.one`.
+- Required secret: `AISA_API_KEY`.
+- This package does not require password sharing or browser-cookie extraction.

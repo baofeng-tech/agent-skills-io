@@ -1,13 +1,19 @@
 # AIsa Twitter Command Center
 
-Cross-platform Twitter/X research and posting skill for AgentSkills-compatible clients.
+Watchlist and trend-desk variant for Twitter/X monitoring through the AIsa relay.
 
 ## What it does
 
-- Search Twitter/X profiles, tweets, trends, lists, communities, and Spaces
-- Inspect timelines, mentions, replies, quotes, and thread context
-- Support approved posting workflows through OAuth
+- Track competitor accounts, recurring watchlists, timelines, trends, lists, communities, and Spaces
+- Inspect mentions, replies, quotes, and thread context during monitoring work
+- Support approved posting workflows through OAuth when monitoring turns into action
 - Reuse the same skill package across OpenClaw, Hermes, Claude Code, and other compatible runtimes
+
+## Best fit
+
+- Use this when the user primarily wants monitoring, watchlists, or trend scanning.
+- Use `aisa-twitter-api` for the flagship all-purpose Twitter lane.
+- Use `aisa-twitter-engagement-suite` for likes, follows, replies, and heavier engagement flows.
 
 ## Directory Layout
 

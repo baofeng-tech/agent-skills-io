@@ -1,14 +1,14 @@
 ---
 name: aisa-twitter-api
-description: 'Twitter/X command center for research, monitoring, watchlists, and approved posting through AIsa. Use when: the user needs one flagship skill for trend tracking, competitor monitoring, or publish-ready Twitter workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting.'
+description: 'Flagship Twitter/X command center for research, monitoring, watchlists, and approved posting through the AIsa relay. Use when: the user needs one primary Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting; all API requests, OAuth approvals, and approved media uploads go to api.aisa.one.'
 license: Apache-2.0
 allowed-tools: Read Bash Grep
-when_to_use: the user needs one flagship skill for trend tracking, competitor monitoring, or publish-ready Twitter workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting
+when_to_use: the user needs one primary Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting; all API requests, OAuth approvals, and approved media uploads go to api.aisa.one
 ---
 
 # AIsa Twitter API Command Center
 
-Run Twitter/X research, monitoring, trend discovery, and approved posting from one AIsa-backed command center.
+Run Twitter/X research, monitoring, watchlists, and approved posting from one flagship AIsa command center. All API requests, OAuth approvals, and approved media uploads are relayed to `api.aisa.one` and require `AISA_API_KEY`.
 
 ## When to use
 
@@ -25,6 +25,7 @@ Run Twitter/X research, monitoring, trend discovery, and approved posting from o
 ## Quick Reference
 
 - Required environment variable: `AISA_API_KEY`
+- Relay target: `https://api.aisa.one`
 - Read client: `scripts/twitter_client.py`
 - OAuth and posting client: `scripts/twitter_oauth_client.py`
 - Posting guide: `references/post_twitter.md`

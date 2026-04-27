@@ -2,7 +2,7 @@
 
 This catalog lists the current cross-platform mother skills in `targetSkills/`.
 
-- Generated at: `2026-04-26`
+- Generated at: `2026-04-27`
 - Repository target: `https://github.com/AIsa-team/agent-skills`
 - Branch target: `agentskills`
 - Total skills: `54`
@@ -24,19 +24,19 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `aisa-twitter-api`
   - Category: `twitter`
   - Path: `aisa-twitter-api`
-  - Description: Twitter/X command center for research, monitoring, watchlists, and approved posting through AIsa. Use when: the user needs one flagship skill for trend tracking, competitor monitoring, or publish-ready Twitter workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting.
+  - Description: Flagship Twitter/X command center for research, monitoring, watchlists, and approved posting through the AIsa relay. Use when: the user needs one primary Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting; all API requests, OAuth approvals, and approved media uploads go to api.aisa.one.
 - `aisa-twitter-command-center`
   - Category: `twitter`
   - Path: `aisa-twitter-command-center`
-  - Description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
+  - Description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay as a watchlist and trend desk. Use when: the user needs competitor monitoring, recurring watchlists, trend scanning, or profile sweeps without sharing passwords. Supports approved posting as follow-through, but prioritizes monitoring over engagement automation.
 - `aisa-twitter-engagement-suite`
   - Category: `twitter`
   - Path: `aisa-twitter-engagement-suite`
-  - Description: aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.
+  - Description: Engagement-focused Twitter/X workflow for research, approved posting, likes, follows, and related actions through the AIsa relay. Use when: the user already knows which tweets or accounts to act on and needs explicit OAuth-gated engagement without sharing passwords. Supports read context, posting, and follow-through actions; all writes and uploads go to api.aisa.one.
 - `aisa-twitter-post-engage`
   - Category: `twitter`
   - Path: `aisa-twitter-post-engage`
-  - Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+  - Description: Post-launch Twitter/X follow-through for search, approved posting, and lightweight engagement through the AIsa relay. Use when: the user already has a draft, campaign, launch tweet, or reply target and needs one focused skill to publish and then handle early interactions without sharing passwords. Supports posting, reply context, likes, and follows after explicit approval.
 - `aisa-youtube-search`
   - Category: `youtube`
   - Path: `aisa-youtube-search`

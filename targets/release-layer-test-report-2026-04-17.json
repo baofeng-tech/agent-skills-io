@@ -21,7 +21,7 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHG49PIyaMRAKAAIcbjxb-RrBnQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcbj1ALQAnEAoABhxuPUAs_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/698305",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHG7TeM2WMTAKAAIcbtNafFdBSgAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcbtOCPYAnEAoABhxu04I9f9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/15110",
       "stderr_preview": ""
     },
     {
@@ -50,8 +50,8 @@
         "--count",
         "1"
       ],
-      "code": 1,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"id\": \"XpLmTfiVcWJ4Guuzx9K97A\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -66,7 +66,7 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0xd925b895ccde504784a45308d955e35d0a89b7d6db74822af28bb46b8a1874a3\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Bitcoin price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve to",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0xf2738d02e72018ba70c343f660c9ca1332146ec627f1a4c72d1ee6468d6347c0\",\n      \"description\": \"In the upcoming NBA game, scheduled for April 28 at 12:00 AM ET:\\n\\nThis market will resolve to \\\"Over\\\" if the Trail Blazers and Spurs combine to score 215 or more points in this game.\\n\\nIf the combined to",
       "stderr_preview": ""
     },
     {
@@ -119,8 +119,8 @@
         "--type",
         "Latest"
       ],
-      "code": 1,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHG7TkU5aMU8KAAIcbtNt25ZgzAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcbtOU7IAnEAoABhxu05Tsf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/19222",
       "stderr_preview": ""
     },
     {
@@ -136,7 +136,7 @@
         "OpenAI"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 2,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
       "stderr_preview": ""
     },
     {
@@ -153,8 +153,8 @@
         "--count",
         "1"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"id\": \"eUVx6Hwy4GYLqU5mvkx32Q\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "code": 1,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -171,7 +171,7 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0xd925b895ccde504784a45308d955e35d0a89b7d6db74822af28bb46b8a1874a3\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Bitcoin price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve to",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0xf2738d02e72018ba70c343f660c9ca1332146ec627f1a4c72d1ee6468d6347c0\",\n      \"description\": \"In the upcoming NBA game, scheduled for April 28 at 12:00 AM ET:\\n\\nThis market will resolve to \\\"Over\\\" if the Trail Blazers and Spurs combine to score 215 or more points in this game.\\n\\nIf the combined to",
       "stderr_preview": ""
     },
     {
@@ -213,7 +213,7 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHG49VILawWQKAAIcbjx0ERrgBwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcbj1fC4AnEAoABhxuPV8Lf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"\",\n        \"createdAt\": \"Tue Oct 19 04:18:2",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHG7TmGaXocIKAAIcbtN8ZleRGgAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcbtOgcgAnEAoABhxu06Bx_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/284763",
       "stderr_preview": ""
     },
     {
@@ -242,8 +242,8 @@
         "--count",
         "1"
       ],
-      "code": 1,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"id\": \"Uo59zDXh2gb1xE4G3MeAvQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -258,7 +258,7 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0xd925b895ccde504784a45308d955e35d0a89b7d6db74822af28bb46b8a1874a3\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Bitcoin price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve to",
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0xf2738d02e72018ba70c343f660c9ca1332146ec627f1a4c72d1ee6468d6347c0\",\n      \"description\": \"In the upcoming NBA game, scheduled for April 28 at 12:00 AM ET:\\n\\nThis market will resolve to \\\"Over\\\" if the Trail Blazers and Spurs combine to score 215 or more points in this game.\\n\\nIf the combined to",
       "stderr_preview": ""
     },
     {

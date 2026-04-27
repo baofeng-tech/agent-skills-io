@@ -28,25 +28,25 @@
 
 - Path: `agentskill-sh-release/aisa-twitter-api`
 - Zip: `agentskill-sh-release/zips/aisa-twitter-api.zip`
-- Description: Twitter/X command center for research, monitoring, watchlists, and approved posting through AIsa. Use when: the user needs one flagship skill for trend tracking, competitor monitoring, or publish-ready Twitter workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting.
+- Description: Flagship Twitter/X command center for research, monitoring, watchlists, and approved posting through the AIsa relay. Use when: the user needs one primary Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting; all API requests, OAuth approvals, and approved media uploads go to api.aisa.one.
 
 ## aisa-twitter-command-center
 
 - Path: `agentskill-sh-release/aisa-twitter-command-center`
 - Zip: `agentskill-sh-release/zips/aisa-twitter-command-center.zip`
-- Description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
+- Description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay as a watchlist and trend desk. Use when: the user needs competitor monitoring, recurring watchlists, trend scanning, or profile sweeps without sharing passwords. Supports approved posting as follow-through, but prioritizes monitoring over engagement automation.
 
 ## aisa-twitter-engagement-suite
 
 - Path: `agentskill-sh-release/aisa-twitter-engagement-suite`
 - Zip: `agentskill-sh-release/zips/aisa-twitter-engagement-suite.zip`
-- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+- Description: Engagement-focused Twitter/X workflow for research, approved posting, likes, follows, and related actions through the AIsa relay. Use when: the user already knows which tweets or accounts to act on and needs explicit OAuth-gated engagement without sharing passwords. Supports read context, posting, and follow-through actions; all writes and uploads go to api.aisa.one.
 
 ## aisa-twitter-post-engage
 
 - Path: `agentskill-sh-release/aisa-twitter-post-engage`
 - Zip: `agentskill-sh-release/zips/aisa-twitter-post-engage.zip`
-- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+- Description: Post-launch Twitter/X follow-through for search, approved posting, and lightweight engagement through the AIsa relay. Use when: the user already has a draft, campaign, launch tweet, or reply target and needs one focused skill to publish and then handle early interactions without sharing passwords. Supports posting, reply context, likes, and follows after explicit approval.
 
 ## aisa-youtube-search
 

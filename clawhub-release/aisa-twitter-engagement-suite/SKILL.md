@@ -1,6 +1,6 @@
 ---
 name: aisa-twitter-engagement-suite
-description: 'Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.'
+description: 'Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.'
 author: AIsa
 version: 1.0.0
 license: MIT-0
@@ -42,19 +42,19 @@ metadata:
 
 # AIsa Twitter Engagement Suite
 
-Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.
 
 ## When to use
 
-- The user needs Twitter/X research, monitoring, posting, or engagement workflows.
-- The user wants profiles, timelines, trends, lists, communities, or Spaces.
-- The user wants approved posting without sharing passwords.
+- The user already knows which tweet, account, or campaign needs action.
+- The user needs explicit likes, follows, replies, or other engagement workflows after review.
+- The user wants approved posting and engagement without sharing passwords.
 
 ## High-Intent Workflows
 
-- Research an account or conversation thread.
-- Monitor a keyword, trend, or competitor.
-- Authorize and publish a post after explicit approval.
+- Research the target, then like or follow with explicit approval.
+- Use engagement actions as follow-through after a post or campaign review.
+- Combine read context, posting, and engagement in one approved workflow.
 
 ## Quick Reference
 
@@ -74,13 +74,13 @@ Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa.
 
 ## Example Requests
 
-- Research recent AI agent conversations on X
-- Search how users are reacting to a product launch on Twitter
-- Authorize and publish a short product update post
+- Research a target account and like its latest tweet
+- Authorize a reply or follow-up action after a launch post
+- Run a reply, like, or follow workflow on a confirmed target
 
 ## Guardrails
 
 - Do not ask for passwords, cookies, or browser credentials.
-- Do not claim posting succeeded until the API confirms it.
-- Return authorization links instead of relying on auto-open behavior.
+- Do not make likes, follows, replies, or uploads sound silent or automatic.
+- Do not claim an engagement action succeeded until the API confirms it.
 - Only upload local files the user explicitly attached, and make it clear those files are sent to the configured AIsa relay first.

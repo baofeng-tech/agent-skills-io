@@ -8,7 +8,7 @@ Release-ready ClawHub skill package generated from `targetSkills/aisa-twitter-co
 
 ## Notes
 
-- Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Run Twitter/X watchlists, competitor monitoring, trend scans, and OAuth-gated follow-through through AIsa. Use when: the user needs a monitoring-first Twitter desk for recurring account sweeps, launch reactions, or trend tracking. Supports search, monitoring, and approved posting after review.
 - This README is release-specific and replaces source READMEs that were written for other runtimes.
 - If the underlying instructions mention OpenClaw, treat that as source-context or compatibility guidance unless the skill is specifically about OpenClaw setup.
 
