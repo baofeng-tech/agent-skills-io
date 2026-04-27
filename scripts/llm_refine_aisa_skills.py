@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run an explicit AISA-backed LLM pass over AIsa API skills in targetSkills/."""
+"""Run the repo-local skill refinement helper over AISA API skills in targetSkills/."""
 
 from __future__ import annotations
 
@@ -35,11 +35,17 @@ REFERENCE_FILES = (
 ENV_PATTERN = re.compile(r"\b[A-Z][A-Z0-9_]{2,}\b")
 ALLOWED_ENV_NAMES = {
     "AISA_API_KEY",
-    "AI_BASE_URL",
-    "AI_API_KEY",
-    "AI_MODEL",
+    "AISA_BASE_URL",
+    "AISA_MODEL",
+    "AISA_LLM_MODEL",
     "TWITTER_RELAY_BASE_URL",
 }
+SKILL_REFINER_API_KEY_ENV = "SKILL_REFINER_API_KEY"
+SKILL_REFINER_BASE_URL_ENV = "SKILL_REFINER_BASE_URL"
+SKILL_REFINER_MODEL_ENV = "SKILL_REFINER_MODEL"
+LEGACY_REFINER_API_KEY_ENV = "AI_API_KEY"
+LEGACY_REFINER_BASE_URL_ENV = "AI_BASE_URL"
+LEGACY_REFINER_MODEL_ENV = "AI_MODEL"
 
 
 @dataclass
@@ -48,6 +54,7 @@ class ClientConfig:
     base_url: str
     api_key: str
     model: str
+    source: str
 
 
 def split_skill_document(text: str) -> tuple[dict[str, Any] | None, str]:
@@ -89,12 +96,12 @@ def stabilize_skill_md(skill_dir: Path, proposal_skill_md: str) -> str:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Use an AISA/OpenAI-compatible LLM to refine AIsa-backed SKILL.md and README files.",
+        description="Use the repo-local skill refinement helper to refine AISA API SKILL.md and README files.",
     )
     parser.add_argument(
         "--skills",
         default="",
-        help="Comma-separated skill names under targetSkills/. Defaults to all detected AIsa-backed skills.",
+        help="Comma-separated skill names under targetSkills/. Defaults to all detected AISA API skills.",
     )
     parser.add_argument(
         "--target-root",
@@ -108,7 +115,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--mode",
-        choices=("chat-completions", "messages", "generate-content"),
+        choices=("chat-completions", "messages", "generate-content", "responses"),
         default="chat-completions",
         help="API surface to use against the configured provider.",
     )
@@ -153,6 +160,12 @@ def normalize_base_url(base_url: str, mode: str, model: str) -> str:
         if base.endswith("/v1"):
             return f"{base}/messages"
         return f"{base}/v1/messages"
+    if mode == "responses":
+        if base.endswith("/responses"):
+            return base
+        if base.endswith("/v1"):
+            return f"{base}/responses"
+        return f"{base}/v1/responses"
     model_id = urllib.parse.quote(model, safe="")
     if base.endswith(":generateContent"):
         return base
@@ -161,36 +174,85 @@ def normalize_base_url(base_url: str, mode: str, model: str) -> str:
     return f"{base}/v1/models/{model_id}:generateContent"
 
 
+def first_nonempty(*values: str) -> str:
+    for value in values:
+        stripped = value.strip()
+        if stripped:
+            return stripped
+    return ""
+
+
 def resolve_client_config(args: argparse.Namespace) -> ClientConfig | None:
-    api_key = (
-        args.api_key.strip()
-        or os.environ.get("AISA_API_KEY", "").strip()
-        or os.environ.get("AI_API_KEY", "").strip()
-    )
+    explicit_api_key = args.api_key.strip()
+    explicit_base_url = args.base_url.strip()
+    explicit_model = args.model.strip()
+
+    refiner_api_key = os.environ.get(SKILL_REFINER_API_KEY_ENV, "").strip()
+    refiner_base_url = os.environ.get(SKILL_REFINER_BASE_URL_ENV, "").strip()
+    refiner_model = os.environ.get(SKILL_REFINER_MODEL_ENV, "").strip()
+
+    aisa_api_key = os.environ.get("AISA_API_KEY", "").strip()
+    aisa_base_url = os.environ.get("AISA_BASE_URL", "").strip()
+    aisa_model = os.environ.get("AISA_LLM_MODEL", "").strip()
+
+    legacy_api_key = os.environ.get(LEGACY_REFINER_API_KEY_ENV, "").strip()
+    legacy_base_url = os.environ.get(LEGACY_REFINER_BASE_URL_ENV, "").strip()
+    legacy_model = os.environ.get(LEGACY_REFINER_MODEL_ENV, "").strip()
+
+    if explicit_api_key or explicit_base_url or explicit_model:
+        api_key = first_nonempty(explicit_api_key, refiner_api_key, aisa_api_key, legacy_api_key)
+        base_url = first_nonempty(explicit_base_url, refiner_base_url, aisa_base_url, legacy_base_url, DEFAULT_BASE_URL)
+        model = first_nonempty(explicit_model, refiner_model, aisa_model, legacy_model, DEFAULT_MODEL)
+        source = "cli override"
+    elif refiner_api_key or refiner_base_url or refiner_model:
+        api_key = first_nonempty(refiner_api_key, aisa_api_key, legacy_api_key)
+        base_url = first_nonempty(refiner_base_url, aisa_base_url, legacy_base_url, DEFAULT_BASE_URL)
+        model = first_nonempty(refiner_model, aisa_model, legacy_model, DEFAULT_MODEL)
+        source = "SKILL_REFINER_*"
+    elif aisa_api_key or aisa_base_url or aisa_model:
+        api_key = first_nonempty(aisa_api_key, legacy_api_key)
+        base_url = first_nonempty(aisa_base_url, legacy_base_url, DEFAULT_BASE_URL)
+        model = first_nonempty(aisa_model, legacy_model, DEFAULT_MODEL)
+        source = "AISA_*"
+    else:
+        api_key = legacy_api_key
+        base_url = first_nonempty(legacy_base_url, DEFAULT_BASE_URL)
+        model = first_nonempty(legacy_model, DEFAULT_MODEL)
+        source = "legacy AI_*"
+
     if not api_key:
         return None
-    base_url = (
-        args.base_url.strip()
-        or os.environ.get("AISA_BASE_URL", "").strip()
-        or os.environ.get("AI_BASE_URL", "").strip()
-        or DEFAULT_BASE_URL
-    )
-    model = (
-        args.model.strip()
-        or os.environ.get("AISA_LLM_MODEL", "").strip()
-        or os.environ.get("AI_MODEL", "").strip()
-        or DEFAULT_MODEL
-    )
     return ClientConfig(
         mode=args.mode,
         base_url=normalize_base_url(base_url, args.mode, model),
         api_key=api_key,
         model=model,
+        source=source,
     )
 
 
 def load_text(path: Path) -> str:
     return path.read_text(encoding="utf-8") if path.exists() else ""
+
+
+def extract_first_heading(text: str) -> str:
+    _frontmatter, body = split_skill_document(text)
+    candidate_body = body if body is not None else text
+    for line in candidate_body.splitlines():
+        if line.startswith("# "):
+            return line[2:].strip()
+    return ""
+
+
+def helper_skill_headings() -> set[str]:
+    headings: set[str] = set()
+    for path in DEFAULT_SKILLS:
+        if not path.exists():
+            continue
+        heading = extract_first_heading(load_text(path))
+        if heading:
+            headings.add(heading)
+    return headings
 
 
 def is_aisa_backed(skill_dir: Path) -> bool:
@@ -233,7 +295,7 @@ def build_messages(skill_dir: Path, context: str) -> list[dict[str, str]]:
     readme_md = load_text(skill_dir / "README.md")
     required_envs = required_env_names(skill_md + "\n" + readme_md)
     prompt = (
-        "Refine this existing AIsa-backed skill for publish quality.\n\n"
+        "Refine this existing AISA API skill for publish quality.\n\n"
         "Hard constraints:\n"
         "- Preserve runtime behavior, command paths, filenames, relative paths, and code examples unless they are obviously inconsistent.\n"
         "- Do not invent new APIs, new dependencies, or new environment variables.\n"
@@ -280,6 +342,23 @@ def request_payload(config: ClientConfig, messages: list[dict[str, str]]) -> dic
         if system:
             payload["system"] = system
         return payload
+    if config.mode == "responses":
+        instructions = "\n\n".join(item["content"] for item in messages if item["role"] == "system").strip()
+        response_input = [
+            {
+                "role": item["role"] if item["role"] in {"user", "assistant"} else "user",
+                "content": [{"type": "input_text", "text": item["content"]}],
+            }
+            for item in messages
+            if item["role"] != "system"
+        ]
+        payload = {
+            "model": config.model,
+            "input": response_input,
+        }
+        if instructions:
+            payload["instructions"] = instructions
+        return payload
     flattened = "\n\n".join(f"{item['role'].upper()}:\n{item['content']}" for item in messages)
     return {
         "contents": [
@@ -321,6 +400,23 @@ def extract_response_text(config: ClientConfig, payload: dict[str, Any]) -> str:
     if config.mode == "messages":
         content_items = data.get("content") or []
         return "\n".join(str(item.get("text") or "").strip() for item in content_items if isinstance(item, dict)).strip()
+    if config.mode == "responses":
+        output_text = data.get("output_text")
+        if isinstance(output_text, str) and output_text.strip():
+            return output_text.strip()
+        lines: list[str] = []
+        for item in data.get("output") or []:
+            if not isinstance(item, dict):
+                continue
+            for content_item in item.get("content") or []:
+                if not isinstance(content_item, dict):
+                    continue
+                if str(content_item.get("type") or "") not in {"output_text", "text"}:
+                    continue
+                text = str(content_item.get("text") or "").strip()
+                if text:
+                    lines.append(text)
+        return "\n\n".join(lines).strip()
     candidates = data.get("candidates") or []
     if not candidates:
         return ""
@@ -432,6 +528,11 @@ def validate_raw_skill_md(skill_dir: Path, raw_skill_md: str) -> None:
         raise RuntimeError(
             f"{skill_dir.name}: proposal targeted unexpected skill name {proposed_name or '(missing)'}"
         )
+    proposed_heading = extract_first_heading(raw_skill_md)
+    if proposed_heading and proposed_heading in helper_skill_headings():
+        raise RuntimeError(
+            f"{skill_dir.name}: proposal body matched repo helper skill content ({proposed_heading})"
+        )
 
 
 def write_text(path: Path, content: str) -> None:
@@ -450,10 +551,10 @@ def main() -> int:
         skill_dirs = skill_dirs[: args.max_skills]
 
     if not skill_dirs:
-        print("No matching AIsa-backed skills found.")
+        print("No matching AISA API skills found.")
         return 0
 
-    print("LLM refinement targets:")
+    print("Skill refinement targets:")
     for skill_dir in skill_dirs:
         print(f"  - {skill_dir.name}")
     if args.plan:
@@ -464,7 +565,15 @@ def main() -> int:
         if args.if_available:
             print("Skip LLM refinement: no API credentials found.")
             return 0
-        raise SystemExit("Missing AISA/AI API credentials for the LLM refinement step.")
+        raise SystemExit(
+            "Missing skill-refiner credentials. Set SKILL_REFINER_* for a dedicated helper provider, "
+            "or rely on shared AISA_* credentials."
+        )
+
+    print(
+        "Refinement helper config: "
+        f"source={config.source}, mode={config.mode}, model={config.model}, base_url={config.base_url}"
+    )
 
     context = load_context()
     if not context:

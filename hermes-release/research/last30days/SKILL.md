@@ -52,6 +52,7 @@ Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker N
 ## Quick Reference
 
 - `bash scripts/run-last30days.sh --help`
+- `bash scripts/dev-python.sh --help`
 - `python3 scripts/last30days.py --help`
 
 ## Verification

@@ -12,7 +12,7 @@
       "layer": "claude",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -20,29 +20,29 @@
         "--type",
         "Latest"
       ],
-      "code": 1,
-      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHG49PIyaMRAKAAIcbjxb-RrBnQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcbj1ALQAnEAoABhxuPUAs_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/698305",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
         "OpenAI"
       ],
-      "code": 1,
-      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "search",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -51,29 +51,29 @@
         "1"
       ],
       "code": 1,
-      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "prediction-market",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
         "--limit",
         "1"
       ],
-      "code": 1,
-      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0xd925b895ccde504784a45308d955e35d0a89b7d6db74822af28bb46b8a1874a3\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Bitcoin price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve to",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "llm-router",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/llm_router_client.py",
         "models"
       ],
@@ -85,8 +85,8 @@
       "layer": "claude",
       "path": "last30days",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
-        "scripts/last30days.py",
+        "bash",
+        "scripts/run-last30days.sh",
         "--help"
       ],
       "code": 0,
@@ -97,8 +97,8 @@
       "layer": "claude",
       "path": "last30days-zh",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
-        "scripts/last30days.py",
+        "bash",
+        "scripts/run-last30days.sh",
         "--help"
       ],
       "code": 0,
@@ -109,93 +109,10 @@
       "layer": "hermes",
       "path": "communication/aisa-twitter-command-center",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/twitter_client.py",
-        "search",
-        "--query",
-        "OpenAI",
-        "--type",
-        "Latest"
-      ],
-      "code": 2,
-      "stdout_preview": "",
-      "stderr_preview": "usage: twitter_client.py [-h] --api-key API_KEY\n                         {user-info,user-about,batch-users,tweets,mentions,followers,followings,verified-followers,check-follow,search,user-search,trends,detail,replies,quotes,retweeters,thread,article,list-members,list-followers,community-info,community-members,community-moderators,community-tweets,community-search,space-detail}\n                    "
-    },
-    {
-      "layer": "hermes",
-      "path": "research/aisa-youtube-serp-scout",
-      "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
-        "scripts/youtube_client.py",
-        "search",
-        "--query",
-        "OpenAI"
-      ],
-      "code": 2,
-      "stdout_preview": "",
-      "stderr_preview": "usage: youtube_client.py [-h] --api-key API_KEY\n                         {search,top-videos,competitor} ...\nyoutube_client.py: error: the following arguments are required: --api-key\n"
-    },
-    {
-      "layer": "hermes",
-      "path": "research/search",
-      "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
-        "scripts/search_client.py",
-        "web",
-        "--query",
-        "OpenAI latest",
-        "--count",
-        "1"
-      ],
-      "code": 2,
-      "stdout_preview": "",
-      "stderr_preview": "usage: search_client.py [-h] --api-key API_KEY\n                        {web,scholar,smart,sonar,sonar-pro,sonar-reasoning-pro,sonar-deep-research,tavily-search,tavily-extract,tavily-crawl,tavily-map,verity}\n                        ...\nsearch_client.py: error: the following arguments are required: --api-key\n"
-    },
-    {
-      "layer": "hermes",
-      "path": "finance/prediction-market",
-      "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
-        "scripts/prediction_market_client.py",
-        "polymarket",
-        "markets",
-        "--limit",
-        "1"
-      ],
-      "code": 2,
-      "stdout_preview": "",
-      "stderr_preview": "usage: prediction_market_client.py [-h] --api-key API_KEY\n                                   {polymarket,kalshi,sports} ...\nprediction_market_client.py: error: the following arguments are required: --api-key\n"
-    },
-    {
-      "layer": "hermes",
-      "path": "ai/llm-router",
-      "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
-        "scripts/llm_router_client.py",
-        "models"
-      ],
-      "code": 2,
-      "stdout_preview": "",
-      "stderr_preview": "usage: llm_router_client.py [-h] --api-key API_KEY\n                            {chat,vision,compare,models} ...\nllm_router_client.py: error: the following arguments are required: --api-key\n"
-    },
-    {
-      "layer": "hermes",
-      "path": "communication/last30days",
-      "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
-        "scripts/last30days.py",
-        "--help"
-      ],
-      "code": 127,
-      "stdout_preview": "",
-      "stderr_preview": "Missing test path candidates: ['communication/last30days']"
-    },
-    {
-      "layer": "clawhub",
-      "path": "aisa-twitter-command-center",
-      "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
-        "scripts/twitter_client.py",
+        "--api-key",
+        "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
         "search",
         "--query",
         "OpenAI",
@@ -203,28 +120,121 @@
         "Latest"
       ],
       "code": 1,
-      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "research/aisa-youtube-serp-scout",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/youtube_client.py",
+        "--api-key",
+        "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 2,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "research/search",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "--api-key",
+        "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
+        "web",
+        "--query",
+        "OpenAI latest",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"id\": \"eUVx6Hwy4GYLqU5mvkx32Q\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "finance/prediction-market",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/prediction_market_client.py",
+        "--api-key",
+        "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0xd925b895ccde504784a45308d955e35d0a89b7d6db74822af28bb46b8a1874a3\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Bitcoin price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve to",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "ai/llm-router",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/llm_router_client.py",
+        "--api-key",
+        "sk-YuB6qNRqtwrfjmunoXiJ5HKDKV0TY9BOgPeyDZenpWOVprnr",
+        "models"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qw",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "hermes",
+      "path": "research/last30days",
+      "command": [
+        "bash",
+        "scripts/run-last30days.sh",
+        "--help"
+      ],
+      "code": 0,
+      "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--quick] [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--store] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research] [--plan PLAN]\n                     [--save-suffix SAVE_SU",
+      "stderr_preview": ""
+    },
+    {
+      "layer": "clawhub",
+      "path": "aisa-twitter-command-center",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHG49VILawWQKAAIcbjx0ERrgBwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcbj1fC4AnEAoABhxuPV8Lf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"\",\n        \"createdAt\": \"Tue Oct 19 04:18:2",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
         "OpenAI"
       ],
       "code": 1,
-      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "search",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -233,30 +243,30 @@
         "1"
       ],
       "code": 1,
-      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "prediction-market",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
         "--limit",
         "1"
       ],
-      "code": 1,
-      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0xd925b895ccde504784a45308d955e35d0a89b7d6db74822af28bb46b8a1874a3\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Bitcoin price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve to",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "last30days",
       "command": [
-        "/tmp/agent-skills-io-runner/_work/_tool/Python/3.12.13/x64/bin/python3",
-        "scripts/last30days.py",
+        "bash",
+        "scripts/run-last30days.sh",
         "--help"
       ],
       "code": 0,

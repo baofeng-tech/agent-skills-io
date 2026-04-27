@@ -107,7 +107,7 @@
 - Source: `targetSkills/last30days`
 - Output: `clawhub-release/last30days`
 - Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: removed 1 non-runtime generated/test files from the release bundle
+- Change: removed 2 non-runtime generated/test files from the release bundle
 - Change: switched default local storage to repo-local path in scripts/lib/env.py
 - Change: updated config path messaging in scripts/lib/ui.py
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
@@ -119,7 +119,7 @@
 - Source: `targetSkills/last30days-zh`
 - Output: `clawhub-release/last30days-zh`
 - Description: 通过 AIsa 执行网页、多源或近 30 天研究检索。触发条件：当用户需要搜索、研究、比对或趋势归纳时使用。支持多源检索与结构化输出。
-- Change: removed 1 non-runtime generated/test files from the release bundle
+- Change: removed 2 non-runtime generated/test files from the release bundle
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only

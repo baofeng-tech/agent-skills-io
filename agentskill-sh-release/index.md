@@ -63,7 +63,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `aisa-twitter-engagement-suite`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/aisa-twitter-engagement-suite>
-- Summary: aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.
+- Summary: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 - Includes:
   - `scripts/twitter_client.py`
   - `scripts/twitter_engagement_client.py`
@@ -122,22 +122,22 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/last30days>
 - Summary: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 - Includes:
+  - `scripts/dev-python.sh`
   - `scripts/last30days.py`
   - `scripts/lib/__init__.py`
   - `scripts/lib/aisa.py`
   - `scripts/lib/cluster.py`
-  - `scripts/lib/dates.py`
 
 ### `last30days-zh`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/last30days-zh>
 - Summary: 聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.
 - Includes:
+  - `scripts/dev-python.sh`
   - `scripts/last30days.py`
   - `scripts/lib/__init__.py`
   - `scripts/lib/aisa.py`
   - `scripts/lib/cluster.py`
-  - `scripts/lib/dates.py`
 
 ### `llm-router`
 

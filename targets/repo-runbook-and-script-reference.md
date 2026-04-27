@@ -80,7 +80,7 @@ Use it when you need to:
 | --- | --- | --- |
 | `scripts/test_release_layers.py` | Structure validation plus representative smoke tests across generated layers | none |
 | `scripts/clawhub_live_status.py` | Resolve live ClawHub detail pages and record `VirusTotal` / `OpenClaw` / `Suspicious` scan output into state | `--targets`, `--artifact`, `--include-status`, `--render-mode` |
-| `scripts/clawhub_suspicious_remediation.py` | Select suspicious blocker artifacts, map them back to mother skills, optionally run repo-local LLM refinement, rebuild, sync, and force-republish only the targeted artifacts | `--artifacts`, `--contains`, `--apply`, `--sync-repo-skills`, `--clawhub-publish`, `--post-publish-scan` |
+| `scripts/clawhub_suspicious_remediation.py` | Select suspicious blocker artifacts, map them back to mother skills, optionally run the repo-local skill-refinement helper, rebuild, sync, and force-republish only the targeted artifacts | `--artifacts`, `--contains`, `--apply`, `--sync-repo-skills`, `--clawhub-publish`, `--post-publish-scan` |
 
 ### Publish / Sync
 

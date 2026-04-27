@@ -210,19 +210,19 @@ def smoke_tests() -> list[dict[str, object]]:
         ("claude", ["search"], [python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"]),
         ("claude", ["prediction-market"], [python_exe, "scripts/prediction_market_client.py", "polymarket", "markets", "--limit", "1"]),
         ("claude", ["llm-router"], [python_exe, "scripts/llm_router_client.py", "models"]),
-        ("claude", ["last30days"], [python_exe, "scripts/last30days.py", "--help"]),
-        ("claude", ["last30days-zh"], [python_exe, "scripts/last30days.py", "--help"]),
+        ("claude", ["last30days"], ["bash", "scripts/run-last30days.sh", "--help"]),
+        ("claude", ["last30days-zh"], ["bash", "scripts/run-last30days.sh", "--help"]),
         ("hermes", ["communication/aisa-twitter-command-center"], maybe_with_api_key([python_exe, "scripts/twitter_client.py", "search", "--query", "OpenAI", "--type", "Latest"], explicit=True)),
         ("hermes", ["research/aisa-youtube-serp-scout"], maybe_with_api_key([python_exe, "scripts/youtube_client.py", "search", "--query", "OpenAI"], explicit=True)),
         ("hermes", ["research/search"], maybe_with_api_key([python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"], explicit=True)),
         ("hermes", ["finance/prediction-market"], maybe_with_api_key([python_exe, "scripts/prediction_market_client.py", "polymarket", "markets", "--limit", "1"], explicit=True)),
         ("hermes", ["ai/llm-router"], maybe_with_api_key([python_exe, "scripts/llm_router_client.py", "models"], explicit=True)),
-        ("hermes", ["communication/last30days"], [python_exe, "scripts/last30days.py", "--help"]),
+        ("hermes", ["research/last30days", "communication/last30days"], ["bash", "scripts/run-last30days.sh", "--help"]),
         ("clawhub", ["aisa-twitter-command-center"], [python_exe, "scripts/twitter_client.py", "search", "--query", "OpenAI", "--type", "Latest"]),
         ("clawhub", ["aisa-youtube-serp-scout"], [python_exe, "scripts/youtube_client.py", "search", "--query", "OpenAI"]),
         ("clawhub", ["aisa-search-command-center", "aisa-search", "search"], [python_exe, "scripts/search_client.py", "web", "--query", "OpenAI latest", "--count", "1"]),
         ("clawhub", ["prediction-market"], [python_exe, "scripts/prediction_market_client.py", "polymarket", "markets", "--limit", "1"]),
-        ("clawhub", ["last30days"], [python_exe, "scripts/last30days.py", "--help"]),
+        ("clawhub", ["last30days"], ["bash", "scripts/run-last30days.sh", "--help"]),
     ]
 
     results: list[dict[str, object]] = []

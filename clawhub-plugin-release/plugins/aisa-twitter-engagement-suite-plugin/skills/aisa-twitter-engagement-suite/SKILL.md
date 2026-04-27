@@ -3,7 +3,7 @@ name: aisa-twitter-engagement-suite
 description: 'Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.'
 author: AIsa
 version: 1.0.0
-license: Apache-2.0
+license: MIT-0
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

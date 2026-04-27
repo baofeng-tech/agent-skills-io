@@ -47,8 +47,6 @@ EXCLUDE_GLOBS = {
     "*.sqlite",
     "*.db",
     "compare.sh",
-    "dev-python.sh",
-    "evaluate_search_quality.py",
     "generate-synthesis-inputs.py",
     "run-tests.sh",
     "sync.sh",
@@ -494,12 +492,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--run-llm-step",
         action="store_true",
-        help="Run the explicit LLM refinement step against changed AIsa-backed target skills before rebuild.",
+        help="Run the repo-local skill-refinement helper against changed AISA API target skills before rebuild.",
     )
     parser.add_argument(
         "--llm-apply",
         action="store_true",
-        help="Allow the LLM refinement step to write SKILL.md / README.md changes back into targetSkills/.",
+        help="Allow the repo-local skill-refinement helper to write SKILL.md / README.md changes back into targetSkills/.",
     )
     parser.add_argument(
         "--llm-if-available",

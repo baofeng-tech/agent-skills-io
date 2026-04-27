@@ -66,7 +66,7 @@
     {
       "name": "aisa-twitter-engagement-suite",
       "path": "agentskills-so-release/aisa-twitter-engagement-suite",
-      "description": "aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.",
+      "description": "Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.",
       "zip": "agentskills-so-release/zips/aisa-twitter-engagement-suite.zip",
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
@@ -139,7 +139,7 @@
       "description": "Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.",
       "zip": "agentskills-so-release/zips/last30days.zip",
       "changes": [
-        "removed 1 non-runtime generated/test files from the release bundle",
+        "removed 2 non-runtime generated/test files from the release bundle",
         "switched default local storage to repo-local path in scripts/lib/env.py",
         "updated config path messaging in scripts/lib/ui.py",
         "flattened metadata for marketplace-friendly Agent Skills frontmatter",
@@ -153,7 +153,7 @@
       "description": "聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.",
       "zip": "agentskills-so-release/zips/last30days-zh.zip",
       "changes": [
-        "removed 1 non-runtime generated/test files from the release bundle",
+        "removed 2 non-runtime generated/test files from the release bundle",
         "flattened metadata for marketplace-friendly Agent Skills frontmatter",
         "preserved relative-path runtime assets for GitHub-backed discovery"
       ],

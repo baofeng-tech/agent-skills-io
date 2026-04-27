@@ -76,8 +76,10 @@ python3 scripts/clawhub_live_status.py --targets both
   - optional self-hosted suspicious-remediation loop for targeted ClawHub artifacts such as `skill:aisa-twitter-api-command-center` and `plugin:aisa-twitter-engagement-suite-plugin`
 - hosted upstream sync now targets `AIsa-team/agent-skills@main` by default
 - workflow dispatch now supports explicit LLM refinement (`run_llm_step`, `llm_apply`, `sync_repo_skills`) before release rebuild/publish
-- workflow dispatch now also supports targeted suspicious remediation (`run_suspicious_repair`, `suspicious_artifacts`) that can apply repo-local LLM refinement and force a republish of matching artifacts
-- on this self-hosted runner, the workflow now falls back to `/mnt/d/workplace/agent-skills-io/example/accounts` for downstream GitHub PAT, ClawHub tokens, and AI config when those CI secrets are blank
+- workflow dispatch now also supports targeted suspicious remediation (`run_suspicious_repair`, `suspicious_artifacts`) that can apply the repo-local skill-refinement helper and force a republish of matching artifacts
+- `AISA_API_KEY` remains the shared runtime credential for published AISA API skills; the repo-local skill-refinement helper may borrow it by default, but it is documented and configured as a separate internal helper lane
+- the repo-local skill-refinement helper defaults to shared `AISA_API_KEY` / `AISA_*`, supports explicit internal override via `SKILL_REFINER_API_KEY`, `SKILL_REFINER_BASE_URL`, and `SKILL_REFINER_MODEL`, and keeps legacy `AI_*` only as a last-resort compatibility fallback
+- on this self-hosted runner, the workflow now falls back to `/mnt/d/workplace/agent-skills-io/example/accounts` for downstream GitHub PAT, ClawHub tokens, and skill-refiner config when those CI secrets are blank
 - self-hosted downstream checkout now prefers public `https://github.com/<repo>.git` clone URLs, so repo preparation no longer blocks on `git@github-work` SSH timeouts before publish work even starts
 - the hosted schedule currently runs every 2 hours via cron `21 */2 * * *`
 - edit `.github/workflows/unified-skill-pipeline.yml` under `on.schedule[0].cron` if you want to change that hosted cadence later

@@ -263,7 +263,7 @@ def refresh_diagnosis(items: list[dict[str, Any]]) -> None:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Use repo-local LLM refinement plus targeted ClawHub republish for suspicious blocker remediation.",
+        description="Use the repo-local skill-refinement helper plus targeted ClawHub republish for suspicious blocker remediation.",
     )
     parser.add_argument(
         "--diagnosis-file",

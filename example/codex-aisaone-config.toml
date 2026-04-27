@@ -1,0 +1,27 @@
+# Merge the provider block below into `~/.codex/config.toml`.
+#
+# Verified locally with Codex CLI:
+# - custom `model_provider` / `model_providers.<id>` config is accepted
+# - `wire_api` must be `"responses"`
+# - `wire_api = "chat_completions"` is rejected by this Codex build
+#
+# Current caveat from local testing on 2026-04-27:
+# - this repo's shared `AISA_API_KEY` works for `scripts/llm_refine_aisa_skills.py`
+#   against `https://api.aisa.one/v1/chat/completions`
+# - the same key currently returns `401 Invalid token` for Codex against
+#   `https://api.aisa.one/v1/responses`
+# - so this sample is the right config shape, but Codex still needs an
+#   AISA-side token/base-url combination that is valid for the Responses API
+
+model = "gpt-4.1"
+model_provider = "aisaone"
+model_reasoning_effort = "high"
+
+[model_providers.aisaone]
+name = "AISA One"
+base_url = "https://api.aisa.one/v1"
+wire_api = "responses"
+bearer_token_env_var = "AISA_API_KEY"
+
+[projects."/mnt/d/workplace/agent-skills-io"]
+trust_level = "trusted"

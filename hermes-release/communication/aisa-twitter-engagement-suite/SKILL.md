@@ -1,6 +1,7 @@
 ---
 name: aisa-twitter-engagement-suite
-description: 'aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.'
+description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+license: MIT-0
 metadata:
   aisa:
     emoji: 🛠
@@ -34,7 +35,7 @@ required_environment_variables:
 
 # aisa-twitter-engagement-suite
 
-aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.
+Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 
 ## When to Use
 

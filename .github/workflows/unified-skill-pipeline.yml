@@ -26,12 +26,12 @@ on:
         default: false
         type: boolean
       run_llm_step:
-        description: "Run explicit LLM refinement over changed AIsa-backed skills"
+        description: "Run the repo-local skill-refinement helper over changed AISA API skills"
         required: false
         default: true
         type: boolean
       llm_apply:
-        description: "Apply LLM refinement output to targetSkills"
+        description: "Apply repo-local skill-refinement helper output to targetSkills"
         required: false
         default: true
         type: boolean
@@ -108,6 +108,9 @@ jobs:
       PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || 'true' }}
       PIPELINE_DIAGNOSIS_DOC_UPDATE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.diagnosis_doc_update || 'true' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
+      SKILL_REFINER_BASE_URL: ${{ secrets.SKILL_REFINER_BASE_URL }}
+      SKILL_REFINER_API_KEY: ${{ secrets.SKILL_REFINER_API_KEY }}
+      SKILL_REFINER_MODEL: ${{ secrets.SKILL_REFINER_MODEL }}
       AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
       AI_API_KEY: ${{ secrets.AI_API_KEY }}
       AI_MODEL: ${{ secrets.AI_MODEL }}
@@ -252,6 +255,9 @@ jobs:
       PIPELINE_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || 'false' }}
       PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || 'skill:aisa-twitter-api-command-center,plugin:aisa-twitter-engagement-suite-plugin' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
+      SKILL_REFINER_BASE_URL: ${{ secrets.SKILL_REFINER_BASE_URL }}
+      SKILL_REFINER_API_KEY: ${{ secrets.SKILL_REFINER_API_KEY }}
+      SKILL_REFINER_MODEL: ${{ secrets.SKILL_REFINER_MODEL }}
       AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
       AI_API_KEY: ${{ secrets.AI_API_KEY }}
       AI_MODEL: ${{ secrets.AI_MODEL }}
@@ -320,6 +326,9 @@ jobs:
 
           fallbacks = {
               "AISA_API_KEY": raw.get("AISA_API_KEY", ""),
+              "SKILL_REFINER_BASE_URL": raw.get("SKILL_REFINER_BASE_URL", ""),
+              "SKILL_REFINER_API_KEY": raw.get("SKILL_REFINER_API_KEY", ""),
+              "SKILL_REFINER_MODEL": raw.get("SKILL_REFINER_MODEL", ""),
               "AI_BASE_URL": raw.get("AI_BASE_URL", ""),
               "AI_API_KEY": raw.get("AI_API_KEY", ""),
               "AI_MODEL": raw.get("AI_MODEL", ""),

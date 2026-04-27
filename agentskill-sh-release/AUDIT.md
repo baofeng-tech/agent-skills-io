@@ -40,7 +40,7 @@
 
 - Path: `agentskill-sh-release/aisa-twitter-engagement-suite`
 - Zip: `agentskill-sh-release/zips/aisa-twitter-engagement-suite.zip`
-- Description: aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.
+- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 
 ## aisa-twitter-post-engage
 

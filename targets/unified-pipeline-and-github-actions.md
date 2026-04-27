@@ -125,7 +125,7 @@ Current scheduler details:
 2. installs Python 3.12 plus `PyYAML`
 3. fetches upstream `AIsa-team/agent-skills`
 4. runs `scripts/unified_skill_pipeline.py`
-5. optionally runs explicit LLM refinement for changed AIsa-backed skills (`--run-llm-step`)
+5. optionally runs the repo-local skill-refinement helper for changed AISA API skills (`--run-llm-step`)
 6. refreshes ClawHub suspicious diagnosis JSON and rules-doc snapshot block
 7. uploads state and test artifacts
 8. auto-commits regenerated outputs back into this repo when files changed
@@ -137,12 +137,22 @@ The pipeline now supports an explicit model-execution stage between sync and bui
 - `scripts/sync_codex_repo_skills.py`
   - syncs global `*-all` skills into `.agents/skills`
 - `scripts/llm_refine_aisa_skills.py`
-  - uses AISA/OpenAI-compatible endpoints to refine changed AIsa-backed `targetSkills/*`
+  - uses AISA/OpenAI-compatible endpoints to refine changed AISA API `targetSkills/*`
   - supports:
+    - `https://api.aisa.one/v1/responses`
     - `https://api.aisa.one/v1/chat/completions`
     - `https://api.aisa.one/v1/messages`
     - `https://api.aisa.one/v1/models/{model}:generateContent`
-  - supports fallback env config:
+  - keeps the repo-local refinement helper separate from the published AISA API product skills
+  - defaults to the shared AISA credential lane:
+    - `AISA_API_KEY`
+    - optional `AISA_BASE_URL`
+    - optional `AISA_LLM_MODEL`
+  - supports explicit internal override for the refinement helper only:
+    - `SKILL_REFINER_BASE_URL`
+    - `SKILL_REFINER_API_KEY`
+    - `SKILL_REFINER_MODEL`
+  - keeps legacy compatibility fallback only:
     - `AI_BASE_URL`
     - `AI_API_KEY`
     - `AI_MODEL`
@@ -214,7 +224,7 @@ Why:
 
 On this runner, the self-hosted lane now also supports a local credential fallback:
 
-- if `DOWNSTREAM_REPO_TOKEN`, ClawHub tokens, or `AI_*` config are blank in GitHub Actions secrets
+- if `DOWNSTREAM_REPO_TOKEN`, ClawHub tokens, or skill-refiner config are blank in GitHub Actions secrets
 - the job will try `/mnt/d/workplace/agent-skills-io/example/accounts`
 - downstream repo preparation now prefers public `https://github.com/<repo>.git` clone URLs so repo sync does not stall on SSH timeout before publish starts
 
