@@ -86,7 +86,7 @@ on:
         default: "skill:aisa-twitter-api-command-center,plugin:aisa-twitter-engagement-suite-plugin"
         type: string
   schedule:
-    - cron: "21 */2 * * *"
+    - cron: "21 */4 * * *"
 
 concurrency:
   group: unified-skill-pipeline-${{ github.ref }}

@@ -1,27 +1,26 @@
-# Merge the provider block below into `~/.codex/config.toml`.
+# Merge this file into `~/.codex/config.toml`.
 #
-# Verified locally with Codex CLI:
-# - custom `model_provider` / `model_providers.<id>` config is accepted
-# - `wire_api` must be `"responses"`
-# - `wire_api = "chat_completions"` is rejected by this Codex build
-#
-# Current caveat from local testing on 2026-04-27:
-# - this repo's shared `AISA_API_KEY` works for `scripts/llm_refine_aisa_skills.py`
+# Working setup verified locally on 2026-04-27 with `codex-cli 0.125.0-alpha.3`:
+# - `scripts/llm_refine_aisa_skills.py` works with shared `AISA_API_KEY`
 #   against `https://api.aisa.one/v1/chat/completions`
-# - the same key currently returns `401 Invalid token` for Codex against
-#   `https://api.aisa.one/v1/responses`
-# - so this sample is the right config shape, but Codex still needs an
-#   AISA-side token/base-url combination that is valid for the Responses API
+# - direct POSTs to `https://api.aisa.one/v1/responses` with the same key
+#   also return `200`
+# - Codex CLI custom providers still fail direct `/v1/responses` calls with
+#   `401 Token not provided`, even when `bearer_token_env_var` is configured
+#
+# Current workaround:
+# 1. export AISA_API_KEY=...
+# 2. run `python3.12 example/codex-aisaone-proxy.py`
+# 3. use the proxy-backed provider config below
 
 model = "gpt-4.1"
-model_provider = "aisaone"
+model_provider = "aisaone-proxy"
 model_reasoning_effort = "high"
 
-[model_providers.aisaone]
-name = "AISA One"
-base_url = "https://api.aisa.one/v1"
+[model_providers.aisaone-proxy]
+name = "AISA One Proxy"
+base_url = "http://127.0.0.1:8787/v1"
 wire_api = "responses"
-bearer_token_env_var = "AISA_API_KEY"
 
 [projects."/mnt/d/workplace/agent-skills-io"]
 trust_level = "trusted"
