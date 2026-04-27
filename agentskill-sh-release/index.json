@@ -66,7 +66,7 @@
     {
       "name": "aisa-twitter-engagement-suite",
       "path": "agentskill-sh-release/aisa-twitter-engagement-suite",
-      "description": "Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.",
+      "description": "aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.",
       "zip": "agentskill-sh-release/zips/aisa-twitter-engagement-suite.zip",
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
@@ -136,10 +136,12 @@
     {
       "name": "last30days",
       "path": "agentskill-sh-release/last30days",
-      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web search. Use when: the user needs recent multi-source research across the last 30 days.",
+      "description": "Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.",
       "zip": "agentskill-sh-release/zips/last30days.zip",
       "changes": [
         "removed 1 non-runtime generated/test files from the release bundle",
+        "switched default local storage to repo-local path in scripts/lib/env.py",
+        "updated config path messaging in scripts/lib/ui.py",
         "flattened metadata for agentskill.sh-friendly GitHub import",
         "preserved root-level skill folder layout for repository scanning"
       ],

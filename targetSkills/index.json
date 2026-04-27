@@ -2,7 +2,7 @@
   "repository": "https://github.com/AIsa-team/agent-skills",
   "branch": "agentskills",
   "branch_url": "https://github.com/AIsa-team/agent-skills/tree/agentskills",
-  "generated_at": "2026-04-24",
+  "generated_at": "2026-04-26",
   "skills": [
     {
       "name": "aisa-multi-search-engine",
@@ -47,7 +47,7 @@
     {
       "name": "aisa-twitter-engagement-suite",
       "category": "twitter",
-      "description": "Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.",
+      "description": "aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.",
       "path": "aisa-twitter-engagement-suite",
       "source": "https://github.com/AIsa-team/agent-skills/tree/agentskills/aisa-twitter-engagement-suite",
       "entry": "SKILL.md"
@@ -94,8 +94,8 @@
     },
     {
       "name": "last30days",
-      "category": "twitter",
-      "description": "Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web search. Use when: the user needs recent multi-source research across the last 30 days.",
+      "category": "youtube",
+      "description": "Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.",
       "path": "last30days",
       "source": "https://github.com/AIsa-team/agent-skills/tree/agentskills/last30days",
       "entry": "SKILL.md"

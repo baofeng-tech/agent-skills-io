@@ -11,10 +11,10 @@ Hermes-oriented packaged copy of all `targetSkills/` mother skills.
 ## Category Counts
 
 - `ai`: 3
-- `communication`: 14
+- `communication`: 13
 - `creative`: 2
 - `finance`: 17
-- `research`: 18
+- `research`: 19
 
 ## Publish Paths
 

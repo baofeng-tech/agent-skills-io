@@ -27,11 +27,11 @@
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
-## aisa-twitter-api-command-center
+## aisa-twitter-api
 
 - Source: `targetSkills/aisa-twitter-api`
-- Output: `clawhub-release/aisa-twitter-api-command-center`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Output: `clawhub-release/aisa-twitter-api`
+- Description: Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
@@ -93,10 +93,10 @@
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
-## aisa-crypto-market-data
+## crypto-market-data
 
 - Source: `targetSkills/crypto-market-data`
-- Output: `clawhub-release/aisa-crypto-market-data`
+- Output: `clawhub-release/crypto-market-data`
 - Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
@@ -108,6 +108,8 @@
 - Output: `clawhub-release/last30days`
 - Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 - Change: removed 1 non-runtime generated/test files from the release bundle
+- Change: switched default local storage to repo-local path in scripts/lib/env.py
+- Change: updated config path messaging in scripts/lib/ui.py
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
@@ -241,10 +243,10 @@
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
-## aisa-perplexity-search-sonar
+## perplexity-search
 
 - Source: `targetSkills/perplexity-search`
-- Output: `clawhub-release/aisa-perplexity-search-sonar`
+- Output: `clawhub-release/perplexity-search`
 - Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
@@ -313,11 +315,11 @@
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
-## aisa-search-command-center
+## search
 
 - Source: `targetSkills/search`
-- Output: `clawhub-release/aisa-search-command-center`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+- Output: `clawhub-release/search`
+- Description: Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
@@ -396,19 +398,19 @@
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
-## aisa-tavily-search
+## tavily-search
 
 - Source: `targetSkills/tavily-search`
-- Output: `clawhub-release/aisa-tavily-search`
+- Output: `clawhub-release/tavily-search`
 - Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
-## aisa-twitter-research-engage-relay
+## twitter
 
 - Source: `targetSkills/twitter`
-- Output: `clawhub-release/aisa-twitter-research-engage-relay`
+- Output: `clawhub-release/twitter`
 - Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests

@@ -4,26 +4,12 @@
 - Packaging mode: native-first dual format (`openclaw.plugin.json` + `index.ts` + `package.json` + optional `.claude-plugin/plugin.json` + embedded `skills/`)
 - Zip rule: archives are written root-flat with required files at archive root.
 
-## aisa-crypto-market-data-plugin
-
-- Skill: `aisa-crypto-market-data`
-- Directory: `clawhub-plugin-release/plugins/aisa-crypto-market-data-plugin`
-- Zip: `clawhub-plugin-release/zips/aisa-crypto-market-data-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `aisa-crypto-market-data`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-
 ## aisa-multi-search-engine-plugin
 
 - Skill: `aisa-multi-search-engine`
 - Directory: `clawhub-plugin-release/plugins/aisa-multi-search-engine-plugin`
 - Zip: `clawhub-plugin-release/zips/aisa-multi-search-engine-plugin.zip`
 - Description: Requires python3, node, and AISA_API_KEY. Native-first ClawHub plugin for `aisa-multi-search-engine`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-
-## aisa-perplexity-search-sonar-plugin
-
-- Skill: `aisa-perplexity-search-sonar`
-- Directory: `clawhub-plugin-release/plugins/aisa-perplexity-search-sonar-plugin`
-- Zip: `clawhub-plugin-release/zips/aisa-perplexity-search-sonar-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `aisa-perplexity-search-sonar`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 
 ## aisa-provider-plugin
 
@@ -32,13 +18,6 @@
 - Zip: `clawhub-plugin-release/zips/aisa-provider-plugin.zip`
 - Description: Requires AISA_API_KEY. Native-first ClawHub plugin for `aisa-provider`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.
 
-## aisa-search-command-center-plugin
-
-- Skill: `aisa-search-command-center`
-- Directory: `clawhub-plugin-release/plugins/aisa-search-command-center-plugin`
-- Zip: `clawhub-plugin-release/zips/aisa-search-command-center-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `aisa-search-command-center`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-
 ## aisa-tavily-plugin
 
 - Skill: `aisa-tavily`
@@ -46,19 +25,12 @@
 - Zip: `clawhub-plugin-release/zips/aisa-tavily-plugin.zip`
 - Description: Requires node, and AISA_API_KEY. Native-first ClawHub plugin for `aisa-tavily`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 
-## aisa-tavily-search-plugin
+## aisa-twitter-api-plugin
 
-- Skill: `aisa-tavily-search`
-- Directory: `clawhub-plugin-release/plugins/aisa-tavily-search-plugin`
-- Zip: `clawhub-plugin-release/zips/aisa-tavily-search-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `aisa-tavily-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-
-## aisa-twitter-api-command-center-plugin
-
-- Skill: `aisa-twitter-api-command-center`
-- Directory: `clawhub-plugin-release/plugins/aisa-twitter-api-command-center-plugin`
-- Zip: `clawhub-plugin-release/zips/aisa-twitter-api-command-center-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Uses a configurable AIsa relay for Twitter/X research, OAuth-gated posting, and user-approved media uploads. Native-first ClawHub plugin for `aisa-twitter-api-command-center`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Skill: `aisa-twitter-api`
+- Directory: `clawhub-plugin-release/plugins/aisa-twitter-api-plugin`
+- Zip: `clawhub-plugin-release/zips/aisa-twitter-api-plugin.zip`
+- Description: Requires python3, and AISA_API_KEY. Uses a configurable AIsa relay for Twitter/X research, OAuth-gated posting, and user-approved media uploads. Native-first ClawHub plugin for `aisa-twitter-api`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.
 
 ## aisa-twitter-command-center-plugin
 
@@ -81,13 +53,6 @@
 - Zip: `clawhub-plugin-release/zips/aisa-twitter-post-engage-plugin.zip`
 - Description: Requires python3, and AISA_API_KEY. Uses a configurable AIsa relay for Twitter/X research, OAuth-gated posting, and user-approved media uploads. Native-first ClawHub plugin for `aisa-twitter-post-engage`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
 
-## aisa-twitter-research-engage-relay-plugin
-
-- Skill: `aisa-twitter-research-engage-relay`
-- Directory: `clawhub-plugin-release/plugins/aisa-twitter-research-engage-relay-plugin`
-- Zip: `clawhub-plugin-release/zips/aisa-twitter-research-engage-relay-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Uses a configurable AIsa relay for Twitter/X research, OAuth-gated posting, and user-approved media uploads. Native-first ClawHub plugin for `aisa-twitter-research-engage-relay`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
-
 ## aisa-youtube-search-plugin
 
 - Skill: `aisa-youtube-search`
@@ -108,6 +73,13 @@
 - Directory: `clawhub-plugin-release/plugins/cn-llm-plugin`
 - Zip: `clawhub-plugin-release/zips/cn-llm-plugin.zip`
 - Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `cn-llm`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.
+
+## crypto-market-data-plugin
+
+- Skill: `crypto-market-data`
+- Directory: `clawhub-plugin-release/plugins/crypto-market-data-plugin`
+- Zip: `clawhub-plugin-release/zips/crypto-market-data-plugin.zip`
+- Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `crypto-market-data`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 
 ## last30days-plugin
 
@@ -214,6 +186,13 @@
 - Zip: `clawhub-plugin-release/zips/perplexity-research-plugin.zip`
 - Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `perplexity-research`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 
+## perplexity-search-plugin
+
+- Skill: `perplexity-search`
+- Directory: `clawhub-plugin-release/plugins/perplexity-search-plugin`
+- Zip: `clawhub-plugin-release/zips/perplexity-search-plugin.zip`
+- Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `perplexity-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+
 ## prediction-market-plugin
 
 - Skill: `prediction-market`
@@ -262,6 +241,13 @@
 - Directory: `clawhub-plugin-release/plugins/scholar-search-plugin`
 - Zip: `clawhub-plugin-release/zips/scholar-search-plugin.zip`
 - Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `scholar-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+
+## search-plugin
+
+- Skill: `search`
+- Directory: `clawhub-plugin-release/plugins/search-plugin`
+- Zip: `clawhub-plugin-release/zips/search-plugin.zip`
+- Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
 
 ## smart-search-plugin
 
@@ -318,6 +304,20 @@
 - Directory: `clawhub-plugin-release/plugins/tavily-extract-plugin`
 - Zip: `clawhub-plugin-release/zips/tavily-extract-plugin.zip`
 - Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `tavily-extract`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+
+## tavily-search-plugin
+
+- Skill: `tavily-search`
+- Directory: `clawhub-plugin-release/plugins/tavily-search-plugin`
+- Zip: `clawhub-plugin-release/zips/tavily-search-plugin.zip`
+- Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `tavily-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+
+## twitter-plugin
+
+- Skill: `twitter`
+- Directory: `clawhub-plugin-release/plugins/twitter-plugin`
+- Zip: `clawhub-plugin-release/zips/twitter-plugin.zip`
+- Description: Requires python3, and AISA_API_KEY. Uses a configurable AIsa relay for Twitter/X research, OAuth-gated posting, and user-approved media uploads. Native-first ClawHub plugin for `twitter`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
 
 ## twitter-autopilot-plugin
 

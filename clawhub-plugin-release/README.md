@@ -24,21 +24,17 @@ done
 
 ## Generated Plugins
 
-- `aisa-crypto-market-data-plugin` → `aisa-crypto-market-data`
 - `aisa-multi-search-engine-plugin` → `aisa-multi-search-engine`
-- `aisa-perplexity-search-sonar-plugin` → `aisa-perplexity-search-sonar`
 - `aisa-provider-plugin` → `aisa-provider`
-- `aisa-search-command-center-plugin` → `aisa-search-command-center`
 - `aisa-tavily-plugin` → `aisa-tavily`
-- `aisa-tavily-search-plugin` → `aisa-tavily-search`
-- `aisa-twitter-api-command-center-plugin` → `aisa-twitter-api-command-center`
+- `aisa-twitter-api-plugin` → `aisa-twitter-api`
 - `aisa-twitter-command-center-plugin` → `aisa-twitter-command-center`
 - `aisa-twitter-engagement-suite-plugin` → `aisa-twitter-engagement-suite`
 - `aisa-twitter-post-engage-plugin` → `aisa-twitter-post-engage`
-- `aisa-twitter-research-engage-relay-plugin` → `aisa-twitter-research-engage-relay`
 - `aisa-youtube-search-plugin` → `aisa-youtube-search`
 - `aisa-youtube-serp-scout-plugin` → `aisa-youtube-serp-scout`
 - `cn-llm-plugin` → `cn-llm`
+- `crypto-market-data-plugin` → `crypto-market-data`
 - `last30days-plugin` → `last30days`
 - `last30days-zh-plugin` → `last30days-zh`
 - `llm-router-plugin` → `llm-router`
@@ -54,6 +50,7 @@ done
 - `openclaw-twitter-post-engage-plugin` → `openclaw-twitter-post-engage`
 - `openclaw-youtube-plugin` → `openclaw-youtube`
 - `perplexity-research-plugin` → `perplexity-research`
+- `perplexity-search-plugin` → `perplexity-search`
 - `prediction-market-plugin` → `prediction-market`
 - `prediction-market-arbitrage-plugin` → `prediction-market-arbitrage`
 - `prediction-market-arbitrage-api-plugin` → `prediction-market-arbitrage-api`
@@ -61,6 +58,7 @@ done
 - `prediction-market-data-plugin` → `prediction-market-data`
 - `prediction-market-data-zh-plugin` → `prediction-market-data-zh`
 - `scholar-search-plugin` → `scholar-search`
+- `search-plugin` → `search`
 - `smart-search-plugin` → `smart-search`
 - `stock-analysis-plugin` → `stock-analysis`
 - `stock-dividend-plugin` → `stock-dividend`
@@ -69,6 +67,8 @@ done
 - `stock-rumors-plugin` → `stock-rumors`
 - `stock-watchlist-plugin` → `stock-watchlist`
 - `tavily-extract-plugin` → `tavily-extract`
+- `tavily-search-plugin` → `tavily-search`
+- `twitter-plugin` → `twitter`
 - `twitter-autopilot-plugin` → `twitter-autopilot`
 - `twitter-command-center-search-post-plugin` → `twitter-command-center-search-post`
 - `twitter-command-center-search-post-interact-plugin` → `twitter-command-center-search-post-interact`

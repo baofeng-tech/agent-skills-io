@@ -40,7 +40,7 @@
 
 - Path: `agentskills-so-release/aisa-twitter-engagement-suite`
 - Zip: `agentskills-so-release/zips/aisa-twitter-engagement-suite.zip`
-- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+- Description: aisa-twitter-engagement-suite Claude Code skill. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.
 
 ## aisa-twitter-post-engage
 
@@ -76,7 +76,7 @@
 
 - Path: `agentskills-so-release/last30days`
 - Zip: `agentskills-so-release/zips/last30days.zip`
-- Description: Research the last 30 days across Reddit, X/Twitter, YouTube, TikTok, Instagram, Hacker News, Polymarket, and grounded web search. Use when: the user needs recent multi-source research across the last 30 days.
+- Description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 
 ## last30days-zh
 
