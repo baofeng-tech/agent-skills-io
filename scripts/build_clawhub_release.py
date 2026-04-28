@@ -15,6 +15,7 @@ import build_claude_release as base
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCE_ROOT = REPO_ROOT / "targetSkills"
 OUTPUT_ROOT = REPO_ROOT / "clawhub-release"
+BREAKOUT_VARIANTS_PATH = REPO_ROOT / "targets" / "clawhub-breakout-variants.json"
 TWITTER_PROFILES = {
     "twitter",
     "twitter_api",
@@ -69,32 +70,54 @@ def detect_domain(name: str, description: str) -> str:
     return "automation"
 
 
-def release_profile(name: str, domain: str) -> str:
-    lowered = name.lower()
-    if lowered == "aisa-twitter-api":
-        return "twitter_api"
-    if lowered == "aisa-twitter-command-center":
-        return "twitter_watchlist"
-    if lowered == "aisa-twitter-engagement-suite":
-        return "twitter_engagement"
-    if lowered == "aisa-twitter-post-engage":
-        return "twitter_post_engage"
-    if lowered == "search":
-        return "search_flagship"
-    if lowered == "multi-source-search":
-        return "search_verification"
+def load_breakout_variants() -> dict[str, list[dict[str, str]]]:
+    if not BREAKOUT_VARIANTS_PATH.exists():
+        return {}
+    try:
+        payload = json.loads(BREAKOUT_VARIANTS_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+    variants: dict[str, list[dict[str, str]]] = {}
+    for raw in payload.get("variants") or []:
+        if not isinstance(raw, dict):
+            continue
+        source = str(raw.get("source") or "").strip()
+        slug = str(raw.get("slug") or raw.get("name") or "").strip()
+        if not source or not slug:
+            continue
+        entry = {
+            "source": source,
+            "slug": slug,
+            "profile": str(raw.get("profile") or "").strip(),
+            "version": str(raw.get("version") or "").strip(),
+        }
+        variants.setdefault(source, []).append(entry)
+    return variants
+
+
+def release_profile(name: str, domain: str, profile_override: str | None = None) -> str:
+    if profile_override and profile_override.strip():
+        return profile_override.strip()
     return domain
 
 
-def release_heading(name: str, domain: str) -> str:
-    profile = release_profile(name, domain)
+def release_heading(name: str, domain: str, profile_override: str | None = None) -> str:
+    profile = release_profile(name, domain, profile_override)
     headings = {
         "twitter_api": "AIsa Twitter API Command Center",
         "twitter_watchlist": "AIsa Twitter Watchlist Desk",
         "twitter_engagement": "AIsa Twitter Engagement Suite",
         "twitter_post_engage": "AIsa Twitter Post-Launch Follow-Through",
         "search_flagship": "AIsa Search Command Center",
+        "search_multi_engine": "AIsa Multi-Engine Search Hub",
         "search_verification": "Multi-Source Search Verification Engine",
+        "youtube_scout": "AIsa YouTube SERP Scout",
+        "youtube_lookup": "AIsa YouTube Search Relay",
+        "market_flagship": "AIsa Market Command Center",
+        "market_equities": "MarketPulse Equity Research Desk",
+        "market_prediction": "AIsa Prediction Market Probability Desk",
+        "market_crypto": "Crypto Market Data Terminal",
+        "market_stock_analyst": "US Stock Analyst Workbench",
     }
     return headings.get(profile, base.prettify_skill_name(name))
 
@@ -161,11 +184,6 @@ def infer_entrypoints(skill_dir: Path) -> list[str]:
 
 
 def infer_optional_envs(skill_dir: Path, profile: str) -> list[str]:
-    scripts_dir = skill_dir / "scripts"
-    if profile in TWITTER_PROFILES:
-        return ["TWITTER_RELAY_BASE_URL", "TWITTER_RELAY_TIMEOUT"]
-    if (scripts_dir / "twitter_oauth_client.py").exists() or (scripts_dir / "twitter_engagement_client.py").exists():
-        return ["TWITTER_RELAY_BASE_URL", "TWITTER_RELAY_TIMEOUT"]
     return []
 
 
@@ -192,8 +210,8 @@ def resolve_clawhub_slug(skill_dir: Path, frontmatter: dict[str, Any]) -> str:
     return skill_dir.name
 
 
-def build_description(name: str, domain: str, zh: bool) -> str:
-    profile = release_profile(name, domain)
+def build_description(name: str, domain: str, zh: bool, profile_override: str | None = None) -> str:
+    profile = release_profile(name, domain, profile_override)
     if zh:
         templates = {
             "twitter": "通过 AIsa 搜索 X/Twitter 账号、推文、趋势与经 OAuth 授权的发布流程。触发条件：当用户需要 Twitter 研究、监控或互动操作时使用。支持搜索、监控与授权发布。",
@@ -204,8 +222,16 @@ def build_description(name: str, domain: str, zh: bool) -> str:
             "youtube": "通过 AIsa 搜索 YouTube 视频、频道、趋势与排名结果。触发条件：当用户需要选题研究、竞品分析或频道检索时使用。支持视频发现与趋势分析。",
             "search": "通过 AIsa 执行网页、多源或近 30 天研究检索。触发条件：当用户需要搜索、研究、比对或趋势归纳时使用。支持多源检索与结构化输出。",
             "search_flagship": "通过 AIsa 执行网页、学术、Tavily 与深度研究检索。触发条件：当用户需要一个旗舰搜索技能来做实时查询、来源发现或引用型研究时使用。支持快速检索、答案生成与深度研究。",
+            "search_multi_engine": "通过 AIsa 提供一个一键多引擎检索工作台。触发条件：当用户想在网页、学术、Tavily 与 Perplexity 检索面之间显式切换并比较结果时使用。支持多工具并排检索与研究启动。",
             "search_verification": "通过 AIsa 做多来源对比检索与置信度判断。触发条件：当用户需要交叉验证、共识检查或一份比较多个检索面的研究输出时使用。支持并行检索、置信度评分与结构化综合。",
+            "youtube_scout": "通过 AIsa 执行 YouTube 排名侦察、内容研究与竞品频道巡检。触发条件：当用户需要 YouTube 选题研究、竞品追踪或趋势发现时使用。支持 SERP 观察、频道研究与趋势扫描。",
+            "youtube_lookup": "通过 AIsa 执行轻量 YouTube 搜索与筛选。触发条件：当用户只需要快速查询视频、频道、播放列表或地区/语言过滤时使用。支持 curl-first 查询与结构化结果返回。",
             "finance": "通过 AIsa 查询股票、加密、预测市场与投资分析数据。触发条件：当用户需要市场研究、筛选、价格走势或组合分析时使用。支持研究与分析输出。",
+            "market_flagship": "通过 AIsa 执行股票、加密与宏观利率的跨资产市场查询。触发条件：当用户需要一个旗舰市场技能来查看报价、走势、观察列表或跨资产报告时使用。支持股票、加密、筛选与宏观上下文。",
+            "market_equities": "通过 AIsa 执行股票、财报、分析师预期与 SEC 文件研究。触发条件：当用户需要股票基本面、财报、研报上下文或筛选，而不是广义跨资产数据时使用。支持股权研究与公司层分析。",
+            "market_prediction": "通过 AIsa 执行 Polymarket 与 Kalshi 概率市场查询。触发条件：当用户需要事件合约赔率、预测市场情绪或头寸视图时使用。支持市场查找、价格历史与组合视角。",
+            "market_crypto": "通过 AIsa 执行加密货币价格、图表、交易所与合约地址查询。触发条件：当用户需要 crypto 专用市场数据、合约地址价格或分类研究时使用。支持现货价格、图表与交易所研究。",
+            "market_stock_analyst": "通过 AIsa 执行更深的美股 thesis 分析。触发条件：当用户需要把财务、新闻、社交情绪和 AI 分析组合成一份美股研究结论时使用。支持 thesis 构建、对比研究与报告生成。",
             "media": "通过 AIsa 生成图片或视频素材。触发条件：当用户需要 AI 媒体生成或创意资产产出时使用。支持图像与视频工作流。",
             "ai": "通过 AIsa 使用模型路由、Provider 配置或中文大模型能力。触发条件：当用户需要模型接入、路由或 Provider 设置时使用。支持统一模型工作流。",
             "automation": f"使用 {name} 提供的自动化工作流。触发条件：当用户需要该领域的专用自动化能力时使用。支持公开发布的运行时能力。",
@@ -221,8 +247,16 @@ def build_description(name: str, domain: str, zh: bool) -> str:
         "youtube": "Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.",
         "search": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
         "search_flagship": "Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.",
+        "search_multi_engine": "Run web, scholar, Tavily, and Perplexity-backed research through one explicit multi-engine AIsa hub. Use when: the user wants a one-key package with tool-by-tool control across several search surfaces. Supports multi-engine lookup, extraction, and research kickoff.",
         "search_verification": "Run confidence-scored multi-source retrieval through AIsa. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.",
+        "youtube_scout": "Run ranking-aware YouTube research through AIsa. Use when: the user needs YouTube content discovery, competitor scouting, or repeated SERP-style channel research. Supports top-video discovery, channel sweeps, and trend scouting.",
+        "youtube_lookup": "Run lightweight YouTube lookup through AIsa. Use when: the user needs fast video, channel, playlist, locale, or pagination queries without the broader research workflow. Supports curl-first discovery and structured YouTube search results.",
         "finance": "Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+        "market_flagship": "Run cross-asset market research through AIsa. Use when: the user needs one flagship finance skill for equities, crypto, macro rates, watchlists, or broad market reporting. Supports stocks, crypto, screening, and macro context.",
+        "market_equities": "Run equity research through AIsa. Use when: the user needs prices, filings, analyst estimates, earnings context, or stock screening rather than broad cross-asset coverage. Supports public-company analysis and equity workflows.",
+        "market_prediction": "Run prediction-market probability research through AIsa. Use when: the user needs Polymarket or Kalshi odds, market sentiment, or event-contract history instead of traditional equity or crypto coverage. Supports market lookup, price history, and position views.",
+        "market_crypto": "Run crypto-specific market data research through AIsa. Use when: the user needs prices, charts, contract-address lookup, exchange data, or category research rather than broad equities workflows. Supports spot prices, charts, and crypto screening.",
+        "market_stock_analyst": "Run deeper US-stock thesis analysis through AIsa. Use when: the user needs financial data, news, social sentiment, and AI-assisted report generation for one or more US equities. Supports stock research, comparison, and report workflows.",
         "media": "Generate AI images or videos through AIsa. Use when: the user needs creative generation, asset drafts, or media workflows. Supports image and video generation.",
         "ai": "Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.",
         "automation": f"Use {name} for domain-specific automation. Use when: the user needs this workflow's specialized runtime behavior. Supports the packaged public workflow only.",
@@ -230,8 +264,13 @@ def build_description(name: str, domain: str, zh: bool) -> str:
     return templates[profile]
 
 
-def domain_sections(skill_name: str, domain: str, zh: bool) -> tuple[list[str], list[str], list[str], list[str]]:
-    profile = release_profile(skill_name, domain)
+def domain_sections(
+    skill_name: str,
+    domain: str,
+    zh: bool,
+    profile_override: str | None = None,
+) -> tuple[list[str], list[str], list[str], list[str]]:
+    profile = release_profile(skill_name, domain, profile_override)
     if zh:
         mapping = {
             "twitter": (
@@ -282,17 +321,65 @@ def domain_sections(skill_name: str, domain: str, zh: bool) -> tuple[list[str], 
                 ["搜索最新的 AI coding agent 发布并给我最相关的来源", "找过去 18 个月多模态推理的论文与引用分析", "生成一份 browser-use agents 的深度研究报告"] ,
                 ["不要把开发测试脚本当成公开功能。", "不要把多来源共识验证说成这个包的主职责。", "如果某些来源超时，要按真实情况说明。"] ,
             ),
+            "search_multi_engine": (
+                ["用户想用一个 API key 在多个检索面之间显式切换。", "用户需要把网页、学术、Tavily 或 Perplexity 结果并排看。", "用户更看重工具级控制，而不是一个总控式旗舰入口。"] ,
+                ["先分别跑多个检索面，再决定往哪个方向深入。", "用显式工具选择对比不同 provider 的返回差异。", "把一轮多引擎查询作为更大研究任务的起点。"] ,
+                ["先分别搜索 web、scholar 和 Tavily，再比较哪组结果更适合写报告", "给我一个一键多引擎搜索包来重复做竞品研究", "把几个搜索工具的结果并排整理出来"] ,
+                ["不要把它写成唯一旗舰搜索入口。", "不要把跨来源置信度评分说成它的主职责。", "如果某个检索面超时，要明确说明是哪一路失败。"] ,
+            ),
             "search_verification": (
                 ["用户需要对同一主题做多来源交叉验证，而不是只查一个来源。", "用户需要置信度评分、共识检查或比较多个搜索面。", "用户需要一份适合进一步综合的验证型研究输出。"] ,
                 ["并行检索多个来源并比较结果。", "验证某个结论是否在不同搜索面都出现。", "把多来源检索结果整理成一份带置信度的研究摘要。"] ,
                 ["比较三个搜索面如何描述 browser-use agent 产品", "验证一个市场观点是否同时出现在 web、scholar 和 cited answer 结果里", "对 multi-agent IDE 做一轮带置信度评分的研究"] ,
                 ["不要把它写成通用单一搜索入口。", "不要承诺未实际返回的共识结论。", "如果某些来源超时，要明确说明评分会受影响。"] ,
             ),
+            "youtube_scout": (
+                ["用户需要做 YouTube 选题研究、竞品追踪或 SERP 侦察。", "用户会反复查看频道、视频排名或趋势结果。", "用户想把 YouTube 当作研究面，而不是只做一次轻量查询。"] ,
+                ["查看某个主题下排名靠前的视频与频道。", "巡检竞品频道最近的内容方向。", "围绕某个内容话题做趋势发现。"] ,
+                ["研究 AI coding 主题下最近排名靠前的视频", "看看竞品频道这一周都在发什么内容", "做一轮 YouTube 竞品和趋势侦察"] ,
+                ["不要把它写成只做简单查询的轻量入口。", "不要伪造视频标题、链接或排名变化。", "如果上游返回空结果，要明确说明。"] ,
+            ),
+            "youtube_lookup": (
+                ["用户只需要快速查询 YouTube 视频、频道、播放列表或 locale 过滤。", "用户更需要 curl-first 的轻量调用，而不是重复研究工作流。", "任务集中在快速检索、分页或地区/语言参数。"] ,
+                ["查一个关键词下的视频或频道结果。", "按地区和语言过滤一次 YouTube 查询。", "用 `sp` 参数继续翻页或缩小结果面。"] ,
+                ["搜索美国市场里的 AI 新闻视频", "查一个频道名是否有对应 YouTube 结果", "给我一个可以带 locale 和分页参数的轻量 YouTube 查询"] ,
+                ["不要把它写成竞品追踪或内容研究总控台。", "不要伪造过滤参数或返回字段。", "如果结果为空，要直接说明。"] ,
+            ),
             "finance": (
                 ["用户需要股票、加密、预测市场或投资研究数据。", "用户需要价格、筛选、估值、组合或事件分析。", "用户需要结构化金融输出用于进一步分析。"] ,
                 ["查看价格走势与市场波动。", "筛选符合条件的股票或币种。", "研究组合、分红或预测市场机会。"] ,
                 ["查询 NVDA 最近价格与分析师预期", "找出符合某些财务条件的股票", "查看 BTC 和 ETH 的最新市场数据"] ,
                 ["不要给出虚构价格或财务数字。", "不要把示例请求当成投资建议。", "如果接口受限，要直接说明。"] ,
+            ),
+            "market_flagship": (
+                ["用户需要一个广义市场入口来查看股票、加密和宏观利率。", "用户需要跨资产观察列表、报价、走势或筛选。", "用户想先用一个旗舰技能收集市场全景，再决定是否下钻。"] ,
+                ["做一轮跨资产 watchlist 或市场快照。", "先看价格、走势和筛选，再决定是否深入研究。", "把股票、加密和宏观背景合并到一个报告里。"] ,
+                ["做一个包含 NVDA、BTC 和美联储利率的市场快照", "给我一轮股票加密混合 watchlist 监控", "先筛选市场机会再决定下钻哪条资产线"] ,
+                ["不要把它写成 filing-heavy 的股票研究包。", "不要把 prediction market 或 crypto 专用深度工作流写成它的主职责。", "如果某个上游端点受限，要如实说明。"] ,
+            ),
+            "market_equities": (
+                ["用户需要股票价格之外的财报、分析师预期、SEC 文件和 earnings 上下文。", "用户要做 public-company 基本面研究或股票筛选。", "任务聚焦 equities，而不是跨资产全景。"] ,
+                ["围绕一个 ticker 做价格、财报和分析师预期研究。", "先筛选，再下钻到 filings 或 segmented revenues。", "围绕 earnings 做公司层分析。"] ,
+                ["研究 NVDA 的价格、财报、分析师预期和 filings", "给我一轮 public-company equity screening", "围绕某只股票做 earnings 上下文研究"] ,
+                ["不要把它写成跨资产总控入口。", "不要把 crypto 或 prediction market 当成这个包的主线。", "不要把示例请求包装成投资建议。"] ,
+            ),
+            "market_prediction": (
+                ["用户需要 Polymarket 或 Kalshi 赔率、价格历史或持仓视图。", "任务是事件合约、市场概率或预测市场情绪。", "用户需要 prediction-market 专用工作流，而不是传统股票研究。"] ,
+                ["先找市场，再取 token_id 或 market_ticker 做价格查询。", "围绕某个事件合约查看历史价格和订单簿。", "查看 prediction-market 头寸或市场情绪。"] ,
+                ["查美国大选相关 prediction market 的当前概率", "先找 Kalshi 市场再查价格历史", "围绕一个事件合约做概率与情绪研究"] ,
+                ["不要把它写成广义股票/加密市场包。", "不要假装 market ID、token_id 或 ticker 已经知道。", "如果需要先查 markets，要明确告诉用户。"] ,
+            ),
+            "market_crypto": (
+                ["用户需要加密货币价格、图表、交易所、分类或合约地址价格。", "任务是 crypto 专用研究，而不是股票或预测市场。", "用户要做交易所、category 或 trending 类的 crypto 查询。"] ,
+                ["查询币价和图表。", "按合约地址查 token 价格。", "看交易所、分类或 trending coin。"] ,
+                ["给我 BTC、ETH 的最近 30 天图表", "按合约地址查某个 token 的价格", "看看现在最热的 crypto category 和 trending coin"] ,
+                ["不要把它写成 broad market 或 equity 研究总入口。", "不要把链上钱包、转账或节点 RPC 说成这个包支持。", "如果上游不支持某个 token 或 platform，要直接说明。"] ,
+            ),
+            "market_stock_analyst": (
+                ["用户需要一条更深的美股 thesis 工作流。", "任务要把财务、新闻、社交情绪和 AI 分析拼成一份研究输出。", "用户想比较一组美国股票或生成报告。"] ,
+                ["对一只美股做 thesis 分析。", "比较两只股票的基本面、情绪和叙事。", "生成一份带 AI synthesis 的美股研究报告。"] ,
+                ["给我一份 NVDA 的 thesis 研究", "比较 AMD 和 NVDA 的财务与市场情绪", "把一组美国股票整理成研究报告"] ,
+                ["不要把它写成 broad market data 包。", "不要把 filing-only 数据提取当成它唯一职责。", "不要把示例请求包装成投资建议。"] ,
             ),
             "media": (
                 ["用户需要生成图片或视频。", "用户需要快速得到创意草稿或媒体素材。", "用户需要通过一个 API key 完成媒体生成。"] ,
@@ -313,7 +400,7 @@ def domain_sections(skill_name: str, domain: str, zh: bool) -> tuple[list[str], 
                 ["不要引用未发布的开发工具。", "不要声称未 shipped 的能力。", "保持说明与实际运行时一致。"] ,
             ),
         }
-        return mapping[domain]
+        return mapping[profile]
 
     mapping = {
             "twitter": (
@@ -364,18 +451,66 @@ def domain_sections(skill_name: str, domain: str, zh: bool) -> tuple[list[str], 
                 ["Search the latest AI agent launches and show the most relevant sources first", "Find papers and cited analysis on multimodal reasoning from the last 18 months", "Build a deep research report on browser-use agents with sources and tradeoffs"],
                 ["Do not present test-only helpers as public features.", "Do not market cross-source consensus scoring as this package's primary lane.", "If some providers time out, report that honestly."],
             ),
+            "search_multi_engine": (
+                ["The user wants one API key with explicit control across several search surfaces.", "The user wants web, scholar, Tavily, or Perplexity results compared side by side.", "The user values tool-level choice more than one flagship command-center entrypoint."],
+                ["Run several search tools separately, then decide where to go deeper.", "Compare how different providers respond before writing or recommending.", "Use one multi-engine package as the kickoff surface for a larger research task."],
+                ["Run web, scholar, and Tavily separately and compare which results are strongest", "Give me a one-key multi-engine search package for repeated competitor research", "Lay out several search-tool results side by side before we synthesize them"],
+                ["Do not market this package as the flagship one-search entry point.", "Do not market confidence-scored consensus as the core job of this package.", "If one search surface times out, say which lane failed."],
+            ),
             "search_verification": (
                 ["The user wants the same topic checked across multiple search surfaces instead of trusting one provider.", "The user needs confidence scoring, consensus checks, or a comparison across multiple search lanes.", "The user wants synthesis-ready validation before making a recommendation."],
                 ["Run parallel retrieval and compare the returned signals.", "Check whether a claim appears across multiple search surfaces.", "Turn multi-source retrieval into a confidence-scored research brief."],
                 ["Compare how three search surfaces describe the latest browser-use agent products", "Verify whether a market claim appears in web, scholar, and cited answer results", "Run a confidence-scored research pass on multi-agent IDEs before writing a recommendation"],
                 ["Do not market this package as the generic one-search entry point.", "Do not claim consensus that the returned results do not support.", "If some providers time out, explain how that affects the score."],
             ),
+            "youtube_scout": (
+                ["The user needs YouTube content discovery, competitor scouting, or repeated SERP-style research.", "The workflow will inspect rankings, channels, or trend patterns more than once.", "The user wants YouTube treated as a research surface, not just a quick lookup."],
+                ["Review top-ranking videos and channels for a topic.", "Sweep a competitor channel's recent content direction.", "Use YouTube results to scout trends or content opportunities."],
+                ["Research top-ranking YouTube videos on AI coding agents", "Review what a competitor channel has published this week", "Run a YouTube trend and competitor scout before planning content"],
+                ["Do not market this package as a lightweight one-off lookup lane.", "Do not invent video titles, URLs, or ranking changes.", "If the upstream returns no results, say so clearly."],
+            ),
+            "youtube_lookup": (
+                ["The user only needs fast YouTube video, channel, playlist, or locale-filtered lookup.", "The workflow values curl-first speed more than a repeated research surface.", "The request focuses on quick retrieval, pagination, or locale parameters."],
+                ["Search one keyword for videos or channels.", "Filter one YouTube query by region and language.", "Continue or narrow a result set with pagination parameters."],
+                ["Search US YouTube results for AI news", "Check whether a channel name resolves in YouTube search", "Give me a lightweight YouTube query with locale and pagination controls"],
+                ["Do not market this package as a competitor-tracking or research desk.", "Do not fabricate missing filters or returned fields.", "If the result set is empty, say so directly."],
+            ),
             "finance": (
                 ["The user needs stocks, crypto, prediction market, or portfolio research.", "The user wants prices, screening, valuation, or event-driven analysis.", "The user wants structured financial output for downstream analysis."],
                 ["Check price action and market movement.", "Screen assets or equities that match filters.", "Research portfolios, dividends, or market opportunities."],
-            ["Query NVDA price history and analyst expectations", "Find stocks matching a screening rule", "Check BTC and ETH market data for a portfolio view"],
-            ["Do not invent prices or financial metrics.", "Do not turn examples into financial advice.", "If an upstream endpoint is limited, say so directly."],
-        ),
+                ["Query NVDA price history and analyst expectations", "Find stocks matching a screening rule", "Check BTC and ETH market data for a portfolio view"],
+                ["Do not invent prices or financial metrics.", "Do not turn examples into financial advice.", "If an upstream endpoint is limited, say so directly."],
+            ),
+            "market_flagship": (
+                ["The user needs one broad market entry point across equities, crypto, and macro rates.", "The task is watchlists, quotes, charts, screeners, or cross-asset market reporting.", "The user wants to gather the whole market picture before deciding which narrower lane to use."],
+                ["Build a cross-asset watchlist or market snapshot.", "Check prices, charts, or screeners before going deeper.", "Combine stocks, crypto, and macro context into one report."],
+                ["Build a market snapshot with NVDA, BTC, and Fed rates", "Run a mixed stock-and-crypto watchlist update", "Screen the market first, then decide which asset lane to investigate"],
+                ["Do not market this package as a filing-heavy equity-research desk.", "Do not make prediction-market or crypto-specialist workflows sound like its main lane.", "If one upstream endpoint is limited, report that honestly."],
+            ),
+            "market_equities": (
+                ["The user needs filings, analyst estimates, SEC context, or equity screening beyond simple quotes.", "The workflow is public-company analysis rather than a cross-asset market overview.", "The user wants an equities specialist that goes deeper than the broad `market` flagship."],
+                ["Research a ticker across prices, filings, and analyst estimates.", "Screen public companies and then drill into filings or segmented revenues.", "Use earnings context to frame one company-level analysis."],
+                ["Research NVDA across prices, filings, and analyst estimates", "Run a public-company equity screen before we choose candidates", "Build an earnings-context brief for one stock"],
+                ["Do not market this package as the cross-asset flagship lane.", "Do not make crypto or prediction-market workflows sound central here.", "Do not turn examples into investment advice."],
+            ),
+            "market_prediction": (
+                ["The user needs Polymarket or Kalshi odds, price history, or position views.", "The task is event contracts, market probabilities, or prediction-market sentiment.", "The workflow needs a prediction-market specialist rather than traditional equity or crypto coverage."],
+                ["Find a market, then pull the right token_id or market_ticker for price lookup.", "Inspect one event contract's probability history or order flow.", "Review prediction-market positions or sentiment around an event."],
+                ["Check current prediction-market odds for the US election", "Find a Kalshi market first and then pull its price history", "Research event-contract probabilities and market sentiment around one outcome"],
+                ["Do not market this package as a broad stock or crypto market desk.", "Do not pretend the required market identifiers are already known.", "If the user must query markets first, say that clearly."],
+            ),
+            "market_crypto": (
+                ["The user needs cryptocurrency prices, charts, exchange data, categories, or contract-address lookup.", "The task is crypto-specific rather than public-company or prediction-market analysis.", "The user wants a crypto specialist rather than a broad cross-asset overview."],
+                ["Check coin prices and historical charts.", "Resolve a token by contract address.", "Inspect exchanges, categories, or trending-coin signals."],
+                ["Pull the last 30 days of BTC and ETH charts", "Look up a token price by contract address", "Review the hottest crypto categories and trending coins right now"],
+                ["Do not market this package as a broad market or equity desk.", "Do not claim wallet balances, transfers, or node-RPC behavior.", "If a token or platform is unsupported, say so directly."],
+            ),
+            "market_stock_analyst": (
+                ["The user wants a deeper US-stock thesis workflow.", "The task combines financial data, news, social sentiment, and AI-assisted synthesis.", "The user wants report-style research on one or more US equities rather than generic market quotes."],
+                ["Build a thesis on one US stock.", "Compare two equities across fundamentals, sentiment, and narrative.", "Generate a report-style stock research output with AI synthesis."],
+                ["Build a thesis on NVDA", "Compare AMD and NVDA across fundamentals and market sentiment", "Generate a report-style brief on a basket of US equities"],
+                ["Do not market this package as the broad market-data flagship.", "Do not reduce it to filing-only extraction work.", "Do not turn examples into investment advice."],
+            ),
         "media": (
             ["The user needs image or video generation.", "The user wants creative drafts or media assets from one API key.", "The user wants quick generation workflows."],
             ["Generate an image draft.", "Generate a short video concept.", "Turn a creative brief into media output."],
@@ -398,46 +533,52 @@ def domain_sections(skill_name: str, domain: str, zh: bool) -> tuple[list[str], 
     return mapping[profile]
 
 
-def build_body(skill_dir: Path, skill_name: str, description: str, domain: str, zh: bool) -> str:
-    when_to_use, workflows, example_requests, guardrails = domain_sections(skill_name, domain, zh)
-    profile = release_profile(skill_name, domain)
+def build_body(
+    skill_dir: Path,
+    skill_name: str,
+    description: str,
+    domain: str,
+    zh: bool,
+    profile_override: str | None = None,
+) -> str:
+    when_to_use, workflows, example_requests, guardrails = domain_sections(
+        skill_name,
+        domain,
+        zh,
+        profile_override,
+    )
+    profile = release_profile(skill_name, domain, profile_override)
     quick_reference = infer_entrypoints(skill_dir)
     setup_lines = [
         "- `AISA_API_KEY` is required for AIsa-backed API access.",
         "- Use repo-relative `scripts/` paths from the shipped package.",
-        "- Prefer explicit CLI auth flags when a script exposes them.",
     ]
     if zh:
         setup_lines = [
             "- 需要 `AISA_API_KEY` 才能访问 AIsa API。",
             "- 使用公开包里的相对 `scripts/` 路径。",
-            "- 如果脚本提供显式鉴权参数，优先使用该参数。",
         ]
     if profile in TWITTER_PROFILES:
         if zh:
             setup_lines.extend(
                 [
-                    "- 可选：设置 `TWITTER_RELAY_BASE_URL` 来覆盖默认 relay `https://api.aisa.one/apis/v1/twitter`。",
-                    "- 可选：设置 `TWITTER_RELAY_TIMEOUT` 来调整 relay 请求超时秒数。",
-                    "- OAuth 请求以及经用户批准的媒体上传默认都会通过 `https://api.aisa.one/apis/v1/twitter` 中继。",
+                    "- Twitter/X 读取、OAuth 请求与经用户批准的媒体上传都使用固定的 AIsa API 端点 `https://api.aisa.one/apis/v1/twitter`。",
                     "- 只需要提供 `AISA_API_KEY`，不要使用密码、Cookie 或浏览器凭据导出。",
                 ]
             )
-            guardrails.append("只在用户明确附加本地文件时上传媒体，且要说明这些文件会先传到当前配置的 AIsa relay。")
+            guardrails.append("只在用户明确附加本地文件时上传媒体，且要说明这些文件会发送到 AIsa 的 Twitter/X API 端点。")
         else:
             setup_lines.extend(
                 [
-                    "- Optional: set `TWITTER_RELAY_BASE_URL` to override the default relay `https://api.aisa.one/apis/v1/twitter`.",
-                    "- Optional: set `TWITTER_RELAY_TIMEOUT` to tune relay request timeouts in seconds.",
-                    "- OAuth requests and any user-approved media uploads use the configured AIsa relay and default to `https://api.aisa.one/apis/v1/twitter`.",
+                    "- Twitter/X reads, OAuth requests, and user-approved media uploads use the fixed AIsa API endpoint `https://api.aisa.one/apis/v1/twitter`.",
                     "- Provide only `AISA_API_KEY`; do not use passwords, cookies, or browser credential export.",
                 ]
             )
             guardrails.append(
-                "Only upload local files the user explicitly attached, and make it clear those files are sent to the configured AIsa relay first."
+                "Only upload local files the user explicitly attached, and make it clear those files are sent to AIsa's Twitter/X API endpoint."
             )
 
-    lines = [f"# {release_heading(skill_name, domain)}", "", description]
+    lines = [f"# {release_heading(skill_name, domain, profile_override)}", "", description]
 
     lines.extend(["", "## When to use" if not zh else "## 适用场景", ""])
     for item in when_to_use:
@@ -467,22 +608,37 @@ def build_body(skill_dir: Path, skill_name: str, description: str, domain: str, 
     return "\n".join(lines) + "\n"
 
 
+def normalize_source_description(name: str, description: str, zh: bool) -> str:
+    cleaned = " ".join((description or "").split())
+    if cleaned:
+        return cleaned
+    return build_description(name, detect_domain(name, description), zh)
+
+
 def clean_frontmatter(
     skill_dir: Path,
     frontmatter: dict[str, Any],
     publish_name: str,
     *,
     existing_version: str | None = None,
+    mode: str = "original",
+    profile_override: str | None = None,
+    version_override: str | None = None,
 ) -> dict[str, Any]:
     canonical_name = str(frontmatter.get("name") or skill_dir.name).strip()
     name = publish_name.strip() or canonical_name
     domain = detect_domain(canonical_name, str(frontmatter.get("description") or ""))
-    profile = release_profile(name, domain)
-    description = build_description(name, domain, is_zh_variant(name))
+    profile = release_profile(name, domain, profile_override)
+    zh = is_zh_variant(name)
+    if mode == "breakout":
+        description = build_description(name, domain, zh, profile_override)
+    else:
+        description = normalize_source_description(name, str(frontmatter.get("description") or ""), zh)
     bins = infer_required_bins(skill_dir)
     envs = ["AISA_API_KEY"] if needs_aisa_key(skill_dir) else []
     optional_envs = infer_optional_envs(skill_dir, profile)
-    version = choose_release_version(frontmatter.get("version"), existing_version)
+    version_source = version_override or frontmatter.get("version")
+    version = choose_release_version(version_source, existing_version)
     license_value = frontmatter.get("license") or "Apache-2.0"
     cleaned: dict[str, Any] = {
         "name": name,
@@ -538,13 +694,23 @@ def clean_frontmatter(
     return compact(cleaned)
 
 
-def build_skill(src_dir: Path) -> base.SkillAudit:
-    frontmatter, _body = base.load_frontmatter(src_dir / "SKILL.md")
-    publish_name = resolve_clawhub_slug(src_dir, frontmatter)
+def build_skill(
+    src_dir: Path,
+    *,
+    publish_name: str | None = None,
+    mode: str = "original",
+    profile_override: str | None = None,
+    version_override: str | None = None,
+    existing_root: Path | None = None,
+    source_label: str | None = None,
+) -> base.SkillAudit:
+    frontmatter, source_body = base.load_frontmatter(src_dir / "SKILL.md")
+    publish_name = publish_name or resolve_clawhub_slug(src_dir, frontmatter)
     out_dir = OUTPUT_ROOT / publish_name
     existing_frontmatter: dict[str, Any] = {}
-    if (out_dir / "SKILL.md").exists():
-        existing_frontmatter, _existing_body = base.load_frontmatter(out_dir / "SKILL.md")
+    existing_skill_md = (existing_root or OUTPUT_ROOT) / publish_name / "SKILL.md"
+    if existing_skill_md.exists():
+        existing_frontmatter, _existing_body = base.load_frontmatter(existing_skill_md)
     shutil.rmtree(out_dir, ignore_errors=True)
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -554,13 +720,27 @@ def build_skill(src_dir: Path) -> base.SkillAudit:
         frontmatter,
         publish_name,
         existing_version=str(existing_frontmatter.get("version") or "") or None,
+        mode=mode,
+        profile_override=profile_override,
+        version_override=version_override or None,
     )
     domain = detect_domain(publish_name, str(frontmatter.get("description") or cleaned_frontmatter["description"]))
     zh = is_zh_variant(src_dir.name)
+    if mode == "breakout":
+        rendered_body = build_body(
+            out_dir,
+            publish_name,
+            cleaned_frontmatter["description"],
+            domain,
+            zh,
+            profile_override,
+        )
+    else:
+        rendered_body = base.rewrite_user_facing_markdown(source_body, "clawhub", publish_name)
 
     audit = base.SkillAudit(
         name=publish_name,
-        source_path=str(src_dir.relative_to(REPO_ROOT)),
+        source_path=source_label or str(src_dir.relative_to(REPO_ROOT)),
         output_path=str(out_dir.relative_to(REPO_ROOT)),
         description=cleaned_frontmatter["description"],
     )
@@ -568,14 +748,14 @@ def build_skill(src_dir: Path) -> base.SkillAudit:
     base.prune_release_tree(out_dir, audit)
     base.patch_runtime_files(out_dir, audit)
     (out_dir / "SKILL.md").write_text(
-        base.dump_skill(
-            cleaned_frontmatter,
-            build_body(out_dir, publish_name, cleaned_frontmatter["description"], domain, zh),
-        ),
+        base.dump_skill(cleaned_frontmatter, rendered_body),
         encoding="utf-8",
     )
     base.write_skill_readme(out_dir, cleaned_frontmatter, "clawhub")
-    audit.changes.append("generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests")
+    if mode == "breakout":
+        audit.changes.append("generated a ClawHub-only breakout SKILL.md with family-specific JTBD copy")
+    else:
+        audit.changes.append("kept the mother-skill body while normalizing ClawHub upload frontmatter")
     audit.changes.append("normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa")
     if any(name in kept for name in ("scripts", "references")):
         audit.changes.append("copied runtime scripts and essential references only")
@@ -592,6 +772,7 @@ def write_docs(audits: list[base.SkillAudit]) -> None:
         "",
         "- Keep `targetSkills/` as the mother-skill source layer.",
         "- Generate `clawhub-release/` as the upload-focused runtime layer.",
+        "- Keep original ClawHub slugs separate from ClawHub-only breakout siblings declared in `targets/clawhub-breakout-variants.json`.",
         "- Keep canonical `metadata.aisa`, then duplicate the minimal `metadata.openclaw` hints only where helpful for upload compatibility.",
         "- Prefer runtime-only files, repo-local defaults, and explicit auth flows.",
         "",
@@ -643,10 +824,30 @@ def write_docs(audits: list[base.SkillAudit]) -> None:
 
 
 def main() -> None:
-    shutil.rmtree(OUTPUT_ROOT, ignore_errors=True)
+    previous_root = REPO_ROOT / ".tmp-clawhub-release-prev"
+    shutil.rmtree(previous_root, ignore_errors=True)
+    if OUTPUT_ROOT.exists():
+        OUTPUT_ROOT.replace(previous_root)
     OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
-    audits = [build_skill(path.parent) for path in sorted(SOURCE_ROOT.glob("*/SKILL.md"))]
+    variants = load_breakout_variants()
+    audits: list[base.SkillAudit] = []
+    for skill_file in sorted(SOURCE_ROOT.glob("*/SKILL.md")):
+        src_dir = skill_file.parent
+        audits.append(build_skill(src_dir, existing_root=previous_root))
+        for variant in variants.get(src_dir.name, []):
+            audits.append(
+                build_skill(
+                    src_dir,
+                    publish_name=variant["slug"],
+                    mode="breakout",
+                    profile_override=variant.get("profile") or None,
+                    version_override=variant.get("version") or None,
+                    existing_root=previous_root,
+                    source_label=f"{src_dir.relative_to(REPO_ROOT)} -> {variant['slug']}",
+                )
+            )
     write_docs(audits)
+    shutil.rmtree(previous_root, ignore_errors=True)
     print(f"Built {len(audits)} ClawHub-ready skills into {OUTPUT_ROOT.relative_to(REPO_ROOT)}")
 
 

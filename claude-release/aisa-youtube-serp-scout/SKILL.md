@@ -1,6 +1,7 @@
 ---
 name: aisa-youtube-serp-scout
 description: 'Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.'
+version: 1.0.2
 license: MIT-0
 allowed-tools: Read Bash Grep
 when_to_use: 'the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis'

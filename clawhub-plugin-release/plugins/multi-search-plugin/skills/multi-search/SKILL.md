@@ -1,6 +1,6 @@
 ---
 name: multi-search
-description: 'Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.'
+description: 'Parallel multi-source search combining Web, Scholar, Smart, and Tavily results with confidence scoring and AI synthesis. Best for comprehensive research requiring cross-source validation. Use when: the user needs web search, research, source discovery, or content extraction.'
 author: AIsa
 version: 1.0.0
 license: MIT
@@ -34,40 +34,56 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Multi Search
+# AIsa Multi-Source Search
 
-Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-
-## When to use
-
-- The user needs web, multi-source, or last-30-days research.
-- The user wants competitor scans, trend discovery, or structured search output.
-- The user wants one skill to cover multiple retrieval surfaces.
-
-## High-Intent Workflows
-
-- Search and summarize recent evidence.
-- Compare two tools or companies using recent signals.
-- Turn multi-source retrieval into a research brief.
-
-## Quick Reference
-
-- `python3 scripts/search_client.py --help`
+The most comprehensive search tool in this plugin. Queries Web, Scholar, Smart, and Tavily sources in parallel, then computes a confidence score based on source availability, result quality, and diversity. Optionally generates an AI synthesis of all results.
 
 ## Setup
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
+This skill requires the `AISA_API_KEY` environment variable. When installed as a Claude plugin, the key is configured via the plugin's `userConfig`.
 
-## Example Requests
+## Usage
 
-- Research OpenAI Agents SDK over the last 30 days
-- Compare OpenClaw and Codex using recent public discussion
-- Search recent sentiment around a product launch
+Run the search client with the `verity` subcommand:
 
-## Guardrails
+```bash
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/multi-search/scripts/search_client.py verity --query "<search query>" --count <results_per_source>
+```
 
-- Do not present test-only helpers as public features.
-- Do not claim sources that were not actually queried.
-- If some providers time out, report that honestly.
+### Arguments
+
+| Argument | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `--query` / `-q` | Yes | — | Search query |
+| `--count` / `-c` | No | 5 | Maximum results per source (1–20) |
+
+### Example
+
+```bash
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/multi-search/scripts/search_client.py verity --query "impact of AI on healthcare diagnostics" --count 5
+```
+
+## Output
+
+The script prints:
+
+1. **Individual results** from each source (Web, Smart, Scholar, Tavily)
+2. **Confidence Assessment** with:
+   - **Score** (0–100) — Overall confidence in the search results
+   - **Level** — Very High / High / Medium / Low / Very Low
+   - **Sources queried** and **Sources OK** — How many sources responded
+   - **Total results** — Combined result count across all sources
+3. **AI Synthesis** — A coherent summary combining insights from all sources, with citations
+
+### Confidence Scoring Breakdown
+
+| Factor | Weight | Description |
+|--------|--------|-------------|
+| Source availability | 40% | How many of the 4 sources returned results |
+| Result quality | 35% | Ratio of actual results to expected results |
+| Source diversity | 15% | Whether both academic and web sources are present |
+| Recency bonus | 10% | Bonus for having at least one successful source |
+
+## When to Use
+
+Use this skill when the user needs the most thorough and reliable search results possible. Best for fact-checking, comprehensive research, verifying claims across multiple sources, or any query where cross-source validation adds significant value. This tool is slower but more reliable than individual search tools.

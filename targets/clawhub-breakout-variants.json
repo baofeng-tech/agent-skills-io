@@ -1,0 +1,16 @@
+{
+  "variants": [
+    {
+      "source": "aisa-twitter-api",
+      "slug": "aisa-twitter-api-command-center",
+      "profile": "twitter_api",
+      "version": "1.0.3"
+    },
+    {
+      "source": "aisa-twitter-engagement-suite",
+      "slug": "aisa-twitter-research-engage-relay",
+      "profile": "twitter_engagement",
+      "version": "1.0.6"
+    }
+  ]
+}

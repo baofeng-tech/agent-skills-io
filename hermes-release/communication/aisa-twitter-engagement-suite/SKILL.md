@@ -1,6 +1,7 @@
 ---
 name: aisa-twitter-engagement-suite
-description: 'Engagement-focused Twitter/X workflow for research, approved posting, likes, follows, and related actions through the AIsa relay. Use when: the user already knows which tweets or accounts to act on and needs explicit OAuth-gated engagement without sharing passwords. Supports read context, posting, and follow-through actions; all writes and uploads go to api.aisa.one.'
+description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+version: 1.0.3
 license: MIT-0
 metadata:
   aisa:
@@ -35,7 +36,7 @@ required_environment_variables:
 
 # aisa-twitter-engagement-suite
 
-Engagement-focused Twitter/X workflow for research, approved posting, likes, follows, and related actions through the AIsa relay. Use when: the user already knows which tweets or accounts to act on and needs explicit OAuth-gated engagement without sharing passwords. Supports read context, posting, and follow-through actions; all writes and uploads go to api.aisa.one.
+Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 
 ## When to Use
 

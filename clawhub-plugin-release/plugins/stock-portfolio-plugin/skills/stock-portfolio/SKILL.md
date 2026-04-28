@@ -1,6 +1,6 @@
 ---
 name: stock-portfolio
-description: 'Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.'
+description: Manage investment portfolios with live P&L tracking via AIsa API. Create, add, update, remove positions, rename, and show portfolio summary with real-time profit/loss. Use when the user wants to track investments, manage a portfolio, check P&L, or add/remove holdings.
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -34,40 +34,55 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Stock Portfolio
+# Portfolio Management — AIsa Edition
 
-Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
+Manage investment portfolios with live P&L tracking using the AIsa API.
 
-## When to use
+## Usage
 
-- The user needs stocks, crypto, prediction market, or portfolio research.
-- The user wants prices, screening, valuation, or event-driven analysis.
-- The user wants structured financial output for downstream analysis.
+```bash
+# Create a new portfolio
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-portfolio/scripts/portfolio.py" create "My Portfolio"
 
-## High-Intent Workflows
+# Add a position
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-portfolio/scripts/portfolio.py" add AAPL --quantity 10 --cost 150
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-portfolio/scripts/portfolio.py" add BTC-USD --quantity 0.5 --cost 40000
 
-- Check price action and market movement.
-- Screen assets or equities that match filters.
-- Research portfolios, dividends, or market opportunities.
+# Show portfolio with live P&L
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-portfolio/scripts/portfolio.py" show
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-portfolio/scripts/portfolio.py" show --portfolio "My Portfolio"
 
-## Quick Reference
+# Update a position
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-portfolio/scripts/portfolio.py" update AAPL --quantity 15 --cost 160
 
-- `python3 scripts/portfolio.py --help`
+# Remove a position
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-portfolio/scripts/portfolio.py" remove AAPL
 
-## Setup
+# List all portfolios
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-portfolio/scripts/portfolio.py" list
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
+# Rename a portfolio
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-portfolio/scripts/portfolio.py" rename "My Portfolio" "Tech Holdings"
 
-## Example Requests
+# Delete a portfolio
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-portfolio/scripts/portfolio.py" delete "Old Portfolio"
+```
 
-- Query NVDA price history and analyst expectations
-- Find stocks matching a screening rule
-- Check BTC and ETH market data for a portfolio view
+### Actions
 
-## Guardrails
+| Action | Description |
+|--------|-------------|
+| `create NAME` | Create a new portfolio |
+| `list` | List all portfolios |
+| `show` | Show portfolio summary with live P&L |
+| `add TICKER` | Add position with `--quantity` and `--cost` |
+| `update TICKER` | Update position quantity/cost |
+| `remove TICKER` | Remove position from portfolio |
+| `rename OLD NEW` | Rename a portfolio |
+| `delete NAME` | Delete a portfolio |
 
-- Do not invent prices or financial metrics.
-- Do not turn examples into financial advice.
-- If an upstream endpoint is limited, say so directly.
+## Data Storage
+
+Portfolio data is stored in `${CLAUDE_PLUGIN_DATA}/portfolios.json` for persistence across sessions.
+
+**NOT FINANCIAL ADVICE.** For informational purposes only.

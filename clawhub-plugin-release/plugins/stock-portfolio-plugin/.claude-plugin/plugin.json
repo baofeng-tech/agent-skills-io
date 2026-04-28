@@ -1,6 +1,6 @@
 {
   "name": "stock-portfolio-plugin",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `stock-portfolio`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `stock-portfolio`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Manage investment portfolios with live P&L tracking via AIsa API. Create, add, update, remove positions, rename, and show portfolio summary with real-time profit/loss. Use when the user wants to track investments, manage a portfolio, check P&L, or add/remove holdings.",
   "version": "1.0.0",
   "author": {
     "name": "AIsa"

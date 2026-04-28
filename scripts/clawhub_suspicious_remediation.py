@@ -24,11 +24,6 @@ FULL_BUILD_STEPS = [
     ["python3", "scripts/build_targetskills_catalog.py"],
     ["python3", "scripts/build_clawhub_release.py"],
     ["python3", "scripts/build_clawhub_plugin_release.py"],
-    ["python3", "scripts/build_claude_release.py"],
-    ["python3", "scripts/build_claude_marketplace.py"],
-    ["python3", "scripts/build_hermes_release.py"],
-    ["python3", "scripts/build_agentskills_so_release.py"],
-    ["python3", "scripts/build_agentskill_sh_release.py"],
 ]
 TEST_STEP = ["python3", "scripts/test_release_layers.py"]
 ADJACENT_SYNC_STEPS = [
@@ -386,6 +381,8 @@ def main() -> int:
     llm_command = [
         "python3",
         "scripts/llm_refine_aisa_skills.py",
+        "--profile",
+        "clawhub_breakout",
         "--skills",
         ",".join(source_skills),
         "--apply",

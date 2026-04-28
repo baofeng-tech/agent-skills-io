@@ -1,6 +1,7 @@
 ---
 name: aisa-twitter-post-engage
-description: 'Post-launch Twitter/X follow-through for search, approved posting, and lightweight engagement through the AIsa relay. Use when: the user already has a draft, campaign, launch tweet, or reply target and needs one focused skill to publish and then handle early interactions without sharing passwords. Supports posting, reply context, likes, and follows after explicit approval.'
+description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+version: 1.0.3
 license: Apache-2.0
 metadata:
   aisa:
@@ -21,6 +22,7 @@ metadata:
     - twitter
     - x
     - search
+    - research
     - aisa
     related_skills:
     - aisa-twitter-command-center
@@ -33,7 +35,7 @@ required_environment_variables:
 
 # aisa-twitter-post-engage
 
-Post-launch Twitter/X follow-through for search, approved posting, and lightweight engagement through the AIsa relay. Use when: the user already has a draft, campaign, launch tweet, or reply target and needs one focused skill to publish and then handle early interactions without sharing passwords. Supports posting, reply context, likes, and follows after explicit approval.
+Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 
 ## When to Use
 

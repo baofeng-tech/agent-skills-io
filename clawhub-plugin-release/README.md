@@ -28,9 +28,11 @@ done
 - `aisa-provider-plugin` → `aisa-provider`
 - `aisa-tavily-plugin` → `aisa-tavily`
 - `aisa-twitter-api-plugin` → `aisa-twitter-api`
+- `aisa-twitter-api-command-center-plugin` → `aisa-twitter-api-command-center`
 - `aisa-twitter-command-center-plugin` → `aisa-twitter-command-center`
 - `aisa-twitter-engagement-suite-plugin` → `aisa-twitter-engagement-suite`
 - `aisa-twitter-post-engage-plugin` → `aisa-twitter-post-engage`
+- `aisa-twitter-research-engage-relay-plugin` → `aisa-twitter-research-engage-relay`
 - `aisa-youtube-search-plugin` → `aisa-youtube-search`
 - `aisa-youtube-serp-scout-plugin` → `aisa-youtube-serp-scout`
 - `cn-llm-plugin` → `cn-llm`

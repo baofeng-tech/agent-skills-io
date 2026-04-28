@@ -49,7 +49,7 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 - Source: `targetSkills/aisa-twitter-api`
 - Output: `claude-release/aisa-twitter-api`
-- Description: Flagship Twitter/X command center for research, monitoring, watchlists, and approved posting through the AIsa relay. Use when: the user needs one primary Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting; all API requests, OAuth approvals, and approved media uploads go to api.aisa.one.
+- Description: Twitter/X command center for research, monitoring, watchlists, and approved posting through AIsa. Use when: the user needs one flagship skill for trend tracking, competitor monitoring, or publish-ready Twitter workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility
@@ -64,11 +64,10 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 - Source: `targetSkills/aisa-twitter-command-center`
 - Output: `claude-release/aisa-twitter-command-center`
-- Description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay as a watchlist and trend desk. Use when: the user needs competitor monitoring, recurring watchlists, trend scanning, or profile sweeps without sharing passwords. Supports approved posting as follow-through, but prioritizes monitoring over engagement automation.
+- Description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility
-- Change: ensured description carries explicit trigger phrasing for search and selection
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording
 - Change: replaced source README with a Claude-oriented release README
@@ -79,11 +78,10 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 - Source: `targetSkills/aisa-twitter-engagement-suite`
 - Output: `claude-release/aisa-twitter-engagement-suite`
-- Description: Engagement-focused Twitter/X workflow for research, approved posting, likes, follows, and related actions through the AIsa relay. Use when: the user already knows which tweets or accounts to act on and needs explicit OAuth-gated engagement without sharing passwords. Supports read context, posting, and follow-through actions; all writes and uploads go to api.aisa.one.
+- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility
-- Change: ensured description carries explicit trigger phrasing for search and selection
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording
 - Change: replaced source README with a Claude-oriented release README
@@ -94,11 +92,10 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 - Source: `targetSkills/aisa-twitter-post-engage`
 - Output: `claude-release/aisa-twitter-post-engage`
-- Description: Post-launch Twitter/X follow-through for search, approved posting, and lightweight engagement through the AIsa relay. Use when: the user already has a draft, campaign, launch tweet, or reply target and needs one focused skill to publish and then handle early interactions without sharing passwords. Supports posting, reply context, likes, and follows after explicit approval.
+- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility
-- Change: ensured description carries explicit trigger phrasing for search and selection
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: rewrote 1 markdown file(s) to reduce OpenClaw-specific release wording
 - Change: replaced source README with a Claude-oriented release README

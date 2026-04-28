@@ -1,6 +1,7 @@
 ---
 name: aisa-twitter-command-center
-description: 'Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay as a watchlist and trend desk. Use when: the user needs competitor monitoring, recurring watchlists, trend scanning, or profile sweeps without sharing passwords. Supports approved posting as follow-through, but prioritizes monitoring over engagement automation.'
+description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
+version: 1.0.3
 license: Apache-2.0
 metadata:
   aisa:
@@ -21,6 +22,7 @@ metadata:
     - twitter
     - x
     - search
+    - research
     - aisa
     related_skills:
     - aisa-twitter-post-engage
@@ -33,7 +35,7 @@ required_environment_variables:
 
 # aisa-twitter-command-center
 
-Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay as a watchlist and trend desk. Use when: the user needs competitor monitoring, recurring watchlists, trend scanning, or profile sweeps without sharing passwords. Supports approved posting as follow-through, but prioritizes monitoring over engagement automation.
+Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
 
 ## When to Use
 

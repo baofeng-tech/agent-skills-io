@@ -1,6 +1,6 @@
 {
   "name": "twitter-plugin",
-  "description": "Requires python3, and AISA_API_KEY. Uses a configurable AIsa relay for Twitter/X research, OAuth-gated posting, and user-approved media uploads. Native-first ClawHub plugin for `twitter`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `twitter`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.",
   "version": "1.0.0",
   "author": {
     "name": "AIsa"
@@ -18,17 +18,9 @@
           "AISA_API_KEY"
         ]
       },
-      "optionalEnv": [
-        "TWITTER_RELAY_BASE_URL",
-        "TWITTER_RELAY_TIMEOUT"
-      ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
         "https://api.aisa.one/apis/v1/twitter"
-      ],
-      "notes": [
-        "Uses a configurable AIsa relay for Twitter/X OAuth, research, posting, and engagement.",
-        "User-approved media uploads are sent to the configured relay."
       ]
     }
   }

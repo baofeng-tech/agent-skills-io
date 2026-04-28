@@ -6,9 +6,8 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 
 - Required bins: `python3`
 - Required env vars: `AISA_API_KEY`
-- Optional env vars: `TWITTER_RELAY_BASE_URL, TWITTER_RELAY_TIMEOUT`
 - Primary env: `AISA_API_KEY`
-- Network target: configured relay, default `https://api.aisa.one/apis/v1/twitter`
+- Network target: `https://api.aisa.one/apis/v1/twitter`
 
 ## What It Ships
 
@@ -43,5 +42,3 @@ clawhub package publish ./plugins/aisa-twitter-api-plugin
 - Runtime requirements and guardrails remain inside `skills/aisa-twitter-api/SKILL.md`.
 - If both native and bundle markers exist, OpenClaw prefers the native plugin path.
 - This package keeps side effects explicit and relies on the packaged skill's repo-local defaults where applicable.
-- OAuth, approved posting, and engagement actions default to `https://api.aisa.one/apis/v1/twitter` unless `TWITTER_RELAY_BASE_URL` is set.
-- Media files are uploaded only when the user explicitly attached them, and they are sent to the configured relay first.

@@ -1,31 +1,31 @@
 ---
 name: aisa-twitter-command-center
-description: 'Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay as a watchlist and trend desk. Use when: the user needs competitor monitoring, recurring watchlists, trend scanning, or profile sweeps without sharing passwords. Supports approved posting as follow-through, but prioritizes monitoring over engagement automation.'
+description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
+version: 1.0.3
 license: Apache-2.0
 allowed-tools: Read Bash Grep
-when_to_use: the user needs competitor monitoring, recurring watchlists, trend scanning, or profile sweeps without sharing passwords. Supports approved posting as follow-through, but prioritizes monitoring over engagement automation
+when_to_use: the user asks for Twitter research, monitoring, or posting without sharing passwords
 ---
 
-# AIsa Twitter Watchlist Desk
+# AIsa Twitter Command Center
 
-Track watchlists, competitor moves, and trend shifts on X/Twitter through the AIsa relay, then follow through with approved posting when needed.
+Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth.
 
 ## When to use
 
-- The user wants recurring Twitter/X monitoring, competitor tracking, or watchlist-style research.
-- The user wants to inspect profiles, timelines, mentions, trends, replies, quotes, lists, communities, or Spaces on a repeated basis.
-- The user may need to draft or publish a post after the monitoring pass, with explicit OAuth approval.
+- The user wants Twitter/X research, monitoring, or content discovery.
+- The user wants to inspect profiles, timelines, mentions, trends, replies, quotes, lists, communities, or Spaces.
+- The user wants to draft or publish posts after explicit OAuth approval without sharing passwords.
 
 ## When NOT to use
 
-- The user needs one flagship all-purpose Twitter skill; use `aisa-twitter-api`.
-- The main job is likes, follows, or ongoing engagement operations better handled by `aisa-twitter-engagement-suite`.
+- The user needs password-based login, cookie extraction, or browser credential scraping.
 - The workflow must avoid relay-based calls to `api.aisa.one`.
+- The request is for unsupported engagement actions not covered by this package.
 
 ## Quick Reference
 
 - Required environment variable: `AISA_API_KEY`
-- Relay target: `https://api.aisa.one`
 - Read client: `scripts/twitter_client.py`
 - OAuth and posting client: `scripts/twitter_oauth_client.py`
 - Posting guide: `references/post_twitter.md`
@@ -42,8 +42,7 @@ All network calls go to `https://api.aisa.one/apis/v1/...`.
 
 - Read user data, timelines, mentions, followers, followings, and related profile information.
 - Search tweets and users, inspect replies, quotes, retweeters, thread context, trends, lists, communities, and Spaces.
-- Monitor recurring watchlists, launches, and creator or competitor activity.
-- Publish text, image, and video posts after explicit OAuth approval when monitoring turns into action.
+- Publish text, image, and video posts after explicit OAuth approval.
 - Return an authorization link when posting access has not been approved yet.
 
 ## Common Commands

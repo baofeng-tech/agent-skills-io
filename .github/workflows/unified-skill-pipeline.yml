@@ -28,12 +28,12 @@ on:
       run_llm_step:
         description: "Run the repo-local skill-refinement helper over changed AISA API skills"
         required: false
-        default: true
+        default: false
         type: boolean
       llm_apply:
         description: "Apply repo-local skill-refinement helper output to targetSkills"
         required: false
-        default: true
+        default: false
         type: boolean
       sync_repo_skills:
         description: "Sync global Codex *-all skills into .agents/skills first"
@@ -81,9 +81,9 @@ on:
         default: false
         type: boolean
       suspicious_artifacts:
-        description: "Optional comma-separated suspicious artifact keys to target"
+        description: "Optional comma-separated ClawHub-owned artifact keys to target"
         required: false
-        default: "skill:aisa-twitter-api-command-center,plugin:aisa-twitter-engagement-suite-plugin"
+        default: ""
         type: string
   schedule:
     - cron: "21 */4 * * *"
@@ -103,17 +103,11 @@ jobs:
       PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || 'changed' }}
       PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
       PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
-      PIPELINE_RUN_LLM_STEP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_llm_step || 'true' }}
-      PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || 'true' }}
+      PIPELINE_RUN_LLM_STEP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_llm_step || 'false' }}
+      PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || 'false' }}
       PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || 'true' }}
       PIPELINE_DIAGNOSIS_DOC_UPDATE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.diagnosis_doc_update || 'true' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
-      SKILL_REFINER_BASE_URL: ${{ secrets.SKILL_REFINER_BASE_URL }}
-      SKILL_REFINER_API_KEY: ${{ secrets.SKILL_REFINER_API_KEY }}
-      SKILL_REFINER_MODEL: ${{ secrets.SKILL_REFINER_MODEL }}
-      AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
-      AI_API_KEY: ${{ secrets.AI_API_KEY }}
-      AI_MODEL: ${{ secrets.AI_MODEL }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
     steps:
       - name: Checkout repo
@@ -148,9 +142,9 @@ jobs:
             EXTRA_ARGS+=("--selection" "${PIPELINE_SELECTION:-changed}")
           fi
 
-          if [[ "${PIPELINE_RUN_LLM_STEP:-true}" == "true" ]]; then
+          if [[ "${PIPELINE_RUN_LLM_STEP:-false}" == "true" ]]; then
             EXTRA_ARGS+=("--run-llm-step" "--llm-if-available")
-            if [[ "${PIPELINE_LLM_APPLY:-true}" == "true" ]]; then
+            if [[ "${PIPELINE_LLM_APPLY:-false}" == "true" ]]; then
               EXTRA_ARGS+=("--llm-apply")
             fi
             if [[ "${PIPELINE_SYNC_REPO_SKILLS:-true}" == "true" ]]; then
@@ -245,22 +239,16 @@ jobs:
       PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || 'changed' }}
       PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
       PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
-      PIPELINE_RUN_LLM_STEP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_llm_step || 'true' }}
-      PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || 'true' }}
+      PIPELINE_RUN_LLM_STEP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_llm_step || 'false' }}
+      PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || 'false' }}
       PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || 'true' }}
       PIPELINE_SYNC_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_adjacent_repos || 'true' }}
       PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || 'true' }}
       PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || 'both' }}
       PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || 'false' }}
       PIPELINE_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || 'false' }}
-      PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || 'skill:aisa-twitter-api-command-center,plugin:aisa-twitter-engagement-suite-plugin' }}
+      PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || '' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
-      SKILL_REFINER_BASE_URL: ${{ secrets.SKILL_REFINER_BASE_URL }}
-      SKILL_REFINER_API_KEY: ${{ secrets.SKILL_REFINER_API_KEY }}
-      SKILL_REFINER_MODEL: ${{ secrets.SKILL_REFINER_MODEL }}
-      AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
-      AI_API_KEY: ${{ secrets.AI_API_KEY }}
-      AI_MODEL: ${{ secrets.AI_MODEL }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
       DOWNSTREAM_REPO_TOKEN: ${{ secrets.DOWNSTREAM_REPO_TOKEN }}
       CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
@@ -326,12 +314,6 @@ jobs:
 
           fallbacks = {
               "AISA_API_KEY": raw.get("AISA_API_KEY", ""),
-              "SKILL_REFINER_BASE_URL": raw.get("SKILL_REFINER_BASE_URL", ""),
-              "SKILL_REFINER_API_KEY": raw.get("SKILL_REFINER_API_KEY", ""),
-              "SKILL_REFINER_MODEL": raw.get("SKILL_REFINER_MODEL", ""),
-              "AI_BASE_URL": raw.get("AI_BASE_URL", ""),
-              "AI_API_KEY": raw.get("AI_API_KEY", ""),
-              "AI_MODEL": raw.get("AI_MODEL", ""),
               "UPSTREAM_REPO_TOKEN": raw.get("UPSTREAM_REPO_TOKEN") or raw.get("GITHUB_TOKEN", ""),
               "DOWNSTREAM_REPO_TOKEN": raw.get("DOWNSTREAM_REPO_TOKEN") or raw.get("GITHUB_TOKEN", ""),
               "CLAWHUB_TOKEN": raw.get("CLAWHUB_TOKEN") or raw.get("clawhub_ApI_token", ""),

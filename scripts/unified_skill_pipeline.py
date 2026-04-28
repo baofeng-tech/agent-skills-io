@@ -364,6 +364,8 @@ def run_llm_step(args: argparse.Namespace, summary: RunSummary) -> None:
     llm_command = [
         "python3",
         "scripts/llm_refine_aisa_skills.py",
+        "--profile",
+        "source",
         "--skills",
         ",".join(candidate_skills),
     ]

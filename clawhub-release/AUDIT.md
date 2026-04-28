@@ -4,8 +4,8 @@
 
 - Source: `targetSkills/aisa-multi-search-engine`
 - Output: `clawhub-release/aisa-multi-search-engine`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Multi-source search engine powered by AIsa API. Combines Tavily web search, Scholar academic search, Smart hybrid search, and Perplexity deep research — all through a single AIsa API key. Includes confidence scoring and AI synthesis. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -13,8 +13,8 @@
 
 - Source: `targetSkills/aisa-provider`
 - Output: `clawhub-release/aisa-provider`
-- Description: Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Configure AIsa as a first-class model provider for OpenClaw, enabling production access to major Chinese AI models (Qwen, DeepSeek, Kimi K2.5, Doubao) through official partnerships with Alibaba Cloud, BytePlus, and Moonshot. Use this skill when the user wants to set up Chinese AI models, configure AIsa API access, compare pricing between AIsa and other providers (OpenRouter, Bailian), switch between Qwen/DeepSeek/Kimi models, or troubleshoot AIsa provider configuration in OpenClaw. Also use when the user mentions AISA_API_KEY, asks about Chinese LLM pricing, Kimi K2.5 setup, or needs help with Qwen Key Account setup.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -22,8 +22,8 @@
 
 - Source: `targetSkills/aisa-tavily`
 - Output: `clawhub-release/aisa-tavily`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: AI-optimized web search via AIsa's Tavily API proxy. Returns concise, relevant results for AI agents through AIsa's unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -31,9 +31,19 @@
 
 - Source: `targetSkills/aisa-twitter-api`
 - Output: `clawhub-release/aisa-twitter-api`
+- Description: Twitter/X command center for research, monitoring, watchlists, and approved posting through AIsa. Use when: the user needs one flagship skill for trend tracking, competitor monitoring, or publish-ready Twitter workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting.
+- Change: disabled browser auto-open in scripts/twitter_oauth_client.py
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
+- Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
+- Change: copied runtime scripts and essential references only
+
+## aisa-twitter-api-command-center
+
+- Source: `targetSkills/aisa-twitter-api -> aisa-twitter-api-command-center`
+- Output: `clawhub-release/aisa-twitter-api-command-center`
 - Description: Run Twitter/X research, monitoring, watchlists, and OAuth-gated posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows. Supports search, watchlists, and approved posting.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: generated a ClawHub-only breakout SKILL.md with family-specific JTBD copy
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -41,9 +51,9 @@
 
 - Source: `targetSkills/aisa-twitter-command-center`
 - Output: `clawhub-release/aisa-twitter-command-center`
-- Description: Run Twitter/X watchlists, competitor monitoring, trend scans, and OAuth-gated follow-through through AIsa. Use when: the user needs a monitoring-first Twitter desk for recurring account sweeps, launch reactions, or trend tracking. Supports search, monitoring, and approved posting after review.
+- Description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -51,9 +61,19 @@
 
 - Source: `targetSkills/aisa-twitter-engagement-suite`
 - Output: `clawhub-release/aisa-twitter-engagement-suite`
+- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+- Change: disabled browser auto-open in scripts/twitter_oauth_client.py
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
+- Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
+- Change: copied runtime scripts and essential references only
+
+## aisa-twitter-research-engage-relay
+
+- Source: `targetSkills/aisa-twitter-engagement-suite -> aisa-twitter-research-engage-relay`
+- Output: `clawhub-release/aisa-twitter-research-engage-relay`
 - Description: Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: generated a ClawHub-only breakout SKILL.md with family-specific JTBD copy
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -61,9 +81,9 @@
 
 - Source: `targetSkills/aisa-twitter-post-engage`
 - Output: `clawhub-release/aisa-twitter-post-engage`
-- Description: Run Twitter/X post-launch follow-through through AIsa. Use when: the user already has a draft, launch tweet, or reply target and needs one skill to publish and then manage early interactions. Supports posting, reply context, and lightweight engagement.
+- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -71,16 +91,16 @@
 
 - Source: `targetSkills/aisa-youtube-search`
 - Output: `clawhub-release/aisa-youtube-search`
-- Description: Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Search YouTube videos, channels, and playlists through the AIsa YouTube relay with one API key. Use when the user asks for YouTube discovery, query expansion, or pagination without managing Google credentials.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 
 ## aisa-youtube-serp-scout
 
 - Source: `targetSkills/aisa-youtube-serp-scout`
 - Output: `clawhub-release/aisa-youtube-serp-scout`
-- Description: Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Search YouTube videos, channels, and trends through the AIsa YouTube SERP client. Use when the user asks for content research, competitor tracking, or trend discovery without managing Google credentials. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -88,8 +108,8 @@
 
 - Source: `targetSkills/cn-llm`
 - Output: `clawhub-release/cn-llm`
-- Description: Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: China LLM Gateway - Unified interface for Chinese LLMs including Qwen, DeepSeek, GLM, Baichuan. OpenAI compatible, one API Key for all models. Use when: the user needs model routing, provider setup, or Chinese LLM access guidance.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -97,8 +117,8 @@
 
 - Source: `targetSkills/crypto-market-data`
 - Output: `clawhub-release/crypto-market-data`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use for crypto research, price tracking, on-chain token lookup, portfolio analysis, and market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -106,11 +126,11 @@
 
 - Source: `targetSkills/last30days`
 - Output: `clawhub-release/last30days`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+- Description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 - Change: removed 2 non-runtime generated/test files from the release bundle
 - Change: switched default local storage to repo-local path in scripts/lib/env.py
 - Change: updated config path messaging in scripts/lib/ui.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -118,9 +138,9 @@
 
 - Source: `targetSkills/last30days-zh`
 - Output: `clawhub-release/last30days-zh`
-- Description: 通过 AIsa 执行网页、多源或近 30 天研究检索。触发条件：当用户需要搜索、研究、比对或趋势归纳时使用。支持多源检索与结构化输出。
+- Description: 聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.
 - Change: removed 2 non-runtime generated/test files from the release bundle
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -128,8 +148,8 @@
 
 - Source: `targetSkills/llm-router`
 - Output: `clawhub-release/llm-router`
-- Description: Use AIsa for model routing, provider setup, and Chinese LLM access. Use when: the user needs model configuration, provider guidance, or routing workflows. Supports setup and model operations.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Unified LLM Gateway - One API for 70+ AI models. Route to GPT, Claude, Gemini, Qwen, Deepseek, Grok and more with a single API key. Use when: the user needs model routing, provider setup, or Chinese LLM access guidance.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -137,8 +157,8 @@
 
 - Source: `targetSkills/market`
 - Output: `clawhub-release/market`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Query real-time and historical financial data across equities and crypto—prices, market moves, metrics, and trends for analysis, alerts, and reporting. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -146,8 +166,8 @@
 
 - Source: `targetSkills/marketpulse`
 - Output: `clawhub-release/marketpulse`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Query real-time and historical financial data for equities—prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -155,8 +175,8 @@
 
 - Source: `targetSkills/media-gen`
 - Output: `clawhub-release/media-gen`
-- Description: Generate AI images or videos through AIsa. Use when: the user needs creative generation, asset drafts, or media workflows. Supports image and video generation.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Generate images and videos with AIsa. Four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image + image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -164,8 +184,8 @@
 
 - Source: `targetSkills/multi-search`
 - Output: `clawhub-release/multi-search`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Parallel multi-source search combining Web, Scholar, Smart, and Tavily results with confidence scoring and AI synthesis. Best for comprehensive research requiring cross-source validation. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -173,8 +193,8 @@
 
 - Source: `targetSkills/multi-source-search`
 - Output: `clawhub-release/multi-source-search`
-- Description: Run confidence-scored multi-source retrieval through AIsa. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -182,8 +202,8 @@
 
 - Source: `targetSkills/openclaw-aisa-youtube-aisa`
 - Output: `clawhub-release/openclaw-aisa-youtube-aisa`
-- Description: Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -191,8 +211,8 @@
 
 - Source: `targetSkills/openclaw-media-gen`
 - Output: `clawhub-release/openclaw-media-gen`
-- Description: Generate AI images or videos through AIsa. Use when: the user needs creative generation, asset drafts, or media workflows. Supports image and video generation.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Generate images and videos with AIsa. Four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image + image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -200,8 +220,8 @@
 
 - Source: `targetSkills/openclaw-search`
 - Output: `clawhub-release/openclaw-search`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Intelligent search for agents. Multi-source retrieval with confidence scoring - web, academic, and Tavily in one unified API. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -209,9 +229,9 @@
 
 - Source: `targetSkills/openclaw-twitter`
 - Output: `clawhub-release/openclaw-twitter`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AISA relay, then publish approved posts with OAuth. Use when: the user asks for Twitter/X research, monitoring, or posting without sharing passwords. Supports read APIs, authorization links, and media-aware posting.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -219,9 +239,9 @@
 
 - Source: `targetSkills/openclaw-twitter-post-engage`
 - Output: `clawhub-release/openclaw-twitter-post-engage`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AISA relay. Use when: the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords. Supports read APIs, OAuth-gated posting, and follow or like operations.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -229,8 +249,8 @@
 
 - Source: `targetSkills/openclaw-youtube`
 - Output: `clawhub-release/openclaw-youtube`
-- Description: Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: YouTube SERP Scout for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -238,8 +258,8 @@
 
 - Source: `targetSkills/perplexity-research`
 - Output: `clawhub-release/perplexity-research`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Deep research using Perplexity Sonar models via AIsa API. Provides synthesized answers with citations. Supports 4 models from fast to exhaustive deep research. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -247,8 +267,8 @@
 
 - Source: `targetSkills/perplexity-search`
 - Output: `clawhub-release/perplexity-search`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -256,8 +276,8 @@
 
 - Source: `targetSkills/prediction-market`
 - Output: `clawhub-release/prediction-market`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -265,8 +285,8 @@
 
 - Source: `targetSkills/prediction-market-arbitrage`
 - Output: `clawhub-release/prediction-market-arbitrage`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -274,8 +294,8 @@
 
 - Source: `targetSkills/prediction-market-arbitrage-api`
 - Output: `clawhub-release/prediction-market-arbitrage-api`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Find arbitrage opportunities across Polymarket and Kalshi prediction markets via AIsa API. Scan sports markets for cross-platform price discrepancies, compare real-time odds, verify orderbook liquidity. Use when user asks about: prediction market arbitrage, cross-platform price differences, sports betting arbitrage, odds comparison, risk-free profit, market inefficiencies.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -283,8 +303,8 @@
 
 - Source: `targetSkills/prediction-market-arbitrage-zh`
 - Output: `clawhub-release/prediction-market-arbitrage-zh`
-- Description: 通过 AIsa 查询股票、加密、预测市场与投资分析数据。触发条件：当用户需要市场研究、筛选、价格走势或组合分析时使用。支持研究与分析输出。
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: 通过 AIsa API 发现 Polymarket 和 Kalshi 预测市场的套利机会。扫描体育市场跨平台价差、比较实时赔率、验证订单簿流动性。适用场景：预测市场套利、跨平台价差、体育博彩套利、赔率对比、无风险利润、市场低效。 Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -292,8 +312,8 @@
 
 - Source: `targetSkills/prediction-market-data`
 - Output: `clawhub-release/prediction-market-data`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -301,8 +321,8 @@
 
 - Source: `targetSkills/prediction-market-data-zh`
 - Output: `clawhub-release/prediction-market-data-zh`
-- Description: 通过 AIsa 查询股票、加密、预测市场与投资分析数据。触发条件：当用户需要市场研究、筛选、价格走势或组合分析时使用。支持研究与分析输出。
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: 通过 AIsa API 查询跨平台预测市场数据。支持 Polymarket 和 Kalshi 的市场行情、价格、订单簿、K线、持仓和交易记录。适用场景：查询预测市场赔率、选举博彩、事件概率、市场情绪、Polymarket 价格、Kalshi 价格、体育博彩赔率、钱包盈亏、跨平台市场对比。 Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -310,8 +330,8 @@
 
 - Source: `targetSkills/scholar-search`
 - Output: `clawhub-release/scholar-search`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Search academic papers and scholarly articles via AIsa Scholar endpoint. Supports year range filtering for targeted research. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -319,8 +339,8 @@
 
 - Source: `targetSkills/search`
 - Output: `clawhub-release/search`
-- Description: Run web, scholar, Tavily, and deep research through one AIsa search command center. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -328,8 +348,8 @@
 
 - Source: `targetSkills/smart-search`
 - Output: `clawhub-release/smart-search`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Intelligent hybrid search combining web and academic sources via AIsa Smart Search endpoint. Best when you need both web and scholarly results. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -337,8 +357,8 @@
 
 - Source: `targetSkills/stock-analysis`
 - Output: `clawhub-release/stock-analysis`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Analyze stocks and cryptocurrencies with 8-dimension scoring via AIsa API. Provides BUY/HOLD/SELL signals with confidence levels, entry/target/stop prices, and risk flags. Supports single or multi-ticker analysis with optional fast mode and JSON output. Use when the user asks to analyze a stock, check a ticker, or compare investments.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -346,8 +366,8 @@
 
 - Source: `targetSkills/stock-dividend`
 - Output: `clawhub-release/stock-dividend`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -355,8 +375,8 @@
 
 - Source: `targetSkills/stock-hot`
 - Output: `clawhub-release/stock-hot`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Hot Scanner — find the most trending and high-momentum stocks and crypto right now via AIsa API. Top gainers, losers, most active by volume, crypto highlights, news catalysts, and top 5 watchlist picks. Use when the user asks about trending stocks, what's hot, market movers, or momentum plays.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -364,9 +384,9 @@
 
 - Source: `targetSkills/stock-portfolio`
 - Output: `clawhub-release/stock-portfolio`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
+- Description: Manage investment portfolios with live P&L tracking via AIsa API. Create, add, update, remove positions, rename, and show portfolio summary with real-time profit/loss. Use when the user wants to track investments, manage a portfolio, check P&L, or add/remove holdings.
 - Change: switched default local storage to repo-local path in scripts/portfolio.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -374,8 +394,8 @@
 
 - Source: `targetSkills/stock-rumors`
 - Output: `clawhub-release/stock-rumors`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Rumor Scanner — find early signals including M&A rumors, insider activity, analyst upgrades/downgrades, social whispers, and SEC/regulatory activity via AIsa API. Ranked by impact score. Use when the user asks about rumors, insider trading, M&A activity, analyst changes, or early market signals.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -383,9 +403,9 @@
 
 - Source: `targetSkills/stock-watchlist`
 - Output: `clawhub-release/stock-watchlist`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
+- Description: Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.
 - Change: switched default local storage to repo-local path in scripts/watchlist.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -393,8 +413,8 @@
 
 - Source: `targetSkills/tavily-extract`
 - Output: `clawhub-release/tavily-extract`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Extract clean, readable content from one or more URLs using Tavily Extract via AIsa API. Useful for reading full articles without visiting the page. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -402,8 +422,8 @@
 
 - Source: `targetSkills/tavily-search`
 - Output: `clawhub-release/tavily-search`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Advanced web search via Tavily through AIsa API. Supports search depth, topic filtering (general/news/finance), time ranges, domain inclusion/exclusion, and LLM-generated answers. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -411,9 +431,9 @@
 
 - Source: `targetSkills/twitter`
 - Output: `clawhub-release/twitter`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -421,9 +441,9 @@
 
 - Source: `targetSkills/twitter-autopilot`
 - Output: `clawhub-release/twitter-autopilot`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -431,9 +451,9 @@
 
 - Source: `targetSkills/twitter-command-center-search-post`
 - Output: `clawhub-release/twitter-command-center-search-post`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, or posting without sharing account passwords.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -441,9 +461,9 @@
 
 - Source: `targetSkills/twitter-command-center-search-post-interact`
 - Output: `clawhub-release/twitter-command-center-search-post-interact`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -451,8 +471,8 @@
 
 - Source: `targetSkills/us-stock-analyst`
 - Output: `clawhub-release/us-stock-analyst`
-- Description: Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Professional US stock analysis with financial data, news, social sentiment, and multi-model AI. Comprehensive reports at $0.02-0.10 per analysis. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -460,8 +480,8 @@
 
 - Source: `targetSkills/web-search`
 - Output: `clawhub-release/web-search`
-- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: Search the web using AIsa Scholar Web endpoint. Returns structured web results with titles, URLs, and snippets. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -469,9 +489,9 @@
 
 - Source: `targetSkills/x-intelligence-automation`
 - Output: `clawhub-release/x-intelligence-automation`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -479,8 +499,8 @@
 
 - Source: `targetSkills/youtube`
 - Output: `clawhub-release/youtube`
-- Description: Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: YouTube SERP Scout for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
@@ -488,15 +508,15 @@
 
 - Source: `targetSkills/youtube-search`
 - Output: `clawhub-release/youtube-search`
-- Description: Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 
 ## youtube-serp
 
 - Source: `targetSkills/youtube-serp`
 - Output: `clawhub-release/youtube-serp`
-- Description: Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.
-- Change: generated a ClawHub-oriented SKILL.md with high-intent workflows and example requests
+- Description: YouTube SERP for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only

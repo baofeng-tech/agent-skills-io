@@ -1,6 +1,7 @@
 ---
 name: aisa-youtube-search
 description: Search YouTube videos, channels, and playlists through the AIsa YouTube relay with one API key. Use when the user asks for YouTube discovery, query expansion, or pagination without managing Google credentials.
+version: 1.0.1
 license: MIT-0
 metadata:
   aisa:

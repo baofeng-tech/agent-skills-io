@@ -1,7 +1,7 @@
 {
   "name": "stock-hot-plugin",
   "version": "1.0.0",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `stock-hot`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `stock-hot`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Hot Scanner — find the most trending and high-momentum stocks and crypto right now via AIsa API. Top gainers, losers, most active by volume, crypto highlights, news catalysts, and top 5 watchlist picks. Use when the user asks about trending stocks, what's hot, market movers, or momentum plays.",
   "license": "Apache-2.0",
   "type": "module",
   "keywords": [
@@ -10,11 +10,8 @@
     "openclaw",
     "native-plugin",
     "agent-skill",
-    "search",
-    "research",
     "market",
-    "stock",
-    "prediction"
+    "stock"
   ],
   "homepage": "https://aisa.one",
   "repository": {

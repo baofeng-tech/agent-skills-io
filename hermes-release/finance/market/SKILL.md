@@ -1,6 +1,7 @@
 ---
 name: market
 description: 'Query real-time and historical financial data across equities and crypto—prices, market moves, metrics, and trends for analysis, alerts, and reporting. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
+version: 1.0.1
 metadata:
   aisa:
     emoji: 🛠

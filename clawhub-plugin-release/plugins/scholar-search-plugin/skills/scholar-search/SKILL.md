@@ -1,6 +1,6 @@
 ---
 name: scholar-search
-description: 'Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.'
+description: 'Search academic papers and scholarly articles via AIsa Scholar endpoint. Supports year range filtering for targeted research. Use when: the user needs web search, research, source discovery, or content extraction.'
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -34,40 +34,49 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Scholar Search
+# AIsa Scholar Search
 
-Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-
-## When to use
-
-- The user needs web, multi-source, or last-30-days research.
-- The user wants competitor scans, trend discovery, or structured search output.
-- The user wants one skill to cover multiple retrieval surfaces.
-
-## High-Intent Workflows
-
-- Search and summarize recent evidence.
-- Compare two tools or companies using recent signals.
-- Turn multi-source retrieval into a research brief.
-
-## Quick Reference
-
-- `python3 scripts/search_client.py --help`
+Search academic papers and scholarly articles using the AIsa Scholar Search endpoint. Ideal for finding peer-reviewed research, conference papers, and citations. Supports year range filtering.
 
 ## Setup
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
+This skill requires the `AISA_API_KEY` environment variable. When installed as a Claude plugin, the key is configured via the plugin's `userConfig`.
 
-## Example Requests
+## Usage
 
-- Research OpenAI Agents SDK over the last 30 days
-- Compare OpenClaw and Codex using recent public discussion
-- Search recent sentiment around a product launch
+Run the search client with the `scholar` subcommand:
 
-## Guardrails
+```bash
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/scholar-search/scripts/search_client.py scholar --query "<academic query>" --count <max_results> [--year-from YYYY] [--year-to YYYY]
+```
 
-- Do not present test-only helpers as public features.
-- Do not claim sources that were not actually queried.
-- If some providers time out, report that honestly.
+### Arguments
+
+| Argument | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `--query` / `-q` | Yes | — | Academic search query |
+| `--count` / `-c` | No | 10 | Maximum number of results (1–100) |
+| `--year-from` | No | — | Year lower bound (e.g., 2023) |
+| `--year-to` | No | — | Year upper bound (e.g., 2026) |
+
+### Examples
+
+```bash
+# Search for recent transformer papers
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/scholar-search/scripts/search_client.py scholar --query "transformer architecture attention mechanism" --count 10 --year-from 2024
+
+# Search papers in a specific year range
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/scholar-search/scripts/search_client.py scholar --query "reinforcement learning from human feedback" --year-from 2022 --year-to 2025
+```
+
+## Output
+
+The script prints structured academic results including:
+- **Title** — Paper title
+- **URL** — Link to the paper or abstract
+- **Publication info** — Journal, conference, or preprint source
+- **Snippet** — Abstract excerpt
+
+## When to Use
+
+Use this skill when the user needs academic papers, scholarly articles, research citations, or peer-reviewed sources. Best for literature reviews, citation lookups, and academic research tasks.

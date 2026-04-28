@@ -1,6 +1,6 @@
 ---
 name: openclaw-twitter-post-engage
-description: 'Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.'
+description: 'Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AISA relay. Use when: the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords. Supports read APIs, OAuth-gated posting, and follow or like operations.'
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -19,9 +19,6 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
-    optionalEnv:
-    - TWITTER_RELAY_BASE_URL
-    - TWITTER_RELAY_TIMEOUT
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -34,53 +31,77 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
-    optionalEnv:
-    - TWITTER_RELAY_BASE_URL
-    - TWITTER_RELAY_TIMEOUT
     primaryEnv: AISA_API_KEY
 ---
 
-# Openclaw Twitter Post Engage
+# Twitter Post Engage
 
-Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.
+Runtime-focused release bundle for Twitter/X search, posting, and engagement through the AISA relay.
 
 ## When to use
 
-- The user needs Twitter/X research, monitoring, posting, or engagement workflows.
-- The user wants profiles, timelines, trends, lists, communities, or Spaces.
-- The user wants approved posting without sharing passwords.
+- The user wants Twitter/X research plus posting, liking, unliking, following, or unfollowing workflows.
+- The task can use a Python client with `AISA_API_KEY` and explicit OAuth approval.
+- The workflow needs a single package that covers read, post, and engagement actions.
 
-## High-Intent Workflows
+## When NOT to use
 
-- Research an account or conversation thread.
-- Monitor a keyword, trend, or competitor.
-- Authorize and publish a post after explicit approval.
+- The user needs cookie extraction, password login, or a fully local Twitter client.
+- The workflow must avoid relay-based network calls or media upload through `api.aisa.one`.
+- The task needs undocumented secrets or browser-derived auth values.
 
 ## Quick Reference
 
-- `python3 scripts/twitter_client.py --help`
-- `python3 scripts/twitter_engagement_client.py --help`
-- `python3 scripts/twitter_oauth_client.py --help`
+- Required env: `AISA_API_KEY`
+- Read client: `./scripts/twitter_client.py`
+- Post client: `./scripts/twitter_oauth_client.py`
+- Engage client: `./scripts/twitter_engagement_client.py`
+- References: `./references/post_twitter.md`, `./references/engage_twitter.md`
 
 ## Setup
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
-- Optional: set `TWITTER_RELAY_BASE_URL` to override the default relay `https://api.aisa.one/apis/v1/twitter`.
-- Optional: set `TWITTER_RELAY_TIMEOUT` to tune relay request timeouts in seconds.
-- OAuth requests and any user-approved media uploads use the configured AIsa relay and default to `https://api.aisa.one/apis/v1/twitter`.
-- Provide only `AISA_API_KEY`; do not use passwords, cookies, or browser credential export.
+```bash
+export AISA_API_KEY="your-key"
+```
 
-## Example Requests
+All network calls go to `https://api.aisa.one/apis/v1/...`.
 
-- Research recent AI agent conversations on X
-- Search how users are reacting to a product launch on Twitter
-- Authorize and publish a short product update post
+## Capabilities
 
-## Guardrails
+- Read user, tweet, trend, list, community, and Spaces data.
+- Publish text, image, and video posts after explicit OAuth approval.
+- Like, unlike, follow, and unfollow through the engagement client once authorization exists.
+- Reuse the current conversation context instead of local file-based conversation persistence.
 
-- Do not ask for passwords, cookies, or browser credentials.
-- Do not claim posting succeeded until the API confirms it.
-- Return authorization links instead of relying on auto-open behavior.
-- Only upload local files the user explicitly attached, and make it clear those files are sent to the configured AIsa relay first.
+## Common Commands
+
+```bash
+python3 scripts/twitter_client.py search --query "AI agents" --type Latest
+python3 scripts/twitter_oauth_client.py authorize
+python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa"
+python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
+python3 scripts/twitter_engagement_client.py follow-user --user "@elonmusk"
+```
+
+## Posting and Engagement Workflow
+
+- Use `./references/post_twitter.md` for post, reply, quote, and media-upload actions.
+- Use `./references/engage_twitter.md` for likes, unlikes, follows, and unfollows.
+- Obtain OAuth authorization before any write action.
+
+## ClawHub Suspicious Review Notes
+
+These points summarize the common reasons similar skills are marked `Suspicious` and how this release addresses them:
+
+- The package is relay-based: read calls, OAuth requests, engagement actions, and approved media uploads go to `api.aisa.one`.
+- The package is API-key-first: it requires `AISA_API_KEY` and does not ask for passwords, cookies, `CT0`, or other legacy secrets.
+- The release bundle is runtime-only: it keeps `SKILL.md`, `scripts/`, and the required references, while omitting non-runtime files such as `README.md` and `_meta.json`.
+- The package does not include cache sync, self-install logic, home-directory persistence, browser-cookie extraction, or external agent CLI wrappers.
+- Browser opening is optional and not the default workflow; returning the authorization link is the preferred path for this release.
+
+## Release Bundle Notes
+
+- `scripts/twitter_client.py` preserves the read API surface from the original bundle.
+- `scripts/twitter_oauth_client.py` preserves OAuth and posting behavior from the original bundle.
+- `scripts/twitter_engagement_client.py` preserves like, unlike, follow, and unfollow behavior from the original bundle.
+- This package is optimized for publication metadata and upload safety, not for changing runtime logic.

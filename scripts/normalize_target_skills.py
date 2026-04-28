@@ -210,6 +210,9 @@ def normalize_skill(skill_dir: Path) -> bool:
         "name": name,
         "description": description,
     }
+    version_value = frontmatter.get("version")
+    if version_value not in (None, "", []):
+        cleaned["version"] = str(version_value)
     license_value = frontmatter.get("license")
     if license_value not in (None, "", []):
         cleaned["license"] = license_value

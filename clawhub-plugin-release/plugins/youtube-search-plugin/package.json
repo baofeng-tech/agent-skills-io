@@ -1,7 +1,7 @@
 {
   "name": "youtube-search-plugin",
   "version": "1.0.0",
-  "description": "Requires AISA_API_KEY. Uses a configurable AIsa relay for Twitter/X research, OAuth-gated posting, and user-approved media uploads. Native-first ClawHub plugin for `youtube-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and OAuth-gated posting through AIsa. Use when: the user needs Twitter research, monitoring, or engagement workflows. Supports search, monitoring, and approved posting.",
+  "description": "Requires AISA_API_KEY. Native-first ClawHub plugin for `youtube-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
   "license": "Apache-2.0",
   "type": "module",
   "keywords": [
@@ -11,10 +11,10 @@
     "native-plugin",
     "agent-skill",
     "twitter",
-    "x",
     "youtube",
     "search",
-    "research"
+    "research",
+    "video"
   ],
   "homepage": "https://aisa.one",
   "repository": {
@@ -28,17 +28,9 @@
           "AISA_API_KEY"
         ]
       },
-      "optionalEnv": [
-        "TWITTER_RELAY_BASE_URL",
-        "TWITTER_RELAY_TIMEOUT"
-      ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
         "https://api.aisa.one/apis/v1/twitter"
-      ],
-      "notes": [
-        "Uses a configurable AIsa relay for Twitter/X OAuth, research, posting, and engagement.",
-        "User-approved media uploads are sent to the configured relay."
       ]
     }
   },
@@ -48,17 +40,9 @@
         "AISA_API_KEY"
       ]
     },
-    "optionalEnv": [
-      "TWITTER_RELAY_BASE_URL",
-      "TWITTER_RELAY_TIMEOUT"
-    ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
       "https://api.aisa.one/apis/v1/twitter"
-    ],
-    "notes": [
-      "Uses a configurable AIsa relay for Twitter/X OAuth, research, posting, and engagement.",
-      "User-approved media uploads are sent to the configured relay."
     ]
   },
   "openclaw": {
@@ -74,10 +58,6 @@
     "runtimeRequirements": {
       "env": [
         "AISA_API_KEY"
-      ],
-      "optionalEnv": [
-        "TWITTER_RELAY_BASE_URL",
-        "TWITTER_RELAY_TIMEOUT"
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [

@@ -218,6 +218,34 @@ In this project, the three global skills are effectively translated into code an
 - packager -> release build scripts and wrapper generators
 - auditor -> smoke tests, guardrail docs, follow-up reports, and publish review checklists
 
+## Repo-Local Profile Split
+
+As of 2026-04-28, this repo no longer treats the global `*-all` publish skills as the default mother-skill editor context.
+
+Why:
+
+- the global skills intentionally mix:
+  - cross-platform publish rules
+  - ClawHub suspicious-remediation rules
+  - breakout positioning rules
+- that is useful for ClawHub remediation, but too mixed for default `targetSkills/` refinement
+
+Current repo-local split:
+
+- `.agents/skills/aisa-source-skill-editor/SKILL.md`
+  - default neutral profile for `targetSkills/`
+- `.agents/skills/aisa-clawhub-breakout-editor/SKILL.md`
+  - ClawHub breakout / suspicious-repair profile
+
+Current script wiring:
+
+- `scripts/unified_skill_pipeline.py`
+  - normal LLM refinement now calls `scripts/llm_refine_aisa_skills.py --profile source`
+- `scripts/clawhub_suspicious_remediation.py`
+  - targeted ClawHub repair now calls `scripts/llm_refine_aisa_skills.py --profile clawhub_breakout`
+
+This keeps the mother-skill default path more neutral while still letting ClawHub-only repair work use the stronger breakout/auditor context.
+
 ## 2026-04-25 Internalized Suspicious Lessons
 
 The current repo now treats these as reusable method, not one-off incident notes:

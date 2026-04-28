@@ -6,9 +6,8 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 
 - Required bins: `python3, bash`
 - Required env vars: `AISA_API_KEY`
-- Optional env vars: none
 - Primary env: `AISA_API_KEY`
-- Network target: `https://api.aisa.one`
+- Network target: `https://api.aisa.one/apis/v1/twitter`
 
 ## What It Ships
 

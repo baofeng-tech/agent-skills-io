@@ -22,30 +22,52 @@ TARGET_ROOT = REPO_ROOT / "targetSkills"
 PROPOSAL_ROOT = REPO_ROOT / "targets" / "llm-skill-refinement"
 DEFAULT_BASE_URL = "https://api.aisa.one/v1"
 DEFAULT_MODEL = "gpt-4.1"
-DEFAULT_SKILLS = (
-    REPO_ROOT / ".agents" / "skills" / "clawhub-skill-optimizer-all" / "SKILL.md",
-    REPO_ROOT / ".agents" / "skills" / "clawhub-security-auditor-all" / "SKILL.md",
-)
-REFERENCE_FILES = (
-    REPO_ROOT / ".agents" / "skills" / "clawhub-skill-optimizer-all" / "references" / "frontmatter-rules.md",
-    REPO_ROOT / ".agents" / "skills" / "clawhub-skill-optimizer-all" / "references" / "body-structure.md",
-    REPO_ROOT / ".agents" / "skills" / "clawhub-skill-optimizer-all" / "references" / "bilingual-rules.md",
-    REPO_ROOT / "targets" / "clawhub-suspicious-causes-and-fixes-2026-04-25.md",
-)
+REPO_SKILLS_ROOT = REPO_ROOT / ".agents" / "skills"
+PROFILE_CONTEXT = {
+    "source": {
+        "skills": (
+            REPO_SKILLS_ROOT / "aisa-source-skill-editor" / "SKILL.md",
+        ),
+        "references": (
+            REPO_ROOT / "targets" / "platform-skill-plugin-methodology.md",
+            REPO_ROOT / "targets" / "skill-modification-rules-2026-04-19.md",
+            REPO_ROOT / "targets" / "targetskills-agentskills-compliance-audit-2026-04-20.md",
+        ),
+    },
+    "clawhub_breakout": {
+        "skills": (
+            REPO_SKILLS_ROOT / "aisa-clawhub-breakout-editor" / "SKILL.md",
+            REPO_SKILLS_ROOT / "clawhub-skill-optimizer-all" / "SKILL.md",
+            REPO_SKILLS_ROOT / "clawhub-security-auditor-all" / "SKILL.md",
+        ),
+        "references": (
+            REPO_SKILLS_ROOT / "clawhub-skill-optimizer-all" / "references" / "frontmatter-rules.md",
+            REPO_SKILLS_ROOT / "clawhub-skill-optimizer-all" / "references" / "body-structure.md",
+            REPO_SKILLS_ROOT / "clawhub-skill-optimizer-all" / "references" / "bilingual-rules.md",
+            REPO_ROOT / "targets" / "clawhub-suspicious-causes-and-fixes-2026-04-25.md",
+            REPO_ROOT / "targets" / "aisa-api-breakout-rollout-plan-2026-04-28.md",
+            REPO_ROOT / "targets" / "clawhub-breakout-variants.json",
+        ),
+    },
+}
+DEFAULT_PROFILE = "source"
+PROFILE_PROMPTS = {
+    "source": (
+        "- Keep this as a neutral mother skill for targetSkills/.\n"
+        "- Do not introduce ClawHub-only breakout slugs, plugin wrapper details, or platform-specific release sections.\n"
+        "- Keep sibling positioning portable so downstream build scripts can regenerate platform-specific layers cleanly.\n"
+    ),
+    "clawhub_breakout": (
+        "- This refinement is for ClawHub breakout or suspicious-remediation work feeding later release layers.\n"
+        "- You may strengthen task-first breakout positioning when the runtime truly supports it.\n"
+        "- Make relay, OAuth, upload, and env requirements explicit across public copy.\n"
+    ),
+}
 ENV_PATTERN = re.compile(r"\b[A-Z][A-Z0-9_]{2,}\b")
 ALLOWED_ENV_NAMES = {
     "AISA_API_KEY",
-    "AISA_BASE_URL",
-    "AISA_MODEL",
     "AISA_LLM_MODEL",
-    "TWITTER_RELAY_BASE_URL",
 }
-SKILL_REFINER_API_KEY_ENV = "SKILL_REFINER_API_KEY"
-SKILL_REFINER_BASE_URL_ENV = "SKILL_REFINER_BASE_URL"
-SKILL_REFINER_MODEL_ENV = "SKILL_REFINER_MODEL"
-LEGACY_REFINER_API_KEY_ENV = "AI_API_KEY"
-LEGACY_REFINER_BASE_URL_ENV = "AI_BASE_URL"
-LEGACY_REFINER_MODEL_ENV = "AI_MODEL"
 
 
 @dataclass
@@ -119,9 +141,13 @@ def build_parser() -> argparse.ArgumentParser:
         default="chat-completions",
         help="API surface to use against the configured provider.",
     )
-    parser.add_argument("--base-url", default="", help="Override the API base URL.")
-    parser.add_argument("--api-key", default="", help="Override the API key.")
     parser.add_argument("--model", default="", help="Override the model name.")
+    parser.add_argument(
+        "--profile",
+        choices=tuple(PROFILE_CONTEXT),
+        default=DEFAULT_PROFILE,
+        help="Rule profile to load. Use source for neutral mother-skill refinement and clawhub_breakout for ClawHub-only breakout/remediation work.",
+    )
     parser.add_argument(
         "--apply",
         action="store_true",
@@ -183,51 +209,20 @@ def first_nonempty(*values: str) -> str:
 
 
 def resolve_client_config(args: argparse.Namespace) -> ClientConfig | None:
-    explicit_api_key = args.api_key.strip()
-    explicit_base_url = args.base_url.strip()
     explicit_model = args.model.strip()
 
-    refiner_api_key = os.environ.get(SKILL_REFINER_API_KEY_ENV, "").strip()
-    refiner_base_url = os.environ.get(SKILL_REFINER_BASE_URL_ENV, "").strip()
-    refiner_model = os.environ.get(SKILL_REFINER_MODEL_ENV, "").strip()
-
     aisa_api_key = os.environ.get("AISA_API_KEY", "").strip()
-    aisa_base_url = os.environ.get("AISA_BASE_URL", "").strip()
     aisa_model = os.environ.get("AISA_LLM_MODEL", "").strip()
 
-    legacy_api_key = os.environ.get(LEGACY_REFINER_API_KEY_ENV, "").strip()
-    legacy_base_url = os.environ.get(LEGACY_REFINER_BASE_URL_ENV, "").strip()
-    legacy_model = os.environ.get(LEGACY_REFINER_MODEL_ENV, "").strip()
-
-    if explicit_api_key or explicit_base_url or explicit_model:
-        api_key = first_nonempty(explicit_api_key, refiner_api_key, aisa_api_key, legacy_api_key)
-        base_url = first_nonempty(explicit_base_url, refiner_base_url, aisa_base_url, legacy_base_url, DEFAULT_BASE_URL)
-        model = first_nonempty(explicit_model, refiner_model, aisa_model, legacy_model, DEFAULT_MODEL)
-        source = "cli override"
-    elif refiner_api_key or refiner_base_url or refiner_model:
-        api_key = first_nonempty(refiner_api_key, aisa_api_key, legacy_api_key)
-        base_url = first_nonempty(refiner_base_url, aisa_base_url, legacy_base_url, DEFAULT_BASE_URL)
-        model = first_nonempty(refiner_model, aisa_model, legacy_model, DEFAULT_MODEL)
-        source = "SKILL_REFINER_*"
-    elif aisa_api_key or aisa_base_url or aisa_model:
-        api_key = first_nonempty(aisa_api_key, legacy_api_key)
-        base_url = first_nonempty(aisa_base_url, legacy_base_url, DEFAULT_BASE_URL)
-        model = first_nonempty(aisa_model, legacy_model, DEFAULT_MODEL)
-        source = "AISA_*"
-    else:
-        api_key = legacy_api_key
-        base_url = first_nonempty(legacy_base_url, DEFAULT_BASE_URL)
-        model = first_nonempty(legacy_model, DEFAULT_MODEL)
-        source = "legacy AI_*"
-
-    if not api_key:
+    if not aisa_api_key:
         return None
+    model = first_nonempty(explicit_model, aisa_model, DEFAULT_MODEL)
     return ClientConfig(
         mode=args.mode,
-        base_url=normalize_base_url(base_url, args.mode, model),
-        api_key=api_key,
+        base_url=normalize_base_url(DEFAULT_BASE_URL, args.mode, model),
+        api_key=aisa_api_key,
         model=model,
-        source=source,
+        source="AISA_API_KEY",
     )
 
 
@@ -244,9 +239,20 @@ def extract_first_heading(text: str) -> str:
     return ""
 
 
+def all_context_skill_paths() -> tuple[Path, ...]:
+    paths: list[Path] = []
+    seen: set[Path] = set()
+    for bundle in PROFILE_CONTEXT.values():
+        for path in bundle["skills"]:
+            if path not in seen:
+                seen.add(path)
+                paths.append(path)
+    return tuple(paths)
+
+
 def helper_skill_headings() -> set[str]:
     headings: set[str] = set()
-    for path in DEFAULT_SKILLS:
+    for path in all_context_skill_paths():
         if not path.exists():
             continue
         heading = extract_first_heading(load_text(path))
@@ -275,12 +281,13 @@ def discover_skill_dirs(target_root: Path, explicit_names: list[str]) -> list[Pa
     ]
 
 
-def load_context() -> str:
+def load_context(profile: str) -> str:
+    bundle = PROFILE_CONTEXT[profile]
     blocks: list[str] = []
-    for path in DEFAULT_SKILLS:
+    for path in bundle["skills"]:
         if path.exists():
             blocks.append(f"# {path.relative_to(REPO_ROOT)}\n\n{load_text(path).strip()}")
-    for path in REFERENCE_FILES:
+    for path in bundle["references"]:
         if path.exists():
             blocks.append(f"# {path.relative_to(REPO_ROOT)}\n\n{load_text(path).strip()}")
     return "\n\n".join(blocks).strip()
@@ -290,17 +297,18 @@ def required_env_names(text: str) -> list[str]:
     return sorted({token for token in ENV_PATTERN.findall(text) if token in ALLOWED_ENV_NAMES})
 
 
-def build_messages(skill_dir: Path, context: str) -> list[dict[str, str]]:
+def build_messages(skill_dir: Path, context: str, profile: str) -> list[dict[str, str]]:
     skill_md = load_text(skill_dir / "SKILL.md")
     readme_md = load_text(skill_dir / "README.md")
     required_envs = required_env_names(skill_md + "\n" + readme_md)
+    profile_prompt = PROFILE_PROMPTS.get(profile, PROFILE_PROMPTS[DEFAULT_PROFILE])
     prompt = (
         "Refine this existing AISA API skill for publish quality.\n\n"
         "Hard constraints:\n"
         "- Preserve runtime behavior, command paths, filenames, relative paths, and code examples unless they are obviously inconsistent.\n"
         "- Do not invent new APIs, new dependencies, or new environment variables.\n"
         "- Keep the skill aligned with repo-local optimizer and auditor rules.\n"
-        "- Improve clarity around AISA_API_KEY, relay targets, OAuth/upload side effects, and breakout positioning when relevant.\n"
+        f"{profile_prompt}"
         "- Return strict JSON with keys: summary, skill_md, readme_md, notes.\n"
         "- skill_md must be the full replacement content for SKILL.md.\n"
         "- readme_md must be the full replacement README.md content, or null if no README update is needed.\n"
@@ -566,22 +574,24 @@ def main() -> int:
             print("Skip LLM refinement: no API credentials found.")
             return 0
         raise SystemExit(
-            "Missing skill-refiner credentials. Set SKILL_REFINER_* for a dedicated helper provider, "
-            "or rely on shared AISA_* credentials."
+            "Missing AISA_API_KEY for the repo-local skill-refinement helper."
         )
 
     print(
         "Refinement helper config: "
         f"source={config.source}, mode={config.mode}, model={config.model}, base_url={config.base_url}"
     )
+    print(f"Refinement profile: {args.profile}")
 
-    context = load_context()
+    context = load_context(args.profile)
     if not context:
-        raise SystemExit("Missing repo-local optimizer/auditor skill context under .agents/skills.")
+        raise SystemExit(
+            f"Missing repo-local refinement context for profile {args.profile} under .agents/skills or targets/."
+        )
 
     proposal_root.mkdir(parents=True, exist_ok=True)
     for skill_dir in skill_dirs:
-        messages = build_messages(skill_dir, context)
+        messages = build_messages(skill_dir, context, args.profile)
         raw_response = ""
         proposal: dict[str, Any] = {}
         try:

@@ -1,6 +1,7 @@
 ---
 name: aisa-multi-search-engine
 description: 'Multi-source search engine powered by AIsa API. Combines Tavily web search, Scholar academic search, Smart hybrid search, and Perplexity deep research — all through a single AIsa API key. Includes confidence scoring and AI synthesis. Use when: the user needs web search, research, source discovery, or content extraction.'
+version: 1.0.2
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, node, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:

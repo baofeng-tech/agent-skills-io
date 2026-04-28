@@ -6,6 +6,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 
 - Keep `targetSkills/` as the mother-skill source layer.
 - Generate `clawhub-release/` as the upload-focused runtime layer.
+- Keep original ClawHub slugs separate from ClawHub-only breakout siblings declared in `targets/clawhub-breakout-variants.json`.
 - Keep canonical `metadata.aisa`, then duplicate the minimal `metadata.openclaw` hints only where helpful for upload compatibility.
 - Prefer runtime-only files, repo-local defaults, and explicit auth flows.
 
@@ -15,8 +16,10 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `aisa-provider`
 - `aisa-tavily`
 - `aisa-twitter-api`
+- `aisa-twitter-api-command-center`
 - `aisa-twitter-command-center`
 - `aisa-twitter-engagement-suite`
+- `aisa-twitter-research-engage-relay`
 - `aisa-twitter-post-engage`
 - `aisa-youtube-search`
 - `aisa-youtube-serp-scout`

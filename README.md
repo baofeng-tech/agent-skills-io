@@ -22,9 +22,15 @@ More detailed repo rules live in [AGENTS.md](/mnt/d/workplace/agent-skills-io/AG
 
 ## Key Docs
 
-- [Repo Runbook And Script Reference](/mnt/d/workplace/agent-skills-io/targets/repo-runbook-and-script-reference.md:1)
-- [Platform Skill And Plugin Methodology](/mnt/d/workplace/agent-skills-io/targets/platform-skill-plugin-methodology.md:1)
-- [Unified Pipeline And GitHub Actions](/mnt/d/workplace/agent-skills-io/targets/unified-pipeline-and-github-actions.md:1)
+- Core workflow:
+  - [Repo Runbook And Script Reference](/mnt/d/workplace/agent-skills-io/targets/repo-runbook-and-script-reference.md:1)
+  - [Platform Skill And Plugin Methodology](/mnt/d/workplace/agent-skills-io/targets/platform-skill-plugin-methodology.md:1)
+  - [Unified Pipeline And GitHub Actions](/mnt/d/workplace/agent-skills-io/targets/unified-pipeline-and-github-actions.md:1)
+- Current audits:
+  - [Platform Layer And Rule Split Audit 2026-04-28](/mnt/d/workplace/agent-skills-io/targets/platform-layer-and-rule-split-audit-2026-04-28.md:1)
+  - [ClawHub Account Status 2026-04-28](/mnt/d/workplace/agent-skills-io/targets/clawhub-account-status-2026-04-28.md:1)
+  - [Breakout Skill Plugin Registry 2026-04-28](/mnt/d/workplace/agent-skills-io/targets/breakout-skill-plugin-registry-2026-04-28.md:1)
+  - [ClawHub Suspicious Causes And Fixes 2026-04-25](/mnt/d/workplace/agent-skills-io/targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md:1)
 
 ## Recommended Commands
 
@@ -73,13 +79,15 @@ python3 scripts/clawhub_live_status.py --targets both
   - hosted sync/build/test on schedule or manual dispatch
   - hosted suspicious diagnosis update (`targets/clawhub-suspicious-diagnosis.json`) plus optional diagnosis PR
   - self-hosted true publish for `AIsa-team/agent-skills` (`main` branch), `baofeng-tech/agent-skills-so`, `baofeng-tech/agent-skills`, Claude, Claude marketplace, Hermes, and optional ClawHub batch publish
-  - optional self-hosted suspicious-remediation loop for targeted ClawHub artifacts such as `skill:aisa-twitter-api-command-center` and `plugin:aisa-twitter-engagement-suite-plugin`
+  - optional self-hosted suspicious-remediation loop for explicitly specified ClawHub-owned artifacts
 - hosted upstream sync now targets `AIsa-team/agent-skills@main` by default
-- workflow dispatch now supports explicit LLM refinement (`run_llm_step`, `llm_apply`, `sync_repo_skills`) before release rebuild/publish
+- workflow dispatch supports optional repo-local LLM refinement (`run_llm_step`, `llm_apply`, `sync_repo_skills`) before release rebuild/publish, but it now defaults off so normal syncs do not mix ClawHub breakout copy into every release layer
 - workflow dispatch now also supports targeted suspicious remediation (`run_suspicious_repair`, `suspicious_artifacts`) that can apply the repo-local skill-refinement helper and force a republish of matching artifacts
-- `AISA_API_KEY` remains the shared runtime credential for published AISA API skills; the repo-local skill-refinement helper may borrow it by default, but it is documented and configured as a separate internal helper lane
-- the repo-local skill-refinement helper defaults to shared `AISA_API_KEY` / `AISA_*`, supports explicit internal override via `SKILL_REFINER_API_KEY`, `SKILL_REFINER_BASE_URL`, and `SKILL_REFINER_MODEL`, and keeps legacy `AI_*` only as a last-resort compatibility fallback
-- on this self-hosted runner, the workflow now falls back to `/mnt/d/workplace/agent-skills-io/example/accounts` for downstream GitHub PAT, ClawHub tokens, and skill-refiner config when those CI secrets are blank
+- repo-local refinement now has a rule split:
+  - normal mother-skill refinement uses `scripts/llm_refine_aisa_skills.py --profile source`
+  - ClawHub suspicious/breakout remediation uses `--profile clawhub_breakout`
+- `AISA_API_KEY` remains the only credential lane used by the repo-local skill-refinement helper
+- on this self-hosted runner, the workflow now falls back to `/mnt/d/workplace/agent-skills-io/example/accounts` for downstream GitHub PAT and ClawHub tokens when those CI secrets are blank
 - self-hosted downstream checkout now prefers public `https://github.com/<repo>.git` clone URLs, so repo preparation no longer blocks on `git@github-work` SSH timeouts before publish work even starts
 - the hosted schedule currently runs every 4 hours via cron `21 */4 * * *`
 - edit `.github/workflows/unified-skill-pipeline.yml` under `on.schedule[0].cron` if you want to change that hosted cadence later

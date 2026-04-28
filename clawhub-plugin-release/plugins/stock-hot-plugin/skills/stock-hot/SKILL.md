@@ -1,6 +1,6 @@
 ---
 name: stock-hot
-description: 'Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.'
+description: Hot Scanner — find the most trending and high-momentum stocks and crypto right now via AIsa API. Top gainers, losers, most active by volume, crypto highlights, news catalysts, and top 5 watchlist picks. Use when the user asks about trending stocks, what's hot, market movers, or momentum plays.
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -34,40 +34,30 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Stock Hot
+# Hot Scanner — AIsa Edition
 
-Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
+Scan for the most trending and high-momentum stocks and cryptocurrencies using the AIsa API.
 
-## When to use
+## Usage
 
-- The user needs stocks, crypto, prediction market, or portfolio research.
-- The user wants prices, screening, valuation, or event-driven analysis.
-- The user wants structured financial output for downstream analysis.
+```bash
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-hot/scripts/hot_scanner.py"
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-hot/scripts/hot_scanner.py" --focus stocks
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-hot/scripts/hot_scanner.py" --focus crypto
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-hot/scripts/hot_scanner.py" --output json
+```
 
-## High-Intent Workflows
+### Arguments
 
-- Check price action and market movement.
-- Screen assets or equities that match filters.
-- Research portfolios, dividends, or market opportunities.
+- `--focus`: Filter by `stocks`, `crypto`, or `both` (default)
+- `--output json`: Append structured JSON summary
 
-## Quick Reference
+## Output Sections
 
-- `python3 scripts/hot_scanner.py --help`
+- **Top Stock Movers**: Gainers (>3%), losers, most active by volume
+- **Crypto Highlights**: BTC price, dominance, trending coins, gainers/losers
+- **News-Driven Movers**: 5-8 items with ticker mentions from last 6 hours
+- **Top 5 Watchlist Picks**: With risk level assessment
+- **Quick Take**: 2-3 sentence market summary
 
-## Setup
-
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
-
-## Example Requests
-
-- Query NVDA price history and analyst expectations
-- Find stocks matching a screening rule
-- Check BTC and ETH market data for a portfolio view
-
-## Guardrails
-
-- Do not invent prices or financial metrics.
-- Do not turn examples into financial advice.
-- If an upstream endpoint is limited, say so directly.
+**NOT FINANCIAL ADVICE.** For informational purposes only.

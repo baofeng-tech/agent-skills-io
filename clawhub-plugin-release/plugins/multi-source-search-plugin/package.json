@@ -1,7 +1,7 @@
 {
   "name": "multi-source-search-plugin",
-  "version": "1.0.0",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `multi-source-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run confidence-scored multi-source retrieval through AIsa. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.",
+  "version": "1.0.1",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `multi-source-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -10,7 +10,9 @@
     "openclaw",
     "native-plugin",
     "agent-skill",
-    "search"
+    "x",
+    "search",
+    "research"
   ],
   "homepage": "https://aisa.one",
   "repository": {

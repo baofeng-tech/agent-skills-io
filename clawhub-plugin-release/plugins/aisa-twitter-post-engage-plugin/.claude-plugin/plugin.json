@@ -1,7 +1,7 @@
 {
   "name": "aisa-twitter-post-engage-plugin",
-  "description": "Requires python3, and AISA_API_KEY. Uses a configurable AIsa relay for Twitter/X research, OAuth-gated posting, and user-approved media uploads. Native-first ClawHub plugin for `aisa-twitter-post-engage`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run Twitter/X post-launch follow-through through AIsa. Use when: the user already has a draft, launch tweet, or reply target and needs one skill to publish and then manage early interactions. Supports posting, reply context, and lightweight engagement.",
-  "version": "1.0.0",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `aisa-twitter-post-engage`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.",
+  "version": "1.0.3",
   "author": {
     "name": "AIsa"
   },
@@ -18,17 +18,9 @@
           "AISA_API_KEY"
         ]
       },
-      "optionalEnv": [
-        "TWITTER_RELAY_BASE_URL",
-        "TWITTER_RELAY_TIMEOUT"
-      ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
         "https://api.aisa.one/apis/v1/twitter"
-      ],
-      "notes": [
-        "Uses a configurable AIsa relay for Twitter/X OAuth, research, posting, and engagement.",
-        "User-approved media uploads are sent to the configured relay."
       ]
     }
   }

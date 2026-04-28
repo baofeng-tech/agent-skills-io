@@ -1,6 +1,6 @@
 ---
 name: perplexity-research
-description: 'Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.'
+description: 'Deep research using Perplexity Sonar models via AIsa API. Provides synthesized answers with citations. Supports 4 models from fast to exhaustive deep research. Use when: the user needs web search, research, source discovery, or content extraction.'
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -34,40 +34,61 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Perplexity Research
+# AIsa Perplexity Deep Research
 
-Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-
-## When to use
-
-- The user needs web, multi-source, or last-30-days research.
-- The user wants competitor scans, trend discovery, or structured search output.
-- The user wants one skill to cover multiple retrieval surfaces.
-
-## High-Intent Workflows
-
-- Search and summarize recent evidence.
-- Compare two tools or companies using recent signals.
-- Turn multi-source retrieval into a research brief.
-
-## Quick Reference
-
-- `python3 scripts/search_client.py --help`
+Conduct deep research using Perplexity Sonar models via the AIsa API. Returns synthesized, citation-backed answers instead of raw search results. Choose from four models depending on the depth and complexity needed.
 
 ## Setup
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
+This skill requires the `AISA_API_KEY` environment variable. When installed as a Claude plugin, the key is configured via the plugin's `userConfig`.
 
-## Example Requests
+## Usage
 
-- Research OpenAI Agents SDK over the last 30 days
-- Compare OpenClaw and Codex using recent public discussion
-- Search recent sentiment around a product launch
+Run the search client with the `sonar` subcommand:
 
-## Guardrails
+```bash
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/perplexity-research/scripts/search_client.py sonar --query "<research question>" --model <model_name>
+```
 
-- Do not present test-only helpers as public features.
-- Do not claim sources that were not actually queried.
-- If some providers time out, report that honestly.
+### Arguments
+
+| Argument | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `--query` / `-q` | Yes | — | Research question or query |
+| `--model` / `-m` | No | sonar | Model to use (see below) |
+
+### Available Models
+
+| Model | Speed | Depth | Best For |
+|-------|-------|-------|----------|
+| `sonar` | Fast | Standard | Quick factual lookups |
+| `sonar-pro` | Medium | Detailed | In-depth topic exploration |
+| `sonar-reasoning-pro` | Slower | Deep | Complex reasoning and analysis |
+| `sonar-deep-research` | Slowest | Exhaustive | Comprehensive research reports |
+
+### Examples
+
+```bash
+# Quick factual lookup
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/perplexity-research/scripts/search_client.py sonar --query "What is the current state of quantum computing?"
+
+# Detailed research
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/perplexity-research/scripts/search_client.py sonar --query "Compare transformer and state-space model architectures" --model sonar-pro
+
+# Complex reasoning
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/perplexity-research/scripts/search_client.py sonar --query "Will AGI be achieved by 2030? Analyze arguments for and against." --model sonar-reasoning-pro
+
+# Exhaustive deep research
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/perplexity-research/scripts/search_client.py sonar --query "Comprehensive analysis of AI regulation frameworks worldwide" --model sonar-deep-research
+```
+
+## Output
+
+The script prints:
+- **Synthesized answer** — A coherent, well-structured response
+- **Citations** — Source URLs backing the answer
+- **Cost** — API usage cost (when available)
+
+## When to Use
+
+Use this skill when the user needs a synthesized, well-researched answer rather than raw search results. Best for complex questions, comparative analyses, trend reports, and any query where a thoughtful, citation-backed response is more valuable than a list of links.

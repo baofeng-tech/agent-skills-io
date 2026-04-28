@@ -1,6 +1,6 @@
 ---
 name: stock-dividend
-description: 'Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.'
+description: Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -34,40 +34,35 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Stock Dividend
+# Dividend Analysis — AIsa Edition
 
-Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.
+Analyze dividend metrics for one or more tickers using the AIsa API.
 
-## When to use
+## Usage
 
-- The user needs stocks, crypto, prediction market, or portfolio research.
-- The user wants prices, screening, valuation, or event-driven analysis.
-- The user wants structured financial output for downstream analysis.
+```bash
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-dividend/scripts/dividends.py" JNJ
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-dividend/scripts/dividends.py" JNJ PG KO
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/stock-dividend/scripts/dividends.py" JNJ PG KO --output json
+```
 
-## High-Intent Workflows
+### Arguments
 
-- Check price action and market movement.
-- Screen assets or equities that match filters.
-- Research portfolios, dividends, or market opportunities.
+- **Tickers**: One or more dividend-paying stock symbols
+- `--output json`: Append structured JSON summary
 
-## Quick Reference
+## Analysis Output
 
-- `python3 scripts/dividends.py --help`
+For each ticker, the analysis includes:
 
-## Setup
+- **Core Metrics**: Yield, ex-date, frequency, last payment amount
+- **Payout Analysis**: Payout ratio, FCF payout, coverage ratio
+- **Growth**: 1Y, 3Y CAGR, 5Y CAGR, consecutive years of increases
+- **Last 5 Annual Dividends** table
+- **Safety Score (0-100)**: Based on payout ratio (25pts), FCF coverage (20pts), growth consistency (20pts), balance sheet (15pts), earnings stability (10pts), consecutive years (10pts)
+- **Income Rating**: Excellent (80+), Good (60-79), Moderate (40-59), Poor (<40)
+- **Dividend Aristocrat/King** status check
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
+When multiple tickers are provided, a ranked comparison table is included.
 
-## Example Requests
-
-- Query NVDA price history and analyst expectations
-- Find stocks matching a screening rule
-- Check BTC and ETH market data for a portfolio view
-
-## Guardrails
-
-- Do not invent prices or financial metrics.
-- Do not turn examples into financial advice.
-- If an upstream endpoint is limited, say so directly.
+**NOT FINANCIAL ADVICE.** For informational purposes only.

@@ -1,31 +1,31 @@
 ---
 name: aisa-twitter-engagement-suite
-description: 'Engagement-focused Twitter/X workflow for research, approved posting, likes, follows, and related actions through the AIsa relay. Use when: the user already knows which tweets or accounts to act on and needs explicit OAuth-gated engagement without sharing passwords. Supports read context, posting, and follow-through actions; all writes and uploads go to api.aisa.one.'
+description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+version: 1.0.3
 license: MIT-0
 allowed-tools: Read Bash Grep
-when_to_use: the user already knows which tweets or accounts to act on and needs explicit OAuth-gated engagement without sharing passwords. Supports read context, posting, and follow-through actions; all writes and uploads go to api.aisa.one
+when_to_use: the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords
 ---
 
 # AIsa Twitter Engagement Suite
 
-Run explicit Twitter/X engagement workflows through the AIsa relay after the user decides what to post, like, follow, or reply to.
+Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay.
 
 ## When to use
 
-- The user wants to like, unlike, follow, unfollow, or post on Twitter/X after explicit approval.
-- The task already has a likely target account, tweet, or campaign and needs follow-through actions.
-- The workflow can use a Python client with `AISA_API_KEY` and explicit OAuth approval.
+- The user wants Twitter/X research plus posting, liking, unliking, following, or unfollowing workflows.
+- The task can use a Python client with `AISA_API_KEY` and explicit OAuth approval.
+- The workflow needs a single package that covers read, post, and engagement actions.
 
 ## When NOT to use
 
-- The user mainly needs one flagship Twitter/X surface for broad research or monitoring; use `aisa-twitter-api`.
-- The task is primarily watchlists, trend scanning, or recurring monitoring better handled by `aisa-twitter-command-center`.
+- The user needs cookie extraction, password login, or a fully local Twitter client.
 - The workflow must avoid relay-based network calls or media upload through `api.aisa.one`.
+- The task needs undocumented secrets or browser-derived auth values.
 
 ## Quick Reference
 
 - Required environment variable: `AISA_API_KEY`
-- Relay target: `https://api.aisa.one`
 - Read client: `scripts/twitter_client.py`
 - Post client: `scripts/twitter_oauth_client.py`
 - Engage client: `scripts/twitter_engagement_client.py`
@@ -36,8 +36,6 @@ Run explicit Twitter/X engagement workflows through the AIsa relay after the use
 ```bash
 export AISA_API_KEY="your-key"
 ```
-
-All writes, OAuth approvals, and approved media uploads go to `https://api.aisa.one/apis/v1/...`.
 
 ## Common Commands
 
@@ -52,15 +50,3 @@ python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
 - Research Twitter/X accounts, tweets, trends, lists, communities, and Spaces.
 - Publish text, image, and video posts after explicit OAuth approval.
 - Like, unlike, follow, and unfollow after authorization exists.
-
-## Guardrails
-
-- Do not ask for passwords, browser cookies, or undocumented secrets.
-- Do not claim a like, follow, reply, or post succeeded until the relay returns success.
-- Do not treat engagement as silent or automatic; all write actions require explicit approval.
-
-## Security Notes
-
-- This workflow is relay-based and sends API requests, OAuth approvals, and approved media uploads to `api.aisa.one`.
-- Required secret: `AISA_API_KEY`.
-- This package does not require password sharing or browser-cookie extraction.

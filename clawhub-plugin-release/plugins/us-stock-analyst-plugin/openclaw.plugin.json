@@ -1,8 +1,8 @@
 {
   "id": "us-stock-analyst-plugin",
   "name": "Us Stock Analyst",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `us-stock-analyst`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query stocks, crypto, prediction markets, and portfolio research through AIsa. Use when: the user needs market data, screening, price history, or investment analysis. Supports research and analysis-ready outputs.",
-  "version": "1.0.0",
+  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `us-stock-analyst`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Professional US stock analysis with financial data, news, social sentiment, and multi-model AI. Comprehensive reports at $0.02-0.10 per analysis. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
+  "version": "1.0.1",
   "skills": [
     "./skills"
   ],

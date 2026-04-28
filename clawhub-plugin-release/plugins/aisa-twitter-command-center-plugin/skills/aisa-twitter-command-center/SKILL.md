@@ -1,8 +1,8 @@
 ---
 name: aisa-twitter-command-center
-description: 'Run Twitter/X watchlists, competitor monitoring, trend scans, and OAuth-gated follow-through through AIsa. Use when: the user needs a monitoring-first Twitter desk for recurring account sweeps, launch reactions, or trend tracking. Supports search, monitoring, and approved posting after review.'
+description: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
 author: AIsa
-version: 1.0.0
+version: 1.0.3
 license: Apache-2.0
 user-invocable: true
 primaryEnv: AISA_API_KEY
@@ -19,9 +19,6 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
-    optionalEnv:
-    - TWITTER_RELAY_BASE_URL
-    - TWITTER_RELAY_TIMEOUT
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -34,52 +31,81 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
-    optionalEnv:
-    - TWITTER_RELAY_BASE_URL
-    - TWITTER_RELAY_TIMEOUT
     primaryEnv: AISA_API_KEY
 ---
 
-# AIsa Twitter Watchlist Desk
+# AIsa Twitter Command Center
 
-Run Twitter/X watchlists, competitor monitoring, trend scans, and OAuth-gated follow-through through AIsa. Use when: the user needs a monitoring-first Twitter desk for recurring account sweeps, launch reactions, or trend tracking. Supports search, monitoring, and approved posting after review.
+Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth.
 
 ## When to use
 
-- The user needs recurring Twitter/X monitoring, watchlists, competitor sweeps, or trend scans.
-- The user wants profiles, timelines, trends, lists, communities, or Spaces checked on a repeated basis.
-- The user may follow the monitoring pass with an approved post, but monitoring stays primary.
+- The user wants Twitter/X research, monitoring, or content discovery.
+- The user wants to inspect profiles, timelines, mentions, trends, replies, quotes, lists, communities, or Spaces.
+- The user wants to draft or publish posts after explicit OAuth approval without sharing passwords.
 
-## High-Intent Workflows
+## When NOT to use
 
-- Track what changed across a competitor watchlist today.
-- Monitor reactions to a launch, narrative, or keyword over time.
-- Review a monitoring pass before deciding whether to publish.
+- The user needs password-based login, cookie extraction, or browser credential scraping.
+- The workflow must avoid relay-based calls to `api.aisa.one`.
+- The request is for unsupported engagement actions not covered by this package.
 
 ## Quick Reference
 
-- `python3 scripts/twitter_client.py --help`
-- `python3 scripts/twitter_oauth_client.py --help`
+- Required environment variable: `AISA_API_KEY`
+- Read client: `scripts/twitter_client.py`
+- OAuth and posting client: `scripts/twitter_oauth_client.py`
+- Posting guide: `references/post_twitter.md`
 
 ## Setup
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
-- Optional: set `TWITTER_RELAY_BASE_URL` to override the default relay `https://api.aisa.one/apis/v1/twitter`.
-- Optional: set `TWITTER_RELAY_TIMEOUT` to tune relay request timeouts in seconds.
-- OAuth requests and any user-approved media uploads use the configured AIsa relay and default to `https://api.aisa.one/apis/v1/twitter`.
-- Provide only `AISA_API_KEY`; do not use passwords, cookies, or browser credential export.
+```bash
+export AISA_API_KEY="your-key"
+```
 
-## Example Requests
+All network calls go to `https://api.aisa.one/apis/v1/...`.
 
-- Track a competitor watchlist and summarize what changed today
-- Monitor how X is reacting to our launch this week
-- Review a trend desk before publishing a follow-up post
+## Capabilities
+
+- Read user data, timelines, mentions, followers, followings, and related profile information.
+- Search tweets and users, inspect replies, quotes, retweeters, thread context, trends, lists, communities, and Spaces.
+- Publish text, image, and video posts after explicit OAuth approval.
+- Return an authorization link when posting access has not been approved yet.
+
+## Common Commands
+
+```bash
+python3 scripts/twitter_client.py user-info --username elonmusk
+python3 scripts/twitter_client.py search --query "AI agents" --type Latest
+python3 scripts/twitter_client.py trends --woeid 1
+python3 scripts/twitter_oauth_client.py status
+python3 scripts/twitter_oauth_client.py authorize
+python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa"
+```
+
+## Posting Workflow
+
+When the user asks to send, publish, reply, or quote on X/Twitter:
+
+1. Check whether `AISA_API_KEY` is configured.
+2. If the user intent is to publish, attempt the publish workflow.
+3. If authorization has not been completed, return the OAuth authorization link first.
+4. Use `--media-file` only for user-provided local workspace files.
+5. Do not claim the post succeeded until the publish command actually succeeds.
 
 ## Guardrails
 
-- Do not market this package as the flagship general-purpose Twitter lane.
-- Do not treat likes, follows, or replies as the core job of this package.
-- Do not claim posting succeeded until the API confirms it.
-- Only upload local files the user explicitly attached, and make it clear those files are sent to the configured AIsa relay first.
+- Do not ask for Twitter passwords or browser cookies.
+- Do not invent captions, tweet URLs, or attachment files.
+- Do not default to browser opening unless the user explicitly wants local browser launch.
+- Do not claim external posting succeeded until the API confirms success.
+
+## Security Notes
+
+- The workflow is relay-based and sends API requests, OAuth requests, and approved media uploads to `api.aisa.one`.
+- Required secret: `AISA_API_KEY`.
+- This workflow does not require passwords, browser cookie extraction, or direct account credential sharing.
+
+## References
+
+- See `references/post_twitter.md` for detailed posting examples and OAuth guidance.

@@ -138,30 +138,33 @@ The pipeline now supports an explicit model-execution stage between sync and bui
   - syncs global `*-all` skills into `.agents/skills`
 - `scripts/llm_refine_aisa_skills.py`
   - uses AISA/OpenAI-compatible endpoints to refine changed AISA API `targetSkills/*`
+  - now supports profile selection:
+    - `--profile source`
+      - neutral mother-skill refinement for normal sync/build runs
+    - `--profile clawhub_breakout`
+      - ClawHub breakout / suspicious-remediation refinement
   - supports:
     - `https://api.aisa.one/v1/responses`
     - `https://api.aisa.one/v1/chat/completions`
     - `https://api.aisa.one/v1/messages`
     - `https://api.aisa.one/v1/models/{model}:generateContent`
   - keeps the repo-local refinement helper separate from the published AISA API product skills
-  - defaults to the shared AISA credential lane:
+  - uses the shared AISA credential lane only:
     - `AISA_API_KEY`
-    - optional `AISA_BASE_URL`
     - optional `AISA_LLM_MODEL`
-  - supports explicit internal override for the refinement helper only:
-    - `SKILL_REFINER_BASE_URL`
-    - `SKILL_REFINER_API_KEY`
-    - `SKILL_REFINER_MODEL`
-  - keeps legacy compatibility fallback only:
-    - `AI_BASE_URL`
-    - `AI_API_KEY`
-    - `AI_MODEL`
 
 In workflow-dispatch mode, the controls are:
 
 - `run_llm_step`
 - `llm_apply`
 - `sync_repo_skills`
+
+Current default behavior:
+
+- normal hosted/self-hosted sync runs the helper with `--profile source`
+- targeted ClawHub suspicious remediation runs the helper with `--profile clawhub_breakout`
+
+This split exists specifically to avoid mixing ClawHub breakout copy into the neutral mother-skill layer during routine syncs.
 
 ### Suspicious remediation loop
 
@@ -171,8 +174,8 @@ The self-hosted lane now also supports an optional repair path for live ClawHub 
   - reads `targets/clawhub-suspicious-diagnosis.json`
   - selects matching `blocker` artifacts in `suspicious` state
   - maps them back to `targetSkills/*`
-  - runs repo-local `.agents/skills` context plus `scripts/llm_refine_aisa_skills.py`
-  - rebuilds every release layer
+  - runs repo-local ClawHub breakout context via `scripts/llm_refine_aisa_skills.py --profile clawhub_breakout`
+  - rebuilds only `targetSkills/`, `clawhub-release/`, and `clawhub-plugin-release/`
   - optionally re-syncs downstream publish repos
   - optionally re-publishes only the selected artifact keys through `scripts/publish_clawhub_batch.py --artifact ... --force`
 
@@ -183,8 +186,7 @@ Current workflow-dispatch controls for this lane:
 
 Current default targeted blocker set:
 
-- `skill:aisa-twitter-api-command-center`
-- `plugin:aisa-twitter-engagement-suite-plugin`
+- none; pass explicit ClawHub-owned artifact keys when needed
 
 ### Suspicious diagnosis chain
 
@@ -224,7 +226,7 @@ Why:
 
 On this runner, the self-hosted lane now also supports a local credential fallback:
 
-- if `DOWNSTREAM_REPO_TOKEN`, ClawHub tokens, or skill-refiner config are blank in GitHub Actions secrets
+- if `DOWNSTREAM_REPO_TOKEN` or ClawHub tokens are blank in GitHub Actions secrets
 - the job will try `/mnt/d/workplace/agent-skills-io/example/accounts`
 - downstream repo preparation now prefers public `https://github.com/<repo>.git` clone URLs so repo sync does not stall on SSH timeout before publish starts
 
@@ -346,4 +348,4 @@ Recommended manual-dispatch pattern:
 - enable `sync_adjacent_repos=true` when you want downstream GitHub publish
 - set `clawhub_publish=skill`, `plugin`, or `both` only when the self-hosted runner is ready for live publish
 - keep `clawhub_dry_run=true` for the first publish rehearsal, then flip it to `false` for real continuation
-- enable `run_suspicious_repair=true` plus `suspicious_artifacts=skill:aisa-twitter-api-command-center,plugin:aisa-twitter-engagement-suite-plugin` when you want the runner to diagnose, minimally rewrite, and republish that live blocker set
+- enable `run_suspicious_repair=true` plus an explicit `suspicious_artifacts=...` value when you want the runner to diagnose, minimally rewrite, and republish a ClawHub-owned live blocker set

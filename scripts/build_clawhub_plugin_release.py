@@ -113,10 +113,6 @@ def plugin_description(skill: dict[str, object]) -> str:
             lead_parts.append(f"Requires {requirement_tokens[0]}.")
         else:
             lead_parts.append(f"Requires {', '.join(requirement_tokens[:-1])}, and {requirement_tokens[-1]}.")
-    if relay_default_url(skill):
-        lead_parts.append(
-            "Uses a configurable AIsa relay for Twitter/X research, OAuth-gated posting, and user-approved media uploads."
-        )
     lead = f"{' '.join(lead_parts)} " if lead_parts else ""
     return (
         f"{lead}Native-first ClawHub plugin for `{skill['name']}`. "
@@ -144,7 +140,6 @@ def build_runtime_requirements(skill: dict[str, object]) -> dict[str, object]:
     requirements: dict[str, object] = {}
     required_bins = [value for value in skill.get("required_bins", []) if isinstance(value, str)]
     env_vars = [value for value in skill.get("env_vars", []) if isinstance(value, str)]
-    optional_env_vars = [value for value in skill.get("optional_env_vars", []) if isinstance(value, str)]
     primary_env = str(skill.get("primary_env") or "").strip()
     network_target = relay_default_url(skill) or ("https://api.aisa.one" if "AISA_API_KEY" in env_vars else "")
 
@@ -152,8 +147,6 @@ def build_runtime_requirements(skill: dict[str, object]) -> dict[str, object]:
         requirements["bins"] = required_bins
     if env_vars:
         requirements["env"] = env_vars
-    if optional_env_vars:
-        requirements["optionalEnv"] = optional_env_vars
     if primary_env:
         requirements["primaryEnv"] = primary_env
     if network_target:
@@ -171,38 +164,20 @@ def build_runtime_metadata(skill: dict[str, object]) -> dict[str, object]:
         requires["env"] = runtime["env"]
     if requires:
         metadata_entry["requires"] = requires
-    if runtime.get("optionalEnv"):
-        metadata_entry["optionalEnv"] = runtime["optionalEnv"]
     if runtime.get("primaryEnv"):
         metadata_entry["primaryEnv"] = runtime["primaryEnv"]
     if runtime.get("networkTargets"):
         metadata_entry["networkTargets"] = runtime["networkTargets"]
-    if relay_default_url(skill):
-        metadata_entry["notes"] = [
-            "Uses a configurable AIsa relay for Twitter/X OAuth, research, posting, and engagement.",
-            "User-approved media uploads are sent to the configured relay.",
-        ]
     return {"aisa": metadata_entry}
 
 
 def infer_optional_env_vars(skill_dir: Path, metadata: dict[str, object]) -> list[str]:
-    openclaw_meta = metadata.get("openclaw") if isinstance(metadata.get("openclaw"), dict) else {}
-    aisa_meta = metadata.get("aisa") if isinstance(metadata.get("aisa"), dict) else {}
-    optional_envs = merge_env_lists(
-        openclaw_meta.get("optionalEnv") if isinstance(openclaw_meta, dict) else None,
-        aisa_meta.get("optionalEnv") if isinstance(aisa_meta, dict) else None,
-    )
-    if optional_envs:
-        return optional_envs
-    scripts_dir = skill_dir / "scripts"
-    if (scripts_dir / "twitter_oauth_client.py").exists() or (scripts_dir / "twitter_engagement_client.py").exists():
-        return ["TWITTER_RELAY_BASE_URL", "TWITTER_RELAY_TIMEOUT"]
     return []
 
 
 def relay_default_url(skill: dict[str, object]) -> str | None:
-    optional_env_vars = [env_name for env_name in skill.get("optional_env_vars", []) if isinstance(env_name, str)]
-    if "TWITTER_RELAY_BASE_URL" in optional_env_vars:
+    lower = f"{skill.get('name', '')} {skill.get('description', '')}".lower()
+    if "twitter" in lower or lower.startswith("x-"):
         return "https://api.aisa.one/apis/v1/twitter"
     return None
 
@@ -215,18 +190,6 @@ def build_config_property(env_name: str) -> dict[str, object]:
             "description": f"Provide {env_name} for the packaged AIsa skill runtime.",
             "format": "password",
         }
-    if env_name == "TWITTER_RELAY_BASE_URL":
-        return {
-            "type": "string",
-            "title": humanize_env_name(env_name),
-            "description": "Optional override for the Twitter relay base URL. Defaults to https://api.aisa.one/apis/v1/twitter.",
-        }
-    if env_name == "TWITTER_RELAY_TIMEOUT":
-        return {
-            "type": "string",
-            "title": humanize_env_name(env_name),
-            "description": "Optional timeout in seconds for Twitter relay requests.",
-        }
     return {
         "type": "string",
         "title": humanize_env_name(env_name),
@@ -236,9 +199,8 @@ def build_config_property(env_name: str) -> dict[str, object]:
 
 def build_config_schema(skill: dict[str, object]) -> dict[str, object]:
     env_vars = [env_name for env_name in skill.get("env_vars", []) if isinstance(env_name, str)]
-    optional_env_vars = [env_name for env_name in skill.get("optional_env_vars", []) if isinstance(env_name, str)]
     properties: dict[str, object] = {}
-    for env_name in env_vars + [name for name in optional_env_vars if name not in env_vars]:
+    for env_name in env_vars:
         properties[env_name] = build_config_property(env_name)
 
     schema: dict[str, object] = {
@@ -352,10 +314,9 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "",
         f"- Required bins: `{', '.join(skill['required_bins'])}`" if skill.get("required_bins") else "- Required bins: none",
         f"- Required env vars: `{', '.join(skill['env_vars'])}`" if skill.get("env_vars") else "- Required env vars: none",
-        f"- Optional env vars: `{', '.join(skill['optional_env_vars'])}`" if skill.get("optional_env_vars") else "- Optional env vars: none",
         f"- Primary env: `{skill['primary_env']}`" if skill.get("primary_env") else "- Primary env: none",
         (
-            f"- Network target: configured relay, default `{relay_default_url(skill)}`"
+            f"- Network target: `{relay_default_url(skill)}`"
             if relay_default_url(skill)
             else "- Network target: `https://api.aisa.one`"
             if "AISA_API_KEY" in skill.get("env_vars", [])
@@ -396,13 +357,6 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "- If both native and bundle markers exist, OpenClaw prefers the native plugin path.",
         "- This package keeps side effects explicit and relies on the packaged skill's repo-local defaults where applicable.",
     ]
-    if relay_default_url(skill):
-        readme_lines.extend(
-            [
-                f"- OAuth, approved posting, and engagement actions default to `{relay_default_url(skill)}` unless `TWITTER_RELAY_BASE_URL` is set.",
-                "- Media files are uploaded only when the user explicitly attached them, and they are sent to the configured relay first.",
-            ]
-        )
     (plugin_dir / "README.md").write_text("\n".join(readme_lines) + "\n", encoding="utf-8")
 
     zip_path = ZIP_ROOT / f"{slug}.zip"

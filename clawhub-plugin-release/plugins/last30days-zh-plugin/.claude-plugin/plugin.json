@@ -1,6 +1,6 @@
 {
   "name": "last30days-zh-plugin",
-  "description": "Requires python3, bash, and AISA_API_KEY. Native-first ClawHub plugin for `last30days-zh`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. 通过 AIsa 执行网页、多源或近 30 天研究检索。触发条件：当用户需要搜索、研究、比对或趋势归纳时使用。支持多源检索与结构化输出。",
+  "description": "Requires python3, bash, and AISA_API_KEY. Native-first ClawHub plugin for `last30days-zh`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. 聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.",
   "version": "1.0.0",
   "author": {
     "name": "AIsa"
@@ -21,7 +21,7 @@
       },
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
-        "https://api.aisa.one"
+        "https://api.aisa.one/apis/v1/twitter"
       ]
     }
   }

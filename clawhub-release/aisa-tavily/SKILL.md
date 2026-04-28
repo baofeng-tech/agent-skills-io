@@ -1,6 +1,6 @@
 ---
 name: aisa-tavily
-description: 'Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.'
+description: 'AI-optimized web search via AIsa''s Tavily API proxy. Returns concise, relevant results for AI agents through AIsa''s unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction.'
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -34,36 +34,34 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# AIsa Tavily
+# AIsa Tavily Search
 
-Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+AI-optimized web search using Tavily API through AIsa's unified gateway. Designed for AI agents - returns clean, relevant content.
 
-## When to use
+## Search
 
-- The user needs web, multi-source, or last-30-days research.
-- The user wants competitor scans, trend discovery, or structured search output.
-- The user wants one skill to cover multiple retrieval surfaces.
+```bash
+node scripts/search.mjs "query"
+node scripts/search.mjs "query" -n 10
+node scripts/search.mjs "query" --deep
+node scripts/search.mjs "query" --topic news
+```
 
-## High-Intent Workflows
+## Options
 
-- Search and summarize recent evidence.
-- Compare two tools or companies using recent signals.
-- Turn multi-source retrieval into a research brief.
+- `-n <count>`: Number of results (default: 5, max: 20)
+- `--deep`: Use advanced search for deeper research (slower, more comprehensive)
+- `--topic <topic>`: Search topic - `general` (default) or `news`
+- `--days <n>`: For news topic, limit to last n days
 
-## Setup
+## Extract content from URL
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
+```bash
+node scripts/extract.mjs "https://example.com/article"
+```
 
-## Example Requests
-
-- Research OpenAI Agents SDK over the last 30 days
-- Compare OpenClaw and Codex using recent public discussion
-- Search recent sentiment around a product launch
-
-## Guardrails
-
-- Do not present test-only helpers as public features.
-- Do not claim sources that were not actually queried.
-- If some providers time out, report that honestly.
+Notes:
+- Needs `AISA_API_KEY` from https://marketplace.aisa.one
+- Powered by AIsa's unified API gateway (https://aisa.one)
+- Use `--deep` for complex research questions
+- Use `--topic news` for current events

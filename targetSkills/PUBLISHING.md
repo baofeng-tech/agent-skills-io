@@ -3,12 +3,12 @@
 这批 skill 当前是在临时整理仓库中生成的，正式发布目标为：
 
 - Repository: <https://github.com/AIsa-team/agent-skills>
-- Branch: `agentskills`
-- Branch URL: <https://github.com/AIsa-team/agent-skills/tree/agentskills>
+- Branch: `main`
+- Branch URL: <https://github.com/AIsa-team/agent-skills/tree/main>
 
 ## 建议发布步骤
 
-1. 将本目录下各 skill 子目录复制到正式仓库 `agentskills` 分支根目录。
+1. 将本目录下各 skill 子目录复制到正式仓库 `main` 分支根目录。
 2. 同步复制以下索引文件到正式仓库根目录或你们约定的索引目录：
    - `index.md`
    - `index.json`
@@ -32,3 +32,8 @@ https://your-domain/.well-known/skills/index.json
 - 再发布 `aisa-twitter-post-engage`
 - 然后发布两个 YouTube skill
 - 对其余 Twitter 变体后续再做品牌和去重整理
+
+## 母版层提醒
+
+- `targetSkills/` 是母版，不是 ClawHub breakout 上传层。
+- 如果目标是 ClawHub 的 breakout slug 或 plugin，请优先使用 `clawhub-release/` 或 `clawhub-plugin-release/` 的专用产物。

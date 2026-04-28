@@ -1,6 +1,6 @@
 ---
 name: web-search
-description: 'Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.'
+description: 'Search the web using AIsa Scholar Web endpoint. Returns structured web results with titles, URLs, and snippets. Use when: the user needs web search, research, source discovery, or content extraction.'
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
@@ -34,40 +34,42 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Web Search
+# AIsa Web Search
 
-Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
-
-## When to use
-
-- The user needs web, multi-source, or last-30-days research.
-- The user wants competitor scans, trend discovery, or structured search output.
-- The user wants one skill to cover multiple retrieval surfaces.
-
-## High-Intent Workflows
-
-- Search and summarize recent evidence.
-- Compare two tools or companies using recent signals.
-- Turn multi-source retrieval into a research brief.
-
-## Quick Reference
-
-- `python3 scripts/search_client.py --help`
+Search the web using the AIsa Scholar Web Search endpoint. Returns structured results with titles, URLs, and content snippets.
 
 ## Setup
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
+This skill requires the `AISA_API_KEY` environment variable. When installed as a Claude plugin, the key is configured via the plugin's `userConfig`.
 
-## Example Requests
+## Usage
 
-- Research OpenAI Agents SDK over the last 30 days
-- Compare OpenClaw and Codex using recent public discussion
-- Search recent sentiment around a product launch
+Run the search client with the `web` subcommand:
 
-## Guardrails
+```bash
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/web-search/scripts/search_client.py web --query "<search query>" --count <max_results>
+```
 
-- Do not present test-only helpers as public features.
-- Do not claim sources that were not actually queried.
-- If some providers time out, report that honestly.
+### Arguments
+
+| Argument | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `--query` / `-q` | Yes | — | The search query string |
+| `--count` / `-c` | No | 10 | Maximum number of results (1–100) |
+
+### Example
+
+```bash
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/web-search/scripts/search_client.py web --query "latest AI agent frameworks 2026" --count 5
+```
+
+## Output
+
+The script prints structured results including:
+- **Title** — Page title
+- **URL** — Direct link to the source
+- **Snippet** — Content excerpt relevant to the query
+
+## When to Use
+
+Use this skill when the user asks to search the web, find information online, look up recent events, or needs general web results. This is the most versatile search tool for broad queries.

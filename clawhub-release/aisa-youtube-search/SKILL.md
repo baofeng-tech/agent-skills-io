@@ -1,8 +1,8 @@
 ---
 name: aisa-youtube-search
-description: 'Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.'
+description: Search YouTube videos, channels, and playlists through the AIsa YouTube relay with one API key. Use when the user asks for YouTube discovery, query expansion, or pagination without managing Google credentials.
 author: AIsa
-version: 1.0.0
+version: 1.0.1
 license: MIT-0
 user-invocable: true
 primaryEnv: AISA_API_KEY
@@ -28,36 +28,62 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# AIsa Youtube Search
+# AIsa YouTube Search
 
-Search YouTube videos, channels, rankings, and trends through AIsa. Use when: the user needs YouTube research, competitor scouting, or content discovery. Supports video discovery and SERP-style analysis.
+Search YouTube videos, channels, and playlists through the AIsa YouTube relay with one API key.
 
 ## When to use
 
-- The user needs YouTube video, channel, or trend discovery.
-- The user wants content research, SERP scouting, or competitor review.
-- The user wants public YouTube results quickly.
+- The user wants to search YouTube videos, channels, or playlists.
+- The task needs region or language filters without direct Google API setup.
+- The workflow can call the AIsa YouTube search endpoint with `AISA_API_KEY`.
 
-## High-Intent Workflows
+## When NOT to use
 
-- Find top-ranking videos for a topic.
-- Inspect a competitor channel's recent content direction.
-- Scan trend-heavy queries for content opportunities.
+- The user needs browser automation, local scraping, or direct YouTube account actions.
+- The workflow must avoid sending search requests to `api.aisa.one`.
+- The request depends on a local helper script that is not part of this package.
+
+## Quick Reference
+
+- Required environment variable: `AISA_API_KEY`
+- Endpoint: `https://api.aisa.one/apis/v1/youtube/search`
+- This package is curl-first and does not ship a local Python client.
 
 ## Setup
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
+```bash
+export AISA_API_KEY="your-key"
+```
 
-## Example Requests
+## Common Commands
 
-- Search top YouTube videos about OpenAI Agents
-- Review a competitor channel's recent uploads
-- Find high-ranking videos for AI coding tutorials
+```bash
+curl -s "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=machine+learning+tutorial" \
+  -H "Authorization: Bearer $AISA_API_KEY"
+
+curl -s "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AI+news&gl=us&hl=en" \
+  -H "Authorization: Bearer $AISA_API_KEY"
+
+curl -s "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=python+tutorial&sp=EgIQAQ%3D%3D" \
+  -H "Authorization: Bearer $AISA_API_KEY"
+```
+
+## Capabilities
+
+- Search YouTube SERP results with `q`
+- Filter by locale with `gl` and `hl`
+- Apply pagination or narrowing via `sp`
+- Return structured results that may include `videos` or grouped `sections`
 
 ## Guardrails
 
-- Do not invent video titles, URLs, or metrics.
-- Summaries should stay grounded in returned results.
-- If the upstream returns no results, say so clearly.
+- Do not ask for Google credentials or browser cookies.
+- Do not claim a result is local-only when it depends on relay requests.
+- Do not fabricate missing filters or parameters.
+
+## Security Notes
+
+- All search requests go to `api.aisa.one`.
+- Required secret: `AISA_API_KEY`.
+- This workflow does not require passwords, browser automation, or local scraping.

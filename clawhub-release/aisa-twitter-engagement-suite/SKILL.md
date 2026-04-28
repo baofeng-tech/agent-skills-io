@@ -1,8 +1,8 @@
 ---
 name: aisa-twitter-engagement-suite
-description: 'Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.'
+description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 author: AIsa
-version: 1.0.0
+version: 1.0.3
 license: MIT-0
 user-invocable: true
 primaryEnv: AISA_API_KEY
@@ -19,9 +19,6 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
-    optionalEnv:
-    - TWITTER_RELAY_BASE_URL
-    - TWITTER_RELAY_TIMEOUT
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -34,53 +31,49 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
-    optionalEnv:
-    - TWITTER_RELAY_BASE_URL
-    - TWITTER_RELAY_TIMEOUT
     primaryEnv: AISA_API_KEY
 ---
 
 # AIsa Twitter Engagement Suite
 
-Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.
+Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay.
 
 ## When to use
 
-- The user already knows which tweet, account, or campaign needs action.
-- The user needs explicit likes, follows, replies, or other engagement workflows after review.
-- The user wants approved posting and engagement without sharing passwords.
+- The user wants Twitter/X research plus posting, liking, unliking, following, or unfollowing workflows.
+- The task can use a Python client with `AISA_API_KEY` and explicit OAuth approval.
+- The workflow needs a single package that covers read, post, and engagement actions.
 
-## High-Intent Workflows
+## When NOT to use
 
-- Research the target, then like or follow with explicit approval.
-- Use engagement actions as follow-through after a post or campaign review.
-- Combine read context, posting, and engagement in one approved workflow.
+- The user needs cookie extraction, password login, or a fully local Twitter client.
+- The workflow must avoid relay-based network calls or media upload through `api.aisa.one`.
+- The task needs undocumented secrets or browser-derived auth values.
 
 ## Quick Reference
 
-- `python3 scripts/twitter_client.py --help`
-- `python3 scripts/twitter_engagement_client.py --help`
-- `python3 scripts/twitter_oauth_client.py --help`
+- Required environment variable: `AISA_API_KEY`
+- Read client: `scripts/twitter_client.py`
+- Post client: `scripts/twitter_oauth_client.py`
+- Engage client: `scripts/twitter_engagement_client.py`
+- References: `references/post_twitter.md`, `references/engage_twitter.md`
 
 ## Setup
 
-- `AISA_API_KEY` is required for AIsa-backed API access.
-- Use repo-relative `scripts/` paths from the shipped package.
-- Prefer explicit CLI auth flags when a script exposes them.
-- Optional: set `TWITTER_RELAY_BASE_URL` to override the default relay `https://api.aisa.one/apis/v1/twitter`.
-- Optional: set `TWITTER_RELAY_TIMEOUT` to tune relay request timeouts in seconds.
-- OAuth requests and any user-approved media uploads use the configured AIsa relay and default to `https://api.aisa.one/apis/v1/twitter`.
-- Provide only `AISA_API_KEY`; do not use passwords, cookies, or browser credential export.
+```bash
+export AISA_API_KEY="your-key"
+```
 
-## Example Requests
+## Common Commands
 
-- Research a target account and like its latest tweet
-- Authorize a reply or follow-up action after a launch post
-- Run a reply, like, or follow workflow on a confirmed target
+```bash
+python3 scripts/twitter_client.py search --query "AI agents" --type Latest
+python3 scripts/twitter_oauth_client.py authorize
+python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
+```
 
-## Guardrails
+## Capabilities
 
-- Do not ask for passwords, cookies, or browser credentials.
-- Do not make likes, follows, replies, or uploads sound silent or automatic.
-- Do not claim an engagement action succeeded until the API confirms it.
-- Only upload local files the user explicitly attached, and make it clear those files are sent to the configured AIsa relay first.
+- Research Twitter/X accounts, tweets, trends, lists, communities, and Spaces.
+- Publish text, image, and video posts after explicit OAuth approval.
+- Like, unlike, follow, and unfollow after authorization exists.

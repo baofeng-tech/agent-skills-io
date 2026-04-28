@@ -41,7 +41,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `aisa-twitter-api`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/aisa-twitter-api>
-- Summary: Flagship Twitter/X command center for research, monitoring, watchlists, and approved posting through the AIsa relay. Use when: the user needs one primary Twitter skill for trend tracking, competitor monitoring, or publish-ready workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting; all API requests, OAuth approvals, and approved media uploads go to api.aisa.one.
+- Summary: Twitter/X command center for research, monitoring, watchlists, and approved posting through AIsa. Use when: the user needs one flagship skill for trend tracking, competitor monitoring, or publish-ready Twitter workflows without sharing passwords. Supports search, watchlists, and OAuth-gated posting.
 - Includes:
   - `scripts/twitter_client.py`
   - `scripts/twitter_oauth_client.py`
@@ -52,7 +52,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `aisa-twitter-command-center`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/aisa-twitter-command-center>
-- Summary: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay as a watchlist and trend desk. Use when: the user needs competitor monitoring, recurring watchlists, trend scanning, or profile sweeps without sharing passwords. Supports approved posting as follow-through, but prioritizes monitoring over engagement automation.
+- Summary: Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords.
 - Includes:
   - `scripts/twitter_client.py`
   - `scripts/twitter_oauth_client.py`
@@ -63,7 +63,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `aisa-twitter-engagement-suite`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/aisa-twitter-engagement-suite>
-- Summary: Engagement-focused Twitter/X workflow for research, approved posting, likes, follows, and related actions through the AIsa relay. Use when: the user already knows which tweets or accounts to act on and needs explicit OAuth-gated engagement without sharing passwords. Supports read context, posting, and follow-through actions; all writes and uploads go to api.aisa.one.
+- Summary: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 - Includes:
   - `scripts/twitter_client.py`
   - `scripts/twitter_engagement_client.py`
@@ -74,7 +74,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `aisa-twitter-post-engage`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/aisa-twitter-post-engage>
-- Summary: Post-launch Twitter/X follow-through for search, approved posting, and lightweight engagement through the AIsa relay. Use when: the user already has a draft, campaign, launch tweet, or reply target and needs one focused skill to publish and then handle early interactions without sharing passwords. Supports posting, reply context, likes, and follows after explicit approval.
+- Summary: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
 - Includes:
   - `scripts/twitter_client.py`
   - `scripts/twitter_engagement_client.py`

@@ -1,6 +1,7 @@
 ---
 name: search
 description: 'Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.'
+version: 1.0.1
 allowed-tools: Read Bash Grep
 when_to_use: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports
 ---

@@ -1,6 +1,6 @@
 ---
 name: last30days-zh
-description: 通过 AIsa 执行网页、多源或近 30 天研究检索。触发条件：当用户需要搜索、研究、比对或趋势归纳时使用。支持多源检索与结构化输出。
+description: '聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.'
 author: AIsa
 version: 1.0.0
 license: MIT
@@ -37,41 +37,49 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Last30days Zh
+# last30days 中文版
 
-通过 AIsa 执行网页、多源或近 30 天研究检索。触发条件：当用户需要搜索、研究、比对或趋势归纳时使用。支持多源检索与结构化输出。
+聚合最近 30 天的社交平台、社区论坛、预测市场和 grounded web 结果，再合成为一份研究简报。
 
-## 适用场景
+## 触发条件
 
-- 用户需要网页、多源或近 30 天研究检索。
-- 用户需要竞品研究、趋势扫描或结构化搜索结果。
-- 用户希望用一个技能覆盖多来源检索。
+- 当用户需要最近 30 天的人物、公司、产品、市场、工具或趋势研究时使用。
+- 当用户需要竞品对比、发布反应、社区情绪、近期动态总结时使用。
+- 当用户需要结构化 JSON 输出，例如 `query_plan`、`ranked_candidates`、`clusters`、`items_by_source` 时使用。
 
-## 高意图工作流
+## 不适用场景
 
-- 先搜索再归纳最近动态。
-- 对两个产品做近期对比研究。
-- 把多来源结果整理成结构化输出。
+- 不适合纯百科类、没有时效要求的问题。
+- 不适合只想看单一官方来源、完全不需要社区和社交信号的场景。
+
+## 能力
+
+- 通过 AISA 提供规划、重排、综合、grounded web search、X/Twitter、YouTube 和 Polymarket。
+- Reddit 和 Hacker News 走公开路径。
+- TikTok、Instagram、Threads、Pinterest 在启用时走托管发现路径。
+- 对外发布层现在只保留无状态研究主链，不再默认携带旧的 watchlist / briefing / 第二凭证 GitHub 扩展面。
+
+## 环境要求
+
+- 主凭证：`AISA_API_KEY`
+- Python `3.12+`
+- 统一使用仓库相对路径下的 `scripts/` 命令，避免运行时变量替换失败。
+- 可选 repo-local 配置文件：`./.last30days-data/config.env`，也可以直接传 `--api-key`。
 
 ## 快速命令
 
-- `python3 scripts/last30days.py --help`
-- `bash scripts/run-last30days.sh --help`
+```bash
+bash scripts/run-last30days.sh "$ARGUMENTS" --emit=compact
+python3 scripts/last30days.py "$ARGUMENTS" --api-key="$AISA_API_KEY"
+python3 scripts/last30days.py "$ARGUMENTS" --emit=json
+python3 scripts/last30days.py "$ARGUMENTS" --quick
+python3 scripts/last30days.py "$ARGUMENTS" --deep
+python3 scripts/last30days.py --diagnose
+```
 
-## 配置
+## 示例
 
-- 需要 `AISA_API_KEY` 才能访问 AIsa API。
-- 使用公开包里的相对 `scripts/` 路径。
-- 如果脚本提供显式鉴权参数，优先使用该参数。
-
-## 示例请求
-
-- 研究 OpenAI Agents SDK 最近 30 天讨论
-- 比较 OpenClaw 和 Codex 最近的反馈
-- 搜索某个品牌最近一周的社区反应
-
-## 边界说明
-
-- 不要把开发测试脚本当成公开功能。
-- 不要承诺未实际返回的来源。
-- 如果某些来源超时，要按真实情况说明。
+- `last30days OpenAI Agents SDK`
+- `last30days Peter Steinberger`
+- `last30days OpenClaw vs Codex`
+- `last30days Kanye West --quick`
