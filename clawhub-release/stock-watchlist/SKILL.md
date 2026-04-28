@@ -7,16 +7,12 @@ license: Apache-2.0
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:
-  bins:
-  - python3
   env:
   - AISA_API_KEY
 metadata:
   aisa:
     emoji: 📊
     requires:
-      bins:
-      - python3
       env:
       - AISA_API_KEY
     primaryEnv: AISA_API_KEY
@@ -27,8 +23,6 @@ metadata:
   openclaw:
     emoji: 📊
     requires:
-      bins:
-      - python3
       env:
       - AISA_API_KEY
     primaryEnv: AISA_API_KEY

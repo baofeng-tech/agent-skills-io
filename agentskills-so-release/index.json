@@ -8,7 +8,6 @@
       "description": "Multi-source search engine powered by AIsa API. Combines Tavily web search, Scholar academic search, Smart hybrid search, and Perplexity deep research — all through a single AIsa API key. Includes confidence scoring and AI synthesis. Use when: the user needs web search, research, source discovery, or content extraction.",
       "zip": "agentskills-so-release/zips/aisa-multi-search-engine.zip",
       "changes": [
-        "removed non-standard plugin wrapper files from the standard GitHub skill bundle: index.ts, package.json",
         "flattened metadata for marketplace-friendly Agent Skills frontmatter",
         "preserved relative-path runtime assets for GitHub-backed discovery"
       ],
@@ -478,7 +477,6 @@
       "description": "Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.",
       "zip": "agentskills-so-release/zips/stock-watchlist.zip",
       "changes": [
-        "switched default local storage to repo-local path in scripts/watchlist.py",
         "flattened metadata for marketplace-friendly Agent Skills frontmatter",
         "preserved relative-path runtime assets for GitHub-backed discovery"
       ],

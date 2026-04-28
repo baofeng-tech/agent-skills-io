@@ -404,10 +404,8 @@
 - Source: `targetSkills/stock-watchlist`
 - Output: `clawhub-release/stock-watchlist`
 - Description: Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.
-- Change: switched default local storage to repo-local path in scripts/watchlist.py
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
-- Change: copied runtime scripts and essential references only
 
 ## tavily-extract
 

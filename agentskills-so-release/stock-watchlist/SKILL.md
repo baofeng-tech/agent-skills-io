@@ -10,7 +10,7 @@ metadata:
   tags: stock,aisa
   platforms: agentskills.io,agentskills.so,github
   primary_env: AISA_API_KEY
-allowed-tools: Read Bash Grep
+allowed-tools: Read
 ---
 
 # Watchlist Management — AIsa Edition

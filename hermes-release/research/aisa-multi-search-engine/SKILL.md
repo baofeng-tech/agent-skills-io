@@ -9,7 +9,6 @@ metadata:
     requires:
       bins:
       - python3
-      - node
       env:
       - AISA_API_KEY
     primaryEnv: AISA_API_KEY

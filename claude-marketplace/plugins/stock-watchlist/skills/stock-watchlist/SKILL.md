@@ -1,7 +1,7 @@
 ---
 name: stock-watchlist
 description: Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.
-allowed-tools: Read Bash Grep
+allowed-tools: Read
 when_to_use: the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts
 ---
 

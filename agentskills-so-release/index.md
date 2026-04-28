@@ -403,7 +403,6 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 - GitHub: <https://github.com/baofeng-tech/agent-skills-so/tree/main/stock-watchlist>
 - Summary: Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.
 - Includes:
-  - `scripts/watchlist.py`
   - `SKILL.md`
   - `README.md`
 
@@ -476,7 +475,6 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 - Includes:
   - `scripts/stock_analyst.py`
   - `scripts/test_api_data.py`
-  - `requirements.txt`
   - `SKILL.md`
   - `README.md`
 

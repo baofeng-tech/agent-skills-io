@@ -924,10 +924,8 @@
       "path": "clawhub-release/stock-watchlist",
       "description": "Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.",
       "changes": [
-        "switched default local storage to repo-local path in scripts/watchlist.py",
         "kept the mother-skill body while normalizing ClawHub upload frontmatter",
-        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
-        "copied runtime scripts and essential references only"
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa"
       ],
       "residual_risks": []
     },

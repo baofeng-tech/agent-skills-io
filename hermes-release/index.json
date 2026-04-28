@@ -43,8 +43,8 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -57,8 +57,8 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -71,9 +71,9 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -86,9 +86,9 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -145,8 +145,8 @@
         "removed 2 non-runtime generated/test files from the release bundle",
         "switched default local storage to repo-local path in scripts/lib/env.py",
         "updated config path messaging in scripts/lib/ui.py",
-        "patched Hermes runtime auth and storage defaults in scripts/lib/env.py",
         "patched Hermes runtime auth and storage defaults in scripts/lib/ui.py",
+        "patched Hermes runtime auth and storage defaults in scripts/lib/env.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -269,8 +269,8 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -283,9 +283,9 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -340,8 +340,8 @@
       "description": "Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": [],
       "changes": [
-        "patched Hermes runtime auth and storage defaults in scripts/arbitrage_finder.py",
         "patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/arbitrage_finder.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -352,8 +352,8 @@
       "description": "Find arbitrage opportunities across Polymarket and Kalshi prediction markets via AIsa API. Scan sports markets for cross-platform price discrepancies, compare real-time odds, verify orderbook liquidity. Use when user asks about: prediction market arbitrage, cross-platform price differences, sports betting arbitrage, odds comparison, risk-free profit, market inefficiencies.",
       "residual_risks": [],
       "changes": [
-        "patched Hermes runtime auth and storage defaults in scripts/arbitrage_finder.py",
         "patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/arbitrage_finder.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -364,8 +364,8 @@
       "description": "通过 AIsa API 发现 Polymarket 和 Kalshi 预测市场的套利机会。扫描体育市场跨平台价差、比较实时赔率、验证订单簿流动性。适用场景：预测市场套利、跨平台价差、体育博彩套利、赔率对比、无风险利润、市场低效。 Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": [],
       "changes": [
-        "patched Hermes runtime auth and storage defaults in scripts/arbitrage_finder.py",
         "patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/arbitrage_finder.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -487,8 +487,6 @@
       "description": "Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.",
       "residual_risks": [],
       "changes": [
-        "switched default local storage to repo-local path in scripts/watchlist.py",
-        "patched Hermes runtime auth and storage defaults in scripts/watchlist.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -523,9 +521,9 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -538,9 +536,9 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -553,8 +551,8 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -567,9 +565,9 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -580,8 +578,8 @@
       "description": "Professional US stock analysis with financial data, news, social sentiment, and multi-model AI. Comprehensive reports at $0.02-0.10 per analysis. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
       "residual_risks": [],
       "changes": [
-        "patched Hermes runtime auth and storage defaults in scripts/stock_analyst.py",
         "patched Hermes runtime auth and storage defaults in scripts/test_api_data.py",
+        "patched Hermes runtime auth and storage defaults in scripts/stock_analyst.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -605,9 +603,9 @@
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",
         "removed non-runtime documentation directories from the Hermes release bundle",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
-        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
         "patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_engagement_client.py",
+        "patched Hermes runtime auth and storage defaults in scripts/twitter_client.py",
         "replaced source README with a Hermes-oriented release README"
       ]
     },

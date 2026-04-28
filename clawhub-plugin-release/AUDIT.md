@@ -9,7 +9,7 @@
 - Skill: `aisa-multi-search-engine`
 - Directory: `clawhub-plugin-release/plugins/aisa-multi-search-engine-plugin`
 - Zip: `clawhub-plugin-release/zips/aisa-multi-search-engine-plugin.zip`
-- Description: Requires python3, node, and AISA_API_KEY. Native-first ClawHub plugin for `aisa-multi-search-engine`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Multi-source search engine powered by AIsa API. Combines Tavily web search, Scholar academic search, Smart hybrid search, and Perplexity deep research — all through a single AIsa API key. Includes confidence scoring and AI synthesis. Use when: the user needs web search, research, source discovery, or content extraction.
+- Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `aisa-multi-search-engine`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Multi-source search engine powered by AIsa API. Combines Tavily web search, Scholar academic search, Smart hybrid search, and Perplexity deep research — all through a single AIsa API key. Includes confidence scoring and AI synthesis. Use when: the user needs web search, research, source discovery, or content extraction.
 
 ## aisa-provider-plugin
 
@@ -310,7 +310,7 @@
 - Skill: `stock-watchlist`
 - Directory: `clawhub-plugin-release/plugins/stock-watchlist-plugin`
 - Zip: `clawhub-plugin-release/zips/stock-watchlist-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `stock-watchlist`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.
+- Description: Requires AISA_API_KEY. Native-first ClawHub plugin for `stock-watchlist`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.
 
 ## tavily-extract-plugin
 

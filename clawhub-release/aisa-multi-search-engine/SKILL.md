@@ -9,7 +9,6 @@ primaryEnv: AISA_API_KEY
 requires:
   bins:
   - python3
-  - node
   env:
   - AISA_API_KEY
 metadata:
@@ -18,7 +17,6 @@ metadata:
     requires:
       bins:
       - python3
-      - node
       env:
       - AISA_API_KEY
     primaryEnv: AISA_API_KEY
@@ -31,7 +29,6 @@ metadata:
     requires:
       bins:
       - python3
-      - node
       env:
       - AISA_API_KEY
     primaryEnv: AISA_API_KEY

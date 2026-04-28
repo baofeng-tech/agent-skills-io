@@ -1,7 +1,7 @@
 {
   "name": "stock-watchlist-plugin",
   "version": "1.0.0",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `stock-watchlist`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.",
+  "description": "Requires AISA_API_KEY. Native-first ClawHub plugin for `stock-watchlist`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts.",
   "license": "Apache-2.0",
   "type": "module",
   "keywords": [
@@ -20,9 +20,6 @@
   "metadata": {
     "aisa": {
       "requires": {
-        "bins": [
-          "python3"
-        ],
         "env": [
           "AISA_API_KEY"
         ]
@@ -35,9 +32,6 @@
   },
   "aisa": {
     "requires": {
-      "bins": [
-        "python3"
-      ],
       "env": [
         "AISA_API_KEY"
       ]
@@ -58,9 +52,6 @@
       "openclawVersion": "^1.0.0"
     },
     "runtimeRequirements": {
-      "bins": [
-        "python3"
-      ],
       "env": [
         "AISA_API_KEY"
       ],

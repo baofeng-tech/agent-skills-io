@@ -5,8 +5,7 @@ metadata:
   aisa:
     emoji: 🛠
     requires:
-      bins:
-      - python3
+      bins: []
       env:
       - AISA_API_KEY
     primaryEnv: AISA_API_KEY
@@ -44,10 +43,6 @@ Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa 
 - Review `README.md` for the release-specific summary and structure.
 - Use repo-relative paths under `scripts/`.
 - Prefer explicit CLI auth flags such as `--api-key` or `--aisa-api-key` when a script exposes them.
-
-## Quick Reference
-
-- `python3 scripts/watchlist.py --help`
 
 ## Verification
 

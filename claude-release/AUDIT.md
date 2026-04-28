@@ -522,9 +522,7 @@ This report summarizes structural cleanup and residual publishing risk for the g
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility
-- Change: switched default local storage to repo-local path in scripts/watchlist.py
 - Change: replaced source README with a Claude-oriented release README
-- Change: copied runtime scripts/references only
 - Residual risk: Local persistence is still present, but defaults are repo-local instead of home-directory paths.
 
 ### tavily-extract
