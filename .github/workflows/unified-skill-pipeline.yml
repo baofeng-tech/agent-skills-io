@@ -70,6 +70,11 @@ on:
         required: false
         default: false
         type: boolean
+      install_clawhub_cli:
+        description: "In self-hosted mode, install or refresh the ClawHub CLI before publish"
+        required: false
+        default: false
+        type: boolean
       diagnosis_doc_update:
         description: "Update suspicious diagnosis snapshot in rules doc"
         required: false
@@ -100,13 +105,13 @@ jobs:
   sync-build-test:
     runs-on: ubuntu-latest
     env:
-      PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || 'changed' }}
+      PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || vars.AUTO_PIPELINE_SELECTION || 'changed' }}
       PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
-      PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
-      PIPELINE_RUN_LLM_STEP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_llm_step || 'false' }}
-      PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || 'false' }}
-      PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || 'true' }}
-      PIPELINE_DIAGNOSIS_DOC_UPDATE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.diagnosis_doc_update || 'true' }}
+      PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || vars.AUTO_PIPELINE_DRY_RUN || 'false' }}
+      PIPELINE_RUN_LLM_STEP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_llm_step || vars.AUTO_RUN_LLM_STEP || 'false' }}
+      PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || vars.AUTO_LLM_APPLY || 'false' }}
+      PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || vars.AUTO_SYNC_REPO_SKILLS || 'true' }}
+      PIPELINE_DIAGNOSIS_DOC_UPDATE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.diagnosis_doc_update || vars.AUTO_DIAGNOSIS_DOC_UPDATE || 'true' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
     steps:
@@ -232,22 +237,23 @@ jobs:
             targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md
 
   self-hosted-publish:
-    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish == 'true' }}
+    if: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish == 'true') || (github.event_name == 'schedule' && vars.AUTO_FULL_PLATFORM_PUBLISH == 'true') }}
     needs: sync-build-test
     runs-on: self-hosted
     env:
-      PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || 'changed' }}
+      PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || vars.AUTO_PIPELINE_SELECTION || 'changed' }}
       PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
-      PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
-      PIPELINE_RUN_LLM_STEP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_llm_step || 'false' }}
-      PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || 'false' }}
-      PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || 'true' }}
-      PIPELINE_SYNC_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_adjacent_repos || 'true' }}
-      PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || 'true' }}
-      PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || 'both' }}
-      PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || 'false' }}
-      PIPELINE_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || 'false' }}
-      PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || '' }}
+      PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || vars.AUTO_PIPELINE_DRY_RUN || 'false' }}
+      PIPELINE_RUN_LLM_STEP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_llm_step || vars.AUTO_RUN_LLM_STEP || 'false' }}
+      PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || vars.AUTO_LLM_APPLY || 'false' }}
+      PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || vars.AUTO_SYNC_REPO_SKILLS || 'true' }}
+      PIPELINE_SYNC_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_adjacent_repos || vars.AUTO_SYNC_ADJACENT_REPOS || 'true' }}
+      PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || vars.AUTO_PUSH_ADJACENT_REPOS || 'true' }}
+      PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || vars.AUTO_CLAWHUB_PUBLISH || 'both' }}
+      PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || vars.AUTO_CLAWHUB_DRY_RUN || 'false' }}
+      PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'false' }}
+      PIPELINE_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'false' }}
+      PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || vars.AUTO_SUSPICIOUS_ARTIFACTS || '' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
       DOWNSTREAM_REPO_TOKEN: ${{ secrets.DOWNSTREAM_REPO_TOKEN }}
@@ -275,6 +281,12 @@ jobs:
 
       - name: Install Python dependencies
         run: python3 -m pip install --upgrade pip PyYAML
+
+      - name: Set up Node for optional ClawHub CLI install
+        if: ${{ env.PIPELINE_CLAWHUB_PUBLISH != 'none' && env.PIPELINE_INSTALL_CLAWHUB_CLI == 'true' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
 
       - name: Load local credential fallbacks for self-hosted runner
         shell: bash
@@ -331,6 +343,35 @@ jobs:
                   handle.write(f"{key}<<__EOF__\n{value}\n__EOF__\n")
           print("Loaded self-hosted fallback vars:", ", ".join(sorted(exports)))
           PY
+
+      - name: Install or refresh ClawHub CLI
+        if: ${{ env.PIPELINE_CLAWHUB_PUBLISH != 'none' && env.PIPELINE_INSTALL_CLAWHUB_CLI == 'true' }}
+        shell: bash
+        env:
+          CLAWHUB_CLI_VERSION: ${{ vars.CLAWHUB_CLI_VERSION || 'latest' }}
+        run: |
+          set -euo pipefail
+          npm install -g "clawhub@${CLAWHUB_CLI_VERSION}"
+          command -v clawhub >/dev/null
+          clawhub --version || true
+
+      - name: Verify publish tooling
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${PIPELINE_CLAWHUB_PUBLISH:-none}" != "none" ]]; then
+            if ! command -v clawhub >/dev/null 2>&1; then
+              echo "clawhub CLI is missing. Preinstall it on the self-hosted runner or re-run with install_clawhub_cli=true." >&2
+              exit 1
+            fi
+          fi
+
+          if command -v hermes >/dev/null 2>&1; then
+            hermes version || true
+          else
+            echo "Hermes CLI not found on runner. Current repo publish only syncs hermes-release into GitHub, so the CLI is optional."
+          fi
 
       - name: Fast-forward self-hosted checkout to latest main
         shell: bash

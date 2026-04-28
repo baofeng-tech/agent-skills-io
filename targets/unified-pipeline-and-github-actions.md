@@ -109,6 +109,7 @@ The workflow now has two lanes:
   - safe default for scheduled or manual sync, rebuild, validation, artifact upload, and committing generated outputs back into this repo
 - self-hosted lane
   - true publish continuation for downstream GitHub repo publish and optional ClawHub batch publish
+  - can now also be auto-enabled from `schedule` through repo variable `AUTO_FULL_PLATFORM_PUBLISH=true`
 
 Current scheduler details:
 
@@ -183,6 +184,7 @@ Current workflow-dispatch controls for this lane:
 
 - `run_suspicious_repair`
 - `suspicious_artifacts`
+- `install_clawhub_cli`
 
 Current default targeted blocker set:
 
@@ -217,6 +219,23 @@ When `run_self_hosted_publish=true` on a manual dispatch, the workflow also:
 6. commits and pushes changed downstream GitHub publish repos
 7. uploads self-hosted publish-state artifacts
 
+When repo variable `AUTO_FULL_PLATFORM_PUBLISH=true` is set, the same self-hosted lane can also run from the scheduled trigger without manual dispatch.
+
+Useful repo variables for the scheduled self-hosted lane:
+
+- `AUTO_PIPELINE_SELECTION`
+- `AUTO_RUN_LLM_STEP`
+- `AUTO_LLM_APPLY`
+- `AUTO_SYNC_REPO_SKILLS`
+- `AUTO_SYNC_ADJACENT_REPOS`
+- `AUTO_PUSH_ADJACENT_REPOS`
+- `AUTO_CLAWHUB_PUBLISH`
+- `AUTO_CLAWHUB_DRY_RUN`
+- `AUTO_RUN_SUSPICIOUS_REPAIR`
+- `AUTO_SUSPICIOUS_ARTIFACTS`
+- `AUTO_INSTALL_CLAWHUB_CLI`
+- `CLAWHUB_CLI_VERSION`
+
 Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL.
 
 Why:
@@ -229,6 +248,14 @@ On this runner, the self-hosted lane now also supports a local credential fallba
 - if `DOWNSTREAM_REPO_TOKEN` or ClawHub tokens are blank in GitHub Actions secrets
 - the job will try `/mnt/d/workplace/agent-skills-io/example/accounts`
 - downstream repo preparation now prefers public `https://github.com/<repo>.git` clone URLs so repo sync does not stall on SSH timeout before publish starts
+
+If ClawHub publishing is enabled, the self-hosted lane can now also optionally bootstrap the CLI first:
+
+- `install_clawhub_cli=true` in workflow dispatch
+- or `AUTO_INSTALL_CLAWHUB_CLI=true` in repo variables for scheduled publish
+- current install path is `npm install -g clawhub@<version>`
+
+Hermes publishing in this repo still works by syncing `hermes-release/` into its GitHub publish repo, so the `hermes` CLI remains optional here.
 
 ### Downstream repo preparation
 

@@ -560,6 +560,8 @@ ClawHub 专用发布层。
 
 - 减少 Suspicious 风险
 - 减少 parser / frontmatter 兼容风险
+- 保持 flat-root 目录供现有 publish/test/live-status 脚本直接发现
+- 同时额外生成 `README.md`、`index.md`、`slug-groups.json`，把原版 slug 与 breakout slug 分组给人看
 
 ### `clawhub-plugin-release/`
 
@@ -802,12 +804,14 @@ GitHub Actions 工作流层。
 - 统一调度与自动化：已新增 `scripts/unified_skill_pipeline.py`、`scripts/build_targetskills_catalog.py` 与 `.github/workflows/unified-skill-pipeline.yml`
 - `last30days` 上游跟随策略：已从 2026-04-26 起取消统一调度层的人工 hold，改为直接跟随 `AIsa-team/agent-skills@main`，保守收敛放到发布层与 suspicious 诊断 / 修复链路中处理
 - GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；当前下游 GitHub 目标已覆盖 `AIsa-team/agent-skills@main`、`baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
+- GitHub Actions 自动全平台发布：self-hosted 真发布轨现已支持在 `schedule` 下通过仓库变量 `AUTO_FULL_PLATFORM_PUBLISH=true` 自动开启，并可用 `AUTO_CLAWHUB_PUBLISH`、`AUTO_SYNC_ADJACENT_REPOS`、`AUTO_PUSH_ADJACENT_REPOS`、`AUTO_RUN_SUSPICIOUS_REPAIR`、`AUTO_SUSPICIOUS_ARTIFACTS` 等变量细化行为
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每 4 小时一次（`21 */4 * * *`）
 - GitHub Actions checkout 后置失败修复：hosted lane 已改为 `persist-credentials: false` + explicit token push，避免此前的 post-job `exit code 128`
 - GitHub Actions suspicious 修复闭环：workflow dispatch 仍支持显式 LLM 精修（`run_llm_step` / `llm_apply` / `sync_repo_skills`），但默认关闭，避免把当前仅面向 ClawHub 的 breakout/diagnosis 文案误带到全平台重建；repo-local 精修 helper 现只走共享 `AISA_API_KEY` 固定端点；self-hosted 的 targeted suspicious remediation 也已收口为只重建 ClawHub 层，并要求显式传入可发布的自有 artifact key
 - repo-local 精修规则拆层：本轮已把默认母版精修和 ClawHub breakout / suspicious 修复精修拆成两个 profile，避免继续把平台私有规则混入 `targetSkills/`
 - GitHub Actions self-hosted 与 hosted 衔接：self-hosted lane 在准备下游发布前会先 fast-forward 到远端最新 `main`，避免 hosted lane 先行 auto-commit 后造成后续 non-fast-forward push 失败
 - GitHub Actions self-hosted 凭据回退：当 `DOWNSTREAM_REPO_TOKEN` 与 ClawHub tokens 等 CI secrets 未配置时，当前 runner 会回退读取本机 `/mnt/d/workplace/agent-skills-io/example/accounts`，并优先使用公开 HTTPS clone 准备下游仓库，避免 SSH 超时卡死在发布前置阶段
+- GitHub Actions ClawHub CLI 自检 / 自装：self-hosted 真发布轨现在支持通过 `install_clawhub_cli` 或仓库变量 `AUTO_INSTALL_CLAWHUB_CLI=true` 先执行 `npm install -g clawhub@<version>`；Hermes 在本仓库的发布仍以 GitHub repo 同步为主，CLI 只是可选校验项
 - `normalize_target_skills.py` 现已保留母 skill frontmatter 的 `version` 字段，不再在规范化时把版本号吞掉；这样 `targetSkills/` 的升版现在可以稳定传递到 ClawHub / Claude / Hermes / AgentSkills 各发布层，并支撑 targeted ClawHub 续发
 - ClawHub 2026-04-25 真实续发：已通过 Windows 侧 `py -3` + `clawhub` 继续完成一轮真实 skill/plugin 续发，并把 live scan 状态回写主 publish state
 - ClawHub `twitter` 历史测试结论：新 ClawHub 专用 slug `aisa-twitter-research-engage-relay` 曾真实发布到 `1.0.5`；当时的扫描修复主要围绕 relay disclosure、plugin 顶层 metadata 与 summary description requirement 展开。当前公开发布面已收口，不再把 `TWITTER_RELAY_*` 当作默认对外入口

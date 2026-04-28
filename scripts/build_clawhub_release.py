@@ -762,7 +762,22 @@ def build_skill(
     return audit
 
 
-def write_docs(audits: list[base.SkillAudit]) -> None:
+def audit_source_skill_name(audit: base.SkillAudit) -> str:
+    source_label = str(audit.source_path or "")
+    base_label = source_label.split(" -> ", 1)[0]
+    return Path(base_label).name or audit.name
+
+
+def write_docs(audits: list[base.SkillAudit], variants: dict[str, list[dict[str, str]]]) -> None:
+    breakout_lookup = {
+        str(entry.get("slug") or "").strip(): entry
+        for entries in variants.values()
+        for entry in entries
+        if str(entry.get("slug") or "").strip()
+    }
+    original_audits = [audit for audit in audits if audit.name not in breakout_lookup]
+    breakout_audits = [audit for audit in audits if audit.name in breakout_lookup]
+
     readme = [
         "# ClawHub Release",
         "",
@@ -776,15 +791,34 @@ def write_docs(audits: list[base.SkillAudit]) -> None:
         "- Keep canonical `metadata.aisa`, then duplicate the minimal `metadata.openclaw` hints only where helpful for upload compatibility.",
         "- Prefer runtime-only files, repo-local defaults, and explicit auth flows.",
         "",
-        "## Skills",
+        "## Directory Layout",
+        "",
+        "- The root stays flat because the current publish/test/live-status scripts discover `clawhub-release/*` directly.",
+        "- Read `slug-groups.json` or the grouped lists below when you need the human-friendly split between original and breakout slugs.",
+        "",
+        f"## Original Slugs ({len(original_audits)})",
         "",
     ]
-    for audit in audits:
-        readme.append(f"- `{audit.name}`")
+    for audit in original_audits:
+        readme.append(f"- `{audit.name}` <- source `{audit_source_skill_name(audit)}`")
+    readme.extend(["", f"## Breakout Slugs ({len(breakout_audits)})", ""])
+    for audit in breakout_audits:
+        variant = breakout_lookup[audit.name]
+        profile = str(variant.get("profile") or "").strip()
+        suffix = f" (`{profile}`)" if profile else ""
+        readme.append(f"- `{audit.name}` <- source `{audit_source_skill_name(audit)}`{suffix}")
     (OUTPUT_ROOT / "README.md").write_text("\n".join(readme) + "\n", encoding="utf-8")
 
-    index_lines = ["# ClawHub Release Index", ""]
-    for audit in audits:
+    index_lines = [
+        "# ClawHub Release Index",
+        "",
+        "## Original Slugs",
+        "",
+    ]
+    for audit in original_audits:
+        index_lines.append(f"- `{audit.name}`: {audit.description}")
+    index_lines.extend(["", "## Breakout Slugs", ""])
+    for audit in breakout_audits:
         index_lines.append(f"- `{audit.name}`: {audit.description}")
     (OUTPUT_ROOT / "index.md").write_text("\n".join(index_lines) + "\n", encoding="utf-8")
 
@@ -806,12 +840,41 @@ def write_docs(audits: list[base.SkillAudit]) -> None:
         audit_doc.append("")
     (OUTPUT_ROOT / "AUDIT.md").write_text("\n".join(audit_doc), encoding="utf-8")
 
+    grouped_index = {
+        "original": [
+            {
+                "slug": audit.name,
+                "source_skill": audit_source_skill_name(audit),
+                "path": audit.output_path,
+                "description": audit.description,
+            }
+            for audit in original_audits
+        ],
+        "breakout": [
+            {
+                "slug": audit.name,
+                "source_skill": audit_source_skill_name(audit),
+                "profile": str(breakout_lookup[audit.name].get("profile") or ""),
+                "path": audit.output_path,
+                "description": audit.description,
+            }
+            for audit in breakout_audits
+        ],
+    }
+    (OUTPUT_ROOT / "slug-groups.json").write_text(
+        json.dumps(grouped_index, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
     index = {
         "generated_at": "2026-04-20",
         "source": "targetSkills",
+        "groups": grouped_index,
         "skills": [
             {
                 "name": audit.name,
+                "group": "breakout" if audit.name in breakout_lookup else "original",
+                "source_skill": audit_source_skill_name(audit),
                 "path": audit.output_path,
                 "description": audit.description,
                 "changes": audit.changes,
@@ -846,7 +909,7 @@ def main() -> None:
                     source_label=f"{src_dir.relative_to(REPO_ROOT)} -> {variant['slug']}",
                 )
             )
-    write_docs(audits)
+    write_docs(audits, variants)
     shutil.rmtree(previous_root, ignore_errors=True)
     print(f"Built {len(audits)} ClawHub-ready skills into {OUTPUT_ROOT.relative_to(REPO_ROOT)}")
 
