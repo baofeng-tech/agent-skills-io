@@ -126,19 +126,18 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`37`
-- `blocker`：`31`
-- `warning`：`6`
-- `pending`：`2`
+- 诊断对象数：`10`
+- `blocker`：`9`
+- `warning`：`1`
+- `pending`：`7`
 
 ### 当前高频规则
 
-- `metadata_env_mismatch`: `30`
-- `oauth_upload_side_effects`: `9`
-- `pending_scan`: `20`
-- `platform_trust_gap`: `20`
-- `prompt_scaffold_copy`: `1`
-- `relay_trust_surface`: `20`
+- `metadata_env_mismatch`: `9`
+- `oauth_upload_side_effects`: `2`
+- `pending_scan`: `9`
+- `platform_trust_gap`: `9`
+- `relay_trust_surface`: `8`
 
 ### 当前重点对象
 
@@ -146,48 +145,40 @@
   severity: `blocker` | status: `pending`
   rules: `metadata_env_mismatch, pending_scan`
   reason: Detected: suspicious.env_credential_access
-- `plugin:aisa-perplexity-search-sonar-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
-  reason: The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing.
-- `plugin:aisa-provider-plugin`
+- `plugin:aisa-twitter-api-command-center-plugin`
   severity: `blocker` | status: `pending`
   rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The package is mostly coherent for an API-provider plugin (it legitimately needs an AISA_API_KEY), but there are mismatches between the registry metadata and the packaged files and a few packaging/instruction gaps that should be resolved before trusting it with credentials.
-- `plugin:aisa-tavily-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
-  reason: The package's code and SKILL.md consistently require a single AISA_API_KEY and call aisa.one APIs (which matches the research purpose), but the registry-level metadata omits those requirements — an incoherence that warrants caution before installing.
-- `plugin:aisa-tavily-search-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials.
-- `plugin:aisa-twitter-engagement-suite-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The package's code and instructions match a Twitter/X engagement skill that uses a relay (api.aisa.one) and requires an AISA_API_KEY, but registry metadata and some packaging fields are inconsistent and this skill will upload local attachments to an external service — review the relay trust and the API key scope before installing.
+  reason: The package is largely coherent with a Twitter/X relay client (it needs AISA_API_KEY and sends reads/posts to api.aisa.one), but there are metadata inconsistencies and privacy implications you should verify before installing.
 - `plugin:aisa-twitter-post-engage-plugin`
   severity: `blocker` | status: `pending`
   rules: `metadata_env_mismatch, oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
   reason: The package is largely coherent for a Twitter/X relay-based engagement and OAuth posting skill, but there are metadata inconsistencies (the registry metadata claims no required credentials while the shipped manifests and scripts require AISA_API_KEY) that should be clarified before installing.
-- `plugin:last30days-plugin`
+- `skill:aisa-multi-search-engine`
   severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan`
-  reason: The package appears to implement a legitimate AIsa-backed research tool, but the manifest and bundled runtime disagree with the registry metadata about required secrets and there are a few runtime behaviors (local HTTP probes, bundled executable scripts) that warrant caution before installing.
-- `plugin:market-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap`
-  reason: The package is plausibly what it claims (a market data client) and only needs a single API key, but there are internal inconsistencies in the manifest/registry metadata (missing required env/binary declarations) that should be resolved before trusting it.
-- `plugin:openclaw-twitter-post-engage-plugin`
+  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
+  reason: This skill is internally consistent and appears to do what it claims: query AIsa endpoints and synthesize results. Before installing, confirm you trust the AIsa service (https://aisa.one) because any queries, provided URLs, and extracted page contents will be sent to that external API using your AISA_API_KEY. Do not submit private/internal URLs or sensitive documents unless your organizational policy allows sending them to an external service. If you want an extra check, inspect the bundled index.ts and scripts/search_client.py (already included) to verify there is no unexpected behavior, and consider using a scoped API key or monitoring usage/quotas on the AIsa account. If you need stricter guarantees about data handling, request the provider's privacy/data-retention policy before use. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3, node Env
+- `skill:aisa-twitter-research-engage-relay`
   severity: `blocker` | status: `pending`
   rules: `metadata_env_mismatch, oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The package's code and SKILL.md are coherent with a Twitter/X engagement/posting skill (using an AIsa relay) but the registry metadata and top-level claims contradict the actual requirements and there is reliance on a third-party relay (AISA_API_KEY) that the user must trust.
-- `plugin:prediction-market-arbitrage-api-plugin`
+  reason: This package appears internally consistent with its stated purpose. Before installing, consider: 1) You must provide an AISA_API_KEY — that key grants the skill the ability to act through the AIsa relay (likes, follows, posts, media uploads). Only supply the key if you trust the AIsa service/operator. 2) The scripts will upload any local workspace files you explicitly attach (images/videos) to api.aisa.one for posting—do not attach private files you don't want sent. 3) The package source and homepage are missing; if you need stronger assurance, review the included Python files yourself or validate the AIsa operator and API privacy/policies. 4) The skill can be invoked by the agent (normal default); if you want to restrict autonomous actions, avoid giving the agent broad autonomous permissions or invoke the skill only on demand. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🐦 Clawdis Bins python3 Env
+- `skill:market`
   severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
-  reason: The package appears to implement a prediction-market arbitrage client that only talks to api.aisa.one and requires an AISA_API_KEY, but the registry metadata advertised at the top is inconsistent with the shipped manifests (missing declared env/binary requirements), so review before installing.
-- `plugin:smart-search-plugin`
+  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
+  reason: This package appears coherent: it needs one API key (AISA_API_KEY) and python3 and contains a simple client that calls https://api.aisa.one. Before installing, verify you trust the AIsa service and owner (the skill's source/homepage is unknown), avoid using high-privilege or long-lived production keys, and monitor the API key's usage. You can inspect scripts/market_client.py (bundled) to confirm no unexpected behavior. If you plan to use it in an automated agent, consider limiting capabilities and rotating the key regularly. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 📊 Clawdis Bins python3 Env
+- `skill:marketpulse`
   severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
-  reason: The package is plausibly a search client that contacts aisa.one and requires an AISA_API_KEY and python3, but the registry metadata omits those requirements and there are manifest mismatches you should confirm before installing.
+  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
+  reason: This skill appears coherent: it only needs python3 and an AISA_API_KEY to query AIsa's market API. Before installing, confirm you trust the AIsa service (aisa.one) and are comfortable providing its API key to the agent. Keep the API key secret, review provider terms/rate limits, and avoid installing this into highly privileged environments where network egress to third-party APIs is restricted. If you need higher assurance, verify the AIsa API key usage and inspect network logs when the skill runs. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 📊 Clawdis Bins python3 Env
+- `skill:multi-source-search`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
+  reason: This skill legitimately needs and uses a single AISA_API_KEY to call api.aisa.one (which proxies web, scholar, Tavily, and Perplexity flows). Before installing: (1) Only provide an API key you trust the aisa.one service with — do not use highly privileged or long-lived keys if you can avoid it. (2) Avoid sending sensitive or private data to the skill because queries are sent to the external API. (3) Review the bundled scripts (scripts/search_client.py) if you want extra assurance — it only builds HTTP requests to aisa.one and reads AISA_API_KEY from the env. (4) Run the skill in a least-privileged environment or with a scoped key and monitor usage on your aisa.one account. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 🔎 Clawdis Bins python3 Env
+- `skill:us-stock-analyst`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
+  reason: This package appears internally consistent, but before installing consider: (1) Only provide an AISA_API_KEY you trust—this key grants the skill access to your AIsa account and usage/billing. Use a least-privilege or test key if possible. (2) The skill sends any analysis input (tickers, prompts, fetched content) to api.aisa.one including LLM prompts—do not send sensitive personal data. (3) Review the full scripts locally if you want assurance they won't call other endpoints or write sensitive local files; the code shown makes only HTTP calls to api.aisa.one and prints/saves reports. (4) Be aware of cost implications: SKILL.md mentions per-analysis costs. If you want extra assurance, run the included test_api_data.py in a sandbox environment with a test API key first. Like a lobster shell, security has layers — review code before you run it. Runtime requirements 📊 Clawdis Bins python3 Env
+- `skill:prediction-market`
+  severity: `warning` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: Participate in Base's GTM by betting if today's 18:00 UTC garden temperature will be higher or lower than yesterday's, sharing winnings from the pot.
 <!-- AUTO-DIAGNOSIS:END -->
