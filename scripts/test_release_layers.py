@@ -270,6 +270,9 @@ def smoke_tests() -> list[dict[str, object]]:
 def main() -> None:
     for root in (CLAUDE_ROOT, HERMES_ROOT, CLAWHUB_ROOT, AGENTSKILLS_SO_ROOT, AGENTSKILL_SH_ROOT):
         remove_pycache_dirs(root)
+    smoke_results = smoke_tests()
+    for root in (CLAUDE_ROOT, HERMES_ROOT, CLAWHUB_ROOT, AGENTSKILLS_SO_ROOT, AGENTSKILL_SH_ROOT):
+        remove_pycache_dirs(root)
     report: dict[str, object] = {
         "structure": {
             "claude_errors": validate_skill_tree(CLAUDE_ROOT, "claude"),
@@ -279,7 +282,7 @@ def main() -> None:
             "agentskills_so_errors": validate_agentskills_so_tree(AGENTSKILLS_SO_ROOT),
             "agentskill_sh_errors": validate_agentskill_sh_tree(AGENTSKILL_SH_ROOT),
         },
-        "smoke_tests": smoke_tests(),
+        "smoke_tests": smoke_results,
     }
     report_path = REPO_ROOT / "targets" / "release-layer-test-report-2026-04-17.json"
     report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
