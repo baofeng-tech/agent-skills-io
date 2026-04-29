@@ -9,15 +9,17 @@ CLAUDE_DEST="${PUBLISH_CLAUDE_DEST:-${REPO_ROOT}/../Aisa-One-Skills-Claude}"
 MARKET_DEST="${PUBLISH_CLAUDE_MARKETPLACE_DEST:-${REPO_ROOT}/../Aisa-One-Plugins-Claude}"
 SKIP_BUILD=0
 WITH_MARKETPLACE=0
+MARKETPLACE_ONLY=0
 
 usage() {
   cat <<USAGE
 Usage:
-  $(basename "$0") [--dest <path>] [--with-marketplace] [--market-dest <path>] [--skip-build]
+  $(basename "$0") [--dest <path>] [--with-marketplace] [--marketplace-only] [--market-dest <path>] [--skip-build]
 
 Options:
   --dest <path>           Destination repo for claude-release. Default: ../Aisa-One-Skills-Claude
   --with-marketplace      Also build/sync claude-marketplace
+  --marketplace-only      Sync only claude-marketplace (still requires --with-marketplace)
   --market-dest <path>    Destination repo for claude-marketplace. Default: ../Aisa-One-Plugins-Claude
   --skip-build            Skip running build scripts
   -h, --help              Show this help
@@ -31,6 +33,11 @@ while [[ $# -gt 0 ]]; do
       shift 2
       ;;
     --with-marketplace)
+      WITH_MARKETPLACE=1
+      shift
+      ;;
+    --marketplace-only)
+      MARKETPLACE_ONLY=1
       WITH_MARKETPLACE=1
       shift
       ;;
@@ -65,16 +72,20 @@ else
   echo "[1/4] Skip build (requested)."
 fi
 
-if [[ ! -d "$CLAUDE_SOURCE" ]]; then
-  echo "Source directory not found: $CLAUDE_SOURCE" >&2
-  exit 1
+if [[ "$MARKETPLACE_ONLY" -eq 0 ]]; then
+  if [[ ! -d "$CLAUDE_SOURCE" ]]; then
+    echo "Source directory not found: $CLAUDE_SOURCE" >&2
+    exit 1
+  fi
+
+  mkdir -p "$CLAUDE_DEST"
+
+  echo "[3/4] Syncing $CLAUDE_SOURCE -> $CLAUDE_DEST ..."
+  find "$CLAUDE_DEST" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+  cp -R "$CLAUDE_SOURCE"/. "$CLAUDE_DEST"/
+else
+  echo "[3/4] Claude standalone sync skipped (marketplace-only)."
 fi
-
-mkdir -p "$CLAUDE_DEST"
-
-echo "[3/4] Syncing $CLAUDE_SOURCE -> $CLAUDE_DEST ..."
-find "$CLAUDE_DEST" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
-cp -R "$CLAUDE_SOURCE"/. "$CLAUDE_DEST"/
 
 if [[ "$WITH_MARKETPLACE" -eq 1 ]]; then
   if [[ ! -d "$MARKET_SOURCE" ]]; then
@@ -91,15 +102,17 @@ fi
 
 echo "Done."
 echo
-echo "Next steps (claude-release):"
-echo "  cd \"$CLAUDE_DEST\""
-echo "  git add ."
-echo "  git commit -m 'chore: publish claude-release'"
-echo "  git push"
-echo
-echo "Optional install hints:"
-echo "  skills.sh <owner>/<repo>/<skill-name>"
-echo "  claude --print \"/skills\""
+if [[ "$MARKETPLACE_ONLY" -eq 0 ]]; then
+  echo "Next steps (claude-release):"
+  echo "  cd \"$CLAUDE_DEST\""
+  echo "  git add ."
+  echo "  git commit -m 'chore: publish claude-release'"
+  echo "  git push"
+  echo
+  echo "Optional install hints:"
+  echo "  skills.sh <owner>/<repo>/<skill-name>"
+  echo "  claude --print \"/skills\""
+fi
 
 if [[ "$WITH_MARKETPLACE" -eq 1 ]]; then
   echo

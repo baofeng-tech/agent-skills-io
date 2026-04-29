@@ -22,11 +22,30 @@ DEFAULT_UPSTREAM_BRANCH = "main"
 DEFAULT_UPSTREAM_CACHE = REPO_ROOT / ".cache" / "upstream-agent-skills"
 DEFAULT_TARGET_ROOT = REPO_ROOT / "targetSkills"
 DEFAULT_STATE_FILE = REPO_ROOT / "targets" / "unified-pipeline-state.json"
+DEFAULT_ADJACENT_TARGETS = (
+    "agentskills-so",
+    "agentskill-sh",
+    "claude",
+    "claude-marketplace",
+    "hermes",
+)
 DEFAULT_REPO_SKILL_SYNC = [
     "python3",
     "scripts/sync_codex_repo_skills.py",
     "--if-available",
 ]
+ADJACENT_TARGET_ALIASES = {
+    "agent-skills": "agentskill-sh",
+    "agent-skills-own": "agentskill-sh",
+    "agentskill-sh": "agentskill-sh",
+    "agentskill.sh": "agentskill-sh",
+    "agentskills-so": "agentskills-so",
+    "agentskills.so": "agentskills-so",
+    "claude": "claude",
+    "claude-marketplace": "claude-marketplace",
+    "claude-plugin": "claude-marketplace",
+    "hermes": "hermes",
+}
 
 ALLOWED_TOP_LEVEL_FILES = {
     "SKILL.md",
@@ -109,6 +128,10 @@ def iso_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def split_csv(value: str) -> list[str]:
+    return [item.strip() for item in str(value or "").split(",") if item.strip()]
+
+
 def run_command(
     args: list[str],
     *,
@@ -145,6 +168,50 @@ def read_state(path: Path) -> dict[str, Any]:
 def write_state(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def parse_adjacent_targets(raw: str) -> list[str]:
+    requested = split_csv(raw)
+    if not requested or any(item.lower() == "all" for item in requested):
+        return list(DEFAULT_ADJACENT_TARGETS)
+
+    selected: list[str] = []
+    seen: set[str] = set()
+    for item in requested:
+        normalized = ADJACENT_TARGET_ALIASES.get(item.strip().lower())
+        if not normalized:
+            choices = ", ".join(DEFAULT_ADJACENT_TARGETS)
+            raise ValueError(f"Unknown adjacent target '{item}'. Expected one of: all, {choices}.")
+        if normalized not in seen:
+            seen.add(normalized)
+            selected.append(normalized)
+    return selected
+
+
+def adjacent_sync_commands(selected_targets: list[str]) -> list[list[str]]:
+    commands: list[list[str]] = []
+    selected = set(selected_targets)
+
+    if "agentskills-so" in selected:
+        commands.append(["bash", "scripts/publish-agentskills-so-release.sh", "--skip-build"])
+    if "agentskill-sh" in selected:
+        commands.append(["bash", "scripts/publish-agentskill-sh-release.sh", "--skip-build"])
+
+    include_claude = "claude" in selected
+    include_marketplace = "claude-marketplace" in selected
+    if include_claude and include_marketplace:
+        commands.append(["bash", "scripts/publish-claude-release.sh", "--with-marketplace", "--skip-build"])
+    elif include_claude:
+        commands.append(["bash", "scripts/publish-claude-release.sh", "--skip-build"])
+    elif include_marketplace:
+        commands.append(
+            ["bash", "scripts/publish-claude-release.sh", "--with-marketplace", "--marketplace-only", "--skip-build"]
+        )
+
+    if "hermes" in selected:
+        commands.append(["bash", "scripts/publish-hermes-release.sh", "--skip-build"])
+
+    return commands
 
 
 def extract_pending_manual_review_names(raw: Any) -> list[str]:
@@ -379,19 +446,8 @@ def run_llm_step(args: argparse.Namespace, summary: RunSummary) -> None:
 
 
 def run_publish_steps(args: argparse.Namespace, summary: RunSummary) -> None:
-    if os.environ.get("PUBLISH_AGENT_SKILLS_DEST"):
-        print(
-            "Ignoring PUBLISH_AGENT_SKILLS_DEST: upstream write-back to AIsa-team/agent-skills is disabled.",
-            flush=True,
-        )
-
     if args.sync_adjacent_repos:
-        commands = [
-            ["bash", "scripts/publish-agentskills-so-release.sh", "--skip-build"],
-            ["bash", "scripts/publish-agentskill-sh-release.sh", "--skip-build"],
-            ["bash", "scripts/publish-claude-release.sh", "--with-marketplace", "--skip-build"],
-            ["bash", "scripts/publish-hermes-release.sh", "--skip-build"],
-        ]
+        commands = adjacent_sync_commands(parse_adjacent_targets(args.adjacent_targets))
         for command in commands:
             run_command(command, cwd=REPO_ROOT, timeout=3600)
             summary.publish_steps.append(" ".join(command))
@@ -516,8 +572,15 @@ def build_parser() -> argparse.ArgumentParser:
         "--sync-adjacent-repos",
         action="store_true",
         help=(
-            "After a successful build/test run, sync downstream public release repos via existing publish scripts. "
-            "Upstream AIsa-team/agent-skills write-back is intentionally disabled."
+            "After a successful build/test run, sync downstream public release repos via existing publish scripts."
+        ),
+    )
+    parser.add_argument(
+        "--adjacent-targets",
+        default="all",
+        help=(
+            "Comma-separated downstream publish targets to sync when --sync-adjacent-repos is enabled. "
+            "Supported values: all, agentskills-so, agentskill-sh, claude, claude-marketplace, hermes."
         ),
     )
     parser.add_argument(

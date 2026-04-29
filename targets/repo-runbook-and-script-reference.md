@@ -81,13 +81,14 @@ Use it when you need to:
 | `scripts/test_release_layers.py` | Structure validation plus representative smoke tests across generated layers | none |
 | `scripts/clawhub_live_status.py` | Resolve live ClawHub detail pages and record `VirusTotal` / `ClawScan` / `Static analysis` / `Suspicious` scan output into state | `--targets`, `--artifact`, `--include-status`, `--render-mode` |
 | `scripts/clawhub_suspicious_remediation.py` | Select suspicious blocker artifacts, map them back to mother skills, optionally run the repo-local suspicious-remediation helper with diagnosis context, rebuild, sync, and force-republish only the targeted artifacts | `--artifacts`, `--contains`, `--apply`, `--llm-profile`, `--sync-repo-skills`, `--clawhub-publish`, `--post-publish-scan` |
+| `scripts/clawhub_breakout_rollout.py` | Run the dedicated breakout lane from `targets/clawhub-breakout-variants.json`, then optionally rebuild, sync, and publish only those breakout variants | `--skills`, `--apply`, `--sync-repo-skills`, `--sync-adjacent-repos`, `--clawhub-publish` |
 
 ### Publish / Sync
 
 | Script | Use for | Key options |
 | --- | --- | --- |
-| `scripts/publish-targetSkills-to-agent-skills.sh` | Hard-blocked safety guard that prevents upstream write-back to `AIsa-team/agent-skills` | no runtime args; always exits non-zero |
-| `scripts/publish-claude-release.sh` | Sync `claude-release/`, optionally `claude-marketplace/`, into sibling repos or CI-injected destinations | `--dest`, `--with-marketplace`, `--market-dest`, `--skip-build`, env `PUBLISH_CLAUDE_DEST`, `PUBLISH_CLAUDE_MARKETPLACE_DEST` |
+| `scripts/publish-targetSkills-to-agent-skills.sh` | Compatibility alias for the agentskill.sh publish lane; rebuilds/syncs `agentskill-sh-release/` into `baofeng-tech/agent-skills` | same options as `publish-agentskill-sh-release.sh`, env `PUBLISH_AGENTSKILL_SH_DEST` |
+| `scripts/publish-claude-release.sh` | Sync `claude-release/`, optionally `claude-marketplace/`, into sibling repos or CI-injected destinations | `--dest`, `--with-marketplace`, `--marketplace-only`, `--market-dest`, `--skip-build`, env `PUBLISH_CLAUDE_DEST`, `PUBLISH_CLAUDE_MARKETPLACE_DEST` |
 | `scripts/publish-hermes-release.sh` | Sync `hermes-release/` into sibling repo, or optionally publish each generated skill via Hermes CLI | `--dest`, `--mode`, `--repo`, `--skip-build`, env `PUBLISH_HERMES_DEST`, `PUBLISH_HERMES_MODE`, `HERMES_PUBLISH_REPO` |
 | `scripts/publish-clawhub-release.sh` | Prepare `clawhub-release/` for manual `clawhub skill publish` | `--skip-build` |
 | `scripts/publish-clawhub-plugin-release.sh` | Prepare `clawhub-plugin-release/` for manual `clawhub package publish` | `--skip-build` |
@@ -113,7 +114,8 @@ Use it when you need to:
 | `--include-working-tree` | Include uncommitted upstream changes in the diff set |
 | `--skip-build` | Skip all release-layer build steps after sync |
 | `--skip-test` | Skip `scripts/test_release_layers.py` |
-| `--sync-adjacent-repos` | Chain into downstream public repo sync scripts after build/test succeeds; upstream `AIsa-team/agent-skills` is excluded |
+| `--sync-adjacent-repos` | Chain into downstream public repo sync scripts after build/test succeeds |
+| `--adjacent-targets <csv>` | Limit downstream sync to `all`, `agentskills-so`, `agentskill-sh`, `claude`, `claude-marketplace`, and/or `hermes` |
 | `--clawhub-publish skill|plugin|both` | Chain into `publish_clawhub_batch.py` |
 | `--clawhub-dry-run` | Pass `--dry-run` when chaining into ClawHub batch publish |
 | `--dry-run` | Show the sync plan without copying files or updating state |
@@ -138,7 +140,7 @@ Use it when you need to:
 | `--probe-retries <int>` | Retry count for transient remote probe failures |
 | `--probe-retry-delay <seconds>` | Delay between remote probe retries |
 | `--post-publish-scan` | After publish or remote-existing skip, probe the live ClawHub page for scan status |
-| `--slug-conflict-strategy fail\|suffix-by-slot` | How to handle ClawHub ownership or slug conflicts; default retries with a slot-specific fallback slug |
+| `--slug-conflict-strategy fail\|suffix-by-slot` | How to handle ClawHub ownership or slug conflicts; default retries with a slot-specific fallback slug such as `-slot1`, `-slot2`, or `-slot3` |
 | `--scan-retries <int>` | Retry count for post-publish live scan checks when scan output is still pending |
 | `--scan-retry-delay <seconds>` | Delay between post-publish live scan retries |
 | `--scan-render-mode off|auto|always` | Whether post-publish scan should use Playwright rendering for dynamic pages |
@@ -178,6 +180,9 @@ Use it when you need to:
 | `--report-file <path>` | Output remediation-plan JSON |
 | `--artifacts <csv>` | Exact suspicious artifact keys to target |
 | `--contains <csv>` | Substring filter matched against key/name/reason/local path |
+| `--owned-only` | Restrict automatic selection to self-owned artifacts |
+| `--owner-handle <handle>` | Allowed publisher handles when `--owned-only` is enabled; defaults to `baofeng-tech`, `bibaofeng`, `aisadocs` |
+| `--max-artifacts <int>` | Optional cap on the number of auto-selected artifacts |
 | `--severity blocker|warning|all` | Which diagnosis severity to target |
 | `--status suspicious|pending|any` | Which live scan state to target |
 | `--apply` | Actually run LLM refinement and downstream rebuild/publish steps |
@@ -185,9 +190,26 @@ Use it when you need to:
 | `--sync-repo-skills` | Refresh repo-local `.agents/skills` before refinement |
 | `--llm-if-available` | Skip cleanly when LLM credentials are unavailable |
 | `--sync-adjacent-repos` | Re-sync downstream publish repos after rebuilding |
+| `--adjacent-targets <csv>` | Limit downstream sync to selected downstream targets |
 | `--clawhub-publish skill|plugin|both|none` | Force-republish only the selected artifact keys |
 | `--clawhub-dry-run` | Rehearse the targeted republish without uploading |
 | `--post-publish-scan` | Probe live ClawHub scan output immediately after targeted republish |
+
+### `scripts/clawhub_breakout_rollout.py`
+
+| Option | Meaning |
+| --- | --- |
+| `--variants-file <path>` | Breakout declaration JSON, usually `targets/clawhub-breakout-variants.json` |
+| `--report-file <path>` | Output breakout-rollout plan JSON |
+| `--skills <csv>` | Optional source skill filter |
+| `--apply` | Actually run breakout-profile refinement and rebuild/publish steps |
+| `--sync-repo-skills` | Refresh repo-local `.agents/skills` before breakout refinement |
+| `--llm-if-available` | Skip cleanly when LLM credentials are unavailable |
+| `--sync-adjacent-repos` | Re-sync downstream publish repos after rebuilding |
+| `--adjacent-targets <csv>` | Limit downstream sync to selected downstream targets |
+| `--clawhub-publish skill|plugin|both|none` | Publish only the selected breakout skill/plugin slugs |
+| `--clawhub-dry-run` | Rehearse the targeted breakout publish without uploading |
+| `--post-publish-scan` | Probe live ClawHub scan output immediately after targeted breakout publish |
 
 ### `scripts/import-github-downloads-to-targetSkills.py`
 

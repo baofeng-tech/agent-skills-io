@@ -1,19 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cat >&2 <<'EOF'
-Blocked by repo policy:
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-This repository may read from AIsa-team/agent-skills as an upstream baseline,
-but it must never sync, commit, or push targetSkills back into that upstream
-repository again.
+echo "publish-targetSkills-to-agent-skills.sh is now an agentskill.sh publish alias." >&2
+echo "It rebuilds/syncs agentskill-sh-release into baofeng-tech/agent-skills (default local checkout: ../agent-skills-own)." >&2
 
-Use this repo for:
-- upstream read-only sync into targetSkills/
-- release-layer rebuilds
-- downstream platform publish repos
-- ClawHub / Claude / Hermes publish flows
-
-Do not invoke publish-targetSkills-to-agent-skills.sh from automation.
-EOF
-exit 1
+exec bash "$SCRIPT_DIR/publish-agentskill-sh-release.sh" "$@"

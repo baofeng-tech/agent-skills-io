@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 SOURCE_DIR="$REPO_ROOT/agentskill-sh-release"
-DEST_DIR="${PUBLISH_AGENTSKILL_SH_DEST:-${REPO_ROOT}/../agent-skills-own}"
+DEST_DIR="${PUBLISH_AGENTSKILL_SH_DEST:-${PUBLISH_AGENT_SKILLS_DEST:-${REPO_ROOT}/../agent-skills-own}}"
 SKIP_BUILD=0
 
 usage() {

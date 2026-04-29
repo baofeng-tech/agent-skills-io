@@ -16,6 +16,7 @@ SOURCE_ROOT = REPO_ROOT / "clawhub-release"
 OUTPUT_ROOT = REPO_ROOT / "clawhub-plugin-release"
 PLUGIN_ROOT = OUTPUT_ROOT / "plugins"
 ZIP_ROOT = OUTPUT_ROOT / "zips"
+SOURCE_REPO = "https://github.com/baofeng-tech/agent-skills-io"
 RUNTIME_IGNORE = shutil.ignore_patterns(
     "__pycache__",
     "*.pyc",
@@ -245,7 +246,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "version": skill["version"],
         "author": {"name": "AIsa"},
         "homepage": "https://aisa.one",
-        "repository": "https://github.com/AIsa-team/agent-skills",
+        "repository": SOURCE_REPO,
         "license": skill["license"],
         "metadata": build_runtime_metadata(skill),
     }
@@ -288,7 +289,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "homepage": "https://aisa.one",
         "repository": {
             "type": "git",
-            "url": "https://github.com/AIsa-team/agent-skills.git",
+            "url": f"{SOURCE_REPO}.git",
         },
         "metadata": build_runtime_metadata(skill),
         "aisa": build_runtime_metadata(skill)["aisa"],

@@ -235,16 +235,20 @@ Current repo-local split:
 - `.agents/skills/aisa-source-skill-editor/SKILL.md`
   - default neutral profile for `targetSkills/`
 - `.agents/skills/aisa-clawhub-breakout-editor/SKILL.md`
-  - ClawHub breakout / suspicious-repair profile
+  - ClawHub breakout profile only
+- `.agents/skills/aisa-clawhub-suspicious-remediation-editor/SKILL.md`
+  - diagnosis-driven suspicious remediation profile only
 
 Current script wiring:
 
 - `scripts/unified_skill_pipeline.py`
   - normal LLM refinement now calls `scripts/llm_refine_aisa_skills.py --profile source`
+- `scripts/clawhub_breakout_rollout.py`
+  - dedicated breakout lane now calls `scripts/llm_refine_aisa_skills.py --profile clawhub_breakout`
 - `scripts/clawhub_suspicious_remediation.py`
-  - targeted ClawHub repair now calls `scripts/llm_refine_aisa_skills.py --profile clawhub_breakout`
+  - targeted ClawHub repair now calls `scripts/llm_refine_aisa_skills.py --profile clawhub_suspicious`
 
-This keeps the mother-skill default path more neutral while still letting ClawHub-only repair work use the stronger breakout/auditor context.
+This keeps the mother-skill default path more neutral while also separating breakout growth work from diagnosis-driven suspicious repair.
 
 ## 2026-04-25 Internalized Suspicious Lessons
 

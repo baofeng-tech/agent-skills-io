@@ -14,6 +14,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCE_ROOT = REPO_ROOT / "claude-release"
 OUTPUT_ROOT = REPO_ROOT / "claude-marketplace"
 MOTHER_ROOT = base.SOURCE_ROOT
+SOURCE_REPO = "https://github.com/baofeng-tech/agent-skills-io"
 RUNTIME_IGNORE = shutil.ignore_patterns(
     "__pycache__",
     "*.pyc",
@@ -106,7 +107,7 @@ def build_plugin(skill: dict[str, str]) -> dict[str, object]:
         "version": "1.0.0",
         "author": {"name": "AIsa"},
         "homepage": "https://aisa.one",
-        "repository": "https://github.com/AIsa-team/agent-skills",
+        "repository": SOURCE_REPO,
         "license": "MIT",
     }
     (plugin_dir / ".claude-plugin" / "plugin.json").write_text(

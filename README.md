@@ -109,7 +109,7 @@ flowchart TD
 - `scripts/test_release_layers.py`
   - Runs structure validation and representative smoke checks across generated release layers.
 - `scripts/publish-targetSkills-to-agent-skills.sh`
-  - Hard-blocked safety guard. This repo must never sync `targetSkills/` back into `AIsa-team/agent-skills`.
+  - Compatibility alias for the agentskill.sh publish lane. Rebuilds/syncs `agentskill-sh-release/` into `baofeng-tech/agent-skills` (default local checkout: `../agent-skills-own`).
 - `scripts/publish-claude-release.sh`
   - Syncs Claude standalone and optional Claude marketplace repos.
 - `scripts/publish-hermes-release.sh`
@@ -126,6 +126,8 @@ flowchart TD
   - Classifies suspicious / pending artifacts into rule buckets.
 - `scripts/clawhub_suspicious_remediation.py`
   - Runs the targeted repair loop for selected suspicious or pending artifacts.
+- `scripts/clawhub_breakout_rollout.py`
+  - Runs the dedicated breakout lane from `targets/clawhub-breakout-variants.json`, then optionally rebuilds, syncs, and publishes the selected breakout skills/plugins.
 
 ## ClawHub Slug Layout
 
@@ -187,34 +189,43 @@ python3 scripts/clawhub_suspicious_remediation.py \
 
 ## GitHub Actions And Auto Publish
 
-`.github/workflows/unified-skill-pipeline.yml` now has two lanes:
+`.github/workflows/unified-skill-pipeline.yml` now has one hosted lane plus three independent self-hosted lanes:
 
 - hosted lane
   - schedule or manual dispatch
   - sync, rebuild, validate, upload artifacts, refresh suspicious diagnosis, and commit repo outputs back here
-- self-hosted lane
-  - optional true publish continuation
-  - syncs downstream public GitHub publish repos
+- self-hosted publish lane
+  - optional true publish continuation for the normal upstream-sync flow
+  - syncs selected downstream GitHub publish repos
   - can batch-publish ClawHub skills/plugins
-  - can run targeted suspicious-remediation republish
-  - never clones, syncs, commits, or pushes `AIsa-team/agent-skills`
+- self-hosted suspicious-remediation lane
+  - reads diagnosis output and can now auto-select self-owned blocker artifacts when no explicit artifact list is supplied
+  - can rebuild, republish, and re-scan only that suspicious subset
+- self-hosted breakout lane
+  - runs the dedicated breakout rollout path from `targets/clawhub-breakout-variants.json`
+  - keeps breakout experimentation separate from normal sync and suspicious remediation
 
-For automatic full-platform publish, the self-hosted lane can now run from `schedule` too when the repo variable below is enabled:
+For automatic full-platform publish, the normal self-hosted publish lane can now run from `schedule` too when the repo variable below is enabled:
 
 - `AUTO_FULL_PLATFORM_PUBLISH=true`
 
-Useful repo variables for scheduled self-hosted publish:
+Useful repo variables for scheduled self-hosted automation:
 
 - `AUTO_PIPELINE_SELECTION`
 - `AUTO_RUN_LLM_STEP`
 - `AUTO_LLM_APPLY`
 - `AUTO_SYNC_REPO_SKILLS`
 - `AUTO_SYNC_ADJACENT_REPOS`
+- `AUTO_ADJACENT_TARGETS`
 - `AUTO_PUSH_ADJACENT_REPOS`
 - `AUTO_CLAWHUB_PUBLISH`
 - `AUTO_CLAWHUB_DRY_RUN`
 - `AUTO_RUN_SUSPICIOUS_REPAIR`
 - `AUTO_SUSPICIOUS_ARTIFACTS`
+- `AUTO_SUSPICIOUS_MAX_ARTIFACTS`
+- `AUTO_RUN_BREAKOUT_ROLLOUT`
+- `AUTO_BREAKOUT_SKILLS`
+- `AUTO_BREAKOUT_PUBLISH`
 - `AUTO_INSTALL_CLAWHUB_CLI`
 - `AUTO_HERMES_PUBLISH_MODE`
 - `CLAWHUB_CLI_VERSION`

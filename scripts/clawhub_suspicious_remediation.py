@@ -10,10 +10,13 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from unified_skill_pipeline import adjacent_sync_commands, parse_adjacent_targets
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DIAGNOSIS_FILE = REPO_ROOT / "targets" / "clawhub-suspicious-diagnosis.json"
 DEFAULT_REPORT_FILE = REPO_ROOT / "targets" / "clawhub-suspicious-remediation.json"
+DEFAULT_OWNED_PUBLISHER_HANDLES = ("baofeng-tech", "bibaofeng", "aisadocs")
 DEFAULT_REPO_SKILL_SYNC = [
     "python3",
     "scripts/sync_codex_repo_skills.py",
@@ -26,12 +29,6 @@ FULL_BUILD_STEPS = [
     ["python3", "scripts/build_clawhub_plugin_release.py"],
 ]
 TEST_STEP = ["python3", "scripts/test_release_layers.py"]
-DOWNSTREAM_SYNC_STEPS = [
-    ["bash", "scripts/publish-agentskills-so-release.sh", "--skip-build"],
-    ["bash", "scripts/publish-agentskill-sh-release.sh", "--skip-build"],
-    ["bash", "scripts/publish-claude-release.sh", "--with-marketplace", "--skip-build"],
-    ["bash", "scripts/publish-hermes-release.sh", "--skip-build"],
-]
 
 
 def split_csv(value: str) -> list[str]:
@@ -98,6 +95,31 @@ def matches_contains(item: dict[str, Any], contains_tokens: list[str]) -> bool:
     return any(token.lower() in haystack for token in contains_tokens)
 
 
+def normalize_owner_handles(raw_values: list[str], *, default_when_empty: bool = False) -> list[str]:
+    values = raw_values or []
+    handles: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        for piece in split_csv(value):
+            normalized = piece.strip().lstrip("@").lower()
+            if not normalized or normalized in seen:
+                continue
+            seen.add(normalized)
+            handles.append(normalized)
+    if not handles and default_when_empty:
+        handles = list(DEFAULT_OWNED_PUBLISHER_HANDLES)
+    return handles
+
+
+def matches_owner_handle(item: dict[str, Any], owner_handles: list[str], *, owned_only: bool) -> bool:
+    if not owned_only:
+        return True
+    handle = str(item.get("publisher_handle") or "").strip().lstrip("@").lower()
+    if not handle:
+        return False
+    return handle in set(owner_handles)
+
+
 def select_artifacts(
     payload: dict[str, Any],
     *,
@@ -105,6 +127,9 @@ def select_artifacts(
     contains_tokens: list[str],
     severity: str,
     status: str,
+    owner_handles: list[str],
+    owned_only: bool,
+    max_artifacts: int,
 ) -> list[dict[str, Any]]:
     requested = [key for key in exact_keys if key]
     requested_set = set(requested)
@@ -121,6 +146,8 @@ def select_artifacts(
             continue
         if not matches_status(item, status):
             continue
+        if not matches_owner_handle(item, owner_handles, owned_only=owned_only):
+            continue
         if requested_set and key not in requested_set:
             continue
         if not matches_contains(item, contains_tokens):
@@ -133,6 +160,8 @@ def select_artifacts(
         matched.sort(key=lambda item: order.get(str(item.get("key") or ""), len(order)))
     else:
         matched.sort(key=lambda item: (str(item.get("kind") or ""), str(item.get("name") or "")))
+    if max_artifacts > 0:
+        matched = matched[:max_artifacts]
     return matched
 
 
@@ -183,12 +212,20 @@ def build_report(items: list[dict[str, Any]], source_skills: list[str]) -> dict[
             "source_skills": len(source_skills),
             "artifact_keys": [str(item.get("key") or "") for item in items],
             "source_skill_names": source_skills,
+            "publisher_handles": sorted(
+                {
+                    str(item.get("publisher_handle") or "").strip()
+                    for item in items
+                    if str(item.get("publisher_handle") or "").strip()
+                }
+            ),
         },
         "artifacts": [
             {
                 "key": item.get("key"),
                 "kind": item.get("kind"),
                 "name": item.get("name"),
+                "publisher_handle": item.get("publisher_handle"),
                 "severity": item.get("severity"),
                 "scan_status": item.get("scan_status"),
                 "rule_ids": item.get("rule_ids") or [],
@@ -208,8 +245,8 @@ def run_builds(*, skip_build: bool, skip_test: bool) -> None:
         run_command(TEST_STEP, timeout=7200)
 
 
-def run_adjacent_sync() -> None:
-    for command in DOWNSTREAM_SYNC_STEPS:
+def run_adjacent_sync(selected_targets: list[str]) -> None:
+    for command in adjacent_sync_commands(selected_targets):
         run_command(command, timeout=7200)
 
 
@@ -280,6 +317,26 @@ def build_parser() -> argparse.ArgumentParser:
         help="Comma-separated substrings matched against key/name/reason/local_path when selecting artifacts.",
     )
     parser.add_argument(
+        "--owned-only",
+        action="store_true",
+        help="Restrict automatic selection to artifacts published under the configured owner handles.",
+    )
+    parser.add_argument(
+        "--owner-handle",
+        action="append",
+        default=[],
+        help=(
+            "Allowed publisher handle(s) when --owned-only is enabled. "
+            "Repeat or pass comma-separated values. Defaults to baofeng-tech,bibaofeng,aisadocs."
+        ),
+    )
+    parser.add_argument(
+        "--max-artifacts",
+        type=int,
+        default=0,
+        help="Optional cap on how many matched artifacts to include after sorting.",
+    )
+    parser.add_argument(
         "--severity",
         choices=("blocker", "warning", "all"),
         default="blocker",
@@ -336,6 +393,14 @@ def build_parser() -> argparse.ArgumentParser:
         help="After rebuilding, sync downstream public publish repos via the existing publish scripts.",
     )
     parser.add_argument(
+        "--adjacent-targets",
+        default="all",
+        help=(
+            "Comma-separated downstream publish targets used with --sync-adjacent-repos. "
+            "Supported values: all, agentskills-so, agentskill-sh, claude, claude-marketplace, hermes."
+        ),
+    )
+    parser.add_argument(
         "--clawhub-publish",
         choices=("none", "skill", "plugin", "both"),
         default="none",
@@ -359,12 +424,16 @@ def main() -> int:
     diagnosis_payload = load_json(Path(args.diagnosis_file).resolve())
     exact_keys = split_csv(args.artifacts)
     contains_tokens = split_csv(args.contains)
+    owner_handles = normalize_owner_handles(args.owner_handle, default_when_empty=args.owned_only)
     items = select_artifacts(
         diagnosis_payload,
         exact_keys=exact_keys,
         contains_tokens=contains_tokens,
         severity=args.severity,
         status=args.status,
+        owner_handles=owner_handles,
+        owned_only=args.owned_only,
+        max_artifacts=args.max_artifacts,
     )
     source_skills = resolve_source_skills(items)
     report = build_report(items, source_skills)
@@ -373,6 +442,8 @@ def main() -> int:
     print("Suspicious remediation plan", flush=True)
     print(f"  artifacts: {len(items)}", flush=True)
     print(f"  source skills: {len(source_skills)}", flush=True)
+    if args.owned_only:
+        print(f"  owned handles: {', '.join(owner_handles)}", flush=True)
     for skill_name in source_skills:
         print(f"  - {skill_name}", flush=True)
 
@@ -404,7 +475,7 @@ def main() -> int:
     run_builds(skip_build=args.skip_build, skip_test=args.skip_test)
 
     if args.sync_adjacent_repos:
-        run_adjacent_sync()
+        run_adjacent_sync(parse_adjacent_targets(args.adjacent_targets))
 
     run_targeted_publish(args, items)
     refresh_diagnosis(items)

@@ -1,0 +1,20 @@
+{
+  "summary": {
+    "variants": 1,
+    "sources": [
+      "aisa-twitter-api"
+    ],
+    "artifact_keys": [
+      "skill:aisa-twitter-api-command-center",
+      "plugin:aisa-twitter-api-command-center-plugin"
+    ]
+  },
+  "variants": [
+    {
+      "source": "aisa-twitter-api",
+      "slug": "aisa-twitter-api-command-center",
+      "profile": "twitter_api",
+      "version": "1.0.3"
+    }
+  ]
+}

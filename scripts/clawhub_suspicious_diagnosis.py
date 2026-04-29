@@ -229,6 +229,7 @@ def render_artifact_record(item: dict[str, Any], publish_meta: dict[str, Any]) -
         "key": item.get("key"),
         "kind": item.get("kind"),
         "name": item.get("name"),
+        "publisher_handle": item.get("publisher_handle"),
         "severity": severity,
         "scan_status": item.get("scan_status"),
         "virus_total": item.get("virus_total"),

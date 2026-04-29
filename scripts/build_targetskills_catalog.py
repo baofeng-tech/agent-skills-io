@@ -12,9 +12,9 @@ import build_claude_release as base
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TARGET_ROOT = REPO_ROOT / "targetSkills"
-PUBLIC_REPO = "https://github.com/AIsa-team/agent-skills"
-PUBLIC_BRANCH = "agentskills"
-PUBLIC_BRANCH_URL = f"{PUBLIC_REPO}/tree/{PUBLIC_BRANCH}"
+PUBLIC_REPO = "https://github.com/baofeng-tech/agent-skills-io"
+PUBLIC_BRANCH = "main"
+PUBLIC_BRANCH_URL = f"{PUBLIC_REPO}/tree/{PUBLIC_BRANCH}/targetSkills"
 
 
 def generated_at() -> str:

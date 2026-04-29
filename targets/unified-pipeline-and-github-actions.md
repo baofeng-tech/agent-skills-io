@@ -103,13 +103,19 @@ The repo includes:
 
 - `.github/workflows/unified-skill-pipeline.yml`
 
-The workflow now has two lanes:
+The workflow now has one hosted lane plus three independent self-hosted lanes:
 
 - hosted lane
   - safe default for scheduled or manual sync, rebuild, validation, artifact upload, and committing generated outputs back into this repo
-- self-hosted lane
+- self-hosted publish lane
   - true publish continuation for downstream GitHub repo publish and optional ClawHub batch publish
   - can now also be auto-enabled from `schedule` through repo variable `AUTO_FULL_PLATFORM_PUBLISH=true`
+- self-hosted suspicious-remediation lane
+  - separate from the normal publish lane
+  - can auto-select self-owned suspicious blockers and republish only that subset
+- self-hosted breakout-rollout lane
+  - separate from both normal publish and suspicious repair
+  - runs the dedicated breakout path from `targets/clawhub-breakout-variants.json`
 
 Current scheduler details:
 
@@ -171,7 +177,7 @@ This split exists specifically to avoid mixing ClawHub breakout copy into the ne
 
 ### Suspicious remediation loop
 
-The self-hosted lane now also supports an optional repair path for live ClawHub blockers:
+The self-hosted suspicious-remediation lane now supports an optional repair path for live ClawHub blockers:
 
 - `scripts/clawhub_suspicious_remediation.py`
   - reads `targets/clawhub-suspicious-diagnosis.json`
@@ -186,11 +192,34 @@ Current workflow-dispatch controls for this lane:
 
 - `run_suspicious_repair`
 - `suspicious_artifacts`
+- `suspicious_max_artifacts`
+- `adjacent_targets`
 - `install_clawhub_cli`
 
-Current default targeted blocker set:
+Current scheduled default when no explicit artifact list is supplied:
 
-- none; pass explicit ClawHub-owned artifact keys when needed
+- select self-owned `blocker` artifacts in `suspicious` state
+- owner handles default to `baofeng-tech`, `bibaofeng`, and `aisadocs`
+- optionally cap the batch with `AUTO_SUSPICIOUS_MAX_ARTIFACTS`
+
+### Breakout rollout lane
+
+The self-hosted breakout lane now has its own entry script:
+
+- `scripts/clawhub_breakout_rollout.py`
+  - reads `targets/clawhub-breakout-variants.json`
+  - optionally filters by source skill
+  - runs repo-local breakout context via `scripts/llm_refine_aisa_skills.py --profile clawhub_breakout`
+  - rebuilds release layers
+  - optionally re-syncs downstream publish repos
+  - optionally publishes only the selected breakout skill/plugin slugs
+
+Current workflow-dispatch controls for this lane:
+
+- `run_breakout_rollout`
+- `breakout_skills`
+- `breakout_publish`
+- `adjacent_targets`
 
 ### Suspicious diagnosis chain
 
@@ -209,32 +238,51 @@ For skill sync and future manual edits:
 - publish-surface cleanup should preserve runtime completeness unless the task explicitly asks for a behavior change
 - conservative narrowing belongs in generated release layers or manual-review exceptions, not as a silent breakage of the mother skill
 
-### What the self-hosted lane adds
+### What the self-hosted lanes add
 
 When `run_self_hosted_publish=true` on a manual dispatch, the workflow also:
 
 1. prepares downstream public publish repos in a dedicated workspace area
-2. reruns the unified pipeline with optional `--sync-adjacent-repos`
+2. reruns the unified pipeline with optional `--sync-adjacent-repos --adjacent-targets ...`
 3. optionally continues into `publish_clawhub_batch.py`
-4. optionally runs the suspicious-remediation loop and force-republishes only the matching artifacts
-5. commits self-hosted repo changes back into this repo when files changed
-6. commits and pushes changed downstream GitHub publish repos
-7. uploads self-hosted publish-state artifacts
+4. commits self-hosted repo changes back into this repo when files changed
+5. commits and pushes changed downstream GitHub publish repos
+6. uploads self-hosted publish-state artifacts
+
+When `run_suspicious_repair=true` on a manual dispatch, the workflow instead uses the dedicated suspicious-remediation lane:
+
+1. fast-forwards to the latest repo state
+2. optionally prepares only the selected downstream publish repos
+3. auto-selects or explicitly targets suspicious artifacts
+4. applies diagnosis-driven repair and force-republishes only that subset
+5. commits repo and downstream changes separately
+
+When `run_breakout_rollout=true` on a manual dispatch, the workflow uses the dedicated breakout lane:
+
+1. fast-forwards to the latest repo state
+2. reads `targets/clawhub-breakout-variants.json`
+3. optionally filters to selected source skills
+4. applies breakout-profile refinement, rebuilds, and optionally republishes only those breakout slugs
 
 When repo variable `AUTO_FULL_PLATFORM_PUBLISH=true` is set, the same self-hosted lane can also run from the scheduled trigger without manual dispatch.
 
-Useful repo variables for the scheduled self-hosted lane:
+Useful repo variables for scheduled self-hosted automation:
 
 - `AUTO_PIPELINE_SELECTION`
 - `AUTO_RUN_LLM_STEP`
 - `AUTO_LLM_APPLY`
 - `AUTO_SYNC_REPO_SKILLS`
 - `AUTO_SYNC_ADJACENT_REPOS`
+- `AUTO_ADJACENT_TARGETS`
 - `AUTO_PUSH_ADJACENT_REPOS`
 - `AUTO_CLAWHUB_PUBLISH`
 - `AUTO_CLAWHUB_DRY_RUN`
 - `AUTO_RUN_SUSPICIOUS_REPAIR`
 - `AUTO_SUSPICIOUS_ARTIFACTS`
+- `AUTO_SUSPICIOUS_MAX_ARTIFACTS`
+- `AUTO_RUN_BREAKOUT_ROLLOUT`
+- `AUTO_BREAKOUT_SKILLS`
+- `AUTO_BREAKOUT_PUBLISH`
 - `AUTO_INSTALL_CLAWHUB_CLI`
 - `AUTO_HERMES_PUBLISH_MODE`
 - `CLAWHUB_CLI_VERSION`

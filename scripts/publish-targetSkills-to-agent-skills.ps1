@@ -1,11 +1,8 @@
 $ErrorActionPreference = "Stop"
 
-throw @"
-Blocked by repo policy:
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
-This repository may read from AIsa-team/agent-skills as an upstream baseline,
-but it must never sync, commit, or push targetSkills back into that upstream
-repository again.
+Write-Host "publish-targetSkills-to-agent-skills.ps1 is now an agentskill.sh publish alias."
+Write-Host "It rebuilds/syncs agentskill-sh-release into baofeng-tech/agent-skills (default local checkout: ..\agent-skills-own)."
 
-Do not use publish-targetSkills-to-agent-skills.ps1 in automation.
-"@
+& (Join-Path $ScriptDir "publish-agentskill-sh-release.ps1") @args
