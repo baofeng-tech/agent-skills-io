@@ -187,7 +187,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `multi-source-search`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/multi-source-search>
-- Summary: Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.
+- Summary: Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.
 - Includes:
   - `scripts/search_client.py`
   - `SKILL.md`

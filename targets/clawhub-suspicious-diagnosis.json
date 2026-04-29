@@ -3,14 +3,14 @@
     "artifacts": 116,
     "blockers": 31,
     "warnings": 85,
-    "pending": 111,
+    "pending": 109,
     "rules": {
       "metadata_env_mismatch": 30,
       "oauth_upload_side_effects": 8,
-      "pending_scan": 111,
-      "platform_trust_gap": 18,
+      "pending_scan": 109,
+      "platform_trust_gap": 20,
       "prompt_scaffold_copy": 1,
-      "relay_trust_surface": 20
+      "relay_trust_surface": 19
     }
   },
   "artifacts": [
@@ -19,29 +19,29 @@
       "kind": "plugin",
       "name": "aisa-multi-search-engine-plugin",
       "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": "pending",
+      "scan_status": "suspicious",
+      "virus_total": null,
       "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
+      "suspicious": true,
+      "pending": false,
       "rule_ids": [
         "metadata_env_mismatch",
-        "pending_scan"
+        "platform_trust_gap"
       ],
       "rule_summaries": [
         "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet."
+        "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
         "Align SKILL.md, README, package manifests, and registry-facing metadata.",
         "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/plugins/aisa-multi-search-engine-plugin",
       "local_path": "/mnt/d/workplace/agent-skills-io/clawhub-plugin-release/plugins/aisa-multi-search-engine-plugin",
       "release_ref": null,
-      "reason": "Detected: suspicious.env_credential_access"
+      "reason": "Native-first ClawHub plugin for `aisa-multi-search-engine`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval."
     },
     {
       "key": "plugin:aisa-perplexity-search-sonar-plugin",
@@ -49,7 +49,7 @@
       "name": "aisa-perplexity-search-sonar-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -82,7 +82,7 @@
       "name": "aisa-provider-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -118,33 +118,29 @@
       "kind": "plugin",
       "name": "aisa-tavily-plugin",
       "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": "pending",
+      "scan_status": "suspicious",
+      "virus_total": null,
       "openclaw_verdict": null,
-      "suspicious": false,
-      "pending": true,
+      "suspicious": true,
+      "pending": false,
       "rule_ids": [
         "metadata_env_mismatch",
-        "pending_scan",
-        "relay_trust_surface"
+        "platform_trust_gap"
       ],
       "rule_summaries": [
         "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
+        "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
         "Align SKILL.md, README, package manifests, and registry-facing metadata.",
         "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/plugins/aisa-tavily-plugin",
       "local_path": "clawhub-plugin-release/plugins/aisa-tavily-plugin",
       "release_ref": "rd70n4zbmehc5smb3n8k0z7tbd85a9d8",
-      "reason": "The package's code and SKILL.md consistently require a single AISA_API_KEY and call aisa.one APIs (which matches the research purpose), but the registry-level metadata omits those requirements — an incoherence that warrants caution before installing."
+      "reason": "Native-first ClawHub plugin for `aisa-tavily`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval."
     },
     {
       "key": "plugin:aisa-tavily-search-plugin",
@@ -152,7 +148,7 @@
       "name": "aisa-tavily-search-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -189,7 +185,7 @@
       "name": "aisa-twitter-api-command-center-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -226,7 +222,7 @@
       "name": "aisa-twitter-post-engage-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -267,7 +263,7 @@
       "name": "last30days-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -296,7 +292,7 @@
       "name": "openclaw-twitter-post-engage-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -337,7 +333,7 @@
       "name": "prediction-market-arbitrage-api-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -370,7 +366,7 @@
       "name": "smart-search-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -403,7 +399,7 @@
       "name": "stock-analysis-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -436,7 +432,7 @@
       "name": "stock-rumors-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -469,7 +465,7 @@
       "name": "twitter-command-center-search-post-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -510,7 +506,7 @@
       "name": "x-intelligence-automation-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -551,7 +547,7 @@
       "name": "youtube-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -588,7 +584,7 @@
       "name": "youtube-search-plugin",
       "severity": "blocker",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -1421,7 +1417,7 @@
       "name": "last30days-zh-plugin",
       "severity": "warning",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "openclaw_verdict": null,
       "suspicious": false,
       "pending": true,
@@ -3150,7 +3146,7 @@
       "detail_url": "https://clawhub.ai/aisapay/web-search",
       "local_path": "clawhub-release\\web-search",
       "release_ref": null,
-      "reason": "Detected: suspicious.vt_suspicious"
+      "reason": "This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources."
     },
     {
       "key": "skill:youtube-search",

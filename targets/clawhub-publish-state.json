@@ -20,17 +20,17 @@
         "detail_url": "https://clawhub.ai/plugins/aisa-multi-search-engine-plugin",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "suspicious",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
         "publisher_handle": "bibaofeng",
-        "suspicious": false,
-        "suspicious_reason": "Detected: suspicious.env_credential_access",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "Native-first ClawHub plugin for `aisa-multi-search-engine`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-28T23:38:02.741918+00:00"
+        "checked_at": "2026-04-29T08:37:34.270235+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:03:11.797027+00:00",
@@ -59,7 +59,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -68,7 +68,7 @@
         "suspicious_reason": "The package is mostly coherent for an API-provider plugin (it legitimately needs an AISA_API_KEY), but there are mismatches between the registry metadata and the packaged files and a few packaging/instruction gaps that should be resolved before trusting it with credentials.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:38:06.661849+00:00"
+        "checked_at": "2026-04-29T08:37:37.651665+00:00"
       }
     },
     "plugin:aisa-tavily-plugin": {
@@ -93,17 +93,17 @@
         "detail_url": "https://clawhub.ai/plugins/aisa-tavily-plugin",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "suspicious",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
         "publisher_handle": "baofeng-tech",
-        "suspicious": false,
-        "suspicious_reason": "The package's code and SKILL.md consistently require a single AISA_API_KEY and call aisa.one APIs (which matches the research purpose), but the registry-level metadata omits those requirements — an incoherence that warrants caution before installing.",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "Native-first ClawHub plugin for `aisa-tavily`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-28T23:38:09.910325+00:00"
+        "checked_at": "2026-04-29T08:37:45.230389+00:00"
       }
     },
     "plugin:aisa-twitter-api-plugin": {
@@ -141,7 +141,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:13.199612+00:00"
+        "checked_at": "2026-04-29T08:37:48.457445+00:00"
       }
     },
     "plugin:aisa-twitter-command-center-plugin": {
@@ -175,7 +175,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:14.249178+00:00"
+        "checked_at": "2026-04-29T08:37:49.512277+00:00"
       },
       "attempts": 3,
       "last_attempt_at": "2026-04-28T20:04:31.254969+00:00",
@@ -215,7 +215,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:15.095130+00:00"
+        "checked_at": "2026-04-29T08:37:50.570038+00:00"
       },
       "publish_mode": "published"
     },
@@ -239,7 +239,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -248,7 +248,7 @@
         "suspicious_reason": "The package is largely coherent for a Twitter/X relay-based engagement and OAuth posting skill, but there are metadata inconsistencies (the registry metadata claims no required credentials while the shipped manifests and scripts require AISA_API_KEY) that should be clarified before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:38:17.371973+00:00"
+        "checked_at": "2026-04-29T08:37:52.922999+00:00"
       },
       "attempts": 3,
       "last_attempt_at": "2026-04-28T20:04:44.811229+00:00",
@@ -285,7 +285,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:20.515114+00:00"
+        "checked_at": "2026-04-29T08:37:56.459877+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:05:25.000713+00:00",
@@ -322,7 +322,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:21.595998+00:00"
+        "checked_at": "2026-04-29T08:37:57.600646+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:05:57.592298+00:00",
@@ -362,7 +362,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:22.550756+00:00"
+        "checked_at": "2026-04-29T08:37:58.700427+00:00"
       }
     },
     "plugin:last30days-plugin": {
@@ -385,7 +385,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -394,7 +394,7 @@
         "suspicious_reason": "The package appears to implement a legitimate AIsa-backed research tool, but the manifest and bundled runtime disagree with the registry metadata about required secrets and there are a few runtime behaviors (local HTTP probes, bundled executable scripts) that warrant caution before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:38:24.483234+00:00"
+        "checked_at": "2026-04-29T08:38:00.976212+00:00"
       }
     },
     "plugin:last30days-zh-plugin": {
@@ -420,7 +420,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -429,7 +429,7 @@
         "suspicious_reason": "The package mostly matches its stated purpose (web/multi-source 30-day research) but includes repo-local config reads and a default probe of a host.docker.internal API endpoint that is unexpected and worth reviewing before install.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:38:25.578556+00:00"
+        "checked_at": "2026-04-29T08:38:06.891720+00:00"
       }
     },
     "plugin:llm-router-plugin": {
@@ -466,7 +466,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:26.492429+00:00"
+        "checked_at": "2026-04-29T08:38:07.946437+00:00"
       }
     },
     "plugin:market-plugin": {
@@ -500,7 +500,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:27.413555+00:00"
+        "checked_at": "2026-04-29T08:38:08.870959+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:06:05.293964+00:00",
@@ -541,7 +541,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:28.359614+00:00"
+        "checked_at": "2026-04-29T08:38:09.894998+00:00"
       },
       "publish_mode": "publish-existing"
     },
@@ -579,7 +579,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:29.359170+00:00"
+        "checked_at": "2026-04-29T08:38:11.068089+00:00"
       }
     },
     "plugin:multi-search-plugin": {
@@ -616,7 +616,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:30.288806+00:00"
+        "checked_at": "2026-04-29T08:38:12.074390+00:00"
       }
     },
     "plugin:openclaw-aisa-youtube-aisa-plugin": {
@@ -653,7 +653,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:37.085227+00:00"
+        "checked_at": "2026-04-29T08:38:14.208714+00:00"
       }
     },
     "plugin:openclaw-media-gen-plugin": {
@@ -690,7 +690,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:43.011581+00:00"
+        "checked_at": "2026-04-29T08:38:15.313231+00:00"
       }
     },
     "plugin:openclaw-search-plugin": {
@@ -727,7 +727,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:44.411366+00:00"
+        "checked_at": "2026-04-29T08:38:16.430600+00:00"
       }
     },
     "plugin:openclaw-twitter-plugin": {
@@ -764,7 +764,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:45.639804+00:00"
+        "checked_at": "2026-04-29T08:38:17.480290+00:00"
       }
     },
     "plugin:openclaw-twitter-post-engage-plugin": {
@@ -790,7 +790,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -799,7 +799,7 @@
         "suspicious_reason": "The package's code and SKILL.md are coherent with a Twitter/X engagement/posting skill (using an AIsa relay) but the registry metadata and top-level claims contradict the actual requirements and there is reliance on a third-party relay (AISA_API_KEY) that the user must trust.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:38:51.294589+00:00"
+        "checked_at": "2026-04-29T08:38:18.546498+00:00"
       }
     },
     "plugin:openclaw-youtube-plugin": {
@@ -836,7 +836,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:52.281416+00:00"
+        "checked_at": "2026-04-29T08:38:19.516439+00:00"
       }
     },
     "plugin:perplexity-research-plugin": {
@@ -873,7 +873,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:53.241952+00:00"
+        "checked_at": "2026-04-29T08:38:25.291719+00:00"
       }
     },
     "plugin:perplexity-search-plugin": {
@@ -910,7 +910,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:54.260826+00:00"
+        "checked_at": "2026-04-29T08:38:26.335501+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-api-plugin": {
@@ -936,7 +936,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -945,7 +945,7 @@
         "suspicious_reason": "The package appears to implement a prediction-market arbitrage client that only talks to api.aisa.one and requires an AISA_API_KEY, but the registry metadata advertised at the top is inconsistent with the shipped manifests (missing declared env/binary requirements), so review before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:39:00.111624+00:00"
+        "checked_at": "2026-04-29T08:38:27.532852+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-plugin": {
@@ -982,7 +982,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:01.260397+00:00"
+        "checked_at": "2026-04-29T08:38:28.628345+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-zh-plugin": {
@@ -1019,7 +1019,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:02.321453+00:00"
+        "checked_at": "2026-04-29T08:38:29.698288+00:00"
       }
     },
     "plugin:prediction-market-data-plugin": {
@@ -1056,7 +1056,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:03.599209+00:00"
+        "checked_at": "2026-04-29T08:38:31.215598+00:00"
       }
     },
     "plugin:prediction-market-data-zh-plugin": {
@@ -1093,7 +1093,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:04.765991+00:00"
+        "checked_at": "2026-04-29T08:38:32.527356+00:00"
       }
     },
     "plugin:prediction-market-plugin": {
@@ -1130,7 +1130,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:05.821955+00:00"
+        "checked_at": "2026-04-29T08:38:33.645625+00:00"
       },
       "publish_mode": "publish-existing"
     },
@@ -1169,7 +1169,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:06.819544+00:00"
+        "checked_at": "2026-04-29T08:38:34.718069+00:00"
       }
     },
     "plugin:search-plugin": {
@@ -1207,7 +1207,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:11.533458+00:00"
+        "checked_at": "2026-04-29T08:38:35.829390+00:00"
       }
     },
     "plugin:smart-search-plugin": {
@@ -1233,7 +1233,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -1242,7 +1242,7 @@
         "suspicious_reason": "The package is plausibly a search client that contacts aisa.one and requires an AISA_API_KEY and python3, but the registry metadata omits those requirements and there are manifest mismatches you should confirm before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:39:12.578911+00:00"
+        "checked_at": "2026-04-29T08:38:36.983845+00:00"
       }
     },
     "plugin:stock-analysis-plugin": {
@@ -1268,7 +1268,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -1277,7 +1277,7 @@
         "suspicious_reason": "The package mostly matches a stock-analysis skill, but the published registry metadata (saying no env vars/credentials required) contradicts the embedded plugin and SKILL.md which require an AISA_API_KEY and contact an external AIsa API — this mismatch should be clarified before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:39:13.586795+00:00"
+        "checked_at": "2026-04-29T08:38:38.065000+00:00"
       }
     },
     "plugin:stock-dividend-plugin": {
@@ -1315,7 +1315,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:14.725532+00:00"
+        "checked_at": "2026-04-29T08:38:39.060195+00:00"
       }
     },
     "plugin:stock-hot-plugin": {
@@ -1353,7 +1353,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:15.714354+00:00"
+        "checked_at": "2026-04-29T08:38:40.048262+00:00"
       }
     },
     "plugin:stock-portfolio-plugin": {
@@ -1391,7 +1391,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:16.849260+00:00"
+        "checked_at": "2026-04-29T08:38:41.138716+00:00"
       }
     },
     "plugin:stock-rumors-plugin": {
@@ -1418,7 +1418,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -1427,7 +1427,7 @@
         "suspicious_reason": "The package generally matches its stated purpose (stock/rumor scanning using an AIsa API key) but the runtime instructions and script contain mismatches (claims to 'fetch live data', undeclared environment variables, and reliance on an LLM to 'scan' sources) that warrant caution before installing or running with a real API key.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:39:25.698434+00:00"
+        "checked_at": "2026-04-29T08:38:42.209907+00:00"
       }
     },
     "plugin:stock-watchlist-plugin": {
@@ -1465,7 +1465,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:26.768440+00:00"
+        "checked_at": "2026-04-29T08:38:43.300763+00:00"
       }
     },
     "plugin:tavily-extract-plugin": {
@@ -1503,7 +1503,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:27.816785+00:00"
+        "checked_at": "2026-04-29T08:38:44.289757+00:00"
       }
     },
     "plugin:tavily-search-plugin": {
@@ -1541,7 +1541,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:28.824144+00:00"
+        "checked_at": "2026-04-29T08:38:44.855086+00:00"
       }
     },
     "plugin:twitter-autopilot-plugin": {
@@ -1579,7 +1579,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:29.908995+00:00"
+        "checked_at": "2026-04-29T08:38:45.869207+00:00"
       }
     },
     "plugin:twitter-command-center-search-post-interact-plugin": {
@@ -1617,7 +1617,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:31.088665+00:00"
+        "checked_at": "2026-04-29T08:38:46.933302+00:00"
       }
     },
     "plugin:twitter-command-center-search-post-plugin": {
@@ -1644,7 +1644,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -1653,7 +1653,7 @@
         "suspicious_reason": "The package is functionally aligned with its Twitter/X posting/search purpose, but it relies on an external relay (api.aisa.one) that will receive your AISA_API_KEY and any uploaded media, and the runtime reads a few environment variables that the manifest/SKILL.md don't fully declare — you should review/trust the relay before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:39:32.287688+00:00"
+        "checked_at": "2026-04-29T08:38:47.951493+00:00"
       }
     },
     "plugin:twitter-plugin": {
@@ -1691,7 +1691,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:33.239586+00:00"
+        "checked_at": "2026-04-29T08:38:49.109558+00:00"
       }
     },
     "plugin:us-stock-analyst-plugin": {
@@ -1729,7 +1729,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:34.316871+00:00"
+        "checked_at": "2026-04-29T08:38:50.199306+00:00"
       }
     },
     "plugin:web-search-plugin": {
@@ -1767,7 +1767,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:35.391490+00:00"
+        "checked_at": "2026-04-29T08:38:55.803469+00:00"
       }
     },
     "plugin:x-intelligence-automation-plugin": {
@@ -1794,7 +1794,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -1803,7 +1803,7 @@
         "suspicious_reason": "The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:39:36.586149+00:00"
+        "checked_at": "2026-04-29T08:38:56.942477+00:00"
       }
     },
     "plugin:youtube-plugin": {
@@ -1830,7 +1830,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -1839,7 +1839,7 @@
         "suspicious_reason": "The package mostly does what it says (YouTube research via AIsa) but the manifest/registry metadata and the bundled skill disagree about required environment variables and runtime, and the skill will send your AISA_API_KEY to api.aisa.one — confirm you trust that upstream and the pkg metadata before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:39:37.725170+00:00"
+        "checked_at": "2026-04-29T08:38:57.984343+00:00"
       }
     },
     "plugin:youtube-search-plugin": {
@@ -1866,7 +1866,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -1875,7 +1875,7 @@
         "suspicious_reason": "The package is internally inconsistent: it is named 'Youtube Search' but the bundled skill and manifests describe Twitter/X search/posting and require an AISA_API_KEY; functionality and naming don't line up even though the runtime footprint itself is small.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:39:38.885206+00:00"
+        "checked_at": "2026-04-29T08:38:59.059561+00:00"
       }
     },
     "skill:aisa-multi-search-engine": {
@@ -1909,7 +1909,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:42.303577+00:00"
+        "checked_at": "2026-04-29T08:39:02.519891+00:00"
       },
       "publish_mode": "published",
       "attempts": 1,
@@ -1948,7 +1948,7 @@
         "suspicious_reason": "The skill's declared requirements (only AISA_API_KEY) match its stated purpose, but the runtime instructions reference shipped scripts and flows that are not present and make strong external-claims (partnerships, ZDR) that should be verified before use.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:39:50.140664+00:00"
+        "checked_at": "2026-04-29T08:39:10.183770+00:00"
       }
     },
     "skill:aisa-tavily": {
@@ -1983,7 +1983,7 @@
         "suspicious_reason": "Detected: suspicious.env_credential_access",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:39:53.511361+00:00"
+        "checked_at": "2026-04-29T08:39:13.481364+00:00"
       }
     },
     "skill:aisa-twitter-api": {
@@ -2231,7 +2231,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:09.388644+00:00"
+        "checked_at": "2026-04-29T08:39:28.112030+00:00"
       }
     },
     "skill:last30days": {
@@ -2264,7 +2264,7 @@
         "suspicious_reason": "The skill's code and instructions largely match its stated purpose (recent social/web research), but the SKILL.md contains highly prescriptive prompts and a flagged prompt-injection pattern — something to review before trusting it with API keys or autonomous runs.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:10.702703+00:00"
+        "checked_at": "2026-04-29T08:39:33.965231+00:00"
       }
     },
     "skill:last30days-zh": {
@@ -2301,7 +2301,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:11.986805+00:00"
+        "checked_at": "2026-04-29T08:39:35.048900+00:00"
       }
     },
     "skill:llm-router": {
@@ -2338,7 +2338,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:13.337833+00:00"
+        "checked_at": "2026-04-29T08:39:36.177988+00:00"
       }
     },
     "skill:market": {
@@ -2375,7 +2375,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:14.462754+00:00"
+        "checked_at": "2026-04-29T08:39:37.294786+00:00"
       },
       "publish_mode": "published"
     },
@@ -2413,7 +2413,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:20.863853+00:00"
+        "checked_at": "2026-04-29T08:39:38.401399+00:00"
       },
       "publish_mode": "published"
     },
@@ -2451,7 +2451,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:21.905073+00:00"
+        "checked_at": "2026-04-29T08:39:39.455493+00:00"
       }
     },
     "skill:multi-search": {
@@ -2485,7 +2485,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:23.114653+00:00"
+        "checked_at": "2026-04-29T08:39:45.187164+00:00"
       }
     },
     "skill:openclaw-aisa-youtube-aisa": {
@@ -2517,7 +2517,7 @@
         "suspicious_reason": "The skill's code and SKILL.md match the described YouTube search purpose and only require an AISA API key, but the registry metadata incorrectly omits that required credential and overall provenance (homepage/owner) is thin — this mismatch warrants caution before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:25.717622+00:00"
+        "checked_at": "2026-04-29T08:39:47.605119+00:00"
       }
     },
     "skill:openclaw-media-gen": {
@@ -2554,7 +2554,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:26.809127+00:00"
+        "checked_at": "2026-04-29T08:39:48.858415+00:00"
       }
     },
     "skill:openclaw-search": {
@@ -2591,7 +2591,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:27.939102+00:00"
+        "checked_at": "2026-04-29T08:39:49.977541+00:00"
       }
     },
     "skill:openclaw-twitter": {
@@ -2623,7 +2623,7 @@
         "suspicious_reason": "The skill largely matches its stated Twitter/X read-and-post purpose, but it centralizes all operations through a third‑party relay (aisa.one) using a single AISA_API_KEY, uploads local media to that external service, and references environment variables not declared in metadata — these are coherence and privacy concerns you should understand before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:29.342524+00:00"
+        "checked_at": "2026-04-29T08:39:51.022679+00:00"
       }
     },
     "skill:openclaw-twitter-post-engage": {
@@ -2655,7 +2655,7 @@
         "suspicious_reason": "The skill mostly does what it says (uses aisa.one relay to read, post, and engage on X), but there are environment/credential mismatches and data-flow details that don't match the declared metadata and that a user should understand before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:30.396535+00:00"
+        "checked_at": "2026-04-29T08:39:56.828769+00:00"
       }
     },
     "skill:openclaw-youtube": {
@@ -2692,7 +2692,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:31.594635+00:00"
+        "checked_at": "2026-04-29T08:39:58.010096+00:00"
       }
     },
     "skill:perplexity-research": {
@@ -2724,7 +2724,7 @@
         "suspicious_reason": "The skill broadly matches its stated purpose (a Perplexity-based research client) but contains inconsistent metadata about required credentials and includes instructions that encourage autonomous web searches without asking the user, which are notable concerns.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:32.894851+00:00"
+        "checked_at": "2026-04-29T08:39:59.092586+00:00"
       }
     },
     "skill:perplexity-search": {
@@ -2769,7 +2769,7 @@
         "suspicious_reason": "Participate in Base's GTM by betting if today's 18:00 UTC garden temperature will be higher or lower than yesterday's, sharing winnings from the pot.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:34.091520+00:00"
+        "checked_at": "2026-04-29T08:40:00.049721+00:00"
       },
       "publish_mode": "remote-existing"
     },
@@ -2805,7 +2805,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:35.675164+00:00"
+        "checked_at": "2026-04-29T08:40:01.130117+00:00"
       }
     },
     "skill:prediction-market-arbitrage-api": {
@@ -2839,7 +2839,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:36.776507+00:00"
+        "checked_at": "2026-04-29T08:40:02.379581+00:00"
       }
     },
     "skill:prediction-market-arbitrage-zh": {
@@ -2873,7 +2873,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:37.819537+00:00"
+        "checked_at": "2026-04-29T08:40:03.671109+00:00"
       }
     },
     "skill:prediction-market-data": {
@@ -2908,7 +2908,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:39.000047+00:00"
+        "checked_at": "2026-04-29T08:40:05.001534+00:00"
       }
     },
     "skill:prediction-market-data-zh": {
@@ -2942,7 +2942,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:40.448404+00:00"
+        "checked_at": "2026-04-29T08:40:06.168603+00:00"
       }
     },
     "skill:scholar-search": {
@@ -2976,7 +2976,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:41.669299+00:00"
+        "checked_at": "2026-04-29T08:40:07.319880+00:00"
       }
     },
     "skill:search": {
@@ -3023,7 +3023,7 @@
         "suspicious_reason": "The skill appears to implement the described multi-engine search (Exa MCP, SearX, Tavily) and the bundled scripts are plausible, but there are internal metadata inconsistencies and non-obvious privacy/network implications you should verify before installing or running code.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:43.002271+00:00"
+        "checked_at": "2026-04-29T08:40:12.836733+00:00"
       }
     },
     "skill:stock-analysis": {
@@ -3055,7 +3055,7 @@
         "suspicious_reason": "The skill mostly matches a stock-analysis tool, but there are multiple incoherences and risky instructions (cookie extraction / granting Terminal Full Disk Access, undeclared env vars, and an unexplained 'uv' dependency) that the user should review before installing or running it.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:43.764952+00:00"
+        "checked_at": "2026-04-29T08:40:13.691956+00:00"
       }
     },
     "skill:stock-dividend": {
@@ -3087,7 +3087,7 @@
         "suspicious_reason": "The skill mostly matches its stated purpose (dividend analysis via AISA) but has small inconsistencies that could be abused or cause surprises—most notably it reads undocumented environment variables (AISA_BASE_URL, AISA_MODEL) and relies on an external LLM client with an overrideable endpoint.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:44.857783+00:00"
+        "checked_at": "2026-04-29T08:40:14.791268+00:00"
       }
     },
     "skill:stock-hot": {
@@ -3121,7 +3121,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:46.020796+00:00"
+        "checked_at": "2026-04-29T08:40:15.902190+00:00"
       }
     },
     "skill:stock-portfolio": {
@@ -3155,7 +3155,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:47.172819+00:00"
+        "checked_at": "2026-04-29T08:40:16.976037+00:00"
       }
     },
     "skill:stock-rumors": {
@@ -3187,7 +3187,7 @@
         "suspicious_reason": "The skill's purpose and requested AISA_API_KEY are coherent with its code, but there are a few implementation/information gaps (undeclared env vars, missing dependency install steps, and minor provenance uncertainty) that warrant caution before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:48.509309+00:00"
+        "checked_at": "2026-04-29T08:40:18.356401+00:00"
       }
     },
     "skill:stock-watchlist": {
@@ -3214,14 +3214,14 @@
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
-        "publisher_handle": "0xhyperdan",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": null,
         "pending": true,
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:49.644045+00:00"
+        "checked_at": "2026-04-29T08:40:19.479853+00:00"
       }
     },
     "skill:tavily-extract": {
@@ -3255,7 +3255,7 @@
         "suspicious_reason": "The skill's purpose (extracting webpages via Tavily) is plausible, but the included script accesses local auth caches and auto-runs an npx-installed helper while not declaring required binaries/credentials — this mismatch and the on-demand download+execution are worth caution.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:50.755526+00:00"
+        "checked_at": "2026-04-29T08:40:20.613292+00:00"
       }
     },
     "skill:tavily-search": {
@@ -3313,7 +3313,7 @@
         "suspicious_reason": "The skill's code and instructions match its stated Twitter automation purpose, but the registry metadata omits the sensitive credentials it requires and there are real-world posting risks if run autonomously—review before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:52.136205+00:00"
+        "checked_at": "2026-04-29T08:40:21.786266+00:00"
       }
     },
     "skill:twitter-command-center-search-post": {
@@ -3350,7 +3350,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:53.308019+00:00"
+        "checked_at": "2026-04-29T08:40:22.913232+00:00"
       }
     },
     "skill:twitter-command-center-search-post-interact": {
@@ -3387,7 +3387,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:54.480532+00:00"
+        "checked_at": "2026-04-29T08:40:24.116771+00:00"
       }
     },
     "skill:us-stock-analyst": {
@@ -3424,7 +3424,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:55.789611+00:00"
+        "checked_at": "2026-04-29T08:40:25.384410+00:00"
       },
       "publish_mode": "published"
     },
@@ -3454,10 +3454,10 @@
         "openclaw_confidence": null,
         "publisher_handle": "billyutw",
         "suspicious": true,
-        "suspicious_reason": "Detected: suspicious.vt_suspicious",
+        "suspicious_reason": "This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:57.304386+00:00"
+        "checked_at": "2026-04-29T08:40:26.499669+00:00"
       }
     },
     "skill:x-intelligence-automation": {
@@ -3489,7 +3489,7 @@
         "suspicious_reason": "The skill is broadly coherent with a Twitter/X automation client using the AIsa relay, but there are a few mismatches you should be aware of before installing (undeclared env overrides and uploading local files to an external relay).",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:58.607011+00:00"
+        "checked_at": "2026-04-29T08:40:27.649619+00:00"
       }
     },
     "skill:youtube": {
@@ -3521,7 +3521,7 @@
         "suspicious_reason": "The skill's stated YouTube functionality matches its instructions, but metadata inconsistencies and the requirement to install/run a third‑party npm package (and build/run code from GitHub) create a moderate trust risk that you should review before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:59.886226+00:00"
+        "checked_at": "2026-04-29T08:40:28.777228+00:00"
       }
     },
     "skill:youtube-search": {
@@ -3555,7 +3555,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:41:00.965404+00:00"
+        "checked_at": "2026-04-29T08:40:29.980016+00:00"
       }
     },
     "skill:aisa-perplexity-search": {
@@ -3605,7 +3605,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:51.252955+00:00"
+        "checked_at": "2026-04-29T08:39:11.242484+00:00"
       }
     },
     "skill:aisa-tavily-search": {
@@ -3640,7 +3640,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:59.555536+00:00"
+        "checked_at": "2026-04-29T08:39:14.125507+00:00"
       }
     },
     "skill:aisa-twitter": {
@@ -3672,7 +3672,7 @@
         "suspicious_reason": "The package is a coherent Twitter/X relay client that contacts api.aisa.one and requires an AISA_API_KEY, but the registry metadata and package frontmatter disagree about required env and versioning—confirm the missing environment declaration and trust in the relay before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:40:00.845753+00:00"
+        "checked_at": "2026-04-29T08:39:15.335629+00:00"
       }
     },
     "plugin:aisa-perplexity-search-plugin": {
@@ -3722,7 +3722,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:08.746204+00:00"
+        "checked_at": "2026-04-29T08:37:44.146841+00:00"
       }
     },
     "plugin:aisa-tavily-search-plugin": {
@@ -3746,7 +3746,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -3755,7 +3755,7 @@
         "suspicious_reason": "The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:38:11.094398+00:00"
+        "checked_at": "2026-04-29T08:37:46.241519+00:00"
       }
     },
     "plugin:aisa-twitter-plugin": {
@@ -3793,7 +3793,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:16.292323+00:00"
+        "checked_at": "2026-04-29T08:37:51.593992+00:00"
       }
     },
     "skill:aisa-perplexity-sonar-search": {
@@ -3831,7 +3831,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:49.090566+00:00"
+        "checked_at": "2026-04-29T08:39:04.706471+00:00"
       }
     },
     "plugin:aisa-perplexity-sonar-search-plugin": {
@@ -3869,7 +3869,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:05.335762+00:00"
+        "checked_at": "2026-04-29T08:37:36.558900+00:00"
       }
     },
     "plugin:crypto-market-data-plugin": {
@@ -3907,7 +3907,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:23.494999+00:00"
+        "checked_at": "2026-04-29T08:37:59.859459+00:00"
       }
     },
     "plugin:multi-source-search-plugin": {
@@ -3942,7 +3942,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:31.306509+00:00"
+        "checked_at": "2026-04-29T08:38:13.212349+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:07:24.834332+00:00"
@@ -3979,7 +3979,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:39.975316+00:00"
+        "checked_at": "2026-04-29T08:39:00.144320+00:00"
       }
     },
     "skill:crypto-market-data": {
@@ -4024,7 +4024,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:24.424690+00:00"
+        "checked_at": "2026-04-29T08:39:46.505173+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:11:22.096772+00:00",
@@ -4062,7 +4062,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:41:02.323314+00:00"
+        "checked_at": "2026-04-29T08:40:30.765792+00:00"
       }
     },
     "skill:aisa-perplexity-search-sonar": {
@@ -4097,7 +4097,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:43.472339+00:00"
+        "checked_at": "2026-04-29T08:39:03.516672+00:00"
       }
     },
     "skill:aisa-search-command-center": {
@@ -4132,7 +4132,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:52.412383+00:00"
+        "checked_at": "2026-04-29T08:39:12.311849+00:00"
       }
     },
     "skill:aisa-twitter-research-engage": {
@@ -4167,7 +4167,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:02.033437+00:00"
+        "checked_at": "2026-04-29T08:39:25.740184+00:00"
       }
     },
     "skill:aisa-crypto-market-data": {
@@ -4205,7 +4205,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:39:41.193181+00:00"
+        "checked_at": "2026-04-29T08:39:01.274766+00:00"
       }
     },
     "skill:aisa-twitter-api-command-center": {
@@ -4279,7 +4279,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:01.623793+00:00"
+        "checked_at": "2026-04-29T08:37:33.083485+00:00"
       }
     },
     "plugin:aisa-perplexity-search-sonar-plugin": {
@@ -4306,7 +4306,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -4315,7 +4315,7 @@
         "suspicious_reason": "The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:38:03.900413+00:00"
+        "checked_at": "2026-04-29T08:37:35.419039+00:00"
       }
     },
     "plugin:aisa-search-command-center-plugin": {
@@ -4353,7 +4353,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:07.683154+00:00"
+        "checked_at": "2026-04-29T08:37:38.655542+00:00"
       }
     },
     "plugin:aisa-twitter-api-command-center-plugin": {
@@ -4380,7 +4380,7 @@
         "page_found": true,
         "fetch_mode": "http",
         "scan_status": "pending",
-        "virus_total": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
@@ -4389,7 +4389,7 @@
         "suspicious_reason": "The package is largely coherent with a Twitter/X relay client (it needs AISA_API_KEY and sends reads/posts to api.aisa.one), but there are metadata inconsistencies and privacy implications you should verify before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-04-28T23:38:12.128457+00:00"
+        "checked_at": "2026-04-29T08:37:47.342932+00:00"
       }
     },
     "plugin:aisa-twitter-research-engage-plugin": {
@@ -4420,14 +4420,14 @@
         "virus_total_report_url": null,
         "openclaw_verdict": null,
         "openclaw_confidence": null,
-        "publisher_handle": null,
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": null,
         "pending": true,
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:18.433444+00:00"
+        "checked_at": "2026-04-29T08:37:54.034782+00:00"
       }
     },
     "skill:aisa-twitter-research-engage-relay": {
@@ -4465,7 +4465,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:40:03.218719+00:00"
+        "checked_at": "2026-04-29T08:39:26.850402+00:00"
       }
     },
     "plugin:aisa-twitter-research-engage-relay-plugin": {
@@ -4503,7 +4503,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-04-28T23:38:19.523876+00:00"
+        "checked_at": "2026-04-29T08:37:55.215987+00:00"
       }
     }
   }

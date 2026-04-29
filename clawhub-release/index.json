@@ -115,7 +115,7 @@
         "slug": "multi-source-search",
         "source_skill": "multi-source-search",
         "path": "clawhub-release/multi-source-search",
-        "description": "Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs."
+        "description": "Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction."
       },
       {
         "slug": "openclaw-aisa-youtube-aisa",
@@ -620,7 +620,7 @@
       "group": "original",
       "source_skill": "multi-source-search",
       "path": "clawhub-release/multi-source-search",
-      "description": "Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.",
+      "description": "Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.",
       "changes": [
         "kept the mother-skill body while normalizing ClawHub upload frontmatter",
         "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",

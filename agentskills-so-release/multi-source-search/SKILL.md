@@ -1,11 +1,11 @@
 ---
 name: multi-source-search
-description: 'Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.'
+description: 'Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.'
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
   author: AIsa
-  version: 1.0.1
+  version: 1.0.0
   homepage: https://aisa.one
   repository: https://github.com/baofeng-tech/agent-skills-so
   tags: x,search,research
@@ -14,27 +14,9 @@ metadata:
 allowed-tools: Read Bash Grep
 ---
 
-# Multi-Source Search Verification Engine
+# Multi-source Search
 
-Compare multiple search surfaces in one pass and score how confident the result set looks before you synthesize it.
-
-## When to use
-
-- The user wants the same topic checked across multiple search surfaces instead of one provider.
-- The user needs confidence scoring, cross-source verification, or a consensus-style research output.
-- The user wants a growth-variant search lane focused on validation, not just lookup.
-
-## When NOT to use
-
-- The user only needs one flagship search entry for lookup, cited answers, or deep research; use `search`.
-- The task is provider-specific and fits `scholar-search`, `tavily-search`, or `perplexity-search`.
-- The workflow must avoid relay-based calls to `api.aisa.one`.
-
-## Capabilities
-
-- Parallel retrieval across structured web, scholar, smart search, Tavily, and Perplexity-backed flows.
-- Confidence scoring that highlights source coverage, diversity, and result quality.
-- Synthesis-ready outputs for research comparison, verification, and decision support.
+Intelligent search for autonomous agents, powered by AIsa.
 
 One API key gives you:
 - Structured web search
@@ -86,12 +68,6 @@ Use Sonar Deep Research to produce a thorough market map of AI browser agents.
 ```bash
 export AISA_API_KEY="your-key"
 ```
-
-## Example Requests
-
-- Compare how three search surfaces describe the latest browser-use agent products.
-- Verify whether a market claim shows up in web search, scholar search, and cited answer results.
-- Run a confidence-scored research pass on multi-agent IDEs before writing a recommendation.
 
 ## Search APIs
 

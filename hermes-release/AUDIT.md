@@ -166,7 +166,7 @@
 
 - Category: `research`
 - Path: `hermes-release/research/multi-source-search`
-- Description: Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.
+- Description: Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.
 - Change: patched Hermes runtime auth and storage defaults in scripts/search_client.py
 - Change: replaced source README with a Hermes-oriented release README
 

@@ -2,7 +2,7 @@
 
 This catalog lists the current cross-platform mother skills in `targetSkills/`.
 
-- Generated at: `2026-04-28`
+- Generated at: `2026-04-29`
 - Repository target: `https://github.com/AIsa-team/agent-skills`
 - Branch target: `agentskills`
 - Total skills: `54`
@@ -84,7 +84,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `multi-source-search`
   - Category: `search`
   - Path: `multi-source-search`
-  - Description: Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.
+  - Description: Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.
 - `openclaw-aisa-youtube-aisa`
   - Category: `youtube`
   - Path: `openclaw-aisa-youtube-aisa`

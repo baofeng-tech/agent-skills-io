@@ -99,7 +99,7 @@
     },
     {
       "name": "multi-source-search",
-      "description": "Confidence-scored multi-source retrieval across web, scholar, Tavily, and Perplexity-backed research. Use when: the user needs cross-source verification, consensus checks, or one report that compares multiple search surfaces. Supports parallel retrieval, confidence scoring, and synthesis-ready outputs.",
+      "description": "Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.",
       "location": "https://github.com/baofeng-tech/agent-skills/tree/main/multi-source-search"
     },
     {

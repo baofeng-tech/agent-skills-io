@@ -1,7 +1,6 @@
 ---
 name: crypto-market-data
 description: 'Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use for crypto research, price tracking, on-chain token lookup, portfolio analysis, and market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
-version: 1.0.1
 license: MIT
 allowed-tools: Read Bash Grep
 when_to_use: the user needs market data, stock analysis, watchlists, or portfolio workflows
