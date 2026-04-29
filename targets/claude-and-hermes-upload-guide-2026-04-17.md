@@ -136,6 +136,11 @@ For this repo's generated layout, the practical approach is:
 2. place it into the expected publish source location
 3. run `hermes skills publish ...`
 
+Repo-local helper support:
+
+- `bash scripts/publish-hermes-release.sh --mode cli --repo owner/repo`
+- or in GitHub Actions self-hosted mode, set `hermes_publish_mode=cli`
+
 ### C. Custom tap repository
 
 Hermes docs also support custom taps:

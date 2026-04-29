@@ -20,7 +20,7 @@
 - 最近一次 live scan 记录时间：`2026-04-24T16:42:50+00:00`
 - 结果：
   - `VirusTotal = benign`
-  - `OpenClaw verdict = suspicious`
+  - `ClawScan / OpenClaw verdict = suspicious`
 - 主要原因：
   - 这是 relay-based skill，真实会把 `AISA_API_KEY` 发往 `api.aisa.one`
   - OAuth 和用户批准的媒体上传都会经过 relay
@@ -35,7 +35,7 @@
 - 最近一次 live scan 记录时间：`2026-04-24T16:47:54+00:00`
 - 结果：
   - `VirusTotal = benign`
-  - `OpenClaw verdict = suspicious`
+  - `ClawScan / OpenClaw verdict = suspicious`
 - 主要原因：
   - 公共 `SKILL.md` 里存在过强、过于“提示词化”的说明方式
   - scanner 明确提到 prompt-injection pattern / highly prescriptive prompts
@@ -80,12 +80,13 @@
 6. 默认写入用户 home 或缓存同步行为
 7. 留着 Cookie / Keychain / browser credential 类能力入口
 8. 把 pending scan 当成最终结论
+9. 忽略 `Static analysis` 第三维扫描结论
 
 ## 本仓库今后默认采用的修改动作
 
 ### 母版层
 
-- 如果 skill 已存在于 `AIsa-team/agent-skills@agentskills`，先以该上游版本为基线
+- 如果 skill 已存在于 `AIsa-team/agent-skills@main`，先以该上游版本为基线
 - 不在“优化文案”的名义下删功能或改功能
 - 真正需要保守收窄时，优先放到发布层
 
@@ -116,7 +117,7 @@
 
 以后每次改 skill / plugin，默认先做这 6 步：
 
-1. 看它是否已存在于 `AIsa-team/agent-skills@agentskills`
+1. 看它是否已存在于 `AIsa-team/agent-skills@main`
 2. 确认这次修改是不是只动 publish surface
 3. 核对 env / manifest / README / `SKILL.md` 是否一致
 4. 检查是否新增了 relay、upload、OAuth、home-dir persistence 等真实 side effects

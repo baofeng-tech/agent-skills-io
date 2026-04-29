@@ -33,17 +33,18 @@ More detailed repo rules live in [AGENTS.md](/mnt/d/workplace/agent-skills-io/AG
 
 ## Rule Layers
 
-The repo now separates neutral mother-skill rules from ClawHub breakout/remediation rules.
+The repo now separates neutral mother-skill rules, ClawHub breakout rules, and ClawHub suspicious-remediation rules.
 
 - `scripts/llm_refine_aisa_skills.py`
   - Repo-local LLM refinement helper for AISA-backed skills under `targetSkills/`.
   - `--profile source` keeps output neutral and cross-platform.
-  - `--profile clawhub_breakout` sharpens ClawHub-facing breakout / suspicious-repair copy.
+  - `--profile clawhub_breakout` sharpens ClawHub-facing breakout copy only.
+  - `--profile clawhub_suspicious` follows diagnosis-driven suspicious remediation only.
 - `scripts/unified_skill_pipeline.py`
   - Main scheduler for upstream sync, mother-skill copy, release rebuild, validation, and optional publish chaining.
   - This is the normal entry point when you want one repeatable end-to-end run.
 - `scripts/clawhub_suspicious_remediation.py`
-  - Reads suspicious diagnosis, selects matching live artifacts, maps them back to source skills, optionally runs breakout-profile refinement, rebuilds ClawHub layers, and force-republishes only the targeted artifacts.
+  - Reads suspicious diagnosis, selects matching live artifacts, maps them back to source skills, optionally runs suspicious-profile refinement with the remediation report as extra context, rebuilds ClawHub layers, and force-republishes only the targeted artifacts.
 
 The two repo-local editing skills define the rule boundary:
 
@@ -51,8 +52,10 @@ The two repo-local editing skills define the rule boundary:
   - For neutral `targetSkills/` editing only.
   - Prevents ClawHub-only breakout slugs, plugin wrapper fields, and platform-specific publish copy from leaking into the mother layer.
 - `aisa-clawhub-breakout-editor`
-  - For ClawHub breakout variants and suspicious-remediation copy only.
-  - Makes relay, OAuth, upload side effects, and trust surfaces explicit without changing runtime behavior.
+  - For ClawHub breakout variants only.
+- `aisa-clawhub-suspicious-remediation-editor`
+  - For diagnosis-driven suspicious remediation only.
+  - Keeps relay, OAuth, upload, static-analysis, and trust-surface fixes explicit without mixing in breakout growth copy.
 
 ## Pipeline Flow
 
@@ -106,7 +109,7 @@ flowchart TD
 - `scripts/test_release_layers.py`
   - Runs structure validation and representative smoke checks across generated release layers.
 - `scripts/publish-targetSkills-to-agent-skills.sh`
-  - Syncs the mother-skill layer into the formal `AIsa-team/agent-skills` repo copy.
+  - Hard-blocked safety guard. This repo must never sync `targetSkills/` back into `AIsa-team/agent-skills`.
 - `scripts/publish-claude-release.sh`
   - Syncs Claude standalone and optional Claude marketplace repos.
 - `scripts/publish-hermes-release.sh`
@@ -164,7 +167,7 @@ python3 scripts/build_agentskill_sh_release.py
 python3 scripts/test_release_layers.py
 ```
 
-Check live ClawHub VirusTotal / OpenClaw verdicts from the saved publish state:
+Check live ClawHub VirusTotal / ClawScan / Static analysis verdicts from the saved publish state:
 
 ```bash
 python3 scripts/clawhub_live_status.py --targets both
@@ -191,9 +194,10 @@ python3 scripts/clawhub_suspicious_remediation.py \
   - sync, rebuild, validate, upload artifacts, refresh suspicious diagnosis, and commit repo outputs back here
 - self-hosted lane
   - optional true publish continuation
-  - syncs downstream GitHub publish repos
+  - syncs downstream public GitHub publish repos
   - can batch-publish ClawHub skills/plugins
   - can run targeted suspicious-remediation republish
+  - never clones, syncs, commits, or pushes `AIsa-team/agent-skills`
 
 For automatic full-platform publish, the self-hosted lane can now run from `schedule` too when the repo variable below is enabled:
 
@@ -212,6 +216,7 @@ Useful repo variables for scheduled self-hosted publish:
 - `AUTO_RUN_SUSPICIOUS_REPAIR`
 - `AUTO_SUSPICIOUS_ARTIFACTS`
 - `AUTO_INSTALL_CLAWHUB_CLI`
+- `AUTO_HERMES_PUBLISH_MODE`
 - `CLAWHUB_CLI_VERSION`
 
 What GitHub Actions can do in practice:
@@ -220,14 +225,15 @@ What GitHub Actions can do in practice:
   - Yes, the self-hosted lane can now optionally install or refresh the CLI with `npm install -g clawhub@<version>` before publish.
   - Current ClawHub pages also expose CLI usage in the form `npx clawhub@latest install ...` and local publish commands such as `clawhub package publish ...`.
 - Hermes
-  - Yes, Actions can publish the Hermes release layer for this repo, but the current implementation does it by syncing `hermes-release/` into the Hermes GitHub publish repo.
-  - The `hermes` CLI is therefore optional for this repo's publish lane.
+  - Yes. The default mode still syncs `hermes-release/` into the Hermes GitHub publish repo.
+  - The self-hosted lane now also supports `hermes_publish_mode=cli` when the runner already has `hermes` installed.
   - If you want the CLI on a runner anyway, Hermes' official install docs currently describe the `uv`-based install path from `NousResearch/hermes-agent`.
 
 ## Operational Notes
 
 - `targetSkills/` is the mother-skill source of truth.
 - For larger upstream deltas, `AIsa-team/agent-skills@main` is the authority to follow before reshaping into mother skills and downstream releases here.
+- `AIsa-team/agent-skills` is a read-only upstream for this repo. Automation must never push back to it.
 - Generated release layers should be rebuilt from `targetSkills/`, not hand-edited as primary sources.
 - Local credentials can be looked up from `example/accounts`, but CI should prefer secrets.
 - `AIsa-team/agent-skills` is currently public, so `UPSTREAM_REPO_TOKEN` is optional fallback rather than a default requirement.

@@ -44,9 +44,19 @@ PROFILE_CONTEXT = {
             REPO_SKILLS_ROOT / "clawhub-skill-optimizer-all" / "references" / "frontmatter-rules.md",
             REPO_SKILLS_ROOT / "clawhub-skill-optimizer-all" / "references" / "body-structure.md",
             REPO_SKILLS_ROOT / "clawhub-skill-optimizer-all" / "references" / "bilingual-rules.md",
-            REPO_ROOT / "targets" / "clawhub-suspicious-causes-and-fixes-2026-04-25.md",
             REPO_ROOT / "targets" / "aisa-api-breakout-rollout-plan-2026-04-28.md",
             REPO_ROOT / "targets" / "clawhub-breakout-variants.json",
+        ),
+    },
+    "clawhub_suspicious": {
+        "skills": (
+            REPO_SKILLS_ROOT / "aisa-clawhub-suspicious-remediation-editor" / "SKILL.md",
+            REPO_SKILLS_ROOT / "clawhub-security-auditor-all" / "SKILL.md",
+        ),
+        "references": (
+            REPO_ROOT / "targets" / "clawhub-suspicious-causes-and-fixes-2026-04-25.md",
+            REPO_ROOT / "targets" / "platform-skill-plugin-methodology.md",
+            REPO_ROOT / "targets" / "platform-layer-and-rule-split-audit-2026-04-28.md",
         ),
     },
 }
@@ -58,9 +68,15 @@ PROFILE_PROMPTS = {
         "- Keep sibling positioning portable so downstream build scripts can regenerate platform-specific layers cleanly.\n"
     ),
     "clawhub_breakout": (
-        "- This refinement is for ClawHub breakout or suspicious-remediation work feeding later release layers.\n"
+        "- This refinement is for ClawHub breakout work feeding later release layers.\n"
         "- You may strengthen task-first breakout positioning when the runtime truly supports it.\n"
         "- Make relay, OAuth, upload, and env requirements explicit across public copy.\n"
+    ),
+    "clawhub_suspicious": (
+        "- This refinement is for diagnosis-driven ClawHub suspicious remediation only.\n"
+        "- Start from the selected diagnosis reasons and remove scanner ambiguity with the smallest safe change.\n"
+        "- Do not widen scope or add breakout/growth copy unless the diagnosis context explicitly requires it.\n"
+        "- Make relay, OAuth, upload, external execution, and env requirements explicit across public copy.\n"
     ),
 }
 ENV_PATTERN = re.compile(r"\b[A-Z][A-Z0-9_]{2,}\b")
@@ -146,7 +162,16 @@ def build_parser() -> argparse.ArgumentParser:
         "--profile",
         choices=tuple(PROFILE_CONTEXT),
         default=DEFAULT_PROFILE,
-        help="Rule profile to load. Use source for neutral mother-skill refinement and clawhub_breakout for ClawHub-only breakout/remediation work.",
+        help=(
+            "Rule profile to load. Use source for neutral mother-skill refinement, "
+            "clawhub_breakout for breakout-only refinement, and clawhub_suspicious for diagnosis-driven suspicious remediation."
+        ),
+    )
+    parser.add_argument(
+        "--extra-context-file",
+        action="append",
+        default=[],
+        help="Optional extra context file(s) appended to the repo rules context, such as a remediation report JSON.",
     )
     parser.add_argument(
         "--apply",
@@ -281,7 +306,7 @@ def discover_skill_dirs(target_root: Path, explicit_names: list[str]) -> list[Pa
     ]
 
 
-def load_context(profile: str) -> str:
+def load_context(profile: str, extra_context_files: list[str]) -> str:
     bundle = PROFILE_CONTEXT[profile]
     blocks: list[str] = []
     for path in bundle["skills"]:
@@ -290,6 +315,11 @@ def load_context(profile: str) -> str:
     for path in bundle["references"]:
         if path.exists():
             blocks.append(f"# {path.relative_to(REPO_ROOT)}\n\n{load_text(path).strip()}")
+    for raw_path in extra_context_files:
+        path = Path(raw_path).resolve()
+        if path.exists():
+            label = path.relative_to(REPO_ROOT) if path.is_relative_to(REPO_ROOT) else path
+            blocks.append(f"# {label}\n\n{load_text(path).strip()}")
     return "\n\n".join(blocks).strip()
 
 
@@ -583,7 +613,7 @@ def main() -> int:
     )
     print(f"Refinement profile: {args.profile}")
 
-    context = load_context(args.profile)
+    context = load_context(args.profile, args.extra_context_file)
     if not context:
         raise SystemExit(
             f"Missing repo-local refinement context for profile {args.profile} under .agents/skills or targets/."

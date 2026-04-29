@@ -79,16 +79,16 @@ Use it when you need to:
 | Script | Use for | Key options |
 | --- | --- | --- |
 | `scripts/test_release_layers.py` | Structure validation plus representative smoke tests across generated layers | none |
-| `scripts/clawhub_live_status.py` | Resolve live ClawHub detail pages and record `VirusTotal` / `OpenClaw` / `Suspicious` scan output into state | `--targets`, `--artifact`, `--include-status`, `--render-mode` |
-| `scripts/clawhub_suspicious_remediation.py` | Select suspicious blocker artifacts, map them back to mother skills, optionally run the repo-local skill-refinement helper, rebuild, sync, and force-republish only the targeted artifacts | `--artifacts`, `--contains`, `--apply`, `--sync-repo-skills`, `--clawhub-publish`, `--post-publish-scan` |
+| `scripts/clawhub_live_status.py` | Resolve live ClawHub detail pages and record `VirusTotal` / `ClawScan` / `Static analysis` / `Suspicious` scan output into state | `--targets`, `--artifact`, `--include-status`, `--render-mode` |
+| `scripts/clawhub_suspicious_remediation.py` | Select suspicious blocker artifacts, map them back to mother skills, optionally run the repo-local suspicious-remediation helper with diagnosis context, rebuild, sync, and force-republish only the targeted artifacts | `--artifacts`, `--contains`, `--apply`, `--llm-profile`, `--sync-repo-skills`, `--clawhub-publish`, `--post-publish-scan` |
 
 ### Publish / Sync
 
 | Script | Use for | Key options |
 | --- | --- | --- |
-| `scripts/publish-targetSkills-to-agent-skills.sh` | Sync `targetSkills/` into sibling `../agent-skills` or a CI-injected destination | positional `source` and `dest`, env `PUBLISH_AGENT_SKILLS_DEST` |
+| `scripts/publish-targetSkills-to-agent-skills.sh` | Hard-blocked safety guard that prevents upstream write-back to `AIsa-team/agent-skills` | no runtime args; always exits non-zero |
 | `scripts/publish-claude-release.sh` | Sync `claude-release/`, optionally `claude-marketplace/`, into sibling repos or CI-injected destinations | `--dest`, `--with-marketplace`, `--market-dest`, `--skip-build`, env `PUBLISH_CLAUDE_DEST`, `PUBLISH_CLAUDE_MARKETPLACE_DEST` |
-| `scripts/publish-hermes-release.sh` | Sync `hermes-release/` into sibling repo or a CI-injected destination | `--dest`, `--skip-build`, env `PUBLISH_HERMES_DEST` |
+| `scripts/publish-hermes-release.sh` | Sync `hermes-release/` into sibling repo, or optionally publish each generated skill via Hermes CLI | `--dest`, `--mode`, `--repo`, `--skip-build`, env `PUBLISH_HERMES_DEST`, `PUBLISH_HERMES_MODE`, `HERMES_PUBLISH_REPO` |
 | `scripts/publish-clawhub-release.sh` | Prepare `clawhub-release/` for manual `clawhub skill publish` | `--skip-build` |
 | `scripts/publish-clawhub-plugin-release.sh` | Prepare `clawhub-plugin-release/` for manual `clawhub package publish` | `--skip-build` |
 | `scripts/publish-agentskills-so-release.sh` | Rebuild `agentskills-so-release/` and print the next public GitHub steps | `--skip-build` |
@@ -104,7 +104,7 @@ Use it when you need to:
 | --- | --- |
 | `--upstream-local-path <path>` | Use a local upstream checkout instead of cloning; avoid `/mnt/d/workplace/agent-skills` in this workspace because that repo is reserved for manual company upload work |
 | `--upstream-repo-url <url>` | Git URL used when the scheduler clones or fetches upstream |
-| `--upstream-branch <name>` | Upstream branch to diff against, default `agentskills` |
+| `--upstream-branch <name>` | Upstream branch to diff against, default `main` |
 | `--upstream-cache-dir <path>` | Clone/fetch cache dir used when no local path is provided |
 | `--state-file <path>` | JSON file that stores the last synced commit and the last run summary |
 | `--selection changed` | Sync only skills changed since the saved baseline commit |
@@ -113,7 +113,7 @@ Use it when you need to:
 | `--include-working-tree` | Include uncommitted upstream changes in the diff set |
 | `--skip-build` | Skip all release-layer build steps after sync |
 | `--skip-test` | Skip `scripts/test_release_layers.py` |
-| `--sync-adjacent-repos` | Chain into sibling-repo sync scripts after build/test succeeds |
+| `--sync-adjacent-repos` | Chain into downstream public repo sync scripts after build/test succeeds; upstream `AIsa-team/agent-skills` is excluded |
 | `--clawhub-publish skill|plugin|both` | Chain into `publish_clawhub_batch.py` |
 | `--clawhub-dry-run` | Pass `--dry-run` when chaining into ClawHub batch publish |
 | `--dry-run` | Show the sync plan without copying files or updating state |
@@ -138,6 +138,7 @@ Use it when you need to:
 | `--probe-retries <int>` | Retry count for transient remote probe failures |
 | `--probe-retry-delay <seconds>` | Delay between remote probe retries |
 | `--post-publish-scan` | After publish or remote-existing skip, probe the live ClawHub page for scan status |
+| `--slug-conflict-strategy fail\|suffix-by-slot` | How to handle ClawHub ownership or slug conflicts; default retries with a slot-specific fallback slug |
 | `--scan-retries <int>` | Retry count for post-publish live scan checks when scan output is still pending |
 | `--scan-retry-delay <seconds>` | Delay between post-publish live scan retries |
 | `--scan-render-mode off|auto|always` | Whether post-publish scan should use Playwright rendering for dynamic pages |
@@ -180,6 +181,7 @@ Use it when you need to:
 | `--severity blocker|warning|all` | Which diagnosis severity to target |
 | `--status suspicious|pending|any` | Which live scan state to target |
 | `--apply` | Actually run LLM refinement and downstream rebuild/publish steps |
+| `--llm-profile clawhub_suspicious\|clawhub_breakout` | Pick the suspicious-remediation or breakout profile; default is diagnosis-driven suspicious remediation |
 | `--sync-repo-skills` | Refresh repo-local `.agents/skills` before refinement |
 | `--llm-if-available` | Skip cleanly when LLM credentials are unavailable |
 | `--sync-adjacent-repos` | Re-sync downstream publish repos after rebuilding |
@@ -261,7 +263,7 @@ python3 scripts/clawhub_live_status.py --targets both
 python3 scripts/clawhub_live_status.py --targets skill --artifact skill:search
 ```
 
-### Continue ClawHub publish and probe `VirusTotal` / `OpenClaw` immediately after upload
+### Continue ClawHub publish and probe `VirusTotal` / `ClawScan` / `Static analysis` immediately after upload
 
 ```bash
 python3 scripts/publish_clawhub_batch.py \

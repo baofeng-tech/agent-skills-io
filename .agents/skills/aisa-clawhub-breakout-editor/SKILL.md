@@ -1,17 +1,16 @@
 ---
 name: aisa-clawhub-breakout-editor
-description: "Guide for ClawHub breakout variants and suspicious-repair copy after the neutral mother skill is already stable."
+description: "Guide for ClawHub breakout variants after the neutral mother skill is already stable."
 ---
 
 # AIsa ClawHub Breakout Editor
 
-Refine ClawHub-oriented breakout copy and suspicious-remediation surfaces after the mother skill is already stable.
+Refine ClawHub-oriented breakout copy after the mother skill is already stable.
 
 ## When to use
 
 - When preparing ClawHub-specific breakout variants
-- When repairing `Suspicious` or trust-review issues for ClawHub skills or plugins
-- When sharpening JTBD copy for ClawHub search or live-risk remediation without changing runtime behavior
+- When sharpening JTBD copy for ClawHub search without changing runtime behavior
 
 ## Core rules
 
@@ -20,11 +19,10 @@ Refine ClawHub-oriented breakout copy and suspicious-remediation surfaces after 
 - Align `SKILL.md`, README, manifests, and registry-facing metadata.
 - Use breakout positioning only when it matches the shipped runtime and sibling ladder.
 - Keep ClawHub-only breakout slugs inside `targets/clawhub-breakout-variants.json` and generated ClawHub layers.
-- Prefer the smallest safe change that removes trust drift or scanner confusion.
 - Do not delete core runtime behavior just to make a package sound safer.
 
 ## Output expectations
 
 - ClawHub copy may be sharper, more task-first, and more explicit about side effects than the mother skill.
-- Suspicious remediation should reduce ambiguity, not widen scope.
+- Suspicious remediation belongs in the dedicated `aisa-clawhub-suspicious-remediation-editor` profile, not here.
 - The result should stay compatible with the repo's generated ClawHub skill/plugin layers.

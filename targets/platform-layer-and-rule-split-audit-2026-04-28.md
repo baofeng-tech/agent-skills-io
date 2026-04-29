@@ -11,9 +11,10 @@
 3. Claude / AgentSkills.so / agentskill.sh 的正文仍大量继承母版，平台特性主要体现在 frontmatter、README、目录结构，不是完全重写。
 4. Hermes 的平台化最明显，已经有分类目录、`metadata.hermes.tags`、`required_environment_variables` 和更短的发布版正文。
 5. `.agents/skills` 之前默认只提供全局 `*-all` publish skill，上下文能跑，但默认精修会把 source / ClawHub / breakout 规则混在一起。
-6. 本轮已把 repo-local LLM 精修入口拆成两个 profile：
+6. 本轮已把 repo-local LLM 精修入口拆成三个 profile：
    - `source`
    - `clawhub_breakout`
+   - `clawhub_suspicious`
 
 ## 1. 母版是否被 breakout 污染
 
@@ -138,14 +139,16 @@ repo-local `.agents/skills` 只有这些全局 publish helper：
 - `python3 scripts/llm_refine_aisa_skills.py --profile source`
   - 默认给 `targetSkills/` 母版用
 - `python3 scripts/llm_refine_aisa_skills.py --profile clawhub_breakout`
-  - 只给 ClawHub breakout / suspicious remediation 用
+  - 只给 ClawHub breakout 用
+- `python3 scripts/llm_refine_aisa_skills.py --profile clawhub_suspicious`
+  - 只给 diagnosis-driven suspicious remediation 用
 
 同时：
 
 - `scripts/unified_skill_pipeline.py`
   - hosted / normal LLM 精修默认走 `source`
 - `scripts/clawhub_suspicious_remediation.py`
-  - ClawHub 修复链路改走 `clawhub_breakout`
+  - ClawHub 修复链路改走 `clawhub_suspicious`
 
 ## 4. `clawhub-release/` 原版 slug 与 breakout slug 是否冲突
 

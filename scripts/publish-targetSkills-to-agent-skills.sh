@@ -1,24 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SOURCE_DIR="${1:-targetSkills}"
-DEST_DIR="${2:-${PUBLISH_AGENT_SKILLS_DEST:-../agent-skills}}"
+cat >&2 <<'EOF'
+Blocked by repo policy:
 
-if [[ ! -d "$SOURCE_DIR" ]]; then
-  echo "Source directory not found: $SOURCE_DIR" >&2
-  exit 1
-fi
+This repository may read from AIsa-team/agent-skills as an upstream baseline,
+but it must never sync, commit, or push targetSkills back into that upstream
+repository again.
 
-mkdir -p "$DEST_DIR"
+Use this repo for:
+- upstream read-only sync into targetSkills/
+- release-layer rebuilds
+- downstream platform publish repos
+- ClawHub / Claude / Hermes publish flows
 
-find "$SOURCE_DIR" -mindepth 1 -maxdepth 1 -type d -print0 | while IFS= read -r -d '' dir; do
-  name="$(basename "$dir")"
-  rm -rf "$DEST_DIR/$name"
-  cp -R "$dir" "$DEST_DIR/"
-done
-
-find "$SOURCE_DIR" -mindepth 1 -maxdepth 1 -type f ! -name 'PUBLISHING.md' -print0 | while IFS= read -r -d '' file; do
-  cp -f "$file" "$DEST_DIR/"
-done
-
-echo "Published targetSkills contents to $DEST_DIR"
+Do not invoke publish-targetSkills-to-agent-skills.sh from automation.
+EOF
+exit 1

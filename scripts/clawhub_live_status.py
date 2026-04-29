@@ -245,13 +245,71 @@ def extract_scan_status(lines: list[str]) -> str | None:
     match = re.search(r"Scan status\s+(clean|pending|suspicious|malicious|warning|unknown)", text, re.IGNORECASE)
     if match:
         return normalize_status(match.group(1))
+    if re.search(r"flagged\s+[—-]\s+suspicious patterns detected", text, re.IGNORECASE):
+        return "suspicious"
     return None
 
 
-def extract_openclaw_confidence(lines: list[str]) -> str | None:
+def extract_clawscan_confidence(lines: list[str]) -> str | None:
     text = "\n".join(lines)
     match = re.search(r"\b(low|medium|high)\s+confidence\b", text, re.IGNORECASE)
     return clean_text(match.group(0)).lower() if match else None
+
+
+def extract_static_analysis_status(lines: list[str]) -> str | None:
+    direct = extract_status_after_label(lines, "Static analysis")
+    if direct:
+        return direct
+
+    text = "\n".join(lines)
+    match = re.search(r"Static analysis:\s*(\d+)\s+pattern(?:s)?\s+detected", text, re.IGNORECASE)
+    if match:
+        return "benign" if int(match.group(1)) == 0 else "suspicious"
+    if re.search(r"Static analysis:\s*no\s+patterns\s+detected", text, re.IGNORECASE):
+        return "benign"
+    return None
+
+
+def extract_prefixed_section(lines: list[str], prefixes: tuple[str, ...], *, max_lines: int = 5) -> str:
+    stops = {
+        "verification",
+        "tags",
+        "browse",
+        "publish",
+        "platform",
+        "community",
+        "compatibility",
+        "capabilities",
+        "what it ships",
+        "why this format",
+        "notes",
+        "filescompareversions",
+        "files",
+        "compare",
+        "versions",
+    }
+    normalized_prefixes = tuple(prefix.lower() for prefix in prefixes)
+    for index, line in enumerate(lines):
+        lowered = line.lower()
+        if not any(lowered.startswith(prefix) for prefix in normalized_prefixes):
+            continue
+        collected = [line]
+        for extra in lines[index + 1 :]:
+            extra_lower = extra.lower()
+            if extra_lower in stops or extra.startswith("## "):
+                break
+            if re.fullmatch(r"[✓✗ℹ⚠!]", extra):
+                continue
+            collected.append(extra)
+            if len(collected) >= max_lines:
+                break
+        return clean_text(" ".join(collected))
+    return ""
+
+
+def extract_static_analysis_summary(lines: list[str]) -> str | None:
+    summary = extract_prefixed_section(lines, ("Static analysis:",), max_lines=5)
+    return summary or None
 
 
 def decode_js_string(value: str) -> str:
@@ -284,7 +342,15 @@ def has_security_signals(lines: list[str]) -> bool:
     text = "\n".join(lines)
     return any(
         token in text
-        for token in ("VirusTotal", "OpenClaw", "Scan status", "What to consider before installing", "Assessment")
+        for token in (
+            "VirusTotal",
+            "ClawScan",
+            "OpenClaw",
+            "Static analysis",
+            "Scan status",
+            "What to consider before installing",
+            "Assessment",
+        )
     )
 
 
@@ -412,8 +478,12 @@ class ScanResult:
     scan_status: str | None = None
     virus_total: str | None = None
     virus_total_report_url: str | None = None
+    clawscan_verdict: str | None = None
+    clawscan_confidence: str | None = None
     openclaw_verdict: str | None = None
     openclaw_confidence: str | None = None
+    static_analysis_status: str | None = None
+    static_analysis_summary: str | None = None
     publisher_handle: str | None = None
     suspicious: bool = False
     suspicious_reason: str | None = None
@@ -575,23 +645,34 @@ def scan_artifact_status(
 
     virus_total = extract_status_after_label(lines, "VirusTotal")
     virus_total_report_url = extract_virustotal_report_url(page_html)
-    openclaw_verdict = extract_status_after_label(lines, "OpenClaw")
-    openclaw_confidence = extract_openclaw_confidence(lines)
+    clawscan_verdict = extract_status_after_label(lines, "ClawScan") or extract_status_after_label(lines, "OpenClaw")
+    clawscan_confidence = extract_clawscan_confidence(lines)
+    openclaw_verdict = clawscan_verdict
+    openclaw_confidence = clawscan_confidence
+    static_analysis_status = extract_static_analysis_status(lines)
+    static_analysis_summary = extract_static_analysis_summary(lines)
     scan_status = extract_scan_status(lines)
     suspicious_reason = extract_suspicious_reason(page_html, lines) or None
     publisher_handle = extract_publisher_handle(lines)
-    suspicious = any(status in {"suspicious", "malicious"} for status in (virus_total, openclaw_verdict, scan_status))
+    suspicious = any(
+        status in {"suspicious", "malicious", "warning"}
+        for status in (virus_total, clawscan_verdict, static_analysis_status, scan_status)
+    )
     pending = not suspicious and (
         not has_security_signals(lines)
         or virus_total in {None, "pending"}
-        or openclaw_verdict in {None, "pending"}
+        or clawscan_verdict in {None, "pending"}
     )
     if scan_status is None:
         if pending:
             scan_status = "pending"
         elif suspicious:
             scan_status = "suspicious"
-        elif virus_total in {"benign", "clean", "safe"} and openclaw_verdict in {"benign", "clean", "safe"}:
+        elif (
+            virus_total in {"benign", "clean", "safe"}
+            and clawscan_verdict in {"benign", "clean", "safe"}
+            and static_analysis_status not in {"suspicious", "malicious", "warning"}
+        ):
             scan_status = "clean"
     if pending and not suspicious_reason:
         warnings.append("Security scan output is still incomplete or pending.")
@@ -607,8 +688,12 @@ def scan_artifact_status(
         scan_status=scan_status,
         virus_total=virus_total,
         virus_total_report_url=virus_total_report_url,
+        clawscan_verdict=clawscan_verdict,
+        clawscan_confidence=clawscan_confidence,
         openclaw_verdict=openclaw_verdict,
         openclaw_confidence=openclaw_confidence,
+        static_analysis_status=static_analysis_status,
+        static_analysis_summary=static_analysis_summary,
         publisher_handle=publisher_handle,
         suspicious=suspicious,
         suspicious_reason=suspicious_reason,
@@ -696,7 +781,7 @@ def load_artifacts_from_state(
             ArtifactRef(
                 key=key,
                 kind=kind,
-                name=str(meta.get("name") or ""),
+                name=str(meta.get("published_name") or meta.get("name") or ""),
                 version=str(meta.get("version") or "") or None,
                 path=str(meta.get("path") or "") or None,
                 release_ref=str(meta.get("release_ref") or "") or None,
@@ -726,7 +811,7 @@ def write_output(path: Path, results: list[ScanResult]) -> None:
 
 def build_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Check live ClawHub security scan status for published artifacts.",
+        description="Check live ClawHub VirusTotal / ClawScan / Static analysis status for published artifacts.",
     )
     parser.add_argument(
         "--state-file",
@@ -863,7 +948,9 @@ def main() -> int:
         status_label = "suspicious" if result.suspicious else "pending" if result.pending else "ok"
         url_label = result.detail_url or "unresolved"
         print(
-            f"{artifact.key}: {status_label} | vt={result.virus_total or '-'} | openclaw={result.openclaw_verdict or '-'} | {url_label}",
+            f"{artifact.key}: {status_label} | vt={result.virus_total or '-'} | "
+            f"clawscan={result.clawscan_verdict or result.openclaw_verdict or '-'} | "
+            f"static={result.static_analysis_status or '-'} | {url_label}",
             flush=True,
         )
 

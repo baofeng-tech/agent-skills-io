@@ -52,6 +52,10 @@ ALREADY_EXISTS_PATTERNS = (
     re.compile(r"\bconflict\b", re.IGNORECASE),
     re.compile(r"\bduplicate\b", re.IGNORECASE),
 )
+SLUG_TAKEN_PATTERNS = (
+    re.compile(r"slug\s+is\s+already\s+taken", re.IGNORECASE),
+    re.compile(r"choose\s+a\s+different\s+slug", re.IGNORECASE),
+)
 TOKEN_KEY_PATTERN = re.compile(r"^clawhubapitoken(?P<index>\d*)$")
 
 
@@ -92,6 +96,15 @@ def titleize_slug(slug: str) -> str:
         else:
             titled.append(word.capitalize())
     return " ".join(titled) if titled else slug
+
+
+def suffix_publish_name(name: str, suffix: str) -> str:
+    cleaned_suffix = re.sub(r"[^a-z0-9-]+", "-", suffix.lower()).strip("-")
+    if not cleaned_suffix:
+        return name
+    if name.endswith("-plugin"):
+        return f"{name[: -len('-plugin')]}-{cleaned_suffix}-plugin"
+    return f"{name}-{cleaned_suffix}"
 
 
 def load_frontmatter(skill_path: Path) -> dict[str, Any]:
@@ -448,12 +461,13 @@ class Worker(threading.Thread):
             self.log(f"carrying forward {carried} real publish(es) from the past hour")
 
     def inspect_payload(self, artifact: Artifact) -> Any | None:
+        remote_name = self.current_publish_name(artifact)
         try:
             if artifact.kind == "skill":
-                result = self.clawhub(["inspect", artifact.name, "--json"], timeout=self.args.scan_inspect_timeout)
+                result = self.clawhub(["inspect", remote_name, "--json"], timeout=self.args.scan_inspect_timeout)
             else:
                 result = self.clawhub(
-                    ["package", "inspect", artifact.name, "--json"],
+                    ["package", "inspect", remote_name, "--json"],
                     timeout=self.args.scan_inspect_timeout,
                 )
         except subprocess.TimeoutExpired:
@@ -462,16 +476,28 @@ class Worker(threading.Thread):
             return None
         return try_parse_json(result.stdout)
 
+    def current_publish_name(self, artifact: Artifact) -> str:
+        current_state = self.state.get(artifact)
+        return str(current_state.get("published_name") or artifact.name)
+
+    def conflict_publish_name(self, artifact: Artifact) -> str:
+        current_state = self.state.get(artifact)
+        existing = str(current_state.get("published_name") or "").strip()
+        if existing and existing != artifact.name:
+            return existing
+        return suffix_publish_name(artifact.name, f"slot{self.slot_index}")
+
     def post_publish_scan(self, artifact: Artifact) -> None:
         if not self.args.post_publish_scan:
             return
 
         current_state = self.state.get(artifact)
         cached_scan = current_state.get("live_scan") if isinstance(current_state.get("live_scan"), dict) else {}
+        remote_name = self.current_publish_name(artifact)
         artifact_ref = ArtifactRef(
             key=artifact.key,
             kind=artifact.kind,
-            name=artifact.name,
+            name=remote_name,
             version=artifact.version,
             path=artifact.path,
             release_ref=str(current_state.get("release_ref") or "") or None,
@@ -492,8 +518,9 @@ class Worker(threading.Thread):
             if result.suspicious:
                 self.result.suspicious += 1
                 self.log(
-                    f"live scan flagged suspicious {artifact.kind}:{artifact.name} "
-                    f"(vt={result.virus_total or '-'}, openclaw={result.openclaw_verdict or '-'})"
+                    f"live scan flagged suspicious {artifact.kind}:{remote_name} "
+                    f"(vt={result.virus_total or '-'}, clawscan={result.clawscan_verdict or result.openclaw_verdict or '-'}, "
+                    f"static={result.static_analysis_status or '-'})"
                 )
                 if result.suspicious_reason:
                     self.log(f"live scan reason: {result.suspicious_reason}")
@@ -501,12 +528,13 @@ class Worker(threading.Thread):
             if not scan_needs_retry(result) or attempt >= self.args.scan_retries:
                 status_label = "pending" if result.pending else "ok"
                 self.log(
-                    f"live scan {status_label} {artifact.kind}:{artifact.name} "
-                    f"(vt={result.virus_total or '-'}, openclaw={result.openclaw_verdict or '-'})"
+                    f"live scan {status_label} {artifact.kind}:{remote_name} "
+                    f"(vt={result.virus_total or '-'}, clawscan={result.clawscan_verdict or result.openclaw_verdict or '-'}, "
+                    f"static={result.static_analysis_status or '-'})"
                 )
                 return
             self.log(
-                f"live scan pending for {artifact.kind}:{artifact.name}; "
+                f"live scan pending for {artifact.kind}:{remote_name}; "
                 f"retrying in {self.args.scan_retry_delay:.1f}s"
             )
             time.sleep(self.args.scan_retry_delay)
@@ -548,10 +576,13 @@ class Worker(threading.Thread):
                         last_checked_at=iso_now(),
                         last_error=None,
                         token_slot=self.slot,
+                        published_name=self.current_publish_name(artifact),
                         publish_mode="remote-existing",
                     )
                     self.result.skipped += 1
-                    self.log(f"skip remote-existing {artifact.kind}:{artifact.name}@{artifact.version}")
+                    self.log(
+                        f"skip remote-existing {artifact.kind}:{self.current_publish_name(artifact)}@{artifact.version}"
+                    )
                     self.post_publish_scan(artifact)
                     continue
 
@@ -570,7 +601,7 @@ class Worker(threading.Thread):
                     self.log(f"dry-run {artifact.kind}:{artifact.name}@{artifact.version}")
                     continue
 
-                publish_result = self.publish_artifact(artifact)
+                publish_result, published_name = self.publish_artifact(artifact)
                 output = "\n".join(
                     part for part in (publish_result.stdout.strip(), publish_result.stderr.strip()) if part
                 )
@@ -585,14 +616,53 @@ class Worker(threading.Thread):
                     last_checked_at=iso_now(),
                     last_error=None,
                     token_slot=self.slot,
+                    published_name=published_name,
                     release_ref=release_ref,
                     publish_mode="published",
                 )
                 self.result.published += 1
-                self.log(f"published {artifact.kind}:{artifact.name}@{artifact.version}")
+                self.log(f"published {artifact.kind}:{artifact.name}@{artifact.version} as {published_name}")
                 self.post_publish_scan(artifact)
             except PublishError as exc:
                 attempts = self.state.get(artifact).get("attempts", 0) + 1
+                if exc.slug_taken and self.args.slug_conflict_strategy == "suffix-by-slot":
+                    fallback_name = self.conflict_publish_name(artifact)
+                    if fallback_name != self.current_publish_name(artifact):
+                        self.log(
+                            f"slug conflict for {artifact.kind}:{artifact.name}; retrying with fallback slug {fallback_name}"
+                        )
+                        try:
+                            publish_result, published_name = self.publish_artifact(
+                                artifact,
+                                publish_name=fallback_name,
+                            )
+                        except PublishError as fallback_exc:
+                            exc = fallback_exc
+                        else:
+                            output = "\n".join(
+                                part for part in (publish_result.stdout.strip(), publish_result.stderr.strip()) if part
+                            )
+                            release_ref = extract_release_ref(output)
+                            self.publish_times.append(time.time())
+                            self.state.mark(
+                                artifact,
+                                status="published",
+                                attempts=attempts,
+                                published_at=iso_now(),
+                                last_attempt_at=iso_now(),
+                                last_checked_at=iso_now(),
+                                last_error=None,
+                                token_slot=self.slot,
+                                published_name=published_name,
+                                release_ref=release_ref,
+                                publish_mode="published-fallback",
+                            )
+                            self.result.published += 1
+                            self.log(
+                                f"published fallback {artifact.kind}:{artifact.name}@{artifact.version} as {published_name}"
+                            )
+                            self.post_publish_scan(artifact)
+                            continue
                 if exc.already_exists:
                     self.state.mark(
                         artifact,
@@ -603,11 +673,12 @@ class Worker(threading.Thread):
                         last_checked_at=iso_now(),
                         last_error=None,
                         token_slot=self.slot,
+                        published_name=self.current_publish_name(artifact),
                         publish_mode="publish-existing",
                     )
                     self.result.skipped += 1
                     self.log(
-                        f"skip publish-existing {artifact.kind}:{artifact.name}@{artifact.version}: {exc.message}"
+                        f"skip publish-existing {artifact.kind}:{self.current_publish_name(artifact)}@{artifact.version}: {exc.message}"
                     )
                     self.post_publish_scan(artifact)
                     continue
@@ -637,11 +708,12 @@ class Worker(threading.Thread):
         return len(self.publish_times) >= self.args.per_token_per_hour
 
     def check_remote_exists(self, artifact: Artifact) -> bool:
+        remote_name = self.current_publish_name(artifact)
         for attempt in range(1, self.args.probe_retries + 1):
             if artifact.kind == "skill":
-                result = self.clawhub(["inspect", artifact.name, "--json"], timeout=120)
+                result = self.clawhub(["inspect", remote_name, "--json"], timeout=120)
             else:
-                result = self.clawhub(["package", "inspect", artifact.name, "--json"], timeout=120)
+                result = self.clawhub(["package", "inspect", remote_name, "--json"], timeout=120)
             if result.returncode == 0:
                 probe = parse_remote_probe(result.stdout, artifact.version)
                 if probe.version_exists:
@@ -649,12 +721,12 @@ class Worker(threading.Thread):
                 if probe.known_versions:
                     versions = ", ".join(probe.known_versions)
                     self.log(
-                        f"remote slug exists for {artifact.name}, but local version {artifact.version} "
+                        f"remote slug exists for {remote_name}, but local version {artifact.version} "
                         f"is not among remote versions [{versions}]; attempting publish"
                     )
                 else:
                     self.log(
-                        f"remote slug exists for {artifact.name}, but inspect did not expose version details; "
+                        f"remote slug exists for {remote_name}, but inspect did not expose version details; "
                         f"attempting publish for {artifact.version}"
                     )
                 return False
@@ -663,20 +735,21 @@ class Worker(threading.Thread):
                 return False
             if is_transient_probe_error(text) and attempt < self.args.probe_retries:
                 self.log(
-                    f"probe retry {attempt}/{self.args.probe_retries - 1} for {artifact.name}: {clean_error(text)}"
+                    f"probe retry {attempt}/{self.args.probe_retries - 1} for {remote_name}: {clean_error(text)}"
                 )
                 time.sleep(self.args.probe_retry_delay)
                 continue
-            raise PublishError(f"remote probe failed for {artifact.name}: {clean_error(text)}")
+            raise PublishError(f"remote probe failed for {remote_name}: {clean_error(text)}")
         return False
 
-    def publish_artifact(self, artifact: Artifact) -> subprocess.CompletedProcess[str]:
+    def publish_artifact(self, artifact: Artifact, *, publish_name: str | None = None) -> tuple[subprocess.CompletedProcess[str], str]:
+        target_name = publish_name or self.current_publish_name(artifact)
         if artifact.kind == "skill":
             command = [
                 "publish",
                 artifact.path,
                 "--slug",
-                artifact.name,
+                target_name,
                 "--name",
                 artifact.display_name,
                 "--version",
@@ -694,7 +767,7 @@ class Worker(threading.Thread):
                 "--family",
                 "code-plugin",
                 "--name",
-                artifact.name,
+                target_name,
                 "--display-name",
                 artifact.display_name,
                 "--version",
@@ -712,12 +785,13 @@ class Worker(threading.Thread):
             ]
         result = self.clawhub(command, timeout=self.args.publish_timeout)
         if result.returncode == 0:
-            return result
+            return result, target_name
         error_text = clean_error(f"{result.stdout}\n{result.stderr}")
         raise PublishError(
             error_text,
             rate_limited=is_rate_limited(error_text),
             already_exists=is_already_exists(error_text),
+            slug_taken=is_slug_taken(error_text),
         )
 
 
@@ -728,11 +802,13 @@ class PublishError(RuntimeError):
         *,
         rate_limited: bool = False,
         already_exists: bool = False,
+        slug_taken: bool = False,
     ) -> None:
         super().__init__(message)
         self.message = message
         self.rate_limited = rate_limited
         self.already_exists = already_exists
+        self.slug_taken = slug_taken
 
 
 @dataclass(frozen=True)
@@ -789,6 +865,10 @@ def is_rate_limited(text: str) -> bool:
 
 def is_already_exists(text: str) -> bool:
     return any(pattern.search(text) for pattern in ALREADY_EXISTS_PATTERNS)
+
+
+def is_slug_taken(text: str) -> bool:
+    return any(pattern.search(text) for pattern in SLUG_TAKEN_PATTERNS)
 
 
 def is_transient_probe_error(text: str) -> bool:
@@ -1023,7 +1103,13 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--post-publish-scan",
         action="store_true",
-        help="After a publish or remote-existing skip, check the live ClawHub page for VirusTotal/OpenClaw scan status.",
+        help="After a publish or remote-existing skip, check the live ClawHub page for VirusTotal/ClawScan/Static analysis status.",
+    )
+    parser.add_argument(
+        "--slug-conflict-strategy",
+        choices=("fail", "suffix-by-slot"),
+        default="suffix-by-slot",
+        help="How to handle ClawHub ownership/slug conflicts. The default retries with a slot-specific fallback slug.",
     )
     parser.add_argument(
         "--scan-retries",

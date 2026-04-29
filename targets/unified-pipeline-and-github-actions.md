@@ -143,7 +143,9 @@ The pipeline now supports an explicit model-execution stage between sync and bui
     - `--profile source`
       - neutral mother-skill refinement for normal sync/build runs
     - `--profile clawhub_breakout`
-      - ClawHub breakout / suspicious-remediation refinement
+      - ClawHub breakout refinement
+    - `--profile clawhub_suspicious`
+      - diagnosis-driven ClawHub suspicious remediation
   - supports:
     - `https://api.aisa.one/v1/responses`
     - `https://api.aisa.one/v1/chat/completions`
@@ -163,7 +165,7 @@ In workflow-dispatch mode, the controls are:
 Current default behavior:
 
 - normal hosted/self-hosted sync runs the helper with `--profile source`
-- targeted ClawHub suspicious remediation runs the helper with `--profile clawhub_breakout`
+- targeted ClawHub suspicious remediation runs the helper with `--profile clawhub_suspicious`
 
 This split exists specifically to avoid mixing ClawHub breakout copy into the neutral mother-skill layer during routine syncs.
 
@@ -175,7 +177,7 @@ The self-hosted lane now also supports an optional repair path for live ClawHub 
   - reads `targets/clawhub-suspicious-diagnosis.json`
   - selects matching `blocker` artifacts in `suspicious` state
   - maps them back to `targetSkills/*`
-  - runs repo-local ClawHub breakout context via `scripts/llm_refine_aisa_skills.py --profile clawhub_breakout`
+  - runs repo-local suspicious-remediation context via `scripts/llm_refine_aisa_skills.py --profile clawhub_suspicious`
   - rebuilds only `targetSkills/`, `clawhub-release/`, and `clawhub-plugin-release/`
   - optionally re-syncs downstream publish repos
   - optionally re-publishes only the selected artifact keys through `scripts/publish_clawhub_batch.py --artifact ... --force`
@@ -211,7 +213,7 @@ For skill sync and future manual edits:
 
 When `run_self_hosted_publish=true` on a manual dispatch, the workflow also:
 
-1. prepares downstream publish repos in a dedicated workspace area
+1. prepares downstream public publish repos in a dedicated workspace area
 2. reruns the unified pipeline with optional `--sync-adjacent-repos`
 3. optionally continues into `publish_clawhub_batch.py`
 4. optionally runs the suspicious-remediation loop and force-republishes only the matching artifacts
@@ -234,6 +236,7 @@ Useful repo variables for the scheduled self-hosted lane:
 - `AUTO_RUN_SUSPICIOUS_REPAIR`
 - `AUTO_SUSPICIOUS_ARTIFACTS`
 - `AUTO_INSTALL_CLAWHUB_CLI`
+- `AUTO_HERMES_PUBLISH_MODE`
 - `CLAWHUB_CLI_VERSION`
 
 Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL.
@@ -255,13 +258,12 @@ If ClawHub publishing is enabled, the self-hosted lane can now also optionally b
 - or `AUTO_INSTALL_CLAWHUB_CLI=true` in repo variables for scheduled publish
 - current install path is `npm install -g clawhub@<version>`
 
-Hermes publishing in this repo still works by syncing `hermes-release/` into its GitHub publish repo, so the `hermes` CLI remains optional here.
+Hermes publishing in this repo still defaults to syncing `hermes-release/` into its GitHub publish repo, and now also supports an optional `hermes_publish_mode=cli` path when the runner already has the Hermes CLI.
 
 ### Downstream repo preparation
 
 The self-hosted lane now supports CI-injected publish destinations through:
 
-- `PUBLISH_AGENT_SKILLS_DEST`
 - `PUBLISH_AGENTSKILLS_SO_DEST`
 - `PUBLISH_AGENTSKILL_SH_DEST`
 - `PUBLISH_CLAUDE_DEST`
@@ -272,7 +274,6 @@ That lets the workflow publish into workspace-managed downstream clones instead 
 
 Current downstream defaults are:
 
-- `AIsa-team/agent-skills` on branch `main`
 - `baofeng-tech/agent-skills-so` on branch `main`
 - `baofeng-tech/agent-skills` on branch `main`
 - `baofeng-tech/Aisa-One-Skills-Claude` on branch `main`
@@ -365,7 +366,8 @@ Use the hosted lane for:
 Use the self-hosted lane for:
 
 - `publish_clawhub_batch.py`
-- downstream GitHub publish to the official `AIsa-team/agent-skills@agentskills`, `agent-skills-so`, the public `baofeng-tech/agent-skills` import repo, Claude, Claude marketplace, and Hermes repos
+- downstream GitHub publish to `agent-skills-so`, the public `baofeng-tech/agent-skills` import repo, Claude, Claude marketplace, and Hermes repos
+- never for write-back into `AIsa-team/agent-skills`
 - any step that needs live marketplace CLI auth or repo auth
 
 Recommended manual-dispatch pattern:

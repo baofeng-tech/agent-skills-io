@@ -75,6 +75,14 @@ on:
         required: false
         default: false
         type: boolean
+      hermes_publish_mode:
+        description: "In self-hosted mode, Hermes publish path"
+        required: false
+        default: repo-sync
+        type: choice
+        options:
+          - repo-sync
+          - cli
       diagnosis_doc_update:
         description: "Update suspicious diagnosis snapshot in rules doc"
         required: false
@@ -261,12 +269,13 @@ jobs:
       CLAWHUB_TOKEN_2: ${{ secrets.CLAWHUB_TOKEN_2 }}
       CLAWHUB_TOKEN_3: ${{ secrets.CLAWHUB_TOKEN_3 }}
       PUBLISH_REPOS_ROOT: ${{ github.workspace }}/publish-repos
-      PUBLISH_AGENT_SKILLS_DEST: ${{ github.workspace }}/publish-repos/agent-skills
       PUBLISH_AGENTSKILLS_SO_DEST: ${{ github.workspace }}/publish-repos/agent-skills-so
       PUBLISH_AGENTSKILL_SH_DEST: ${{ github.workspace }}/publish-repos/agent-skills-public
       PUBLISH_CLAUDE_DEST: ${{ github.workspace }}/publish-repos/Aisa-One-Skills-Claude
       PUBLISH_CLAUDE_MARKETPLACE_DEST: ${{ github.workspace }}/publish-repos/Aisa-One-Plugins-Claude
       PUBLISH_HERMES_DEST: ${{ github.workspace }}/publish-repos/Aisa-One-Skills-Hermes
+      PUBLISH_HERMES_MODE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.hermes_publish_mode || vars.AUTO_HERMES_PUBLISH_MODE || 'repo-sync' }}
+      HERMES_PUBLISH_REPO: ${{ vars.HERMES_PUBLISH_REPO || 'baofeng-tech/Aisa-One-Skills-Hermes' }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -367,7 +376,13 @@ jobs:
             fi
           fi
 
-          if command -v hermes >/dev/null 2>&1; then
+          if [[ "${PUBLISH_HERMES_MODE:-repo-sync}" == "cli" ]]; then
+            if ! command -v hermes >/dev/null 2>&1; then
+              echo "Hermes CLI is required when hermes_publish_mode=cli." >&2
+              exit 1
+            fi
+            hermes version || true
+          elif command -v hermes >/dev/null 2>&1; then
             hermes version || true
           else
             echo "Hermes CLI not found on runner. Current repo publish only syncs hermes-release into GitHub, so the CLI is optional."
@@ -405,12 +420,13 @@ jobs:
             fi
           }
 
-          ensure_repo "AIsa-team/agent-skills" "main" "$PUBLISH_AGENT_SKILLS_DEST"
           ensure_repo "baofeng-tech/agent-skills-so" "main" "$PUBLISH_AGENTSKILLS_SO_DEST"
           ensure_repo "baofeng-tech/agent-skills" "main" "$PUBLISH_AGENTSKILL_SH_DEST"
           ensure_repo "baofeng-tech/Aisa-One-Skills-Claude" "main" "$PUBLISH_CLAUDE_DEST"
           ensure_repo "baofeng-tech/Aisa-One-Plugins-Claude" "main" "$PUBLISH_CLAUDE_MARKETPLACE_DEST"
-          ensure_repo "baofeng-tech/Aisa-One-Skills-Hermes" "main" "$PUBLISH_HERMES_DEST"
+          if [[ "${PUBLISH_HERMES_MODE:-repo-sync}" != "cli" ]]; then
+            ensure_repo "baofeng-tech/Aisa-One-Skills-Hermes" "main" "$PUBLISH_HERMES_DEST"
+          fi
 
       - name: Run self-hosted publish lane
         shell: bash
@@ -554,12 +570,13 @@ jobs:
             fi
           }
 
-          commit_and_push "$PUBLISH_AGENT_SKILLS_DEST" "agent-skills" "AIsa-team/agent-skills" "main"
           commit_and_push "$PUBLISH_AGENTSKILLS_SO_DEST" "agent-skills-so" "baofeng-tech/agent-skills-so" "main"
           commit_and_push "$PUBLISH_AGENTSKILL_SH_DEST" "agent-skills-public" "baofeng-tech/agent-skills" "main"
           commit_and_push "$PUBLISH_CLAUDE_DEST" "Aisa-One-Skills-Claude" "baofeng-tech/Aisa-One-Skills-Claude" "main"
           commit_and_push "$PUBLISH_CLAUDE_MARKETPLACE_DEST" "Aisa-One-Plugins-Claude" "baofeng-tech/Aisa-One-Plugins-Claude" "main"
-          commit_and_push "$PUBLISH_HERMES_DEST" "Aisa-One-Skills-Hermes" "baofeng-tech/Aisa-One-Skills-Hermes" "main"
+          if [[ "${PUBLISH_HERMES_MODE:-repo-sync}" != "cli" ]]; then
+            commit_and_push "$PUBLISH_HERMES_DEST" "Aisa-One-Skills-Hermes" "baofeng-tech/Aisa-One-Skills-Hermes" "main"
+          fi
 
       - name: Upload self-hosted publish artifacts
         if: always()

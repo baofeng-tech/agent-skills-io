@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import fnmatch
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -378,9 +379,14 @@ def run_llm_step(args: argparse.Namespace, summary: RunSummary) -> None:
 
 
 def run_publish_steps(args: argparse.Namespace, summary: RunSummary) -> None:
+    if os.environ.get("PUBLISH_AGENT_SKILLS_DEST"):
+        print(
+            "Ignoring PUBLISH_AGENT_SKILLS_DEST: upstream write-back to AIsa-team/agent-skills is disabled.",
+            flush=True,
+        )
+
     if args.sync_adjacent_repos:
         commands = [
-            ["bash", "scripts/publish-targetSkills-to-agent-skills.sh"],
             ["bash", "scripts/publish-agentskills-so-release.sh", "--skip-build"],
             ["bash", "scripts/publish-agentskill-sh-release.sh", "--skip-build"],
             ["bash", "scripts/publish-claude-release.sh", "--with-marketplace", "--skip-build"],
@@ -509,7 +515,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--sync-adjacent-repos",
         action="store_true",
-        help="After a successful build/test run, sync targetSkills/Claude/Hermes layers into sibling repos via existing publish scripts.",
+        help=(
+            "After a successful build/test run, sync downstream public release repos via existing publish scripts. "
+            "Upstream AIsa-team/agent-skills write-back is intentionally disabled."
+        ),
     )
     parser.add_argument(
         "--clawhub-publish",

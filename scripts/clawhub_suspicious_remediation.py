@@ -26,8 +26,7 @@ FULL_BUILD_STEPS = [
     ["python3", "scripts/build_clawhub_plugin_release.py"],
 ]
 TEST_STEP = ["python3", "scripts/test_release_layers.py"]
-ADJACENT_SYNC_STEPS = [
-    ["bash", "scripts/publish-targetSkills-to-agent-skills.sh"],
+DOWNSTREAM_SYNC_STEPS = [
     ["bash", "scripts/publish-agentskills-so-release.sh", "--skip-build"],
     ["bash", "scripts/publish-agentskill-sh-release.sh", "--skip-build"],
     ["bash", "scripts/publish-claude-release.sh", "--with-marketplace", "--skip-build"],
@@ -210,7 +209,7 @@ def run_builds(*, skip_build: bool, skip_test: bool) -> None:
 
 
 def run_adjacent_sync() -> None:
-    for command in ADJACENT_SYNC_STEPS:
+    for command in DOWNSTREAM_SYNC_STEPS:
         run_command(command, timeout=7200)
 
 
@@ -303,6 +302,15 @@ def build_parser() -> argparse.ArgumentParser:
         help="Apply LLM refinement, rebuild release layers, and continue into optional sync/publish steps.",
     )
     parser.add_argument(
+        "--llm-profile",
+        choices=("clawhub_suspicious", "clawhub_breakout"),
+        default="clawhub_suspicious",
+        help=(
+            "Repo-local refinement profile to use. "
+            "Default is diagnosis-driven suspicious remediation; breakout is opt-in only."
+        ),
+    )
+    parser.add_argument(
         "--sync-repo-skills",
         action="store_true",
         help="Refresh repo-local .agents skills from the global Codex skill directory before remediation.",
@@ -325,7 +333,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--sync-adjacent-repos",
         action="store_true",
-        help="After rebuilding, sync downstream publish repos via the existing publish scripts.",
+        help="After rebuilding, sync downstream public publish repos via the existing publish scripts.",
     )
     parser.add_argument(
         "--clawhub-publish",
@@ -382,9 +390,11 @@ def main() -> int:
         "python3",
         "scripts/llm_refine_aisa_skills.py",
         "--profile",
-        "clawhub_breakout",
+        args.llm_profile,
         "--skills",
         ",".join(source_skills),
+        "--extra-context-file",
+        str(Path(args.report_file).resolve()),
         "--apply",
     ]
     if args.llm_if_available:

@@ -59,6 +59,15 @@ RULES: dict[str, dict[str, Any]] = {
             "Declare every required env var in the same shape across all publish layers.",
         ],
     },
+    "static_analysis_patterns": {
+        "severity": "blocker",
+        "keywords": ("static analysis", "pattern detected", "child_process", "shell command execution"),
+        "summary": "Static analysis found execution or side-effect patterns that need trimming or clearer justification.",
+        "actions": [
+            "Remove non-runtime helper files from the shipped package when they are the source of the finding.",
+            "If the pattern is a real runtime need, explain the exact boundary and intended command/file behavior in public docs.",
+        ],
+    },
     "prompt_scaffold_copy": {
         "severity": "warning",
         "keywords": ("prompt-injection", "prescriptive prompts", "prompt scaffold", "highly prescriptive"),
@@ -192,13 +201,17 @@ def is_superseded_by_clean_alias(
 def classify_rules(item: dict[str, Any]) -> list[str]:
     reason = normalize_text(item.get("suspicious_reason"))
     status = normalize_text(item.get("scan_status"))
+    static_status = normalize_text(item.get("static_analysis_status"))
+    static_summary = normalize_text(item.get("static_analysis_summary"))
     matched: list[str] = []
     if item.get("pending") or status in {"pending", "unresolved"}:
         matched.append("pending_scan")
+    if static_status in {"warning", "suspicious", "malicious"} or "pattern detected" in static_summary:
+        matched.append("static_analysis_patterns")
     for rule_id, meta in RULES.items():
-        if rule_id == "pending_scan":
+        if rule_id in {"pending_scan", "static_analysis_patterns"}:
             continue
-        if any(keyword in reason for keyword in meta["keywords"]):
+        if any(keyword in reason or keyword in static_summary for keyword in meta["keywords"]):
             matched.append(rule_id)
     if not matched and item.get("suspicious"):
         matched.append("platform_trust_gap")
@@ -219,7 +232,10 @@ def render_artifact_record(item: dict[str, Any], publish_meta: dict[str, Any]) -
         "severity": severity,
         "scan_status": item.get("scan_status"),
         "virus_total": item.get("virus_total"),
+        "clawscan_verdict": item.get("clawscan_verdict") or item.get("openclaw_verdict"),
         "openclaw_verdict": item.get("openclaw_verdict"),
+        "static_analysis_status": item.get("static_analysis_status"),
+        "static_analysis_summary": item.get("static_analysis_summary"),
         "suspicious": bool(item.get("suspicious")),
         "pending": bool(item.get("pending")),
         "rule_ids": rule_ids,
