@@ -13,7 +13,7 @@ requires:
   - AISA_API_KEY
 metadata:
   aisa:
-    emoji: 🔎
+    emoji: 📊
     requires:
       bins:
       - python3
@@ -25,7 +25,7 @@ metadata:
     - claude-code
     - hermes
   openclaw:
-    emoji: 🔎
+    emoji: 📊
     requires:
       bins:
       - python3

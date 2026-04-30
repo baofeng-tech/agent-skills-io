@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-04-29T08:40:30.770983+00:00",
+  "generated_at": "2026-04-30T15:28:58.993551+00:00",
   "summary": {
     "total": 116,
-    "suspicious": 7,
-    "pending": 109,
+    "suspicious": 36,
+    "pending": 17,
     "resolved_urls": 116
   },
   "artifacts": [
@@ -18,16 +18,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:33.083485+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:22:46.478299+00:00"
     },
     {
       "key": "plugin:aisa-multi-search-engine-plugin",
@@ -40,14 +42,18 @@
       "scan_status": "suspicious",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "suspicious",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": true,
       "suspicious_reason": "Native-first ClawHub plugin for `aisa-multi-search-engine`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:37:34.270235+00:00"
+      "checked_at": "2026-04-30T15:22:48.110558+00:00"
     },
     {
       "key": "plugin:aisa-perplexity-search-sonar-plugin",
@@ -60,14 +66,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:37:35.419039+00:00"
+      "checked_at": "2026-04-30T15:22:50.102123+00:00"
     },
     {
       "key": "plugin:aisa-perplexity-sonar-search-plugin",
@@ -80,16 +90,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:36.558900+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:22:52.262616+00:00"
     },
     {
       "key": "plugin:aisa-provider-plugin",
@@ -102,14 +114,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package is mostly coherent for an API-provider plugin (it legitimately needs an AISA_API_KEY), but there are mismatches between the registry metadata and the packaged files and a few packaging/instruction gaps that should be resolved before trusting it with credentials.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:37:37.651665+00:00"
+      "checked_at": "2026-04-30T15:22:54.082537+00:00"
     },
     {
       "key": "plugin:aisa-search-command-center-plugin",
@@ -122,16 +138,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:38.655542+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:22:55.967505+00:00"
     },
     {
       "key": "plugin:aisa-search-plugin",
@@ -144,16 +162,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:44.146841+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:22:57.549008+00:00"
     },
     {
       "key": "plugin:aisa-tavily-plugin",
@@ -166,14 +186,18 @@
       "scan_status": "suspicious",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "suspicious",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": true,
       "suspicious_reason": "Native-first ClawHub plugin for `aisa-tavily`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:37:45.230389+00:00"
+      "checked_at": "2026-04-30T15:22:59.387732+00:00"
     },
     {
       "key": "plugin:aisa-tavily-search-plugin",
@@ -186,14 +210,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:37:46.241519+00:00"
+      "checked_at": "2026-04-30T15:23:01.195396+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-command-center-plugin",
@@ -206,14 +234,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package is largely coherent with a Twitter/X relay client (it needs AISA_API_KEY and sends reads/posts to api.aisa.one), but there are metadata inconsistencies and privacy implications you should verify before installing.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:37:47.342932+00:00"
+      "checked_at": "2026-04-30T15:23:03.207574+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-plugin",
@@ -226,16 +258,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:48.457445+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:06.249989+00:00"
     },
     {
       "key": "plugin:aisa-twitter-command-center-plugin",
@@ -248,16 +282,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:49.512277+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:08.017890+00:00"
     },
     {
       "key": "plugin:aisa-twitter-engagement-suite-plugin",
@@ -270,16 +306,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:50.570038+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:10.012586+00:00"
     },
     {
       "key": "plugin:aisa-twitter-plugin",
@@ -292,16 +330,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:51.593992+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:13.584444+00:00"
     },
     {
       "key": "plugin:aisa-twitter-post-engage-plugin",
@@ -314,14 +354,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package is largely coherent for a Twitter/X relay-based engagement and OAuth posting skill, but there are metadata inconsistencies (the registry metadata claims no required credentials while the shipped manifests and scripts require AISA_API_KEY) that should be clarified before installing.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:37:52.922999+00:00"
+      "checked_at": "2026-04-30T15:23:16.383312+00:00"
     },
     {
       "key": "plugin:aisa-twitter-research-engage-plugin",
@@ -334,8 +378,12 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
+      "clawscan_verdict": null,
+      "clawscan_confidence": null,
       "openclaw_verdict": null,
       "openclaw_confidence": null,
+      "static_analysis_status": null,
+      "static_analysis_summary": null,
       "publisher_handle": "Convex",
       "suspicious": false,
       "suspicious_reason": null,
@@ -343,7 +391,7 @@
       "warnings": [
         "Security scan output is still incomplete or pending."
       ],
-      "checked_at": "2026-04-29T08:37:54.034782+00:00"
+      "checked_at": "2026-04-30T15:23:21.859417+00:00"
     },
     {
       "key": "plugin:aisa-twitter-research-engage-relay-plugin",
@@ -356,16 +404,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:55.215987+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:24.295284+00:00"
     },
     {
       "key": "plugin:aisa-youtube-search-plugin",
@@ -378,16 +428,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:56.459877+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:25.823182+00:00"
     },
     {
       "key": "plugin:aisa-youtube-serp-scout-plugin",
@@ -400,16 +452,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:57.600646+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:31.824650+00:00"
     },
     {
       "key": "plugin:cn-llm-plugin",
@@ -422,16 +476,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:58.700427+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:35.654310+00:00"
     },
     {
       "key": "plugin:crypto-market-data-plugin",
@@ -444,16 +500,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "contract",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:37:59.859459+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:37.094207+00:00"
     },
     {
       "key": "plugin:last30days-plugin",
@@ -466,14 +524,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package appears to implement a legitimate AIsa-backed research tool, but the manifest and bundled runtime disagree with the registry metadata about required secrets and there are a few runtime behaviors (local HTTP probes, bundled executable scripts) that warrant caution before installing.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:00.976212+00:00"
+      "checked_at": "2026-04-30T15:23:39.016014+00:00"
     },
     {
       "key": "plugin:last30days-zh-plugin",
@@ -486,14 +548,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package mostly matches its stated purpose (web/multi-source 30-day research) but includes repo-local config reads and a default probe of a host.docker.internal API endpoint that is unexpected and worth reviewing before install.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:06.891720+00:00"
+      "checked_at": "2026-04-30T15:23:40.879139+00:00"
     },
     {
       "key": "plugin:llm-router-plugin",
@@ -506,16 +572,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:07.946437+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:44.048462+00:00"
     },
     {
       "key": "plugin:market-plugin",
@@ -528,16 +596,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:08.870959+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:45.850160+00:00"
     },
     {
       "key": "plugin:marketpulse-plugin",
@@ -550,16 +620,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:09.894998+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:47.563289+00:00"
     },
     {
       "key": "plugin:media-gen-plugin",
@@ -572,16 +644,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:11.068089+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:49.909891+00:00"
     },
     {
       "key": "plugin:multi-search-plugin",
@@ -594,16 +668,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:12.074390+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:51.940998+00:00"
     },
     {
       "key": "plugin:multi-source-search-plugin",
@@ -616,16 +692,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:13.212349+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:54.204774+00:00"
     },
     {
       "key": "plugin:openclaw-aisa-youtube-aisa-plugin",
@@ -638,16 +716,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:14.208714+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:56.197594+00:00"
     },
     {
       "key": "plugin:openclaw-media-gen-plugin",
@@ -660,16 +740,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:15.313231+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:57.608093+00:00"
     },
     {
       "key": "plugin:openclaw-search-plugin",
@@ -682,16 +764,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:16.430600+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:23:59.987459+00:00"
     },
     {
       "key": "plugin:openclaw-twitter-plugin",
@@ -704,16 +788,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:17.480290+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:04.891028+00:00"
     },
     {
       "key": "plugin:openclaw-twitter-post-engage-plugin",
@@ -726,14 +812,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package's code and SKILL.md are coherent with a Twitter/X engagement/posting skill (using an AIsa relay) but the registry metadata and top-level claims contradict the actual requirements and there is reliance on a third-party relay (AISA_API_KEY) that the user must trust.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:18.546498+00:00"
+      "checked_at": "2026-04-30T15:24:06.542994+00:00"
     },
     {
       "key": "plugin:openclaw-youtube-plugin",
@@ -746,16 +836,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:19.516439+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:13.146624+00:00"
     },
     {
       "key": "plugin:perplexity-research-plugin",
@@ -768,16 +860,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:25.291719+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:15.772488+00:00"
     },
     {
       "key": "plugin:perplexity-search-plugin",
@@ -790,16 +884,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:26.335501+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:17.994387+00:00"
     },
     {
       "key": "plugin:prediction-market-arbitrage-api-plugin",
@@ -812,14 +908,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package appears to implement a prediction-market arbitrage client that only talks to api.aisa.one and requires an AISA_API_KEY, but the registry metadata advertised at the top is inconsistent with the shipped manifests (missing declared env/binary requirements), so review before installing.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:27.532852+00:00"
+      "checked_at": "2026-04-30T15:24:19.867039+00:00"
     },
     {
       "key": "plugin:prediction-market-arbitrage-plugin",
@@ -832,16 +932,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:28.628345+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:22.011101+00:00"
     },
     {
       "key": "plugin:prediction-market-arbitrage-zh-plugin",
@@ -854,16 +956,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:29.698288+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:24.963828+00:00"
     },
     {
       "key": "plugin:prediction-market-data-plugin",
@@ -876,16 +980,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:31.215598+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:26.991520+00:00"
     },
     {
       "key": "plugin:prediction-market-data-zh-plugin",
@@ -898,16 +1004,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:32.527356+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:28.573584+00:00"
     },
     {
       "key": "plugin:prediction-market-plugin",
@@ -920,16 +1028,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:33.645625+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:32.622424+00:00"
     },
     {
       "key": "plugin:scholar-search-plugin",
@@ -942,16 +1052,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:34.718069+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:34.316176+00:00"
     },
     {
       "key": "plugin:search-plugin",
@@ -964,16 +1076,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:35.829390+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:36.379273+00:00"
     },
     {
       "key": "plugin:smart-search-plugin",
@@ -986,14 +1100,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package is plausibly a search client that contacts aisa.one and requires an AISA_API_KEY and python3, but the registry metadata omits those requirements and there are manifest mismatches you should confirm before installing.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:36.983845+00:00"
+      "checked_at": "2026-04-30T15:24:38.070119+00:00"
     },
     {
       "key": "plugin:stock-analysis-plugin",
@@ -1006,14 +1124,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package mostly matches a stock-analysis skill, but the published registry metadata (saying no env vars/credentials required) contradicts the embedded plugin and SKILL.md which require an AISA_API_KEY and contact an external AIsa API — this mismatch should be clarified before installing.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:38.065000+00:00"
+      "checked_at": "2026-04-30T15:24:40.320476+00:00"
     },
     {
       "key": "plugin:stock-dividend-plugin",
@@ -1026,16 +1148,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:39.060195+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:42.456248+00:00"
     },
     {
       "key": "plugin:stock-hot-plugin",
@@ -1048,16 +1172,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:40.048262+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:49.617611+00:00"
     },
     {
       "key": "plugin:stock-portfolio-plugin",
@@ -1070,16 +1196,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:41.138716+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:54.739847+00:00"
     },
     {
       "key": "plugin:stock-rumors-plugin",
@@ -1092,14 +1220,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package generally matches its stated purpose (stock/rumor scanning using an AIsa API key) but the runtime instructions and script contain mismatches (claims to 'fetch live data', undeclared environment variables, and reliance on an LLM to 'scan' sources) that warrant caution before installing or running with a real API key.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:42.209907+00:00"
+      "checked_at": "2026-04-30T15:24:56.314301+00:00"
     },
     {
       "key": "plugin:stock-watchlist-plugin",
@@ -1112,16 +1244,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:43.300763+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:24:58.491078+00:00"
     },
     {
       "key": "plugin:tavily-extract-plugin",
@@ -1134,16 +1268,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:44.289757+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:25:04.635667+00:00"
     },
     {
       "key": "plugin:tavily-search-plugin",
@@ -1156,16 +1292,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:44.855086+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:25:08.110865+00:00"
     },
     {
       "key": "plugin:twitter-autopilot-plugin",
@@ -1178,16 +1316,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:45.869207+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:25:10.186781+00:00"
     },
     {
       "key": "plugin:twitter-command-center-search-post-interact-plugin",
@@ -1200,16 +1340,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:46.933302+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:25:11.876511+00:00"
     },
     {
       "key": "plugin:twitter-command-center-search-post-plugin",
@@ -1222,14 +1364,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package is functionally aligned with its Twitter/X posting/search purpose, but it relies on an external relay (api.aisa.one) that will receive your AISA_API_KEY and any uploaded media, and the runtime reads a few environment variables that the manifest/SKILL.md don't fully declare — you should review/trust the relay before installing.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:47.951493+00:00"
+      "checked_at": "2026-04-30T15:25:13.785560+00:00"
     },
     {
       "key": "plugin:twitter-plugin",
@@ -1242,16 +1388,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:49.109558+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:25:15.768405+00:00"
     },
     {
       "key": "plugin:us-stock-analyst-plugin",
@@ -1264,16 +1412,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:50.199306+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:25:18.367566+00:00"
     },
     {
       "key": "plugin:web-search-plugin",
@@ -1286,16 +1436,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:38:55.803469+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:25:29.810921+00:00"
     },
     {
       "key": "plugin:x-intelligence-automation-plugin",
@@ -1308,14 +1460,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:56.942477+00:00"
+      "checked_at": "2026-04-30T15:25:31.990954+00:00"
     },
     {
       "key": "plugin:youtube-plugin",
@@ -1328,14 +1484,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package mostly does what it says (YouTube research via AIsa) but the manifest/registry metadata and the bundled skill disagree about required environment variables and runtime, and the skill will send your AISA_API_KEY to api.aisa.one — confirm you trust that upstream and the pkg metadata before installing.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:57.984343+00:00"
+      "checked_at": "2026-04-30T15:25:34.230738+00:00"
     },
     {
       "key": "plugin:youtube-search-plugin",
@@ -1348,14 +1508,18 @@
       "scan_status": "pending",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "aisadocs",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package is internally inconsistent: it is named 'Youtube Search' but the bundled skill and manifests describe Twitter/X search/posting and require an AISA_API_KEY; functionality and naming don't line up even though the runtime footprint itself is small.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-04-29T08:38:59.059561+00:00"
+      "checked_at": "2026-04-30T15:25:40.708043+00:00"
     },
     {
       "key": "plugin:youtube-serp-plugin",
@@ -1368,16 +1532,18 @@
       "scan_status": "clean",
       "virus_total": null,
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:00.144320+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:25:42.546487+00:00"
     },
     {
       "key": "skill:aisa-crypto-market-data",
@@ -1387,19 +1553,21 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-crypto-market-data",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:01.274766+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:25:46.972604+00:00"
     },
     {
       "key": "skill:aisa-multi-search-engine",
@@ -1409,19 +1577,21 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-multi-search-engine",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "AIsa",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:02.519891+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:25:51.169347+00:00"
     },
     {
       "key": "skill:aisa-perplexity-search-sonar",
@@ -1431,19 +1601,21 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-perplexity-search-sonar",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:03.516672+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:00.536471+00:00"
     },
     {
       "key": "skill:aisa-perplexity-sonar-search",
@@ -1453,19 +1625,21 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-perplexity-sonar-search",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:04.706471+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:08.516469+00:00"
     },
     {
       "key": "skill:aisa-provider",
@@ -1475,17 +1649,21 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-provider",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill's declared requirements (only AISA_API_KEY) match its stated purpose, but the runtime instructions reference shipped scripts and flows that are not present and make strong external-claims (partnerships, ZDR) that should be verified before use.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:39:10.183770+00:00"
+      "checked_at": "2026-04-30T15:26:11.580594+00:00"
     },
     {
       "key": "skill:aisa-search",
@@ -1495,19 +1673,21 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-search",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:11.242484+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:14.368994+00:00"
     },
     {
       "key": "skill:aisa-search-command-center",
@@ -1517,19 +1697,21 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-search-command-center",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:12.311849+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:17.965483+00:00"
     },
     {
       "key": "skill:aisa-tavily",
@@ -1539,39 +1721,45 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-tavily",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
-      "suspicious_reason": "Detected: suspicious.env_credential_access",
-      "pending": true,
+      "suspicious_reason": null,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:39:13.481364+00:00"
+      "checked_at": "2026-04-30T15:26:21.530140+00:00"
     },
     {
       "key": "skill:aisa-tavily-search",
       "kind": "skill",
       "name": "aisa-tavily-search",
       "version": "1.0.0",
-      "detail_url": "https://clawhub.ai/aisapay/aisa-tavily-search",
+      "detail_url": "https://clawhub.ai/bibaofeng/aisa-tavily-search",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:14.125507+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:31.037046+00:00"
     },
     {
       "key": "skill:aisa-twitter",
@@ -1581,17 +1769,21 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-twitter",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The package is a coherent Twitter/X relay client that contacts api.aisa.one and requires an AISA_API_KEY, but the registry metadata and package frontmatter disagree about required env and versioning—confirm the missing environment declaration and trust in the relay before installing.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:39:15.335629+00:00"
+      "checked_at": "2026-04-30T15:26:35.527481+00:00"
     },
     {
       "key": "skill:aisa-twitter-research-engage",
@@ -1601,19 +1793,21 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-twitter-research-engage",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "AIsa",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:25.740184+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:41.076651+00:00"
     },
     {
       "key": "skill:aisa-twitter-research-engage-relay",
@@ -1623,19 +1817,21 @@
       "detail_url": "https://clawhub.ai/aisapay/aisa-twitter-research-engage-relay",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:26.850402+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:44.360416+00:00"
     },
     {
       "key": "skill:cn-llm",
@@ -1645,19 +1841,21 @@
       "detail_url": "https://clawhub.ai/aisapay/cn-llm",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:28.112030+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:47.680214+00:00"
     },
     {
       "key": "skill:last30days",
@@ -1667,17 +1865,21 @@
       "detail_url": "https://clawhub.ai/aisapay/last30days",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "zats",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill's code and instructions largely match its stated purpose (recent social/web research), but the SKILL.md contains highly prescriptive prompts and a flagged prompt-injection pattern — something to review before trusting it with API keys or autonomous runs.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:39:33.965231+00:00"
+      "checked_at": "2026-04-30T15:26:50.921711+00:00"
     },
     {
       "key": "skill:last30days-zh",
@@ -1687,19 +1889,21 @@
       "detail_url": "https://clawhub.ai/aisapay/last30days-zh",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:35.048900+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:53.664740+00:00"
     },
     {
       "key": "skill:llm-router",
@@ -1709,19 +1913,21 @@
       "detail_url": "https://clawhub.ai/aisapay/llm-router",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:36.177988+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:56.142689+00:00"
     },
     {
       "key": "skill:market",
@@ -1731,19 +1937,21 @@
       "detail_url": "https://clawhub.ai/aisapay/market",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:37.294786+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:26:58.429234+00:00"
     },
     {
       "key": "skill:marketpulse",
@@ -1753,19 +1961,21 @@
       "detail_url": "https://clawhub.ai/aisapay/marketpulse",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "AIsa",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:38.401399+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:01.226354+00:00"
     },
     {
       "key": "skill:media-gen",
@@ -1775,19 +1985,21 @@
       "detail_url": "https://clawhub.ai/aisapay/media-gen",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:39.455493+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:04.560439+00:00"
     },
     {
       "key": "skill:multi-search",
@@ -1797,19 +2009,21 @@
       "detail_url": "https://clawhub.ai/aisapay/multi-search",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "Never",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:45.187164+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:06.575942+00:00"
     },
     {
       "key": "skill:multi-source-search",
@@ -1819,19 +2033,21 @@
       "detail_url": "https://clawhub.ai/aisapay/multi-source-search",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:46.505173+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:09.452950+00:00"
     },
     {
       "key": "skill:openclaw-aisa-youtube-aisa",
@@ -1841,17 +2057,21 @@
       "detail_url": "https://clawhub.ai/aisapay/openclaw-aisa-youtube-aisa",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill's code and SKILL.md match the described YouTube search purpose and only require an AISA API key, but the registry metadata incorrectly omits that required credential and overall provenance (homepage/owner) is thin — this mismatch warrants caution before installing.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:39:47.605119+00:00"
+      "checked_at": "2026-04-30T15:27:11.884490+00:00"
     },
     {
       "key": "skill:openclaw-media-gen",
@@ -1861,19 +2081,21 @@
       "detail_url": "https://clawhub.ai/aisapay/openclaw-media-gen",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:48.858415+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:14.226409+00:00"
     },
     {
       "key": "skill:openclaw-search",
@@ -1883,19 +2105,21 @@
       "detail_url": "https://clawhub.ai/aisapay/openclaw-search",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:49.977541+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:21.885397+00:00"
     },
     {
       "key": "skill:openclaw-twitter",
@@ -1905,17 +2129,21 @@
       "detail_url": "https://clawhub.ai/aisapay/openclaw-twitter",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "0xjordansg-yolo",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill largely matches its stated Twitter/X read-and-post purpose, but it centralizes all operations through a third‑party relay (aisa.one) using a single AISA_API_KEY, uploads local media to that external service, and references environment variables not declared in metadata — these are coherence and privacy concerns you should understand before installing.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:39:51.022679+00:00"
+      "checked_at": "2026-04-30T15:27:24.406716+00:00"
     },
     {
       "key": "skill:openclaw-twitter-post-engage",
@@ -1925,17 +2153,21 @@
       "detail_url": "https://clawhub.ai/aisapay/openclaw-twitter-post-engage",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "AIsa",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill mostly does what it says (uses aisa.one relay to read, post, and engage on X), but there are environment/credential mismatches and data-flow details that don't match the declared metadata and that a user should understand before installing.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:39:56.828769+00:00"
+      "checked_at": "2026-04-30T15:27:29.310907+00:00"
     },
     {
       "key": "skill:openclaw-youtube",
@@ -1945,19 +2177,21 @@
       "detail_url": "https://clawhub.ai/aisapay/openclaw-youtube",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:39:58.010096+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:32.643600+00:00"
     },
     {
       "key": "skill:perplexity-research",
@@ -1967,17 +2201,21 @@
       "detail_url": "https://clawhub.ai/aisapay/perplexity-research",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "Joe",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill broadly matches its stated purpose (a Perplexity-based research client) but contains inconsistent metadata about required credentials and includes instructions that encourage autonomous web searches without asking the user, which are notable concerns.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:39:59.092586+00:00"
+      "checked_at": "2026-04-30T15:27:35.185585+00:00"
     },
     {
       "key": "skill:prediction-market",
@@ -1990,14 +2228,18 @@
       "scan_status": "suspicious",
       "virus_total": "suspicious",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "betting",
       "suspicious": true,
       "suspicious_reason": "Participate in Base's GTM by betting if today's 18:00 UTC garden temperature will be higher or lower than yesterday's, sharing winnings from the pot.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:40:00.049721+00:00"
+      "checked_at": "2026-04-30T15:27:42.133088+00:00"
     },
     {
       "key": "skill:prediction-market-arbitrage",
@@ -2007,19 +2249,21 @@
       "detail_url": "https://clawhub.ai/aisapay/prediction-market-arbitrage",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "Hagen",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:01.130117+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:45.002318+00:00"
     },
     {
       "key": "skill:prediction-market-arbitrage-api",
@@ -2029,19 +2273,21 @@
       "detail_url": "https://clawhub.ai/aisapay/prediction-market-arbitrage-api",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:02.379581+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:49.361512+00:00"
     },
     {
       "key": "skill:prediction-market-arbitrage-zh",
@@ -2051,19 +2297,21 @@
       "detail_url": "https://clawhub.ai/aisapay/prediction-market-arbitrage-zh",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:03.671109+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:52.081599+00:00"
     },
     {
       "key": "skill:prediction-market-data",
@@ -2073,19 +2321,21 @@
       "detail_url": "https://clawhub.ai/aisapay/prediction-market-data",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:05.001534+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:55.113003+00:00"
     },
     {
       "key": "skill:prediction-market-data-zh",
@@ -2095,19 +2345,21 @@
       "detail_url": "https://clawhub.ai/aisapay/prediction-market-data-zh",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:06.168603+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:27:57.851954+00:00"
     },
     {
       "key": "skill:scholar-search",
@@ -2117,19 +2369,21 @@
       "detail_url": "https://clawhub.ai/aisapay/scholar-search",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "lyq",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:07.319880+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:28:00.073314+00:00"
     },
     {
       "key": "skill:smart-search",
@@ -2139,17 +2393,21 @@
       "detail_url": "https://clawhub.ai/aisapay/smart-search",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "lee920311",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill appears to implement the described multi-engine search (Exa MCP, SearX, Tavily) and the bundled scripts are plausible, but there are internal metadata inconsistencies and non-obvious privacy/network implications you should verify before installing or running code.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:40:12.836733+00:00"
+      "checked_at": "2026-04-30T15:28:02.485386+00:00"
     },
     {
       "key": "skill:stock-analysis",
@@ -2162,14 +2420,18 @@
       "scan_status": "suspicious",
       "virus_total": "suspicious",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "udiedrichsen",
       "suspicious": true,
       "suspicious_reason": "The skill mostly matches a stock-analysis tool, but there are multiple incoherences and risky instructions (cookie extraction / granting Terminal Full Disk Access, undeclared env vars, and an unexplained 'uv' dependency) that the user should review before installing or running it.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:40:13.691956+00:00"
+      "checked_at": "2026-04-30T15:28:04.643466+00:00"
     },
     {
       "key": "skill:stock-dividend",
@@ -2179,17 +2441,21 @@
       "detail_url": "https://clawhub.ai/aisapay/stock-dividend",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill mostly matches its stated purpose (dividend analysis via AISA) but has small inconsistencies that could be abused or cause surprises—most notably it reads undocumented environment variables (AISA_BASE_URL, AISA_MODEL) and relies on an external LLM client with an overrideable endpoint.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:40:14.791268+00:00"
+      "checked_at": "2026-04-30T15:28:07.675932+00:00"
     },
     {
       "key": "skill:stock-hot",
@@ -2199,19 +2465,21 @@
       "detail_url": "https://clawhub.ai/aisapay/stock-hot",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:15.902190+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:28:10.364352+00:00"
     },
     {
       "key": "skill:stock-portfolio",
@@ -2221,19 +2489,21 @@
       "detail_url": "https://clawhub.ai/aisapay/stock-portfolio",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "yinshengf",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:16.976037+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:28:12.498641+00:00"
     },
     {
       "key": "skill:stock-rumors",
@@ -2243,17 +2513,21 @@
       "detail_url": "https://clawhub.ai/aisapay/stock-rumors",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill's purpose and requested AISA_API_KEY are coherent with its code, but there are a few implementation/information gaps (undeclared env vars, missing dependency install steps, and minor provenance uncertainty) that warrant caution before installing.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:40:18.356401+00:00"
+      "checked_at": "2026-04-30T15:28:15.715841+00:00"
     },
     {
       "key": "skill:stock-watchlist",
@@ -2263,19 +2537,21 @@
       "detail_url": "https://clawhub.ai/aisapay/stock-watchlist",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "Convex",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:19.479853+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:28:19.473773+00:00"
     },
     {
       "key": "skill:tavily-extract",
@@ -2285,17 +2561,21 @@
       "detail_url": "https://clawhub.ai/aisapay/tavily-extract",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "Evan",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill's purpose (extracting webpages via Tavily) is plausible, but the included script accesses local auth caches and auto-runs an npx-installed helper while not declaring required binaries/credentials — this mismatch and the on-demand download+execution are worth caution.",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:40:20.613292+00:00"
+      "checked_at": "2026-04-30T15:28:23.314894+00:00"
     },
     {
       "key": "skill:twitter-autopilot",
@@ -2308,14 +2588,18 @@
       "scan_status": "suspicious",
       "virus_total": "suspicious",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "persnola1-sketch",
       "suspicious": true,
       "suspicious_reason": "The skill's code and instructions match its stated Twitter automation purpose, but the registry metadata omits the sensitive credentials it requires and there are real-world posting risks if run autonomously—review before installing.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:40:21.786266+00:00"
+      "checked_at": "2026-04-30T15:28:29.976167+00:00"
     },
     {
       "key": "skill:twitter-command-center-search-post",
@@ -2325,19 +2609,21 @@
       "detail_url": "https://clawhub.ai/aisapay/twitter-command-center-search-post",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "baofeng-tech",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:22.913232+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:28:33.386245+00:00"
     },
     {
       "key": "skill:twitter-command-center-search-post-interact",
@@ -2347,19 +2633,21 @@
       "detail_url": "https://clawhub.ai/aisapay/twitter-command-center-search-post-interact",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:24.116771+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:28:35.681163+00:00"
     },
     {
       "key": "skill:us-stock-analyst",
@@ -2369,19 +2657,21 @@
       "detail_url": "https://clawhub.ai/aisapay/us-stock-analyst",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "AIsa",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:25.384410+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:28:38.402357+00:00"
     },
     {
       "key": "skill:web-search",
@@ -2394,14 +2684,18 @@
       "scan_status": "suspicious",
       "virus_total": "suspicious",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "billyutw",
       "suspicious": true,
       "suspicious_reason": "This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:40:26.499669+00:00"
+      "checked_at": "2026-04-30T15:28:40.768041+00:00"
     },
     {
       "key": "skill:x-intelligence-automation",
@@ -2411,17 +2705,21 @@
       "detail_url": "https://clawhub.ai/aisapay/x-intelligence-automation",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "Karen",
-      "suspicious": false,
+      "suspicious": true,
       "suspicious_reason": "The skill is broadly coherent with a Twitter/X automation client using the AIsa relay, but there are a few mismatches you should be aware of before installing (undeclared env overrides and uploading local files to an external relay).",
-      "pending": true,
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:40:27.649619+00:00"
+      "checked_at": "2026-04-30T15:28:43.339806+00:00"
     },
     {
       "key": "skill:youtube",
@@ -2434,36 +2732,42 @@
       "scan_status": "suspicious",
       "virus_total": "suspicious",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "grpaiva",
       "suspicious": true,
       "suspicious_reason": "The skill's stated YouTube functionality matches its instructions, but metadata inconsistencies and the requirement to install/run a third‑party npm package (and build/run code from GitHub) create a moderate trust risk that you should review before installing.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-04-29T08:40:28.777228+00:00"
+      "checked_at": "2026-04-30T15:28:45.326573+00:00"
     },
     {
       "key": "skill:youtube-search",
       "kind": "skill",
       "name": "youtube-search",
       "version": "1.0.0",
-      "detail_url": "https://clawhub.ai/aisapay/youtube-search",
+      "detail_url": "https://clawhub.ai/Rohit/youtube-search",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
-      "virus_total": "benign",
+      "scan_status": "suspicious",
+      "virus_total": "suspicious",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "Rohit",
-      "suspicious": false,
-      "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:29.980016+00:00"
+      "suspicious": true,
+      "suspicious_reason": "Use when the user wants to find YouTube content on any topic: searching for videos or channels, finding creators who cover a subject, discovering tutorials,...",
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:28:55.923688+00:00"
     },
     {
       "key": "skill:youtube-serp",
@@ -2473,19 +2777,21 @@
       "detail_url": "https://clawhub.ai/aisapay/youtube-serp",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
+      "scan_status": "clean",
       "virus_total": "benign",
       "virus_total_report_url": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "benign",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
+      "static_analysis_status": "benign",
+      "static_analysis_summary": null,
       "publisher_handle": "bibaofeng",
       "suspicious": false,
       "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "Security scan output is still incomplete or pending."
-      ],
-      "checked_at": "2026-04-29T08:40:30.765792+00:00"
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-04-30T15:28:58.978169+00:00"
     }
   ]
 }

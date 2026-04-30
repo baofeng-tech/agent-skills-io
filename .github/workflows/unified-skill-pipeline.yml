@@ -154,13 +154,13 @@ jobs:
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -233,7 +233,7 @@ jobs:
 
       - name: Upload pipeline artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: unified-skill-pipeline-artifacts
           path: |
@@ -253,13 +253,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: Create diagnosis PR when changes exist
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ github.token }}
           commit-message: "chore: refresh clawhub suspicious diagnosis"
@@ -307,13 +307,13 @@ jobs:
       HERMES_PUBLISH_REPO: ${{ vars.HERMES_PUBLISH_REPO || 'baofeng-tech/Aisa-One-Skills-Hermes' }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -322,7 +322,7 @@ jobs:
 
       - name: Set up Node for optional ClawHub CLI install
         if: ${{ env.PIPELINE_CLAWHUB_PUBLISH != 'none' && env.PIPELINE_INSTALL_CLAWHUB_CLI == 'true' }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "24"
 
@@ -607,7 +607,7 @@ jobs:
 
       - name: Upload self-hosted publish artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: unified-skill-pipeline-self-hosted-artifacts
           path: |
@@ -650,13 +650,13 @@ jobs:
       HERMES_PUBLISH_REPO: ${{ vars.HERMES_PUBLISH_REPO || 'baofeng-tech/Aisa-One-Skills-Hermes' }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -665,7 +665,7 @@ jobs:
 
       - name: Set up Node for optional ClawHub CLI install
         if: ${{ env.PIPELINE_CLAWHUB_PUBLISH != 'none' && env.PIPELINE_INSTALL_CLAWHUB_CLI == 'true' }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "24"
 
@@ -939,7 +939,7 @@ jobs:
 
       - name: Upload suspicious-remediation artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: unified-skill-pipeline-suspicious-remediation-artifacts
           path: |
@@ -977,13 +977,13 @@ jobs:
       HERMES_PUBLISH_REPO: ${{ vars.HERMES_PUBLISH_REPO || 'baofeng-tech/Aisa-One-Skills-Hermes' }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -992,7 +992,7 @@ jobs:
 
       - name: Set up Node for optional ClawHub CLI install
         if: ${{ env.PIPELINE_BREAKOUT_PUBLISH != 'none' && env.PIPELINE_INSTALL_CLAWHUB_CLI == 'true' }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "24"
 

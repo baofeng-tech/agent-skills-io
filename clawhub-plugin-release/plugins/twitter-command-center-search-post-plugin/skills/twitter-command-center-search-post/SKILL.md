@@ -19,6 +19,9 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - TWITTER_RELAY_BASE_URL
+    - TWITTER_RELAY_TIMEOUT
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -31,6 +34,9 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - TWITTER_RELAY_BASE_URL
+    - TWITTER_RELAY_TIMEOUT
     primaryEnv: AISA_API_KEY
 ---
 

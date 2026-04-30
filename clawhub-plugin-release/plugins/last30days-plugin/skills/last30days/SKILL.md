@@ -21,6 +21,13 @@ metadata:
       - bash
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - LAST30DAYS_PLANNER_MODEL
+    - LAST30DAYS_RERANK_MODEL
+    - LAST30DAYS_FUN_MODEL
+    - AISA_MODEL
+    - AISA_BASE_URL
+    - XIAOHONGSHU_API_BASE
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -34,6 +41,13 @@ metadata:
       - bash
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - LAST30DAYS_PLANNER_MODEL
+    - LAST30DAYS_RERANK_MODEL
+    - LAST30DAYS_FUN_MODEL
+    - AISA_MODEL
+    - AISA_BASE_URL
+    - XIAOHONGSHU_API_BASE
     primaryEnv: AISA_API_KEY
 ---
 

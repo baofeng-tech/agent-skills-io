@@ -11,7 +11,7 @@ requires:
   - AISA_API_KEY
 metadata:
   aisa:
-    emoji: 🐦
+    emoji: ▶️
     requires:
       env:
       - AISA_API_KEY
@@ -21,7 +21,7 @@ metadata:
     - claude-code
     - hermes
   openclaw:
-    emoji: 🐦
+    emoji: ▶️
     requires:
       env:
       - AISA_API_KEY

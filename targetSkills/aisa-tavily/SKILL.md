@@ -1,6 +1,7 @@
 ---
 name: aisa-tavily
 description: 'AI-optimized web search via AIsa''s Tavily API proxy. Returns concise, relevant results for AI agents through AIsa''s unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction.'
+version: 1.0.1
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries node, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
   aisa:

@@ -1,7 +1,7 @@
 {
   "name": "youtube-search-plugin",
   "version": "1.0.0",
-  "description": "Requires AISA_API_KEY. Native-first ClawHub plugin for `youtube-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
+  "description": "Requires AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `youtube-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
   "license": "Apache-2.0",
   "type": "module",
   "keywords": [
@@ -19,7 +19,7 @@
   "homepage": "https://aisa.one",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AIsa-team/agent-skills.git"
+    "url": "https://github.com/baofeng-tech/agent-skills-io.git"
   },
   "metadata": {
     "aisa": {
@@ -30,7 +30,7 @@
       },
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
-        "https://api.aisa.one/apis/v1/twitter"
+        "https://api.aisa.one"
       ]
     }
   },
@@ -42,7 +42,7 @@
     },
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
-      "https://api.aisa.one/apis/v1/twitter"
+      "https://api.aisa.one"
     ]
   },
   "openclaw": {
@@ -61,7 +61,7 @@
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
-        "https://api.aisa.one/apis/v1/twitter"
+        "https://api.aisa.one"
       ]
     }
   }

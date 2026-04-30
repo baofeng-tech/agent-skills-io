@@ -1,7 +1,7 @@
 {
   "name": "twitter-autopilot-plugin",
   "version": "1.0.0",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `twitter-autopilot`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.",
+  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one/apis/v1/twitter. Native-first ClawHub plugin for `twitter-autopilot`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -11,13 +11,12 @@
     "native-plugin",
     "agent-skill",
     "twitter",
-    "x",
     "search"
   ],
   "homepage": "https://aisa.one",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AIsa-team/agent-skills.git"
+    "url": "https://github.com/baofeng-tech/agent-skills-io.git"
   },
   "metadata": {
     "aisa": {
@@ -29,6 +28,10 @@
           "AISA_API_KEY"
         ]
       },
+      "optionalEnv": [
+        "TWITTER_RELAY_TIMEOUT",
+        "TWITTER_RELAY_BASE_URL"
+      ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
         "https://api.aisa.one/apis/v1/twitter"
@@ -44,6 +47,10 @@
         "AISA_API_KEY"
       ]
     },
+    "optionalEnv": [
+      "TWITTER_RELAY_TIMEOUT",
+      "TWITTER_RELAY_BASE_URL"
+    ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
       "https://api.aisa.one/apis/v1/twitter"
@@ -65,6 +72,10 @@
       ],
       "env": [
         "AISA_API_KEY"
+      ],
+      "optionalEnv": [
+        "TWITTER_RELAY_TIMEOUT",
+        "TWITTER_RELAY_BASE_URL"
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [

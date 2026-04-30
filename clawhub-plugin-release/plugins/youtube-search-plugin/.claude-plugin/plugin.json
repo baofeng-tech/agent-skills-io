@@ -1,12 +1,12 @@
 {
   "name": "youtube-search-plugin",
-  "description": "Requires AISA_API_KEY. Native-first ClawHub plugin for `youtube-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
+  "description": "Requires AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `youtube-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. YouTube Search API via AIsa unified endpoint. Search YouTube videos, channels, and playlists with a single AIsa API key — no Google API key or OAuth required. Use this skill when users want to search YouTube content. For other AIsa capabilities (LLM, financial data, Twitter, web search), see the aisa-core skill. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
   "version": "1.0.0",
   "author": {
     "name": "AIsa"
   },
   "homepage": "https://aisa.one",
-  "repository": "https://github.com/AIsa-team/agent-skills",
+  "repository": "https://github.com/baofeng-tech/agent-skills-io",
   "license": "Apache-2.0",
   "metadata": {
     "aisa": {
@@ -17,7 +17,53 @@
       },
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
-        "https://api.aisa.one/apis/v1/twitter"
+        "https://api.aisa.one"
+      ]
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "AISA_API_KEY": {
+        "type": "string",
+        "title": "Aisa Api Key",
+        "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
+        "format": "password"
+      }
+    },
+    "required": [
+      "AISA_API_KEY"
+    ]
+  },
+  "runtimeRequirements": {
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
+  "aisa": {
+    "requires": {
+      "env": [
+        "AISA_API_KEY"
+      ]
+    },
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
+  "openclaw": {
+    "runtimeRequirements": {
+      "env": [
+        "AISA_API_KEY"
+      ],
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
       ]
     }
   }

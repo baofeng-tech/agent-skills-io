@@ -1,7 +1,7 @@
 {
   "id": "last30days-zh-plugin",
   "name": "Last30days Zh",
-  "description": "Requires python3, bash, and AISA_API_KEY. Native-first ClawHub plugin for `last30days-zh`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. 聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.",
+  "description": "Requires python3, bash, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `last30days-zh`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. 聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.",
   "version": "1.0.0",
   "skills": [
     "./skills"
@@ -15,6 +15,31 @@
         "title": "Aisa Api Key",
         "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
         "format": "password"
+      },
+      "LAST30DAYS_RERANK_MODEL": {
+        "type": "string",
+        "title": "Last30Days Rerank Model",
+        "description": "Optional runtime setting for LAST30DAYS_RERANK_MODEL."
+      },
+      "AISA_MODEL": {
+        "type": "string",
+        "title": "Aisa Model",
+        "description": "Optional runtime setting for AISA_MODEL."
+      },
+      "LAST30DAYS_PLANNER_MODEL": {
+        "type": "string",
+        "title": "Last30Days Planner Model",
+        "description": "Optional runtime setting for LAST30DAYS_PLANNER_MODEL."
+      },
+      "AISA_BASE_URL": {
+        "type": "string",
+        "title": "Aisa Base Url",
+        "description": "Optional runtime setting for AISA_BASE_URL."
+      },
+      "XIAOHONGSHU_API_BASE": {
+        "type": "string",
+        "title": "Xiaohongshu Api Base",
+        "description": "Optional runtime setting for XIAOHONGSHU_API_BASE."
       }
     },
     "required": [
@@ -29,9 +54,16 @@
     "env": [
       "AISA_API_KEY"
     ],
+    "optionalEnv": [
+      "LAST30DAYS_RERANK_MODEL",
+      "AISA_MODEL",
+      "LAST30DAYS_PLANNER_MODEL",
+      "AISA_BASE_URL",
+      "XIAOHONGSHU_API_BASE"
+    ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
-      "https://api.aisa.one/apis/v1/twitter"
+      "https://api.aisa.one"
     ]
   },
   "metadata": {
@@ -45,9 +77,16 @@
           "AISA_API_KEY"
         ]
       },
+      "optionalEnv": [
+        "LAST30DAYS_RERANK_MODEL",
+        "AISA_MODEL",
+        "LAST30DAYS_PLANNER_MODEL",
+        "AISA_BASE_URL",
+        "XIAOHONGSHU_API_BASE"
+      ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
-        "https://api.aisa.one/apis/v1/twitter"
+        "https://api.aisa.one"
       ]
     }
   },

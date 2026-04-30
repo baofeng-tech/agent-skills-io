@@ -19,6 +19,9 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - AISA_BASE_URL
+    - AISA_MODEL
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -31,6 +34,9 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - AISA_BASE_URL
+    - AISA_MODEL
     primaryEnv: AISA_API_KEY
 ---
 

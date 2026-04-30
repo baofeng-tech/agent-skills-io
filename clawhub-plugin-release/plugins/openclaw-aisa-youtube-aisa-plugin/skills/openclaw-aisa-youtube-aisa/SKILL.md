@@ -2,7 +2,7 @@
 name: openclaw-aisa-youtube-aisa
 description: 'Search YouTube videos, channels, and trends through the AISA YouTube SERP client. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.'
 author: AIsa
-version: 1.0.0
+version: 1.0.1
 license: MIT-0
 user-invocable: true
 primaryEnv: AISA_API_KEY

@@ -24,6 +24,12 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 - Retains `.claude-plugin/plugin.json` so Claude-compatible marketplace tooling still recognizes the package.
 - Reuses the already-hardened `clawhub-release/` skill payload.
 
+## Provenance
+
+- Source repository: `https://github.com/baofeng-tech/agent-skills-io`
+- Embedded skill path: `skills/openclaw-twitter-post-engage/SKILL.md`
+- The runtime behavior remains inside the packaged skill payload and its public docs.
+
 ## Install After Publishing
 
 ```bash

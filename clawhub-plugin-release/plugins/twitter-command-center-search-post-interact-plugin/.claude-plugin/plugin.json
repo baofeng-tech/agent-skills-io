@@ -1,12 +1,12 @@
 {
   "name": "twitter-command-center-search-post-interact-plugin",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `twitter-command-center-search-post-interact`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.",
+  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one/apis/v1/twitter. Native-first ClawHub plugin for `twitter-command-center-search-post-interact`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.",
   "version": "1.0.0",
   "author": {
     "name": "AIsa"
   },
   "homepage": "https://aisa.one",
-  "repository": "https://github.com/AIsa-team/agent-skills",
+  "repository": "https://github.com/baofeng-tech/agent-skills-io",
   "license": "Apache-2.0",
   "metadata": {
     "aisa": {
@@ -18,6 +18,87 @@
           "AISA_API_KEY"
         ]
       },
+      "optionalEnv": [
+        "TWITTER_RELAY_TIMEOUT",
+        "TWITTER_RELAY_BASE_URL"
+      ],
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one/apis/v1/twitter"
+      ]
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "AISA_API_KEY": {
+        "type": "string",
+        "title": "Aisa Api Key",
+        "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
+        "format": "password"
+      },
+      "TWITTER_RELAY_TIMEOUT": {
+        "type": "string",
+        "title": "Twitter Relay Timeout",
+        "description": "Optional runtime setting for TWITTER_RELAY_TIMEOUT."
+      },
+      "TWITTER_RELAY_BASE_URL": {
+        "type": "string",
+        "title": "Twitter Relay Base Url",
+        "description": "Optional runtime setting for TWITTER_RELAY_BASE_URL."
+      }
+    },
+    "required": [
+      "AISA_API_KEY"
+    ]
+  },
+  "runtimeRequirements": {
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "optionalEnv": [
+      "TWITTER_RELAY_TIMEOUT",
+      "TWITTER_RELAY_BASE_URL"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one/apis/v1/twitter"
+    ]
+  },
+  "aisa": {
+    "requires": {
+      "bins": [
+        "python3"
+      ],
+      "env": [
+        "AISA_API_KEY"
+      ]
+    },
+    "optionalEnv": [
+      "TWITTER_RELAY_TIMEOUT",
+      "TWITTER_RELAY_BASE_URL"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one/apis/v1/twitter"
+    ]
+  },
+  "openclaw": {
+    "runtimeRequirements": {
+      "bins": [
+        "python3"
+      ],
+      "env": [
+        "AISA_API_KEY"
+      ],
+      "optionalEnv": [
+        "TWITTER_RELAY_TIMEOUT",
+        "TWITTER_RELAY_BASE_URL"
+      ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
         "https://api.aisa.one/apis/v1/twitter"
