@@ -23,6 +23,20 @@ TWITTER_PROFILES = {
     "twitter_engagement",
     "twitter_post_engage",
 }
+OPTIONAL_ENV_ALLOWLIST = {
+    "AISA_BASE_URL",
+    "AISA_MODEL",
+    "LAST30DAYS_FUN_MODEL",
+    "LAST30DAYS_PLANNER_MODEL",
+    "LAST30DAYS_RERANK_MODEL",
+    "TWITTER_RELAY_BASE_URL",
+    "TWITTER_RELAY_TIMEOUT",
+    "XIAOHONGSHU_API_BASE",
+}
+OPTIONAL_ENV_IGNORE = {
+    "AISA_API_KEY",
+    "CLAUDE_PLUGIN_ROOT",
+}
 
 
 def parse_version_parts(value: Any) -> tuple[int, ...]:
@@ -52,9 +66,22 @@ def choose_release_version(source_version: Any, existing_version: Any) -> str:
 
 
 def detect_domain(name: str, description: str) -> str:
+    lower_name = name.lower()
     lower = f"{name} {description}".lower()
-    if "last30days" in lower:
+    if "last30days" in lower_name or "last30days" in lower:
         return "search"
+    if "youtube" in lower_name:
+        return "youtube"
+    if "twitter" in lower_name or lower_name.startswith("x-"):
+        return "twitter"
+    if any(token in lower_name for token in ("search", "tavily", "perplexity", "scholar", "web-search", "multi-search")):
+        return "search"
+    if any(token in lower_name for token in ("stock", "market", "portfolio", "dividend", "prediction", "finance")):
+        return "finance"
+    if any(token in lower_name for token in ("media", "image", "video")):
+        return "media"
+    if any(token in lower_name for token in ("llm", "provider", "router", "model", "qwen", "deepseek")):
+        return "ai"
     if "twitter" in lower or lower.startswith("x-"):
         return "twitter"
     if "youtube" in lower:
@@ -184,7 +211,20 @@ def infer_entrypoints(skill_dir: Path) -> list[str]:
 
 
 def infer_optional_envs(skill_dir: Path, profile: str) -> list[str]:
-    return []
+    optional_envs: list[str] = []
+    for path in skill_dir.rglob("*"):
+        if not path.is_file():
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        for env_name in re.findall(r"\b[A-Z][A-Z0-9_]{2,}\b", text):
+            if env_name in OPTIONAL_ENV_IGNORE or env_name not in OPTIONAL_ENV_ALLOWLIST:
+                continue
+            if env_name not in optional_envs:
+                optional_envs.append(env_name)
+    return optional_envs
 
 
 def resolve_clawhub_slug(skill_dir: Path, frontmatter: dict[str, Any]) -> str:

@@ -2,7 +2,7 @@
 name: aisa-tavily
 description: 'AI-optimized web search via AIsa''s Tavily API proxy. Returns concise, relevant results for AI agents through AIsa''s unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction.'
 author: AIsa
-version: 1.0.0
+version: 1.0.1
 license: Apache-2.0
 user-invocable: true
 primaryEnv: AISA_API_KEY

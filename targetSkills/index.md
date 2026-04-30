@@ -2,9 +2,9 @@
 
 This catalog lists the current cross-platform mother skills in `targetSkills/`.
 
-- Generated at: `2026-04-29`
-- Repository target: `https://github.com/AIsa-team/agent-skills`
-- Branch target: `agentskills`
+- Generated at: `2026-04-30`
+- Repository target: `https://github.com/baofeng-tech/agent-skills-io`
+- Branch target: `main`
 - Total skills: `54`
 
 ## Skills

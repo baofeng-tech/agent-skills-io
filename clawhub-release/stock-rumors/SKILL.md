@@ -2,7 +2,7 @@
 name: stock-rumors
 description: Rumor Scanner — find early signals including M&A rumors, insider activity, analyst upgrades/downgrades, social whispers, and SEC/regulatory activity via AIsa API. Ranked by impact score. Use when the user asks about rumors, insider trading, M&A activity, analyst changes, or early market signals.
 author: AIsa
-version: 1.0.0
+version: 1.0.1
 license: Apache-2.0
 user-invocable: true
 primaryEnv: AISA_API_KEY
@@ -19,6 +19,9 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - AISA_BASE_URL
+    - AISA_MODEL
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -31,6 +34,9 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - AISA_BASE_URL
+    - AISA_MODEL
     primaryEnv: AISA_API_KEY
 ---
 

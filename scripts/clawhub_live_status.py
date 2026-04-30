@@ -658,10 +658,16 @@ def scan_artifact_status(
         status in {"suspicious", "malicious", "warning"}
         for status in (virus_total, clawscan_verdict, static_analysis_status, scan_status)
     )
-    pending = not suspicious and (
-        not has_security_signals(lines)
-        or virus_total in {None, "pending"}
-        or clawscan_verdict in {None, "pending"}
+    explicit_pending_scan = scan_status in {"pending", "unresolved"}
+    explicit_final_scan = scan_status in {"clean", "suspicious", "malicious", "warning"}
+    pending = explicit_pending_scan or (
+        not suspicious
+        and not explicit_final_scan
+        and (
+            not has_security_signals(lines)
+            or virus_total in {None, "pending"}
+            or clawscan_verdict in {None, "pending"}
+        )
     )
     if scan_status is None:
         if pending:
