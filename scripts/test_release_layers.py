@@ -38,6 +38,28 @@ def load_aisa_key() -> str | None:
     return match.group(1) if match else None
 
 
+def redact_text(value: str, secret: str | None) -> str:
+    if not secret:
+        return value
+    return value.replace(secret, "***REDACTED_AISA_API_KEY***")
+
+
+def redact_command(cmd: list[str], secret: str | None) -> list[str]:
+    redacted: list[str] = []
+    skip_secret_value = False
+    for part in cmd:
+        if skip_secret_value:
+            redacted.append("***REDACTED_AISA_API_KEY***")
+            skip_secret_value = False
+            continue
+        if part == "--api-key":
+            redacted.append(part)
+            skip_secret_value = True
+            continue
+        redacted.append(redact_text(part, secret))
+    return redacted
+
+
 def run(
     cmd: list[str],
     cwd: Path | None = None,
@@ -246,7 +268,7 @@ def smoke_tests() -> list[dict[str, object]]:
                 {
                     "layer": layer,
                     "path": rel_paths[0],
-                    "command": cmd,
+                    "command": redact_command(cmd, aisa_key),
                     "code": 127,
                     "stdout_preview": "",
                     "stderr_preview": f"Missing test path candidates: {rel_paths}",
@@ -258,10 +280,10 @@ def smoke_tests() -> list[dict[str, object]]:
             {
                 "layer": layer,
                 "path": chosen_path,
-                "command": cmd,
+                "command": redact_command(cmd, aisa_key),
                 "code": code,
-                "stdout_preview": stdout[:400],
-                "stderr_preview": stderr[:400],
+                "stdout_preview": redact_text(stdout, aisa_key)[:400],
+                "stderr_preview": redact_text(stderr, aisa_key)[:400],
             }
         )
     return results

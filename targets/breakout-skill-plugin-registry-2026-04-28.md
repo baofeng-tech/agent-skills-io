@@ -12,6 +12,35 @@
 
 当前声明的 breakout 变体有 2 组。
 
+## 额外说明：slot fallback slug 也要单独跟踪
+
+breakout slug 和 slot fallback slug 不是一回事：
+
+- breakout slug
+  - 是 `targets/clawhub-breakout-variants.json` 里主动声明的增长位兄弟包
+- slot fallback slug
+  - 是因为 ClawHub owner/slug 冲突，发布器按 `suffix-by-slot` 策略临时或长期接受的替代 live slug
+
+当前已经确认需要长期跟踪的 slot fallback 例子：
+
+- source key: `skill:aisa-provider`
+  - live slug: `aisa-provider-slot3`
+  - live owner: `aisadocs`
+- source key: `plugin:aisa-provider-plugin`
+  - live slug: `aisa-provider-slot3-plugin`
+  - live owner: `aisadocs`
+  - 规则：plugin fallback slug 跟随同名 skill 的 fallback slug，而不是各自独立乱跳
+
+当前工作结论：
+
+1. 如果拿不到旧 slug 的原 owner token，就正式接受 slot fallback slug 作为当前 live 事实。
+2. `targets/clawhub-publish-state.json` 必须同时保留：
+   - 原始 artifact key
+   - `published_name`
+   - live `detail_url`
+   - live `publisher_handle`
+3. `targets/clawhub-live-status.json` 的扫描结果也必须围绕 fallback live slug 回写，而不是再把结果错误归到旧 canonical slug 视角。
+
 ## 1. `aisa-twitter-api` 家族
 
 ### 母版 skill

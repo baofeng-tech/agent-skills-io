@@ -13,6 +13,7 @@ import shutil
 import subprocess
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
@@ -28,7 +29,7 @@ DEFAULT_CONFIG_ROOT = REPO_ROOT / ".tmp-clawhub-auth"
 USER_AGENT = "Mozilla/5.0 (compatible; agent-skills-io/1.0; ClawHub live status scanner)"
 STATUS_WORDS = {"benign", "clean", "pending", "suspicious", "malicious", "warning", "safe", "unknown"}
 TOKEN_KEY_PATTERN = re.compile(r"^clawhubapitoken(?P<index>\d*)$")
-DEFAULT_SKILL_OWNER_CANDIDATES = ("aisapay",)
+DEFAULT_SKILL_OWNER_CANDIDATES = ("baofeng-tech", "bibaofeng", "aisadocs", "aisapay")
 
 
 def iso_now() -> str:
@@ -185,11 +186,91 @@ def normalize_status(value: str | None) -> str | None:
     return lowered
 
 
+def extract_clawhub_slug_from_url(url: str | None, kind: str) -> str | None:
+    if not url:
+        return None
+    try:
+        parsed = urllib.parse.urlparse(url)
+    except ValueError:
+        return None
+    segments = [clean_text(piece) for piece in parsed.path.split("/") if clean_text(piece)]
+    if not segments:
+        return None
+    if kind == "plugin":
+        if segments and segments[0] == "plugins" and len(segments) >= 2:
+            return segments[1]
+        return None
+    if segments[0] == "plugins":
+        return None
+    if len(segments) >= 2:
+        return segments[1]
+    return None
+
+
+def detail_url_matches_artifact(url: str | None, kind: str, expected_name: str) -> bool:
+    slug = extract_clawhub_slug_from_url(url, kind)
+    return bool(slug and slug == expected_name)
+
+
+def extract_canonical_url(page_html: str) -> str | None:
+    patterns = [
+        r'<link[^>]+rel="canonical"[^>]+href="([^"]+)"',
+        r'<meta[^>]+property="og:url"[^>]+content="([^"]+)"',
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, page_html, re.IGNORECASE)
+        if match:
+            return html.unescape(match.group(1))
+    return None
+
+
 def extract_text_lines(page_html: str) -> list[str]:
     stripped = re.sub(r"(?is)<(script|style|noscript).*?>.*?</\1>", "\n", page_html)
     stripped = re.sub(r"(?is)<[^>]+>", "\n", stripped)
     stripped = html.unescape(stripped)
     return [clean_text(line) for line in stripped.splitlines() if clean_text(line)]
+
+
+def strip_html_fragment(fragment: str) -> str:
+    stripped = re.sub(r"(?is)<(script|style|noscript).*?>.*?</\1>", " ", fragment)
+    stripped = re.sub(r"(?is)<[^>]+>", " ", stripped)
+    return clean_text(html.unescape(stripped))
+
+
+def extract_definition_value_from_html(page_html: str, labels: tuple[str, ...]) -> str | None:
+    for label in labels:
+        pattern = rf"<dt[^>]*>\s*{re.escape(label)}\s*</dt>\s*<dd[^>]*>(.*?)</dd>"
+        match = re.search(pattern, page_html, re.IGNORECASE | re.DOTALL)
+        if match:
+            value = strip_html_fragment(match.group(1))
+            if value:
+                return value
+    return None
+
+
+def extract_page_scan_badge_status(page_html: str) -> str | None:
+    match = re.search(
+        r"scan-status-(benign|clean|pending|suspicious|malicious|warning|safe|unknown)",
+        page_html,
+        re.IGNORECASE,
+    )
+    if match:
+        return normalize_status(match.group(1))
+    return None
+
+
+def extract_structured_scan_field(page_html: str, object_names: tuple[str, ...], field: str) -> str | None:
+    for object_name in object_names:
+        pattern = (
+            rf"{re.escape(object_name)}\s*:\s*\$R\[\d+\]\s*=\s*{{[\s\S]{{0,8000}}?"
+            rf"{re.escape(field)}\s*:\s*\"((?:[^\"\\]|\\.)*)\""
+        )
+        match = re.search(pattern, page_html, re.IGNORECASE)
+        if match:
+            value = clean_text(decode_js_string(match.group(1)))
+            if value:
+                return value
+    return None
 
 
 def extract_block(lines: list[str], headings: list[str]) -> str:
@@ -312,6 +393,89 @@ def extract_static_analysis_summary(lines: list[str]) -> str | None:
     return summary or None
 
 
+def extract_heading_value(lines: list[str], headings: tuple[str, ...], *, min_length: int = 12) -> str | None:
+    stops = {
+        "guidance",
+        "findings (",
+        "findings",
+        "reason codes",
+        "engine",
+        "artifact",
+        "hash",
+        "browse",
+        "publish",
+        "platform",
+        "community",
+        "scan metadata",
+    }
+    lowered = [line.lower() for line in lines]
+    for heading in headings:
+        heading_lower = heading.lower()
+        if heading_lower not in lowered:
+            continue
+        start = lowered.index(heading_lower) + 1
+        for line in lines[start : start + 5]:
+            line_lower = line.lower()
+            if any(line_lower.startswith(stop) for stop in stops):
+                break
+            if len(line) >= min_length:
+                return line
+    return None
+
+
+def extract_security_detail_summary(lines: list[str]) -> str | None:
+    skip_exact = {
+        "clawscan",
+        "openclaw",
+        "static analysis",
+        "virustotal",
+        "suspicious",
+        "pending",
+        "benign",
+        "clean",
+        "warning",
+        "malicious",
+        "unknown",
+        "safe",
+        "stale",
+        "assessment",
+        "what to consider before installing",
+    }
+    skip_prefixes = (
+        "clawhub's context-aware review",
+        "deterministic local checks",
+        "this page records",
+        "clawscan verdict",
+        "scanner verdict",
+        "review compatibility and verification",
+    )
+
+    heading_summary = extract_heading_value(lines, ("Summary", "Analysis"), min_length=10)
+    if heading_summary:
+        return heading_summary
+
+    verdict_seen = False
+    for line in lines:
+        lowered = line.lower()
+        if lowered.startswith("detected:"):
+            return line
+        if lowered in skip_exact:
+            verdict_seen = verdict_seen or lowered in {"suspicious", "pending", "benign", "clean", "warning", "malicious"}
+            continue
+        if lowered.startswith(skip_prefixes):
+            continue
+        if not verdict_seen:
+            continue
+        if len(line) >= 40:
+            return line
+
+    for heading in ("What to consider before installing", "Assessment"):
+        block = extract_block(lines, [heading])
+        if block:
+            return block
+    return None
+
+
 def decode_js_string(value: str) -> str:
     return (
         value.replace(r"\"", '"')
@@ -367,6 +531,40 @@ def fetch_html(url: str, timeout: int) -> str:
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(request, timeout=timeout) as response:
         return response.read().decode("utf-8", errors="replace")
+
+
+def fetch_page_html(
+    url: str,
+    *,
+    render_mode: str,
+    request_timeout: int,
+    render_timeout_ms: int,
+    render_wait_ms: int,
+) -> tuple[str | None, str, str | None]:
+    try:
+        return fetch_html(url, request_timeout), "http", None
+    except urllib.error.HTTPError as exc:
+        warning = f"HTTP {exc.code} while fetching detail page."
+    except Exception as exc:  # noqa: BLE001
+        warning = clean_text(str(exc)) or "Failed to fetch detail page."
+
+    if render_mode == "off":
+        return None, "http", warning
+
+    rendered_html, render_error = render_html(
+        url,
+        timeout_ms=render_timeout_ms,
+        wait_ms=render_wait_ms,
+    )
+    if rendered_html:
+        return rendered_html, "rendered", warning
+    if render_error:
+        warning = f"{warning or 'Fetch failed.'} Render fallback failed: {render_error}"
+    return None, "http", warning
+
+
+def build_security_detail_url(detail_url: str, scan_name: str) -> str:
+    return f"{detail_url.rstrip('/')}/security/{scan_name}"
 
 
 async def wait_for_dynamic_html(page: Any, *, max_wait_ms: int, interval_ms: int = 400) -> str:
@@ -459,6 +657,7 @@ class ArtifactRef:
     key: str
     kind: str
     name: str
+    requested_name: str | None = None
     version: str | None = None
     path: str | None = None
     release_ref: str | None = None
@@ -471,8 +670,10 @@ class ScanResult:
     key: str
     kind: str
     name: str
+    requested_name: str | None
     version: str | None
     detail_url: str | None
+    resolved_slug: str | None
     page_found: bool
     fetch_mode: str
     scan_status: str | None = None
@@ -511,6 +712,19 @@ def extract_publisher_handle(lines: list[str]) -> str | None:
         return match.group(1)
     match = re.search(r"@([A-Za-z0-9][A-Za-z0-9_-]*)", text)
     return match.group(1) if match else None
+
+
+def extract_publisher_handle_from_html(page_html: str) -> str | None:
+    patterns = [
+        r'href="/u/([A-Za-z0-9][A-Za-z0-9_-]*)"',
+        r'class="user-handle"[^>]*>@?([A-Za-z0-9][A-Za-z0-9_-]*)<',
+        r'by\s*@<!-- -->\s*([A-Za-z0-9][A-Za-z0-9_-]*)',
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, page_html, re.IGNORECASE)
+        if match:
+            return match.group(1)
+    return None
 
 
 def candidate_detail_urls(
@@ -556,6 +770,12 @@ def scan_artifact_status(
     render_wait_ms: int = 5000,
 ) -> ScanResult:
     warnings: list[str] = []
+    if artifact.detail_url and not detail_url_matches_artifact(artifact.detail_url, artifact.kind, artifact.name):
+        warnings.append(
+            f"Cached detail URL did not match current published slug {artifact.name}; refreshing live lookup."
+        )
+        artifact.detail_url = None
+
     payload: Any | None = None
     if artifact.detail_url is None and inspect_payload_getter is not None:
         payload = inspect_payload_getter(artifact)
@@ -572,8 +792,10 @@ def scan_artifact_status(
             key=artifact.key,
             kind=artifact.kind,
             name=artifact.name,
+            requested_name=artifact.requested_name,
             version=artifact.version,
             detail_url=None,
+            resolved_slug=None,
             page_found=False,
             fetch_mode="unresolved",
             scan_status="unresolved",
@@ -586,27 +808,19 @@ def scan_artifact_status(
     fetch_mode = "http"
     last_fetch_warning: str | None = None
     for candidate_url in candidate_urls:
-        try:
-            page_html = fetch_html(candidate_url, request_timeout)
+        fetched_html, fetched_mode, fetch_warning = fetch_page_html(
+            candidate_url,
+            render_mode=render_mode,
+            request_timeout=request_timeout,
+            render_timeout_ms=render_timeout_ms,
+            render_wait_ms=render_wait_ms,
+        )
+        if fetched_html:
+            page_html = fetched_html
             detail_url = candidate_url
+            fetch_mode = fetched_mode
             break
-        except urllib.error.HTTPError as exc:
-            last_fetch_warning = f"HTTP {exc.code} while fetching detail page."
-        except Exception as exc:  # noqa: BLE001
-            last_fetch_warning = clean_text(str(exc)) or "Failed to fetch detail page."
-        if render_mode != "off":
-            rendered_html, render_error = render_html(
-                candidate_url,
-                timeout_ms=render_timeout_ms,
-                wait_ms=render_wait_ms,
-            )
-            if rendered_html:
-                page_html = rendered_html
-                detail_url = candidate_url
-                fetch_mode = "rendered"
-                break
-            if render_error:
-                last_fetch_warning = f"{last_fetch_warning or 'Fetch failed.'} Render fallback failed: {render_error}"
+        last_fetch_warning = fetch_warning
         if last_fetch_warning and "HTTP 404" in last_fetch_warning:
             continue
 
@@ -615,14 +829,20 @@ def scan_artifact_status(
             key=artifact.key,
             kind=artifact.kind,
             name=artifact.name,
+            requested_name=artifact.requested_name,
             version=artifact.version,
             detail_url=candidate_urls[0],
+            resolved_slug=extract_clawhub_slug_from_url(candidate_urls[0], artifact.kind),
             page_found=False,
             fetch_mode="http",
             scan_status="unresolved",
             pending=True,
             warnings=[last_fetch_warning or "Failed to fetch detail page."],
         )
+
+    canonical_url = extract_canonical_url(page_html)
+    if canonical_url and detail_url_matches_artifact(canonical_url, artifact.kind, artifact.name):
+        detail_url = canonical_url
 
     artifact.detail_url = detail_url
     lines = extract_text_lines(page_html)
@@ -643,25 +863,112 @@ def scan_artifact_status(
         elif render_error:
             warnings.append(f"Render fallback failed: {render_error}")
 
-    virus_total = extract_status_after_label(lines, "VirusTotal")
+    virus_total = (
+        normalize_status(extract_structured_scan_field(page_html, ("vtAnalysis",), "status"))
+        or extract_status_after_label(lines, "VirusTotal")
+    )
     virus_total_report_url = extract_virustotal_report_url(page_html)
-    clawscan_verdict = extract_status_after_label(lines, "ClawScan") or extract_status_after_label(lines, "OpenClaw")
+    clawscan_verdict = (
+        normalize_status(extract_structured_scan_field(page_html, ("llmAnalysis",), "status"))
+        or extract_status_after_label(lines, "ClawScan")
+        or extract_status_after_label(lines, "OpenClaw")
+    )
     clawscan_confidence = extract_clawscan_confidence(lines)
     openclaw_verdict = clawscan_verdict
     openclaw_confidence = clawscan_confidence
-    static_analysis_status = extract_static_analysis_status(lines)
-    static_analysis_summary = extract_static_analysis_summary(lines)
+    static_analysis_status = (
+        normalize_status(extract_structured_scan_field(page_html, ("staticScan",), "status"))
+        or extract_static_analysis_status(lines)
+    )
+    static_analysis_summary = (
+        extract_definition_value_from_html(page_html, ("Summary", "Analysis"))
+        or extract_structured_scan_field(page_html, ("staticScan",), "summary")
+        or extract_static_analysis_summary(lines)
+    )
     scan_status = extract_scan_status(lines)
     suspicious_reason = extract_suspicious_reason(page_html, lines) or None
-    publisher_handle = extract_publisher_handle(lines)
+    publisher_handle = extract_publisher_handle_from_html(page_html) or extract_publisher_handle(lines)
+
+    if detail_url and (clawscan_verdict in {None, "pending", "warning", "suspicious", "malicious"} or not suspicious_reason):
+        openclaw_url = build_security_detail_url(detail_url, "openclaw")
+        security_html, _security_mode, security_warning = fetch_page_html(
+            openclaw_url,
+            render_mode=render_mode,
+            request_timeout=request_timeout,
+            render_timeout_ms=render_timeout_ms,
+            render_wait_ms=render_wait_ms,
+        )
+        if security_html:
+            security_lines = extract_text_lines(security_html)
+            clawscan_verdict = (
+                normalize_status(extract_structured_scan_field(security_html, ("llmAnalysis",), "status"))
+                or extract_page_scan_badge_status(security_html)
+                or extract_status_after_label(security_lines, "ClawScan")
+                or extract_status_after_label(security_lines, "OpenClaw")
+                or clawscan_verdict
+            )
+            suspicious_reason = (
+                extract_definition_value_from_html(security_html, ("Summary", "Analysis"))
+                or extract_structured_scan_field(security_html, ("llmAnalysis",), "summary")
+                or extract_structured_scan_field(security_html, ("llmAnalysis",), "analysis")
+                or extract_security_detail_summary(security_lines)
+                or suspicious_reason
+            )
+            publisher_handle = (
+                publisher_handle
+                or extract_publisher_handle_from_html(security_html)
+                or extract_publisher_handle(security_lines)
+            )
+        elif security_warning:
+            warnings.append(f"OpenClaw detail lookup failed: {security_warning}")
+
+    if detail_url and (
+        static_analysis_status in {None, "pending", "warning", "suspicious", "malicious"}
+        or not static_analysis_summary
+    ):
+        static_url = build_security_detail_url(detail_url, "static-analysis")
+        static_html, _static_mode, static_warning = fetch_page_html(
+            static_url,
+            render_mode=render_mode,
+            request_timeout=request_timeout,
+            render_timeout_ms=render_timeout_ms,
+            render_wait_ms=render_wait_ms,
+        )
+        if static_html:
+            static_lines = extract_text_lines(static_html)
+            static_analysis_status = (
+                normalize_status(extract_structured_scan_field(static_html, ("staticScan",), "status"))
+                or extract_page_scan_badge_status(static_html)
+                or extract_status_after_label(static_lines, "Static analysis")
+                or static_analysis_status
+            )
+            static_analysis_summary = (
+                extract_definition_value_from_html(static_html, ("Summary", "Analysis"))
+                or extract_structured_scan_field(static_html, ("staticScan",), "summary")
+                or extract_security_detail_summary(static_lines)
+                or extract_static_analysis_summary(static_lines)
+                or static_analysis_summary
+            )
+        elif static_warning:
+            warnings.append(f"Static analysis detail lookup failed: {static_warning}")
+
+    if static_analysis_status in {"suspicious", "malicious", "warning"} and clawscan_verdict not in {"suspicious", "malicious", "warning"}:
+        suspicious_reason = static_analysis_summary or suspicious_reason
+
     suspicious = any(
         status in {"suspicious", "malicious", "warning"}
         for status in (virus_total, clawscan_verdict, static_analysis_status, scan_status)
     )
-    pending = not suspicious and (
-        not has_security_signals(lines)
-        or virus_total in {None, "pending"}
-        or clawscan_verdict in {None, "pending"}
+    explicit_pending_scan = scan_status in {"pending", "unresolved"}
+    explicit_final_scan = scan_status in {"clean", "suspicious", "malicious", "warning"}
+    pending = explicit_pending_scan or (
+        not suspicious
+        and not explicit_final_scan
+        and (
+            not has_security_signals(lines)
+            or virus_total in {None, "pending"}
+            or clawscan_verdict in {None, "pending"}
+        )
     )
     if scan_status is None:
         if pending:
@@ -681,8 +988,10 @@ def scan_artifact_status(
         key=artifact.key,
         kind=artifact.kind,
         name=artifact.name,
+        requested_name=artifact.requested_name,
         version=artifact.version,
         detail_url=detail_url,
+        resolved_slug=extract_clawhub_slug_from_url(detail_url, artifact.kind),
         page_found=True,
         fetch_mode=fetch_mode,
         scan_status=scan_status,
@@ -777,17 +1086,25 @@ def load_artifacts_from_state(
         if status_filter and str(meta.get("status") or "") not in status_filter:
             continue
         live_scan = meta.get("live_scan") or {}
+        published_name = str(meta.get("published_name") or meta.get("name") or "")
+        cached_detail_url = str(live_scan.get("detail_url") or "") or None
+        if cached_detail_url and not detail_url_matches_artifact(cached_detail_url, kind, published_name):
+            cached_detail_url = None
         artifacts.append(
             ArtifactRef(
                 key=key,
                 kind=kind,
-                name=str(meta.get("published_name") or meta.get("name") or ""),
+                name=published_name,
+                requested_name=str(meta.get("name") or "") or None,
                 version=str(meta.get("version") or "") or None,
                 path=str(meta.get("path") or "") or None,
                 release_ref=str(meta.get("release_ref") or "") or None,
-                detail_url=str(live_scan.get("detail_url") or "") or None,
+                detail_url=cached_detail_url,
                 skill_owner_candidates=normalize_owner_candidates(
-                    [str(live_scan.get("publisher_handle") or "")] if live_scan else []
+                    [
+                        str(meta.get("owner_handle") or ""),
+                        str(live_scan.get("publisher_handle") or ""),
+                    ]
                 ),
             )
         )
@@ -795,15 +1112,35 @@ def load_artifacts_from_state(
 
 
 def write_output(path: Path, results: list[ScanResult]) -> None:
+    existing_artifacts: dict[str, dict[str, Any]] = {}
+    if path.exists():
+        try:
+            existing_payload = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            existing_payload = {}
+        if isinstance(existing_payload, dict):
+            for item in existing_payload.get("artifacts", []):
+                if isinstance(item, dict):
+                    key = clean_text(str(item.get("key") or ""))
+                    if key:
+                        existing_artifacts[key] = item
+
+    for result in results:
+        item = scan_result_to_state(result)
+        key = clean_text(str(item.get("key") or ""))
+        if key:
+            existing_artifacts[key] = item
+
+    merged_results = [existing_artifacts[key] for key in sorted(existing_artifacts)]
     payload = {
         "generated_at": iso_now(),
         "summary": {
-            "total": len(results),
-            "suspicious": sum(1 for item in results if item.suspicious),
-            "pending": sum(1 for item in results if item.pending),
-            "resolved_urls": sum(1 for item in results if item.detail_url),
+            "total": len(merged_results),
+            "suspicious": sum(1 for item in merged_results if item.get("suspicious")),
+            "pending": sum(1 for item in merged_results if item.get("pending")),
+            "resolved_urls": sum(1 for item in merged_results if item.get("detail_url")),
         },
-        "artifacts": [scan_result_to_state(item) for item in results],
+        "artifacts": merged_results,
     }
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

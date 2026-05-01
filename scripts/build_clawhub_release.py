@@ -16,12 +16,27 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCE_ROOT = REPO_ROOT / "targetSkills"
 OUTPUT_ROOT = REPO_ROOT / "clawhub-release"
 BREAKOUT_VARIANTS_PATH = REPO_ROOT / "targets" / "clawhub-breakout-variants.json"
+SOURCE_REPO = "https://github.com/baofeng-tech/agent-skills-io"
 TWITTER_PROFILES = {
     "twitter",
     "twitter_api",
     "twitter_watchlist",
     "twitter_engagement",
     "twitter_post_engage",
+}
+OPTIONAL_ENV_ALLOWLIST = {
+    "AISA_BASE_URL",
+    "AISA_MODEL",
+    "LAST30DAYS_FUN_MODEL",
+    "LAST30DAYS_PLANNER_MODEL",
+    "LAST30DAYS_RERANK_MODEL",
+    "TWITTER_RELAY_BASE_URL",
+    "TWITTER_RELAY_TIMEOUT",
+    "XIAOHONGSHU_API_BASE",
+}
+OPTIONAL_ENV_IGNORE = {
+    "AISA_API_KEY",
+    "CLAUDE_PLUGIN_ROOT",
 }
 
 
@@ -52,9 +67,22 @@ def choose_release_version(source_version: Any, existing_version: Any) -> str:
 
 
 def detect_domain(name: str, description: str) -> str:
+    lower_name = name.lower()
     lower = f"{name} {description}".lower()
-    if "last30days" in lower:
+    if "last30days" in lower_name or "last30days" in lower:
         return "search"
+    if "youtube" in lower_name:
+        return "youtube"
+    if "twitter" in lower_name or lower_name.startswith("x-"):
+        return "twitter"
+    if any(token in lower_name for token in ("search", "tavily", "perplexity", "scholar", "web-search", "multi-search")):
+        return "search"
+    if any(token in lower_name for token in ("stock", "market", "portfolio", "dividend", "prediction", "finance")):
+        return "finance"
+    if any(token in lower_name for token in ("media", "image", "video")):
+        return "media"
+    if any(token in lower_name for token in ("llm", "provider", "router", "model", "qwen", "deepseek")):
+        return "ai"
     if "twitter" in lower or lower.startswith("x-"):
         return "twitter"
     if "youtube" in lower:
@@ -184,7 +212,20 @@ def infer_entrypoints(skill_dir: Path) -> list[str]:
 
 
 def infer_optional_envs(skill_dir: Path, profile: str) -> list[str]:
-    return []
+    optional_envs: list[str] = []
+    for path in skill_dir.rglob("*"):
+        if not path.is_file():
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        for env_name in re.findall(r"\b[A-Z][A-Z0-9_]{2,}\b", text):
+            if env_name in OPTIONAL_ENV_IGNORE or env_name not in OPTIONAL_ENV_ALLOWLIST:
+                continue
+            if env_name not in optional_envs:
+                optional_envs.append(env_name)
+    return optional_envs
 
 
 def resolve_clawhub_slug(skill_dir: Path, frontmatter: dict[str, Any]) -> str:
@@ -640,12 +681,18 @@ def clean_frontmatter(
     version_source = version_override or frontmatter.get("version")
     version = choose_release_version(version_source, existing_version)
     license_value = frontmatter.get("license") or "Apache-2.0"
+    homepage = str(frontmatter.get("homepage") or ("https://aisa.one" if envs else SOURCE_REPO)).strip()
+    source_url = str(
+        frontmatter.get("source") or f"{SOURCE_REPO}/tree/main/{skill_dir.relative_to(REPO_ROOT).as_posix()}"
+    ).strip()
     cleaned: dict[str, Any] = {
         "name": name,
         "description": description,
         "author": "AIsa",
         "version": str(version),
         "license": license_value,
+        "homepage": homepage,
+        "source": source_url,
         "user-invocable": True,
     }
     if envs:

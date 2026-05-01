@@ -21,7 +21,7 @@ python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode skip
 
 ClawHub WSL CLI 的 `whoami` 在本机没有稳定返回，因此下面的 token -> 账号句柄映射是基于“本地发布产物 + live page publisher_handle”做的**工作推断**，不是 CLI 官方返回值。
 
-当前最合理的推断是：
+当前自动化采用的工作映射是：
 
 - `token-1`
   - 主要发布账号：`baofeng-tech`
@@ -31,6 +31,16 @@ ClawHub WSL CLI 的 `whoami` 在本机没有稳定返回，因此下面的 token
   - 主要发布账号：`aisadocs`
 
 这个推断对当前文档归档足够用，但如果后续要做账号迁移或清库，仍建议在 Windows / self-hosted 环境再跑一次稳定的 `clawhub whoami` 复核。
+
+## 2026-05-01 补充：slot 策略已经正式成为运行时规则
+
+在旧 slug owner token 暂时拿不到的情况下，当前自动化不再把 owner/slug 冲突当成“必须人工停下”的异常，而是采用下面的工作规则：
+
+1. skill 若发生 owner/slug 冲突，默认退回 `-slot1` / `-slot2` / `-slot3` fallback slug。
+2. plugin 若同名 skill 已经存在 fallback slug，plugin fallback slug 必须跟随 skill，例如：
+   - `aisa-provider` -> `aisa-provider-slot3`
+   - `aisa-provider-plugin` -> `aisa-provider-slot3-plugin`
+3. publish state 与 live status 必须把“原始 artifact key”和“当前 live fallback slug”同时保留，避免新发 slot 包继续被旧 key 的页面视图覆盖。
 
 ## 每个 token 的当前状态
 

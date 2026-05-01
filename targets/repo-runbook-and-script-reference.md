@@ -172,6 +172,12 @@ Use it when you need to:
 | `--inspect-timeout <seconds>` | Timeout for `clawhub inspect` during skill URL resolution |
 | `--skill-owner <handle>` | Optional fallback owner hint for skill detail URLs when `clawhub inspect` does not resolve a page; repeat to add more candidates |
 
+Operational note:
+
+- `publish_clawhub_batch.py` now treats `suffix-by-slot` as the normal owner-conflict continuation strategy when the original owner token is unavailable.
+- `targets/clawhub-publish-state.json` should be read as `artifact key -> published_name -> live detail_url`, not as a guarantee that the original slug still owns the live page.
+- `scripts/clawhub_live_status.py` now validates cached `detail_url` against the current published slug and, when needed, re-resolves the live page before reading security state.
+
 ### `scripts/clawhub_suspicious_remediation.py`
 
 | Option | Meaning |

@@ -119,9 +119,9 @@ flowchart TD
 - `scripts/publish-agentskill-sh-release.sh`
   - Syncs `agentskill-sh-release/` into its GitHub import repo.
 - `scripts/publish_clawhub_batch.py`
-  - Multi-token ClawHub batch publisher with artifact filters, state continuation, and optional post-publish scan.
+  - Multi-token ClawHub batch publisher with artifact filters, state continuation, optional post-publish scan, and slot-sticky fallback slug routing for owner conflicts.
 - `scripts/clawhub_live_status.py`
-  - Pulls live ClawHub scan state back into local JSON.
+  - Pulls live ClawHub scan state back into local JSON, validates fallback slugs against current detail URLs, and reads ClawHub security subpages when the main page is not enough.
 - `scripts/clawhub_suspicious_diagnosis.py`
   - Classifies suspicious / pending artifacts into rule buckets.
 - `scripts/clawhub_suspicious_remediation.py`
@@ -211,7 +211,9 @@ For automatic full-platform publish, the normal self-hosted publish lane can now
 
 Useful repo variables for scheduled self-hosted automation:
 
+- `AUTO_PIPELINE_DRY_RUN`
 - `AUTO_PIPELINE_SELECTION`
+- `AUTO_DIAGNOSIS_DOC_UPDATE`
 - `AUTO_RUN_LLM_STEP`
 - `AUTO_LLM_APPLY`
 - `AUTO_SYNC_REPO_SKILLS`

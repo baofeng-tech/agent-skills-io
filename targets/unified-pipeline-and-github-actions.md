@@ -268,7 +268,9 @@ When repo variable `AUTO_FULL_PLATFORM_PUBLISH=true` is set, the same self-hoste
 
 Useful repo variables for scheduled self-hosted automation:
 
+- `AUTO_PIPELINE_DRY_RUN`
 - `AUTO_PIPELINE_SELECTION`
+- `AUTO_DIAGNOSIS_DOC_UPDATE`
 - `AUTO_RUN_LLM_STEP`
 - `AUTO_LLM_APPLY`
 - `AUTO_SYNC_REPO_SKILLS`

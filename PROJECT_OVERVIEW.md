@@ -83,6 +83,8 @@ Any AI working in this repository should:
 - 收敛 frontmatter
 - 收敛高敏感文案和本地副作用入口
 - 支持在发布后回查 ClawHub 详情页的 `VirusTotal`、`ClawScan`、`Static analysis` 与 `Suspicious` 原因
+- 支持校验 fallback slug 与 live canonical/detail URL 是否仍然一致，避免新发 slot 包继续被旧 slug 视图覆盖
+- 支持读取 ClawHub security 子页与页面内结构化安全信息，而不只依赖旧版 HTML 文本布局
 - 支持把 live scan 状态写回 `targets/clawhub-publish-state.json` 并输出独立状态报告
 
 ### D. 作为 Agent Skills 标准公开层
@@ -261,9 +263,11 @@ Any AI working in this repository should:
 - `scripts/clawhub_live_status.py`
   - 可独立扫描已发布 skill/plugin 的 ClawHub live status，提取 `VirusTotal`、`ClawScan`、`Static analysis` 与 `Suspicious` 原因
   - 现在会把 `pending` / `unresolved` 写成显式 `scan_status`，并支持在 skill 页 URL 不稳定时传入 owner hint
+  - 现在会校验缓存的 `detail_url` 是否仍匹配当前 `published_name`，并优先读取 security 子页与结构化页面字段
 - `scripts/publish_clawhub_batch.py`
   - 现在支持可选 `--post-publish-scan`，在发布或探测到远端已存在后立即做 live scan
   - 现在支持为 post-publish scan 传入 skill owner hint，并可在 Windows 侧 `py -3` 环境下直接续发
+  - 现在默认接受 `suffix-by-slot` owner 冲突续发策略，并把 plugin fallback slug 跟随同名 skill 的 fallback slug
 
 #### 3. ClawHub 发布变体
 
@@ -802,6 +806,8 @@ GitHub Actions 工作流层。
 - ClawHub plugin 真发布环境：已接通，`clawhub` CLI 已登录并完成首批 7 个 plugin 真实发布
 - ClawHub plugin registry 识别验证：首批已发布 plugin 已可通过 `clawhub package inspect` 查到
 - ClawHub 批量续传：`scripts/publish_clawhub_batch.py` 已升级为 3+ token、版本感知 probe、错峰起跑，并会跨多次 rerun 记住每个 token 近一小时内的真实 publish 次数
+- ClawHub owner 冲突续发策略：当旧 slug 的原 owner token 暂时不可用时，当前自动化正式接受 `suffix-by-slot` fallback slug，并把 publish state / live status 一起对齐到真实 live slug
+- ClawHub 2026-05-01 search/provider 二轮收口：`skill:aisa-provider@1.0.4`、`plugin:aisa-provider-plugin@1.0.4`、`plugin:aisa-tavily-plugin@1.0.2` 已完成定向重发；当前三者 live 状态都已从 `suspicious` 收回到纯 `pending`，其中 `clawscan` 与 `static analysis` 已恢复为 `clean`
 - ClawHub 2026-04-23 真实发布推进：新增上线 `aisa-search`、`aisa-tavily-search`，并确认 `aisa-twitter` 已由自有账号 `bibaofeng` 持有且同版本存在；新增 plugin 上线 `aisa-search-plugin`、`aisa-tavily-search-plugin`、`prediction-market-arbitrage-plugin`、`prediction-market-arbitrage-zh-plugin`、`prediction-market-data-plugin`、`prediction-market-data-zh-plugin`、`prediction-market-plugin`、`smart-search-plugin`、`stock-analysis-plugin`
 - ClawHub 当前活跃发布状态：历史发布进度仍对应旧 51-skill 基线；在 2026-04-23 扩展到 54-skill / 54-plugin 生成集后，需要按新集合重新对账待补发清单
 - ClawHub 当前剩余显式阻塞：原 `perplexity-search` slug 被系统锁给 deleted / banned account；第一次改名后的 `aisa-perplexity-search` 已确认归属外部账号 `renning22`，因此母版现已改为新的 ClawHub 专用 slug `aisa-perplexity-sonar-search`，待下一轮配额窗口补发；另外少量 plugin 失败主要表现为 `fetch failed` / `package inspect` 超时，更像平台侧瞬时波动

@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import threading
 import time
 from collections import deque
@@ -57,6 +58,12 @@ SLUG_TAKEN_PATTERNS = (
     re.compile(r"choose\s+a\s+different\s+slug", re.IGNORECASE),
 )
 TOKEN_KEY_PATTERN = re.compile(r"^clawhubapitoken(?P<index>\d*)$")
+OWNER_SLOT_HINTS = {
+    "baofeng-tech": "token-1",
+    "bibaofeng": "token-2",
+    "aisadocs": "token-3",
+}
+SLOT_OWNER_HINTS = {slot: owner for owner, slot in OWNER_SLOT_HINTS.items()}
 
 
 def utc_now() -> datetime:
@@ -78,6 +85,31 @@ def parse_iso_datetime(value: str | None) -> datetime | None:
 
 def normalize_key(raw: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", raw.lower())
+
+
+def infer_preferred_slot(meta: dict[str, Any]) -> str | None:
+    if not isinstance(meta, dict):
+        return None
+    live_scan = meta.get("live_scan") if isinstance(meta.get("live_scan"), dict) else {}
+    owner_handle = str(live_scan.get("publisher_handle") or meta.get("owner_handle") or "").strip().lstrip("@")
+    if owner_handle:
+        mapped = OWNER_SLOT_HINTS.get(owner_handle.lower())
+        if mapped:
+            return mapped
+    detail_url = str(live_scan.get("detail_url") or "").strip()
+    match = re.search(r"https?://[^/]+/([^/]+)/([^/]+)", detail_url)
+    if match and match.group(1).lower() != "plugins":
+        mapped = OWNER_SLOT_HINTS.get(match.group(1).strip().lstrip("@").lower())
+        if mapped:
+            return mapped
+    slot = str(meta.get("token_slot") or "").strip()
+    return slot or None
+
+
+def owner_hint_for_slot(slot: str | None) -> str | None:
+    if not slot:
+        return None
+    return SLOT_OWNER_HINTS.get(slot)
 
 
 def titleize_slug(slug: str) -> str:
@@ -237,7 +269,17 @@ def detect_git_source(repo_root: Path) -> dict[str, str]:
     if ref.returncode != 0:
         raise RuntimeError("Could not resolve git branch for plugin source attribution.")
 
-    dirty = run_command(["git", "status", "--short"], cwd=repo_root)
+    dirty_value = "unknown"
+    try:
+        dirty = run_command(
+            ["git", "status", "--porcelain", "--untracked-files=no"],
+            cwd=repo_root,
+            timeout=20,
+        )
+        if dirty.returncode == 0:
+            dirty_value = "true" if bool(dirty.stdout.strip()) else "false"
+    except subprocess.TimeoutExpired:
+        dirty_value = "unknown"
     repo = (
         repo_url.replace("git@github-work:", "")
         .replace("git@github.com:", "")
@@ -249,7 +291,7 @@ def detect_git_source(repo_root: Path) -> dict[str, str]:
         "repo": repo,
         "commit": commit.stdout.strip(),
         "ref": ref.stdout.strip(),
-        "dirty": "true" if bool(dirty.stdout.strip()) else "false",
+        "dirty": dirty_value,
     }
 
 
@@ -358,6 +400,10 @@ class StateStore:
         with self.lock:
             return dict(self.data.get("artifacts", {}).get(artifact.key, {}))
 
+    def get_by_key(self, key: str) -> dict[str, Any]:
+        with self.lock:
+            return dict(self.data.get("artifacts", {}).get(key, {}))
+
     def recent_publish_times(self, slot: str, *, window_seconds: int = 3600) -> list[float]:
         cutoff = utc_now().timestamp() - window_seconds
         timestamps: list[float] = []
@@ -395,6 +441,10 @@ class SharedQueue:
     def push_front(self, artifact: Artifact) -> None:
         with self._lock:
             self._items.appendleft(artifact)
+
+    def push_back(self, artifact: Artifact) -> None:
+        with self._lock:
+            self._items.append(artifact)
 
     def remaining(self) -> int:
         with self._lock:
@@ -485,6 +535,13 @@ class Worker(threading.Thread):
         existing = str(current_state.get("published_name") or "").strip()
         if existing and existing != artifact.name:
             return existing
+        if artifact.kind == "plugin" and artifact.name.endswith("-plugin"):
+            sibling_key = f"skill:{artifact.name[: -len('-plugin')]}"
+            sibling_state = self.state.get_by_key(sibling_key)
+            sibling_name = str(sibling_state.get("name") or "").strip()
+            sibling_published_name = str(sibling_state.get("published_name") or "").strip()
+            if sibling_published_name and sibling_published_name != sibling_name:
+                return f"{sibling_published_name}-plugin"
         return suffix_publish_name(artifact.name, f"slot{self.slot_index}")
 
     def post_publish_scan(self, artifact: Artifact) -> None:
@@ -539,6 +596,58 @@ class Worker(threading.Thread):
             )
             time.sleep(self.args.scan_retry_delay)
 
+    def remote_version_exists(self, artifact: Artifact) -> bool | None:
+        remote_name = self.current_publish_name(artifact)
+        try:
+            if artifact.kind == "skill":
+                result = self.clawhub(["inspect", remote_name, "--json"], timeout=120)
+            else:
+                result = self.clawhub(["package", "inspect", remote_name, "--json"], timeout=120)
+        except subprocess.TimeoutExpired:
+            return None
+        if result.returncode == 0:
+            return parse_remote_probe(result.stdout, artifact.version).version_exists
+        text = f"{result.stdout}\n{result.stderr}"
+        if any(pattern.search(text) for pattern in NOT_FOUND_PATTERNS):
+            return False
+        return None
+
+    def publish_with_fallback(self, artifact: Artifact, *, attempts: int, reason: str) -> bool:
+        fallback_name = self.conflict_publish_name(artifact)
+        if fallback_name == self.current_publish_name(artifact):
+            return False
+
+        self.log(f"{reason}; retrying with fallback slug {fallback_name}")
+        publish_result, published_name = self.publish_artifact(
+            artifact,
+            publish_name=fallback_name,
+        )
+        output = "\n".join(
+            part for part in (publish_result.stdout.strip(), publish_result.stderr.strip()) if part
+        )
+        release_ref = extract_release_ref(output)
+        self.publish_times.append(time.time())
+        self.state.mark(
+            artifact,
+            status="published",
+            attempts=attempts,
+            published_at=iso_now(),
+            last_attempt_at=iso_now(),
+            last_checked_at=iso_now(),
+            last_error=None,
+            token_slot=self.slot,
+            owner_handle=owner_hint_for_slot(self.slot),
+            published_name=published_name,
+            release_ref=release_ref,
+            publish_mode="published-fallback",
+        )
+        self.result.published += 1
+        self.log(
+            f"published fallback {artifact.kind}:{artifact.name}@{artifact.version} as {published_name}"
+        )
+        self.post_publish_scan(artifact)
+        return True
+
     def run(self) -> None:
         try:
             self.login()
@@ -557,6 +666,12 @@ class Worker(threading.Thread):
             artifact = self.queue.pop()
             if artifact is None:
                 return
+
+            preferred_slot = infer_preferred_slot(self.state.get(artifact))
+            if preferred_slot and preferred_slot != self.slot:
+                self.queue.push_back(artifact)
+                time.sleep(1.0)
+                continue
 
             if self.is_quota_exhausted():
                 self.queue.push_front(artifact)
@@ -616,6 +731,7 @@ class Worker(threading.Thread):
                     last_checked_at=iso_now(),
                     last_error=None,
                     token_slot=self.slot,
+                    owner_handle=owner_hint_for_slot(self.slot),
                     published_name=published_name,
                     release_ref=release_ref,
                     publish_mode="published",
@@ -626,63 +742,61 @@ class Worker(threading.Thread):
             except PublishError as exc:
                 attempts = self.state.get(artifact).get("attempts", 0) + 1
                 if exc.slug_taken and self.args.slug_conflict_strategy == "suffix-by-slot":
-                    fallback_name = self.conflict_publish_name(artifact)
-                    if fallback_name != self.current_publish_name(artifact):
-                        self.log(
-                            f"slug conflict for {artifact.kind}:{artifact.name}; retrying with fallback slug {fallback_name}"
-                        )
+                    try:
+                        if self.publish_with_fallback(
+                            artifact,
+                            attempts=attempts,
+                            reason=f"slug conflict for {artifact.kind}:{artifact.name}",
+                        ):
+                            continue
+                    except PublishError as fallback_exc:
+                        exc = fallback_exc
+                if exc.already_exists:
+                    remote_version_exists = self.remote_version_exists(artifact)
+                    if self.args.slug_conflict_strategy == "suffix-by-slot" and remote_version_exists is not True:
                         try:
-                            publish_result, published_name = self.publish_artifact(
+                            if self.publish_with_fallback(
                                 artifact,
-                                publish_name=fallback_name,
-                            )
+                                attempts=attempts,
+                                reason=f"owner/version conflict for {artifact.kind}:{artifact.name}",
+                            ):
+                                continue
                         except PublishError as fallback_exc:
                             exc = fallback_exc
-                        else:
-                            output = "\n".join(
-                                part for part in (publish_result.stdout.strip(), publish_result.stderr.strip()) if part
-                            )
-                            release_ref = extract_release_ref(output)
-                            self.publish_times.append(time.time())
-                            self.state.mark(
-                                artifact,
-                                status="published",
-                                attempts=attempts,
-                                published_at=iso_now(),
-                                last_attempt_at=iso_now(),
-                                last_checked_at=iso_now(),
-                                last_error=None,
-                                token_slot=self.slot,
-                                published_name=published_name,
-                                release_ref=release_ref,
-                                publish_mode="published-fallback",
-                            )
-                            self.result.published += 1
-                            self.log(
-                                f"published fallback {artifact.kind}:{artifact.name}@{artifact.version} as {published_name}"
-                            )
-                            self.post_publish_scan(artifact)
-                            continue
-                if exc.already_exists:
-                    self.state.mark(
-                        artifact,
-                        status="published",
-                        attempts=attempts,
-                        published_at=iso_now(),
-                        last_attempt_at=iso_now(),
-                        last_checked_at=iso_now(),
-                        last_error=None,
-                        token_slot=self.slot,
-                        published_name=self.current_publish_name(artifact),
-                        publish_mode="publish-existing",
+                            remote_version_exists = self.remote_version_exists(artifact)
+                    if remote_version_exists is True:
+                        self.state.mark(
+                            artifact,
+                            status="published",
+                            attempts=attempts,
+                            published_at=iso_now(),
+                            last_attempt_at=iso_now(),
+                            last_checked_at=iso_now(),
+                            last_error=None,
+                            token_slot=self.slot,
+                            published_name=self.current_publish_name(artifact),
+                            publish_mode="publish-existing",
+                        )
+                        self.result.skipped += 1
+                        self.log(
+                            f"skip publish-existing {artifact.kind}:{self.current_publish_name(artifact)}@{artifact.version}: {exc.message}"
+                        )
+                        self.post_publish_scan(artifact)
+                        continue
+                    exc = PublishError(
+                        (
+                            f"{exc.message} | remote slug {self.current_publish_name(artifact)} "
+                            f"did not confirm version {artifact.version}; use the original owner token "
+                            "or keep the slot fallback strategy."
+                        ),
                     )
-                    self.result.skipped += 1
-                    self.log(
-                        f"skip publish-existing {artifact.kind}:{self.current_publish_name(artifact)}@{artifact.version}: {exc.message}"
-                    )
-                    self.post_publish_scan(artifact)
-                    continue
                 status = "rate_limited" if exc.rate_limited else "failed"
+                current_state = self.state.get(artifact)
+                preserved_slot = (
+                    infer_preferred_slot(current_state)
+                    if current_state.get("published_name")
+                    else self.slot
+                ) or self.slot
                 self.state.mark(
                     artifact,
                     status=status,
@@ -690,7 +804,7 @@ class Worker(threading.Thread):
                     last_attempt_at=iso_now(),
                     last_checked_at=iso_now(),
                     last_error=exc.message,
-                    token_slot=self.slot,
+                    token_slot=preserved_slot,
                 )
                 if exc.rate_limited:
                     self.result.rate_limited = True
@@ -708,12 +822,24 @@ class Worker(threading.Thread):
         return len(self.publish_times) >= self.args.per_token_per_hour
 
     def check_remote_exists(self, artifact: Artifact) -> bool:
+        if self.args.force:
+            return False
         remote_name = self.current_publish_name(artifact)
         for attempt in range(1, self.args.probe_retries + 1):
-            if artifact.kind == "skill":
-                result = self.clawhub(["inspect", remote_name, "--json"], timeout=120)
-            else:
-                result = self.clawhub(["package", "inspect", remote_name, "--json"], timeout=120)
+            try:
+                if artifact.kind == "skill":
+                    result = self.clawhub(["inspect", remote_name, "--json"], timeout=120)
+                else:
+                    result = self.clawhub(["package", "inspect", remote_name, "--json"], timeout=120)
+            except subprocess.TimeoutExpired:
+                text = "inspect timed out"
+                if attempt < self.args.probe_retries:
+                    self.log(
+                        f"probe retry {attempt}/{self.args.probe_retries - 1} for {remote_name}: {text}"
+                    )
+                    time.sleep(self.args.probe_retry_delay)
+                    continue
+                raise PublishError(f"remote probe failed for {remote_name}: {text}")
             if result.returncode == 0:
                 probe = parse_remote_probe(result.stdout, artifact.version)
                 if probe.version_exists:
@@ -744,10 +870,12 @@ class Worker(threading.Thread):
 
     def publish_artifact(self, artifact: Artifact, *, publish_name: str | None = None) -> tuple[subprocess.CompletedProcess[str], str]:
         target_name = publish_name or self.current_publish_name(artifact)
+        publish_path = artifact.path
+        temp_plugin_dir: Path | None = None
         if artifact.kind == "skill":
             command = [
                 "publish",
-                artifact.path,
+                publish_path,
                 "--slug",
                 target_name,
                 "--name",
@@ -760,10 +888,13 @@ class Worker(threading.Thread):
         else:
             if not artifact.source_path:
                 raise PublishError("Missing source_path for plugin publish.")
+            if target_name != artifact.name:
+                temp_plugin_dir = self.prepare_plugin_publish_dir(artifact, target_name)
+                publish_path = str(temp_plugin_dir)
             command = [
                 "package",
                 "publish",
-                artifact.path,
+                publish_path,
                 "--family",
                 "code-plugin",
                 "--name",
@@ -783,7 +914,11 @@ class Worker(threading.Thread):
                 "--source-path",
                 artifact.source_path,
             ]
-        result = self.clawhub(command, timeout=self.args.publish_timeout)
+        try:
+            result = self.clawhub(command, timeout=self.args.publish_timeout)
+        finally:
+            if temp_plugin_dir is not None:
+                shutil.rmtree(temp_plugin_dir.parent, ignore_errors=True)
         if result.returncode == 0:
             return result, target_name
         error_text = clean_error(f"{result.stdout}\n{result.stderr}")
@@ -793,6 +928,37 @@ class Worker(threading.Thread):
             already_exists=is_already_exists(error_text),
             slug_taken=is_slug_taken(error_text),
         )
+
+    def prepare_plugin_publish_dir(self, artifact: Artifact, publish_name: str) -> Path:
+        source_dir = Path(artifact.path)
+        temp_root = Path(tempfile.mkdtemp(prefix="clawhub-plugin-publish-", dir=str(REPO_ROOT / ".tmp-clawhub-auth")))
+        temp_dir = temp_root / source_dir.name
+        shutil.copytree(source_dir, temp_dir)
+
+        package_json_path = temp_dir / "package.json"
+        openclaw_manifest_path = temp_dir / "openclaw.plugin.json"
+        claude_manifest_path = temp_dir / ".claude-plugin" / "plugin.json"
+
+        package_json = json.loads(package_json_path.read_text(encoding="utf-8"))
+        package_json["name"] = publish_name
+        package_json_path.write_text(json.dumps(package_json, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+        openclaw_manifest = json.loads(openclaw_manifest_path.read_text(encoding="utf-8"))
+        openclaw_manifest["id"] = publish_name
+        openclaw_manifest_path.write_text(
+            json.dumps(openclaw_manifest, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+
+        if claude_manifest_path.exists():
+            claude_manifest = json.loads(claude_manifest_path.read_text(encoding="utf-8"))
+            claude_manifest["name"] = publish_name
+            claude_manifest_path.write_text(
+                json.dumps(claude_manifest, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+
+        return temp_dir
 
 
 class PublishError(RuntimeError):

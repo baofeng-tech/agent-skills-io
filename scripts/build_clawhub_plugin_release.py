@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
@@ -25,6 +26,20 @@ RUNTIME_IGNORE = shutil.ignore_patterns(
     "node_modules",
     ".DS_Store",
 )
+OPTIONAL_ENV_ALLOWLIST = {
+    "AISA_BASE_URL",
+    "AISA_MODEL",
+    "LAST30DAYS_FUN_MODEL",
+    "LAST30DAYS_PLANNER_MODEL",
+    "LAST30DAYS_RERANK_MODEL",
+    "TWITTER_RELAY_BASE_URL",
+    "TWITTER_RELAY_TIMEOUT",
+    "XIAOHONGSHU_API_BASE",
+}
+OPTIONAL_ENV_IGNORE = {
+    "AISA_API_KEY",
+    "CLAUDE_PLUGIN_ROOT",
+}
 
 
 def infer_keywords(name: str, description: str) -> list[str]:
@@ -32,7 +47,6 @@ def infer_keywords(name: str, description: str) -> list[str]:
     keywords = ["aisa", "clawhub", "openclaw", "native-plugin", "agent-skill"]
     for token in (
         "twitter",
-        "x",
         "youtube",
         "search",
         "research",
@@ -109,11 +123,14 @@ def plugin_description(skill: dict[str, object]) -> str:
     required_bins = [value for value in skill.get("required_bins", []) if isinstance(value, str)]
     env_vars = [value for value in skill.get("env_vars", []) if isinstance(value, str)]
     requirement_tokens = required_bins + env_vars
+    network_target = relay_default_url(skill) or ("https://api.aisa.one" if "AISA_API_KEY" in env_vars else "")
     if requirement_tokens:
         if len(requirement_tokens) == 1:
             lead_parts.append(f"Requires {requirement_tokens[0]}.")
         else:
             lead_parts.append(f"Requires {', '.join(requirement_tokens[:-1])}, and {requirement_tokens[-1]}.")
+    if env_vars and network_target:
+        lead_parts.append(f"Uses the supplied {env_vars[0]} to send requests to {network_target}.")
     lead = f"{' '.join(lead_parts)} " if lead_parts else ""
     return (
         f"{lead}Native-first ClawHub plugin for `{skill['name']}`. "
@@ -141,6 +158,7 @@ def build_runtime_requirements(skill: dict[str, object]) -> dict[str, object]:
     requirements: dict[str, object] = {}
     required_bins = [value for value in skill.get("required_bins", []) if isinstance(value, str)]
     env_vars = [value for value in skill.get("env_vars", []) if isinstance(value, str)]
+    optional_env_vars = [value for value in skill.get("optional_env_vars", []) if isinstance(value, str)]
     primary_env = str(skill.get("primary_env") or "").strip()
     network_target = relay_default_url(skill) or ("https://api.aisa.one" if "AISA_API_KEY" in env_vars else "")
 
@@ -148,6 +166,8 @@ def build_runtime_requirements(skill: dict[str, object]) -> dict[str, object]:
         requirements["bins"] = required_bins
     if env_vars:
         requirements["env"] = env_vars
+    if optional_env_vars:
+        requirements["optionalEnv"] = optional_env_vars
     if primary_env:
         requirements["primaryEnv"] = primary_env
     if network_target:
@@ -165,6 +185,8 @@ def build_runtime_metadata(skill: dict[str, object]) -> dict[str, object]:
         requires["env"] = runtime["env"]
     if requires:
         metadata_entry["requires"] = requires
+    if runtime.get("optionalEnv"):
+        metadata_entry["optionalEnv"] = runtime["optionalEnv"]
     if runtime.get("primaryEnv"):
         metadata_entry["primaryEnv"] = runtime["primaryEnv"]
     if runtime.get("networkTargets"):
@@ -173,11 +195,34 @@ def build_runtime_metadata(skill: dict[str, object]) -> dict[str, object]:
 
 
 def infer_optional_env_vars(skill_dir: Path, metadata: dict[str, object]) -> list[str]:
-    return []
+    merged: list[str] = []
+    for scope in ("aisa", "openclaw"):
+        scoped = metadata.get(scope) if isinstance(metadata.get(scope), dict) else {}
+        optional_envs = scoped.get("optionalEnv") if isinstance(scoped, dict) else None
+        if isinstance(optional_envs, list):
+            for env_name in optional_envs:
+                if isinstance(env_name, str) and env_name not in merged:
+                    merged.append(env_name)
+    if merged:
+        return merged
+
+    for path in skill_dir.rglob("*"):
+        if not path.is_file():
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        for env_name in re.findall(r"\b[A-Z][A-Z0-9_]{2,}\b", text):
+            if env_name in OPTIONAL_ENV_IGNORE or env_name not in OPTIONAL_ENV_ALLOWLIST:
+                continue
+            if env_name not in merged:
+                merged.append(env_name)
+    return merged
 
 
 def relay_default_url(skill: dict[str, object]) -> str | None:
-    lower = f"{skill.get('name', '')} {skill.get('description', '')}".lower()
+    lower = f"{skill.get('name', '')} {skill.get('path', '')}".lower()
     if "twitter" in lower or lower.startswith("x-"):
         return "https://api.aisa.one/apis/v1/twitter"
     return None
@@ -200,8 +245,9 @@ def build_config_property(env_name: str) -> dict[str, object]:
 
 def build_config_schema(skill: dict[str, object]) -> dict[str, object]:
     env_vars = [env_name for env_name in skill.get("env_vars", []) if isinstance(env_name, str)]
+    optional_env_vars = [env_name for env_name in skill.get("optional_env_vars", []) if isinstance(env_name, str)]
     properties: dict[str, object] = {}
-    for env_name in env_vars:
+    for env_name in env_vars + optional_env_vars:
         properties[env_name] = build_config_property(env_name)
 
     schema: dict[str, object] = {
@@ -229,6 +275,9 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
     skill_name = skill["name"]
     slug = plugin_slug(skill_name)
     plugin_dir = PLUGIN_ROOT / slug
+    runtime_requirements = build_runtime_requirements(skill)
+    runtime_metadata = build_runtime_metadata(skill)
+    config_schema = build_config_schema(skill)
     shutil.rmtree(plugin_dir, ignore_errors=True)
     (plugin_dir / ".claude-plugin").mkdir(parents=True, exist_ok=True)
     (plugin_dir / "skills").mkdir(parents=True, exist_ok=True)
@@ -248,7 +297,13 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "homepage": "https://aisa.one",
         "repository": SOURCE_REPO,
         "license": skill["license"],
-        "metadata": build_runtime_metadata(skill),
+        "metadata": runtime_metadata,
+        "configSchema": config_schema,
+        "runtimeRequirements": runtime_requirements,
+        "aisa": runtime_metadata["aisa"],
+        "openclaw": {
+            "runtimeRequirements": runtime_requirements,
+        },
     }
     write_json(plugin_dir / ".claude-plugin" / "plugin.json", manifest)
 
@@ -258,9 +313,9 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "description": plugin_description(skill),
         "version": skill["version"],
         "skills": ["./skills"],
-        "configSchema": build_config_schema(skill),
-        "runtimeRequirements": build_runtime_requirements(skill),
-        "metadata": build_runtime_metadata(skill),
+        "configSchema": config_schema,
+        "runtimeRequirements": runtime_requirements,
+        "metadata": runtime_metadata,
     }
     if skill.get("emoji"):
         openclaw_manifest["uiHints"] = {"emoji": skill["emoji"]}
@@ -291,8 +346,8 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
             "type": "git",
             "url": f"{SOURCE_REPO}.git",
         },
-        "metadata": build_runtime_metadata(skill),
-        "aisa": build_runtime_metadata(skill)["aisa"],
+        "metadata": runtime_metadata,
+        "aisa": runtime_metadata["aisa"],
         "openclaw": {
             "extensions": ["./index.ts"],
             "compat": {
@@ -301,7 +356,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
             "build": {
                 "openclawVersion": "^1.0.0",
             },
-            "runtimeRequirements": build_runtime_requirements(skill),
+            "runtimeRequirements": runtime_requirements,
         },
     }
     write_json(plugin_dir / "package.json", package_json)
@@ -338,6 +393,12 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "- Keeps the packaged skill payload intact under `skills/` for ClawHub/OpenClaw skill loading.",
         "- Retains `.claude-plugin/plugin.json` so Claude-compatible marketplace tooling still recognizes the package.",
         "- Reuses the already-hardened `clawhub-release/` skill payload.",
+        "",
+        "## Provenance",
+        "",
+        f"- Source repository: `{SOURCE_REPO}`",
+        f"- Embedded skill path: `skills/{skill['path']}/SKILL.md`",
+        "- The runtime behavior remains inside the packaged skill payload and its public docs.",
         "",
         "## Install After Publishing",
         "",

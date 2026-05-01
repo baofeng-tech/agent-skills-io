@@ -52,7 +52,15 @@ RULES: dict[str, dict[str, Any]] = {
     },
     "metadata_env_mismatch": {
         "severity": "blocker",
-        "keywords": ("manifest", "metadata", "registry", "env", "requirement mismatch", "omitted"),
+        "keywords": (
+            "metadata mismatch",
+            "registry",
+            "registry summary",
+            "required credentials",
+            "requirement mismatch",
+            "declared env",
+            "omitted",
+        ),
         "summary": "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "actions": [
             "Align SKILL.md, README, package manifests, and registry-facing metadata.",
@@ -79,7 +87,7 @@ RULES: dict[str, dict[str, Any]] = {
     },
     "platform_trust_gap": {
         "severity": "warning",
-        "keywords": ("trust", "coherent", "provenance", "source", "publisher"),
+        "keywords": ("trust", "coherent", "provenance", "source linked", "publisher"),
         "summary": "Trust and provenance surfaces are weaker than the package behavior requires.",
         "actions": [
             "Keep source links, manifests, and README provenance aligned.",
@@ -224,7 +232,7 @@ def render_artifact_record(item: dict[str, Any], publish_meta: dict[str, Any]) -
     severities = [RULES[rule_id]["severity"] for rule_id in rule_ids if rule_id in RULES]
     for rule_id in rule_ids:
         recommendations.extend(RULES[rule_id]["actions"])
-    severity = "blocker" if "blocker" in severities else "warning" if severities else "note"
+    severity = "blocker" if item.get("suspicious") or "blocker" in severities else "warning" if severities else "note"
     return {
         "key": item.get("key"),
         "kind": item.get("kind"),
