@@ -128,16 +128,16 @@
 ## 最新自动诊断快照
 
 - 诊断对象数：`116`
-- `blocker`：`31`
-- `warning`：`85`
+- `blocker`：`30`
+- `warning`：`86`
 - `pending`：`109`
 
 ### 当前高频规则
 
-- `metadata_env_mismatch`: `30`
+- `metadata_env_mismatch`: `16`
 - `oauth_upload_side_effects`: `8`
 - `pending_scan`: `109`
-- `platform_trust_gap`: `20`
+- `platform_trust_gap`: `18`
 - `prompt_scaffold_copy`: `1`
 - `relay_trust_surface`: `19`
 
@@ -145,11 +145,11 @@
 
 - `plugin:aisa-multi-search-engine-plugin`
   severity: `blocker` | status: `suspicious`
-  rules: `metadata_env_mismatch, platform_trust_gap`
+  rules: `platform_trust_gap`
   reason: Native-first ClawHub plugin for `aisa-multi-search-engine`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 - `plugin:aisa-perplexity-search-sonar-plugin`
   severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
+  rules: `pending_scan, relay_trust_surface`
   reason: The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing.
 - `plugin:aisa-provider-plugin`
   severity: `blocker` | status: `pending`
@@ -157,15 +157,15 @@
   reason: The package is mostly coherent for an API-provider plugin (it legitimately needs an AISA_API_KEY), but there are mismatches between the registry metadata and the packaged files and a few packaging/instruction gaps that should be resolved before trusting it with credentials.
 - `plugin:aisa-tavily-plugin`
   severity: `blocker` | status: `suspicious`
-  rules: `metadata_env_mismatch, platform_trust_gap`
+  rules: `platform_trust_gap`
   reason: Native-first ClawHub plugin for `aisa-tavily`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 - `plugin:aisa-tavily-search-plugin`
   severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
+  rules: `pending_scan, platform_trust_gap, relay_trust_surface`
   reason: The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials.
 - `plugin:aisa-twitter-api-command-center-plugin`
   severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
+  rules: `pending_scan, platform_trust_gap, relay_trust_surface`
   reason: The package is largely coherent with a Twitter/X relay client (it needs AISA_API_KEY and sends reads/posts to api.aisa.one), but there are metadata inconsistencies and privacy implications you should verify before installing.
 - `plugin:aisa-twitter-post-engage-plugin`
   severity: `blocker` | status: `pending`

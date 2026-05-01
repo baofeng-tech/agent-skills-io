@@ -1,14 +1,14 @@
 {
   "summary": {
     "artifacts": 116,
-    "blockers": 31,
-    "warnings": 85,
+    "blockers": 30,
+    "warnings": 86,
     "pending": 109,
     "rules": {
-      "metadata_env_mismatch": 30,
+      "metadata_env_mismatch": 16,
       "oauth_upload_side_effects": 8,
       "pending_scan": 109,
-      "platform_trust_gap": 20,
+      "platform_trust_gap": 18,
       "prompt_scaffold_copy": 1,
       "relay_trust_surface": 19
     }
@@ -29,16 +29,12 @@
       "suspicious": true,
       "pending": false,
       "rule_ids": [
-        "metadata_env_mismatch",
         "platform_trust_gap"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Keep source links, manifests, and README provenance aligned.",
         "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
@@ -62,18 +58,14 @@
       "suspicious": false,
       "pending": true,
       "rule_ids": [
-        "metadata_env_mismatch",
         "pending_scan",
         "relay_trust_surface"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "Security scan output is not final yet.",
         "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Keep pending, clean, and suspicious as separate states in automation.",
         "Retry live scan before treating the package as resolved.",
         "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
@@ -140,16 +132,12 @@
       "suspicious": true,
       "pending": false,
       "rule_ids": [
-        "metadata_env_mismatch",
         "platform_trust_gap"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Keep source links, manifests, and README provenance aligned.",
         "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
@@ -173,20 +161,16 @@
       "suspicious": false,
       "pending": true,
       "rule_ids": [
-        "metadata_env_mismatch",
         "pending_scan",
         "platform_trust_gap",
         "relay_trust_surface"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "Security scan output is not final yet.",
         "Trust and provenance surfaces are weaker than the package behavior requires.",
         "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Keep pending, clean, and suspicious as separate states in automation.",
         "Retry live scan before treating the package as resolved.",
         "Keep source links, manifests, and README provenance aligned.",
@@ -214,20 +198,16 @@
       "suspicious": false,
       "pending": true,
       "rule_ids": [
-        "metadata_env_mismatch",
         "pending_scan",
         "platform_trust_gap",
         "relay_trust_surface"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "Security scan output is not final yet.",
         "Trust and provenance surfaces are weaker than the package behavior requires.",
         "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Keep pending, clean, and suspicious as separate states in automation.",
         "Retry live scan before treating the package as resolved.",
         "Keep source links, manifests, and README provenance aligned.",
@@ -490,21 +470,17 @@
       "pending": true,
       "rule_ids": [
         "metadata_env_mismatch",
-        "pending_scan",
-        "platform_trust_gap"
+        "pending_scan"
       ],
       "rule_summaries": [
         "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires."
+        "Security scan output is not final yet."
       ],
       "recommended_actions": [
         "Align SKILL.md, README, package manifests, and registry-facing metadata.",
         "Declare every required env var in the same shape across all publish layers.",
         "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
+        "Retry live scan before treating the package as resolved."
       ],
       "detail_url": "https://clawhub.ai/plugins/stock-rumors-plugin",
       "local_path": "clawhub-plugin-release/plugins/stock-rumors-plugin",
@@ -526,22 +502,18 @@
       "suspicious": false,
       "pending": true,
       "rule_ids": [
-        "metadata_env_mismatch",
         "oauth_upload_side_effects",
         "pending_scan",
         "platform_trust_gap",
         "relay_trust_surface"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "OAuth, posting, or media-upload side effects are not explicit enough.",
         "Security scan output is not final yet.",
         "Trust and provenance surfaces are weaker than the package behavior requires.",
         "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
         "Avoid phrasing that makes posting look silent or automatic by default.",
         "Keep pending, clean, and suspicious as separate states in automation.",
@@ -571,22 +543,18 @@
       "suspicious": false,
       "pending": true,
       "rule_ids": [
-        "metadata_env_mismatch",
         "oauth_upload_side_effects",
         "pending_scan",
         "platform_trust_gap",
         "relay_trust_surface"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "OAuth, posting, or media-upload side effects are not explicit enough.",
         "Security scan output is not final yet.",
         "Trust and provenance surfaces are weaker than the package behavior requires.",
         "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
         "Avoid phrasing that makes posting look silent or automatic by default.",
         "Keep pending, clean, and suspicious as separate states in automation.",
@@ -657,20 +625,16 @@
       "suspicious": false,
       "pending": true,
       "rule_ids": [
-        "metadata_env_mismatch",
         "oauth_upload_side_effects",
         "pending_scan",
         "relay_trust_surface"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "OAuth, posting, or media-upload side effects are not explicit enough.",
         "Security scan output is not final yet.",
         "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
         "Avoid phrasing that makes posting look silent or automatic by default.",
         "Keep pending, clean, and suspicious as separate states in automation.",
@@ -715,39 +679,6 @@
       "local_path": "clawhub-release\\aisa-provider",
       "release_ref": "k97fctxrqvnyt4nz1fn0mpryw5858seb",
       "reason": "The skill's declared requirements (only AISA_API_KEY) match its stated purpose, but the runtime instructions reference shipped scripts and flows that are not present and make strong external-claims (partnerships, ZDR) that should be verified before use."
-    },
-    {
-      "key": "skill:aisa-tavily",
-      "kind": "skill",
-      "name": "aisa-tavily",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": "benign",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": null,
-      "static_analysis_summary": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisapay/aisa-tavily",
-      "local_path": "clawhub-release\\aisa-tavily",
-      "release_ref": "k97eprs9w52050gwcb4vayc3j9858dk0",
-      "reason": "Detected: suspicious.env_credential_access"
     },
     {
       "key": "skill:aisa-twitter",
@@ -842,20 +773,16 @@
       "suspicious": false,
       "pending": true,
       "rule_ids": [
-        "metadata_env_mismatch",
         "oauth_upload_side_effects",
         "pending_scan",
         "relay_trust_surface"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "OAuth, posting, or media-upload side effects are not explicit enough.",
         "Security scan output is not final yet.",
         "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
         "Avoid phrasing that makes posting look silent or automatic by default.",
         "Keep pending, clean, and suspicious as separate states in automation.",
@@ -883,18 +810,14 @@
       "suspicious": false,
       "pending": true,
       "rule_ids": [
-        "metadata_env_mismatch",
         "pending_scan",
         "relay_trust_surface"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "Security scan output is not final yet.",
         "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Keep pending, clean, and suspicious as separate states in automation.",
         "Retry live scan before treating the package as resolved.",
         "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
@@ -939,37 +862,33 @@
       "reason": "The skill broadly matches its stated purpose (a Perplexity-based research client) but contains inconsistent metadata about required credentials and includes instructions that encourage autonomous web searches without asking the user, which are notable concerns."
     },
     {
-      "key": "skill:smart-search",
+      "key": "skill:prediction-market",
       "kind": "skill",
-      "name": "smart-search",
-      "publisher_handle": "lee920311",
+      "name": "prediction-market",
+      "publisher_handle": "betting",
       "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": "benign",
+      "scan_status": "suspicious",
+      "virus_total": "suspicious",
       "clawscan_verdict": null,
       "openclaw_verdict": null,
       "static_analysis_status": null,
       "static_analysis_summary": null,
-      "suspicious": false,
-      "pending": true,
+      "suspicious": true,
+      "pending": false,
       "rule_ids": [
-        "metadata_env_mismatch",
-        "pending_scan"
+        "platform_trust_gap"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet."
+        "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
-      "detail_url": "https://clawhub.ai/aisapay/smart-search",
-      "local_path": "clawhub-release\\smart-search",
+      "detail_url": "https://clawhub.ai/aisapay/prediction-market",
+      "local_path": "/mnt/d/workplace/agent-skills-io/clawhub-release/prediction-market",
       "release_ref": null,
-      "reason": "The skill appears to implement the described multi-engine search (Exa MCP, SearX, Tavily) and the bundled scripts are plausible, but there are internal metadata inconsistencies and non-obvious privacy/network implications you should verify before installing or running code."
+      "reason": "Participate in Base's GTM by betting if today's 18:00 UTC garden temperature will be higher or lower than yesterday's, sharing winnings from the pot."
     },
     {
       "key": "skill:stock-analysis",
@@ -999,39 +918,6 @@
       "local_path": "clawhub-release\\stock-analysis",
       "release_ref": null,
       "reason": "The skill mostly matches a stock-analysis tool, but there are multiple incoherences and risky instructions (cookie extraction / granting Terminal Full Disk Access, undeclared env vars, and an unexplained 'uv' dependency) that the user should review before installing or running it."
-    },
-    {
-      "key": "skill:stock-dividend",
-      "kind": "skill",
-      "name": "stock-dividend",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": "benign",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": null,
-      "static_analysis_summary": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisapay/stock-dividend",
-      "local_path": "clawhub-release\\stock-dividend",
-      "release_ref": null,
-      "reason": "The skill mostly matches its stated purpose (dividend analysis via AISA) but has small inconsistencies that could be abused or cause surprises—most notably it reads undocumented environment variables (AISA_BASE_URL, AISA_MODEL) and relies on an external LLM client with an overrideable endpoint."
     },
     {
       "key": "skill:stock-rumors",
@@ -1108,6 +994,35 @@
       "reason": "The skill's code and instructions match its stated Twitter automation purpose, but the registry metadata omits the sensitive credentials it requires and there are real-world posting risks if run autonomously—review before installing."
     },
     {
+      "key": "skill:web-search",
+      "kind": "skill",
+      "name": "web-search",
+      "publisher_handle": "billyutw",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "suspicious",
+      "clawscan_verdict": null,
+      "openclaw_verdict": null,
+      "static_analysis_status": null,
+      "static_analysis_summary": null,
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "platform_trust_gap"
+      ],
+      "rule_summaries": [
+        "Trust and provenance surfaces are weaker than the package behavior requires."
+      ],
+      "recommended_actions": [
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
+      ],
+      "detail_url": "https://clawhub.ai/aisapay/web-search",
+      "local_path": "clawhub-release\\web-search",
+      "release_ref": null,
+      "reason": "This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources."
+    },
+    {
       "key": "skill:x-intelligence-automation",
       "kind": "skill",
       "name": "x-intelligence-automation",
@@ -1167,16 +1082,12 @@
       "suspicious": true,
       "pending": false,
       "rule_ids": [
-        "metadata_env_mismatch",
         "platform_trust_gap"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Keep source links, manifests, and README provenance aligned.",
         "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
@@ -1606,18 +1517,14 @@
       "suspicious": false,
       "pending": true,
       "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap"
+        "pending_scan"
       ],
       "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires."
+        "Security scan output is not final yet."
       ],
       "recommended_actions": [
         "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
+        "Retry live scan before treating the package as resolved."
       ],
       "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
       "local_path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
@@ -2727,6 +2634,35 @@
       "reason": null
     },
     {
+      "key": "skill:aisa-tavily",
+      "kind": "skill",
+      "name": "aisa-tavily",
+      "publisher_handle": "bibaofeng",
+      "severity": "warning",
+      "scan_status": "pending",
+      "virus_total": "benign",
+      "clawscan_verdict": null,
+      "openclaw_verdict": null,
+      "static_analysis_status": null,
+      "static_analysis_summary": null,
+      "suspicious": false,
+      "pending": true,
+      "rule_ids": [
+        "pending_scan"
+      ],
+      "rule_summaries": [
+        "Security scan output is not final yet."
+      ],
+      "recommended_actions": [
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved."
+      ],
+      "detail_url": "https://clawhub.ai/aisapay/aisa-tavily",
+      "local_path": "clawhub-release\\aisa-tavily",
+      "release_ref": "k97eprs9w52050gwcb4vayc3j9858dk0",
+      "reason": "Detected: suspicious.env_credential_access"
+    },
+    {
       "key": "skill:aisa-tavily-search",
       "kind": "skill",
       "name": "aisa-tavily-search",
@@ -3170,35 +3106,6 @@
       "reason": null
     },
     {
-      "key": "skill:prediction-market",
-      "kind": "skill",
-      "name": "prediction-market",
-      "publisher_handle": "betting",
-      "severity": "warning",
-      "scan_status": "suspicious",
-      "virus_total": "suspicious",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": null,
-      "static_analysis_summary": null,
-      "suspicious": true,
-      "pending": false,
-      "rule_ids": [
-        "platform_trust_gap"
-      ],
-      "rule_summaries": [
-        "Trust and provenance surfaces are weaker than the package behavior requires."
-      ],
-      "recommended_actions": [
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
-      ],
-      "detail_url": "https://clawhub.ai/aisapay/prediction-market",
-      "local_path": "/mnt/d/workplace/agent-skills-io/clawhub-release/prediction-market",
-      "release_ref": null,
-      "reason": "Participate in Base's GTM by betting if today's 18:00 UTC garden temperature will be higher or lower than yesterday's, sharing winnings from the pot."
-    },
-    {
       "key": "skill:prediction-market-arbitrage",
       "kind": "skill",
       "name": "prediction-market-arbitrage",
@@ -3371,6 +3278,64 @@
       "local_path": "clawhub-release\\scholar-search",
       "release_ref": null,
       "reason": null
+    },
+    {
+      "key": "skill:smart-search",
+      "kind": "skill",
+      "name": "smart-search",
+      "publisher_handle": "lee920311",
+      "severity": "warning",
+      "scan_status": "pending",
+      "virus_total": "benign",
+      "clawscan_verdict": null,
+      "openclaw_verdict": null,
+      "static_analysis_status": null,
+      "static_analysis_summary": null,
+      "suspicious": false,
+      "pending": true,
+      "rule_ids": [
+        "pending_scan"
+      ],
+      "rule_summaries": [
+        "Security scan output is not final yet."
+      ],
+      "recommended_actions": [
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved."
+      ],
+      "detail_url": "https://clawhub.ai/aisapay/smart-search",
+      "local_path": "clawhub-release\\smart-search",
+      "release_ref": null,
+      "reason": "The skill appears to implement the described multi-engine search (Exa MCP, SearX, Tavily) and the bundled scripts are plausible, but there are internal metadata inconsistencies and non-obvious privacy/network implications you should verify before installing or running code."
+    },
+    {
+      "key": "skill:stock-dividend",
+      "kind": "skill",
+      "name": "stock-dividend",
+      "publisher_handle": "bibaofeng",
+      "severity": "warning",
+      "scan_status": "pending",
+      "virus_total": "benign",
+      "clawscan_verdict": null,
+      "openclaw_verdict": null,
+      "static_analysis_status": null,
+      "static_analysis_summary": null,
+      "suspicious": false,
+      "pending": true,
+      "rule_ids": [
+        "pending_scan"
+      ],
+      "rule_summaries": [
+        "Security scan output is not final yet."
+      ],
+      "recommended_actions": [
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved."
+      ],
+      "detail_url": "https://clawhub.ai/aisapay/stock-dividend",
+      "local_path": "clawhub-release\\stock-dividend",
+      "release_ref": null,
+      "reason": "The skill mostly matches its stated purpose (dividend analysis via AISA) but has small inconsistencies that could be abused or cause surprises—most notably it reads undocumented environment variables (AISA_BASE_URL, AISA_MODEL) and relies on an external LLM client with an overrideable endpoint."
     },
     {
       "key": "skill:stock-hot",
@@ -3574,35 +3539,6 @@
       "local_path": "/mnt/d/workplace/agent-skills-io/clawhub-release/us-stock-analyst",
       "release_ref": "k9765t6j8rkzgeyt4rfhq1vhbd85qq2p",
       "reason": null
-    },
-    {
-      "key": "skill:web-search",
-      "kind": "skill",
-      "name": "web-search",
-      "publisher_handle": "billyutw",
-      "severity": "warning",
-      "scan_status": "suspicious",
-      "virus_total": "suspicious",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": null,
-      "static_analysis_summary": null,
-      "suspicious": true,
-      "pending": false,
-      "rule_ids": [
-        "platform_trust_gap"
-      ],
-      "rule_summaries": [
-        "Trust and provenance surfaces are weaker than the package behavior requires."
-      ],
-      "recommended_actions": [
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
-      ],
-      "detail_url": "https://clawhub.ai/aisapay/web-search",
-      "local_path": "clawhub-release\\web-search",
-      "release_ref": null,
-      "reason": "This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources."
     },
     {
       "key": "skill:youtube-search",
