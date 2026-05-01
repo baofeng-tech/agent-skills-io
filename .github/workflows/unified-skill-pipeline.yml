@@ -622,8 +622,22 @@ jobs:
           if-no-files-found: ignore
 
   self-hosted-suspicious-repair:
-    if: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair == 'true') || (github.event_name == 'schedule' && vars.AUTO_RUN_SUSPICIOUS_REPAIR == 'true') }}
-    needs: sync-build-test
+    if: >-
+      ${{
+        always() &&
+        (
+          (github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair == 'true') ||
+          (github.event_name == 'schedule' && vars.AUTO_RUN_SUSPICIOUS_REPAIR == 'true')
+        ) &&
+        needs['sync-build-test'].result == 'success' &&
+        (
+          needs['self-hosted-publish'].result == 'success' ||
+          needs['self-hosted-publish'].result == 'skipped'
+        )
+      }}
+    needs:
+      - sync-build-test
+      - self-hosted-publish
     runs-on: self-hosted
     env:
       PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || vars.AUTO_PIPELINE_DRY_RUN || 'false' }}
@@ -950,8 +964,27 @@ jobs:
           if-no-files-found: ignore
 
   self-hosted-breakout-rollout:
-    if: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.run_breakout_rollout == 'true') || (github.event_name == 'schedule' && vars.AUTO_RUN_BREAKOUT_ROLLOUT == 'true') }}
-    needs: sync-build-test
+    if: >-
+      ${{
+        always() &&
+        (
+          (github.event_name == 'workflow_dispatch' && github.event.inputs.run_breakout_rollout == 'true') ||
+          (github.event_name == 'schedule' && vars.AUTO_RUN_BREAKOUT_ROLLOUT == 'true')
+        ) &&
+        needs['sync-build-test'].result == 'success' &&
+        (
+          needs['self-hosted-publish'].result == 'success' ||
+          needs['self-hosted-publish'].result == 'skipped'
+        ) &&
+        (
+          needs['self-hosted-suspicious-repair'].result == 'success' ||
+          needs['self-hosted-suspicious-repair'].result == 'skipped'
+        )
+      }}
+    needs:
+      - sync-build-test
+      - self-hosted-publish
+      - self-hosted-suspicious-repair
     runs-on: self-hosted
     env:
       PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || vars.AUTO_PIPELINE_DRY_RUN || 'false' }}
