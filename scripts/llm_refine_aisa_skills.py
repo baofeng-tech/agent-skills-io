@@ -21,7 +21,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 TARGET_ROOT = REPO_ROOT / "targetSkills"
 PROPOSAL_ROOT = REPO_ROOT / "targets" / "llm-skill-refinement"
 DEFAULT_BASE_URL = "https://api.aisa.one/v1"
-DEFAULT_MODEL = "gpt-4.1"
+DEFAULT_MODEL = "gpt-5.4"
 REPO_SKILLS_ROOT = REPO_ROOT / ".agents" / "skills"
 PROFILE_CONTEXT = {
     "source": {
@@ -157,7 +157,11 @@ def build_parser() -> argparse.ArgumentParser:
         default="chat-completions",
         help="API surface to use against the configured provider.",
     )
-    parser.add_argument("--model", default="", help="Override the model name.")
+    parser.add_argument(
+        "--model",
+        default="",
+        help="Override the repo-local refinement model. Defaults to AISA_LLM_MODEL, then gpt-5.4.",
+    )
     parser.add_argument(
         "--profile",
         choices=tuple(PROFILE_CONTEXT),

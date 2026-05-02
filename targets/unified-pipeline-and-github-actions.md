@@ -119,11 +119,13 @@ The workflow now has one hosted lane plus three independent self-hosted lanes:
 
 Current scheduler details:
 
-- hosted lane cron is `21 */4 * * *`
-- that means the sync/build/test lane now runs every 4 hours
+- hosted lane cron is `21 19 * * *`
+- that means the sync/build/test lane now runs once daily at 19:21 UTC
 - edit `.github/workflows/unified-skill-pipeline.yml` under `on.schedule[0].cron` if you want to change that cadence later
 - workflow-level env now pins `UPSTREAM_BRANCH=main`, so the scheduled sync follows the AIsa upstream `main` branch by default
-- hosted auto-commit now uses `persist-credentials: false` plus explicit token push, which avoids the earlier `actions/checkout` post-job `exit code 128` cleanup failure
+- hosted auto-commit now uses `persist-credentials: false`, explicit token push, pre-commit `git rebase --autostash`, and push retry rebase; this avoids both the earlier `actions/checkout` post-job `exit code 128` cleanup failure and non-fast-forward races with other action commits
+- schedule runs keep a shared concurrency group; manual dispatches use a per-run concurrency group so urgent manual repair does not sit behind the scheduled queue
+- generated root-flat ZIPs are now written with deterministic ordering, timestamps, and permissions so repeated release builds do not create binary churn when skill contents are unchanged
 - workflow-level env also sets `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true` to get ahead of the current GitHub-hosted Node 20 deprecation warning
 
 ### What the hosted lane does
@@ -161,6 +163,7 @@ The pipeline now supports an explicit model-execution stage between sync and bui
   - uses the shared AISA credential lane only:
     - `AISA_API_KEY`
     - optional `AISA_LLM_MODEL`
+  - defaults to `gpt-5.4` only for this repo-local refinement helper; that model default must not be copied into shipped AISA API skill runtime scripts unless a specific runtime change is intentionally approved
 
 In workflow-dispatch mode, the controls are:
 
@@ -289,12 +292,13 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_HERMES_PUBLISH_MODE`
 - `CLAWHUB_CLI_VERSION`
 
-Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL.
+Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL. Before committing repo changes, each hosted and self-hosted commit step also fetches and rebases with `--autostash`, then retries push after another rebase if the remote advanced.
 
 Why:
 
 - the hosted lane may auto-commit regenerated repo state first
 - without a fast-forward, the self-hosted job could later fail its own repo push with a non-fast-forward rejection
+- without the pre-commit rebase/retry, independent workflow-generated commits can still race at push time
 
 On this runner, the self-hosted lane now also supports a local credential fallback:
 

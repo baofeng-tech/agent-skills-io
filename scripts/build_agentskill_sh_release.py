@@ -6,10 +6,10 @@ from __future__ import annotations
 import json
 import shutil
 from pathlib import Path
-from zipfile import ZIP_DEFLATED, ZipFile
 
 import build_claude_release as base
 import build_agentskills_so_release as shared
+from release_zip import write_deterministic_zip
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -22,10 +22,7 @@ PUBLIC_PLATFORMS = "agentskills.io,agentskill.sh,github"
 
 
 def zip_skill(skill_dir: Path, zip_path: Path) -> None:
-    with ZipFile(zip_path, "w", compression=ZIP_DEFLATED) as archive:
-        for path in sorted(skill_dir.rglob("*")):
-            if path.is_file():
-                archive.write(path, path.relative_to(skill_dir))
+    write_deterministic_zip(skill_dir, zip_path)
 
 
 def write_skill_readme(skill_dir: Path, frontmatter: dict[str, object]) -> None:

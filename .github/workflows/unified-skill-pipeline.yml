@@ -129,10 +129,10 @@ on:
           - plugin
           - both
   schedule:
-    - cron: "21 */4 * * *"
+    - cron: "21 19 * * *"
 
 concurrency:
-  group: unified-skill-pipeline-${{ github.ref }}
+  group: ${{ github.event_name == 'schedule' && format('unified-skill-pipeline-scheduled-{0}', github.ref) || format('unified-skill-pipeline-manual-{0}', github.run_id) }}
   cancel-in-progress: false
 
 permissions:
@@ -221,6 +221,10 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          REMOTE_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          git fetch "$REMOTE_URL" "${GITHUB_REF_NAME}"
+          git rebase --autostash FETCH_HEAD
 
           if [[ -z "$(git status --porcelain)" ]]; then
             echo "No repo changes to commit."
@@ -229,7 +233,15 @@ jobs:
 
           git add -A
           git commit -m "chore: sync upstream, rebuild layers, and refresh diagnosis"
-          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"
+          for attempt in 1 2 3; do
+            if git push "$REMOTE_URL" "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; rebasing onto latest ${GITHUB_REF_NAME} before retry."
+            git fetch "$REMOTE_URL" "${GITHUB_REF_NAME}"
+            git rebase FETCH_HEAD
+          done
+          exit 1
 
       - name: Upload pipeline artifacts
         if: always()
@@ -529,6 +541,10 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          REMOTE_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          git fetch "$REMOTE_URL" "${GITHUB_REF_NAME}"
+          git rebase --autostash FETCH_HEAD
 
           if [[ -z "$(git status --porcelain)" ]]; then
             echo "No repo changes to commit."
@@ -542,7 +558,15 @@ jobs:
           fi
 
           git commit -m "chore: self-hosted publish remediation updates"
-          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"
+          for attempt in 1 2 3; do
+            if git push "$REMOTE_URL" "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; rebasing onto latest ${GITHUB_REF_NAME} before retry."
+            git fetch "$REMOTE_URL" "${GITHUB_REF_NAME}"
+            git rebase FETCH_HEAD
+          done
+          exit 1
 
       - name: Commit and push downstream publish repos
         if: ${{ success() && env.PIPELINE_SYNC_ADJACENT == 'true' && env.PIPELINE_PUSH_ADJACENT == 'true' && env.PIPELINE_DRY_RUN != 'true' }}
@@ -875,6 +899,10 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          REMOTE_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          git fetch "$REMOTE_URL" "${GITHUB_REF_NAME}"
+          git rebase --autostash FETCH_HEAD
 
           if [[ -z "$(git status --porcelain)" ]]; then
             echo "No repo changes to commit."
@@ -888,7 +916,15 @@ jobs:
           fi
 
           git commit -m "chore: suspicious remediation updates"
-          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"
+          for attempt in 1 2 3; do
+            if git push "$REMOTE_URL" "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; rebasing onto latest ${GITHUB_REF_NAME} before retry."
+            git fetch "$REMOTE_URL" "${GITHUB_REF_NAME}"
+            git rebase FETCH_HEAD
+          done
+          exit 1
 
       - name: Commit and push downstream publish repos
         if: ${{ success() && env.PIPELINE_SYNC_ADJACENT == 'true' && env.PIPELINE_PUSH_ADJACENT == 'true' && env.PIPELINE_DRY_RUN != 'true' }}
@@ -1213,6 +1249,10 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          REMOTE_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          git fetch "$REMOTE_URL" "${GITHUB_REF_NAME}"
+          git rebase --autostash FETCH_HEAD
 
           if [[ -z "$(git status --porcelain)" ]]; then
             echo "No repo changes to commit."
@@ -1226,7 +1266,15 @@ jobs:
           fi
 
           git commit -m "chore: breakout rollout updates"
-          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"
+          for attempt in 1 2 3; do
+            if git push "$REMOTE_URL" "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; rebasing onto latest ${GITHUB_REF_NAME} before retry."
+            git fetch "$REMOTE_URL" "${GITHUB_REF_NAME}"
+            git rebase FETCH_HEAD
+          done
+          exit 1
 
       - name: Commit and push downstream publish repos
         if: ${{ success() && env.PIPELINE_SYNC_ADJACENT == 'true' && env.PIPELINE_PUSH_ADJACENT == 'true' && env.PIPELINE_DRY_RUN != 'true' }}

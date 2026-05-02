@@ -297,7 +297,7 @@ def write_skill_readme(skill_dir: Path, frontmatter: dict[str, Any], platform: s
 
 def rewrite_markdown_tree(skill_dir: Path, platform: str, audit: SkillAudit) -> None:
     updated = 0
-    for path in skill_dir.rglob("*.md"):
+    for path in sorted(skill_dir.rglob("*.md")):
         if path.name == "README.md":
             continue
         text = path.read_text(encoding="utf-8")
@@ -431,7 +431,7 @@ def prune_release_tree(skill_dir: Path, audit: SkillAudit) -> None:
 
 
 def patch_runtime_files(skill_dir: Path, audit: SkillAudit) -> None:
-    for oauth_path in skill_dir.rglob("twitter_oauth_client.py"):
+    for oauth_path in sorted(skill_dir.rglob("twitter_oauth_client.py")):
         text = oauth_path.read_text(encoding="utf-8")
         old = "    if output[\"ok\"] and args.open_browser:\n        webbrowser.open(auth_url)\n"
         new = (
@@ -466,7 +466,7 @@ def patch_runtime_files(skill_dir: Path, audit: SkillAudit) -> None:
             file_path.write_text(text.replace(old, new), encoding="utf-8")
             audit.changes.append(f"switched default local storage to repo-local path in {relative_path}")
 
-    for ui_path in skill_dir.rglob("ui.py"):
+    for ui_path in sorted(skill_dir.rglob("ui.py")):
         text = ui_path.read_text(encoding="utf-8")
         updated = text.replace("~/.config/last30days/.env", "./.claude-skill-data/last30days/.env")
         if updated != text:

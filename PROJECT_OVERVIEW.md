@@ -818,12 +818,15 @@ GitHub Actions 工作流层。
 - `last30days` 上游跟随策略：已从 2026-04-26 起取消统一调度层的人工 hold，改为直接跟随 `AIsa-team/agent-skills@main`，保守收敛放到发布层与 suspicious 诊断 / 修复链路中处理
 - GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；事故修复后，下游 GitHub 目标已显式排除 `AIsa-team/agent-skills`，仅覆盖 `baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
 - GitHub Actions 自动全平台发布：self-hosted 真发布轨现已支持在 `schedule` 下通过仓库变量 `AUTO_FULL_PLATFORM_PUBLISH=true` 自动开启，并可用 `AUTO_ADJACENT_TARGETS`、`AUTO_CLAWHUB_PUBLISH`、`AUTO_SYNC_ADJACENT_REPOS`、`AUTO_PUSH_ADJACENT_REPOS` 等变量细化“发哪些下游平台”
-- 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每 4 小时一次（`21 */4 * * *`）
+- 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每日一次（`21 19 * * *`），避免长发布链路堆积出 pending/canceled 队列
 - GitHub Actions checkout 后置失败修复：hosted lane 已改为 `persist-credentials: false` + explicit token push，避免此前的 post-job `exit code 128`
+- GitHub Actions 提交冲突修复：hosted 与 self-hosted repo commit step 现在会在提交前 `git rebase --autostash` 到远端最新 `main`，push 失败时再 fetch/rebase 重试，避免 action 之间互相制造 non-fast-forward 冲突
+- 发布 ZIP 抖动修复：AgentSkills / agentskill.sh / ClawHub plugin 的 root-flat zip 现在通过 `scripts/release_zip.py` 以固定排序、时间戳和权限生成，并用 `.gitattributes` 固定文本 LF，避免例行构建反复制造大面积 skill/zip diff
 - GitHub Actions 三条流程线：现在已经拆成（1）正常 upstream sync + 下游平台发布线，（2）suspicious diagnosis-driven repair 线，（3）breakout rollout 线；三条线在 workflow 中是独立 self-hosted job，不再混在同一个发布 job 里
 - GitHub Actions suspicious 修复闭环：self-hosted suspicious lane 现在支持在未显式传入 artifact 列表时，按 `baofeng-tech`、`bibaofeng`、`aisadocs` 自动筛选自有 `blocker + suspicious` artifact，并可用 `AUTO_SUSPICIOUS_MAX_ARTIFACTS` 控制单次处理上限
 - GitHub Actions breakout 独立入口：新增 `scripts/clawhub_breakout_rollout.py` 与 `run_breakout_rollout` / `AUTO_RUN_BREAKOUT_ROLLOUT`，让爆款变体发布不再和 suspicious 修复链路混用
 - repo-local 精修规则拆层：本轮已把默认母版精修、ClawHub breakout 精修、ClawHub suspicious remediation 精修拆成三个 profile，避免继续把平台私有规则混入 `targetSkills/`
+- repo-local 精修默认模型边界：`gpt-5.4` 只作为 `scripts/llm_refine_aisa_skills.py` 调用大模型精修 skill 时的默认模型，不应传播到 AISA API skill 的原有脚本或运行时默认模型
 - GitHub Actions self-hosted 与 hosted 衔接：self-hosted lane 在准备下游发布前会先 fast-forward 到远端最新 `main`，避免 hosted lane 先行 auto-commit 后造成后续 non-fast-forward push 失败
 - GitHub Actions self-hosted 凭据回退：当 `DOWNSTREAM_REPO_TOKEN` 与 ClawHub tokens 等 CI secrets 未配置时，当前 runner 会回退读取本机 `/mnt/d/workplace/agent-skills-io/example/accounts`，并优先使用公开 HTTPS clone 准备下游仓库，避免 SSH 超时卡死在发布前置阶段
 - GitHub Actions ClawHub CLI 自检 / 自装：self-hosted 真发布轨现在支持通过 `install_clawhub_cli` 或仓库变量 `AUTO_INSTALL_CLAWHUB_CLI=true` 先执行 `npm install -g clawhub@<version>`；Hermes 默认仍以 GitHub repo 同步为主，但现在也支持在 runner 已安装 CLI 时走可选 `hermes_publish_mode=cli`

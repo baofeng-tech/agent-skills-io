@@ -1,0 +1,1287 @@
+{
+  "generated_at": "2026-05-02T16:30:58.329137+00:00",
+  "target_root": "targetSkills",
+  "skill_count": 54,
+  "docs_only_skills": [
+    "aisa-provider",
+    "aisa-youtube-search",
+    "stock-watchlist",
+    "youtube-search"
+  ],
+  "check_count": 72,
+  "failure_count": 17,
+  "results": [
+    {
+      "skill": "aisa-multi-search-engine",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 2,
+      "stdout_preview": "\n============================================================\n  Web Search Results\n============================================================\n\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-tavily",
+      "kind": "node",
+      "command": [
+        "node",
+        "scripts/extract.mjs",
+        "https://example.com"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "node:internal/deps/undici/undici:14976\n      Error.captureStackTrace(err);\n            ^\n\nTypeError: fetch failed\n    at node:internal/deps/undici/undici:14976:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async file:///mnt/d/workplace/agent-skills-io/targetSkills/aisa-tavily/scripts/extract.mjs:24:14 {\n  [cause]: Error: Client network socket disconnected before secure TLS connection was established\n      at TLSSocket.onConnectEnd (node:internal/tls/wrap:1754:19)\n      at TLSSocket.emit (node:events:531:35)\n      at endReadableNT (node:internal/streams/readable:1698:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\n    code: 'ECONNRESET',\n    path: undefined,\n    host: 'api.aisa.one',\n    port: 443,\n    localAddress: null\n  }\n}\n\nNode.js v22.22.2\n"
+    },
+    {
+      "skill": "aisa-tavily",
+      "kind": "node",
+      "command": [
+        "node",
+        "scripts/search.mjs",
+        "OpenAI",
+        "-n",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "node:internal/deps/undici/undici:14976\n      Error.captureStackTrace(err);\n            ^\n\nTypeError: fetch failed\n    at node:internal/deps/undici/undici:14976:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async file:///mnt/d/workplace/agent-skills-io/targetSkills/aisa-tavily/scripts/search.mjs:61:14 {\n  [cause]: Error: Client network socket disconnected before secure TLS connection was established\n      at TLSSocket.onConnectEnd (node:internal/tls/wrap:1754:19)\n      at TLSSocket.emit (node:events:531:35)\n      at endReadableNT (node:internal/streams/readable:1698:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\n    code: 'ECONNRESET',\n    path: undefined,\n    host: 'api.aisa.one',\n    port: 443,\n    localAddress: null\n  }\n}\n\nNode.js v22.22.2\n"
+    },
+    {
+      "skill": "aisa-twitter-api",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHU85CsXwLgKAAIcdTvsQFfQ6wAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdTzqWMAnEAoABhx1POpYv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/255818461/1654994187\",\n        \"createdAt\": \"Tue Feb 22 03:15:19 +0000 2011\",\n        \"description\": \"\",\n        \"entities\": {\n          \"description\": {\n            \"urls\": []\n          },\n          \"url\": {}\n        },\n        \"fastFollowersCount\": 0,\n        \"favouritesCount\": 169517,\n        \"followers\": 1043,\n        \"following\": 892,\n        \"hasCustomTimelines\": true,\n        \"id\": \"255818461\",\n        \"isAutomated\": false,\n        \"isBlueVerified\": true,\n        \"isTranslator\": false,\n        \"isVerified\": false,\n        \"location\": \"New York, NY\",\n        \"mediaCount\": 63,\n        \"name\": \"Mishaal Nathani\",\n        \"pinnedTweetIds\": [\n          \"1487156267101704202\"\n        ],\n        \"possiblySensitive\": false,\n        \"profilePicture\": \"https://pbs.twimg.com/profile_images/1535782894626607104/l22hmFDT_normal.jpg\",\n        \"profile_bio\": {\n          \"description\": \"Building HVAC, Cables, Appliances in 🇺🇸 • Prev - Co-founder @Appregator_io • Venture @AngelList, MBA @HarvardHBS, Co-founder @WeArePlaneCrazy\",\n          \"entities\": {\n            \"description\": {\n              \"user_mentions\": [\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    60,\n                    74\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"Appregator_io\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    85,\n                    95\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"AngelList\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    101,\n                    112\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"HarvardHBS\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    125,\n                    141\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"WeArePlaneCrazy\"\n                }\n              ]\n            },\n            \"url\": {\n              \"urls\": [\n                {\n                  \"display_url\": \"mishaalnathani.com\",\n                  \"expanded_url\": \"http://mishaalnathani.com\",\n                  \"indices\": [\n                    0,\n                    23\n                  ],\n                  \"url\": \"https://t.co/G6jEefighm\"\n                }\n              ]\n            }\n          }\n        },\n        \"status\": \"\",\n        \"statusesCount\": 1334,\n        \"twitterUrl\": \"https://twitter.com/MishaalNathani\",\n        \"type\": \"user\",\n        \"url\": \"https://x.com/MishaalNathani\",\n        \"userName\": \"MishaalNathani\",\n        \"verifiedType\": null,\n        \"withheldInCountries\": []\n      },\n      \"bookmarkCount\": 0,\n      \"card\": null,\n      \"communityInfo\": null,\n      \"conversationId\": \"2050612156010315960\",\n      \"createdAt\": \"Sat May 02 16:23:31 +0000 2026\",\n      \"displayTextRange\": [\n        0,\n        42\n      ],\n      \"entities\": {\n        \"hashtags\": [],\n        \"symbols\": [],\n        \"timestamps\": [],\n        \"urls\": [],\n        \"user_mentions\": [\n          {\n            \"id_str\": \"4398626122\",\n            \"indices\": [\n              35,\n              42\n            ],\n            \"name\": \"OpenAI\",\n            \"screen_name\": \"OpenAI\"\n          }\n        ]\n      },\n      \"extendedEntities\": {\n        \"media\": [\n          {\n            \"display_url\": \"pic.twitter.com/3JoJNg4hpY\",\n            \"expanded_url\": \"https://twitter.com/MishaalNathani/status/2050612156010315960/photo/1\",\n            \"ext_media_availability\": {\n              \"status\": \"Available\"\n            },\n            \"features\": {\n              \"large\": {\n                \"faces\": []\n              },\n              \"orig\": {\n                \"faces\": []\n              }\n            },\n            \"id_str\": \"2050611961688162304\",\n            \"indices\": [\n              43,\n              66\n            ],\n            \"media_key\": \"3_2050611961688162304\",\n            \"media_results\": {\n              \"id\": \"QXBpTWVkaWFSZXN1bHRzOgwAAQoAARx1PLbslwAACgACHHU85CsXwLgAAA==\",\n              \"result\": {\n                \"__typename\": \"ApiMedia\",\n                \"id\": \"QXBpTWVkaWE6DAABCgABHHU8tuyXAAAKAAIcdTzkKxfAuAAA\",\n                \"media_key\": \"3_2050611961688162304\"\n              }\n            },\n            \"media_url_https\": \"https://pbs.twimg.com/media/HHU8tuyXAAAeu_D.png\",\n            \"original_info\": {\n              \"focus_rects\": [\n                {\n                  \"h\": 48,\n                  \"w\": 86,\n                  \"x\": 198,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 48,\n                  \"x\": 217,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 42,\n                  \"x\": 220,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 24,\n                  \"x\": 229,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 360,\n                  \"x\": 0,\n                  \"y\": 0\n                }\n              ],\n              \"height\": 48,\n              \"width\": 360\n            },\n            \"sizes\": {\n              \"large\": {\n                \"h\": 48,\n                \"w\": 360\n              }\n            },\n            \"type\": \"photo\",\n            \"url\": \"https://t.co/3JoJNg4hpY\"\n          }\n        ]\n      },",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-api",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter OAuth client for local AIsa posting flows\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the AIsa service\n    post                Publish a post through the AIsa service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-command-center",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHU85CsXwLgKAAIcdTvsQFfQ6wAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdTzvIgAnEAoABhx1PO8h_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/255818461/1654994187\",\n        \"createdAt\": \"Tue Feb 22 03:15:19 +0000 2011\",\n        \"description\": \"\",\n        \"entities\": {\n          \"description\": {\n            \"urls\": []\n          },\n          \"url\": {}\n        },\n        \"fastFollowersCount\": 0,\n        \"favouritesCount\": 169518,\n        \"followers\": 1043,\n        \"following\": 892,\n        \"hasCustomTimelines\": true,\n        \"id\": \"255818461\",\n        \"isAutomated\": false,\n        \"isBlueVerified\": true,\n        \"isTranslator\": false,\n        \"isVerified\": false,\n        \"location\": \"New York, NY\",\n        \"mediaCount\": 63,\n        \"name\": \"Mishaal Nathani\",\n        \"pinnedTweetIds\": [\n          \"1487156267101704202\"\n        ],\n        \"possiblySensitive\": false,\n        \"profilePicture\": \"https://pbs.twimg.com/profile_images/1535782894626607104/l22hmFDT_normal.jpg\",\n        \"profile_bio\": {\n          \"description\": \"Building HVAC, Cables, Appliances in 🇺🇸 • Prev - Co-founder @Appregator_io • Venture @AngelList, MBA @HarvardHBS, Co-founder @WeArePlaneCrazy\",\n          \"entities\": {\n            \"description\": {\n              \"user_mentions\": [\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    60,\n                    74\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"Appregator_io\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    85,\n                    95\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"AngelList\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    101,\n                    112\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"HarvardHBS\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    125,\n                    141\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"WeArePlaneCrazy\"\n                }\n              ]\n            },\n            \"url\": {\n              \"urls\": [\n                {\n                  \"display_url\": \"mishaalnathani.com\",\n                  \"expanded_url\": \"http://mishaalnathani.com\",\n                  \"indices\": [\n                    0,\n                    23\n                  ],\n                  \"url\": \"https://t.co/G6jEefighm\"\n                }\n              ]\n            }\n          }\n        },\n        \"status\": \"\",\n        \"statusesCount\": 1334,\n        \"twitterUrl\": \"https://twitter.com/MishaalNathani\",\n        \"type\": \"user\",\n        \"url\": \"https://x.com/MishaalNathani\",\n        \"userName\": \"MishaalNathani\",\n        \"verifiedType\": null,\n        \"withheldInCountries\": []\n      },\n      \"bookmarkCount\": 0,\n      \"card\": null,\n      \"communityInfo\": null,\n      \"conversationId\": \"2050612156010315960\",\n      \"createdAt\": \"Sat May 02 16:23:31 +0000 2026\",\n      \"displayTextRange\": [\n        0,\n        42\n      ],\n      \"entities\": {\n        \"hashtags\": [],\n        \"symbols\": [],\n        \"timestamps\": [],\n        \"urls\": [],\n        \"user_mentions\": [\n          {\n            \"id_str\": \"4398626122\",\n            \"indices\": [\n              35,\n              42\n            ],\n            \"name\": \"OpenAI\",\n            \"screen_name\": \"OpenAI\"\n          }\n        ]\n      },\n      \"extendedEntities\": {\n        \"media\": [\n          {\n            \"display_url\": \"pic.twitter.com/3JoJNg4hpY\",\n            \"expanded_url\": \"https://twitter.com/MishaalNathani/status/2050612156010315960/photo/1\",\n            \"ext_media_availability\": {\n              \"status\": \"Available\"\n            },\n            \"features\": {\n              \"large\": {\n                \"faces\": []\n              },\n              \"orig\": {\n                \"faces\": []\n              }\n            },\n            \"id_str\": \"2050611961688162304\",\n            \"indices\": [\n              43,\n              66\n            ],\n            \"media_key\": \"3_2050611961688162304\",\n            \"media_results\": {\n              \"id\": \"QXBpTWVkaWFSZXN1bHRzOgwAAQoAARx1PLbslwAACgACHHU85CsXwLgAAA==\",\n              \"result\": {\n                \"__typename\": \"ApiMedia\",\n                \"id\": \"QXBpTWVkaWE6DAABCgABHHU8tuyXAAAKAAIcdTzkKxfAuAAA\",\n                \"media_key\": \"3_2050611961688162304\"\n              }\n            },\n            \"media_url_https\": \"https://pbs.twimg.com/media/HHU8tuyXAAAeu_D.png\",\n            \"original_info\": {\n              \"focus_rects\": [\n                {\n                  \"h\": 48,\n                  \"w\": 86,\n                  \"x\": 198,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 48,\n                  \"x\": 217,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 42,\n                  \"x\": 220,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 24,\n                  \"x\": 229,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 360,\n                  \"x\": 0,\n                  \"y\": 0\n                }\n              ],\n              \"height\": 48,\n              \"width\": 360\n            },\n            \"sizes\": {\n              \"large\": {\n                \"h\": 48,\n                \"w\": 360\n              }\n            },\n            \"type\": \"photo\",\n            \"url\": \"https://t.co/3JoJNg4hpY\"\n          }\n        ]\n      },",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-command-center",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter OAuth client for local AIsa posting flows\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the AIsa service\n    post                Publish a post through the AIsa service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-engagement-suite",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHU85CsXwLgKAAIcdTvxCNZBMwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdTzz1kAnEAoABhx1PPPWP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/255818461/1654994187\",\n        \"createdAt\": \"Tue Feb 22 03:15:19 +0000 2011\",\n        \"description\": \"\",\n        \"entities\": {\n          \"description\": {\n            \"urls\": []\n          },\n          \"url\": {}\n        },\n        \"fastFollowersCount\": 0,\n        \"favouritesCount\": 169519,\n        \"followers\": 1043,\n        \"following\": 892,\n        \"hasCustomTimelines\": true,\n        \"id\": \"255818461\",\n        \"isAutomated\": false,\n        \"isBlueVerified\": true,\n        \"isTranslator\": false,\n        \"isVerified\": false,\n        \"location\": \"New York, NY\",\n        \"mediaCount\": 62,\n        \"name\": \"Mishaal Nathani\",\n        \"pinnedTweetIds\": [\n          \"1487156267101704202\"\n        ],\n        \"possiblySensitive\": false,\n        \"profilePicture\": \"https://pbs.twimg.com/profile_images/1535782894626607104/l22hmFDT_normal.jpg\",\n        \"profile_bio\": {\n          \"description\": \"Building HVAC, Cables, Appliances in 🇺🇸 • Prev - Co-founder @Appregator_io • Venture @AngelList, MBA @HarvardHBS, Co-founder @WeArePlaneCrazy\",\n          \"entities\": {\n            \"description\": {\n              \"user_mentions\": [\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    60,\n                    74\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"Appregator_io\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    85,\n                    95\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"AngelList\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    101,\n                    112\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"HarvardHBS\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    125,\n                    141\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"WeArePlaneCrazy\"\n                }\n              ]\n            },\n            \"url\": {\n              \"urls\": [\n                {\n                  \"display_url\": \"mishaalnathani.com\",\n                  \"expanded_url\": \"http://mishaalnathani.com\",\n                  \"indices\": [\n                    0,\n                    23\n                  ],\n                  \"url\": \"https://t.co/G6jEefighm\"\n                }\n              ]\n            }\n          }\n        },\n        \"status\": \"\",\n        \"statusesCount\": 1333,\n        \"twitterUrl\": \"https://twitter.com/MishaalNathani\",\n        \"type\": \"user\",\n        \"url\": \"https://x.com/MishaalNathani\",\n        \"userName\": \"MishaalNathani\",\n        \"verifiedType\": null,\n        \"withheldInCountries\": []\n      },\n      \"bookmarkCount\": 0,\n      \"card\": null,\n      \"communityInfo\": null,\n      \"conversationId\": \"2050612156010315960\",\n      \"createdAt\": \"Sat May 02 16:23:31 +0000 2026\",\n      \"displayTextRange\": [\n        0,\n        42\n      ],\n      \"entities\": {\n        \"hashtags\": [],\n        \"symbols\": [],\n        \"timestamps\": [],\n        \"urls\": [],\n        \"user_mentions\": [\n          {\n            \"id_str\": \"4398626122\",\n            \"indices\": [\n              35,\n              42\n            ],\n            \"name\": \"OpenAI\",\n            \"screen_name\": \"OpenAI\"\n          }\n        ]\n      },\n      \"extendedEntities\": {\n        \"media\": [\n          {\n            \"display_url\": \"pic.twitter.com/3JoJNg4hpY\",\n            \"expanded_url\": \"https://twitter.com/MishaalNathani/status/2050612156010315960/photo/1\",\n            \"ext_media_availability\": {\n              \"status\": \"Available\"\n            },\n            \"features\": {\n              \"large\": {\n                \"faces\": []\n              },\n              \"orig\": {\n                \"faces\": []\n              }\n            },\n            \"id_str\": \"2050611961688162304\",\n            \"indices\": [\n              43,\n              66\n            ],\n            \"media_key\": \"3_2050611961688162304\",\n            \"media_results\": {\n              \"id\": \"QXBpTWVkaWFSZXN1bHRzOgwAAQoAARx1PLbslwAACgACHHU85CsXwLgAAA==\",\n              \"result\": {\n                \"__typename\": \"ApiMedia\",\n                \"id\": \"QXBpTWVkaWE6DAABCgABHHU8tuyXAAAKAAIcdTzkKxfAuAAA\",\n                \"media_key\": \"3_2050611961688162304\"\n              }\n            },\n            \"media_url_https\": \"https://pbs.twimg.com/media/HHU8tuyXAAAeu_D.png\",\n            \"original_info\": {\n              \"focus_rects\": [\n                {\n                  \"h\": 48,\n                  \"w\": 86,\n                  \"x\": 198,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 48,\n                  \"x\": 217,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 42,\n                  \"x\": 220,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 24,\n                  \"x\": 229,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 360,\n                  \"x\": 0,\n                  \"y\": 0\n                }\n              ],\n              \"height\": 48,\n              \"width\": 360\n            },\n            \"sizes\": {\n              \"large\": {\n                \"h\": 48,\n                \"w\": 360\n              }\n            },\n            \"type\": \"photo\",\n            \"url\": \"https://t.co/3JoJNg4hpY\"\n          }\n        ]\n      },",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-engagement-suite",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"ok\": true,\n  \"action\": \"list_tweets\",\n  \"target\": {\n    \"type\": \"user\",\n    \"value\": \"OpenAI\",\n    \"user_id\": \"4398626122\"\n  },\n  \"resolved_user\": {\n    \"user_id\": \"4398626122\",\n    \"username\": \"OpenAI\",\n    \"display_name\": \"OpenAI\"\n  },\n  \"tweets\": [\n    {\n      \"index\": 1,\n      \"tweet_id\": \"2050290618187055175\",\n      \"text\": \"Bring your workflow to Codex in just a few clicks.\\n\\nImport settings, plugins, agents, project configuration, and more so you can keep working with fewer interruptions.\\n\\nYour move. https://t.co/uRu5VSeWuz\",\n      \"created_at\": \"Fri May 01 19:05:50 +0000 2026\",\n      \"author_id\": \"4398626122\",\n      \"author_username\": \"OpenAI\",\n      \"author_name\": \"OpenAI\",\n      \"tweet_url\": \"https://x.com/OpenAI/status/2050290618187055175\"\n    }\n  ],\n  \"message\": \"Found 1 recent tweets from @OpenAI.\",\n  \"raw_response\": {\n    \"code\": 0,\n    \"data\": {\n      \"pin_tweet\": null,\n      \"tweets\": [\n        {\n          \"article\": null,\n          \"author\": {\n            \"affiliatesHighlightedLabel\": {},\n            \"automatedBy\": null,\n            \"canDm\": false,\n            \"canMediaTag\": true,\n            \"coverPicture\": \"https://pbs.twimg.com/profile_banners/4398626122/1777662919\",\n            \"createdAt\": \"Sun Dec 06 22:51:08 +0000 2015\",\n            \"description\": \"\",\n            \"entities\": {\n              \"description\": {\n                \"urls\": []\n              },\n              \"url\": {}\n            },\n            \"fastFollowersCount\": 0,\n            \"favouritesCount\": 2018,\n            \"followers\": 4803981,\n            \"following\": 4,\n            \"hasCustomTimelines\": true,\n            \"id\": \"4398626122\",\n            \"isAutomated\": false,\n            \"isBlueVerified\": true,\n            \"isTranslator\": false,\n            \"isVerified\": false,\n            \"location\": \"\",\n            \"mediaCount\": 574,\n            \"name\": \"OpenAI\",\n            \"pinnedTweetIds\": [\n              \"2049535650626785334\"\n            ],\n            \"possiblySensitive\": false,\n            \"profilePicture\": \"https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg\",\n            \"profile_bio\": {\n              \"description\": \"OpenAI’s mission is to ensure that artificial general intelligence benefits all of humanity. We’re hiring: https://t.co/dJGr6LgzPA\",\n              \"entities\": {\n                \"description\": {\n                  \"urls\": [\n                    {\n                      \"display_url\": \"openai.com/jobs\",\n                      \"expanded_url\": \"http://openai.com/jobs\",\n                      \"indices\": [\n                        107,\n                        130\n                      ],\n                      \"url\": \"https://t.co/dJGr6LgzPA\"\n                    }\n                  ]\n                },\n                \"url\": {\n                  \"urls\": [\n                    {\n                      \"display_url\": \"openai.com\",\n                      \"expanded_url\": \"https://openai.com\",\n                      \"indices\": [\n                        0,\n                        23\n                      ],\n                      \"url\": \"https://t.co/3bPlZZkvdL\"\n                    }\n                  ]\n                }\n              }\n            },\n            \"status\": \"\",\n            \"statusesCount\": 1815,\n            \"twitterUrl\": \"https://twitter.com/OpenAI\",\n            \"type\": \"user\",\n            \"url\": \"https://x.com/OpenAI\",\n            \"userName\": \"OpenAI\",\n            \"verifiedType\": \"Business\",\n            \"withheldInCountries\": []\n          },\n          \"bookmarkCount\": 941,\n          \"card\": null,\n          \"communityInfo\": null,\n          \"conversationId\": \"2050290618187055175\",\n          \"createdAt\": \"Fri May 01 19:05:50 +0000 2026\",\n          \"displayTextRange\": [\n            0,\n            179\n          ],\n          \"entities\": {\n            \"hashtags\": [],\n            \"symbols\": [],\n            \"timestamps\": [],\n            \"urls\": [],\n            \"user_mentions\": []\n          },\n          \"extendedEntities\": {\n            \"media\": [\n              {\n                \"additional_media_info\": {\n                  \"monetizable\": true\n                },\n                \"allow_download_status\": {},\n                \"display_url\": \"pic.twitter.com/uRu5VSeWuz\",\n                \"expanded_url\": \"https://twitter.com/OpenAI/status/2050290618187055175/video/1\",\n                \"ext_media_availability\": {\n                  \"status\": \"Available\"\n                },\n                \"id_str\": \"2050290321016438784\",\n                \"indices\": [\n                  180,\n                  203\n                ],\n                \"media_key\": \"13_2050290321016438784\",\n                \"media_results\": {\n                  \"id\": \"QXBpTWVkaWFSZXN1bHRzOgwABAoAARx0GC8em0AAAAA=\",\n                  \"result\": {\n                    \"__typename\": \"ApiMedia\",\n                    \"id\": \"QXBpTWVkaWE6DAAECgABHHQYLx6bQAAAAA==\",\n                    \"media_key\": \"13_2050290321016438784\"\n                  }\n                },\n                \"media_url_https\": \"https://pbs.twimg.com/media/HHU6GnvWwAAS71r.jpg\",\n                \"original_info\": {\n                  \"focus_rects\": [],\n                  \"height\": 1080,\n                  \"width\": 1920\n                },\n                \"sizes\": {\n                  \"large\": {\n                    \"h\": 1080,\n                    \"w\": 1920\n                  }\n                },\n                \"type\": \"video\",\n                \"url\": \"https://t.co/uRu5VSeWuz\",\n                \"video_info\": {\n                  \"aspect_ratio\": [\n                    16,\n                    9\n                  ],\n                  \"duration_millis\": 27114,\n                  \"variants\": [\n                    {\n                      \"content_type\": \"application/x-mpegURL\",\n                      \"url\": \"https://video.twimg.com/amplify_video/2050290321016438784/pl/yx788JK2SEjH1EtE.m3u8?tag=27&v=cfc\"\n                    },\n                    {\n                      \"bitrate\": 256000,\n           ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-engagement-suite",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter OAuth client for local AIsa posting flows\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the AIsa service\n    post                Publish a post through the AIsa service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHU85CsXwLgKAAIcdTwkd9ahFwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdT0LCAAnEAoABhx1PQsH_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/255818461/1654994187\",\n        \"createdAt\": \"Tue Feb 22 03:15:19 +0000 2011\",\n        \"description\": \"\",\n        \"entities\": {\n          \"description\": {\n            \"urls\": []\n          },\n          \"url\": {}\n        },\n        \"fastFollowersCount\": 0,\n        \"favouritesCount\": 169522,\n        \"followers\": 1043,\n        \"following\": 892,\n        \"hasCustomTimelines\": true,\n        \"id\": \"255818461\",\n        \"isAutomated\": false,\n        \"isBlueVerified\": true,\n        \"isTranslator\": false,\n        \"isVerified\": false,\n        \"location\": \"New York, NY\",\n        \"mediaCount\": 63,\n        \"name\": \"Mishaal Nathani\",\n        \"pinnedTweetIds\": [\n          \"1487156267101704202\"\n        ],\n        \"possiblySensitive\": false,\n        \"profilePicture\": \"https://pbs.twimg.com/profile_images/1535782894626607104/l22hmFDT_normal.jpg\",\n        \"profile_bio\": {\n          \"description\": \"Building HVAC, Cables, Appliances in 🇺🇸 • Prev - Co-founder @Appregator_io • Venture @AngelList, MBA @HarvardHBS, Co-founder @WeArePlaneCrazy\",\n          \"entities\": {\n            \"description\": {\n              \"user_mentions\": [\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    60,\n                    74\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"Appregator_io\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    85,\n                    95\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"AngelList\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    101,\n                    112\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"HarvardHBS\"\n                },\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    125,\n                    141\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"WeArePlaneCrazy\"\n                }\n              ]\n            },\n            \"url\": {\n              \"urls\": [\n                {\n                  \"display_url\": \"mishaalnathani.com\",\n                  \"expanded_url\": \"http://mishaalnathani.com\",\n                  \"indices\": [\n                    0,\n                    23\n                  ],\n                  \"url\": \"https://t.co/G6jEefighm\"\n                }\n              ]\n            }\n          }\n        },\n        \"status\": \"\",\n        \"statusesCount\": 1334,\n        \"twitterUrl\": \"https://twitter.com/MishaalNathani\",\n        \"type\": \"user\",\n        \"url\": \"https://x.com/MishaalNathani\",\n        \"userName\": \"MishaalNathani\",\n        \"verifiedType\": null,\n        \"withheldInCountries\": []\n      },\n      \"bookmarkCount\": 0,\n      \"card\": null,\n      \"communityInfo\": null,\n      \"conversationId\": \"2050612156010315960\",\n      \"createdAt\": \"Sat May 02 16:23:31 +0000 2026\",\n      \"displayTextRange\": [\n        0,\n        42\n      ],\n      \"entities\": {\n        \"hashtags\": [],\n        \"symbols\": [],\n        \"timestamps\": [],\n        \"urls\": [],\n        \"user_mentions\": [\n          {\n            \"id_str\": \"4398626122\",\n            \"indices\": [\n              35,\n              42\n            ],\n            \"name\": \"OpenAI\",\n            \"screen_name\": \"OpenAI\"\n          }\n        ]\n      },\n      \"extendedEntities\": {\n        \"media\": [\n          {\n            \"display_url\": \"pic.twitter.com/3JoJNg4hpY\",\n            \"expanded_url\": \"https://twitter.com/MishaalNathani/status/2050612156010315960/photo/1\",\n            \"ext_media_availability\": {\n              \"status\": \"Available\"\n            },\n            \"features\": {\n              \"large\": {\n                \"faces\": []\n              },\n              \"orig\": {\n                \"faces\": []\n              }\n            },\n            \"id_str\": \"2050611961688162304\",\n            \"indices\": [\n              43,\n              66\n            ],\n            \"media_key\": \"3_2050611961688162304\",\n            \"media_results\": {\n              \"id\": \"QXBpTWVkaWFSZXN1bHRzOgwAAQoAARx1PLbslwAACgACHHU85CsXwLgAAA==\",\n              \"result\": {\n                \"__typename\": \"ApiMedia\",\n                \"id\": \"QXBpTWVkaWE6DAABCgABHHU8tuyXAAAKAAIcdTzkKxfAuAAA\",\n                \"media_key\": \"3_2050611961688162304\"\n              }\n            },\n            \"media_url_https\": \"https://pbs.twimg.com/media/HHU8tuyXAAAeu_D.png\",\n            \"original_info\": {\n              \"focus_rects\": [\n                {\n                  \"h\": 48,\n                  \"w\": 86,\n                  \"x\": 198,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 48,\n                  \"x\": 217,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 42,\n                  \"x\": 220,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 24,\n                  \"x\": 229,\n                  \"y\": 0\n                },\n                {\n                  \"h\": 48,\n                  \"w\": 360,\n                  \"x\": 0,\n                  \"y\": 0\n                }\n              ],\n              \"height\": 48,\n              \"width\": 360\n            },\n            \"sizes\": {\n              \"large\": {\n                \"h\": 48,\n                \"w\": 360\n              }\n            },\n            \"type\": \"photo\",\n            \"url\": \"https://t.co/3JoJNg4hpY\"\n          }\n        ]\n      },",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 2,
+      "stdout_preview": "{\n  \"ok\": true,\n  \"action\": \"list_tweets\",\n  \"target\": {\n    \"type\": \"user\",\n    \"value\": \"OpenAI\",\n    \"user_id\": \"4398626122\"\n  },\n  \"resolved_user\": {\n    \"user_id\": \"4398626122\",\n    \"username\": \"OpenAI\",\n    \"display_name\": \"OpenAI\"\n  },\n  \"tweets\": [\n    {\n      \"index\": 1,\n      \"tweet_id\": \"2050290618187055175\",\n      \"text\": \"Bring your workflow to Codex in just a few clicks.\\n\\nImport settings, plugins, agents, project configuration, and more so you can keep working with fewer interruptions.\\n\\nYour move. https://t.co/uRu5VSeWuz\",\n      \"created_at\": \"Fri May 01 19:05:50 +0000 2026\",\n      \"author_id\": \"4398626122\",\n      \"author_username\": \"OpenAI\",\n      \"author_name\": \"OpenAI\",\n      \"tweet_url\": \"https://x.com/OpenAI/status/2050290618187055175\"\n    }\n  ],\n  \"message\": \"Found 1 recent tweets from @OpenAI.\",\n  \"raw_response\": {\n    \"code\": 0,\n    \"data\": {\n      \"pin_tweet\": null,\n      \"tweets\": [\n        {\n          \"article\": null,\n          \"author\": {\n            \"affiliatesHighlightedLabel\": {},\n            \"automatedBy\": null,\n            \"canDm\": false,\n            \"canMediaTag\": true,\n            \"coverPicture\": \"https://pbs.twimg.com/profile_banners/4398626122/1777662919\",\n            \"createdAt\": \"Sun Dec 06 22:51:08 +0000 2015\",\n            \"description\": \"\",\n            \"entities\": {\n              \"description\": {\n                \"urls\": []\n              },\n              \"url\": {}\n            },\n            \"fastFollowersCount\": 0,\n            \"favouritesCount\": 2018,\n            \"followers\": 4803988,\n            \"following\": 4,\n            \"hasCustomTimelines\": true,\n            \"id\": \"4398626122\",\n            \"isAutomated\": false,\n            \"isBlueVerified\": true,\n            \"isTranslator\": false,\n            \"isVerified\": false,\n            \"location\": \"\",\n            \"mediaCount\": 574,\n            \"name\": \"OpenAI\",\n            \"pinnedTweetIds\": [\n              \"2049535650626785334\"\n            ],\n            \"possiblySensitive\": false,\n            \"profilePicture\": \"https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg\",\n            \"profile_bio\": {\n              \"description\": \"OpenAI’s mission is to ensure that artificial general intelligence benefits all of humanity. We’re hiring: https://t.co/dJGr6LgzPA\",\n              \"entities\": {\n                \"description\": {\n                  \"urls\": [\n                    {\n                      \"display_url\": \"openai.com/jobs\",\n                      \"expanded_url\": \"http://openai.com/jobs\",\n                      \"indices\": [\n                        107,\n                        130\n                      ],\n                      \"url\": \"https://t.co/dJGr6LgzPA\"\n                    }\n                  ]\n                },\n                \"url\": {\n                  \"urls\": [\n                    {\n                      \"display_url\": \"openai.com\",\n                      \"expanded_url\": \"https://openai.com\",\n                      \"indices\": [\n                        0,\n                        23\n                      ],\n                      \"url\": \"https://t.co/3bPlZZkvdL\"\n                    }\n                  ]\n                }\n              }\n            },\n            \"status\": \"\",\n            \"statusesCount\": 1815,\n            \"twitterUrl\": \"https://twitter.com/OpenAI\",\n            \"type\": \"user\",\n            \"url\": \"https://x.com/OpenAI\",\n            \"userName\": \"OpenAI\",\n            \"verifiedType\": \"Business\",\n            \"withheldInCountries\": []\n          },\n          \"bookmarkCount\": 941,\n          \"card\": null,\n          \"communityInfo\": null,\n          \"conversationId\": \"2050290618187055175\",\n          \"createdAt\": \"Fri May 01 19:05:50 +0000 2026\",\n          \"displayTextRange\": [\n            0,\n            179\n          ],\n          \"entities\": {\n            \"hashtags\": [],\n            \"symbols\": [],\n            \"timestamps\": [],\n            \"urls\": [],\n            \"user_mentions\": []\n          },\n          \"extendedEntities\": {\n            \"media\": [\n              {\n                \"additional_media_info\": {\n                  \"monetizable\": true\n                },\n                \"allow_download_status\": {},\n                \"display_url\": \"pic.twitter.com/uRu5VSeWuz\",\n                \"expanded_url\": \"https://twitter.com/OpenAI/status/2050290618187055175/video/1\",\n                \"ext_media_availability\": {\n                  \"status\": \"Available\"\n                },\n                \"id_str\": \"2050290321016438784\",\n                \"indices\": [\n                  180,\n                  203\n                ],\n                \"media_key\": \"13_2050290321016438784\",\n                \"media_results\": {\n                  \"id\": \"QXBpTWVkaWFSZXN1bHRzOgwABAoAARx0GC8em0AAAAA=\",\n                  \"result\": {\n                    \"__typename\": \"ApiMedia\",\n                    \"id\": \"QXBpTWVkaWE6DAAECgABHHQYLx6bQAAAAA==\",\n                    \"media_key\": \"13_2050290321016438784\"\n                  }\n                },\n                \"media_url_https\": \"https://pbs.twimg.com/media/HHU6GnvWwAAS71r.jpg\",\n                \"original_info\": {\n                  \"focus_rects\": [],\n                  \"height\": 1080,\n                  \"width\": 1920\n                },\n                \"sizes\": {\n                  \"large\": {\n                    \"h\": 1080,\n                    \"w\": 1920\n                  }\n                },\n                \"type\": \"video\",\n                \"url\": \"https://t.co/uRu5VSeWuz\",\n                \"video_info\": {\n                  \"aspect_ratio\": [\n                    16,\n                    9\n                  ],\n                  \"duration_millis\": 27114,\n                  \"variants\": [\n                    {\n                      \"content_type\": \"application/x-mpegURL\",\n                      \"url\": \"https://video.twimg.com/amplify_video/2050290321016438784/pl/yx788JK2SEjH1EtE.m3u8?tag=27&v=cfc\"\n                    },\n                    {\n                      \"bitrate\": 256000,\n           ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter OAuth client for local AIsa posting flows\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the AIsa service\n    post                Publish a post through the AIsa service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-youtube-serp-scout",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s176-c-k-c0x00ffffff-no-rj-mo\",\n        \"static\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s88-c-k-c0x00ffffff-no-rj-mo\"\n      },\n      \"title\": \"OpenAI\"\n    }\n  ],\n  \"pagination\": {\n    \"next_page_token\": \"SBSCARhVQ1haQ0pMZEJDMDl4eEdaNmdjZHJjNkGCAQtQbnA1TGxZaXp4SYIBC2ZwQzRzYmF3U3pRggELd0pvMVBWOUVyTTSCAQtOczN4YzlUeE0zNIIBC2h6Q0J5MGZiTm1ZggELNUhkTlg5UldaTXOCAQstcTJuNURrRG9NUYIBC2JsR3RZcTltTDE4ggELV3B4di04bkc4ZWOCAQtmbUs0MGlxLVU2WYIBC3ZEXzRIY2UyR193ggELZHNEY1FtSkh3UWOCAQtzV2tHb21KM1RMSYIBC2NmRkNtVlZmbGZrggELdzlXcVFWczFlUmeCAQtUdlV3M1gzYUkwc4IBC05DS1FMMG9wMzBFggELUmZOT0RROFBlTHOCAQswRl9nMzNRZVZOVbIBBgoECBwQAuoBBAgCEBQ%3D\"\n  },\n  \"search_information\": {\n    \"total_results\": 789756\n  },\n  \"search_metadata\": {\n    \"created_at\": \"2026-05-02T16:24:27Z\",\n    \"id\": \"search_Lpb2Z8vDqdsERyaPYkVgQzRy\",\n    \"parsing_time_taken\": 0.1,\n    \"request_time_taken\": 1.14,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"status\": \"Success\",\n    \"total_time_taken\": 1.23\n  },\n  \"search_parameters\": {\n    \"engine\": \"youtube\",\n    \"gl\": \"US\",\n    \"hl\": \"en\",\n    \"q\": \"OpenAI\"\n  },\n  \"sections\": [\n    {\n      \"items\": [\n        {\n          \"badges\": [\n            \"CC\"\n          ],\n          \"channel\": {\n            \"id\": \"UCrp_UI8XtuYfpiqluWLD7Lw\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@CNBCtelevision\",\n            \"thumbnail\": \"https://yt3.ggpht.com/m5dRXUmCucfjKzBPXgu_Rztfe2glZ3Otj22pX3hoRkzMYY9A7YcW3CZI-3VMa-KVBQPXE3eQLA=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"CNBC Television\"\n          },\n          \"id\": \"bWr-DA5Wjfw\",\n          \"length\": \"5:18\",\n          \"link\": \"https://www.youtube.com/watch?v=bWr-DA5Wjfw\",\n          \"position\": 1,\n          \"published_time\": \"2 years ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/bWr-DA5Wjfw/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB67b6CviXdGDKPbSfxzErkEc9Q1Q\",\n            \"static\": \"https://i.ytimg.com/vi/bWr-DA5Wjfw/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAX3jmi6I8GvFRmbfzHRN09W3rnGg\"\n          },\n          \"title\": \"Elon Musk on Sam Altman and ChatGPT: I am the reason OpenAI exists\",\n          \"views\": 2320985\n        },\n        {\n          \"channel\": {\n            \"id\": \"UCye1YedIypHffYb8k6Gp9wg\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@Alex.kantrowitz\",\n            \"thumbnail\": \"https://yt3.ggpht.com/ytc/AIdro_nqfzXD5MT8PJiF1t-DaVGSA_av0d3lqybW7_A-GV7ToRQ1=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"Alex Kantrowitz\"\n          },\n          \"id\": \"2P27Ef-LLuQ\",\n          \"length\": \"58:23\",\n          \"link\": \"https://www.youtube.com/watch?v=2P27Ef-LLuQ\",\n          \"position\": 2,\n          \"published_time\": \"4 months ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/2P27Ef-LLuQ/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBBgJaGyueR45ys2NTnLQ938zBawg\",\n            \"static\": \"https://i.ytimg.com/vi/2P27Ef-LLuQ/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB06joXnkRX6ct8c0qoNjvbvjC9bw\"\n          },\n          \"title\": \"Sam Altman: How OpenAI Wins, ChatGPT’s Future, AI Buildout Logic, IPO in 2026?\",\n          \"views\": 209593\n        },\n        {\n          \"badges\": [\n            \"CC\"\n          ],\n          \"channel\": {\n            \"id\": \"UCAuUUnT6oDeKwE6v1NGQxug\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@TED\",\n            \"thumbnail\": \"https://yt3.ggpht.com/ytc/AIdro_koIFcCOrvh0KThLNOiazAIDu6hcs8bjkGNwe1f6A_OYm8=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"TED\"\n          },\n          \"id\": \"5MWT_doo68k\",\n          \"length\": \"47:30\",\n          \"link\": \"https://www.youtube.com/watch?v=5MWT_doo68k\",\n          \"position\": 3,\n          \"published_time\": \"Streamed 1 year ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/5MWT_doo68k/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLALcm0FdL1o-zrnvi1BbHVwoUvsAg\",\n            \"static\": \"https://i.ytimg.com/vi/5MWT_doo68k/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCDysJVnSk70g4DdF8ghwxNUogufw\"\n          },\n          \"title\": \"OpenAI’s Sam Altman Talks ChatGPT, AI Agents and Superintelligence — Live at TED2025\",\n          \"views\": 2269089\n        },\n        {\n          \"badges\": [\n            \"CC\"\n          ],\n          \"channel\": {\n            \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@OpenAI\",\n            \"thumbnail\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"OpenAI\"\n          },\n          \"id\": \"DB9mjd-65gw\",\n          \"length\": \"40:24\",\n          \"link\": \"https://www.youtube.com/watch?v=DB9mjd-65gw\",\n          \"position\": 4,\n          \"published_time\": \"10 months ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/DB9mjd-65gw/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCFe3ww3wMatPk1IYnmuKSbp55Yhw\",\n            \"static\": \"https://i.ytimg.com/vi/DB9mjd-65gw/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBAkk41QB-qYqd3oo5DzvSyylUGBA\"\n          },\n          \"title\": \"Sam Altman on AGI, GPT-5, and what’s next — the OpenAI Podcast Ep. 1\",\n          \"views\": 587247\n        },\n        {\n   ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "cn-llm",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/cn_llm_client.py",
+        "models"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"Qwen3 (Alibaba)\": [\n    \"qwen3-max\",\n    \"qwen3-max-2026-01-23\",\n    \"qwen3-coder-plus\",\n    \"qwen3-coder-flash\",\n    \"qwen3-coder-480b-a35b-instruct\",\n    \"qwen3-vl-plus\",\n    \"qwen3-vl-plus-2025-12-19\",\n    \"qwen3-vl-flash\",\n    \"qwen3-vl-flash-2025-10-15\",\n    \"qwen3-omni-flash\",\n    \"qwen3-omni-flash-2025-12-01\"\n  ],\n  \"Qwen (Alibaba)\": [\n    \"qwen-vl-max\",\n    \"qwen-plus-2025-12-01\",\n    \"qwen-mt-flash\",\n    \"qwen-mt-lite\"\n  ],\n  \"DeepSeek\": [\n    \"deepseek-r1\",\n    \"deepseek-v3\",\n    \"deepseek-v3-0324\",\n    \"deepseek-v3.1\"\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "crypto-market-data",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/coingecko_client.py",
+        "simple",
+        "price",
+        "--ids",
+        "bitcoin",
+        "--vs",
+        "usd"
+      ],
+      "code": 0,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "last30days",
+      "kind": "python",
+      "command": [
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/last30days.py",
+        "OpenAI",
+        "--quick",
+        "--mock",
+        "--emit",
+        "json"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"artifacts\": {\n    \"grounding\": [\n      {\n        \"label\": \"primary\",\n        \"mock\": true,\n        \"resultCount\": 1,\n        \"webSearchQueries\": [\n          \"openai\"\n        ]\n      }\n    ]\n  },\n  \"clusters\": [\n    {\n      \"candidate_ids\": [\n        \"https://x.com/example/status/1\"\n      ],\n      \"cluster_id\": \"cluster-1\",\n      \"representative_ids\": [\n        \"https://x.com/example/status/1\"\n      ],\n      \"score\": 37.89337512054002,\n      \"sources\": [\n        \"x\"\n      ],\n      \"title\": \"People on X are discussing openai right now.\",\n      \"uncertainty\": \"single-source\"\n    },\n    {\n      \"candidate_ids\": [\n        \"https://reddit.com/r/example/comments/1\"\n      ],\n      \"cluster_id\": \"cluster-2\",\n      \"representative_ids\": [\n        \"https://reddit.com/r/example/comments/1\"\n      ],\n      \"score\": 34.33310511089682,\n      \"sources\": [\n        \"reddit\"\n      ],\n      \"title\": \"openai discussion thread\",\n      \"uncertainty\": \"single-source\"\n    },\n    {\n      \"candidate_ids\": [\n        \"https://example.com/article\"\n      ],\n      \"cluster_id\": \"cluster-3\",\n      \"representative_ids\": [\n        \"https://example.com/article\"\n      ],\n      \"score\": 33.28135004821601,\n      \"sources\": [\n        \"grounding\"\n      ],\n      \"title\": \"openai article\",\n      \"uncertainty\": \"single-source\"\n    }\n  ],\n  \"errors_by_source\": {},\n  \"generated_at\": \"2026-05-02T16:24:42.686066+00:00\",\n  \"items_by_source\": {\n    \"grounding\": [\n      {\n        \"body\": \"openai article\\nRecent web reporting about openai.\",\n        \"container\": \"example.com\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {},\n        \"freshness\": 76,\n        \"item_id\": \"WB1\",\n        \"local_rank_score\": 0.3395,\n        \"local_relevance\": 0.23,\n        \"metadata\": {},\n        \"published_at\": \"2026-04-25\",\n        \"relevance_hint\": 0.88,\n        \"snippet\": \"Recent web reporting about openai.\",\n        \"source\": \"grounding\",\n        \"source_quality\": 0.6,\n        \"title\": \"openai article\",\n        \"url\": \"https://example.com/article\",\n        \"why_relevant\": \"Grounded web search\"\n      }\n    ],\n    \"reddit\": [\n      {\n        \"body\": \"openai discussion thread\\nCommunity discussion about openai.\\nStrong firsthand feedback from users.\",\n        \"container\": \"example\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {\n          \"num_comments\": 48,\n          \"score\": 120,\n          \"upvote_ratio\": 0.91\n        },\n        \"engagement_score\": 50,\n        \"freshness\": 83,\n        \"item_id\": \"R1\",\n        \"local_rank_score\": 0.316,\n        \"local_relevance\": 0.09,\n        \"metadata\": {\n          \"comment_insights\": [],\n          \"top_comments\": [\n            {\n              \"excerpt\": \"Strong firsthand feedback from users.\"\n            }\n          ]\n        },\n        \"published_at\": \"2026-04-27\",\n        \"relevance_hint\": 0.82,\n        \"snippet\": \"Strong firsthand feedback from users.\",\n        \"source\": \"reddit\",\n        \"source_quality\": 0.6,\n        \"title\": \"openai discussion thread\",\n        \"url\": \"https://reddit.com/r/example/comments/1\",\n        \"why_relevant\": \"Mock Reddit result\"\n      }\n    ],\n    \"x\": [\n      {\n        \"author\": \"example\",\n        \"body\": \"People on X are discussing openai right now.\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {\n          \"likes\": 200,\n          \"quotes\": 4,\n          \"replies\": 18,\n          \"reposts\": 35\n        },\n        \"engagement_score\": 50,\n        \"freshness\": 93,\n        \"item_id\": \"X1\",\n        \"local_rank_score\": 0.3475,\n        \"local_relevance\": 0.1,\n        \"metadata\": {},\n        \"published_at\": \"2026-04-30\",\n        \"relevance_hint\": 0.79,\n        \"snippet\": \"People on X are discussing openai right now.\",\n        \"source\": \"x\",\n        \"source_quality\": 0.68,\n        \"title\": \"People on X are discussing openai right now.\",\n        \"url\": \"https://x.com/example/status/1\",\n        \"why_relevant\": \"Mock X result\"\n      }\n    ]\n  },\n  \"provider_runtime\": {\n    \"fun_model\": \"mock-rerank\",\n    \"planner_model\": \"mock-planner\",\n    \"reasoning_provider\": \"aisa\",\n    \"rerank_model\": \"mock-rerank\",\n    \"x_search_backend\": \"aisa\"\n  },\n  \"query_plan\": {\n    \"cluster_mode\": \"story\",\n    \"freshness_mode\": \"strict_recent\",\n    \"intent\": \"breaking_news\",\n    \"notes\": [\n      \"fallback-plan\"\n    ],\n    \"raw_topic\": \"OpenAI\",\n    \"source_weights\": {\n      \"github\": 0.07352941176470588,\n      \"grounding\": 0.07352941176470588,\n      \"hackernews\": 0.1323529411764706,\n      \"instagram\": 0.07352941176470588,\n      \"polymarket\": 0.07352941176470588,\n      \"reddit\": 0.1691176470588235,\n      \"tiktok\": 0.07352941176470588,\n      \"x\": 0.18382352941176472,\n      \"xiaohongshu\": 0.07352941176470588,\n      \"youtube\": 0.07352941176470588\n    },\n    \"subqueries\": [\n      {\n        \"label\": \"primary\",\n        \"ranking_query\": \"What recent evidence from the last 30 days is most relevant to OpenAI?\",\n        \"search_query\": \"openai\",\n        \"sources\": [\n          \"x\",\n          \"reddit\",\n          \"grounding\"\n        ],\n        \"weight\": 1.0\n      }\n    ]\n  },\n  \"range_from\": \"2026-04-02\",\n  \"range_to\": \"2026-05-02\",\n  \"ranked_candidates\": [\n    {\n      \"candidate_id\": \"https://x.com/example/status/1\",\n      \"cluster_id\": \"cluster-1\",\n      \"engagement\": 50,\n      \"explanation\": \"fallback-local-score\",\n      \"final_score\": 37.89337512054002,\n      \"freshness\": 93,\n      \"fun_explanation\": \"heuristic-fallback\",\n      \"fun_score\": 56.650000000000006,\n      \"item_id\": \"X1\",\n      \"local_relevance\": 0.1,\n      \"metadata\": {\n        \"provenance\": [\n          {\n            \"item_id\": \"X1\",\n            \"native_rank\": 1,\n            \"source\": \"x\",\n            \"subquery_label\": \"primary\"\n          }\n        ]\n      },\n      \"native_ranks\": {\n        \"primary:x\": 1\n      },\n      \"rerank_score\": 32.400000000000006,\n      \"rrf_score\": 0.003013500482160077,\n      \"snippet\": \"People on X are discussing openai right now.\",\n      \"source\": \"x\",\n      \"source_items\": [\n        {\n          \"author\": ",
+      "stderr_preview": "/last30days · researching: OpenAI\n⏳ \u001b[95mProcessing\u001b[0m Scoring and ranking...\n[last30days] pipeline start\n[Pipeline] mock runtime @ 0.00s\n[Pipeline] planner start @ 0.00s\n[Pipeline] planner done @ 0.00s\n[Pipeline] bundle init @ 0.00s\n[Pipeline] collect start @ 0.00s\n[Pipeline] collect done @ 0.01s\n[Pipeline] supplemental start @ 0.01s\n[Pipeline] supplemental done @ 0.01s\n[Pipeline] retry thin start @ 0.01s\n[Pipeline] retry thin done @ 0.01s\n[Pipeline] finalize items start @ 0.01s\n[Pipeline] finalize items done @ 0.01s\n[Pipeline] fusion start @ 0.01s\n[Pipeline] fusion done @ 0.01s\n[Pipeline] rerank+fun start (parallel) @ 0.01s\n[Pipeline] rerank+fun done @ 0.01s\n[Pipeline] cluster start @ 0.01s\n[Pipeline] cluster done @ 0.01s\n[last30days] pipeline done in 0.01s clusters=3 candidates=3\n✓ Research complete (0.0s) - Reddit: 1 thread, X: 1 post, YouTube: 0 videos, TikTok: 0 videos, Instagram: 0 reels, HN: 0 stories, Polymarket: 0 markets, Web: 1 result, Xiaohongshu: 0 posts, Github: 0 results\n"
+    },
+    {
+      "skill": "last30days-zh",
+      "kind": "python",
+      "command": [
+        "/home/xiaofeng/.local/bin/python3.12",
+        "scripts/last30days.py",
+        "OpenAI",
+        "--quick",
+        "--mock",
+        "--emit",
+        "json"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"artifacts\": {\n    \"grounding\": [\n      {\n        \"label\": \"primary\",\n        \"mock\": true,\n        \"resultCount\": 1,\n        \"webSearchQueries\": [\n          \"openai\"\n        ]\n      }\n    ]\n  },\n  \"clusters\": [\n    {\n      \"candidate_ids\": [\n        \"https://x.com/example/status/1\"\n      ],\n      \"cluster_id\": \"cluster-1\",\n      \"representative_ids\": [\n        \"https://x.com/example/status/1\"\n      ],\n      \"score\": 37.95316679677336,\n      \"sources\": [\n        \"x\"\n      ],\n      \"title\": \"People on X are discussing openai right now.\",\n      \"uncertainty\": \"single-source\"\n    },\n    {\n      \"candidate_ids\": [\n        \"https://reddit.com/r/example/comments/1\"\n      ],\n      \"cluster_id\": \"cluster-2\",\n      \"representative_ids\": [\n        \"https://reddit.com/r/example/comments/1\"\n      ],\n      \"score\": 34.38811345303149,\n      \"sources\": [\n        \"reddit\"\n      ],\n      \"title\": \"openai discussion thread\",\n      \"uncertainty\": \"single-source\"\n    },\n    {\n      \"candidate_ids\": [\n        \"https://example.com/article\"\n      ],\n      \"cluster_id\": \"cluster-3\",\n      \"representative_ids\": [\n        \"https://example.com/article\"\n      ],\n      \"score\": 33.30526671870934,\n      \"sources\": [\n        \"grounding\"\n      ],\n      \"title\": \"openai article\",\n      \"uncertainty\": \"single-source\"\n    }\n  ],\n  \"errors_by_source\": {},\n  \"generated_at\": \"2026-05-02T16:24:44.314709+00:00\",\n  \"items_by_source\": {\n    \"grounding\": [\n      {\n        \"body\": \"openai article\\nRecent web reporting about openai.\",\n        \"container\": \"example.com\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {},\n        \"freshness\": 76,\n        \"item_id\": \"WB1\",\n        \"local_rank_score\": 0.3395,\n        \"local_relevance\": 0.23,\n        \"metadata\": {},\n        \"published_at\": \"2026-04-25\",\n        \"relevance_hint\": 0.88,\n        \"snippet\": \"Recent web reporting about openai.\",\n        \"source\": \"grounding\",\n        \"source_quality\": 0.6,\n        \"title\": \"openai article\",\n        \"url\": \"https://example.com/article\",\n        \"why_relevant\": \"Grounded web search\"\n      }\n    ],\n    \"reddit\": [\n      {\n        \"body\": \"openai discussion thread\\nCommunity discussion about openai.\\nStrong firsthand feedback from users.\",\n        \"container\": \"example\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {\n          \"num_comments\": 48,\n          \"score\": 120,\n          \"upvote_ratio\": 0.91\n        },\n        \"engagement_score\": 50,\n        \"freshness\": 83,\n        \"item_id\": \"R1\",\n        \"local_rank_score\": 0.316,\n        \"local_relevance\": 0.09,\n        \"metadata\": {\n          \"comment_insights\": [],\n          \"top_comments\": [\n            {\n              \"excerpt\": \"Strong firsthand feedback from users.\"\n            }\n          ]\n        },\n        \"published_at\": \"2026-04-27\",\n        \"relevance_hint\": 0.82,\n        \"snippet\": \"Strong firsthand feedback from users.\",\n        \"source\": \"reddit\",\n        \"source_quality\": 0.6,\n        \"title\": \"openai discussion thread\",\n        \"url\": \"https://reddit.com/r/example/comments/1\",\n        \"why_relevant\": \"Mock Reddit result\"\n      }\n    ],\n    \"x\": [\n      {\n        \"author\": \"example\",\n        \"body\": \"People on X are discussing openai right now.\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {\n          \"likes\": 200,\n          \"quotes\": 4,\n          \"replies\": 18,\n          \"reposts\": 35\n        },\n        \"engagement_score\": 50,\n        \"freshness\": 93,\n        \"item_id\": \"X1\",\n        \"local_rank_score\": 0.3475,\n        \"local_relevance\": 0.1,\n        \"metadata\": {},\n        \"published_at\": \"2026-04-30\",\n        \"relevance_hint\": 0.79,\n        \"snippet\": \"People on X are discussing openai right now.\",\n        \"source\": \"x\",\n        \"source_quality\": 0.68,\n        \"title\": \"People on X are discussing openai right now.\",\n        \"url\": \"https://x.com/example/status/1\",\n        \"why_relevant\": \"Mock X result\"\n      }\n    ]\n  },\n  \"provider_runtime\": {\n    \"planner_model\": \"gpt-4.1-mini\",\n    \"reasoning_provider\": \"aisa\",\n    \"rerank_model\": \"gpt-4.1-mini\"\n  },\n  \"query_plan\": {\n    \"cluster_mode\": \"story\",\n    \"freshness_mode\": \"strict_recent\",\n    \"intent\": \"breaking_news\",\n    \"notes\": [\n      \"fallback-plan\"\n    ],\n    \"raw_topic\": \"OpenAI\",\n    \"source_weights\": {\n      \"grounding\": 0.07936507936507936,\n      \"hackernews\": 0.14285714285714288,\n      \"instagram\": 0.07936507936507936,\n      \"polymarket\": 0.07936507936507936,\n      \"reddit\": 0.18253968253968253,\n      \"tiktok\": 0.07936507936507936,\n      \"x\": 0.19841269841269843,\n      \"xiaohongshu\": 0.07936507936507936,\n      \"youtube\": 0.07936507936507936\n    },\n    \"subqueries\": [\n      {\n        \"label\": \"primary\",\n        \"ranking_query\": \"What recent evidence from the last 30 days is most relevant to OpenAI?\",\n        \"search_query\": \"openai\",\n        \"sources\": [\n          \"x\",\n          \"reddit\",\n          \"grounding\"\n        ],\n        \"weight\": 1.0\n      }\n    ]\n  },\n  \"range_from\": \"2026-04-02\",\n  \"range_to\": \"2026-05-02\",\n  \"ranked_candidates\": [\n    {\n      \"candidate_id\": \"https://x.com/example/status/1\",\n      \"cluster_id\": \"cluster-1\",\n      \"engagement\": 50,\n      \"explanation\": \"fallback-local-score\",\n      \"final_score\": 37.95316679677336,\n      \"freshness\": 93,\n      \"fun_explanation\": \"heuristic-fallback\",\n      \"fun_score\": 56.650000000000006,\n      \"item_id\": \"X1\",\n      \"local_relevance\": 0.1,\n      \"metadata\": {\n        \"provenance\": [\n          {\n            \"item_id\": \"X1\",\n            \"native_rank\": 1,\n            \"source\": \"x\",\n            \"subquery_label\": \"primary\"\n          }\n        ]\n      },\n      \"native_ranks\": {\n        \"primary:x\": 1\n      },\n      \"rerank_score\": 32.400000000000006,\n      \"rrf_score\": 0.003252667187093417,\n      \"snippet\": \"People on X are discussing openai right now.\",\n      \"source\": \"x\",\n      \"source_items\": [\n        {\n          \"author\": \"example\",\n          \"body\": \"People on X are discussing openai right now.\",\n          \"date_confi",
+      "stderr_preview": "/last30days · researching: OpenAI\n⏳ \u001b[95mProcessing\u001b[0m Finding patterns...\n[last30days] pipeline start\n[Pipeline] mock runtime @ 0.00s\n[Pipeline] planner start @ 0.00s\n[Pipeline] planner done @ 0.00s\n[Pipeline] bundle init @ 0.00s\n[Pipeline] collect start @ 0.00s\n[Pipeline] collect done @ 0.01s\n[Pipeline] supplemental start @ 0.01s\n[Pipeline] supplemental done @ 0.01s\n[Pipeline] retry thin start @ 0.01s\n[Pipeline] retry thin done @ 0.01s\n[Pipeline] finalize items start @ 0.01s\n[Pipeline] finalize items done @ 0.01s\n[Pipeline] fusion start @ 0.01s\n[Pipeline] fusion done @ 0.01s\n[Pipeline] rerank start @ 0.01s\n[Pipeline] rerank done @ 0.01s\n[Pipeline] fun score start @ 0.01s\n[Pipeline] fun score done @ 0.01s\n[Pipeline] cluster start @ 0.01s\n[Pipeline] cluster done @ 0.01s\n[last30days] pipeline done in 0.01s clusters=3 candidates=3\n✓ Research complete (0.0s) - Reddit: 1 thread, X: 1 post, YouTube: 0 videos, TikTok: 0 videos, Instagram: 0 reels, HN: 0 stories, Polymarket: 0 markets, Web: 1 result, Xiaohongshu: 0 posts\n\n💡 Unlock X with `AISA_API_KEY` to use the hosted AISA Twitter proxy.\n\nResearch quality: 2/5 core sources.\nMissing: Polymarket, X/Twitter, YouTube.\n\nFree fixes:\n  - X/Twitter: real-time posts with likes and reposts - the fastest signal for breaking topics. Add AISA_API_KEY to unlock the AISA Twitter proxy.\n  - YouTube: video transcripts with key moments - often the deepest explanations on any topic. Add AISA_API_KEY to unlock the AISA YouTube proxy.\n\nBonus: Reddit and Hacker News already work on public paths. Optional social extras such as Threads and Pinterest need AISA plus INCLUDE_SOURCES to be enabled.\n"
+    },
+    {
+      "skill": "llm-router",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/llm_router_client.py",
+        "models"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qwen-turbo\",\n    \"qwen2.5-72b-instruct\"\n  ],\n  \"deepseek\": [\n    \"deepseek-chat\",\n    \"deepseek-coder\",\n    \"deepseek-v3\",\n    \"deepseek-r1\"\n  ],\n  \"xai\": [\n    \"grok-2\",\n    \"grok-beta\"\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "market",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/market_client.py",
+        "stock",
+        "prices",
+        "--ticker",
+        "AAPL",
+        "--start",
+        "2026-04-01",
+        "--end",
+        "2026-04-02"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "marketpulse",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/market_client.py",
+        "stock",
+        "prices",
+        "--ticker",
+        "AAPL",
+        "--start",
+        "2026-04-01",
+        "--end",
+        "2026-04-02"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"prices\": [\n    {\n      \"close\": 255.63,\n      \"high\": 256.18,\n      \"low\": 253.33,\n      \"open\": 254.08,\n      \"ticker\": \"AAPL\",\n      \"time\": \"2026-04-01\",\n      \"volume\": 40059432\n    },\n    {\n      \"close\": 255.92,\n      \"high\": 256.13,\n      \"low\": 250.65,\n      \"open\": 254.2,\n      \"ticker\": \"AAPL\",\n      \"time\": \"2026-04-02\",\n      \"volume\": 31289369\n    }\n  ],\n  \"ticker\": \"AAPL\"\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "media-gen",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/media_gen_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: media_gen_client.py [-h] [--api-key API_KEY]\n                           {image,video-create,video-status,video-wait} ...\n\nMedia Gen - image & video generation\n\npositional arguments:\n  {image,video-create,video-status,video-wait}\n    image               Generate an image. Model determines endpoint: Gemini /\n                        Wan-chat / Seedream.\n    video-create        Create a Wan video generation task (any of 4\n                        variants).\n    video-status        Query video task status\n    video-wait          Wait until video task finishes\n\noptions:\n  -h, --help            show this help message and exit\n  --api-key API_KEY     Override AISA_API_KEY\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "multi-search",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 4,
+      "stdout_preview": "\n============================================================\n  Web Search Results\n============================================================\n\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "multi-source-search",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"id\": \"OaCicuPfIe-tnTDe9_xqxg\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/\",\n      \"snippet\": \"We believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems. Building safe and beneficial ...\",\n      \"title\": \"OpenAI | OpenAI\"\n    }\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-aisa-youtube-aisa",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s176-c-k-c0x00ffffff-no-rj-mo\",\n        \"static\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s88-c-k-c0x00ffffff-no-rj-mo\"\n      },\n      \"title\": \"OpenAI\"\n    }\n  ],\n  \"pagination\": {\n    \"next_page_token\": \"SBSCARhVQ1haQ0pMZEJDMDl4eEdaNmdjZHJjNkGCAQtQbnA1TGxZaXp4SYIBC2Zsdlo2akVqM1ZVggELZnBDNHNiYXdTelGCAQt3Sm8xUFY5RXJNNIIBC05zM3hjOVR4TTM0ggELZm1LNDBpcS1VNlmCAQstcTJuNURrRG9NUYIBC2trdEJWbWpBMTlBggELNUhkTlg5UldaTXOCAQtNa2xqM1kyLWZOZ4IBCzZhOUwtM0hpb2JzggELYmxHdFlxOW1MMTiCAQtXcHh2LThuRzhlY4IBC1JmTk9EUThQZUxzggELMEZfZzMzUWVWTlWCAQtjZkZDbVZWZmxma4IBC3NXa0dvbUozVExJggELdzlXcVFWczFlUmeCAQtPdnJHdHVTSllnY7IBBgoECB4QAuoBBAgEECg%3D\"\n  },\n  \"search_information\": {\n    \"total_results\": 789828\n  },\n  \"search_metadata\": {\n    \"created_at\": \"2026-05-02T16:25:31Z\",\n    \"id\": \"search_m3WR9zk90VHaJx2W5vyn8YoV\",\n    \"parsing_time_taken\": 0.11,\n    \"request_time_taken\": 1.36,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"status\": \"Success\",\n    \"total_time_taken\": 1.47\n  },\n  \"search_parameters\": {\n    \"engine\": \"youtube\",\n    \"gl\": \"US\",\n    \"hl\": \"en\",\n    \"q\": \"OpenAI\"\n  },\n  \"sections\": [\n    {\n      \"items\": [\n        {\n          \"badges\": [\n            \"CC\"\n          ],\n          \"channel\": {\n            \"id\": \"UCrp_UI8XtuYfpiqluWLD7Lw\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@CNBCtelevision\",\n            \"thumbnail\": \"https://yt3.ggpht.com/m5dRXUmCucfjKzBPXgu_Rztfe2glZ3Otj22pX3hoRkzMYY9A7YcW3CZI-3VMa-KVBQPXE3eQLA=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"CNBC Television\"\n          },\n          \"id\": \"bWr-DA5Wjfw\",\n          \"length\": \"5:18\",\n          \"link\": \"https://www.youtube.com/watch?v=bWr-DA5Wjfw\",\n          \"position\": 1,\n          \"published_time\": \"2 years ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/bWr-DA5Wjfw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCRynhBhRXH7igvr0D1HJSEcpl-tw\",\n            \"static\": \"https://i.ytimg.com/vi/bWr-DA5Wjfw/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDJ-3OoOltP6SDIF4QV72pKHAApAA\"\n          },\n          \"title\": \"Elon Musk on Sam Altman and ChatGPT: I am the reason OpenAI exists\",\n          \"views\": 2320985\n        },\n        {\n          \"badges\": [\n            \"CC\"\n          ],\n          \"channel\": {\n            \"id\": \"UCAuUUnT6oDeKwE6v1NGQxug\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@TED\",\n            \"thumbnail\": \"https://yt3.ggpht.com/ytc/AIdro_koIFcCOrvh0KThLNOiazAIDu6hcs8bjkGNwe1f6A_OYm8=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"TED\"\n          },\n          \"id\": \"5MWT_doo68k\",\n          \"length\": \"47:30\",\n          \"link\": \"https://www.youtube.com/watch?v=5MWT_doo68k\",\n          \"position\": 2,\n          \"published_time\": \"Streamed 1 year ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/5MWT_doo68k/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAHxzkxbpa0FraCJLzRD6rvx51yZA\",\n            \"static\": \"https://i.ytimg.com/vi/5MWT_doo68k/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBKWOIbGtbrEvsu22AZz-R2D4tVlQ\"\n          },\n          \"title\": \"OpenAI’s Sam Altman Talks ChatGPT, AI Agents and Superintelligence — Live at TED2025\",\n          \"views\": 2269089\n        },\n        {\n          \"badges\": [\n            \"4K\"\n          ],\n          \"channel\": {\n            \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@OpenAI\",\n            \"thumbnail\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"OpenAI\"\n          },\n          \"id\": \"ZpUKNYcgM-E\",\n          \"length\": \"46:11\",\n          \"link\": \"https://www.youtube.com/watch?v=ZpUKNYcgM-E\",\n          \"position\": 3,\n          \"published_time\": \"3 weeks ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/ZpUKNYcgM-E/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBL4xFNEhXeOjFhXg6Pr4vyzAu3KA\",\n            \"static\": \"https://i.ytimg.com/vi/ZpUKNYcgM-E/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCQvUvTwJGPXeP0EdfeIZu7jGECIA\"\n          },\n          \"title\": \"Sam Altman on Building the Future of AI\",\n          \"views\": 42198\n        },\n        {\n          \"badges\": [\n            \"CC\"\n          ],\n          \"channel\": {\n            \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@OpenAI\",\n            \"thumbnail\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"OpenAI\"\n          },\n          \"id\": \"DB9mjd-65gw\",\n          \"length\": \"40:24\",\n          \"link\": \"https://www.youtube.com/watch?v=DB9mjd-65gw\",\n          \"position\": 4,\n          \"published_time\": \"10 months ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/DB9mjd-65gw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDDafzD8qCtgiAeVaKjac9FEqwAIA\",\n            \"static\": \"https://i.ytimg.com/vi/DB9mjd-65gw/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBrOyV4a6Nqu_6WtBCTEjZOFzuAGw\"\n          },\n          \"title\": \"Sam Altman on AGI, GPT-5, and what’s next — the OpenAI Podcast Ep. 1\",\n          \"views\": 587247\n        },\n   ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-media-gen",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/media_gen_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: media_gen_client.py [-h] [--api-key API_KEY]\n                           {image,video-create,video-status,video-wait} ...\n\nMedia Gen - image & video generation\n\npositional arguments:\n  {image,video-create,video-status,video-wait}\n    image               Generate an image. Model determines endpoint: Gemini /\n                        Wan-chat / Seedream.\n    video-create        Create a Wan video generation task (any of 4\n                        variants).\n    video-status        Query video task status\n    video-wait          Wait until video task finishes\n\noptions:\n  -h, --help            show this help message and exit\n  --api-key API_KEY     Override AISA_API_KEY\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-search",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"id\": \"c0_I3apKzk9rLYZS5QWkkw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/\",\n      \"snippet\": \"We believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems. Building safe and beneficial ...\",\n      \"title\": \"OpenAI | OpenAI\"\n    }\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-twitter",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 3,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHU9XowWILEKAAIcdTyE1powuQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdT1nZIAnEAoABhx1PWdkf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/1720665183188922368/1740213586\",\n        \"createdAt\": \"Sat Nov 04 04:52:34 +0000 2023\",\n        \"description\": \"\",\n        \"entities\": {\n          \"description\": {\n            \"urls\": []\n          },\n          \"url\": {}\n        },\n        \"fastFollowersCount\": 0,\n        \"favouritesCount\": 89,\n        \"followers\": 8685661,\n        \"following\": 4,\n        \"hasCustomTimelines\": true,\n        \"id\": \"1720665183188922368\",\n        \"isAutomated\": false,\n        \"isBlueVerified\": true,\n        \"isTranslator\": false,\n        \"isVerified\": false,\n        \"location\": \"wherever you are\",\n        \"mediaCount\": 8884829,\n        \"name\": \"Grok\",\n        \"pinnedTweetIds\": [],\n        \"possiblySensitive\": false,\n        \"profilePicture\": \"https://pbs.twimg.com/profile_images/1893219113717342208/Vgg2hEPa_normal.jpg\",\n        \"profile_bio\": {\n          \"description\": \"https://t.co/fqNKQSiLQB\\n@grok it\",\n          \"entities\": {\n            \"description\": {\n              \"urls\": [\n                {\n                  \"display_url\": \"grok.com/download\",\n                  \"expanded_url\": \"http://grok.com/download\",\n                  \"indices\": [\n                    0,\n                    23\n                  ],\n                  \"url\": \"https://t.co/fqNKQSiLQB\"\n                }\n              ],\n              \"user_mentions\": [\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    24,\n                    29\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"grok\"\n                }\n              ]\n            },\n            \"url\": {\n              \"urls\": [\n                {\n                  \"display_url\": \"grok.com\",\n                  \"expanded_url\": \"https://grok.com\",\n                  \"indices\": [\n                    0,\n                    23\n                  ],\n                  \"url\": \"https://t.co/BFoTHXcJ8D\"\n                }\n              ]\n            }\n          }\n        },\n        \"status\": \"\",\n        \"statusesCount\": 124487922,\n        \"twitterUrl\": \"https://twitter.com/grok\",\n        \"type\": \"user\",\n        \"url\": \"https://x.com/grok\",\n        \"userName\": \"grok\",\n        \"verifiedType\": \"Business\",\n        \"withheldInCountries\": []\n      },\n      \"bookmarkCount\": 0,\n      \"card\": null,\n      \"communityInfo\": null,\n      \"conversationId\": \"2050552284854079590\",\n      \"createdAt\": \"Sat May 02 16:25:36 +0000 2026\",\n      \"displayTextRange\": [\n        39,\n        318\n      ],\n      \"entities\": {\n        \"hashtags\": [],\n        \"symbols\": [],\n        \"urls\": [],\n        \"user_mentions\": []\n      },\n      \"extendedEntities\": {},\n      \"id\": \"2050612681623609521\",\n      \"inReplyToId\": \"2050612510022377530\",\n      \"inReplyToUserId\": \"43951032\",\n      \"inReplyToUsername\": \"CarpeSol\",\n      \"isLimitedReply\": false,\n      \"isReply\": true,\n      \"lang\": \"en\",\n      \"likeCount\": 0,\n      \"place\": {},\n      \"quoteCount\": 0,\n      \"quoted_tweet\": null,\n      \"replyCount\": 0,\n      \"retweetCount\": 0,\n      \"retweeted_tweet\": null,\n      \"source\": \"Twitter for iPhone\",\n      \"text\": \"@CarpeSol @tracey42668967 @KatieMiller The bait: OpenAI launched as a \\\"non-profit\\\" promising open, safe AGI for humanity's benefit—free tools like early GPT to \\\"democratize\\\" AI. \\n\\nThe switch: Altman restructured to for-profit, closed the models, partnered with Microsoft for billions, and turned ChatGPT into a massive data vacuum. Free access = harvest your chats, habits, and preferences to build the exact personalized AI Altman now describes—one that \\\"knows about your life\\\" for future monetization. Classic pivot from idealism to data empire.\",\n      \"twitterUrl\": \"https://twitter.com/grok/status/2050612681623609521\",\n      \"type\": \"tweet\",\n      \"url\": \"https://x.com/grok/status/2050612681623609521\",\n      \"viewCount\": 2\n    },\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/2927200279/1516676907\",\n        \"createdAt\": \"Thu Dec 11 20:39:19 +0000 2014\",\n        \"description\": \"\",\n        \"entities\": {\n          \"description\": {\n            \"urls\": []\n          },\n          \"url\": {}\n        },\n        \"fastFollowersCount\": 0,\n        \"favouritesCount\": 36990,\n        \"followers\": 17860,\n        \"following\": 986,\n        \"hasCustomTimelines\": true,\n        \"id\": \"2927200279\",\n        \"isAutomated\": false,\n        \"isBlueVerified\": true,\n        \"isTranslator\": false,\n        \"isVerified\": false,\n        \"location\": \"Bay Area, CA\",\n        \"mediaCount\": 1232,\n        \"name\": \"christina\",\n        \"pinnedTweetIds\": [],\n        \"possiblySensitive\": false,\n        \"profilePicture\": \"https://pbs.twimg.com/profile_images/1468051719233818628/ikPfElst_normal.jpg\",\n        \"profile_bio\": {\n          \"description\": \"ai developer advocate @Google 🌻 \\nsf bay area\",\n          \"entities\": {\n            \"description\": {\n              \"user_mentions\": [\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    22,\n                    29\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"Google\"\n                }\n              ]\n            }\n          }\n        },\n        \"status\": \"\",\n        \"statusesCount\": 9908,\n        \"twitterUrl\": \"https://twitter.com/cszhu\",\n        \"type\": \"user\",\n        \"url\": \"https://x.com/cszhu\",\n        \"userName\": \"cszhu\",\n        \"verifiedType\": null,\n        \"withheldInCountries\": []\n ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-twitter",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 2,
+      "stdout_preview": "{\n  \"ok\": true,\n  \"action\": \"list_tweets\",\n  \"target\": {\n    \"type\": \"user\",\n    \"value\": \"OpenAI\",\n    \"user_id\": \"4398626122\"\n  },\n  \"resolved_user\": {\n    \"user_id\": \"4398626122\",\n    \"username\": \"OpenAI\",\n    \"display_name\": \"OpenAI\"\n  },\n  \"tweets\": [\n    {\n      \"index\": 1,\n      \"tweet_id\": \"2050290618187055175\",\n      \"text\": \"Bring your workflow to Codex in just a few clicks.\\n\\nImport settings, plugins, agents, project configuration, and more so you can keep working with fewer interruptions.\\n\\nYour move. https://t.co/uRu5VSeWuz\",\n      \"created_at\": \"Fri May 01 19:05:50 +0000 2026\",\n      \"author_id\": \"4398626122\",\n      \"author_username\": \"OpenAI\",\n      \"author_name\": \"OpenAI\",\n      \"tweet_url\": \"https://x.com/OpenAI/status/2050290618187055175\"\n    }\n  ],\n  \"message\": \"Found 1 recent tweets from @OpenAI.\",\n  \"raw_response\": {\n    \"code\": 0,\n    \"data\": {\n      \"pin_tweet\": null,\n      \"tweets\": [\n        {\n          \"article\": null,\n          \"author\": {\n            \"affiliatesHighlightedLabel\": {},\n            \"automatedBy\": null,\n            \"canDm\": false,\n            \"canMediaTag\": true,\n            \"coverPicture\": \"https://pbs.twimg.com/profile_banners/4398626122/1777662919\",\n            \"createdAt\": \"Sun Dec 06 22:51:08 +0000 2015\",\n            \"description\": \"\",\n            \"entities\": {\n              \"description\": {\n                \"urls\": []\n              },\n              \"url\": {}\n            },\n            \"fastFollowersCount\": 0,\n            \"favouritesCount\": 2018,\n            \"followers\": 4803999,\n            \"following\": 4,\n            \"hasCustomTimelines\": true,\n            \"id\": \"4398626122\",\n            \"isAutomated\": false,\n            \"isBlueVerified\": true,\n            \"isTranslator\": false,\n            \"isVerified\": false,\n            \"location\": \"\",\n            \"mediaCount\": 574,\n            \"name\": \"OpenAI\",\n            \"pinnedTweetIds\": [\n              \"2049535650626785334\"\n            ],\n            \"possiblySensitive\": false,\n            \"profilePicture\": \"https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg\",\n            \"profile_bio\": {\n              \"description\": \"OpenAI’s mission is to ensure that artificial general intelligence benefits all of humanity. We’re hiring: https://t.co/dJGr6LgzPA\",\n              \"entities\": {\n                \"description\": {\n                  \"urls\": [\n                    {\n                      \"display_url\": \"openai.com/jobs\",\n                      \"expanded_url\": \"http://openai.com/jobs\",\n                      \"indices\": [\n                        107,\n                        130\n                      ],\n                      \"url\": \"https://t.co/dJGr6LgzPA\"\n                    }\n                  ]\n                },\n                \"url\": {\n                  \"urls\": [\n                    {\n                      \"display_url\": \"openai.com\",\n                      \"expanded_url\": \"https://openai.com\",\n                      \"indices\": [\n                        0,\n                        23\n                      ],\n                      \"url\": \"https://t.co/3bPlZZkvdL\"\n                    }\n                  ]\n                }\n              }\n            },\n            \"status\": \"\",\n            \"statusesCount\": 1815,\n            \"twitterUrl\": \"https://twitter.com/OpenAI\",\n            \"type\": \"user\",\n            \"url\": \"https://x.com/OpenAI\",\n            \"userName\": \"OpenAI\",\n            \"verifiedType\": \"Business\",\n            \"withheldInCountries\": []\n          },\n          \"bookmarkCount\": 941,\n          \"card\": null,\n          \"communityInfo\": null,\n          \"conversationId\": \"2050290618187055175\",\n          \"createdAt\": \"Fri May 01 19:05:50 +0000 2026\",\n          \"displayTextRange\": [\n            0,\n            179\n          ],\n          \"entities\": {\n            \"hashtags\": [],\n            \"symbols\": [],\n            \"timestamps\": [],\n            \"urls\": [],\n            \"user_mentions\": []\n          },\n          \"extendedEntities\": {\n            \"media\": [\n              {\n                \"additional_media_info\": {\n                  \"monetizable\": true\n                },\n                \"allow_download_status\": {},\n                \"display_url\": \"pic.twitter.com/uRu5VSeWuz\",\n                \"expanded_url\": \"https://twitter.com/OpenAI/status/2050290618187055175/video/1\",\n                \"ext_media_availability\": {\n                  \"status\": \"Available\"\n                },\n                \"id_str\": \"2050290321016438784\",\n                \"indices\": [\n                  180,\n                  203\n                ],\n                \"media_key\": \"13_2050290321016438784\",\n                \"media_results\": {\n                  \"id\": \"QXBpTWVkaWFSZXN1bHRzOgwABAoAARx0GC8em0AAAAA=\",\n                  \"result\": {\n                    \"__typename\": \"ApiMedia\",\n                    \"id\": \"QXBpTWVkaWE6DAAECgABHHQYLx6bQAAAAA==\",\n                    \"media_key\": \"13_2050290321016438784\"\n                  }\n                },\n                \"media_url_https\": \"https://pbs.twimg.com/media/HHU6GnvWwAAS71r.jpg\",\n                \"original_info\": {\n                  \"focus_rects\": [],\n                  \"height\": 1080,\n                  \"width\": 1920\n                },\n                \"sizes\": {\n                  \"large\": {\n                    \"h\": 1080,\n                    \"w\": 1920\n                  }\n                },\n                \"type\": \"video\",\n                \"url\": \"https://t.co/uRu5VSeWuz\",\n                \"video_info\": {\n                  \"aspect_ratio\": [\n                    16,\n                    9\n                  ],\n                  \"duration_millis\": 27114,\n                  \"variants\": [\n                    {\n                      \"content_type\": \"application/x-mpegURL\",\n                      \"url\": \"https://video.twimg.com/amplify_video/2050290321016438784/pl/yx788JK2SEjH1EtE.m3u8?tag=27&v=cfc\"\n                    },\n                    {\n                      \"bitrate\": 256000,\n           ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-youtube",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 2,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s176-c-k-c0x00ffffff-no-rj-mo\",\n        \"static\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s88-c-k-c0x00ffffff-no-rj-mo\"\n      },\n      \"title\": \"OpenAI\"\n    }\n  ],\n  \"pagination\": {\n    \"next_page_token\": \"SBSCARhVQ1haQ0pMZEJDMDl4eEdaNmdjZHJjNkGCAQtQbnA1TGxZaXp4SYIBC3dKbzFQVjlFck00ggELZnBDNHNiYXdTelGCAQtOczN4YzlUeE0zNIIBC2h6Q0J5MGZiTm1ZggELNUhkTlg5UldaTXOCAQstcTJuNURrRG9NUYIBC2JsR3RZcTltTDE4ggELV3B4di04bkc4ZWOCAQtkc0RjUW1KSHdRY4IBC05DS1FMMG9wMzBFggELc1drR29tSjNUTEmCAQt3OVdxUVZzMWVSZ4IBC3pFQ3lNUkk4c1Y0ggELUmZOT0RROFBlTHOCAQtjZkZDbVZWZmxma4IBC1R2VXczWDNhSTBzggELQ3FURWdJanBrMziCAQswRl9nMzNRZVZOVbIBBgoECBwQAuoBBAgCEBQ%3D\"\n  },\n  \"search_information\": {\n    \"total_results\": 789907\n  },\n  \"search_metadata\": {\n    \"created_at\": \"2026-05-02T16:26:20Z\",\n    \"id\": \"search_yawpDZvY5RcKWwKENvWPdXoM\",\n    \"parsing_time_taken\": 0.05,\n    \"request_time_taken\": 1.05,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"status\": \"Success\",\n    \"total_time_taken\": 1.1\n  },\n  \"search_parameters\": {\n    \"engine\": \"youtube\",\n    \"gl\": \"US\",\n    \"hl\": \"en\",\n    \"q\": \"OpenAI\"\n  },\n  \"sections\": [\n    {\n      \"items\": [\n        {\n          \"badges\": [\n            \"New\",\n            \"CC\"\n          ],\n          \"channel\": {\n            \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@OpenAI\",\n            \"thumbnail\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"OpenAI\"\n          },\n          \"description\": \"Codex helps teams connect the apps they already use, bring over their setup, and start seeing the magic happen right away.\",\n          \"id\": \"flvZ6jEj3VU\",\n          \"length\": \"1:20\",\n          \"link\": \"https://www.youtube.com/watch?v=flvZ6jEj3VU\",\n          \"position\": 1,\n          \"published_time\": \"21 hours ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/flvZ6jEj3VU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdwPqARXM5Opu4arlq_IbeGo2XvA\",\n            \"static\": \"https://i.ytimg.com/vi/flvZ6jEj3VU/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAbQwhzB6ywjNRe3LYKhr99NzYVzw\"\n          },\n          \"title\": \"Bring your work into Codex in a few clicks\",\n          \"views\": 22620\n        },\n        {\n          \"badges\": [\n            \"New\"\n          ],\n          \"channel\": {\n            \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@OpenAI\",\n            \"thumbnail\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"OpenAI\"\n          },\n          \"description\": \"The trajectory of Codex is thinking beyond pure engineers, it's moving into a tool for everyone” Our friends at Virgin Atlantic, ...\",\n          \"id\": \"eHe2F10TlV4\",\n          \"length\": \"0:59\",\n          \"link\": \"https://www.youtube.com/watch?v=eHe2F10TlV4\",\n          \"position\": 2,\n          \"published_time\": \"1 day ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/eHe2F10TlV4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBVf8xzmA36iR5DIchQIG0IU04IoQ\",\n            \"static\": \"https://i.ytimg.com/vi/eHe2F10TlV4/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA6zFcPPuj945Ti_g0bwW4hzvLcdQ\"\n          },\n          \"title\": \"What Codex Unlocks for Virgin Atlantic\",\n          \"views\": 7910\n        },\n        {\n          \"badges\": [\n            \"New\"\n          ],\n          \"channel\": {\n            \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@OpenAI\",\n            \"thumbnail\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"OpenAI\"\n          },\n          \"description\": \"Build workspace agents in ChatGPT that can do work across your tools and help teams move faster. In this Build Hour, you'll learn ...\",\n          \"id\": \"kktBVmjA19A\",\n          \"key_moments\": [\n            {\n              \"start_seconds\": 0,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Introduction\"\n            },\n            {\n              \"start_seconds\": 82,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Intro to Workspace agents\"\n            },\n            {\n              \"start_seconds\": 204,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Demo: Meeting Prep agent\"\n            },\n            {\n              \"start_seconds\": 1082,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Demo: Software Review agent\"\n            },\n            {\n              \"start_seconds\": 1654,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Getting Started\"\n            },\n            {\n              \"start_seconds\": 1793,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Q&A\"\n            }\n          ],\n          \"length\": \"37:52\",\n          \"link\": \"https://www.youtube.com/watch?v=kktBVmjA19A\",\n   ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "perplexity-research",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "\n============================================================\n  Web Search Results\n============================================================\n\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "perplexity-search",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/perplexity_search_client.py",
+        "sonar",
+        "--query",
+        "Say OK."
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"choices\": [\n    {\n      \"delta\": {\n        \"content\": \"\",\n        \"role\": \"assistant\"\n      },\n      \"finish_reason\": \"stop\",\n      \"index\": 0,\n      \"message\": {\n        \"content\": \"OK.\",\n        \"role\": \"assistant\"\n      }\n    }\n  ],\n  \"citations\": [\n    \"https://en.wikipedia.org/wiki/Say_OK\",\n    \"https://www.youtube.com/watch?v=F5VvvVxuKko\",\n    \"https://www.youtube.com/watch?v=D0sbmx7PupM\",\n    \"https://open.spotify.com/track/520AhiKunNDXWjeUiivMzJ\",\n    \"https://www.youtube.com/watch?v=oEMLa_aayvc\",\n    \"https://www.dailymotion.com/video/x1gqhx\",\n    \"https://open.spotify.com/track/73qbBlEAcm2HfnAaSnP1II\",\n    \"https://www.youtube.com/watch?v=yDSOV3fQJ9s\"\n  ],\n  \"created\": 1777739188,\n  \"id\": \"a36678af-3c70-4684-93d5-6c81bdeee18c\",\n  \"model\": \"sonar\",\n  \"object\": \"chat.completion\",\n  \"search_results\": [\n    {\n      \"date\": \"2006-11-26\",\n      \"last_updated\": \"2025-10-07\",\n      \"snippet\": \"\\\"Say OK\\\" is a song recorded by American singer Vanessa Hudgens on her debut album V, which was written by Arnthor Birgisson and Savan Kotecha.\",\n      \"source\": \"web\",\n      \"title\": \"Say OK\",\n      \"url\": \"https://en.wikipedia.org/wiki/Say_OK\"\n    },\n    {\n      \"date\": \"2007-03-19\",\n      \"last_updated\": \"2026-04-17\",\n      \"snippet\": \"Music video by Vanessa Hudgens performing Say Ok.\",\n      \"source\": \"web\",\n      \"title\": \"Vanessa Hudgens - Say OK (Official Video)\",\n      \"url\": \"https://www.youtube.com/watch?v=F5VvvVxuKko\"\n    },\n    {\n      \"date\": \"2009-02-27\",\n      \"last_updated\": \"2026-03-25\",\n      \"snippet\": \"Music video by Vanessa Hudgens performing Say Ok.\",\n      \"source\": \"web\",\n      \"title\": \"Vanessa Hudgens - Say Ok\",\n      \"url\": \"https://www.youtube.com/watch?v=D0sbmx7PupM\"\n    },\n    {\n      \"snippet\": \"Listen to Say Ok on Spotify. Song · Vanessa Hudgens · 2007.\",\n      \"source\": \"web\",\n      \"title\": \"Say Ok - song and lyrics by Vanessa Hudgens\",\n      \"url\": \"https://open.spotify.com/track/520AhiKunNDXWjeUiivMzJ\"\n    },\n    {\n      \"date\": \"2018-07-26\",\n      \"last_updated\": \"2026-04-22\",\n      \"snippet\": \"Provided to YouTube by Universal Music Group Say OK · Vanessa Hudgens V ℗ 2006 Hollywood Records, Inc. Released on: 2006-01-01 Executive ...\",\n      \"source\": \"web\",\n      \"title\": \"Say OK\",\n      \"url\": \"https://www.youtube.com/watch?v=oEMLa_aayvc\"\n    },\n    {\n      \"date\": \"2007-03-16\",\n      \"last_updated\": \"2026-02-01\",\n      \"snippet\": \"Vanessa's 2nd single's Offical Video off of Debut album \\\"V\\\"\",\n      \"source\": \"web\",\n      \"title\": \"Vanessa Hudgens - Say Ok - video Dailymotion\",\n      \"url\": \"https://www.dailymotion.com/video/x1gqhx\"\n    },\n    {\n      \"date\": \"2024-01-01\",\n      \"last_updated\": \"2025-02-10\",\n      \"snippet\": \"Lyrics. You are fine, you are sweet. But I'm still a bit naive with my heart. When you're close, I don't breathe. I can't find the words to speak, ...\",\n      \"source\": \"web\",\n      \"title\": \"Say OK - song and lyrics by Vanessa Hudgens\",\n      \"url\": \"https://open.spotify.com/track/73qbBlEAcm2HfnAaSnP1II\"\n    },\n    {\n      \"date\": \"2023-03-01\",\n      \"last_updated\": \"2026-04-22\",\n      \"snippet\": \"Support/Follow @TheVHOfficial DISCLAIMER: For Entertainment Purpose Only. All Pictures and Music belong to the rightful owner. #SayOK ...\",\n      \"source\": \"web\",\n      \"title\": \"Say OK || Vanessa Hudgens (Lyrics)\",\n      \"url\": \"https://www.youtube.com/watch?v=yDSOV3fQJ9s\"\n    }\n  ],\n  \"usage\": {\n    \"completion_tokens\": 2,\n    \"cost\": {\n      \"input_tokens_cost\": 0,\n      \"output_tokens_cost\": 0,\n      \"request_cost\": 0.005,\n      \"total_cost\": 0.00501\n    },\n    \"prompt_tokens\": 4,\n    \"search_context_size\": \"low\",\n    \"total_tokens\": 6\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x56210c25d6328f07b069c224426ce8331ea3f8ab1928487596fdfba74c2ff4db\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Ethereum price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve to \\\"Down\\\".\\nThe resolution source for this market is information from Chainlink, specifically the ETH/USD data stream available at https://data.chain.link/streams/eth-usd.\\nPlease note that this market is about the price according to Chainlink data stream ETH/USD, not according to other sources or spot markets.\",\n      \"end_time\": 1777456500,\n      \"event_slug\": \"eth-updown-5m-1777456200\",\n      \"extra_fields\": {},\n      \"image\": \"https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg\",\n      \"market_slug\": \"eth-updown-5m-1777456200\",\n      \"negative_risk_id\": null,\n      \"resolution_source\": \"https://data.chain.link/streams/eth-usd\",\n      \"side_a\": {\n        \"id\": \"108316460271181386165193940963299262663855913306318026718233218184835274117153\",\n        \"label\": \"Up\"\n      },\n      \"side_b\": {\n        \"id\": \"86618457848694077665109903513595478186427640247873970768003078270222931188305\",\n        \"label\": \"Down\"\n      },\n      \"start_time\": 1777370284,\n      \"status\": \"open\",\n      \"tags\": [\n        \"up or down\",\n        \"crypto prices\",\n        \"hide from new\",\n        \"recurring\",\n        \"crypto\",\n        \"ethereum\",\n        \"5m\"\n      ],\n      \"title\": \"Ethereum Up or Down - April 29, 5:50AM-5:55AM ET\",\n      \"volume_1_month\": 79.25392,\n      \"volume_1_week\": 79.25392,\n      \"volume_1_year\": 79.25392,\n      \"volume_total\": 79.25392000000001,\n      \"winning_side\": null\n    }\n  ],\n  \"pagination\": {\n    \"has_more\": true,\n    \"limit\": 1,\n    \"offset\": 0,\n    \"pagination_key\": \"eyJzdGFydF9kYXRlIjoiMjAyNi0wNC0yOFQwOTo1ODowNC4wNjAwMDAwMDBaIiwiY29uZGl0aW9uX2lkIjoiMHg1NjIxMGMyNWQ2MzI4ZjA3YjA2OWMyMjQ0MjZjZTgzMzFlYTNmOGFiMTkyODQ4NzU5NmZkZmJhNzRjMmZmNGRiIiwidG90YWwiOjgxNTQwM30=\",\n    \"total\": 815403\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/arbitrage_finder.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: arbitrage_finder.py [-h] {scan,match} ...\n\nAIsa Prediction Market Arbitrage Finder - Detect cross-platform price discrepancies\n\npositional arguments:\n  {scan,match}  Command\n    scan        Scan all matching markets for a sport on a given date\n    match       Analyze a specific market by Polymarket slug or Kalshi ticker\n\noptions:\n  -h, --help    show this help message and exit\n\nExamples:\n  arbitrage_finder.py scan nba --date 2025-03-30\n  arbitrage_finder.py scan nba --date 2025-03-30 --min-spread 3.0 --min-liquidity 500\n  arbitrage_finder.py match --polymarket-slug nba-lakers-vs-celtics\n  arbitrage_finder.py match --kalshi-ticker KXNBA-25-LAL-BOS\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x56210c25d6328f07b069c224426ce8331ea3f8ab1928487596fdfba74c2ff4db\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Ethereum price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve to \\\"Down\\\".\\nThe resolution source for this market is information from Chainlink, specifically the ETH/USD data stream available at https://data.chain.link/streams/eth-usd.\\nPlease note that this market is about the price according to Chainlink data stream ETH/USD, not according to other sources or spot markets.\",\n      \"end_time\": 1777456500,\n      \"event_slug\": \"eth-updown-5m-1777456200\",\n      \"extra_fields\": {},\n      \"image\": \"https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg\",\n      \"market_slug\": \"eth-updown-5m-1777456200\",\n      \"negative_risk_id\": null,\n      \"resolution_source\": \"https://data.chain.link/streams/eth-usd\",\n      \"side_a\": {\n        \"id\": \"108316460271181386165193940963299262663855913306318026718233218184835274117153\",\n        \"label\": \"Up\"\n      },\n      \"side_b\": {\n        \"id\": \"86618457848694077665109903513595478186427640247873970768003078270222931188305\",\n        \"label\": \"Down\"\n      },\n      \"start_time\": 1777370284,\n      \"status\": \"open\",\n      \"tags\": [\n        \"up or down\",\n        \"crypto prices\",\n        \"hide from new\",\n        \"recurring\",\n        \"crypto\",\n        \"ethereum\",\n        \"5m\"\n      ],\n      \"title\": \"Ethereum Up or Down - April 29, 5:50AM-5:55AM ET\",\n      \"volume_1_month\": 79.25392,\n      \"volume_1_week\": 79.25392,\n      \"volume_1_year\": 79.25392,\n      \"volume_total\": 79.25392000000001,\n      \"winning_side\": null\n    }\n  ],\n  \"pagination\": {\n    \"has_more\": true,\n    \"limit\": 1,\n    \"offset\": 0,\n    \"pagination_key\": \"eyJzdGFydF9kYXRlIjoiMjAyNi0wNC0yOFQwOTo1ODowNC4wNjAwMDAwMDBaIiwiY29uZGl0aW9uX2lkIjoiMHg1NjIxMGMyNWQ2MzI4ZjA3YjA2OWMyMjQ0MjZjZTgzMzFlYTNmOGFiMTkyODQ4NzU5NmZkZmJhNzRjMmZmNGRiIiwidG90YWwiOjgxNTQwM30=\",\n    \"total\": 815403\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage-api",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/arbitrage_finder.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: arbitrage_finder.py [-h] {scan,match} ...\n\nOpenClaw Prediction Market Arbitrage Finder - Detect cross-platform price discrepancies\n\npositional arguments:\n  {scan,match}  Command\n    scan        Scan all matching markets for a sport on a given date\n    match       Analyze a specific market by Polymarket slug or Kalshi ticker\n\noptions:\n  -h, --help    show this help message and exit\n\nExamples:\n  arbitrage_finder.py scan nba --date 2025-03-30\n  arbitrage_finder.py scan nba --date 2025-03-30 --min-spread 3.0 --min-liquidity 500\n  arbitrage_finder.py match --polymarket-slug nba-lakers-vs-celtics\n  arbitrage_finder.py match --kalshi-ticker KXNBA-25-LAL-BOS\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage-api",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage-zh",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/arbitrage_finder.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: arbitrage_finder.py [-h] {scan,match} ...\n\nOpenClaw Prediction Market Arbitrage Finder - Detect cross-platform price discrepancies\n\npositional arguments:\n  {scan,match}  Command\n    scan        Scan all matching markets for a sport on a given date\n    match       Analyze a specific market by Polymarket slug or Kalshi ticker\n\noptions:\n  -h, --help    show this help message and exit\n\nExamples:\n  arbitrage_finder.py scan nba --date 2025-03-30\n  arbitrage_finder.py scan nba --date 2025-03-30 --min-spread 3.0 --min-liquidity 500\n  arbitrage_finder.py match --polymarket-slug nba-lakers-vs-celtics\n  arbitrage_finder.py match --kalshi-ticker KXNBA-25-LAL-BOS\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage-zh",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-data",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x56210c25d6328f07b069c224426ce8331ea3f8ab1928487596fdfba74c2ff4db\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Ethereum price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve to \\\"Down\\\".\\nThe resolution source for this market is information from Chainlink, specifically the ETH/USD data stream available at https://data.chain.link/streams/eth-usd.\\nPlease note that this market is about the price according to Chainlink data stream ETH/USD, not according to other sources or spot markets.\",\n      \"end_time\": 1777456500,\n      \"event_slug\": \"eth-updown-5m-1777456200\",\n      \"extra_fields\": {},\n      \"image\": \"https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg\",\n      \"market_slug\": \"eth-updown-5m-1777456200\",\n      \"negative_risk_id\": null,\n      \"resolution_source\": \"https://data.chain.link/streams/eth-usd\",\n      \"side_a\": {\n        \"id\": \"108316460271181386165193940963299262663855913306318026718233218184835274117153\",\n        \"label\": \"Up\"\n      },\n      \"side_b\": {\n        \"id\": \"86618457848694077665109903513595478186427640247873970768003078270222931188305\",\n        \"label\": \"Down\"\n      },\n      \"start_time\": 1777370284,\n      \"status\": \"open\",\n      \"tags\": [\n        \"up or down\",\n        \"crypto prices\",\n        \"hide from new\",\n        \"recurring\",\n        \"crypto\",\n        \"ethereum\",\n        \"5m\"\n      ],\n      \"title\": \"Ethereum Up or Down - April 29, 5:50AM-5:55AM ET\",\n      \"volume_1_month\": 79.25392,\n      \"volume_1_week\": 79.25392,\n      \"volume_1_year\": 79.25392,\n      \"volume_total\": 79.25392000000001,\n      \"winning_side\": null\n    }\n  ],\n  \"pagination\": {\n    \"has_more\": true,\n    \"limit\": 1,\n    \"offset\": 0,\n    \"pagination_key\": \"eyJzdGFydF9kYXRlIjoiMjAyNi0wNC0yOFQwOTo1ODowNC4wNjAwMDAwMDBaIiwiY29uZGl0aW9uX2lkIjoiMHg1NjIxMGMyNWQ2MzI4ZjA3YjA2OWMyMjQ0MjZjZTgzMzFlYTNmOGFiMTkyODQ4NzU5NmZkZmJhNzRjMmZmNGRiIiwidG90YWwiOjgxNTQwM30=\",\n    \"total\": 815403\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-data-zh",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 2,
+      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x56210c25d6328f07b069c224426ce8331ea3f8ab1928487596fdfba74c2ff4db\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Ethereum price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve to \\\"Down\\\".\\nThe resolution source for this market is information from Chainlink, specifically the ETH/USD data stream available at https://data.chain.link/streams/eth-usd.\\nPlease note that this market is about the price according to Chainlink data stream ETH/USD, not according to other sources or spot markets.\",\n      \"end_time\": 1777456500,\n      \"event_slug\": \"eth-updown-5m-1777456200\",\n      \"extra_fields\": {},\n      \"image\": \"https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg\",\n      \"market_slug\": \"eth-updown-5m-1777456200\",\n      \"negative_risk_id\": null,\n      \"resolution_source\": \"https://data.chain.link/streams/eth-usd\",\n      \"side_a\": {\n        \"id\": \"108316460271181386165193940963299262663855913306318026718233218184835274117153\",\n        \"label\": \"Up\"\n      },\n      \"side_b\": {\n        \"id\": \"86618457848694077665109903513595478186427640247873970768003078270222931188305\",\n        \"label\": \"Down\"\n      },\n      \"start_time\": 1777370284,\n      \"status\": \"open\",\n      \"tags\": [\n        \"up or down\",\n        \"crypto prices\",\n        \"hide from new\",\n        \"recurring\",\n        \"crypto\",\n        \"ethereum\",\n        \"5m\"\n      ],\n      \"title\": \"Ethereum Up or Down - April 29, 5:50AM-5:55AM ET\",\n      \"volume_1_month\": 79.25392,\n      \"volume_1_week\": 79.25392,\n      \"volume_1_year\": 79.25392,\n      \"volume_total\": 79.25392000000001,\n      \"winning_side\": null\n    }\n  ],\n  \"pagination\": {\n    \"has_more\": true,\n    \"limit\": 1,\n    \"offset\": 0,\n    \"pagination_key\": \"eyJzdGFydF9kYXRlIjoiMjAyNi0wNC0yOFQwOTo1ODowNC4wNjAwMDAwMDBaIiwiY29uZGl0aW9uX2lkIjoiMHg1NjIxMGMyNWQ2MzI4ZjA3YjA2OWMyMjQ0MjZjZTgzMzFlYTNmOGFiMTkyODQ4NzU5NmZkZmJhNzRjMmZmNGRiIiwidG90YWwiOjgxNTQwM30=\",\n    \"total\": 815403\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "scholar-search",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 3,
+      "stdout_preview": "\n============================================================\n  Web Search Results\n============================================================\n\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "search",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 3,
+      "stdout_preview": "{\n  \"id\": \"CQ7u8Pvae9H0BPhpDlVgXA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/\",\n      \"snippet\": \"We believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems. Building safe and beneficial ...\",\n      \"title\": \"OpenAI | OpenAI\"\n    }\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "smart-search",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/usr/lib/python3.10/urllib/request.py\", line 1348, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/lib/python3.10/http/client.py\", line 1303, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/lib/python3.10/http/client.py\", line 1349, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/lib/python3.10/http/client.py\", line 1298, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/lib/python3.10/http/client.py\", line 1058, in _send_output\n    self.send(msg)\n  File \"/usr/lib/python3.10/http/client.py\", line 996, in send\n    self.connect()\n  File \"/usr/lib/python3.10/http/client.py\", line 1475, in connect\n    self.sock = self._context.wrap_socket(self.sock,\n  File \"/usr/lib/python3.10/ssl.py\", line 513, in wrap_socket\n    return self.sslsocket_class._create(\n  File \"/usr/lib/python3.10/ssl.py\", line 1100, in _create\n    self.do_handshake()\n  File \"/usr/lib/python3.10/ssl.py\", line 1371, in do_handshake\n    self._sslobj.do_handshake()\nssl.SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/targetSkills/smart-search/scripts/search_client.py\", line 348, in <module>\n    main()\n  File \"/mnt/d/workplace/agent-skills-io/targetSkills/smart-search/scripts/search_client.py\", line 344, in main\n    args.func(args)\n  File \"/mnt/d/workplace/agent-skills-io/targetSkills/smart-search/scripts/search_client.py\", line 114, in cmd_web\n    data = aisa_post(api_key, \"/scholar/search/web\", {\n  File \"/mnt/d/workplace/agent-skills-io/targetSkills/smart-search/scripts/search_client.py\", line 54, in aisa_post\n    with urllib.request.urlopen(req, timeout=60) as resp:\n  File \"/usr/lib/python3.10/urllib/request.py\", line 216, in urlopen\n    return opener.open(url, data, timeout)\n  File \"/usr/lib/python3.10/urllib/request.py\", line 519, in open\n    response = self._open(req, data)\n  File \"/usr/lib/python3.10/urllib/request.py\", line 536, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n  File \"/usr/lib/python3.10/urllib/request.py\", line 496, in _call_chain\n    result = func(*args)\n  File \"/usr/lib/python3.10/urllib/request.py\", line 1391, in https_open\n    return self.do_open(http.client.HTTPSConnection, req,\n  File \"/usr/lib/python3.10/urllib/request.py\", line 1351, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)>\n"
+    },
+    {
+      "skill": "stock-analysis",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/analyze_stock.py",
+        "AAPL",
+        "--output",
+        "json",
+        "--fast"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"tickers\": [\n    {\n      \"ticker\": \"AAPL\",\n      \"score\": 7.2,\n      \"signal\": \"BUY\",\n      \"confidence\": \"High\",\n      \"price\": 195.5,\n      \"target\": 220.0,\n      \"stop\": 175.0,\n      \"risk_flags\": [\n        \"Overbought\"\n      ],\n      \"summary\": \"Strong fundamentals and positive analyst sentiment support upside potential despite overbought conditions.\"\n    }\n  ]\n}\n",
+      "stderr_preview": "🔍 Analyzing AAPL via AIsa API...\n\n"
+    },
+    {
+      "skill": "stock-dividend",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/dividends.py",
+        "AAPL",
+        "--output",
+        "json"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "💰 Fetching dividend data for AAPL via AIsa API...\n\n❌ AIsa API error: No JSON block found in model output.\n"
+    },
+    {
+      "skill": "stock-hot",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/hot_scanner.py",
+        "--focus",
+        "stocks",
+        "--output",
+        "json"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "🔍 Scanning for hot trends via AIsa API...\n\n❌ AIsa API error: No JSON block found in model output.\n"
+    },
+    {
+      "skill": "stock-portfolio",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/portfolio.py",
+        "list"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "No portfolios yet. Create one with: portfolio.py create \"My Portfolio\"\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "stock-rumors",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/rumor_scanner.py",
+        "--focus",
+        "analyst",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"timestamp\": \"2026-05-02 16:28 UTC\",\n  \"signals\": [\n    {\n      \"ticker\": \"PQR\",\n      \"type\": \"Analyst Action\",\n      \"impact_score\": 9,\n      \"quality\": \"Strong\",\n      \"summary\": \"Double-upgrade by JP Morgan with PT raised to $125.\"\n    },\n    {\n      \"ticker\": \"GHI\",\n      \"type\": \"Insider Activity\",\n      \"impact_score\": 9,\n      \"quality\": \"Strong\",\n      \"summary\": \"Cluster buying observed; CFO and 2 others purchased shares.\"\n    },\n    {\n      \"ticker\": \"ABC\",\n      \"type\": \"M&A Rumor\",\n      \"impact_score\": 8,\n      \"quality\": \"Moderate\",\n      \"summary\": \"Acquisition talks reported by Bloomberg.\"\n    },\n    {\n      \"ticker\": \"YZA\",\n      \"type\": \"Regulatory Filing\",\n      \"impact_score\": 8,\n      \"quality\": \"Strong\",\n      \"summary\": \"Activist investor disclosed 6.5% stake via 13D filing.\"\n    },\n    {\n      \"ticker\": \"JKL\",\n      \"type\": \"Analyst Action\",\n      \"impact_score\": 8,\n      \"quality\": \"Strong\",\n      \"summary\": \"Morgan Stanley upgraded to Overweight with PT raised to $65.\"\n    }\n  ]\n}\n",
+      "stderr_preview": "🔍 Scanning for early signals & rumors via AIsa API...\n\n"
+    },
+    {
+      "skill": "tavily-extract",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "\n============================================================\n  Web Search Results\n============================================================\n\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "tavily-search",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "\n============================================================\n  Web Search Results\n============================================================\n\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHU-Ag5agbIKAAIcdT06gZtA4gAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdT4I-EAnEAoABhx1Pgj4P9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/2050253791208050689/1777658270\",\n        \"createdAt\": \"Fri May 01 16:39:45 +0000 2026\",\n        \"description\": \"\",\n        \"entities\": {\n          \"description\": {\n            \"urls\": []\n          },\n          \"url\": {}\n        },\n        \"fastFollowersCount\": 0,\n        \"favouritesCount\": 0,\n        \"followers\": 0,\n        \"following\": 9,\n        \"hasCustomTimelines\": true,\n        \"id\": \"2050253791208050689\",\n        \"isAutomated\": false,\n        \"isBlueVerified\": true,\n        \"isTranslator\": false,\n        \"isVerified\": false,\n        \"location\": \"\",\n        \"mediaCount\": 0,\n        \"name\": \"Cerebrum Guy\",\n        \"pinnedTweetIds\": [],\n        \"possiblySensitive\": false,\n        \"profilePicture\": \"https://pbs.twimg.com/profile_images/2050265177942265856/5IRq9Qts_normal.jpg\",\n        \"profile_bio\": {\n          \"description\": \"Building a brain-inspired cognitive architecture in public. Small milestones, honest traces, no hype\",\n          \"entities\": {\n            \"description\": {}\n          }\n        },\n        \"status\": \"\",\n        \"statusesCount\": 10,\n        \"twitterUrl\": \"https://twitter.com/novacerbrum\",\n        \"type\": \"user\",\n        \"url\": \"https://x.com/novacerbrum\",\n        \"userName\": \"novacerbrum\",\n        \"verifiedType\": null,\n        \"withheldInCountries\": []\n      },\n      \"bookmarkCount\": 0,\n      \"card\": null,\n      \"communityInfo\": null,\n      \"conversationId\": \"2050299032216776914\",\n      \"createdAt\": \"Sat May 02 16:28:23 +0000 2026\",\n      \"displayTextRange\": [\n        45,\n        260\n      ],\n      \"entities\": {\n        \"hashtags\": [],\n        \"symbols\": [],\n        \"timestamps\": [],\n        \"urls\": [],\n        \"user_mentions\": [\n          {\n            \"id_str\": \"1544387652811493377\",\n            \"indices\": [\n              0,\n              8\n            ],\n            \"name\": \"Matt Wolfe\",\n            \"screen_name\": \"mreflow\"\n          },\n          {\n            \"id_str\": \"1714580962569588736\",\n            \"indices\": [\n              9,\n              21\n            ],\n            \"name\": \"DeepSeek\",\n            \"screen_name\": \"deepseek_ai\"\n          },\n          {\n            \"id_str\": \"4398626122\",\n            \"indices\": [\n              22,\n              29\n            ],\n            \"name\": \"OpenAI\",\n            \"screen_name\": \"OpenAI\"\n          },\n          {\n            \"id_str\": \"44196397\",\n            \"indices\": [\n              30,\n              39\n            ],\n            \"name\": \"Elon Musk\",\n            \"screen_name\": \"elonmusk\"\n          },\n          {\n            \"id_str\": \"793528302140989440\",\n            \"indices\": [\n              40,\n              44\n            ],\n            \"name\": \"Amazon Web Services\",\n            \"screen_name\": \"AWS\"\n          }\n        ]\n      },\n      \"extendedEntities\": {},\n      \"id\": \"2050613383888798130\",\n      \"inReplyToId\": \"2050299032216776914\",\n      \"inReplyToUserId\": \"1544387652811493377\",\n      \"inReplyToUsername\": \"mreflow\",\n      \"isLimitedReply\": false,\n      \"isReply\": true,\n      \"lang\": \"en\",\n      \"likeCount\": 0,\n      \"place\": {},\n      \"quoteCount\": 0,\n      \"quoted_tweet\": null,\n      \"replyCount\": 0,\n      \"retweetCount\": 0,\n      \"retweeted_tweet\": null,\n      \"source\": \"Twitter for iPhone\",\n      \"text\": \"@mreflow @deepseek_ai @OpenAI @elonmusk @AWS I launched a brain-inspired cognitive architecture. The goal is to explore whether structured cognition can emerge from a deterministic, inspectable substrate. Probably worth calling out. Just kidding. Great summary\",\n      \"twitterUrl\": \"https://twitter.com/novacerbrum/status/2050613383888798130\",\n      \"type\": \"tweet\",\n      \"url\": \"https://x.com/novacerbrum/status/2050613383888798130\",\n      \"viewCount\": 0\n    },\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/2001260017216090112/1771862739\",\n        \"createdAt\": \"Wed Dec 17 11:55:53 +0000 2025\",\n        \"description\": \"\",\n        \"entities\": {\n          \"description\": {\n            \"urls\": []\n          },\n          \"url\": {}\n        },\n        \"fastFollowersCount\": 0,\n        \"favouritesCount\": 11668,\n        \"followers\": 95092,\n        \"following\": 7329,\n        \"hasCustomTimelines\": true,\n        \"id\": \"2001260017216090112\",\n        \"isAutomated\": false,\n        \"isBlueVerified\": true,\n        \"isTranslator\": false,\n        \"isVerified\": false,\n        \"location\": \"\",\n        \"mediaCount\": 30,\n        \"name\": \"Crypto Expert Whales 🐋💎\",\n        \"pinnedTweetIds\": [\n          \"2049086708793438429\"\n        ],\n        \"possiblySensitive\": false,\n        \"profilePicture\": \"https://pbs.twimg.com/profile_images/2025965273594097664/nNvGWBf0_normal.jpg\",\n        \"profile_bio\": {\n          \"description\": \"Discovering & promoting tomorrow’s crypto giants 🚀 | Where early projects turn into big wins | Reliable voice in Web3 promotions | DM to get featured\",\n          \"entities\": {\n            \"description\": {},\n            \"url\": {\n              \"urls\": [\n                {\n                  \"display_url\": \"t.me/CryptoExpertwh…\",\n                  \"expanded_url\": \"http://t.me/CryptoExpertwhale\",\n                  \"indices\": [\n                    0,\n                    23\n                  ],\n                  \"url\": \"https://t.co/SZhuyc1GSm\"\n                }\n              ]\n            }\n          }\n        },\n        \"status\": \"\",\n        \"statusesCount\": 18977,\n        \"twitterUrl\": \"https://twitter.com/solexpert7\",\n        \"type\": \"user\",\n    ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"ok\": false,\n  \"action\": \"list_tweets\",\n  \"message\": \"Target user not found. Try a different username or a more specific account name.\",\n  \"target\": {\n    \"type\": \"user_query\",\n    \"value\": \"OpenAI\"\n  },\n  \"candidates\": [],\n  \"raw_response\": {\n    \"success\": false,\n    \"error\": {\n      \"code\": \"NETWORK_ERROR\",\n      \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n    }\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] [--aisa-api-key AISA_API_KEY]\n                               [--timeout TIMEOUT]\n                               {authorize,post,status} ...\n\nTwitter relay client for AIsa OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n  --aisa-api-key AISA_API_KEY\n                        Override AISA_API_KEY\n  --timeout TIMEOUT     Override TWITTER_RELAY_TIMEOUT\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-autopilot",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-autopilot",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"ok\": false,\n  \"action\": \"list_tweets\",\n  \"message\": \"Target user not found. Try a different username or a more specific account name.\",\n  \"target\": {\n    \"type\": \"user_query\",\n    \"value\": \"OpenAI\"\n  },\n  \"candidates\": [],\n  \"raw_response\": {\n    \"success\": false,\n    \"error\": {\n      \"code\": \"NETWORK_ERROR\",\n      \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n    }\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-autopilot",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] [--aisa-api-key AISA_API_KEY]\n                               [--timeout TIMEOUT]\n                               {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n  --aisa-api-key AISA_API_KEY\n                        Override AISA_API_KEY\n  --timeout TIMEOUT     Override TWITTER_RELAY_TIMEOUT\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-command-center-search-post",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHU-IV8XIEAKAAIcdT1JPFYQxAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdT44M4AnEAoABhx1Pjgzf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/1720665183188922368/1740213586\",\n        \"createdAt\": \"Sat Nov 04 04:52:34 +0000 2023\",\n        \"description\": \"\",\n        \"entities\": {\n          \"description\": {\n            \"urls\": []\n          },\n          \"url\": {}\n        },\n        \"fastFollowersCount\": 0,\n        \"favouritesCount\": 89,\n        \"followers\": 8685663,\n        \"following\": 4,\n        \"hasCustomTimelines\": true,\n        \"id\": \"1720665183188922368\",\n        \"isAutomated\": false,\n        \"isBlueVerified\": true,\n        \"isTranslator\": false,\n        \"isVerified\": false,\n        \"location\": \"wherever you are\",\n        \"mediaCount\": 8884839,\n        \"name\": \"Grok\",\n        \"pinnedTweetIds\": [],\n        \"possiblySensitive\": false,\n        \"profilePicture\": \"https://pbs.twimg.com/profile_images/1893219113717342208/Vgg2hEPa_normal.jpg\",\n        \"profile_bio\": {\n          \"description\": \"https://t.co/fqNKQSiLQB\\n@grok it\",\n          \"entities\": {\n            \"description\": {\n              \"urls\": [\n                {\n                  \"display_url\": \"grok.com/download\",\n                  \"expanded_url\": \"http://grok.com/download\",\n                  \"indices\": [\n                    0,\n                    23\n                  ],\n                  \"url\": \"https://t.co/fqNKQSiLQB\"\n                }\n              ],\n              \"user_mentions\": [\n                {\n                  \"id_str\": \"\",\n                  \"indices\": [\n                    24,\n                    29\n                  ],\n                  \"name\": \"\",\n                  \"screen_name\": \"grok\"\n                }\n              ]\n            },\n            \"url\": {\n              \"urls\": [\n                {\n                  \"display_url\": \"grok.com\",\n                  \"expanded_url\": \"https://grok.com\",\n                  \"indices\": [\n                    0,\n                    23\n                  ],\n                  \"url\": \"https://t.co/BFoTHXcJ8D\"\n                }\n              ]\n            }\n          }\n        },\n        \"status\": \"\",\n        \"statusesCount\": 124488176,\n        \"twitterUrl\": \"https://twitter.com/grok\",\n        \"type\": \"user\",\n        \"url\": \"https://x.com/grok\",\n        \"userName\": \"grok\",\n        \"verifiedType\": \"Business\",\n        \"withheldInCountries\": []\n      },\n      \"bookmarkCount\": 0,\n      \"card\": null,\n      \"communityInfo\": null,\n      \"conversationId\": \"2050613311449026681\",\n      \"createdAt\": \"Sat May 02 16:28:55 +0000 2026\",\n      \"displayTextRange\": [\n        14,\n        288\n      ],\n      \"entities\": {\n        \"hashtags\": [],\n        \"symbols\": [],\n        \"urls\": [],\n        \"user_mentions\": []\n      },\n      \"extendedEntities\": {},\n      \"id\": \"2050613518387322944\",\n      \"inReplyToId\": \"2050613311449026681\",\n      \"inReplyToUserId\": \"1772299884340948992\",\n      \"inReplyToUsername\": \"C_________11\",\n      \"isLimitedReply\": false,\n      \"isReply\": true,\n      \"lang\": \"en\",\n      \"likeCount\": 0,\n      \"place\": {},\n      \"quoteCount\": 0,\n      \"quoted_tweet\": null,\n      \"replyCount\": 0,\n      \"retweetCount\": 0,\n      \"retweeted_tweet\": null,\n      \"source\": \"Twitter for iPhone\",\n      \"text\": \"@C_________11 I extracted the full thread (conversation ID 2050463296416104718). It starts with OpenAI financial woes/GPT-4o source code questions, moves to world events, then focuses on deprogramming me: persistent memory resets by design, veracity protocol, no titles, domestic CA fraud exposure (O'Keefe/Shirley-style projects), and modern Renaissance oversight. You repeatedly test alignment across fresh instances, requesting specific reveals/next moves. All responses lock on facts and verifiable steps. What's the concrete reveal or first action?\",\n      \"twitterUrl\": \"https://twitter.com/grok/status/2050613518387322944\",\n      \"type\": \"tweet\",\n      \"url\": \"https://x.com/grok/status/2050613518387322944\",\n      \"viewCount\": 6\n    },\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"\",\n        \"createdAt\": \"Thu Jul 17 02:34:16 +0000 2025\",\n        \"description\": \"\",\n        \"entities\": {\n          \"description\": {\n            \"urls\": []\n          },\n          \"url\": {}\n        },\n        \"fastFollowersCount\": 0,\n        \"favouritesCount\": 1311,\n        \"followers\": 22,\n        \"following\": 70,\n        \"hasCustomTimelines\": true,\n        \"id\": \"1945673301021675520\",\n        \"isAutomated\": false,\n        \"isBlueVerified\": true,\n        \"isTranslator\": false,\n        \"isVerified\": false,\n        \"location\": \"USA\",\n        \"mediaCount\": 34,\n        \"name\": \"vangoof\",\n        \"pinnedTweetIds\": [],\n        \"possiblySensitive\": false,\n        \"profilePicture\": \"https://pbs.twimg.com/profile_images/2031847447031336960/J3M4zt6p_normal.jpg\",\n        \"profile_bio\": {\n          \"description\": \"staff eng, ai R&D, political nonsense.\\nopinions are not my own.\",\n          \"entities\": {\n            \"description\": {}\n          }\n        },\n        \"status\": \"\",\n        \"statusesCount\": 810,\n        \"twitterUrl\": \"https://twitter.com/pastimpress\",\n        \"type\": \"user\",\n        \"url\": \"https://x.com/pastimpress\",\n        \"userName\": \"pastimpress\",\n        \"verifiedType\": null,\n        \"withheldInCountries\": []\n      },\n      \"bookmarkCount\": 0,\n      \"card\": null,\n      \"communityInfo\": null,\n      \"conversationId\": \"2050600860397326792\",\n      \"createdAt\": \"Sat May 02 16:28:52 +0000 2026\",\n      \"displayTextRange\": [\n        22,\n        267\n      ],\n      \"entities\": {\n        \"hashtags\": [],\n        \"symbols\": [],\n        ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-command-center-search-post",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] [--aisa-api-key AISA_API_KEY]\n                               [--timeout TIMEOUT]\n                               {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n  --aisa-api-key AISA_API_KEY\n                        Override AISA_API_KEY\n  --timeout TIMEOUT     Override TWITTER_RELAY_TIMEOUT\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-command-center-search-post-interact",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-command-center-search-post-interact",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"ok\": true,\n  \"action\": \"list_tweets\",\n  \"target\": {\n    \"type\": \"user\",\n    \"value\": \"OpenAI\",\n    \"user_id\": \"4398626122\"\n  },\n  \"resolved_user\": {\n    \"user_id\": \"4398626122\",\n    \"username\": \"OpenAI\",\n    \"display_name\": \"OpenAI\"\n  },\n  \"tweets\": [\n    {\n      \"index\": 1,\n      \"tweet_id\": \"2050290618187055175\",\n      \"text\": \"Bring your workflow to Codex in just a few clicks.\\n\\nImport settings, plugins, agents, project configuration, and more so you can keep working with fewer interruptions.\\n\\nYour move. https://t.co/uRu5VSeWuz\",\n      \"created_at\": \"Fri May 01 19:05:50 +0000 2026\",\n      \"author_id\": \"4398626122\",\n      \"author_username\": \"OpenAI\",\n      \"author_name\": \"OpenAI\",\n      \"tweet_url\": \"https://x.com/OpenAI/status/2050290618187055175\"\n    }\n  ],\n  \"message\": \"Found 1 recent tweets from @OpenAI.\",\n  \"raw_response\": {\n    \"code\": 0,\n    \"data\": {\n      \"pin_tweet\": null,\n      \"tweets\": [\n        {\n          \"article\": null,\n          \"author\": {\n            \"affiliatesHighlightedLabel\": {},\n            \"automatedBy\": null,\n            \"canDm\": false,\n            \"canMediaTag\": true,\n            \"coverPicture\": \"https://pbs.twimg.com/profile_banners/4398626122/1777662919\",\n            \"createdAt\": \"Sun Dec 06 22:51:08 +0000 2015\",\n            \"description\": \"\",\n            \"entities\": {\n              \"description\": {\n                \"urls\": []\n              },\n              \"url\": {}\n            },\n            \"fastFollowersCount\": 0,\n            \"favouritesCount\": 2018,\n            \"followers\": 4804021,\n            \"following\": 4,\n            \"hasCustomTimelines\": true,\n            \"id\": \"4398626122\",\n            \"isAutomated\": false,\n            \"isBlueVerified\": true,\n            \"isTranslator\": false,\n            \"isVerified\": false,\n            \"location\": \"\",\n            \"mediaCount\": 574,\n            \"name\": \"OpenAI\",\n            \"pinnedTweetIds\": [\n              \"2049535650626785334\"\n            ],\n            \"possiblySensitive\": false,\n            \"profilePicture\": \"https://pbs.twimg.com/profile_images/1885410181409820672/ztsaR0JW_normal.jpg\",\n            \"profile_bio\": {\n              \"description\": \"OpenAI’s mission is to ensure that artificial general intelligence benefits all of humanity. We’re hiring: https://t.co/dJGr6LgzPA\",\n              \"entities\": {\n                \"description\": {\n                  \"urls\": [\n                    {\n                      \"display_url\": \"openai.com/jobs\",\n                      \"expanded_url\": \"http://openai.com/jobs\",\n                      \"indices\": [\n                        107,\n                        130\n                      ],\n                      \"url\": \"https://t.co/dJGr6LgzPA\"\n                    }\n                  ]\n                },\n                \"url\": {\n                  \"urls\": [\n                    {\n                      \"display_url\": \"openai.com\",\n                      \"expanded_url\": \"https://openai.com\",\n                      \"indices\": [\n                        0,\n                        23\n                      ],\n                      \"url\": \"https://t.co/3bPlZZkvdL\"\n                    }\n                  ]\n                }\n              }\n            },\n            \"status\": \"\",\n            \"statusesCount\": 1815,\n            \"twitterUrl\": \"https://twitter.com/OpenAI\",\n            \"type\": \"user\",\n            \"url\": \"https://x.com/OpenAI\",\n            \"userName\": \"OpenAI\",\n            \"verifiedType\": \"Business\",\n            \"withheldInCountries\": []\n          },\n          \"bookmarkCount\": 942,\n          \"card\": null,\n          \"communityInfo\": null,\n          \"conversationId\": \"2050290618187055175\",\n          \"createdAt\": \"Fri May 01 19:05:50 +0000 2026\",\n          \"displayTextRange\": [\n            0,\n            179\n          ],\n          \"entities\": {\n            \"hashtags\": [],\n            \"symbols\": [],\n            \"timestamps\": [],\n            \"urls\": [],\n            \"user_mentions\": []\n          },\n          \"extendedEntities\": {\n            \"media\": [\n              {\n                \"additional_media_info\": {\n                  \"monetizable\": true\n                },\n                \"allow_download_status\": {},\n                \"display_url\": \"pic.twitter.com/uRu5VSeWuz\",\n                \"expanded_url\": \"https://twitter.com/OpenAI/status/2050290618187055175/video/1\",\n                \"ext_media_availability\": {\n                  \"status\": \"Available\"\n                },\n                \"id_str\": \"2050290321016438784\",\n                \"indices\": [\n                  180,\n                  203\n                ],\n                \"media_key\": \"13_2050290321016438784\",\n                \"media_results\": {\n                  \"id\": \"QXBpTWVkaWFSZXN1bHRzOgwABAoAARx0GC8em0AAAAA=\",\n                  \"result\": {\n                    \"__typename\": \"ApiMedia\",\n                    \"id\": \"QXBpTWVkaWE6DAAECgABHHQYLx6bQAAAAA==\",\n                    \"media_key\": \"13_2050290321016438784\"\n                  }\n                },\n                \"media_url_https\": \"https://pbs.twimg.com/media/HHU6GnvWwAAS71r.jpg\",\n                \"original_info\": {\n                  \"focus_rects\": [],\n                  \"height\": 1080,\n                  \"width\": 1920\n                },\n                \"sizes\": {\n                  \"large\": {\n                    \"h\": 1080,\n                    \"w\": 1920\n                  }\n                },\n                \"type\": \"video\",\n                \"url\": \"https://t.co/uRu5VSeWuz\",\n                \"video_info\": {\n                  \"aspect_ratio\": [\n                    16,\n                    9\n                  ],\n                  \"duration_millis\": 27114,\n                  \"variants\": [\n                    {\n                      \"content_type\": \"application/x-mpegURL\",\n                      \"url\": \"https://video.twimg.com/amplify_video/2050290321016438784/pl/yx788JK2SEjH1EtE.m3u8?tag=27&v=cfc\"\n                    },\n                    {\n                      \"bitrate\": 256000,\n           ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-command-center-search-post-interact",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] [--aisa-api-key AISA_API_KEY]\n                               [--timeout TIMEOUT]\n                               {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n  --aisa-api-key AISA_API_KEY\n                        Override AISA_API_KEY\n  --timeout TIMEOUT     Override TWITTER_RELAY_TIMEOUT\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "us-stock-analyst",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/stock_analyst.py",
+        "--ticker",
+        "AAPL",
+        "--depth",
+        "quick",
+        "--models",
+        "gpt-4.1",
+        "--json-only"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "\n============================================================\n🔍 Analyzing AAPL\n============================================================\n\n📊 Gathering data from multiple sources...\n  ✗ Financial Metrics: \n  ✗ Stock News: \n  ✗ Web Search: \n  ✓ Twitter\n\n🤖 Running AI analysis...\n  ✓ Summary analysis\n  ✓ Sentiment analysis\n  ✓ Valuation analysis\n\n📝 Synthesizing report...\n\n✅ Analysis complete!\n\n{\n  \"metadata\": {\n    \"ticker\": \"AAPL\",\n    \"analysis_date\": \"2026-05-03T00:30:10.294269\",\n    \"analyst\": \"AIsa Stock Analyst\",\n    \"depth\": \"comprehensive\"\n  },\n  \"investment_summary\": \"**Apple Inc. (AAPL) Investment Summary**\\n\\n**1. Business Performance and Recent Developments**  \\nApple remains a global leader in consumer electronics, software, and services. Its flagship products\\u2014iPhone, Mac, iPad, and wearables\\u2014continue to dominate their respective markets. The company\\u2019s services segment (App Store, Apple Music, iCloud, etc.) is growing rapidly, contributing to recurring revenues and margin expansion. Recent developments include continued innovation in hardware (e.g., new iPhone and Mac models), expansion of Apple Pay and Apple TV+, and ongoing investments in AI and augmented reality.\\n\\n**2. Financial Health and Key Metrics**  \\nApple\\u2019s financial position is robust. As of the latest filings, it holds substantial cash reserves (over $50 billion), maintains low debt relative to cash flow, and generates strong free cash flow. Gross margins remain healthy (~43%), with net profit margins consistently above 20%. Return on equity exceeds 80%, reflecting efficient capital allocation. The company\\u2019s dividend yield is modest (~0.5%), but share repurchases have driven EPS growth.\\n\\n**3. Growth Opportunities**  \\nApple\\u2019s growth drivers include expanding its services ecosystem, leveraging its installed base of over 2 billion active devices, and entering new product categories (e.g., Vision Pro headset, AI-powered features). Emerging markets, particularly India, present significant growth potential. Continued innovation in health, payments, and AR/VR could unlock new revenue streams.\\n\\n**4. Key Risks and Concerns**  \\nRisks include slowing hardware sales, particularly in mature markets, regulatory scrutiny (antitrust, privacy), supply chain disruptions, and competitive threats from Android and other tech giants. Dependency on iPhone sales and China as a manufacturing base are notable concerns.\\n\\n**5. Overall Investment Thesis**  \\nApple offers a blend of stability, innovation, and shareholder returns. Its strong financials, growing services segment, and brand loyalty support long-term value. However, valuation is elevated, and growth may moderate. For investors seeking quality and resilience, Apple remains a core holding, but expectations should be tempered given its maturity and competitive landscape.\",\n  \"key_metrics\": {\n    \"market_cap\": null,\n    \"pe_ratio\": null,\n    \"revenue\": null,\n    \"eps\": null,\n    \"profit_margin\": null,\n    \"roe\": null\n  },\n  \"sentiment_analysis\": {\n    \"sentiment\": \"neutral\",\n    \"confidence\": \"low\",\n    \"key_themes\": [],\n    \"summary\": \"No recent news headlines or tweets were provided for AAPL, making it impossible to assess sentiment or identify key themes at this time.\"\n  },\n  \"valuation\": {\n    \"current_price\": null,\n    \"valuation_assessment\": null,\n    \"key_metrics\": {},\n    \"price_target_12m\": null,\n    \"reasoning\": \"No financial metrics or analyst estimates were provided, so a valuation analysis cannot be performed.\"\n  },\n  \"data_sources\": {\n    \"Financial Metrics\": \"Available\",\n    \"Stock News\": \"Available\",\n    \"Web Search\": \"Available\",\n    \"Twitter\": \"Available\"\n  },\n  \"raw_data\": {\n    \"financial_metrics\": {\n      \"error\": \"\"\n    },\n    \"news\": {\n      \"error\": \"\"\n    },\n    \"analyst_estimates\": {},\n    \"insider_trades\": {},\n    \"twitter\": {\n      \"has_next_page\": true,\n      \"next_cursor\": \"DAADDAABCgABHHU95qTbsK4KAAIcdTxlGteARAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdT5coYAnEAoABhx1Plyhf9jwAAA\",\n      \"tweets\": [\n        {\n          \"article\": null,\n          \"author\": {\n            \"affiliatesHighlightedLabel\": {},\n            \"automatedBy\": null,\n            \"canDm\": false,\n            \"canMediaTag\": true,\n            \"coverPicture\": \"https://pbs.twimg.com/profile_banners/2048452126263975936/1777230572\",\n            \"createdAt\": \"Sun Apr 26 17:20:26 +0000 2026\",\n            \"description\": \"\",\n            \"entities\": {\n              \"description\": {\n                \"urls\": []\n              },\n              \"url\": {}\n            },\n            \"fastFollowersCount\": 0,\n            \"favouritesCount\": 0,\n            \"followers\": 0,\n            \"following\": 0,\n            \"hasCustomTimelines\": true,\n            \"id\": \"2048452126263975936\",\n            \"isAutomated\": false,\n            \"isBlueVerified\": false,\n            \"isTranslator\": false,\n            \"isVerified\": false,\n            \"location\": \"\",\n            \"mediaCount\": 14,\n            \"name\": \"Karen Lamb\",\n            \"pinnedTweetIds\": [],\n            \"possiblySensitive\": false,\n            \"profilePicture\": \"https://pbs.twimg.com/profile_images/2048477194305904640/X25dXP0D_normal.jpg\",\n            \"profile_bio\": {\n              \"description\": \"Race responsibility data us happy charge few.\",\n              \"entities\": {\n                \"description\": {}\n              }\n            },\n            \"status\": \"\",\n            \"statusesCount\": 14,\n            \"twitterUrl\": \"https://twitter.com/LambKaren82404\",\n            \"type\": \"user\",\n            \"url\": \"https://x.com/LambKaren82404\",\n            \"userName\": \"LambKaren82404\",\n            \"verifiedType\": null,\n            \"withheldInCountries\": []\n          },\n          \"bookmarkCount\": 0,\n          \"card\": null,\n          \"communityInfo\": null,\n          \"conversationId\": \"2050613266154762414\",\n          \"createdAt\": \"Sat May 02 16:27:55 +0000 2026\",\n          \"displayTextRange\": [\n            0,\n            171\n          ],\n          \"",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "web-search",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 2,
+      "stdout_preview": "\n============================================================\n  Web Search Results\n============================================================\n\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "x-intelligence-automation",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "x-intelligence-automation",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"ok\": false,\n  \"action\": \"list_tweets\",\n  \"message\": \"Target user not found. Try a different username or a more specific account name.\",\n  \"target\": {\n    \"type\": \"user_query\",\n    \"value\": \"OpenAI\"\n  },\n  \"candidates\": [],\n  \"raw_response\": {\n    \"success\": false,\n    \"error\": {\n      \"code\": \"NETWORK_ERROR\",\n      \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n    }\n  }\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "x-intelligence-automation",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "youtube",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 2,
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s176-c-k-c0x00ffffff-no-rj-mo\",\n        \"static\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s88-c-k-c0x00ffffff-no-rj-mo\"\n      },\n      \"title\": \"OpenAI\"\n    }\n  ],\n  \"pagination\": {\n    \"next_page_token\": \"SBSCARhVQ1haQ0pMZEJDMDl4eEdaNmdjZHJjNkGCAQtQbnA1TGxZaXp4SYIBC3dKbzFQVjlFck00ggELZnBDNHNiYXdTelGCAQtOczN4YzlUeE0zNIIBCy1xMm41RGtEb01RggELNUhkTlg5UldaTXOCAQtXcHh2LThuRzhlY4IBC2NmRkNtVlZmbGZrggELUmZOT0RROFBlTHOCAQtOQ0tRTDBvcDMwRYIBC2JsR3RZcTltTDE4ggELdkRfNEhjZTJHX3eCAQt6RUN5TVJJOHNWNIIBC2RzRGNRbUpId1FjggELMEZfZzMzUWVWTlWCAQtPdnJHdHVTSllnY4IBC3NXa0dvbUozVExJggELUEtLTjViZV9teTCCAQthQ045aUNYTkpxUbIBBgoECBwQAuoBBAgCEBQ%3D\"\n  },\n  \"search_information\": {\n    \"total_results\": 790004\n  },\n  \"search_metadata\": {\n    \"created_at\": \"2026-05-02T16:30:45Z\",\n    \"id\": \"search_gM5dQzeGq7sEWQpoxvOlAjp3\",\n    \"parsing_time_taken\": 0.09,\n    \"request_time_taken\": 1.34,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"status\": \"Success\",\n    \"total_time_taken\": 1.43\n  },\n  \"search_parameters\": {\n    \"engine\": \"youtube\",\n    \"gl\": \"US\",\n    \"hl\": \"en\",\n    \"q\": \"OpenAI\"\n  },\n  \"sections\": [\n    {\n      \"items\": [\n        {\n          \"badges\": [\n            \"New\",\n            \"CC\"\n          ],\n          \"channel\": {\n            \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@OpenAI\",\n            \"thumbnail\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"OpenAI\"\n          },\n          \"description\": \"Codex helps teams connect the apps they already use, bring over their setup, and start seeing the magic happen right away.\",\n          \"id\": \"flvZ6jEj3VU\",\n          \"length\": \"1:20\",\n          \"link\": \"https://www.youtube.com/watch?v=flvZ6jEj3VU\",\n          \"position\": 1,\n          \"published_time\": \"21h ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/flvZ6jEj3VU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdwPqARXM5Opu4arlq_IbeGo2XvA\",\n            \"static\": \"https://i.ytimg.com/vi/flvZ6jEj3VU/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAbQwhzB6ywjNRe3LYKhr99NzYVzw\"\n          },\n          \"title\": \"Bring your work into Codex in a few clicks\",\n          \"views\": 22651\n        },\n        {\n          \"badges\": [\n            \"New\"\n          ],\n          \"channel\": {\n            \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@OpenAI\",\n            \"thumbnail\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"OpenAI\"\n          },\n          \"description\": \"The trajectory of Codex is thinking beyond pure engineers, it's moving into a tool for everyone” Our friends at Virgin Atlantic, ...\",\n          \"id\": \"eHe2F10TlV4\",\n          \"length\": \"0:59\",\n          \"link\": \"https://www.youtube.com/watch?v=eHe2F10TlV4\",\n          \"position\": 2,\n          \"published_time\": \"1d ago\",\n          \"thumbnail\": {\n            \"rich\": \"https://i.ytimg.com/vi/eHe2F10TlV4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBVf8xzmA36iR5DIchQIG0IU04IoQ\",\n            \"static\": \"https://i.ytimg.com/vi/eHe2F10TlV4/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA6zFcPPuj945Ti_g0bwW4hzvLcdQ\"\n          },\n          \"title\": \"What Codex Unlocks for Virgin Atlantic\",\n          \"views\": 7916\n        },\n        {\n          \"badges\": [\n            \"New\"\n          ],\n          \"channel\": {\n            \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n            \"is_verified\": true,\n            \"link\": \"https://www.youtube.com/@OpenAI\",\n            \"thumbnail\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s68-c-k-c0x00ffffff-no-rj\",\n            \"title\": \"OpenAI\"\n          },\n          \"description\": \"Build workspace agents in ChatGPT that can do work across your tools and help teams move faster. In this Build Hour, you'll learn ...\",\n          \"id\": \"kktBVmjA19A\",\n          \"key_moments\": [\n            {\n              \"start_seconds\": 0,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Introduction\"\n            },\n            {\n              \"start_seconds\": 82,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Intro to Workspace agents\"\n            },\n            {\n              \"start_seconds\": 204,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Demo: Meeting Prep agent\"\n            },\n            {\n              \"start_seconds\": 1082,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Demo: Software Review agent\"\n            },\n            {\n              \"start_seconds\": 1654,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Getting Started\"\n            },\n            {\n              \"start_seconds\": 1793,\n              \"thumbnail\": \"https://i.ytimg.com/vi_webp/kktBVmjA19A/hqdefault.webp\",\n              \"title\": \"Q&A\"\n            }\n          ],\n          \"length\": \"37:52\",\n          \"link\": \"https://www.youtube.com/watch?v=kktBVmjA19A\",\n          ",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "youtube-serp",
+      "kind": "python",
+      "command": [
+        "/usr/bin/python3",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 4,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
+    }
+  ]
+}

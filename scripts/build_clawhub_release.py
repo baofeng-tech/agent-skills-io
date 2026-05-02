@@ -38,6 +38,16 @@ OPTIONAL_ENV_IGNORE = {
     "AISA_API_KEY",
     "CLAUDE_PLUGIN_ROOT",
 }
+OPTIONAL_ENV_ORDER = {
+    "LAST30DAYS_PLANNER_MODEL": 10,
+    "LAST30DAYS_RERANK_MODEL": 20,
+    "LAST30DAYS_FUN_MODEL": 30,
+    "AISA_MODEL": 40,
+    "AISA_BASE_URL": 50,
+    "TWITTER_RELAY_BASE_URL": 60,
+    "TWITTER_RELAY_TIMEOUT": 70,
+    "XIAOHONGSHU_API_BASE": 80,
+}
 
 
 def parse_version_parts(value: Any) -> tuple[int, ...]:
@@ -167,7 +177,7 @@ def infer_emoji(domain: str) -> str:
 
 
 def needs_aisa_key(skill_dir: Path) -> bool:
-    for path in skill_dir.rglob("*"):
+    for path in sorted(skill_dir.rglob("*")):
         if not path.is_file():
             continue
         try:
@@ -213,7 +223,7 @@ def infer_entrypoints(skill_dir: Path) -> list[str]:
 
 def infer_optional_envs(skill_dir: Path, profile: str) -> list[str]:
     optional_envs: list[str] = []
-    for path in skill_dir.rglob("*"):
+    for path in sorted(skill_dir.rglob("*")):
         if not path.is_file():
             continue
         try:
@@ -225,7 +235,30 @@ def infer_optional_envs(skill_dir: Path, profile: str) -> list[str]:
                 continue
             if env_name not in optional_envs:
                 optional_envs.append(env_name)
-    return optional_envs
+    return sorted(optional_envs, key=lambda name: (OPTIONAL_ENV_ORDER.get(name, 999), name))
+
+
+def extract_optional_env_order(frontmatter: dict[str, Any] | None) -> list[str]:
+    if not isinstance(frontmatter, dict):
+        return []
+    metadata = frontmatter.get("metadata") if isinstance(frontmatter.get("metadata"), dict) else {}
+    ordered: list[str] = []
+    for scope in ("aisa", "openclaw"):
+        scoped = metadata.get(scope) if isinstance(metadata.get(scope), dict) else {}
+        optional_envs = scoped.get("optionalEnv") if isinstance(scoped, dict) else None
+        if not isinstance(optional_envs, list):
+            continue
+        for env_name in optional_envs:
+            if isinstance(env_name, str) and env_name not in ordered:
+                ordered.append(env_name)
+    return ordered
+
+
+def merge_optional_env_order(envs: list[str], existing_frontmatter: dict[str, Any] | None) -> list[str]:
+    existing_order = extract_optional_env_order(existing_frontmatter)
+    ordered = [env_name for env_name in existing_order if env_name in envs]
+    remaining = [env_name for env_name in envs if env_name not in ordered]
+    return ordered + sorted(remaining, key=lambda name: (OPTIONAL_ENV_ORDER.get(name, 999), name))
 
 
 def resolve_clawhub_slug(skill_dir: Path, frontmatter: dict[str, Any]) -> str:
@@ -662,6 +695,7 @@ def clean_frontmatter(
     publish_name: str,
     *,
     existing_version: str | None = None,
+    existing_frontmatter: dict[str, Any] | None = None,
     mode: str = "original",
     profile_override: str | None = None,
     version_override: str | None = None,
@@ -677,7 +711,7 @@ def clean_frontmatter(
         description = normalize_source_description(name, str(frontmatter.get("description") or ""), zh)
     bins = infer_required_bins(skill_dir)
     envs = ["AISA_API_KEY"] if needs_aisa_key(skill_dir) else []
-    optional_envs = infer_optional_envs(skill_dir, profile)
+    optional_envs = merge_optional_env_order(infer_optional_envs(skill_dir, profile), existing_frontmatter)
     version_source = version_override or frontmatter.get("version")
     version = choose_release_version(version_source, existing_version)
     license_value = frontmatter.get("license") or "Apache-2.0"
@@ -767,6 +801,7 @@ def build_skill(
         frontmatter,
         publish_name,
         existing_version=str(existing_frontmatter.get("version") or "") or None,
+        existing_frontmatter=existing_frontmatter,
         mode=mode,
         profile_override=profile_override,
         version_override=version_override or None,

@@ -7,9 +7,9 @@ import json
 import re
 import shutil
 from pathlib import Path
-from zipfile import ZIP_DEFLATED, ZipFile
 
 import build_claude_release as base
+from release_zip import write_deterministic_zip
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -39,6 +39,16 @@ OPTIONAL_ENV_ALLOWLIST = {
 OPTIONAL_ENV_IGNORE = {
     "AISA_API_KEY",
     "CLAUDE_PLUGIN_ROOT",
+}
+OPTIONAL_ENV_ORDER = {
+    "LAST30DAYS_PLANNER_MODEL": 10,
+    "LAST30DAYS_RERANK_MODEL": 20,
+    "LAST30DAYS_FUN_MODEL": 30,
+    "AISA_MODEL": 40,
+    "AISA_BASE_URL": 50,
+    "TWITTER_RELAY_BASE_URL": 60,
+    "TWITTER_RELAY_TIMEOUT": 70,
+    "XIAOHONGSHU_API_BASE": 80,
 }
 
 
@@ -206,7 +216,7 @@ def infer_optional_env_vars(skill_dir: Path, metadata: dict[str, object]) -> lis
     if merged:
         return merged
 
-    for path in skill_dir.rglob("*"):
+    for path in sorted(skill_dir.rglob("*")):
         if not path.is_file():
             continue
         try:
@@ -218,7 +228,7 @@ def infer_optional_env_vars(skill_dir: Path, metadata: dict[str, object]) -> lis
                 continue
             if env_name not in merged:
                 merged.append(env_name)
-    return merged
+    return sorted(merged, key=lambda name: (OPTIONAL_ENV_ORDER.get(name, 999), name))
 
 
 def relay_default_url(skill: dict[str, object]) -> str | None:
@@ -265,10 +275,7 @@ def write_json(path: Path, payload: dict[str, object]) -> None:
 
 
 def zip_plugin(source_dir: Path, zip_path: Path) -> None:
-    with ZipFile(zip_path, "w", compression=ZIP_DEFLATED, compresslevel=1) as archive:
-        for path in sorted(source_dir.rglob("*")):
-            if path.is_file():
-                archive.write(path, path.relative_to(source_dir))
+    write_deterministic_zip(source_dir, zip_path, compresslevel=1)
 
 
 def build_plugin(skill: dict[str, object]) -> dict[str, str]:

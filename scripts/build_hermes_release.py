@@ -53,6 +53,17 @@ PREFERRED_ENTRYPOINTS = (
     "perplexity_search_client.py",
 )
 CLIENT_CONSTRUCTOR_RE = re.compile(r"client = ([A-Za-z_]+Client)\(\)")
+HERMES_PATCH_FILE_ORDER = {
+    "scripts/twitter_oauth_client.py": 10,
+    "scripts/twitter_engagement_client.py": 20,
+    "scripts/twitter_client.py": 30,
+    "scripts/lib/ui.py": 10,
+    "scripts/lib/env.py": 20,
+    "scripts/prediction_market_client.py": 10,
+    "scripts/arbitrage_finder.py": 20,
+    "scripts/test_api_data.py": 10,
+    "scripts/stock_analyst.py": 20,
+}
 
 
 def infer_category(name: str, description: str) -> str:
@@ -96,7 +107,7 @@ def infer_related(name: str) -> list[str]:
 
 
 def needs_aisa_key(skill_dir: Path) -> bool:
-    for path in skill_dir.rglob("*"):
+    for path in sorted(skill_dir.rglob("*")):
         if not path.is_file():
             continue
         try:
@@ -263,7 +274,11 @@ def insert_before(text: str, needle: str, insert: str) -> str:
 
 
 def patch_hermes_runtime_files(skill_dir: Path, audit: base.SkillAudit) -> None:
-    for path in skill_dir.rglob("*.py"):
+    def patch_sort_key(path: Path) -> tuple[int, str]:
+        rel = path.relative_to(skill_dir).as_posix()
+        return (HERMES_PATCH_FILE_ORDER.get(rel, 999), rel)
+
+    for path in sorted(skill_dir.rglob("*.py"), key=patch_sort_key):
         text = path.read_text(encoding="utf-8")
         updated = text
 
@@ -339,7 +354,7 @@ def patch_hermes_runtime_files(skill_dir: Path, audit: base.SkillAudit) -> None:
 
 def normalize_permissions(skill_dir: Path) -> None:
     """Strip executable bits from non-runtime documentation and data files."""
-    for path in skill_dir.rglob("*"):
+    for path in sorted(skill_dir.rglob("*")):
         if not path.is_file():
             continue
         if path.suffix.lower() in SAFE_EXECUTABLE_SUFFIXES:
