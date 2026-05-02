@@ -171,6 +171,8 @@ Any AI working in this repository should:
   - 当前 ClawHub 续跑、版本收口、爆款改造与 skillGet 证据接入的执行计划
 - `targets/aisa-api-breakout-rollout-plan-2026-04-28.md`
   - AISA API skill 的家族分层、旗舰/增长/支撑位矩阵，以及本轮 Twitter 家族爆款收口计划
+- `targets/aisa-api-regression-followup-2026-05-03.md`
+  - 本轮 AISA API 回归失败归因、上游执行文件对比、stock JSON 修复和剩余 TLS/连接类失败记录
 - `targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md`
   - 已上线 skill/plugin 的 `Suspicious` 原因、对应修改方式，以及沉淀进全局优化/打包/审计 skill 的能力摘要
 - `targets/platform-layer-and-rule-split-audit-2026-04-28.md`
@@ -798,6 +800,7 @@ GitHub Actions 工作流层。
 - Hermes Guard 批量降风险：历史旧 51-skill 集合已完成一轮，新增到 54-skill 集合后需要补跑
 - Claude / Hermes 发布层测试：已完成一轮结构校验与 smoke test
 - 2026-04-23 新一轮 release-layer 结构校验：`claude/hermes/clawhub/clawhub-plugin/agentskills-so/agentskill-sh` 六类结构错误均为 `0`；18 个 smoke tests 中有 5 个命中上游 `NETWORK_ERROR: timed out`，当前更像外部接口波动而非目录或脚本缺失
+- 2026-05-03 AISA API 回归复核：在 `AIsa-team/agent-skills@main` 同名执行文件一致的前提下，已修复 `stock-dividend` / `stock-hot` JSON block 输出问题，并把 SDK `Connection error` 纳入 transient 重试；最新完整回归为 54 个 AISA-backed skills、72 条 read-only checks、64 通过、8 个剩余失败，剩余失败均为 `api.aisa.one` TLS EOF / 连接断开类
 - Claude / Hermes 发布层真实测试：已完成一轮基于真实账号、真实 Python 3.12、真实上游数据的验证
 - Claude / Claude marketplace / Hermes / agent-skills 外部发布仓库同步：2026-04-22 复核时四个外部仓库均已与 `origin/main` 对齐，不再存在“领先 1 个 commit 尚未 push”的当前阻塞
 - Claude marketplace 外部发布仓库同步：`Aisa-One-Plugins-Claude` 已与 `origin/main` 对齐
