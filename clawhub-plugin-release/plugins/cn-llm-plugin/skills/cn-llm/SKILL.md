@@ -4,6 +4,8 @@ description: 'China LLM Gateway - Unified interface for Chinese LLMs including Q
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/cn-llm
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

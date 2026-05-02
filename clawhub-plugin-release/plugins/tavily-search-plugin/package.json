@@ -1,7 +1,7 @@
 {
   "name": "tavily-search-plugin",
   "version": "1.0.0",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `tavily-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Advanced web search via Tavily through AIsa API. Supports search depth, topic filtering (general/news/finance), time ranges, domain inclusion/exclusion, and LLM-generated answers. Use when: the user needs web search, research, source discovery, or content extraction.",
+  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `tavily-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Advanced web search via Tavily through AIsa API. Supports search depth, topic filtering (general/news/finance), time ranges, domain inclusion/exclusion, and LLM-generated answers. Use when: the user needs web search, research, source discovery, or content extraction.",
   "license": "Apache-2.0",
   "type": "module",
   "keywords": [
@@ -10,7 +10,6 @@
     "openclaw",
     "native-plugin",
     "agent-skill",
-    "x",
     "search",
     "research",
     "llm"
@@ -18,7 +17,7 @@
   "homepage": "https://aisa.one",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AIsa-team/agent-skills.git"
+    "url": "https://github.com/baofeng-tech/agent-skills-io.git"
   },
   "metadata": {
     "aisa": {

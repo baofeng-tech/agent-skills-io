@@ -4,6 +4,8 @@ description: 'Searches and reads X (Twitter): profiles, timelines, mentions, fol
 author: AIsa
 version: 1.0.0
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/twitter-autopilot
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:
@@ -19,6 +21,9 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - TWITTER_RELAY_BASE_URL
+    - TWITTER_RELAY_TIMEOUT
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -31,6 +36,9 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - TWITTER_RELAY_BASE_URL
+    - TWITTER_RELAY_TIMEOUT
     primaryEnv: AISA_API_KEY
 ---
 

@@ -4,6 +4,8 @@ description: Search YouTube videos, channels, and playlists through the AIsa You
 author: AIsa
 version: 1.0.1
 license: MIT-0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/aisa-youtube-search
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

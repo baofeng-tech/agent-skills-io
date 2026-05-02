@@ -4,6 +4,8 @@ description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instag
 author: AIsa
 version: 1.0.0
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/last30days
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:
@@ -21,6 +23,13 @@ metadata:
       - bash
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - LAST30DAYS_PLANNER_MODEL
+    - LAST30DAYS_RERANK_MODEL
+    - LAST30DAYS_FUN_MODEL
+    - AISA_MODEL
+    - AISA_BASE_URL
+    - XIAOHONGSHU_API_BASE
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -34,6 +43,13 @@ metadata:
       - bash
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - LAST30DAYS_PLANNER_MODEL
+    - LAST30DAYS_RERANK_MODEL
+    - LAST30DAYS_FUN_MODEL
+    - AISA_MODEL
+    - AISA_BASE_URL
+    - XIAOHONGSHU_API_BASE
     primaryEnv: AISA_API_KEY
 ---
 

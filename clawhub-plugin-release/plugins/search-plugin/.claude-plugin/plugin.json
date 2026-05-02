@@ -1,12 +1,12 @@
 {
   "name": "search-plugin",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.",
+  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.",
   "version": "1.0.1",
   "author": {
     "name": "AIsa"
   },
   "homepage": "https://aisa.one",
-  "repository": "https://github.com/AIsa-team/agent-skills",
+  "repository": "https://github.com/baofeng-tech/agent-skills-io",
   "license": "Apache-2.0",
   "metadata": {
     "aisa": {
@@ -18,6 +18,61 @@
           "AISA_API_KEY"
         ]
       },
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "AISA_API_KEY": {
+        "type": "string",
+        "title": "Aisa Api Key",
+        "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
+        "format": "password"
+      }
+    },
+    "required": [
+      "AISA_API_KEY"
+    ]
+  },
+  "runtimeRequirements": {
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
+  "aisa": {
+    "requires": {
+      "bins": [
+        "python3"
+      ],
+      "env": [
+        "AISA_API_KEY"
+      ]
+    },
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
+  "openclaw": {
+    "runtimeRequirements": {
+      "bins": [
+        "python3"
+      ],
+      "env": [
+        "AISA_API_KEY"
+      ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
         "https://api.aisa.one"

@@ -4,6 +4,8 @@ description: 'Intelligent hybrid search combining web and academic sources via A
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/smart-search
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

@@ -1,7 +1,7 @@
 {
   "name": "openclaw-twitter-plugin",
   "version": "1.0.0",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `openclaw-twitter`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AISA relay, then publish approved posts with OAuth. Use when: the user asks for Twitter/X research, monitoring, or posting without sharing passwords. Supports read APIs, authorization links, and media-aware posting.",
+  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one/apis/v1/twitter. Native-first ClawHub plugin for `openclaw-twitter`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AISA relay, then publish approved posts with OAuth. Use when: the user asks for Twitter/X research, monitoring, or posting without sharing passwords. Supports read APIs, authorization links, and media-aware posting.",
   "license": "Apache-2.0",
   "type": "module",
   "keywords": [
@@ -11,7 +11,6 @@
     "native-plugin",
     "agent-skill",
     "twitter",
-    "x",
     "search",
     "research",
     "media"
@@ -19,7 +18,7 @@
   "homepage": "https://aisa.one",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AIsa-team/agent-skills.git"
+    "url": "https://github.com/baofeng-tech/agent-skills-io.git"
   },
   "metadata": {
     "aisa": {

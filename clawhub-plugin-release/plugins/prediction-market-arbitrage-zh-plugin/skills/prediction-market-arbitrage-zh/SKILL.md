@@ -4,6 +4,8 @@ description: '通过 AIsa API 发现 Polymarket 和 Kalshi 预测市场的套利
 author: AIsa
 version: 1.0.0
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/prediction-market-arbitrage-zh
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

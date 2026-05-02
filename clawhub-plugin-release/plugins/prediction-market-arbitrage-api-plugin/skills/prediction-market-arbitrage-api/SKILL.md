@@ -4,6 +4,8 @@ description: 'Find arbitrage opportunities across Polymarket and Kalshi predicti
 author: AIsa
 version: 1.0.0
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/prediction-market-arbitrage-api
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

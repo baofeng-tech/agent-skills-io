@@ -7,7 +7,7 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 - Required bins: none
 - Required env vars: `AISA_API_KEY`
 - Primary env: `AISA_API_KEY`
-- Network target: `https://api.aisa.one/apis/v1/twitter`
+- Network target: `https://api.aisa.one`
 
 ## What It Ships
 
@@ -23,6 +23,12 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 - Keeps the packaged skill payload intact under `skills/` for ClawHub/OpenClaw skill loading.
 - Retains `.claude-plugin/plugin.json` so Claude-compatible marketplace tooling still recognizes the package.
 - Reuses the already-hardened `clawhub-release/` skill payload.
+
+## Provenance
+
+- Source repository: `https://github.com/baofeng-tech/agent-skills-io`
+- Embedded skill path: `skills/youtube-search/SKILL.md`
+- The runtime behavior remains inside the packaged skill payload and its public docs.
 
 ## Install After Publishing
 

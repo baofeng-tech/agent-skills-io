@@ -4,6 +4,8 @@ description: 'Professional US stock analysis with financial data, news, social s
 author: AIsa
 version: 1.0.1
 license: Apache-2.0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/us-stock-analyst
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

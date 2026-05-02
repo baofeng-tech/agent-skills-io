@@ -4,6 +4,8 @@ description: 'Find and analyze arbitrage opportunities across prediction markets
 author: AIsa
 version: 1.0.0
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/prediction-market-arbitrage
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

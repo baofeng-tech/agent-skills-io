@@ -4,6 +4,8 @@ description: 'Deep research using Perplexity Sonar models via AIsa API. Provides
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/perplexity-research
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

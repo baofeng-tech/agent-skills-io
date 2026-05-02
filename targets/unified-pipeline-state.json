@@ -2,13 +2,13 @@
   "last_synced_commit": "844b8a0aafcb88069d0b527d5d7dce752c4a27ec",
   "last_detected_commit": "844b8a0aafcb88069d0b527d5d7dce752c4a27ec",
   "last_run": {
-    "started_at": "2026-04-29T08:37:25.577916+00:00",
+    "started_at": "2026-05-02T04:45:53.339982+00:00",
     "source_mode": "clone",
     "upstream_root": "/home/runner/work/agent-skills-io/agent-skills-io/.cache/upstream-agent-skills",
     "upstream_branch": "main",
     "upstream_head": "844b8a0aafcb88069d0b527d5d7dce752c4a27ec",
-    "baseline_commit": "5dcdad1c6f4e0afe5b9e2c0d1b99cbfd35681a88",
-    "selection": "changed",
+    "baseline_commit": "844b8a0aafcb88069d0b527d5d7dce752c4a27ec",
+    "selection": "all",
     "include_working_tree": false,
     "planned_skills": [
       "crypto-market-data",
@@ -36,13 +36,16 @@
     ],
     "created_skills": [],
     "skipped_skills": [],
-    "llm_steps": [],
+    "llm_steps": [
+      "python3 scripts/sync_codex_repo_skills.py --if-available",
+      "python3 scripts/llm_refine_aisa_skills.py --profile source --skills crypto-market-data,last30days,marketpulse,media-gen,multi-source-search,perplexity-search,prediction-market-arbitrage,prediction-market-data,twitter-autopilot,youtube-serp --apply --if-available"
+    ],
     "diagnosis_steps": [
       "python3 scripts/clawhub_live_status.py --targets both --include-status published",
       "python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode update"
     ],
     "publish_steps": [],
-    "completed_at": "2026-04-29T08:40:30.930702+00:00"
+    "completed_at": "2026-05-02T04:49:29.764035+00:00"
   },
   "pending_manual_review": []
 }

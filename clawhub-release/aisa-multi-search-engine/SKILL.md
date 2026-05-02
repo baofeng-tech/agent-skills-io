@@ -4,6 +4,8 @@ description: 'Multi-source search engine powered by AIsa API. Combines Tavily we
 author: AIsa
 version: 1.0.2
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/aisa-multi-search-engine
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

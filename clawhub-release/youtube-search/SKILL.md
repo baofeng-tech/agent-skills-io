@@ -4,6 +4,8 @@ description: 'YouTube Search API via AIsa unified endpoint. Search YouTube video
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/youtube-search
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:
@@ -11,7 +13,7 @@ requires:
   - AISA_API_KEY
 metadata:
   aisa:
-    emoji: 🐦
+    emoji: ▶️
     requires:
       env:
       - AISA_API_KEY
@@ -21,7 +23,7 @@ metadata:
     - claude-code
     - hermes
   openclaw:
-    emoji: 🐦
+    emoji: ▶️
     requires:
       env:
       - AISA_API_KEY

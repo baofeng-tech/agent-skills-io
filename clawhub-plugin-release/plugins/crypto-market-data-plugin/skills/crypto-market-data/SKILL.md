@@ -4,6 +4,8 @@ description: 'Query real-time and historical cryptocurrency market data via Coin
 author: AIsa
 version: 1.0.1
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/crypto-market-data
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:
@@ -13,7 +15,7 @@ requires:
   - AISA_API_KEY
 metadata:
   aisa:
-    emoji: 🔎
+    emoji: 📊
     requires:
       bins:
       - python3
@@ -25,7 +27,7 @@ metadata:
     - claude-code
     - hermes
   openclaw:
-    emoji: 🔎
+    emoji: 📊
     requires:
       bins:
       - python3

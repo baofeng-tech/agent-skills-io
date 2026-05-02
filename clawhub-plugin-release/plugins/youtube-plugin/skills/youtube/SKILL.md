@@ -4,6 +4,8 @@ description: 'YouTube SERP Scout for agents. Search top-ranking videos, channels
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/youtube
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

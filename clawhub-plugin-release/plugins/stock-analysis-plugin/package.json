@@ -1,7 +1,7 @@
 {
   "name": "stock-analysis-plugin",
   "version": "1.0.0",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `stock-analysis`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Analyze stocks and cryptocurrencies with 8-dimension scoring via AIsa API. Provides BUY/HOLD/SELL signals with confidence levels, entry/target/stop prices, and risk flags. Supports single or multi-ticker analysis with optional fast mode and JSON output. Use when the user asks to analyze a stock, check a ticker, or compare investments.",
+  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `stock-analysis`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Analyze stocks and cryptocurrencies with 8-dimension scoring via AIsa API. Provides BUY/HOLD/SELL signals with confidence levels, entry/target/stop prices, and risk flags. Supports single or multi-ticker analysis with optional fast mode and JSON output. Use when the user asks to analyze a stock, check a ticker, or compare investments.",
   "license": "Apache-2.0",
   "type": "module",
   "keywords": [
@@ -15,7 +15,7 @@
   "homepage": "https://aisa.one",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AIsa-team/agent-skills.git"
+    "url": "https://github.com/baofeng-tech/agent-skills-io.git"
   },
   "metadata": {
     "aisa": {
@@ -27,6 +27,10 @@
           "AISA_API_KEY"
         ]
       },
+      "optionalEnv": [
+        "AISA_BASE_URL",
+        "AISA_MODEL"
+      ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
         "https://api.aisa.one"
@@ -42,6 +46,10 @@
         "AISA_API_KEY"
       ]
     },
+    "optionalEnv": [
+      "AISA_BASE_URL",
+      "AISA_MODEL"
+    ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
       "https://api.aisa.one"
@@ -63,6 +71,10 @@
       ],
       "env": [
         "AISA_API_KEY"
+      ],
+      "optionalEnv": [
+        "AISA_BASE_URL",
+        "AISA_MODEL"
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [

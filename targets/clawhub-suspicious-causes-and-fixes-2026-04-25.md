@@ -127,26 +127,21 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`116`
-- `blocker`：`30`
-- `warning`：`86`
-- `pending`：`109`
+- 诊断对象数：`33`
+- `blocker`：`32`
+- `warning`：`1`
+- `pending`：`17`
 
 ### 当前高频规则
 
-- `metadata_env_mismatch`: `16`
-- `oauth_upload_side_effects`: `8`
-- `pending_scan`: `109`
-- `platform_trust_gap`: `18`
-- `prompt_scaffold_copy`: `1`
-- `relay_trust_surface`: `19`
+- `metadata_env_mismatch`: `12`
+- `oauth_upload_side_effects`: `9`
+- `pending_scan`: `17`
+- `platform_trust_gap`: `19`
+- `relay_trust_surface`: `18`
 
 ### 当前重点对象
 
-- `plugin:aisa-multi-search-engine-plugin`
-  severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
-  reason: Native-first ClawHub plugin for `aisa-multi-search-engine`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 - `plugin:aisa-perplexity-search-sonar-plugin`
   severity: `blocker` | status: `pending`
   rules: `pending_scan, relay_trust_surface`
@@ -155,10 +150,6 @@
   severity: `blocker` | status: `pending`
   rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
   reason: The package is mostly coherent for an API-provider plugin (it legitimately needs an AISA_API_KEY), but there are mismatches between the registry metadata and the packaged files and a few packaging/instruction gaps that should be resolved before trusting it with credentials.
-- `plugin:aisa-tavily-plugin`
-  severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
-  reason: Native-first ClawHub plugin for `aisa-tavily`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 - `plugin:aisa-tavily-search-plugin`
   severity: `blocker` | status: `pending`
   rules: `pending_scan, platform_trust_gap, relay_trust_surface`
@@ -175,6 +166,10 @@
   severity: `blocker` | status: `pending`
   rules: `metadata_env_mismatch, pending_scan`
   reason: The package appears to implement a legitimate AIsa-backed research tool, but the manifest and bundled runtime disagree with the registry metadata about required secrets and there are a few runtime behaviors (local HTTP probes, bundled executable scripts) that warrant caution before installing.
+- `plugin:last30days-zh-plugin`
+  severity: `blocker` | status: `pending`
+  rules: `pending_scan`
+  reason: The package mostly matches its stated purpose (web/multi-source 30-day research) but includes repo-local config reads and a default probe of a host.docker.internal API endpoint that is unexpected and worth reviewing before install.
 - `plugin:openclaw-twitter-post-engage-plugin`
   severity: `blocker` | status: `pending`
   rules: `metadata_env_mismatch, oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
@@ -191,4 +186,8 @@
   severity: `blocker` | status: `pending`
   rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
   reason: The package mostly matches a stock-analysis skill, but the published registry metadata (saying no env vars/credentials required) contradicts the embedded plugin and SKILL.md which require an AISA_API_KEY and contact an external AIsa API — this mismatch should be clarified before installing.
+- `plugin:stock-rumors-plugin`
+  severity: `blocker` | status: `pending`
+  rules: `metadata_env_mismatch, pending_scan`
+  reason: The package generally matches its stated purpose (stock/rumor scanning using an AIsa API key) but the runtime instructions and script contain mismatches (claims to 'fetch live data', undeclared environment variables, and reliance on an LLM to 'scan' sources) that warrant caution before installing or running with a real API key.
 <!-- AUTO-DIAGNOSIS:END -->

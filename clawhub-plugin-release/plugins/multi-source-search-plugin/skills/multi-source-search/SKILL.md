@@ -4,6 +4,8 @@ description: 'Multi-source intelligent search for agents. Retrieval across web, 
 author: AIsa
 version: 1.0.1
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/multi-source-search
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

@@ -4,6 +4,8 @@ description: 'Run Twitter/X likes, follows, replies, and OAuth-gated posting thr
 author: AIsa
 version: 1.0.6
 license: MIT-0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/aisa-twitter-engagement-suite
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

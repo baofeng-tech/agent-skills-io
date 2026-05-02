@@ -4,6 +4,8 @@ description: 'Advanced web search via Tavily through AIsa API. Supports search d
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/tavily-search
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

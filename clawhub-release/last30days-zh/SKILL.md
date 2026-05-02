@@ -4,6 +4,8 @@ description: '聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Ins
 author: AIsa
 version: 1.0.0
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/last30days-zh
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:
@@ -21,6 +23,12 @@ metadata:
       - bash
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - LAST30DAYS_RERANK_MODEL
+    - AISA_MODEL
+    - LAST30DAYS_PLANNER_MODEL
+    - AISA_BASE_URL
+    - XIAOHONGSHU_API_BASE
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -34,6 +42,12 @@ metadata:
       - bash
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - LAST30DAYS_RERANK_MODEL
+    - AISA_MODEL
+    - LAST30DAYS_PLANNER_MODEL
+    - AISA_BASE_URL
+    - XIAOHONGSHU_API_BASE
     primaryEnv: AISA_API_KEY
 ---
 

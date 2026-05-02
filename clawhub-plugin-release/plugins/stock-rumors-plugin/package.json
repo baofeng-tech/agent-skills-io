@@ -1,7 +1,7 @@
 {
   "name": "stock-rumors-plugin",
   "version": "1.0.0",
-  "description": "Requires python3, and AISA_API_KEY. Native-first ClawHub plugin for `stock-rumors`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Rumor Scanner — find early signals including M&A rumors, insider activity, analyst upgrades/downgrades, social whispers, and SEC/regulatory activity via AIsa API. Ranked by impact score. Use when the user asks about rumors, insider trading, M&A activity, analyst changes, or early market signals.",
+  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `stock-rumors`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Rumor Scanner — find early signals including M&A rumors, insider activity, analyst upgrades/downgrades, social whispers, and SEC/regulatory activity via AIsa API. Ranked by impact score. Use when the user asks about rumors, insider trading, M&A activity, analyst changes, or early market signals.",
   "license": "Apache-2.0",
   "type": "module",
   "keywords": [
@@ -16,7 +16,7 @@
   "homepage": "https://aisa.one",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AIsa-team/agent-skills.git"
+    "url": "https://github.com/baofeng-tech/agent-skills-io.git"
   },
   "metadata": {
     "aisa": {
@@ -28,6 +28,10 @@
           "AISA_API_KEY"
         ]
       },
+      "optionalEnv": [
+        "AISA_BASE_URL",
+        "AISA_MODEL"
+      ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
         "https://api.aisa.one"
@@ -43,6 +47,10 @@
         "AISA_API_KEY"
       ]
     },
+    "optionalEnv": [
+      "AISA_BASE_URL",
+      "AISA_MODEL"
+    ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
       "https://api.aisa.one"
@@ -64,6 +72,10 @@
       ],
       "env": [
         "AISA_API_KEY"
+      ],
+      "optionalEnv": [
+        "AISA_BASE_URL",
+        "AISA_MODEL"
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [

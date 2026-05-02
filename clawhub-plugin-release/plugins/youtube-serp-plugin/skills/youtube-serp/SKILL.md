@@ -4,6 +4,8 @@ description: 'YouTube SERP for agents. Search top-ranking videos, channels, and 
 author: AIsa
 version: 1.0.0
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/youtube-serp
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

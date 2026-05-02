@@ -4,6 +4,8 @@ description: 'Search YouTube videos, channels, and trends through the AISA YouTu
 author: AIsa
 version: 1.0.0
 license: MIT-0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/openclaw-aisa-youtube-aisa
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

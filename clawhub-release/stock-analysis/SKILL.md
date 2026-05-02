@@ -4,6 +4,8 @@ description: Analyze stocks and cryptocurrencies with 8-dimension scoring via AI
 author: AIsa
 version: 1.0.0
 license: Apache-2.0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/stock-analysis
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:
@@ -19,6 +21,9 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - AISA_BASE_URL
+    - AISA_MODEL
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -31,6 +36,9 @@ metadata:
       - python3
       env:
       - AISA_API_KEY
+    optionalEnv:
+    - AISA_BASE_URL
+    - AISA_MODEL
     primaryEnv: AISA_API_KEY
 ---
 

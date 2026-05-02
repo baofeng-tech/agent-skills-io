@@ -4,6 +4,8 @@ description: 'Generate images and videos with AIsa. Four image models (Google Ge
 author: AIsa
 version: 1.0.0
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/media-gen
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

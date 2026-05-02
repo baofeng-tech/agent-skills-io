@@ -4,6 +4,8 @@ description: 'Run Twitter/X research, monitoring, watchlists, and OAuth-gated po
 author: AIsa
 version: 1.0.3
 license: Apache-2.0
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/aisa-twitter-api
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:

@@ -4,6 +4,8 @@ description: 'Query real-time and historical financial data for equities—price
 author: AIsa
 version: 1.0.2
 license: MIT
+homepage: https://aisa.one
+source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/marketpulse
 user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:
