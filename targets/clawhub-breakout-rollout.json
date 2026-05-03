@@ -1,12 +1,15 @@
 {
   "summary": {
-    "variants": 1,
+    "variants": 2,
     "sources": [
-      "aisa-twitter-api"
+      "aisa-twitter-api",
+      "aisa-twitter-engagement-suite"
     ],
     "artifact_keys": [
       "skill:aisa-twitter-api-command-center",
-      "plugin:aisa-twitter-api-command-center-plugin"
+      "plugin:aisa-twitter-api-command-center-plugin",
+      "skill:aisa-twitter-research-engage-relay",
+      "plugin:aisa-twitter-research-engage-relay-plugin"
     ]
   },
   "variants": [
@@ -15,6 +18,12 @@
       "slug": "aisa-twitter-api-command-center",
       "profile": "twitter_api",
       "version": "1.0.3"
+    },
+    {
+      "source": "aisa-twitter-engagement-suite",
+      "slug": "aisa-twitter-research-engage-relay",
+      "profile": "twitter_engagement",
+      "version": "1.0.6"
     }
   ]
 }

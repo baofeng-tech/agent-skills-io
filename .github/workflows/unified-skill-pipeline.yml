@@ -133,6 +133,11 @@ on:
           - skill
           - plugin
           - both
+      force_self_hosted_queue:
+        description: "Bypass the self-hosted runner preflight and intentionally wait in queue"
+        required: false
+        default: false
+        type: boolean
   schedule:
     - cron: "21 19 * * *"
 
@@ -141,12 +146,14 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: read
   contents: write
   pull-requests: write
 
 jobs:
   sync-build-test:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     env:
       PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || vars.AUTO_PIPELINE_SELECTION || 'changed' }}
       PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
@@ -279,6 +286,7 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run != 'true' }}
     needs: sync-build-test
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
@@ -302,10 +310,148 @@ jobs:
             targets/clawhub-suspicious-diagnosis.json
             targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md
 
-  self-hosted-publish:
-    if: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish == 'true') || (github.event_name == 'schedule' && vars.AUTO_FULL_PLATFORM_PUBLISH == 'true') }}
+  self-hosted-preflight:
+    if: ${{ always() && needs['sync-build-test'].result == 'success' }}
     needs: sync-build-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      publish_requested: ${{ steps.runner.outputs.publish_requested }}
+      suspicious_requested: ${{ steps.runner.outputs.suspicious_requested }}
+      breakout_requested: ${{ steps.runner.outputs.breakout_requested }}
+      any_requested: ${{ steps.runner.outputs.any_requested }}
+      can_queue: ${{ steps.runner.outputs.can_queue }}
+      reason: ${{ steps.runner.outputs.reason }}
+    steps:
+      - name: Check self-hosted runner availability
+        id: runner
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_RUN_SELF_HOSTED_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish || 'false' }}
+          INPUT_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || 'false' }}
+          INPUT_RUN_BREAKOUT_ROLLOUT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_breakout_rollout || 'false' }}
+          INPUT_FORCE_SELF_HOSTED_QUEUE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_self_hosted_queue || 'false' }}
+          AUTO_FULL_PLATFORM_PUBLISH: ${{ vars.AUTO_FULL_PLATFORM_PUBLISH || 'false' }}
+          AUTO_RUN_SUSPICIOUS_REPAIR: ${{ vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'false' }}
+          AUTO_RUN_BREAKOUT_ROLLOUT: ${{ vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'false' }}
+          AUTO_FORCE_SELF_HOSTED_QUEUE: ${{ vars.AUTO_FORCE_SELF_HOSTED_QUEUE || 'false' }}
+          SELF_HOSTED_RUNNER_LABELS: ${{ vars.SELF_HOSTED_RUNNER_LABELS || 'self-hosted' }}
+        run: |
+          set -euo pipefail
+
+          bool() {
+            case "${1,,}" in
+              true|1|yes|y|on) printf 'true' ;;
+              *) printf 'false' ;;
+            esac
+          }
+
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
+            publish_requested="$(bool "${INPUT_RUN_SELF_HOSTED_PUBLISH}")"
+            suspicious_requested="$(bool "${INPUT_RUN_SUSPICIOUS_REPAIR}")"
+            breakout_requested="$(bool "${INPUT_RUN_BREAKOUT_ROLLOUT}")"
+            force_queue="$(bool "${INPUT_FORCE_SELF_HOSTED_QUEUE}")"
+          else
+            publish_requested="$(bool "${AUTO_FULL_PLATFORM_PUBLISH}")"
+            suspicious_requested="$(bool "${AUTO_RUN_SUSPICIOUS_REPAIR}")"
+            breakout_requested="$(bool "${AUTO_RUN_BREAKOUT_ROLLOUT}")"
+            force_queue="$(bool "${AUTO_FORCE_SELF_HOSTED_QUEUE}")"
+          fi
+
+          any_requested="false"
+          if [[ "${publish_requested}" == "true" || "${suspicious_requested}" == "true" || "${breakout_requested}" == "true" ]]; then
+            any_requested="true"
+          fi
+
+          can_queue="false"
+          reason="no self-hosted lane requested"
+          matched_runner=""
+
+          if [[ "${any_requested}" == "true" && "${force_queue}" == "true" ]]; then
+            can_queue="true"
+            reason="force_self_hosted_queue enabled"
+          elif [[ "${any_requested}" == "true" ]]; then
+            response="$(curl -fsSL \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/${REPO}/actions/runners?per_page=100" || true)"
+            if [[ -z "${response}" ]]; then
+              reason="runner API unavailable; set force_self_hosted_queue=true to wait intentionally"
+            else
+              result="$(
+                RUNNERS_JSON="${response}" python3 - "${SELF_HOSTED_RUNNER_LABELS}" <<'PY'
+          import json
+          import os
+          import sys
+
+          labels = [item.strip().lower() for item in sys.argv[1].replace(",", " ").split() if item.strip()]
+          payload = json.loads(os.environ.get("RUNNERS_JSON") or "{}")
+          for runner in payload.get("runners", []):
+              runner_labels = {
+                  str(label.get("name") or "").lower()
+                  for label in runner.get("labels", [])
+                  if isinstance(label, dict)
+              }
+              if str(runner.get("status") or "").lower() == "online" and all(label in runner_labels for label in labels):
+                  print(f"true\t{runner.get('name', '')}")
+                  break
+          else:
+              print("false\t")
+          PY
+              )"
+              can_queue="${result%%$'\t'*}"
+              matched_runner="${result#*$'\t'}"
+              if [[ "${can_queue}" == "true" ]]; then
+                reason="online runner matched labels: ${SELF_HOSTED_RUNNER_LABELS}"
+              else
+                reason="no online self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_LABELS}"
+              fi
+            fi
+          fi
+
+          {
+            echo "publish_requested=${publish_requested}"
+            echo "suspicious_requested=${suspicious_requested}"
+            echo "breakout_requested=${breakout_requested}"
+            echo "any_requested=${any_requested}"
+            echo "can_queue=${can_queue}"
+            echo "reason=${reason}"
+          } >> "${GITHUB_OUTPUT}"
+
+          {
+            echo "### Self-hosted preflight"
+            echo ""
+            echo "- Publish lane requested: \`${publish_requested}\`"
+            echo "- Suspicious repair requested: \`${suspicious_requested}\`"
+            echo "- Breakout rollout requested: \`${breakout_requested}\`"
+            echo "- Can queue self-hosted jobs: \`${can_queue}\`"
+            echo "- Runner labels: \`${SELF_HOSTED_RUNNER_LABELS}\`"
+            echo "- Reason: ${reason}"
+            if [[ -n "${matched_runner}" ]]; then
+              echo "- Matched runner: \`${matched_runner}\`"
+            fi
+          } >> "${GITHUB_STEP_SUMMARY}"
+
+  self-hosted-publish:
+    if: >-
+      ${{
+        always() &&
+        needs['sync-build-test'].result == 'success' &&
+        needs['self-hosted-preflight'].outputs.publish_requested == 'true' &&
+        needs['self-hosted-preflight'].outputs.can_queue == 'true'
+      }}
+    needs:
+      - sync-build-test
+      - self-hosted-preflight
     runs-on: self-hosted
+    timeout-minutes: 360
+    concurrency:
+      group: unified-skill-pipeline-self-hosted-publish-${{ github.ref }}
+      cancel-in-progress: false
     env:
       PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || vars.AUTO_PIPELINE_SELECTION || 'changed' }}
       PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
@@ -665,11 +811,9 @@ jobs:
     if: >-
       ${{
         always() &&
-        (
-          (github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair == 'true') ||
-          (github.event_name == 'schedule' && vars.AUTO_RUN_SUSPICIOUS_REPAIR == 'true')
-        ) &&
         needs['sync-build-test'].result == 'success' &&
+        needs['self-hosted-preflight'].outputs.suspicious_requested == 'true' &&
+        needs['self-hosted-preflight'].outputs.can_queue == 'true' &&
         (
           needs['self-hosted-publish'].result == 'success' ||
           needs['self-hosted-publish'].result == 'skipped'
@@ -677,8 +821,13 @@ jobs:
       }}
     needs:
       - sync-build-test
+      - self-hosted-preflight
       - self-hosted-publish
     runs-on: self-hosted
+    timeout-minutes: 300
+    concurrency:
+      group: unified-skill-pipeline-self-hosted-suspicious-${{ github.ref }}
+      cancel-in-progress: false
     env:
       PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || vars.AUTO_PIPELINE_DRY_RUN || 'false' }}
       PIPELINE_SYNC_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_adjacent_repos || vars.AUTO_SYNC_ADJACENT_REPOS || 'true' }}
@@ -1019,11 +1168,9 @@ jobs:
     if: >-
       ${{
         always() &&
-        (
-          (github.event_name == 'workflow_dispatch' && github.event.inputs.run_breakout_rollout == 'true') ||
-          (github.event_name == 'schedule' && vars.AUTO_RUN_BREAKOUT_ROLLOUT == 'true')
-        ) &&
         needs['sync-build-test'].result == 'success' &&
+        needs['self-hosted-preflight'].outputs.breakout_requested == 'true' &&
+        needs['self-hosted-preflight'].outputs.can_queue == 'true' &&
         (
           needs['self-hosted-publish'].result == 'success' ||
           needs['self-hosted-publish'].result == 'skipped'
@@ -1035,9 +1182,14 @@ jobs:
       }}
     needs:
       - sync-build-test
+      - self-hosted-preflight
       - self-hosted-publish
       - self-hosted-suspicious-repair
     runs-on: self-hosted
+    timeout-minutes: 300
+    concurrency:
+      group: unified-skill-pipeline-self-hosted-breakout-${{ github.ref }}
+      cancel-in-progress: false
     env:
       PIPELINE_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || vars.AUTO_PIPELINE_DRY_RUN || 'false' }}
       PIPELINE_SYNC_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_adjacent_repos || vars.AUTO_SYNC_ADJACENT_REPOS || 'true' }}
@@ -1355,7 +1507,7 @@ jobs:
 
       - name: Upload breakout-rollout artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: unified-skill-pipeline-breakout-rollout-artifacts
           path: |

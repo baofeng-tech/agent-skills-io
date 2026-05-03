@@ -822,10 +822,11 @@ GitHub Actions 工作流层。
 - GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；事故修复后，下游 GitHub 目标已显式排除 `AIsa-team/agent-skills`，仅覆盖 `baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
 - GitHub Actions 自动全平台发布：self-hosted 真发布轨现已支持在 `schedule` 下通过仓库变量 `AUTO_FULL_PLATFORM_PUBLISH=true` 自动开启，并可用 `AUTO_ADJACENT_TARGETS`、`AUTO_CLAWHUB_PUBLISH`、`AUTO_SYNC_ADJACENT_REPOS`、`AUTO_PUSH_ADJACENT_REPOS` 等变量细化“发哪些下游平台”
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每日一次（`21 19 * * *`），避免长发布链路堆积出 pending/canceled 队列
+- GitHub Actions self-hosted 排队防护：publish / suspicious repair / breakout rollout 三条 self-hosted 线现在先经过 hosted preflight，只有发现在线 runner 或显式设置 `force_self_hosted_queue` / `AUTO_FORCE_SELF_HOSTED_QUEUE` 时才入队；否则快速跳过并写 summary，避免旧流程那种 24 小时排队失败
 - GitHub Actions checkout 后置失败修复：hosted lane 已改为 `persist-credentials: false` + explicit token push，避免此前的 post-job `exit code 128`
 - GitHub Actions 提交冲突修复：hosted 与 self-hosted repo commit step 现在会在提交前 `git rebase --autostash` 到远端最新 `main`，push 失败时再 fetch/rebase 重试，避免 action 之间互相制造 non-fast-forward 冲突
 - GitHub Actions AISA skill 代码回归：hosted lane 现在支持通过手动参数 `run_aisa_api_regression=true` 或仓库变量 `AUTO_RUN_AISA_API_REGRESSION=true` 运行 `scripts/test_aisa_api_skills.py`，生成并上传/提交 `targets/aisa-api-regression-report-YYYY-MM-DD.json`；默认关闭，避免日常计划任务被外部 TLS 抖动或真实 API 成本拖慢
-- 发布 ZIP 抖动修复：AgentSkills / agentskill.sh / ClawHub plugin 的 root-flat zip 现在通过 `scripts/release_zip.py` 以固定排序、时间戳和权限生成，并用 `.gitattributes` 固定文本 LF，避免例行构建反复制造大面积 skill/zip diff
+- 发布 ZIP 抖动修复：AgentSkills / agentskill.sh / ClawHub plugin 的 root-flat zip 现在通过 `scripts/release_zip.py` 以固定排序、时间戳和 Git index 可执行位生成，并用 `.gitattributes` 固定文本 LF，避免 Windows 挂载盘 `777` 文件模式让例行构建反复制造大面积 skill/zip diff
 - GitHub Actions 三条流程线：现在已经拆成（1）正常 upstream sync + 下游平台发布线，（2）suspicious diagnosis-driven repair 线，（3）breakout rollout 线；三条线在 workflow 中是独立 self-hosted job，不再混在同一个发布 job 里
 - GitHub Actions suspicious 修复闭环：self-hosted suspicious lane 现在支持在未显式传入 artifact 列表时，按 `baofeng-tech`、`bibaofeng`、`aisadocs` 自动筛选自有 `blocker + suspicious` artifact，并可用 `AUTO_SUSPICIOUS_MAX_ARTIFACTS` 控制单次处理上限
 - GitHub Actions breakout 独立入口：新增 `scripts/clawhub_breakout_rollout.py` 与 `run_breakout_rollout` / `AUTO_RUN_BREAKOUT_ROLLOUT`，让爆款变体发布不再和 suspicious 修复链路混用

@@ -125,7 +125,9 @@ Current scheduler details:
 - workflow-level env now pins `UPSTREAM_BRANCH=main`, so the scheduled sync follows the AIsa upstream `main` branch by default
 - hosted auto-commit now uses `persist-credentials: false`, explicit token push, pre-commit `git rebase --autostash`, and push retry rebase; this avoids both the earlier `actions/checkout` post-job `exit code 128` cleanup failure and non-fast-forward races with other action commits
 - schedule runs keep a shared concurrency group; manual dispatches use a per-run concurrency group so urgent manual repair does not sit behind the scheduled queue
-- generated root-flat ZIPs are now written with deterministic ordering, timestamps, and permissions so repeated release builds do not create binary churn when skill contents are unchanged
+- self-hosted publish, suspicious repair, and breakout rollout now pass through a hosted preflight first; if no online self-hosted runner matches `SELF_HOSTED_RUNNER_LABELS` (default `self-hosted`), the lane is skipped with a summary instead of sitting queued for 24 hours
+- each self-hosted lane also has its own lane-level concurrency group and bounded runtime so manual reruns cannot stack overlapping publish/remediation work on the same branch
+- generated root-flat ZIPs are now written with deterministic ordering, timestamps, and Git-index-derived executable bits so repeated release builds do not create binary churn when skill contents are unchanged, including on Windows-mounted worktrees
 - workflow-level env also sets `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true` to get ahead of the current GitHub-hosted Node 20 deprecation warning
 
 ### What the hosted lane does
@@ -270,6 +272,13 @@ When `run_breakout_rollout=true` on a manual dispatch, the workflow uses the ded
 
 When repo variable `AUTO_FULL_PLATFORM_PUBLISH=true` is set, the same self-hosted lane can also run from the scheduled trigger without manual dispatch.
 
+Self-hosted lane switches are intentionally "open but gated":
+
+- manual dispatch can request publish, suspicious repair, and breakout rollout independently
+- scheduled automation can request the same lanes through repo variables
+- `self-hosted-preflight` checks the GitHub runner API before queueing any self-hosted job
+- if a runner is intentionally expected to come online later, set manual `force_self_hosted_queue=true` or repo variable `AUTO_FORCE_SELF_HOSTED_QUEUE=true`
+
 Useful repo variables for scheduled self-hosted automation:
 
 - `AUTO_PIPELINE_DRY_RUN`
@@ -291,6 +300,8 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_BREAKOUT_SKILLS`
 - `AUTO_BREAKOUT_PUBLISH`
 - `AUTO_INSTALL_CLAWHUB_CLI`
+- `AUTO_FORCE_SELF_HOSTED_QUEUE`
+- `SELF_HOSTED_RUNNER_LABELS`
 - `AUTO_HERMES_PUBLISH_MODE`
 - `CLAWHUB_CLI_VERSION`
 

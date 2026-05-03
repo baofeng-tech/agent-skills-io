@@ -80,7 +80,7 @@
         "suspicious_reason": "The package is mostly coherent for an API-provider plugin (it legitimately needs an AISA_API_KEY), but there are mismatches between the registry metadata and the packaged files and a few packaging/instruction gaps that should be resolved before trusting it with credentials.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-02T20:01:33.756360+00:00"
+        "checked_at": "2026-05-03T17:20:26.614383+00:00"
       }
     },
     "plugin:aisa-tavily-plugin": {
@@ -284,7 +284,7 @@
         "suspicious_reason": "The package is largely coherent for a Twitter/X relay-based engagement and OAuth posting skill, but there are metadata inconsistencies (the registry metadata claims no required credentials while the shipped manifests and scripts require AISA_API_KEY) that should be clarified before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-02T20:01:54.887143+00:00"
+        "checked_at": "2026-05-03T17:20:56.055576+00:00"
       },
       "attempts": 3,
       "last_attempt_at": "2026-04-28T20:04:44.811229+00:00",
@@ -448,7 +448,7 @@
         "suspicious_reason": "The package appears to implement a legitimate AIsa-backed research tool, but the manifest and bundled runtime disagree with the registry metadata about required secrets and there are a few runtime behaviors (local HTTP probes, bundled executable scripts) that warrant caution before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-02T20:02:10.748779+00:00"
+        "checked_at": "2026-05-03T17:20:59.770273+00:00"
       }
     },
     "plugin:last30days-zh-plugin": {
@@ -489,7 +489,7 @@
         "suspicious_reason": "The package mostly matches its stated purpose (web/multi-source 30-day research) but includes repo-local config reads and a default probe of a host.docker.internal API endpoint that is unexpected and worth reviewing before install.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-02T20:02:12.886906+00:00"
+        "checked_at": "2026-05-03T17:21:03.350802+00:00"
       }
     },
     "plugin:llm-router-plugin": {
@@ -901,7 +901,7 @@
         "suspicious_reason": "The package's code and SKILL.md are coherent with a Twitter/X engagement/posting skill (using an AIsa relay) but the registry metadata and top-level claims contradict the actual requirements and there is reliance on a third-party relay (AISA_API_KEY) that the user must trust.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-02T20:02:36.756091+00:00"
+        "checked_at": "2026-05-03T17:21:06.402762+00:00"
       }
     },
     "plugin:openclaw-youtube-plugin": {
@@ -1065,7 +1065,7 @@
         "suspicious_reason": "The package appears to implement a prediction-market arbitrage client that only talks to api.aisa.one and requires an AISA_API_KEY, but the registry metadata advertised at the top is inconsistent with the shipped manifests (missing declared env/binary requirements), so review before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-02T20:02:45.637262+00:00"
+        "checked_at": "2026-05-03T17:21:14.006641+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-plugin": {
@@ -1396,7 +1396,7 @@
         "suspicious_reason": "The package is plausibly a search client that contacts aisa.one and requires an AISA_API_KEY and python3, but the registry metadata omits those requirements and there are manifest mismatches you should confirm before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-02T20:03:02.661051+00:00"
+        "checked_at": "2026-05-03T17:21:17.792550+00:00"
       }
     },
     "plugin:stock-analysis-plugin": {
@@ -4211,7 +4211,7 @@
         "suspicious_reason": "The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-02T20:01:41.908681+00:00"
+        "checked_at": "2026-05-03T17:20:40.956598+00:00"
       }
     },
     "plugin:aisa-twitter-plugin": {
@@ -4829,7 +4829,7 @@
         "suspicious_reason": "The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-02T20:01:29.609117+00:00"
+        "checked_at": "2026-05-03T17:20:22.921468+00:00"
       }
     },
     "plugin:aisa-search-command-center-plugin": {
@@ -4913,7 +4913,7 @@
         "suspicious_reason": "The package is largely coherent with a Twitter/X relay client (it needs AISA_API_KEY and sends reads/posts to api.aisa.one), but there are metadata inconsistencies and privacy implications you should verify before installing.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-02T20:01:43.972998+00:00"
+        "checked_at": "2026-05-03T17:26:10.340963+00:00"
       }
     },
     "plugin:aisa-twitter-research-engage-plugin": {
@@ -4999,7 +4999,7 @@
         "suspicious_reason": "The skill's code, instructions, and requested secret (AISA_API_KEY) are consistent with its stated purpose of relaying Twitter/X read, engagement, and OAuth-based posting via the AIsa relay (api.aisa.one); nothing in the package requests unrelated credentials or installs unexpected tooling.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-02T20:04:03.816717+00:00"
+        "checked_at": "2026-05-03T17:26:15.893892+00:00"
       }
     },
     "plugin:aisa-twitter-research-engage-relay-plugin": {
@@ -5041,7 +5041,7 @@
         "suspicious_reason": "The package is internally consistent with its stated purpose: it wraps Python clients that call an AIsa relay (api.aisa.one) for Twitter/X research, engagement, and OAuth-backed posting, and it only requires an AISA_API_KEY and python3.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-02T20:01:59.760060+00:00"
+        "checked_at": "2026-05-03T17:26:13.254064+00:00"
       }
     }
   }
