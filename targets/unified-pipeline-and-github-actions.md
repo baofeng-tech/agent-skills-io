@@ -136,8 +136,9 @@ Current scheduler details:
 4. runs `scripts/unified_skill_pipeline.py`
 5. optionally runs the repo-local skill-refinement helper for changed AISA API skills (`--run-llm-step`)
 6. refreshes ClawHub suspicious diagnosis JSON and rules-doc snapshot block
-7. uploads state and test artifacts
-8. auto-commits regenerated outputs back into this repo when files changed
+7. optionally runs read-only AISA-backed skill code regression and writes `targets/aisa-api-regression-report-YYYY-MM-DD.json`
+8. uploads state and test artifacts
+9. auto-commits regenerated outputs back into this repo when files changed
 
 ### Explicit LLM refinement step
 
@@ -274,6 +275,7 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_PIPELINE_DRY_RUN`
 - `AUTO_PIPELINE_SELECTION`
 - `AUTO_DIAGNOSIS_DOC_UPDATE`
+- `AUTO_RUN_AISA_API_REGRESSION`
 - `AUTO_RUN_LLM_STEP`
 - `AUTO_LLM_APPLY`
 - `AUTO_SYNC_REPO_SKILLS`
@@ -350,6 +352,7 @@ That makes the hosted lane safe for:
 - upstream sync
 - release regeneration
 - regression detection
+- optional real AISA skill-code regression reports
 - committing generated outputs
 
 ### Self-hosted lane
@@ -375,7 +378,7 @@ That means a valid self-hosted operating pattern is:
 ### Strongly recommended
 
 - `AISA_API_KEY`
-  - needed for smoke tests that hit real AIsa-backed runtime clients
+  - needed for optional skill-code regression checks that hit real AIsa-backed runtime clients
 
 ### Required only when upstream Git access is not public
 
@@ -413,6 +416,7 @@ Use the hosted lane for:
 - mother-skill sync
 - release rebuild
 - smoke-test regression watch
+- optional `scripts/test_aisa_api_skills.py` reports when `run_aisa_api_regression=true` or `AUTO_RUN_AISA_API_REGRESSION=true`
 - committing generated repo state
 
 ### Manual self-hosted publish continuation

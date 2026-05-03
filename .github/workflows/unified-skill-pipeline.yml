@@ -93,6 +93,11 @@ on:
         required: false
         default: true
         type: boolean
+      run_aisa_api_regression:
+        description: "Run read-only AISA-backed skill code regression and generate a dated report"
+        required: false
+        default: false
+        type: boolean
       run_suspicious_repair:
         description: "After diagnosis, remediate matching suspicious artifacts and republish them"
         required: false
@@ -150,6 +155,7 @@ jobs:
       PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || vars.AUTO_LLM_APPLY || 'false' }}
       PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || vars.AUTO_SYNC_REPO_SKILLS || 'true' }}
       PIPELINE_DIAGNOSIS_DOC_UPDATE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.diagnosis_doc_update || vars.AUTO_DIAGNOSIS_DOC_UPDATE || 'true' }}
+      PIPELINE_RUN_AISA_API_REGRESSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_aisa_api_regression || vars.AUTO_RUN_AISA_API_REGRESSION || 'false' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
     steps:
@@ -212,6 +218,15 @@ jobs:
           fi
           python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode "$DOC_MODE"
 
+      - name: Run AISA API skill regression
+        if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' && env.PIPELINE_RUN_AISA_API_REGRESSION == 'true' }}
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          REPORT_PATH="targets/aisa-api-regression-report-$(date -u +%F).json"
+          python3 scripts/test_aisa_api_skills.py --report "$REPORT_PATH"
+
       - name: Commit regenerated outputs
         if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' }}
         shell: bash
@@ -254,6 +269,7 @@ jobs:
             targets/clawhub-publish-state.json
             targets/clawhub-live-status.json
             targets/clawhub-suspicious-diagnosis.json
+            targets/aisa-api-regression-report-*.json
             targetSkills/index.json
             targetSkills/index.md
             targetSkills/well-known-skills-index.json

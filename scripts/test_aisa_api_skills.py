@@ -18,7 +18,7 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TARGET_ROOT = REPO_ROOT / "targetSkills"
-DEFAULT_REPORT = REPO_ROOT / "targets" / "aisa-api-regression-report-2026-05-02.json"
+DEFAULT_REPORT = REPO_ROOT / "targets" / f"aisa-api-regression-report-{datetime.now(timezone.utc).date().isoformat()}.json"
 ACCOUNTS_PATH = REPO_ROOT / "example" / "accounts"
 API_MARKERS = ("AISA_API_KEY", "api.aisa.one")
 PREVIEW_LIMIT = 6000

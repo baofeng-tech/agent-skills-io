@@ -41,6 +41,28 @@ Result: all exact same upstream skill-family scripts matched the corresponding `
 
 Several local release-family variants, such as `market`, `smart-search`, `openclaw-twitter-post-engage`, `twitter`, `x-intelligence-automation`, and prediction-market API/ZH variants, do not have exact same-name upstream skill directories. They remain local adapted source variants; their remaining failures in this pass followed the same transient TLS/connection pattern rather than a stable script mismatch.
 
+Additional 2026-05-03 recheck after fast-forwarding to `origin/main`:
+
+- `AIsa-team/agent-skills@main` currently has these top-level upstream skills: `crypto-market-data`, `last30days`, `marketpulse`, `media-gen`, `multi-source-search`, `perplexity-search`, `prediction-market-arbitrage`, `prediction-market-data`, `twitter-autopilot`, and `youtube-serp`.
+- For the exact same-name upstream runtime scripts, local `targetSkills/` files still match byte-for-byte.
+- `stock-analysis`, `stock-dividend`, `stock-hot`, `stock-rumors`, `stock-portfolio`, `llm-router`, `cn-llm`, and `aisa-provider` are local target/release-layer skills in this repo, not exact same-name directories in `AIsa-team/agent-skills@main`.
+
+## API Documentation Recheck
+
+The current AISA docs still describe:
+
+- unified host: `https://api.aisa.one`
+- OpenAI-compatible chat: `/v1`
+- other data APIs: `/apis/v1`
+
+OpenAPI probes also show:
+
+- OpenAI chat spec server: `https://api.aisa.one/v1`, path `POST /chat/completions`
+- Financial spec server: `https://api.aisa.one/apis/v1/financial`
+- Financial paths include `/prices`, `/prices/snapshot`, `/news`, `/financials`, `/financial-metrics`, `/analyst-estimates`, `/earnings`, `/insider-trades`, `/institutional-ownership`, `/filings`, and related search paths
+
+The stock JSON issue is therefore not explained by a documented endpoint path change. The affected stock scripts call the OpenAI-compatible chat API through the Python OpenAI SDK at `https://api.aisa.one/v1`, asking the model to use hosted financial tools and return JSON. They do not call a dedicated `/apis/v1/financial/dividend` or `/apis/v1/financial/hot` endpoint.
+
 ## Fixes Applied
 
 - Hardened JSON mode in:
@@ -82,3 +104,26 @@ The remaining 8 failures are all classified as transient TLS/connection failures
 - `youtube` search
 
 These failures do not currently point to a local code mismatch. The same run fixed or moved many previous failures without runtime changes, and direct curl probes reproduce TLS EOF outside the skill layer.
+
+## Current TLS Probe
+
+Unauthenticated probes on 2026-05-03 still reproduce connection instability before application auth:
+
+- `GET https://api.aisa.one/apis/v1`: 5 app-layer `401` responses, 5 TLS EOF failures in 10 attempts
+- `GET https://api.aisa.one/v1/models`: 8 app-layer `401` responses, 2 TLS EOF failures in 10 attempts
+- `GET https://api.aisa.one/apis/v1/financial/prices/snapshot?symbol=AAPL`: 3 app-layer `401` responses, 7 TLS EOF failures in 10 attempts
+- `openssl s_client -connect api.aisa.one:443 -servername api.aisa.one` also failed with `unexpected eof while reading` during this check
+
+Because successful attempts reach the expected unauthenticated `401`, the host and documented paths are still present. The failures are still best classified as TLS/connection-layer instability rather than an API path/schema change.
+
+## GitHub Actions Follow-up
+
+The hosted GitHub Actions lane now has an optional `run_aisa_api_regression` input, mirrored by the scheduled variable `AUTO_RUN_AISA_API_REGRESSION`.
+
+When enabled, the workflow runs:
+
+```bash
+python3 scripts/test_aisa_api_skills.py --report targets/aisa-api-regression-report-$(date -u +%F).json
+```
+
+The step is `continue-on-error` so a report is still produced and committed/uploaded even when external AISA TLS or upstream API instability causes regression failures. It remains disabled by default to avoid turning normal sync/build runs into noisy live-API cost and network checks.
