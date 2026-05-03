@@ -43,7 +43,7 @@ on:
       run_self_hosted_publish:
         description: "Also run the optional self-hosted publish lane"
         required: false
-        default: false
+        default: true
         type: boolean
       sync_adjacent_repos:
         description: "In self-hosted mode, sync downstream GitHub publish repos"
@@ -78,7 +78,7 @@ on:
       install_clawhub_cli:
         description: "In self-hosted mode, install or refresh the ClawHub CLI before publish"
         required: false
-        default: false
+        default: true
         type: boolean
       hermes_publish_mode:
         description: "In self-hosted mode, Hermes publish path"
@@ -96,12 +96,12 @@ on:
       run_aisa_api_regression:
         description: "Run read-only AISA-backed skill code regression and generate a dated report"
         required: false
-        default: false
+        default: true
         type: boolean
       run_suspicious_repair:
         description: "After diagnosis, remediate matching suspicious artifacts and republish them"
         required: false
-        default: false
+        default: true
         type: boolean
       suspicious_artifacts:
         description: "Optional comma-separated ClawHub-owned artifact keys to target"
@@ -116,7 +116,7 @@ on:
       run_breakout_rollout:
         description: "Run the dedicated breakout rollout lane"
         required: false
-        default: false
+        default: true
         type: boolean
       breakout_skills:
         description: "Optional comma-separated source skill names for breakout rollout"
@@ -148,7 +148,6 @@ concurrency:
 permissions:
   actions: read
   contents: write
-  pull-requests: write
 
 jobs:
   sync-build-test:
@@ -282,34 +281,6 @@ jobs:
             targetSkills/well-known-skills-index.json
           if-no-files-found: ignore
 
-  diagnosis-pr:
-    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run != 'true' }}
-    needs: sync-build-test
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-
-      - name: Create diagnosis PR when changes exist
-        uses: peter-evans/create-pull-request@v8
-        with:
-          token: ${{ github.token }}
-          commit-message: "chore: refresh clawhub suspicious diagnosis"
-          title: "chore: refresh ClawHub suspicious diagnosis snapshot"
-          body: |
-            Automated update from unified skill pipeline:
-            - refresh `targets/clawhub-suspicious-diagnosis.json`
-            - refresh auto snapshot block in suspicious-rules doc
-          branch: "bot/clawhub-suspicious-diagnosis"
-          delete-branch: true
-          add-paths: |
-            targets/clawhub-suspicious-diagnosis.json
-            targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md
-
   self-hosted-preflight:
     if: ${{ always() && needs['sync-build-test'].result == 'success' }}
     needs: sync-build-test
@@ -328,6 +299,7 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
+          RUNNER_API_TOKEN: ${{ secrets.SELF_HOSTED_RUNNER_API_TOKEN || secrets.DOWNSTREAM_REPO_TOKEN || github.token }}
           REPO: ${{ github.repository }}
           EVENT_NAME: ${{ github.event_name }}
           INPUT_RUN_SELF_HOSTED_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish || 'false' }}
@@ -374,13 +346,18 @@ jobs:
             can_queue="true"
             reason="force_self_hosted_queue enabled"
           elif [[ "${any_requested}" == "true" ]]; then
-            response="$(curl -fsSL \
-              -H "Authorization: Bearer ${GH_TOKEN}" \
+            response_file="$(mktemp)"
+            http_code="$(curl -sS -L \
+              -o "${response_file}" \
+              -w "%{http_code}" \
+              -H "Authorization: Bearer ${RUNNER_API_TOKEN:-${GH_TOKEN}}" \
               -H "Accept: application/vnd.github+json" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
               "https://api.github.com/repos/${REPO}/actions/runners?per_page=100" || true)"
-            if [[ -z "${response}" ]]; then
-              reason="runner API unavailable; set force_self_hosted_queue=true to wait intentionally"
+            response="$(cat "${response_file}")"
+            rm -f "${response_file}"
+            if [[ "${http_code}" != "200" || -z "${response}" ]]; then
+              reason="runner API returned HTTP ${http_code:-unknown}; add SELF_HOSTED_RUNNER_API_TOKEN with repository Administration read permission or enable force_self_hosted_queue intentionally"
             else
               result="$(
                 RUNNERS_JSON="${response}" python3 - "${SELF_HOSTED_RUNNER_LABELS}" <<'PY'
@@ -613,13 +590,24 @@ jobs:
             [[ "$SELECTED_TARGETS" == *,all,* || "$SELECTED_TARGETS" == *,"$target",* ]]
           }
 
+          repo_url() {
+            local repo="$1"
+            if [[ -n "${DOWNSTREAM_REPO_TOKEN:-}" ]]; then
+              printf 'https://x-access-token:%s@github.com/%s.git' "${DOWNSTREAM_REPO_TOKEN}" "${repo}"
+            else
+              printf 'https://github.com/%s.git' "${repo}"
+            fi
+          }
+
           ensure_repo() {
             local repo="$1"
             local ref="$2"
             local dest="$3"
-            local clone_url="https://github.com/${repo}.git"
+            local clone_url
+            clone_url="$(repo_url "${repo}")"
 
             if [[ -d "$dest/.git" ]]; then
+              git -C "$dest" remote set-url origin "$clone_url"
               git -C "$dest" fetch origin "$ref"
               git -C "$dest" checkout "$ref"
               git -C "$dest" pull --ff-only origin "$ref"
@@ -767,12 +755,23 @@ jobs:
               return 0
             fi
 
-            git -C "$repo_path" commit -m "chore: publish from unified skill pipeline"
+            local remote_url
             if [[ -n "${DOWNSTREAM_REPO_TOKEN:-}" ]]; then
-              git -C "$repo_path" push "https://x-access-token:${DOWNSTREAM_REPO_TOKEN}@github.com/${repo}.git" "HEAD:${ref}"
+              remote_url="https://x-access-token:${DOWNSTREAM_REPO_TOKEN}@github.com/${repo}.git"
             else
-              git -C "$repo_path" push origin "HEAD:${ref}"
+              remote_url="origin"
             fi
+
+            git -C "$repo_path" commit -m "chore: publish from unified skill pipeline"
+            for attempt in 1 2 3; do
+              git -C "$repo_path" fetch "$remote_url" "$ref"
+              git -C "$repo_path" rebase FETCH_HEAD
+              if git -C "$repo_path" push "$remote_url" "HEAD:${ref}"; then
+                return 0
+              fi
+              echo "Push attempt ${attempt} failed for $label; rebasing onto latest ${ref} before retry."
+            done
+            return 1
           }
 
           if target_enabled "agentskills-so"; then
@@ -984,13 +983,24 @@ jobs:
             [[ "$SELECTED_TARGETS" == *,all,* || "$SELECTED_TARGETS" == *,"$target",* ]]
           }
 
+          repo_url() {
+            local repo="$1"
+            if [[ -n "${DOWNSTREAM_REPO_TOKEN:-}" ]]; then
+              printf 'https://x-access-token:%s@github.com/%s.git' "${DOWNSTREAM_REPO_TOKEN}" "${repo}"
+            else
+              printf 'https://github.com/%s.git' "${repo}"
+            fi
+          }
+
           ensure_repo() {
             local repo="$1"
             local ref="$2"
             local dest="$3"
-            local clone_url="https://github.com/${repo}.git"
+            local clone_url
+            clone_url="$(repo_url "${repo}")"
 
             if [[ -d "$dest/.git" ]]; then
+              git -C "$dest" remote set-url origin "$clone_url"
               git -C "$dest" fetch origin "$ref"
               git -C "$dest" checkout "$ref"
               git -C "$dest" pull --ff-only origin "$ref"
@@ -1128,12 +1138,23 @@ jobs:
               return 0
             fi
 
-            git -C "$repo_path" commit -m "chore: publish from suspicious remediation lane"
+            local remote_url
             if [[ -n "${DOWNSTREAM_REPO_TOKEN:-}" ]]; then
-              git -C "$repo_path" push "https://x-access-token:${DOWNSTREAM_REPO_TOKEN}@github.com/${repo}.git" "HEAD:${ref}"
+              remote_url="https://x-access-token:${DOWNSTREAM_REPO_TOKEN}@github.com/${repo}.git"
             else
-              git -C "$repo_path" push origin "HEAD:${ref}"
+              remote_url="origin"
             fi
+
+            git -C "$repo_path" commit -m "chore: publish from suspicious remediation lane"
+            for attempt in 1 2 3; do
+              git -C "$repo_path" fetch "$remote_url" "$ref"
+              git -C "$repo_path" rebase FETCH_HEAD
+              if git -C "$repo_path" push "$remote_url" "HEAD:${ref}"; then
+                return 0
+              fi
+              echo "Push attempt ${attempt} failed for $label; rebasing onto latest ${ref} before retry."
+            done
+            return 1
           }
 
           if target_enabled "agentskills-so"; then
@@ -1345,13 +1366,24 @@ jobs:
             [[ "$SELECTED_TARGETS" == *,all,* || "$SELECTED_TARGETS" == *,"$target",* ]]
           }
 
+          repo_url() {
+            local repo="$1"
+            if [[ -n "${DOWNSTREAM_REPO_TOKEN:-}" ]]; then
+              printf 'https://x-access-token:%s@github.com/%s.git' "${DOWNSTREAM_REPO_TOKEN}" "${repo}"
+            else
+              printf 'https://github.com/%s.git' "${repo}"
+            fi
+          }
+
           ensure_repo() {
             local repo="$1"
             local ref="$2"
             local dest="$3"
-            local clone_url="https://github.com/${repo}.git"
+            local clone_url
+            clone_url="$(repo_url "${repo}")"
 
             if [[ -d "$dest/.git" ]]; then
+              git -C "$dest" remote set-url origin "$clone_url"
               git -C "$dest" fetch origin "$ref"
               git -C "$dest" checkout "$ref"
               git -C "$dest" pull --ff-only origin "$ref"
@@ -1481,12 +1513,23 @@ jobs:
               return 0
             fi
 
-            git -C "$repo_path" commit -m "chore: publish from breakout rollout lane"
+            local remote_url
             if [[ -n "${DOWNSTREAM_REPO_TOKEN:-}" ]]; then
-              git -C "$repo_path" push "https://x-access-token:${DOWNSTREAM_REPO_TOKEN}@github.com/${repo}.git" "HEAD:${ref}"
+              remote_url="https://x-access-token:${DOWNSTREAM_REPO_TOKEN}@github.com/${repo}.git"
             else
-              git -C "$repo_path" push origin "HEAD:${ref}"
+              remote_url="origin"
             fi
+
+            git -C "$repo_path" commit -m "chore: publish from breakout rollout lane"
+            for attempt in 1 2 3; do
+              git -C "$repo_path" fetch "$remote_url" "$ref"
+              git -C "$repo_path" rebase FETCH_HEAD
+              if git -C "$repo_path" push "$remote_url" "HEAD:${ref}"; then
+                return 0
+              fi
+              echo "Push attempt ${attempt} failed for $label; rebasing onto latest ${ref} before retry."
+            done
+            return 1
           }
 
           if target_enabled "agentskills-so"; then

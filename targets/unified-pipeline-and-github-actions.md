@@ -125,10 +125,13 @@ Current scheduler details:
 - workflow-level env now pins `UPSTREAM_BRANCH=main`, so the scheduled sync follows the AIsa upstream `main` branch by default
 - hosted auto-commit now uses `persist-credentials: false`, explicit token push, pre-commit `git rebase --autostash`, and push retry rebase; this avoids both the earlier `actions/checkout` post-job `exit code 128` cleanup failure and non-fast-forward races with other action commits
 - schedule runs keep a shared concurrency group; manual dispatches use a per-run concurrency group so urgent manual repair does not sit behind the scheduled queue
+- workflow-dispatch defaults now keep the publish, suspicious repair, breakout rollout, AISA API regression, and ClawHub CLI install switches open; self-hosted publish is still gated by the hosted preflight before any runner queue is created
 - self-hosted publish, suspicious repair, and breakout rollout now pass through a hosted preflight first; if no online self-hosted runner matches `SELF_HOSTED_RUNNER_LABELS` (default `self-hosted`), the lane is skipped with a summary instead of sitting queued for 24 hours
+- runner availability checks should use `SELF_HOSTED_RUNNER_API_TOKEN` with repository Administration read permission when the default `GITHUB_TOKEN` cannot call the runners API
 - each self-hosted lane also has its own lane-level concurrency group and bounded runtime so manual reruns cannot stack overlapping publish/remediation work on the same branch
 - generated root-flat ZIPs are now written with deterministic ordering, timestamps, and Git-index-derived executable bits so repeated release builds do not create binary churn when skill contents are unchanged, including on Windows-mounted worktrees
 - workflow-level env also sets `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true` to get ahead of the current GitHub-hosted Node 20 deprecation warning
+- when no upstream skill changed but publish or downstream sync is explicitly requested, `scripts/unified_skill_pipeline.py` now continues from the current `targetSkills/` state instead of returning before publish
 
 ### What the hosted lane does
 
@@ -234,7 +237,7 @@ The hosted lane now supports:
 1. ClawHub live-status refresh (`scripts/clawhub_live_status.py`)
 2. diagnosis JSON generation (`targets/clawhub-suspicious-diagnosis.json`)
 3. optional rules-doc snapshot update in `targets/clawhub-suspicious-causes-and-fixes-2026-04-25.md`
-4. optional PR creation for diagnosis-only updates (`diagnosis-pr` job)
+4. direct hosted-lane auto-commit of regenerated diagnosis output when files changed
 
 ### Upstream-authority rule
 
@@ -400,8 +403,12 @@ As of 2026-04-23, the upstream repo is publicly readable, so this token should b
 
 ### Optional self-hosted publish secret
 
+- `SELF_HOSTED_RUNNER_API_TOKEN`
+  - recommended for the hosted preflight when self-hosted lanes are enabled
+  - needs repository Administration read permission to list self-hosted runners
 - `DOWNSTREAM_REPO_TOKEN`
   - used when the self-hosted runner cannot clone and push downstream repos through existing SSH auth
+  - also used as a fallback token for downstream clone/fetch/push URLs
 
 ### Optional publish secrets
 

@@ -21,7 +21,7 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHaV3LEaQYkKAAIcdpUKSJeA5QAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdpX0kYAnEAoABhx2lfSRf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/168010",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHajFe7WIBIKAAIcdqIHj1vBcQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdqM_bMAnEAoABhx2oz9sv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/50541",
       "stderr_preview": ""
     },
     {
@@ -51,7 +51,7 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"id\": \"vaeIymQYDE3XiEMNw7nMKQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"4jYDvueIt0h5VmFhv3CGCw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.5 · GPT-5.4 ; Safety. Safety Approach ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -66,8 +66,8 @@
         "1"
       ],
       "code": 1,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
-      "stderr_preview": ""
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/prediction-market/scripts/prediction_market_client.py\", line 574, in <module>\n    main()\n  File \"/mnt/d/workplace/agent-skills-io/claude-release/prediction-market/scripts/prediction_market_client.py\", line 492, in main\n    result = client.polymarket_markets(\n  File \"/mnt/d/workplace/agent-skills-io/claude-re"
     },
     {
       "layer": "claude",
@@ -119,8 +119,8 @@
         "--type",
         "Latest"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHaV87JW0OQKAAIcdpUT3NqAgAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdpX-FUAnEAoABhx2lf4VP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/4278",
+      "code": 1,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -135,8 +135,8 @@
         "--query",
         "OpenAI"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1940000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "code": 1,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -153,8 +153,8 @@
         "--count",
         "1"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"id\": \"YfrhOV3F3tf1RKzjCRLECw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "code": 1,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -171,8 +171,8 @@
         "1"
       ],
       "code": 1,
-      "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/prediction-market/scripts/prediction_market_client.py\", line 576, in <module>\n    main()\n  File \"/mnt/d/workplace/agent-skills-io/hermes-release/finance/prediction-market/scripts/prediction_market_client.py\", line 494, in main\n    result = client.polymarket_markets(\n  File \"/mnt/d/workplace/agent-ski"
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
     },
     {
       "layer": "hermes",
@@ -212,8 +212,8 @@
         "--type",
         "Latest"
       ],
-      "code": 1,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "code": 0,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHajfz6aIH8KAAIcdqKGhhYhYgAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcdqOHi8AnEAoABhx2o4eLv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/15325",
       "stderr_preview": ""
     },
     {

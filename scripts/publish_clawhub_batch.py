@@ -130,6 +130,14 @@ def titleize_slug(slug: str) -> str:
     return " ".join(titled) if titled else slug
 
 
+def repo_relative_path(path: Path) -> str:
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        return str(resolved)
+
+
 def suffix_publish_name(name: str, suffix: str) -> str:
     cleaned_suffix = re.sub(r"[^a-z0-9-]+", "-", suffix.lower()).strip("-")
     if not cleaned_suffix:
@@ -1088,7 +1096,7 @@ def discover_skill_artifacts(root: Path) -> list[Artifact]:
                 kind="skill",
                 name=skill_dir.name,
                 version=version,
-                path=str(skill_dir.resolve()),
+                path=repo_relative_path(skill_dir),
                 display_name=display_name,
             )
         )
@@ -1111,7 +1119,7 @@ def discover_plugin_artifacts(root: Path, source_repo_root: Path) -> list[Artifa
                 kind="plugin",
                 name=str(package_json["name"]),
                 version=str(package_json.get("version") or "1.0.0"),
-                path=str(plugin_dir.resolve()),
+                path=repo_relative_path(plugin_dir),
                 display_name=str(manifest.get("name") or titleize_slug(plugin_dir.name)),
                 source_path=source_path,
             )

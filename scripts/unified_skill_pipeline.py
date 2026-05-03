@@ -458,11 +458,10 @@ def run_publish_steps(args: argparse.Namespace, summary: RunSummary) -> None:
             "scripts/publish_clawhub_batch.py",
             "--targets",
             args.clawhub_publish,
+            "--skip-build",
         ]
         if args.clawhub_dry_run:
             clawhub_command.append("--dry-run")
-        else:
-            clawhub_command.extend(["--skip-build"])
         run_command(clawhub_command, cwd=REPO_ROOT, timeout=7200)
         summary.publish_steps.append(" ".join(clawhub_command))
 
@@ -639,6 +638,34 @@ def main() -> int:
 
     if not plans:
         print("No upstream skill changes detected.", flush=True)
+        should_continue = args.sync_adjacent_repos or args.clawhub_publish != "none"
+        if not args.dry_run and should_continue:
+            print("Continuing with release rebuild/publish steps from the current targetSkills state.", flush=True)
+            run_builds(skip_build=args.skip_build, skip_test=args.skip_test)
+            run_publish_steps(args, summary)
+            run_diagnosis_steps(args, summary)
+            summary.completed_at = iso_now()
+            write_state(
+                state_path,
+                {
+                    **state,
+                    "last_synced_commit": upstream_head,
+                    "last_detected_commit": upstream_head,
+                    "last_run": asdict(summary),
+                    "pending_manual_review": state.get("pending_manual_review", []),
+                },
+            )
+            print("", flush=True)
+            print("Unified skill pipeline summary", flush=True)
+            print("  synced:  0", flush=True)
+            print("  created: 0", flush=True)
+            print("  skipped: 0", flush=True)
+            if summary.diagnosis_steps:
+                print(f"  diag:    {len(summary.diagnosis_steps)} step(s)", flush=True)
+            if summary.publish_steps:
+                print(f"  publish: {len(summary.publish_steps)} step(s)", flush=True)
+            return 0
+
         summary.completed_at = iso_now()
         if not state_path.exists():
             write_state(
