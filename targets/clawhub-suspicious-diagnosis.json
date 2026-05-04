@@ -1,15 +1,15 @@
 {
   "summary": {
-    "artifacts": 33,
-    "blockers": 32,
+    "artifacts": 19,
+    "blockers": 18,
     "warnings": 1,
-    "pending": 17,
+    "pending": 6,
     "rules": {
-      "metadata_env_mismatch": 12,
-      "oauth_upload_side_effects": 9,
-      "pending_scan": 17,
-      "platform_trust_gap": 19,
-      "relay_trust_surface": 18
+      "metadata_env_mismatch": 2,
+      "oauth_upload_side_effects": 5,
+      "pending_scan": 6,
+      "platform_trust_gap": 11,
+      "relay_trust_surface": 6
     }
   },
   "artifacts": [
@@ -45,47 +45,6 @@
       "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-perplexity-search-sonar-plugin",
       "release_ref": "rd793hcmfwpqtqwj53zht0hs7d85expt",
       "reason": "The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing."
-    },
-    {
-      "key": "plugin:aisa-provider-plugin",
-      "kind": "plugin",
-      "name": "aisa-provider-plugin",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-provider-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-provider-plugin",
-      "release_ref": "rd7cej56ctdn4wchzn37xffgg585bbya",
-      "reason": "The package is mostly coherent for an API-provider plugin (it legitimately needs an AISA_API_KEY), but there are mismatches between the registry metadata and the packaged files and a few packaging/instruction gaps that should be resolved before trusting it with credentials."
     },
     {
       "key": "plugin:aisa-tavily-search-plugin",
@@ -125,88 +84,6 @@
       "reason": "The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials."
     },
     {
-      "key": "plugin:aisa-twitter-api-command-center-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-api-command-center-plugin",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-api-command-center-plugin",
-      "local_path": "/mnt/d/workplace/agent-skills-io/clawhub-plugin-release/plugins/aisa-twitter-api-command-center-plugin",
-      "release_ref": "rd7b4e45wj5e033sh9v0eg9pe185qv0k",
-      "reason": "The package is largely coherent with a Twitter/X relay client (it needs AISA_API_KEY and sends reads/posts to api.aisa.one), but there are metadata inconsistencies and privacy implications you should verify before installing."
-    },
-    {
-      "key": "plugin:aisa-twitter-post-engage-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-post-engage-plugin",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "oauth_upload_side_effects",
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-post-engage-plugin",
-      "local_path": "/mnt/d/workplace/agent-skills-io/clawhub-plugin-release/plugins/aisa-twitter-post-engage-plugin",
-      "release_ref": null,
-      "reason": "The package is largely coherent for a Twitter/X relay-based engagement and OAuth posting skill, but there are metadata inconsistencies (the registry metadata claims no required credentials while the shipped manifests and scripts require AISA_API_KEY) that should be clarified before installing."
-    },
-    {
       "key": "plugin:last30days-plugin",
       "kind": "plugin",
       "name": "last30days-plugin",
@@ -221,23 +98,19 @@
       "suspicious": true,
       "pending": true,
       "rule_ids": [
-        "metadata_env_mismatch",
         "pending_scan"
       ],
       "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "Security scan output is not final yet."
       ],
       "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
         "Keep pending, clean, and suspicious as separate states in automation.",
         "Retry live scan before treating the package as resolved."
       ],
       "detail_url": "https://clawhub.ai/plugins/last30days-plugin",
       "local_path": "clawhub-plugin-release/plugins/last30days-plugin",
       "release_ref": null,
-      "reason": "The package appears to implement a legitimate AIsa-backed research tool, but the manifest and bundled runtime disagree with the registry metadata about required secrets and there are a few runtime behaviors (local HTTP probes, bundled executable scripts) that warrant caution before installing."
+      "reason": "This looks mostly like a legitimate recent-research skill, but its published metadata understates the credentials, binaries, and network behavior that the bundled skill actually uses."
     },
     {
       "key": "plugin:last30days-zh-plugin",
@@ -266,237 +139,7 @@
       "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
       "local_path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
       "release_ref": "rd79t34w8g0yy724ezfmjzamh185b1r6",
-      "reason": "The package mostly matches its stated purpose (web/multi-source 30-day research) but includes repo-local config reads and a default probe of a host.docker.internal API endpoint that is unexpected and worth reviewing before install."
-    },
-    {
-      "key": "plugin:openclaw-twitter-post-engage-plugin",
-      "kind": "plugin",
-      "name": "openclaw-twitter-post-engage-plugin",
-      "publisher_handle": "baofeng-tech",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "oauth_upload_side_effects",
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/openclaw-twitter-post-engage-plugin",
-      "local_path": "clawhub-plugin-release/plugins/openclaw-twitter-post-engage-plugin",
-      "release_ref": "rd7brqg64h1npgb1yvb32atysd85b2x3",
-      "reason": "The package's code and SKILL.md are coherent with a Twitter/X engagement/posting skill (using an AIsa relay) but the registry metadata and top-level claims contradict the actual requirements and there is reliance on a third-party relay (AISA_API_KEY) that the user must trust."
-    },
-    {
-      "key": "plugin:prediction-market-arbitrage-api-plugin",
-      "kind": "plugin",
-      "name": "prediction-market-arbitrage-api-plugin",
-      "publisher_handle": "aisadocs",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/prediction-market-arbitrage-api-plugin",
-      "local_path": "clawhub-plugin-release/plugins/prediction-market-arbitrage-api-plugin",
-      "release_ref": "rd77xfn59w0dmeywg0jqbm8sw585bf19",
-      "reason": "The package appears to implement a prediction-market arbitrage client that only talks to api.aisa.one and requires an AISA_API_KEY, but the registry metadata advertised at the top is inconsistent with the shipped manifests (missing declared env/binary requirements), so review before installing."
-    },
-    {
-      "key": "plugin:smart-search-plugin",
-      "kind": "plugin",
-      "name": "smart-search-plugin",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/smart-search-plugin",
-      "local_path": "clawhub-plugin-release/plugins/smart-search-plugin",
-      "release_ref": "rd76e0p1tng6acdn4hwcjmxzh185aqsn",
-      "reason": "The package is plausibly a search client that contacts aisa.one and requires an AISA_API_KEY and python3, but the registry metadata omits those requirements and there are manifest mismatches you should confirm before installing."
-    },
-    {
-      "key": "plugin:stock-analysis-plugin",
-      "kind": "plugin",
-      "name": "stock-analysis-plugin",
-      "publisher_handle": "baofeng-tech",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/stock-analysis-plugin",
-      "local_path": "clawhub-plugin-release/plugins/stock-analysis-plugin",
-      "release_ref": "rd7ere6h9gxgkddj3026d842a585b5r1",
-      "reason": "The package mostly matches a stock-analysis skill, but the published registry metadata (saying no env vars/credentials required) contradicts the embedded plugin and SKILL.md which require an AISA_API_KEY and contact an external AIsa API — this mismatch should be clarified before installing."
-    },
-    {
-      "key": "plugin:stock-rumors-plugin",
-      "kind": "plugin",
-      "name": "stock-rumors-plugin",
-      "publisher_handle": "aisadocs",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/stock-rumors-plugin",
-      "local_path": "clawhub-plugin-release/plugins/stock-rumors-plugin",
-      "release_ref": "rd77386k1qmykchcxafwq9z1y985c9qm",
-      "reason": "The package generally matches its stated purpose (stock/rumor scanning using an AIsa API key) but the runtime instructions and script contain mismatches (claims to 'fetch live data', undeclared environment variables, and reliance on an LLM to 'scan' sources) that warrant caution before installing or running with a real API key."
-    },
-    {
-      "key": "plugin:twitter-command-center-search-post-plugin",
-      "kind": "plugin",
-      "name": "twitter-command-center-search-post-plugin",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/twitter-command-center-search-post-plugin",
-      "local_path": "clawhub-plugin-release/plugins/twitter-command-center-search-post-plugin",
-      "release_ref": "rd70cnh0cqnaee3dqh8g0z5f7s85ch28",
-      "reason": "The package is functionally aligned with its Twitter/X posting/search purpose, but it relies on an external relay (api.aisa.one) that will receive your AISA_API_KEY and any uploaded media, and the runtime reads a few environment variables that the manifest/SKILL.md don't fully declare — you should review/trust the relay before installing."
+      "reason": "This mostly looks like a recent-research tool, but its published requirements understate the API key, binaries, and network surface the bundled skill actually uses."
     },
     {
       "key": "plugin:x-intelligence-automation-plugin",
@@ -538,113 +181,6 @@
       "local_path": "clawhub-plugin-release/plugins/x-intelligence-automation-plugin",
       "release_ref": "rd7bsae56pj7r6brnyctbdy2v985c1yw",
       "reason": "The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing."
-    },
-    {
-      "key": "plugin:youtube-plugin",
-      "kind": "plugin",
-      "name": "youtube-plugin",
-      "publisher_handle": "baofeng-tech",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/youtube-plugin",
-      "local_path": "clawhub-plugin-release/plugins/youtube-plugin",
-      "release_ref": "rd7db2myyt7gkmzrjr20tajvyx85cc5c",
-      "reason": "The package mostly does what it says (YouTube research via AIsa) but the manifest/registry metadata and the bundled skill disagree about required environment variables and runtime, and the skill will send your AISA_API_KEY to api.aisa.one — confirm you trust that upstream and the pkg metadata before installing."
-    },
-    {
-      "key": "plugin:youtube-search-plugin",
-      "kind": "plugin",
-      "name": "youtube-search-plugin",
-      "publisher_handle": "aisadocs",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/youtube-search-plugin",
-      "local_path": "clawhub-plugin-release/plugins/youtube-search-plugin",
-      "release_ref": "rd74r61w8nfpx0y8kgas8nmrr585da2v",
-      "reason": "The package is internally inconsistent: it is named 'Youtube Search' but the bundled skill and manifests describe Twitter/X search/posting and require an AISA_API_KEY; functionality and naming don't line up even though the runtime footprint itself is small."
-    },
-    {
-      "key": "skill:aisa-provider",
-      "kind": "skill",
-      "name": "aisa-provider",
-      "publisher_handle": "baofeng-tech",
-      "severity": "blocker",
-      "scan_status": "suspicious",
-      "virus_total": "clean",
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": true,
-      "pending": false,
-      "rule_ids": [
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/aisa-provider",
-      "local_path": "clawhub-release\\aisa-provider",
-      "release_ref": "k97fctxrqvnyt4nz1fn0mpryw5858seb",
-      "reason": "The skill's declared requirements (only AISA_API_KEY) match its stated purpose, but the runtime instructions reference shipped scripts and flows that are not present and make strong external-claims (partnerships, ZDR) that should be verified before use."
     },
     {
       "key": "skill:aisa-twitter",
@@ -856,72 +392,6 @@
       "local_path": "clawhub-release\\stock-analysis",
       "release_ref": null,
       "reason": "Optional third-party CLI installation and user-configured cron automation are disclosed and purpose-aligned, but users should review them before enabling."
-    },
-    {
-      "key": "skill:stock-dividend",
-      "kind": "skill",
-      "name": "stock-dividend",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "suspicious",
-      "virus_total": "clean",
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": true,
-      "pending": false,
-      "rule_ids": [
-        "platform_trust_gap"
-      ],
-      "rule_summaries": [
-        "Trust and provenance surfaces are weaker than the package behavior requires."
-      ],
-      "recommended_actions": [
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/stock-dividend",
-      "local_path": "clawhub-release\\stock-dividend",
-      "release_ref": null,
-      "reason": "The skill mostly matches its stated purpose (dividend analysis via AISA) but has small inconsistencies that could be abused or cause surprises—most notably it reads undocumented environment variables (AISA_BASE_URL, AISA_MODEL) and relies on an external LLM client with an overrideable endpoint."
-    },
-    {
-      "key": "skill:stock-rumors",
-      "kind": "skill",
-      "name": "stock-rumors",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "suspicious",
-      "virus_total": "clean",
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": true,
-      "pending": false,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/stock-rumors",
-      "local_path": "clawhub-release\\stock-rumors",
-      "release_ref": null,
-      "reason": "The skill's purpose and requested AISA_API_KEY are coherent with its code, but there are a few implementation/information gaps (undeclared env vars, missing dependency install steps, and minor provenance uncertainty) that warrant caution before installing."
     },
     {
       "key": "skill:tavily-extract",

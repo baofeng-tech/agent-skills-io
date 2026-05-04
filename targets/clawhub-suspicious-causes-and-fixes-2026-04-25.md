@@ -127,18 +127,18 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`33`
-- `blocker`：`32`
+- 诊断对象数：`19`
+- `blocker`：`18`
 - `warning`：`1`
-- `pending`：`17`
+- `pending`：`6`
 
 ### 当前高频规则
 
-- `metadata_env_mismatch`: `12`
-- `oauth_upload_side_effects`: `9`
-- `pending_scan`: `17`
-- `platform_trust_gap`: `19`
-- `relay_trust_surface`: `18`
+- `metadata_env_mismatch`: `2`
+- `oauth_upload_side_effects`: `5`
+- `pending_scan`: `6`
+- `platform_trust_gap`: `11`
+- `relay_trust_surface`: `6`
 
 ### 当前重点对象
 
@@ -146,48 +146,48 @@
   severity: `blocker` | status: `pending`
   rules: `pending_scan, relay_trust_surface`
   reason: The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing.
-- `plugin:aisa-provider-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The package is mostly coherent for an API-provider plugin (it legitimately needs an AISA_API_KEY), but there are mismatches between the registry metadata and the packaged files and a few packaging/instruction gaps that should be resolved before trusting it with credentials.
 - `plugin:aisa-tavily-search-plugin`
   severity: `blocker` | status: `pending`
   rules: `pending_scan, platform_trust_gap, relay_trust_surface`
   reason: The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials.
-- `plugin:aisa-twitter-api-command-center-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The package is largely coherent with a Twitter/X relay client (it needs AISA_API_KEY and sends reads/posts to api.aisa.one), but there are metadata inconsistencies and privacy implications you should verify before installing.
-- `plugin:aisa-twitter-post-engage-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The package is largely coherent for a Twitter/X relay-based engagement and OAuth posting skill, but there are metadata inconsistencies (the registry metadata claims no required credentials while the shipped manifests and scripts require AISA_API_KEY) that should be clarified before installing.
 - `plugin:last30days-plugin`
   severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan`
-  reason: The package appears to implement a legitimate AIsa-backed research tool, but the manifest and bundled runtime disagree with the registry metadata about required secrets and there are a few runtime behaviors (local HTTP probes, bundled executable scripts) that warrant caution before installing.
+  rules: `pending_scan`
+  reason: This looks mostly like a legitimate recent-research skill, but its published metadata understates the credentials, binaries, and network behavior that the bundled skill actually uses.
 - `plugin:last30days-zh-plugin`
   severity: `blocker` | status: `pending`
   rules: `pending_scan`
-  reason: The package mostly matches its stated purpose (web/multi-source 30-day research) but includes repo-local config reads and a default probe of a host.docker.internal API endpoint that is unexpected and worth reviewing before install.
-- `plugin:openclaw-twitter-post-engage-plugin`
+  reason: This mostly looks like a recent-research tool, but its published requirements understate the API key, binaries, and network surface the bundled skill actually uses.
+- `plugin:x-intelligence-automation-plugin`
   severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The package's code and SKILL.md are coherent with a Twitter/X engagement/posting skill (using an AIsa relay) but the registry metadata and top-level claims contradict the actual requirements and there is reliance on a third-party relay (AISA_API_KEY) that the user must trust.
-- `plugin:prediction-market-arbitrage-api-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
-  reason: The package appears to implement a prediction-market arbitrage client that only talks to api.aisa.one and requires an AISA_API_KEY, but the registry metadata advertised at the top is inconsistent with the shipped manifests (missing declared env/binary requirements), so review before installing.
-- `plugin:smart-search-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
-  reason: The package is plausibly a search client that contacts aisa.one and requires an AISA_API_KEY and python3, but the registry metadata omits those requirements and there are manifest mismatches you should confirm before installing.
-- `plugin:stock-analysis-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan, relay_trust_surface`
-  reason: The package mostly matches a stock-analysis skill, but the published registry metadata (saying no env vars/credentials required) contradicts the embedded plugin and SKILL.md which require an AISA_API_KEY and contact an external AIsa API — this mismatch should be clarified before installing.
-- `plugin:stock-rumors-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan`
-  reason: The package generally matches its stated purpose (stock/rumor scanning using an AIsa API key) but the runtime instructions and script contain mismatches (claims to 'fetch live data', undeclared environment variables, and reliance on an LLM to 'scan' sources) that warrant caution before installing or running with a real API key.
+  rules: `oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
+  reason: The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing.
+- `skill:aisa-twitter`
+  severity: `blocker` | status: `suspicious`
+  rules: `metadata_env_mismatch, platform_trust_gap, relay_trust_surface`
+  reason: The package is a coherent Twitter/X relay client that contacts api.aisa.one and requires an AISA_API_KEY, but the registry metadata and package frontmatter disagree about required env and versioning—confirm the missing environment declaration and trust in the relay before installing.
+- `skill:openclaw-twitter`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects`
+  reason: The skill can perform public Twitter/X posting and is instructed to try publishing directly when posting intent is detected.
+- `skill:openclaw-twitter-post-engage`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects`
+  reason: The public posting workflow is purpose-aligned, but conflicting post-mode instructions create a material misuse risk for external publication.
+- `skill:prediction-market`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: The skill provides raw on-chain betting transactions and weak project provenance for a real-money market.
+- `skill:prediction-market-arbitrage`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: The skill uses unpinned dependency installs and a broad `update --all`, plus a disclosed recurring monitoring loop.
+- `skill:smart-search`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: The skill uses purpose-aligned shell and Docker tooling, but unsafe .env sourcing and the broad persistent SearX deployment need review.
+- `skill:stock-analysis`
+  severity: `blocker` | status: `suspicious`
+  rules: `relay_trust_surface`
+  reason: Optional third-party CLI installation and user-configured cron automation are disclosed and purpose-aligned, but users should review them before enabling.
 <!-- AUTO-DIAGNOSIS:END -->
