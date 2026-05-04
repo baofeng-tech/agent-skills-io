@@ -1,0 +1,1287 @@
+{
+  "generated_at": "2026-05-04T03:29:21.000147+00:00",
+  "target_root": "targetSkills",
+  "skill_count": 54,
+  "docs_only_skills": [
+    "aisa-provider",
+    "aisa-youtube-search",
+    "stock-watchlist",
+    "youtube-search"
+  ],
+  "check_count": 72,
+  "failure_count": 52,
+  "results": [
+    {
+      "skill": "aisa-multi-search-engine",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Error: AISA_API_KEY environment variable is not set.\nGet your key at https://aisa.one\n"
+    },
+    {
+      "skill": "aisa-tavily",
+      "kind": "node",
+      "command": [
+        "node",
+        "scripts/extract.mjs",
+        "https://example.com"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Missing AISA_API_KEY\n"
+    },
+    {
+      "skill": "aisa-tavily",
+      "kind": "node",
+      "command": [
+        "node",
+        "scripts/search.mjs",
+        "OpenAI",
+        "-n",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Missing AISA_API_KEY\n"
+    },
+    {
+      "skill": "aisa-twitter-api",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-api",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter OAuth client for local AIsa posting flows\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the AIsa service\n    post                Publish a post through the AIsa service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-command-center",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-command-center",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter OAuth client for local AIsa posting flows\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the AIsa service\n    post                Publish a post through the AIsa service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-engagement-suite",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-engagement-suite",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"ok\": false,\n  \"error\": \"AISA_API_KEY is required. Set it via environment variable.\"\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-engagement-suite",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter OAuth client for local AIsa posting flows\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the AIsa service\n    post                Publish a post through the AIsa service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"ok\": false,\n  \"error\": \"AISA_API_KEY is required. Set it via environment variable.\"\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter OAuth client for local AIsa posting flows\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the AIsa service\n    post                Publish a post through the AIsa service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "aisa-youtube-serp-scout",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "cn-llm",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/cn_llm_client.py",
+        "models"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"Qwen3 (Alibaba)\": [\n    \"qwen3-max\",\n    \"qwen3-max-2026-01-23\",\n    \"qwen3-coder-plus\",\n    \"qwen3-coder-flash\",\n    \"qwen3-coder-480b-a35b-instruct\",\n    \"qwen3-vl-plus\",\n    \"qwen3-vl-plus-2025-12-19\",\n    \"qwen3-vl-flash\",\n    \"qwen3-vl-flash-2025-10-15\",\n    \"qwen3-omni-flash\",\n    \"qwen3-omni-flash-2025-12-01\"\n  ],\n  \"Qwen (Alibaba)\": [\n    \"qwen-vl-max\",\n    \"qwen-plus-2025-12-01\",\n    \"qwen-mt-flash\",\n    \"qwen-mt-lite\"\n  ],\n  \"DeepSeek\": [\n    \"deepseek-r1\",\n    \"deepseek-v3\",\n    \"deepseek-v3-0324\",\n    \"deepseek-v3.1\"\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "crypto-market-data",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/coingecko_client.py",
+        "simple",
+        "price",
+        "--ids",
+        "bitcoin",
+        "--vs",
+        "usd"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "error: AISA_API_KEY is required. Set it via environment variable or pass to constructor.\n"
+    },
+    {
+      "skill": "last30days",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3.12",
+        "scripts/last30days.py",
+        "OpenAI",
+        "--quick",
+        "--mock",
+        "--emit",
+        "json"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"artifacts\": {\n    \"grounding\": [\n      {\n        \"label\": \"primary\",\n        \"mock\": true,\n        \"resultCount\": 1,\n        \"webSearchQueries\": [\n          \"openai\"\n        ]\n      }\n    ]\n  },\n  \"clusters\": [\n    {\n      \"candidate_ids\": [\n        \"https://x.com/example/status/1\"\n      ],\n      \"cluster_id\": \"cluster-1\",\n      \"representative_ids\": [\n        \"https://x.com/example/status/1\"\n      ],\n      \"score\": 37.89337512054002,\n      \"sources\": [\n        \"x\"\n      ],\n      \"title\": \"People on X are discussing openai right now.\",\n      \"uncertainty\": \"single-source\"\n    },\n    {\n      \"candidate_ids\": [\n        \"https://reddit.com/r/example/comments/1\"\n      ],\n      \"cluster_id\": \"cluster-2\",\n      \"representative_ids\": [\n        \"https://reddit.com/r/example/comments/1\"\n      ],\n      \"score\": 34.33310511089682,\n      \"sources\": [\n        \"reddit\"\n      ],\n      \"title\": \"openai discussion thread\",\n      \"uncertainty\": \"single-source\"\n    },\n    {\n      \"candidate_ids\": [\n        \"https://example.com/article\"\n      ],\n      \"cluster_id\": \"cluster-3\",\n      \"representative_ids\": [\n        \"https://example.com/article\"\n      ],\n      \"score\": 33.28135004821601,\n      \"sources\": [\n        \"grounding\"\n      ],\n      \"title\": \"openai article\",\n      \"uncertainty\": \"single-source\"\n    }\n  ],\n  \"errors_by_source\": {},\n  \"generated_at\": \"2026-05-04T03:28:21.518863+00:00\",\n  \"items_by_source\": {\n    \"grounding\": [\n      {\n        \"body\": \"openai article\\nRecent web reporting about openai.\",\n        \"container\": \"example.com\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {},\n        \"freshness\": 76,\n        \"item_id\": \"WB1\",\n        \"local_rank_score\": 0.3395,\n        \"local_relevance\": 0.23,\n        \"metadata\": {},\n        \"published_at\": \"2026-04-27\",\n        \"relevance_hint\": 0.88,\n        \"snippet\": \"Recent web reporting about openai.\",\n        \"source\": \"grounding\",\n        \"source_quality\": 0.6,\n        \"title\": \"openai article\",\n        \"url\": \"https://example.com/article\",\n        \"why_relevant\": \"Grounded web search\"\n      }\n    ],\n    \"reddit\": [\n      {\n        \"body\": \"openai discussion thread\\nCommunity discussion about openai.\\nStrong firsthand feedback from users.\",\n        \"container\": \"example\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {\n          \"num_comments\": 48,\n          \"score\": 120,\n          \"upvote_ratio\": 0.91\n        },\n        \"engagement_score\": 50,\n        \"freshness\": 83,\n        \"item_id\": \"R1\",\n        \"local_rank_score\": 0.316,\n        \"local_relevance\": 0.09,\n        \"metadata\": {\n          \"comment_insights\": [],\n          \"top_comments\": [\n            {\n              \"excerpt\": \"Strong firsthand feedback from users.\"\n            }\n          ]\n        },\n        \"published_at\": \"2026-04-29\",\n        \"relevance_hint\": 0.82,\n        \"snippet\": \"Strong firsthand feedback from users.\",\n        \"source\": \"reddit\",\n        \"source_quality\": 0.6,\n        \"title\": \"openai discussion thread\",\n        \"url\": \"https://reddit.com/r/example/comments/1\",\n        \"why_relevant\": \"Mock Reddit result\"\n      }\n    ],\n    \"x\": [\n      {\n        \"author\": \"example\",\n        \"body\": \"People on X are discussing openai right now.\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {\n          \"likes\": 200,\n          \"quotes\": 4,\n          \"replies\": 18,\n          \"reposts\": 35\n        },\n        \"engagement_score\": 50,\n        \"freshness\": 93,\n        \"item_id\": \"X1\",\n        \"local_rank_score\": 0.3475,\n        \"local_relevance\": 0.1,\n        \"metadata\": {},\n        \"published_at\": \"2026-05-02\",\n        \"relevance_hint\": 0.79,\n        \"snippet\": \"People on X are discussing openai right now.\",\n        \"source\": \"x\",\n        \"source_quality\": 0.68,\n        \"title\": \"People on X are discussing openai right now.\",\n        \"url\": \"https://x.com/example/status/1\",\n        \"why_relevant\": \"Mock X result\"\n      }\n    ]\n  },\n  \"provider_runtime\": {\n    \"fun_model\": \"mock-rerank\",\n    \"planner_model\": \"mock-planner\",\n    \"reasoning_provider\": \"aisa\",\n    \"rerank_model\": \"mock-rerank\"\n  },\n  \"query_plan\": {\n    \"cluster_mode\": \"story\",\n    \"freshness_mode\": \"strict_recent\",\n    \"intent\": \"breaking_news\",\n    \"notes\": [\n      \"fallback-plan\"\n    ],\n    \"raw_topic\": \"OpenAI\",\n    \"source_weights\": {\n      \"github\": 0.07352941176470588,\n      \"grounding\": 0.07352941176470588,\n      \"hackernews\": 0.1323529411764706,\n      \"instagram\": 0.07352941176470588,\n      \"polymarket\": 0.07352941176470588,\n      \"reddit\": 0.1691176470588235,\n      \"tiktok\": 0.07352941176470588,\n      \"x\": 0.18382352941176472,\n      \"xiaohongshu\": 0.07352941176470588,\n      \"youtube\": 0.07352941176470588\n    },\n    \"subqueries\": [\n      {\n        \"label\": \"primary\",\n        \"ranking_query\": \"What recent evidence from the last 30 days is most relevant to OpenAI?\",\n        \"search_query\": \"openai\",\n        \"sources\": [\n          \"x\",\n          \"reddit\",\n          \"grounding\"\n        ],\n        \"weight\": 1.0\n      }\n    ]\n  },\n  \"range_from\": \"2026-04-04\",\n  \"range_to\": \"2026-05-04\",\n  \"ranked_candidates\": [\n    {\n      \"candidate_id\": \"https://x.com/example/status/1\",\n      \"cluster_id\": \"cluster-1\",\n      \"engagement\": 50,\n      \"explanation\": \"fallback-local-score\",\n      \"final_score\": 37.89337512054002,\n      \"freshness\": 93,\n      \"fun_explanation\": \"heuristic-fallback\",\n      \"fun_score\": 56.650000000000006,\n      \"item_id\": \"X1\",\n      \"local_relevance\": 0.1,\n      \"metadata\": {\n        \"provenance\": [\n          {\n            \"item_id\": \"X1\",\n            \"native_rank\": 1,\n            \"source\": \"x\",\n            \"subquery_label\": \"primary\"\n          }\n        ]\n      },\n      \"native_ranks\": {\n        \"primary:x\": 1\n      },\n      \"rerank_score\": 32.400000000000006,\n      \"rrf_score\": 0.003013500482160077,\n      \"snippet\": \"People on X are discussing openai right now.\",\n      \"source\": \"x\",\n      \"source_items\": [\n        {\n          \"author\": \"example\",\n          \"body\": \"Pe",
+      "stderr_preview": "/last30days · researching: OpenAI\n⏳ \u001b[95mProcessing\u001b[0m Removing duplicates...\n[last30days] pipeline start\n[Pipeline] mock runtime @ 0.00s\n[Pipeline] planner start @ 0.00s\n[Pipeline] planner done @ 0.00s\n[Pipeline] bundle init @ 0.00s\n[Pipeline] collect start @ 0.00s\n[Pipeline] collect done @ 0.02s\n[Pipeline] supplemental start @ 0.02s\n[Pipeline] supplemental done @ 0.02s\n[Pipeline] retry thin start @ 0.02s\n[Pipeline] retry thin done @ 0.02s\n[Pipeline] finalize items start @ 0.02s\n[Pipeline] finalize items done @ 0.02s\n[Pipeline] fusion start @ 0.02s\n[Pipeline] fusion done @ 0.02s\n[Pipeline] rerank+fun start (parallel) @ 0.02s\n[Pipeline] rerank+fun done @ 0.02s\n[Pipeline] cluster start @ 0.02s\n[Pipeline] cluster done @ 0.02s\n[last30days] pipeline done in 0.02s clusters=3 candidates=3\n✓ Research complete (0.0s) - Reddit: 1 thread, X: 1 post, YouTube: 0 videos, TikTok: 0 videos, Instagram: 0 reels, HN: 0 stories, Polymarket: 0 markets, Web: 1 result, Xiaohongshu: 0 posts, Github: 0 results\n\n💡 Unlock X with `AISA_API_KEY` to use the hosted AISA Twitter proxy.\n\nResearch quality: 2/5 core sources.\nMissing: Polymarket, X/Twitter, YouTube.\n\nFree fixes:\n  - X/Twitter: real-time posts with likes and reposts - the fastest signal for breaking topics. Add AISA_API_KEY to unlock the AISA Twitter proxy.\n  - YouTube: video transcripts with key moments - often the deepest explanations on any topic. Add AISA_API_KEY to unlock the AISA YouTube proxy.\n\nBonus: Reddit and Hacker News already work on public paths. GitHub still uses its official API path and may need GH_TOKEN/GITHUB_TOKEN. Optional social extras such as Threads and Pinterest need AISA plus INCLUDE_SOURCES to be enabled.\n"
+    },
+    {
+      "skill": "last30days-zh",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3.12",
+        "scripts/last30days.py",
+        "OpenAI",
+        "--quick",
+        "--mock",
+        "--emit",
+        "json"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"artifacts\": {\n    \"grounding\": [\n      {\n        \"label\": \"primary\",\n        \"mock\": true,\n        \"resultCount\": 1,\n        \"webSearchQueries\": [\n          \"openai\"\n        ]\n      }\n    ]\n  },\n  \"clusters\": [\n    {\n      \"candidate_ids\": [\n        \"https://x.com/example/status/1\"\n      ],\n      \"cluster_id\": \"cluster-1\",\n      \"representative_ids\": [\n        \"https://x.com/example/status/1\"\n      ],\n      \"score\": 37.95316679677336,\n      \"sources\": [\n        \"x\"\n      ],\n      \"title\": \"People on X are discussing openai right now.\",\n      \"uncertainty\": \"single-source\"\n    },\n    {\n      \"candidate_ids\": [\n        \"https://reddit.com/r/example/comments/1\"\n      ],\n      \"cluster_id\": \"cluster-2\",\n      \"representative_ids\": [\n        \"https://reddit.com/r/example/comments/1\"\n      ],\n      \"score\": 34.38811345303149,\n      \"sources\": [\n        \"reddit\"\n      ],\n      \"title\": \"openai discussion thread\",\n      \"uncertainty\": \"single-source\"\n    },\n    {\n      \"candidate_ids\": [\n        \"https://example.com/article\"\n      ],\n      \"cluster_id\": \"cluster-3\",\n      \"representative_ids\": [\n        \"https://example.com/article\"\n      ],\n      \"score\": 33.30526671870934,\n      \"sources\": [\n        \"grounding\"\n      ],\n      \"title\": \"openai article\",\n      \"uncertainty\": \"single-source\"\n    }\n  ],\n  \"errors_by_source\": {},\n  \"generated_at\": \"2026-05-04T03:28:22.714090+00:00\",\n  \"items_by_source\": {\n    \"grounding\": [\n      {\n        \"body\": \"openai article\\nRecent web reporting about openai.\",\n        \"container\": \"example.com\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {},\n        \"freshness\": 76,\n        \"item_id\": \"WB1\",\n        \"local_rank_score\": 0.3395,\n        \"local_relevance\": 0.23,\n        \"metadata\": {},\n        \"published_at\": \"2026-04-27\",\n        \"relevance_hint\": 0.88,\n        \"snippet\": \"Recent web reporting about openai.\",\n        \"source\": \"grounding\",\n        \"source_quality\": 0.6,\n        \"title\": \"openai article\",\n        \"url\": \"https://example.com/article\",\n        \"why_relevant\": \"Grounded web search\"\n      }\n    ],\n    \"reddit\": [\n      {\n        \"body\": \"openai discussion thread\\nCommunity discussion about openai.\\nStrong firsthand feedback from users.\",\n        \"container\": \"example\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {\n          \"num_comments\": 48,\n          \"score\": 120,\n          \"upvote_ratio\": 0.91\n        },\n        \"engagement_score\": 50,\n        \"freshness\": 83,\n        \"item_id\": \"R1\",\n        \"local_rank_score\": 0.316,\n        \"local_relevance\": 0.09,\n        \"metadata\": {\n          \"comment_insights\": [],\n          \"top_comments\": [\n            {\n              \"excerpt\": \"Strong firsthand feedback from users.\"\n            }\n          ]\n        },\n        \"published_at\": \"2026-04-29\",\n        \"relevance_hint\": 0.82,\n        \"snippet\": \"Strong firsthand feedback from users.\",\n        \"source\": \"reddit\",\n        \"source_quality\": 0.6,\n        \"title\": \"openai discussion thread\",\n        \"url\": \"https://reddit.com/r/example/comments/1\",\n        \"why_relevant\": \"Mock Reddit result\"\n      }\n    ],\n    \"x\": [\n      {\n        \"author\": \"example\",\n        \"body\": \"People on X are discussing openai right now.\",\n        \"date_confidence\": \"high\",\n        \"engagement\": {\n          \"likes\": 200,\n          \"quotes\": 4,\n          \"replies\": 18,\n          \"reposts\": 35\n        },\n        \"engagement_score\": 50,\n        \"freshness\": 93,\n        \"item_id\": \"X1\",\n        \"local_rank_score\": 0.3475,\n        \"local_relevance\": 0.1,\n        \"metadata\": {},\n        \"published_at\": \"2026-05-02\",\n        \"relevance_hint\": 0.79,\n        \"snippet\": \"People on X are discussing openai right now.\",\n        \"source\": \"x\",\n        \"source_quality\": 0.68,\n        \"title\": \"People on X are discussing openai right now.\",\n        \"url\": \"https://x.com/example/status/1\",\n        \"why_relevant\": \"Mock X result\"\n      }\n    ]\n  },\n  \"provider_runtime\": {\n    \"planner_model\": \"gpt-4.1-mini\",\n    \"reasoning_provider\": \"aisa\",\n    \"rerank_model\": \"gpt-4.1-mini\"\n  },\n  \"query_plan\": {\n    \"cluster_mode\": \"story\",\n    \"freshness_mode\": \"strict_recent\",\n    \"intent\": \"breaking_news\",\n    \"notes\": [\n      \"fallback-plan\"\n    ],\n    \"raw_topic\": \"OpenAI\",\n    \"source_weights\": {\n      \"grounding\": 0.07936507936507936,\n      \"hackernews\": 0.14285714285714288,\n      \"instagram\": 0.07936507936507936,\n      \"polymarket\": 0.07936507936507936,\n      \"reddit\": 0.18253968253968253,\n      \"tiktok\": 0.07936507936507936,\n      \"x\": 0.19841269841269843,\n      \"xiaohongshu\": 0.07936507936507936,\n      \"youtube\": 0.07936507936507936\n    },\n    \"subqueries\": [\n      {\n        \"label\": \"primary\",\n        \"ranking_query\": \"What recent evidence from the last 30 days is most relevant to OpenAI?\",\n        \"search_query\": \"openai\",\n        \"sources\": [\n          \"x\",\n          \"reddit\",\n          \"grounding\"\n        ],\n        \"weight\": 1.0\n      }\n    ]\n  },\n  \"range_from\": \"2026-04-04\",\n  \"range_to\": \"2026-05-04\",\n  \"ranked_candidates\": [\n    {\n      \"candidate_id\": \"https://x.com/example/status/1\",\n      \"cluster_id\": \"cluster-1\",\n      \"engagement\": 50,\n      \"explanation\": \"fallback-local-score\",\n      \"final_score\": 37.95316679677336,\n      \"freshness\": 93,\n      \"fun_explanation\": \"heuristic-fallback\",\n      \"fun_score\": 56.650000000000006,\n      \"item_id\": \"X1\",\n      \"local_relevance\": 0.1,\n      \"metadata\": {\n        \"provenance\": [\n          {\n            \"item_id\": \"X1\",\n            \"native_rank\": 1,\n            \"source\": \"x\",\n            \"subquery_label\": \"primary\"\n          }\n        ]\n      },\n      \"native_ranks\": {\n        \"primary:x\": 1\n      },\n      \"rerank_score\": 32.400000000000006,\n      \"rrf_score\": 0.003252667187093417,\n      \"snippet\": \"People on X are discussing openai right now.\",\n      \"source\": \"x\",\n      \"source_items\": [\n        {\n          \"author\": \"example\",\n          \"body\": \"People on X are discussing openai right now.\",\n          \"date_confi",
+      "stderr_preview": "/last30days · researching: OpenAI\n⏳ \u001b[95mProcessing\u001b[0m Organizing findings...\n[last30days] pipeline start\n[Pipeline] mock runtime @ 0.00s\n[Pipeline] planner start @ 0.00s\n[Pipeline] planner done @ 0.00s\n[Pipeline] bundle init @ 0.00s\n[Pipeline] collect start @ 0.00s\n[Pipeline] collect done @ 0.00s\n[Pipeline] supplemental start @ 0.00s\n[Pipeline] supplemental done @ 0.00s\n[Pipeline] retry thin start @ 0.00s\n[Pipeline] retry thin done @ 0.00s\n[Pipeline] finalize items start @ 0.00s\n[Pipeline] finalize items done @ 0.00s\n[Pipeline] fusion start @ 0.00s\n[Pipeline] fusion done @ 0.00s\n[Pipeline] rerank start @ 0.00s\n[Pipeline] rerank done @ 0.00s\n[Pipeline] fun score start @ 0.00s\n[Pipeline] fun score done @ 0.00s\n[Pipeline] cluster start @ 0.00s\n[Pipeline] cluster done @ 0.00s\n[last30days] pipeline done in 0.00s clusters=3 candidates=3\n✓ Research complete (0.0s) - Reddit: 1 thread, X: 1 post, YouTube: 0 videos, TikTok: 0 videos, Instagram: 0 reels, HN: 0 stories, Polymarket: 0 markets, Web: 1 result, Xiaohongshu: 0 posts\n\n💡 Unlock X with `AISA_API_KEY` to use the hosted AISA Twitter proxy.\n\nResearch quality: 2/5 core sources.\nMissing: Polymarket, X/Twitter, YouTube.\n\nFree fixes:\n  - X/Twitter: real-time posts with likes and reposts - the fastest signal for breaking topics. Add AISA_API_KEY to unlock the AISA Twitter proxy.\n  - YouTube: video transcripts with key moments - often the deepest explanations on any topic. Add AISA_API_KEY to unlock the AISA YouTube proxy.\n\nBonus: Reddit and Hacker News already work on public paths. Optional social extras such as Threads and Pinterest need AISA plus INCLUDE_SOURCES to be enabled.\n"
+    },
+    {
+      "skill": "llm-router",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/llm_router_client.py",
+        "models"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qwen-turbo\",\n    \"qwen2.5-72b-instruct\"\n  ],\n  \"deepseek\": [\n    \"deepseek-chat\",\n    \"deepseek-coder\",\n    \"deepseek-v3\",\n    \"deepseek-r1\"\n  ],\n  \"xai\": [\n    \"grok-2\",\n    \"grok-beta\"\n  ]\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "market",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/market_client.py",
+        "stock",
+        "prices",
+        "--ticker",
+        "AAPL",
+        "--start",
+        "2026-04-01",
+        "--end",
+        "2026-04-02"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "marketpulse",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/market_client.py",
+        "stock",
+        "prices",
+        "--ticker",
+        "AAPL",
+        "--start",
+        "2026-04-01",
+        "--end",
+        "2026-04-02"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "media-gen",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/media_gen_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: media_gen_client.py [-h] [--api-key API_KEY]\n                           {image,video-create,video-status,video-wait} ...\n\nMedia Gen - image & video generation\n\npositional arguments:\n  {image,video-create,video-status,video-wait}\n    image               Generate an image. Model determines endpoint: Gemini /\n                        Wan-chat / Seedream.\n    video-create        Create a Wan video generation task (any of 4\n                        variants).\n    video-status        Query video task status\n    video-wait          Wait until video task finishes\n\noptions:\n  -h, --help            show this help message and exit\n  --api-key API_KEY     Override AISA_API_KEY\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "multi-search",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Error: AISA_API_KEY environment variable is not set.\nGet your key at https://aisa.one\n"
+    },
+    {
+      "skill": "multi-source-search",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-aisa-youtube-aisa",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-media-gen",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/media_gen_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: media_gen_client.py [-h] [--api-key API_KEY]\n                           {image,video-create,video-status,video-wait} ...\n\nMedia Gen - image & video generation\n\npositional arguments:\n  {image,video-create,video-status,video-wait}\n    image               Generate an image. Model determines endpoint: Gemini /\n                        Wan-chat / Seedream.\n    video-create        Create a Wan video generation task (any of 4\n                        variants).\n    video-status        Query video task status\n    video-wait          Wait until video task finishes\n\noptions:\n  -h, --help            show this help message and exit\n  --api-key API_KEY     Override AISA_API_KEY\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-search",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-twitter",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-twitter",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"ok\": false,\n  \"error\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-twitter-post-engage",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "openclaw-youtube",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "perplexity-research",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Error: AISA_API_KEY environment variable is not set.\nGet your key at https://aisa.one\n"
+    },
+    {
+      "skill": "perplexity-search",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/perplexity_search_client.py",
+        "sonar",
+        "--query",
+        "Say OK."
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/arbitrage_finder.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: arbitrage_finder.py [-h] {scan,match} ...\n\nAIsa Prediction Market Arbitrage Finder - Detect cross-platform price discrepancies\n\npositional arguments:\n  {scan,match}  Command\n    scan        Scan all matching markets for a sport on a given date\n    match       Analyze a specific market by Polymarket slug or Kalshi ticker\n\noptions:\n  -h, --help    show this help message and exit\n\nExamples:\n  arbitrage_finder.py scan nba --date 2025-03-30\n  arbitrage_finder.py scan nba --date 2025-03-30 --min-spread 3.0 --min-liquidity 500\n  arbitrage_finder.py match --polymarket-slug nba-lakers-vs-celtics\n  arbitrage_finder.py match --kalshi-ticker KXNBA-25-LAL-BOS\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage-api",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/arbitrage_finder.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: arbitrage_finder.py [-h] {scan,match} ...\n\nOpenClaw Prediction Market Arbitrage Finder - Detect cross-platform price discrepancies\n\npositional arguments:\n  {scan,match}  Command\n    scan        Scan all matching markets for a sport on a given date\n    match       Analyze a specific market by Polymarket slug or Kalshi ticker\n\noptions:\n  -h, --help    show this help message and exit\n\nExamples:\n  arbitrage_finder.py scan nba --date 2025-03-30\n  arbitrage_finder.py scan nba --date 2025-03-30 --min-spread 3.0 --min-liquidity 500\n  arbitrage_finder.py match --polymarket-slug nba-lakers-vs-celtics\n  arbitrage_finder.py match --kalshi-ticker KXNBA-25-LAL-BOS\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage-api",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage-zh",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/arbitrage_finder.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: arbitrage_finder.py [-h] {scan,match} ...\n\nOpenClaw Prediction Market Arbitrage Finder - Detect cross-platform price discrepancies\n\npositional arguments:\n  {scan,match}  Command\n    scan        Scan all matching markets for a sport on a given date\n    match       Analyze a specific market by Polymarket slug or Kalshi ticker\n\noptions:\n  -h, --help    show this help message and exit\n\nExamples:\n  arbitrage_finder.py scan nba --date 2025-03-30\n  arbitrage_finder.py scan nba --date 2025-03-30 --min-spread 3.0 --min-liquidity 500\n  arbitrage_finder.py match --polymarket-slug nba-lakers-vs-celtics\n  arbitrage_finder.py match --kalshi-ticker KXNBA-25-LAL-BOS\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-arbitrage-zh",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-data",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "prediction-market-data-zh",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/prediction_market_client.py",
+        "polymarket",
+        "markets",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "scholar-search",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Error: AISA_API_KEY environment variable is not set.\nGet your key at https://aisa.one\n"
+    },
+    {
+      "skill": "search",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "smart-search",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Error: AISA_API_KEY environment variable is not set.\nGet your key at https://aisa.one\n"
+    },
+    {
+      "skill": "stock-analysis",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/analyze_stock.py",
+        "AAPL",
+        "--output",
+        "json",
+        "--fast"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/targetSkills/stock-analysis/scripts/analyze_stock.py\", line 25, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
+    },
+    {
+      "skill": "stock-dividend",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/dividends.py",
+        "AAPL",
+        "--output",
+        "json"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/targetSkills/stock-dividend/scripts/dividends.py\", line 23, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
+    },
+    {
+      "skill": "stock-hot",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/hot_scanner.py",
+        "--focus",
+        "stocks",
+        "--output",
+        "json"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/targetSkills/stock-hot/scripts/hot_scanner.py\", line 25, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
+    },
+    {
+      "skill": "stock-portfolio",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/portfolio.py",
+        "list"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/targetSkills/stock-portfolio/scripts/portfolio.py\", line 32, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
+    },
+    {
+      "skill": "stock-rumors",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/rumor_scanner.py",
+        "--focus",
+        "analyst",
+        "--output",
+        "json"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/targetSkills/stock-rumors/scripts/rumor_scanner.py\", line 26, in <module>\n    from openai import OpenAI\nModuleNotFoundError: No module named 'openai'\n"
+    },
+    {
+      "skill": "tavily-extract",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Error: AISA_API_KEY environment variable is not set.\nGet your key at https://aisa.one\n"
+    },
+    {
+      "skill": "tavily-search",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Error: AISA_API_KEY environment variable is not set.\nGet your key at https://aisa.one\n"
+    },
+    {
+      "skill": "twitter",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"ok\": false,\n  \"error\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] [--aisa-api-key AISA_API_KEY]\n                               [--timeout TIMEOUT]\n                               {authorize,post,status} ...\n\nTwitter relay client for AIsa OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n  --aisa-api-key AISA_API_KEY\n                        Override AISA_API_KEY\n  --timeout TIMEOUT     Override TWITTER_RELAY_TIMEOUT\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-autopilot",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-autopilot",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"ok\": false,\n  \"error\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-autopilot",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] [--aisa-api-key AISA_API_KEY]\n                               [--timeout TIMEOUT]\n                               {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n  --aisa-api-key AISA_API_KEY\n                        Override AISA_API_KEY\n  --timeout TIMEOUT     Override TWITTER_RELAY_TIMEOUT\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-command-center-search-post",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-command-center-search-post",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] [--aisa-api-key AISA_API_KEY]\n                               [--timeout TIMEOUT]\n                               {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n  --aisa-api-key AISA_API_KEY\n                        Override AISA_API_KEY\n  --timeout TIMEOUT     Override TWITTER_RELAY_TIMEOUT\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-command-center-search-post-interact",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-command-center-search-post-interact",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"ok\": false,\n  \"error\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "twitter-command-center-search-post-interact",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] [--aisa-api-key AISA_API_KEY]\n                               [--timeout TIMEOUT]\n                               {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n  --aisa-api-key AISA_API_KEY\n                        Override AISA_API_KEY\n  --timeout TIMEOUT     Override TWITTER_RELAY_TIMEOUT\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "us-stock-analyst",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/stock_analyst.py",
+        "--ticker",
+        "AAPL",
+        "--depth",
+        "quick",
+        "--models",
+        "gpt-4.1",
+        "--json-only"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/targetSkills/us-stock-analyst/scripts/stock_analyst.py\", line 23, in <module>\n    import httpx\nModuleNotFoundError: No module named 'httpx'\n"
+    },
+    {
+      "skill": "web-search",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/search_client.py",
+        "web",
+        "--query",
+        "OpenAI",
+        "--count",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "",
+      "stderr_preview": "Error: AISA_API_KEY environment variable is not set.\nGet your key at https://aisa.one\n"
+    },
+    {
+      "skill": "x-intelligence-automation",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_client.py",
+        "search",
+        "--query",
+        "OpenAI",
+        "--type",
+        "Latest"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "x-intelligence-automation",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_engagement_client.py",
+        "list-tweets",
+        "--user",
+        "OpenAI",
+        "--limit",
+        "1"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\n  \"ok\": false,\n  \"error\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"\n}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "x-intelligence-automation",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/twitter_oauth_client.py",
+        "--help"
+      ],
+      "code": 0,
+      "status": "passed",
+      "application_error": false,
+      "attempts": 1,
+      "stdout_preview": "usage: twitter_oauth_client.py [-h] {authorize,post,status} ...\n\nTwitter relay client for local OAuth and posting\n\npositional arguments:\n  {authorize,post,status}\n    authorize           Request an authorization URL from the relay service\n    post                Publish a post through the relay service\n    status              Show current relay client configuration\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "youtube",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    },
+    {
+      "skill": "youtube-serp",
+      "kind": "python",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "scripts/youtube_client.py",
+        "search",
+        "--query",
+        "OpenAI"
+      ],
+      "code": 1,
+      "status": "failed",
+      "application_error": true,
+      "attempts": 1,
+      "stdout_preview": "{\"success\": false, \"error\": {\"code\": \"AUTH_ERROR\", \"message\": \"AISA_API_KEY is required. Set it via environment variable or pass to constructor.\"}}\n",
+      "stderr_preview": ""
+    }
+  ]
+}
