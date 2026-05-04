@@ -25,6 +25,7 @@
 - 正常 self-hosted publish lane 只调用 `publish_clawhub_batch.py`，没有显式传 `--post-publish-scan`，导致真实续发后还要等后续 live-status job 才能回写 scan 状态。
 - 预检支持 `SELF_HOSTED_RUNNER_LABELS`，但 self-hosted jobs 固定 `runs-on: self-hosted`，当 runner 需要额外 label 时会出现“预检命中一个 runner，实际 job 却可能排到另一个 runner”的错位。
 - schedule 侧的 self-hosted publish / suspicious repair / breakout rollout 开关仍默认关闭；如果仓库变量没配，手动 dispatch 是打开的，定时任务却不会继续真实发布链。
+- preflight 只查 repository-level runners；本地复测发现 `/repos/baofeng-tech/agent-skills-io/actions/runners` 返回 `200` 但 runners 数为 `0`，如果实际 runner 是 organization-level，会被误判为没有在线 runner。
 
 ### Note
 
@@ -45,6 +46,7 @@
 - schedule 默认请求 publish、suspicious repair、breakout rollout、AISA API regression、ClawHub CLI install 与 post-publish scan；仍由 preflight 决定是否真的排队。
 - self-hosted jobs 改为使用 `SELF_HOSTED_RUNNER_RUNS_ON_JSON` 控制 `runs-on`，preflight 同时能解析该 JSON label 列表，避免 label 检查和实际调度目标分叉。
 - runner preflight 在 `403` 等失败时会把 GitHub 返回的 message、`x-accepted-github-permissions` 和 `x-github-sso` hint 写入 summary，方便判断是 repo access、org approval/SSO 还是 token 权限问题。
+- preflight 在 repo-level runners 未命中时会继续查 organization-level runners，并在 summary 中明确提示 org-level runner 需要 `Self-hosted runners: read` organization permission。
 
 ## Verdict
 

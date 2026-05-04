@@ -238,6 +238,8 @@ Useful repo variables for scheduled self-hosted automation:
 
 Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` when the runner needs labels beyond the default, for example `["self-hosted","linux","clawhub"]`. `SELF_HOSTED_RUNNER_LABELS` is accepted by preflight for compatibility, but the JSON value keeps the preflight and actual `runs-on` target aligned.
 
+For `SELF_HOSTED_RUNNER_API_TOKEN`, repository-level runners need fine-grained PAT repository `Administration: read`. Organization-level runners need organization `Self-hosted runners: read`; otherwise the repo runner API may return `200` with zero runners while the org runner API returns `403`.
+
 What GitHub Actions can do in practice:
 
 - ClawHub

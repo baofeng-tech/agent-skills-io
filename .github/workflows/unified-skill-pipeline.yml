@@ -427,6 +427,84 @@ jobs:
               else
                 reason="no online self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_LABELS}"
               fi
+
+              if [[ "${can_queue}" != "true" ]]; then
+                org="${REPO%%/*}"
+                org_response_file="$(mktemp)"
+                org_headers_file="$(mktemp)"
+                org_http_code="$(curl -sS -L \
+                  -D "${org_headers_file}" \
+                  -o "${org_response_file}" \
+                  -w "%{http_code}" \
+                  -H "Authorization: Bearer ${RUNNER_API_TOKEN:-${GH_TOKEN}}" \
+                  -H "Accept: application/vnd.github+json" \
+                  -H "X-GitHub-Api-Version: 2022-11-28" \
+                  "https://api.github.com/orgs/${org}/actions/runners?per_page=100" || true)"
+                org_response="$(cat "${org_response_file}")"
+                org_headers="$(tr -d '\r' < "${org_headers_file}")"
+                rm -f "${org_response_file}" "${org_headers_file}"
+
+                if [[ "${org_http_code}" == "200" && -n "${org_response}" ]]; then
+                  org_result="$(
+                    RUNNERS_JSON="${org_response}" python3 - "${SELF_HOSTED_RUNNER_LABELS}" <<'PY'
+          import json
+          import os
+          import sys
+
+          raw_labels = sys.argv[1]
+          try:
+              decoded = json.loads(raw_labels)
+          except json.JSONDecodeError:
+              decoded = raw_labels
+          if isinstance(decoded, list):
+              labels = [str(item).strip().lower() for item in decoded if str(item).strip()]
+          else:
+              labels = [item.strip().lower() for item in str(decoded).replace(",", " ").split() if item.strip()]
+          payload = json.loads(os.environ.get("RUNNERS_JSON") or "{}")
+          for runner in payload.get("runners", []):
+              runner_labels = {
+                  str(label.get("name") or "").lower()
+                  for label in runner.get("labels", [])
+                  if isinstance(label, dict)
+              }
+              if str(runner.get("status") or "").lower() == "online" and all(label in runner_labels for label in labels):
+                  print(f"true\t{runner.get('name', '')}")
+                  break
+          else:
+              print("false\t")
+          PY
+                  )"
+                  can_queue="${org_result%%$'\t'*}"
+                  matched_runner="${org_result#*$'\t'}"
+                  if [[ "${can_queue}" == "true" ]]; then
+                    reason="online organization runner matched labels: ${SELF_HOSTED_RUNNER_LABELS}; ensure its runner group allows ${REPO}"
+                  else
+                    reason="no online repository or organization self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_LABELS}"
+                  fi
+                else
+                  org_message="$(
+                    RUNNERS_RESPONSE="${org_response}" python3 - <<'PY'
+          import json
+          import os
+
+          try:
+              payload = json.loads(os.environ.get("RUNNERS_RESPONSE") or "{}")
+          except json.JSONDecodeError:
+              payload = {}
+          message = str(payload.get("message") or "").strip()
+          print(message[:180])
+          PY
+                  )"
+                  org_permissions="$(printf '%s\n' "${org_headers}" | awk -F': ' 'tolower($1)=="x-accepted-github-permissions"{print $2}' | tail -1)"
+                  reason="${reason}; organization runner API returned HTTP ${org_http_code:-unknown}; org-level runners require Self-hosted runners organization read permission"
+                  if [[ -n "${org_message}" ]]; then
+                    reason="${reason}; org-message: ${org_message}"
+                  fi
+                  if [[ -n "${org_permissions}" ]]; then
+                    reason="${reason}; org-accepted-permissions: ${org_permissions}"
+                  fi
+                fi
+              fi
             fi
           fi
 

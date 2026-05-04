@@ -127,7 +127,7 @@ Current scheduler details:
 - schedule runs keep a shared concurrency group; manual dispatches use a per-run concurrency group so urgent manual repair does not sit behind the scheduled queue
 - workflow-dispatch and schedule defaults now keep the publish, suspicious repair, breakout rollout, AISA API regression, ClawHub CLI install, and ClawHub post-publish scan switches open; self-hosted publish is still gated by the hosted preflight before any runner queue is created
 - self-hosted publish, suspicious repair, and breakout rollout now pass through a hosted preflight first; if no online self-hosted runner matches `SELF_HOSTED_RUNNER_LABELS` / `SELF_HOSTED_RUNNER_RUNS_ON_JSON` (default `self-hosted`), the lane is skipped with a summary instead of sitting queued for 24 hours
-- runner availability checks should use `SELF_HOSTED_RUNNER_API_TOKEN` with repository Administration read permission when the default `GITHUB_TOKEN` cannot call the runners API; preflight summaries now include the HTTP message, accepted-permissions header, and SSO hint when GitHub returns `403`
+- runner availability checks should use `SELF_HOSTED_RUNNER_API_TOKEN` when the default `GITHUB_TOKEN` cannot call the runners API; repository-level runners need repository `Administration: read`, organization-level runners need organization `Self-hosted runners: read`; preflight summaries now include the HTTP message, accepted-permissions header, and SSO hint when GitHub returns `403`
 - each self-hosted lane also has its own lane-level concurrency group and bounded runtime so manual reruns cannot stack overlapping publish/remediation work on the same branch
 - generated root-flat ZIPs are now written with deterministic ordering, timestamps, and Git-index-derived executable bits so repeated release builds do not create binary churn when skill contents are unchanged, including on Windows-mounted worktrees
 - workflow-level env also sets `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true` to get ahead of the current GitHub-hosted Node 20 deprecation warning
@@ -313,6 +313,8 @@ Useful repo variables for scheduled self-hosted automation:
 - `CLAWHUB_CLI_VERSION`
 
 Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` when the runner needs labels beyond the default, for example `["self-hosted","linux","clawhub"]`. `SELF_HOSTED_RUNNER_LABELS` remains a preflight compatibility input, but the JSON value is what aligns the actual `runs-on` target.
+
+If the repository runner endpoint returns `200` with zero runners, preflight now also checks organization-level runners for the repository owner. That fallback only works when `SELF_HOSTED_RUNNER_API_TOKEN` has organization `Self-hosted runners: read`; otherwise the summary will show the org API `403` and accepted-permissions hint.
 
 Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL. Before committing repo changes, each hosted and self-hosted commit step also fetches and rebases with `--autostash`, then retries push after another rebase if the remote advanced.
 
