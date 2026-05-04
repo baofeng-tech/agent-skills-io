@@ -109,7 +109,7 @@ The workflow now has one hosted lane plus three independent self-hosted lanes:
   - safe default for scheduled or manual sync, rebuild, validation, artifact upload, and committing generated outputs back into this repo
 - self-hosted publish lane
   - true publish continuation for downstream GitHub repo publish and optional ClawHub batch publish
-  - can now also be auto-enabled from `schedule` through repo variable `AUTO_FULL_PLATFORM_PUBLISH=true`
+  - schedule runs now request this lane by default; set `AUTO_FULL_PLATFORM_PUBLISH=false` to close it
 - self-hosted suspicious-remediation lane
   - separate from the normal publish lane
   - can auto-select self-owned suspicious blockers and republish only that subset
@@ -125,9 +125,9 @@ Current scheduler details:
 - workflow-level env now pins `UPSTREAM_BRANCH=main`, so the scheduled sync follows the AIsa upstream `main` branch by default
 - hosted auto-commit now uses `persist-credentials: false`, explicit token push, pre-commit `git rebase --autostash`, and push retry rebase; this avoids both the earlier `actions/checkout` post-job `exit code 128` cleanup failure and non-fast-forward races with other action commits
 - schedule runs keep a shared concurrency group; manual dispatches use a per-run concurrency group so urgent manual repair does not sit behind the scheduled queue
-- workflow-dispatch defaults now keep the publish, suspicious repair, breakout rollout, AISA API regression, and ClawHub CLI install switches open; self-hosted publish is still gated by the hosted preflight before any runner queue is created
-- self-hosted publish, suspicious repair, and breakout rollout now pass through a hosted preflight first; if no online self-hosted runner matches `SELF_HOSTED_RUNNER_LABELS` (default `self-hosted`), the lane is skipped with a summary instead of sitting queued for 24 hours
-- runner availability checks should use `SELF_HOSTED_RUNNER_API_TOKEN` with repository Administration read permission when the default `GITHUB_TOKEN` cannot call the runners API
+- workflow-dispatch and schedule defaults now keep the publish, suspicious repair, breakout rollout, AISA API regression, ClawHub CLI install, and ClawHub post-publish scan switches open; self-hosted publish is still gated by the hosted preflight before any runner queue is created
+- self-hosted publish, suspicious repair, and breakout rollout now pass through a hosted preflight first; if no online self-hosted runner matches `SELF_HOSTED_RUNNER_LABELS` / `SELF_HOSTED_RUNNER_RUNS_ON_JSON` (default `self-hosted`), the lane is skipped with a summary instead of sitting queued for 24 hours
+- runner availability checks should use `SELF_HOSTED_RUNNER_API_TOKEN` with repository Administration read permission when the default `GITHUB_TOKEN` cannot call the runners API; preflight summaries now include the HTTP message, accepted-permissions header, and SSO hint when GitHub returns `403`
 - each self-hosted lane also has its own lane-level concurrency group and bounded runtime so manual reruns cannot stack overlapping publish/remediation work on the same branch
 - generated root-flat ZIPs are now written with deterministic ordering, timestamps, and Git-index-derived executable bits so repeated release builds do not create binary churn when skill contents are unchanged, including on Windows-mounted worktrees
 - workflow-level env also sets `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true` to get ahead of the current GitHub-hosted Node 20 deprecation warning
@@ -204,6 +204,7 @@ Current workflow-dispatch controls for this lane:
 - `suspicious_max_artifacts`
 - `adjacent_targets`
 - `install_clawhub_cli`
+- `clawhub_post_publish_scan`
 
 Current scheduled default when no explicit artifact list is supplied:
 
@@ -229,6 +230,7 @@ Current workflow-dispatch controls for this lane:
 - `breakout_skills`
 - `breakout_publish`
 - `adjacent_targets`
+- `install_clawhub_cli`
 
 ### Suspicious diagnosis chain
 
@@ -273,12 +275,12 @@ When `run_breakout_rollout=true` on a manual dispatch, the workflow uses the ded
 3. optionally filters to selected source skills
 4. applies breakout-profile refinement, rebuilds, and optionally republishes only those breakout slugs
 
-When repo variable `AUTO_FULL_PLATFORM_PUBLISH=true` is set, the same self-hosted lane can also run from the scheduled trigger without manual dispatch.
+The same self-hosted lanes can also run from the scheduled trigger without manual dispatch. Scheduled defaults now request the normal publish, suspicious repair, and breakout rollout lanes; set `AUTO_FULL_PLATFORM_PUBLISH=false`, `AUTO_RUN_SUSPICIOUS_REPAIR=false`, or `AUTO_RUN_BREAKOUT_ROLLOUT=false` to close a lane.
 
 Self-hosted lane switches are intentionally "open but gated":
 
 - manual dispatch can request publish, suspicious repair, and breakout rollout independently
-- scheduled automation can request the same lanes through repo variables
+- scheduled automation requests the same lanes by default and can narrow them through repo variables
 - `self-hosted-preflight` checks the GitHub runner API before queueing any self-hosted job
 - if a runner is intentionally expected to come online later, set manual `force_self_hosted_queue=true` or repo variable `AUTO_FORCE_SELF_HOSTED_QUEUE=true`
 
@@ -296,6 +298,7 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_PUSH_ADJACENT_REPOS`
 - `AUTO_CLAWHUB_PUBLISH`
 - `AUTO_CLAWHUB_DRY_RUN`
+- `AUTO_CLAWHUB_POST_PUBLISH_SCAN`
 - `AUTO_RUN_SUSPICIOUS_REPAIR`
 - `AUTO_SUSPICIOUS_ARTIFACTS`
 - `AUTO_SUSPICIOUS_MAX_ARTIFACTS`
@@ -304,9 +307,12 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_BREAKOUT_PUBLISH`
 - `AUTO_INSTALL_CLAWHUB_CLI`
 - `AUTO_FORCE_SELF_HOSTED_QUEUE`
+- `SELF_HOSTED_RUNNER_RUNS_ON_JSON`
 - `SELF_HOSTED_RUNNER_LABELS`
 - `AUTO_HERMES_PUBLISH_MODE`
 - `CLAWHUB_CLI_VERSION`
+
+Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` when the runner needs labels beyond the default, for example `["self-hosted","linux","clawhub"]`. `SELF_HOSTED_RUNNER_LABELS` remains a preflight compatibility input, but the JSON value is what aligns the actual `runs-on` target.
 
 Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL. Before committing repo changes, each hosted and self-hosted commit step also fetches and rebases with `--autostash`, then retries push after another rebase if the remote advanced.
 
@@ -453,4 +459,5 @@ Recommended manual-dispatch pattern:
 - enable `sync_adjacent_repos=true` when you want downstream GitHub publish
 - set `clawhub_publish=skill`, `plugin`, or `both` only when the self-hosted runner is ready for live publish
 - keep `clawhub_dry_run=true` for the first publish rehearsal, then flip it to `false` for real continuation
+- keep `clawhub_post_publish_scan=true` so live ClawHub status is refreshed immediately after publish or remote-existing skips
 - enable `run_suspicious_repair=true` plus an explicit `suspicious_artifacts=...` value when you want the runner to diagnose, minimally rewrite, and republish a ClawHub-owned live blocker set

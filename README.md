@@ -205,9 +205,9 @@ python3 scripts/clawhub_suspicious_remediation.py \
   - runs the dedicated breakout rollout path from `targets/clawhub-breakout-variants.json`
   - keeps breakout experimentation separate from normal sync and suspicious remediation
 
-For automatic full-platform publish, the normal self-hosted publish lane can now run from `schedule` too when the repo variable below is enabled:
+Schedule runs now request the publish, suspicious-remediation, breakout, AISA regression, ClawHub CLI install, and post-publish scan lanes by default. They still pass through the hosted self-hosted-runner preflight first, so a missing/offline runner skips quickly instead of waiting in queue.
 
-- `AUTO_FULL_PLATFORM_PUBLISH=true`
+Set any `AUTO_*` variable below to `false` when you want to close that scheduled lane.
 
 Useful repo variables for scheduled self-hosted automation:
 
@@ -223,6 +223,7 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_PUSH_ADJACENT_REPOS`
 - `AUTO_CLAWHUB_PUBLISH`
 - `AUTO_CLAWHUB_DRY_RUN`
+- `AUTO_CLAWHUB_POST_PUBLISH_SCAN`
 - `AUTO_RUN_SUSPICIOUS_REPAIR`
 - `AUTO_SUSPICIOUS_ARTIFACTS`
 - `AUTO_SUSPICIOUS_MAX_ARTIFACTS`
@@ -231,7 +232,11 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_BREAKOUT_PUBLISH`
 - `AUTO_INSTALL_CLAWHUB_CLI`
 - `AUTO_HERMES_PUBLISH_MODE`
+- `SELF_HOSTED_RUNNER_RUNS_ON_JSON`
+- `SELF_HOSTED_RUNNER_LABELS`
 - `CLAWHUB_CLI_VERSION`
+
+Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` when the runner needs labels beyond the default, for example `["self-hosted","linux","clawhub"]`. `SELF_HOSTED_RUNNER_LABELS` is accepted by preflight for compatibility, but the JSON value keeps the preflight and actual `runs-on` target aligned.
 
 What GitHub Actions can do in practice:
 

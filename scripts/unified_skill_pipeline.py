@@ -462,6 +462,8 @@ def run_publish_steps(args: argparse.Namespace, summary: RunSummary) -> None:
         ]
         if args.clawhub_dry_run:
             clawhub_command.append("--dry-run")
+        if args.clawhub_post_publish_scan:
+            clawhub_command.append("--post-publish-scan")
         run_command(clawhub_command, cwd=REPO_ROOT, timeout=7200)
         summary.publish_steps.append(" ".join(clawhub_command))
 
@@ -592,6 +594,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--clawhub-dry-run",
         action="store_true",
         help="Pass --dry-run to publish_clawhub_batch.py.",
+    )
+    parser.add_argument(
+        "--clawhub-post-publish-scan",
+        action="store_true",
+        help="Pass --post-publish-scan to publish_clawhub_batch.py.",
     )
     parser.add_argument(
         "--dry-run",

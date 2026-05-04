@@ -22,6 +22,9 @@
 - `diagnosis-pr` job 在 hosted lane 已经直接 commit 输出之后重新 checkout 触发 SHA，不会拿到前一 job 的工作区变更，基本是空转 PR lane。
 - Downstream publish repo 的准备阶段始终使用公开 HTTPS clone URL，私有 repo 或需要 token 的 runner 会在 clone/fetch 时失败。
 - Downstream repo push 没有 fetch/rebase/retry，多个 lane 或人工改动同时推进时容易 non-fast-forward。
+- 正常 self-hosted publish lane 只调用 `publish_clawhub_batch.py`，没有显式传 `--post-publish-scan`，导致真实续发后还要等后续 live-status job 才能回写 scan 状态。
+- 预检支持 `SELF_HOSTED_RUNNER_LABELS`，但 self-hosted jobs 固定 `runs-on: self-hosted`，当 runner 需要额外 label 时会出现“预检命中一个 runner，实际 job 却可能排到另一个 runner”的错位。
+- schedule 侧的 self-hosted publish / suspicious repair / breakout rollout 开关仍默认关闭；如果仓库变量没配，手动 dispatch 是打开的，定时任务却不会继续真实发布链。
 
 ### Note
 
@@ -38,6 +41,10 @@
 - ClawHub publish 调度总是向 batch publisher 传 `--skip-build`；发布层构建由 unified pipeline 统一负责。
 - 移除空转的 `diagnosis-pr` job 和多余 `pull-requests: write` 权限。
 - Downstream repo clone/fetch 支持 `DOWNSTREAM_REPO_TOKEN`，push 增加 fetch/rebase/retry。
+- normal self-hosted publish lane 新增 `clawhub_post_publish_scan` / `AUTO_CLAWHUB_POST_PUBLISH_SCAN`，并传递到 `scripts/unified_skill_pipeline.py --clawhub-post-publish-scan`，让真实 publish 或 remote-existing skip 后立即复扫。
+- schedule 默认请求 publish、suspicious repair、breakout rollout、AISA API regression、ClawHub CLI install 与 post-publish scan；仍由 preflight 决定是否真的排队。
+- self-hosted jobs 改为使用 `SELF_HOSTED_RUNNER_RUNS_ON_JSON` 控制 `runs-on`，preflight 同时能解析该 JSON label 列表，避免 label 检查和实际调度目标分叉。
+- runner preflight 在 `403` 等失败时会把 GitHub 返回的 message、`x-accepted-github-permissions` 和 `x-github-sso` hint 写入 summary，方便判断是 repo access、org approval/SSO 还是 token 权限问题。
 
 ## Verdict
 

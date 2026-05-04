@@ -75,6 +75,11 @@ on:
         required: false
         default: false
         type: boolean
+      clawhub_post_publish_scan:
+        description: "After ClawHub publish or remote-existing skip, refresh live scan status"
+        required: false
+        default: true
+        type: boolean
       install_clawhub_cli:
         description: "In self-hosted mode, install or refresh the ClawHub CLI before publish"
         required: false
@@ -161,7 +166,7 @@ jobs:
       PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || vars.AUTO_LLM_APPLY || 'false' }}
       PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || vars.AUTO_SYNC_REPO_SKILLS || 'true' }}
       PIPELINE_DIAGNOSIS_DOC_UPDATE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.diagnosis_doc_update || vars.AUTO_DIAGNOSIS_DOC_UPDATE || 'true' }}
-      PIPELINE_RUN_AISA_API_REGRESSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_aisa_api_regression || vars.AUTO_RUN_AISA_API_REGRESSION || 'false' }}
+      PIPELINE_RUN_AISA_API_REGRESSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_aisa_api_regression || vars.AUTO_RUN_AISA_API_REGRESSION || 'true' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
     steps:
@@ -306,11 +311,11 @@ jobs:
           INPUT_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || 'false' }}
           INPUT_RUN_BREAKOUT_ROLLOUT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_breakout_rollout || 'false' }}
           INPUT_FORCE_SELF_HOSTED_QUEUE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_self_hosted_queue || 'false' }}
-          AUTO_FULL_PLATFORM_PUBLISH: ${{ vars.AUTO_FULL_PLATFORM_PUBLISH || 'false' }}
-          AUTO_RUN_SUSPICIOUS_REPAIR: ${{ vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'false' }}
-          AUTO_RUN_BREAKOUT_ROLLOUT: ${{ vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'false' }}
+          AUTO_FULL_PLATFORM_PUBLISH: ${{ vars.AUTO_FULL_PLATFORM_PUBLISH || 'true' }}
+          AUTO_RUN_SUSPICIOUS_REPAIR: ${{ vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'true' }}
+          AUTO_RUN_BREAKOUT_ROLLOUT: ${{ vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'true' }}
           AUTO_FORCE_SELF_HOSTED_QUEUE: ${{ vars.AUTO_FORCE_SELF_HOSTED_QUEUE || 'false' }}
-          SELF_HOSTED_RUNNER_LABELS: ${{ vars.SELF_HOSTED_RUNNER_LABELS || 'self-hosted' }}
+          SELF_HOSTED_RUNNER_LABELS: ${{ vars.SELF_HOSTED_RUNNER_LABELS || vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || 'self-hosted' }}
         run: |
           set -euo pipefail
 
@@ -347,7 +352,9 @@ jobs:
             reason="force_self_hosted_queue enabled"
           elif [[ "${any_requested}" == "true" ]]; then
             response_file="$(mktemp)"
+            headers_file="$(mktemp)"
             http_code="$(curl -sS -L \
+              -D "${headers_file}" \
               -o "${response_file}" \
               -w "%{http_code}" \
               -H "Authorization: Bearer ${RUNNER_API_TOKEN:-${GH_TOKEN}}" \
@@ -355,9 +362,34 @@ jobs:
               -H "X-GitHub-Api-Version: 2022-11-28" \
               "https://api.github.com/repos/${REPO}/actions/runners?per_page=100" || true)"
             response="$(cat "${response_file}")"
-            rm -f "${response_file}"
+            headers="$(tr -d '\r' < "${headers_file}")"
+            rm -f "${response_file}" "${headers_file}"
             if [[ "${http_code}" != "200" || -z "${response}" ]]; then
-              reason="runner API returned HTTP ${http_code:-unknown}; add SELF_HOSTED_RUNNER_API_TOKEN with repository Administration read permission or enable force_self_hosted_queue intentionally"
+              api_message="$(
+                RUNNERS_RESPONSE="${response}" python3 - <<'PY'
+          import json
+          import os
+
+          try:
+              payload = json.loads(os.environ.get("RUNNERS_RESPONSE") or "{}")
+          except json.JSONDecodeError:
+              payload = {}
+          message = str(payload.get("message") or "").strip()
+          print(message[:180])
+          PY
+              )"
+              accepted_permissions="$(printf '%s\n' "${headers}" | awk -F': ' 'tolower($1)=="x-accepted-github-permissions"{print $2}' | tail -1)"
+              sso_hint="$(printf '%s\n' "${headers}" | awk -F': ' 'tolower($1)=="x-github-sso"{print $2}' | tail -1)"
+              reason="runner API returned HTTP ${http_code:-unknown}; add SELF_HOSTED_RUNNER_API_TOKEN with repository Administration read permission, selected repo access, and any required org approval/SSO, or enable force_self_hosted_queue intentionally"
+              if [[ -n "${api_message}" ]]; then
+                reason="${reason}; message: ${api_message}"
+              fi
+              if [[ -n "${accepted_permissions}" ]]; then
+                reason="${reason}; accepted-permissions: ${accepted_permissions}"
+              fi
+              if [[ -n "${sso_hint}" ]]; then
+                reason="${reason}; sso: ${sso_hint}"
+              fi
             else
               result="$(
                 RUNNERS_JSON="${response}" python3 - "${SELF_HOSTED_RUNNER_LABELS}" <<'PY'
@@ -365,7 +397,15 @@ jobs:
           import os
           import sys
 
-          labels = [item.strip().lower() for item in sys.argv[1].replace(",", " ").split() if item.strip()]
+          raw_labels = sys.argv[1]
+          try:
+              decoded = json.loads(raw_labels)
+          except json.JSONDecodeError:
+              decoded = raw_labels
+          if isinstance(decoded, list):
+              labels = [str(item).strip().lower() for item in decoded if str(item).strip()]
+          else:
+              labels = [item.strip().lower() for item in str(decoded).replace(",", " ").split() if item.strip()]
           payload = json.loads(os.environ.get("RUNNERS_JSON") or "{}")
           for runner in payload.get("runners", []):
               runner_labels = {
@@ -424,7 +464,7 @@ jobs:
     needs:
       - sync-build-test
       - self-hosted-preflight
-    runs-on: self-hosted
+    runs-on: ${{ fromJSON(vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]') }}
     timeout-minutes: 360
     concurrency:
       group: unified-skill-pipeline-self-hosted-publish-${{ github.ref }}
@@ -441,7 +481,8 @@ jobs:
       PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || vars.AUTO_PUSH_ADJACENT_REPOS || 'true' }}
       PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || vars.AUTO_CLAWHUB_PUBLISH || 'both' }}
       PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || vars.AUTO_CLAWHUB_DRY_RUN || 'false' }}
-      PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'false' }}
+      PIPELINE_CLAWHUB_POST_PUBLISH_SCAN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_post_publish_scan || vars.AUTO_CLAWHUB_POST_PUBLISH_SCAN || 'true' }}
+      PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'true' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
       DOWNSTREAM_REPO_TOKEN: ${{ secrets.DOWNSTREAM_REPO_TOKEN }}
@@ -670,6 +711,9 @@ jobs:
             if [[ "${PIPELINE_CLAWHUB_DRY_RUN:-false}" == "true" ]]; then
               EXTRA_ARGS+=("--clawhub-dry-run")
             fi
+            if [[ "${PIPELINE_CLAWHUB_POST_PUBLISH_SCAN:-true}" == "true" ]]; then
+              EXTRA_ARGS+=("--clawhub-post-publish-scan")
+            fi
           fi
 
           if [[ "${PIPELINE_DRY_RUN:-false}" == "true" ]]; then
@@ -822,7 +866,7 @@ jobs:
       - sync-build-test
       - self-hosted-preflight
       - self-hosted-publish
-    runs-on: self-hosted
+    runs-on: ${{ fromJSON(vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]') }}
     timeout-minutes: 300
     concurrency:
       group: unified-skill-pipeline-self-hosted-suspicious-${{ github.ref }}
@@ -834,7 +878,7 @@ jobs:
       PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || vars.AUTO_PUSH_ADJACENT_REPOS || 'true' }}
       PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || vars.AUTO_CLAWHUB_PUBLISH || 'both' }}
       PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || vars.AUTO_CLAWHUB_DRY_RUN || 'false' }}
-      PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'false' }}
+      PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'true' }}
       PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || vars.AUTO_SUSPICIOUS_ARTIFACTS || '' }}
       PIPELINE_SUSPICIOUS_MAX_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_max_artifacts || vars.AUTO_SUSPICIOUS_MAX_ARTIFACTS || '0' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
@@ -1206,7 +1250,7 @@ jobs:
       - self-hosted-preflight
       - self-hosted-publish
       - self-hosted-suspicious-repair
-    runs-on: self-hosted
+    runs-on: ${{ fromJSON(vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]') }}
     timeout-minutes: 300
     concurrency:
       group: unified-skill-pipeline-self-hosted-breakout-${{ github.ref }}
@@ -1217,7 +1261,7 @@ jobs:
       PIPELINE_ADJACENT_TARGETS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.adjacent_targets || vars.AUTO_ADJACENT_TARGETS || 'all' }}
       PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || vars.AUTO_PUSH_ADJACENT_REPOS || 'true' }}
       PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || vars.AUTO_CLAWHUB_DRY_RUN || 'false' }}
-      PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'false' }}
+      PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'true' }}
       PIPELINE_BREAKOUT_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.breakout_skills || vars.AUTO_BREAKOUT_SKILLS || '' }}
       PIPELINE_BREAKOUT_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.breakout_publish || vars.AUTO_BREAKOUT_PUBLISH || 'both' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
