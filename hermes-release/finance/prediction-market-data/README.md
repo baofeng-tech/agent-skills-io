@@ -8,7 +8,7 @@ Release-ready Hermes skill package generated from `targetSkills/prediction-marke
 
 ## Notes
 
-- Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Access prediction market data from Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, candlesticks, and sports market matching. Use when you need current odds, historical market data, wallet activity, or cross-platform comparison.
 - This README is release-specific and replaces source READMEs that were written for other runtimes.
 - If the underlying instructions mention OpenClaw, treat that as source-context or compatibility guidance unless the skill is specifically about OpenClaw setup.
 

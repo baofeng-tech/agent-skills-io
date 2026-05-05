@@ -1,6 +1,6 @@
 ---
 name: prediction-market-data
-description: 'Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
+description: Access prediction market data from Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, candlesticks, and sports market matching. Use when you need current odds, historical market data, wallet activity, or cross-platform comparison.
 author: AIsa
 version: 1.0.0
 license: MIT
@@ -36,29 +36,40 @@ metadata:
     primaryEnv: AISA_API_KEY
 ---
 
-# Cross-Platform Prediction Market Data 📈
+# Prediction Market Data 📈
 
-**Prediction markets data access for autonomous agents. Powered by AIsa.**
+Access prediction market data from Polymarket and Kalshi through AIsa.
 
-One API key. Full Polymarket and Kalshi intelligence.
+Use this skill when you need to:
+- check current market odds or implied probabilities
+- search active or historical markets
+- inspect trades, orderbooks, and candlesticks
+- review wallet activity, positions, and PnL
+- compare matching sports markets across platforms
 
 ## Compatibility
 
 Works with any [agentskills.io](https://agentskills.io)-compatible
 harness, including:
 
-- **Claude Code** and **Claude** (Anthropic)
+- **Claude Code** and **Claude**
 - **OpenAI Codex**
 - **Cursor**
-- **Gemini CLI** (Google)
+- **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and any other harness that implements the [Agent Skills
+- and other harnesses that implement the [Agent Skills
   specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from
 [aisa.one](https://aisa.one)).
 
-## What Can You Do?
+## Quick Start
+
+```bash
+export AISA_API_KEY="your-key"
+```
+
+## Common Requests
 
 ### Probability Checks
 ```text
@@ -85,34 +96,38 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at
 "Find arbitrage opportunities across Polymarket and Kalshi."
 ```
 
-## Quick Start
-
-```bash
-export AISA_API_KEY="your-key"
-```
-
 ## How to Look Up IDs
 
-Most endpoints require an ID that comes from the `/markets` response. Always query markets first, then pass the relevant ID to downstream endpoints.
+Most downstream endpoints require an identifier returned by a market
+search. Query markets first, then pass the relevant ID into the follow-up
+endpoint.
 
-1. **Polymarket `token_id`**: Query `/polymarket/markets`, find `side_a.id` or `side_b.id` in the response, then pass it to `/polymarket/market-price/{token_id}`.
-2. **Polymarket `condition_id`**: Query `/polymarket/markets`, find `condition_id` in the response, then pass it to `/polymarket/candlesticks/{condition_id}`.
-3. **Kalshi `market_ticker`**: Query `/kalshi/markets`, find `market_ticker` in the response, then pass it to `/kalshi/market-price/{market_ticker}`.
+1. **Polymarket `token_id`**: Query `/polymarket/markets`, find
+   `side_a.id` or `side_b.id`, then pass it to
+   `/polymarket/market-price/{token_id}`.
+2. **Polymarket `condition_id`**: Query `/polymarket/markets`, find
+   `condition_id`, then pass it to
+   `/polymarket/candlesticks/{condition_id}`.
+3. **Kalshi `market_ticker`**: Query `/kalshi/markets`, find
+   `market_ticker`, then pass it to
+   `/kalshi/market-price/{market_ticker}`.
 
 ## End-to-End Examples
 
 ### Get the current price of a Polymarket market
 
-Prices require a `token_id`, which comes from the `/markets` response. Always query markets first.
+Prices require a `token_id`, which comes from the `/markets` response.
+Always query markets first.
 
-**Step 1: Find a market and extract the token_id:**
+**Step 1: Find a market and extract the token_id**
 
 ```bash
 # Search for open election markets and grab a token_id
 python scripts/prediction_market_client.py polymarket markets --search "election" --status open --limit 5
 ```
 
-The response includes a `side_a.id` and `side_b.id` for each market; these are the token IDs for the Yes and No sides respectively:
+The response includes `side_a.id` and `side_b.id` for each market. These
+are the token IDs for the Yes and No sides respectively:
 
 ```json
 {
@@ -134,20 +149,21 @@ The response includes a `side_a.id` and `side_b.id` for each market; these are t
 }
 ```
 
-**Step 2: Fetch the current price using the token_id:**
+**Step 2: Fetch the current price using the token_id**
 
 ```bash
 # Use side_a.id (Yes) or side_b.id (No) from Step 1
 python scripts/prediction_market_client.py polymarket price 44482086252598348208660011972852804909957485351743405768768577675743702971026
 ```
 
-The price is a decimal between 0 and 1 representing the probability (e.g. `0.20` = 20% chance of Yes).
+The returned price is a decimal between 0 and 1 representing the implied
+probability. For example, `0.20` means a 20% chance of Yes.
 
 ---
 
 ### Get the current price of a Kalshi market
 
-**Step 1: Find a market and extract the market_ticker:**
+**Step 1: Find a market and extract the market_ticker**
 
 ```bash
 python scripts/prediction_market_client.py kalshi markets --search "fed rate" --status open --limit 5
@@ -165,13 +181,11 @@ python scripts/prediction_market_client.py kalshi markets --search "fed rate" --
 }
 ```
 
-**Step 2: Fetch the price using the market_ticker:**
+**Step 2: Fetch the price using the market_ticker**
 
 ```bash
 python scripts/prediction_market_client.py kalshi price KXFED-26MAR-T3.75
 ```
-
----
 
 ## Core Capabilities
 
@@ -352,40 +366,43 @@ Sport abbreviations:
 | Endpoint | Description | Key Params |
 |----------|-------------|------------|
 | `/matching-markets/sports` | Find matching sports markets | `polymarket_market_slug` or `kalshi_event_ticker` |
-| `/matching-markets/sports/{sport}` | Find sports markets by date | `sport` (nfl\|mlb\|cfb\|nba\|nhl\|cbb\|pga\|tennis), `date` (YYYY-MM-DD) |
+| `/matching-markets/sports/{sport}` | Find sports markets by date | `sport` (`nfl`\|`mlb`\|`cfb`\|`nba`\|`nhl`\|`cbb`\|`pga`\|`tennis`), `date` (YYYY-MM-DD) |
 
 ## Response Schemas
 
 ### Markets Response
-Returns markets array:
-- `title` (string) - Market question (e.g., "Will Trump nationalize elections?")
+
+Returns a `markets` array with fields such as:
+- `title` (string) - Market question, for example "Will Trump nationalize elections?"
 - `market_slug` (string) - URL-friendly identifier
 - `condition_id` (string) - Blockchain condition ID
 - `start_time` / `end_time` (integer) - Unix timestamps
-- `completed_time` (integer|null) - Null if still open
-- `tags` (array) - Category tags (e.g., ["politics", "us election"])
+- `completed_time` (integer|null) - `null` if still open
+- `tags` (array) - Category tags, for example `["politics", "us election"]`
 - `volume_1_week` / `volume_1_month` / `volume_1_year` / `volume_total` (number) - Trading volume in USD
-- `side_a` / `side_b` (object) - id and label (typically "Yes"/"No")
-- `winning_side` (object|null) - Null if unresolved
+- `side_a` / `side_b` (object) - ID and label, typically "Yes" / "No"
+- `winning_side` (object|null) - `null` if unresolved
 - `image` (string) - Market thumbnail URL
 
 ### Activity Response
-Returns activities array:
+
+Returns an `activities` array with fields such as:
 - `title` (string) - Market title
 - `market_slug` (string) - Market identifier
 - `side` (string) - Trade side: BUY, SELL, or MERGE
 - `shares` (integer) - Raw share amount
 - `shares_normalized` (number) - Human-readable share amount
-- `price` (number) - Trade price (0-1, represents probability)
+- `price` (number) - Trade price from 0 to 1, representing probability
 - `timestamp` (integer) - Unix timestamp of the trade
 - `user` (string) - Wallet address of the trader
 - `tx_hash` (string) - Blockchain transaction hash
 
 ## Understanding Odds
-- Prices are shown as decimals (0.65 = 65% probability)
-- "Yes" price = probability market thinks event will happen
-- Higher volume = more confidence/liquidity
-- Prices change based on trading activity
+
+- Prices are shown as decimals, for example `0.65 = 65% probability`
+- "Yes" price reflects the market-implied probability that the event will happen
+- Higher volume often means higher liquidity and stronger market participation
+- Prices change as traders buy and sell shares
 
 ## Pricing
 
@@ -398,8 +415,9 @@ Returns activities array:
 1. Sign up at [aisa.one](https://aisa.one)
 2. Get your API key
 3. Add credits (pay-as-you-go)
-4. Set environment variable: `export AISA_API_KEY="your-key"`
+4. Set the environment variable: `export AISA_API_KEY="your-key"`
 
 ## Full API Reference
 
-See [API Reference](https://aisa.one/docs/api-reference/) for complete endpoint documentation.
+See [API Reference](https://aisa.one/docs/api-reference/) for complete
+endpoint documentation.

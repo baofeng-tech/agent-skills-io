@@ -1,23 +1,20 @@
 # YouTube SERP 📺
 
-YouTube SERP for autonomous agents. Search top-ranking videos, channels, and trends.
+Search YouTube result pages through AISA to find ranking videos, channels, and trends for content research, competitor tracking, and regional discovery.
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible
-harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**,
-**Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and
-others that implement the
-[Agent Skills specification](https://agentskills.io/specification).
+Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**, **Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and others that implement the [Agent Skills specification](https://agentskills.io/specification).
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## Features
 
-- **SERP Search**: Find top-ranking videos for any query
-- **Country/Language Filters**: Target specific regions
-- **Competitor Research**: Track competitor content
-- **Trend Discovery**: Find what's popular now
+- **YouTube SERP search** for topic and keyword research
+- **Country and language filters** for regional comparisons
+- **Competitor research** using query-based discovery
+- **Trend discovery** from current search rankings
+- **Structured API output** for downstream analysis workflows
 
 ## Quick Start
 
@@ -25,32 +22,30 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 export AISA_API_KEY="your-key"
 
 # Basic search
-python scripts/youtube_client.py search --query "AI agents tutorial"
+python3 scripts/youtube_client.py search --query "AI agents tutorial"
 
 # Search with country filter
-python scripts/youtube_client.py search --query "machine learning" --country us
+python3 scripts/youtube_client.py search --query "machine learning" --country us
 
-# Find top videos
-python scripts/youtube_client.py top-videos --query "GPT-5" --count 10
+# Search with language filter
+python3 scripts/youtube_client.py search --query "python tutorial" --lang en
 
-# Competitor research
-python scripts/youtube_client.py competitor --name "OpenAI" --topic "tutorial"
+# Full options
+python3 scripts/youtube_client.py search --query "GPT-5 news" --country us --lang en
 ```
 
-## Use Cases
+## Common Use Cases
 
-1. **Content Research** - Find what's ranking to plan your content
-2. **Competitor Tracking** - Monitor competitor YouTube presence
-3. **Trend Discovery** - Identify trending topics
-4. **Keyword Research** - Discover popular search terms
-5. **Audience Research** - Understand regional preferences
+1. **Content research** - Find what is ranking for a topic
+2. **Competitor tracking** - Inspect search results around competitor topics or brands
+3. **Trend discovery** - Check what is surfacing now for emerging queries
+4. **Keyword research** - Compare result pages across search terms
+5. **Regional analysis** - Review country and language differences
 
 ## Documentation
 
-See [SKILL.md](SKILL.md) for complete API documentation.
+See [SKILL.md](SKILL.md) for full usage details, parameters, and response examples.
 
 ## API Reference
 
-See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the
-complete catalog of endpoints this skill can call.
-
+See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.

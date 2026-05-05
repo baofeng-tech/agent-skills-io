@@ -1,15 +1,16 @@
 {
   "summary": {
-    "artifacts": 19,
-    "blockers": 18,
+    "artifacts": 18,
+    "blockers": 17,
     "warnings": 1,
-    "pending": 6,
+    "pending": 5,
     "rules": {
       "metadata_env_mismatch": 2,
       "oauth_upload_side_effects": 5,
-      "pending_scan": 6,
-      "platform_trust_gap": 11,
-      "relay_trust_surface": 6
+      "pending_scan": 5,
+      "platform_trust_gap": 9,
+      "relay_trust_surface": 4,
+      "static_analysis_patterns": 1
     }
   },
   "artifacts": [
@@ -44,7 +45,7 @@
       "detail_url": "https://clawhub.ai/plugins/aisa-perplexity-search-sonar-plugin",
       "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-perplexity-search-sonar-plugin",
       "release_ref": "rd793hcmfwpqtqwj53zht0hs7d85expt",
-      "reason": "The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing."
+      "reason": "The search client mostly matches its purpose, but the published requirement metadata conflicts with the bundled manifests and code about needing Python and an AISA_API_KEY."
     },
     {
       "key": "plugin:aisa-tavily-search-plugin",
@@ -52,36 +53,28 @@
       "name": "aisa-tavily-search-plugin",
       "publisher_handle": "bibaofeng",
       "severity": "blocker",
-      "scan_status": "pending",
+      "scan_status": "suspicious",
       "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+      "clawscan_verdict": "clean",
+      "openclaw_verdict": "clean",
+      "static_analysis_status": "suspicious",
+      "static_analysis_summary": "Detected: suspicious.env_credential_access",
       "suspicious": true,
-      "pending": true,
+      "pending": false,
       "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
+        "static_analysis_patterns"
       ],
       "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
+        "Static analysis found execution or side-effect patterns that need trimming or clearer justification."
       ],
       "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
+        "Remove non-runtime helper files from the shipped package when they are the source of the finding.",
+        "If the pattern is a real runtime need, explain the exact boundary and intended command/file behavior in public docs."
       ],
       "detail_url": "https://clawhub.ai/plugins/aisa-tavily-search-plugin",
       "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-tavily-search-plugin",
       "release_ref": null,
-      "reason": "The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials."
+      "reason": "Detected: suspicious.env_credential_access"
     },
     {
       "key": "plugin:last30days-plugin",
@@ -127,19 +120,23 @@
       "suspicious": true,
       "pending": true,
       "rule_ids": [
+        "metadata_env_mismatch",
         "pending_scan"
       ],
       "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
         "Security scan output is not final yet."
       ],
       "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
         "Keep pending, clean, and suspicious as separate states in automation.",
         "Retry live scan before treating the package as resolved."
       ],
       "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
       "local_path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
       "release_ref": "rd79t34w8g0yy724ezfmjzamh185b1r6",
-      "reason": "This mostly looks like a recent-research tool, but its published requirements understate the API key, binaries, and network surface the bundled skill actually uses."
+      "reason": "The skill mostly matches its research purpose, but its registry metadata understates the real runtime requirements and it includes an unexpected local network endpoint."
     },
     {
       "key": "plugin:x-intelligence-automation-plugin",
@@ -181,43 +178,6 @@
       "local_path": "clawhub-plugin-release/plugins/x-intelligence-automation-plugin",
       "release_ref": "rd7bsae56pj7r6brnyctbdy2v985c1yw",
       "reason": "The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing."
-    },
-    {
-      "key": "skill:aisa-twitter",
-      "kind": "skill",
-      "name": "aisa-twitter",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "suspicious",
-      "virus_total": "clean",
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": true,
-      "pending": false,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/aisa-twitter",
-      "local_path": "clawhub-release/aisa-twitter",
-      "release_ref": null,
-      "reason": "The package is a coherent Twitter/X relay client that contacts api.aisa.one and requires an AISA_API_KEY, but the registry metadata and package frontmatter disagree about required env and versioning—confirm the missing environment declaration and trust in the relay before installing."
     },
     {
       "key": "skill:openclaw-twitter",

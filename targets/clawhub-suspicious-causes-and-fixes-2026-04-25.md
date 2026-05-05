@@ -127,45 +127,42 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`19`
-- `blocker`：`18`
+- 诊断对象数：`18`
+- `blocker`：`17`
 - `warning`：`1`
-- `pending`：`6`
+- `pending`：`5`
 
 ### 当前高频规则
 
 - `metadata_env_mismatch`: `2`
 - `oauth_upload_side_effects`: `5`
-- `pending_scan`: `6`
-- `platform_trust_gap`: `11`
-- `relay_trust_surface`: `6`
+- `pending_scan`: `5`
+- `platform_trust_gap`: `9`
+- `relay_trust_surface`: `4`
+- `static_analysis_patterns`: `1`
 
 ### 当前重点对象
 
 - `plugin:aisa-perplexity-search-sonar-plugin`
   severity: `blocker` | status: `pending`
   rules: `pending_scan, relay_trust_surface`
-  reason: The package appears to implement the stated AIsa Perplexity search functionality and only needs an AISA_API_KEY and python, but there is an inconsistency in the published metadata vs the embedded skill requirements (sloppy packaging) that you should confirm before installing.
+  reason: The search client mostly matches its purpose, but the published requirement metadata conflicts with the bundled manifests and code about needing Python and an AISA_API_KEY.
 - `plugin:aisa-tavily-search-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The package is largely coherent for a hosted-search client (it needs an AISA_API_KEY and runs a Python CLI that calls api.aisa.one), but there are metadata inconsistencies and a few items you should verify before installing or supplying credentials.
+  severity: `blocker` | status: `suspicious`
+  rules: `static_analysis_patterns`
+  reason: Detected: suspicious.env_credential_access
 - `plugin:last30days-plugin`
   severity: `blocker` | status: `pending`
   rules: `pending_scan`
   reason: This looks mostly like a legitimate recent-research skill, but its published metadata understates the credentials, binaries, and network behavior that the bundled skill actually uses.
 - `plugin:last30days-zh-plugin`
   severity: `blocker` | status: `pending`
-  rules: `pending_scan`
-  reason: This mostly looks like a recent-research tool, but its published requirements understate the API key, binaries, and network surface the bundled skill actually uses.
+  rules: `metadata_env_mismatch, pending_scan`
+  reason: The skill mostly matches its research purpose, but its registry metadata understates the real runtime requirements and it includes an unexpected local network endpoint.
 - `plugin:x-intelligence-automation-plugin`
   severity: `blocker` | status: `pending`
   rules: `oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
   reason: The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing.
-- `skill:aisa-twitter`
-  severity: `blocker` | status: `suspicious`
-  rules: `metadata_env_mismatch, platform_trust_gap, relay_trust_surface`
-  reason: The package is a coherent Twitter/X relay client that contacts api.aisa.one and requires an AISA_API_KEY, but the registry metadata and package frontmatter disagree about required env and versioning—confirm the missing environment declaration and trust in the relay before installing.
 - `skill:openclaw-twitter`
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects`
@@ -190,4 +187,8 @@
   severity: `blocker` | status: `suspicious`
   rules: `relay_trust_surface`
   reason: Optional third-party CLI installation and user-configured cron automation are disclosed and purpose-aligned, but users should review them before enabling.
+- `skill:tavily-extract`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects`
+  reason: The main concern is automatic execution of an unpinned npm OAuth helper during first-run authentication.
 <!-- AUTO-DIAGNOSIS:END -->

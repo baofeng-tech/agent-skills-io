@@ -1,6 +1,9 @@
-# Prediction Market
+# Prediction Market Data
 
-Get current odds, prices, and market data from prediction markets like Polymarket and Kalshi. Access historical orderbook data, candlestick charts, trade history, wallet positions, and more.
+Access current odds, prices, and market data from prediction markets such
+as Polymarket and Kalshi. This skill supports market search, price
+lookups, historical orderbooks, candlestick data, trade history, wallet
+positions, PnL, and sports market matching across platforms.
 
 ## Compatibility
 
@@ -14,9 +17,12 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## Features
 
-- **Polymarket**: Search markets, live prices, trade history, orderbooks, candlesticks, wallet positions, P&L
-- **Kalshi**: Search markets, live prices, trade history, orderbooks
-- **Cross-Platform**: Match equivalent sports markets across Polymarket and Kalshi
+- **Polymarket**: Search markets, fetch live prices, inspect trade
+  history, orderbooks, candlesticks, wallet positions, and PnL
+- **Kalshi**: Search markets, fetch live prices, inspect trade history,
+  and orderbooks
+- **Cross-platform**: Match equivalent sports markets across Polymarket
+  and Kalshi
 
 ## Quick Start
 
@@ -39,8 +45,18 @@ python scripts/prediction_market_client.py kalshi price <market_ticker>
 python scripts/prediction_market_client.py sports by-date nba --date 2025-03-01
 ```
 
+## ID Lookup Notes
+
+Most price and history endpoints require IDs returned by a market search.
+In practice:
+
+- use `side_a.id` or `side_b.id` from Polymarket market results as the
+  `token_id`
+- use `condition_id` from Polymarket market results for candlesticks
+- use `market_ticker` from Kalshi market results for Kalshi price and
+  history endpoints
+
 ## API Reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the
 complete catalog of endpoints this skill can call.
-

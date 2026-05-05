@@ -1,6 +1,6 @@
 ---
 name: youtube-serp
-description: 'YouTube SERP for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.'
+description: 'Search YouTube result pages through AISA to find ranking videos, channels, and trends for content research, competitor tracking, and regional discovery. Use when: you need YouTube SERP data for a topic, market, or channel niche.'
 license: MIT
 metadata:
   aisa:
@@ -20,7 +20,9 @@ metadata:
     - research
     - youtube
     - search
+    - market
     - video
+    - aisa
     related_skills:
     - aisa-youtube-search
     - aisa-youtube-serp-scout
@@ -33,7 +35,7 @@ required_environment_variables:
 
 # youtube-serp
 
-YouTube SERP for agents. Search top-ranking videos, channels, and trends for content research and competitor tracking. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
+Search YouTube result pages through AISA to find ranking videos, channels, and trends for content research, competitor tracking, and regional discovery. Use when: you need YouTube SERP data for a topic, market, or channel niche.
 
 ## When to Use
 

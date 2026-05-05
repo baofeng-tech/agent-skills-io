@@ -1,6 +1,6 @@
 ---
 name: multi-source-search
-description: 'Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.'
+description: Multi-source search and answer generation for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need fast retrieval, citation-rich answers, or deeper research from one AIsa-backed skill.
 license: MIT
 metadata:
   aisa:
@@ -20,6 +20,7 @@ metadata:
     - research
     - x
     - search
+    - aisa
     related_skills:
     - search
     - aisa-multi-search-engine
@@ -32,7 +33,7 @@ required_environment_variables:
 
 # multi-source-search
 
-Multi-source intelligent search for agents. Retrieval across web, scholar, Tavily, and Perplexity Sonar models. Use when: the user needs web search, research, source discovery, or content extraction.
+Multi-source search and answer generation for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need fast retrieval, citation-rich answers, or deeper research from one AIsa-backed skill.
 
 ## When to Use
 

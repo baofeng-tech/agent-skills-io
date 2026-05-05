@@ -1,6 +1,6 @@
 {
   "name": "prediction-market-data",
-  "description": "Prediction markets data - Polymarket, Kalshi markets, prices, positions, and trades. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
+  "description": "Access prediction market data from Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, candlesticks, and sports market matching. Use when you need current odds, historical market data, wallet activity, or cross-platform comparison.",
   "version": "1.0.0",
   "author": {
     "name": "AIsa"

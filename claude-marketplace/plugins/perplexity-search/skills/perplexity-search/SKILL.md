@@ -8,9 +8,9 @@ when_to_use: the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar
 
 > Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
 
-# Perplexity-Search
+# Perplexity Search
 
-Use this skill when the user specifically wants Perplexity-powered search answers instead of structured scholar/web retrieval.
+Use this skill when the user specifically wants Perplexity-powered search answers through AIsa, rather than a broader web or scholarly retrieval workflow.
 
 This skill covers four AIsa endpoints:
 - `/perplexity/sonar`
@@ -20,19 +20,16 @@ This skill covers four AIsa endpoints:
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible
-harness, including:
+Works with any [agentskills.io](https://agentskills.io)-compatible harness, including:
 
-- **Claude Code** and **Claude** (Anthropic)
+- **Claude Code** and **Claude**
 - **OpenAI Codex**
 - **Cursor**
-- **Gemini CLI** (Google)
+- **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and any other harness that implements the [Agent Skills
-  specification](https://agentskills.io/specification)
+- and any other harness that implements the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at
-[aisa.one](https://aisa.one)).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
 ## Requirements
 
