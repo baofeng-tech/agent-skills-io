@@ -127,16 +127,16 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`17`
-- `blocker`：`16`
+- 诊断对象数：`16`
+- `blocker`：`15`
 - `warning`：`1`
-- `pending`：`4`
+- `pending`：`3`
 
 ### 当前高频规则
 
-- `metadata_env_mismatch`: `2`
+- `metadata_env_mismatch`: `1`
 - `oauth_upload_side_effects`: `4`
-- `pending_scan`: `4`
+- `pending_scan`: `3`
 - `platform_trust_gap`: `8`
 - `relay_trust_surface`: `3`
 - `static_analysis_patterns`: `1`
@@ -155,10 +155,6 @@
   severity: `blocker` | status: `pending`
   rules: `pending_scan`
   reason: This looks mostly like a legitimate recent-research skill, but its published metadata understates the credentials, binaries, and network behavior that the bundled skill actually uses.
-- `plugin:last30days-zh-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `metadata_env_mismatch, pending_scan`
-  reason: The skill mostly matches its research purpose, but its registry metadata understates the real runtime requirements and it includes an unexpected local network endpoint.
 - `skill:openclaw-twitter`
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects`
@@ -191,4 +187,8 @@
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
   reason: Direct public Twitter/X mutation commands and optional autonomous cron operation create material public-action risk, though the behavior is disclosed and purpose-aligned.
+- `skill:web-search`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources.
 <!-- AUTO-DIAGNOSIS:END -->

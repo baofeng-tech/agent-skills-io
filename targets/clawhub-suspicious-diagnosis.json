@@ -1,13 +1,13 @@
 {
   "summary": {
-    "artifacts": 17,
-    "blockers": 16,
+    "artifacts": 16,
+    "blockers": 15,
     "warnings": 1,
-    "pending": 4,
+    "pending": 3,
     "rules": {
-      "metadata_env_mismatch": 2,
+      "metadata_env_mismatch": 1,
       "oauth_upload_side_effects": 4,
-      "pending_scan": 4,
+      "pending_scan": 3,
       "platform_trust_gap": 8,
       "relay_trust_surface": 3,
       "static_analysis_patterns": 1
@@ -43,7 +43,7 @@
         "Keep the auth story API-key-only unless the runtime truly needs more."
       ],
       "detail_url": "https://clawhub.ai/plugins/aisa-perplexity-search-sonar-plugin",
-      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-perplexity-search-sonar-plugin",
+      "local_path": ".tmp-clawhub-batch/plugins/aisa-perplexity-search-sonar-plugin",
       "release_ref": "rd793hcmfwpqtqwj53zht0hs7d85expt",
       "reason": "The search client mostly matches its purpose, but the published requirement metadata conflicts with the bundled manifests and code about needing Python and an AISA_API_KEY."
     },
@@ -72,7 +72,7 @@
         "If the pattern is a real runtime need, explain the exact boundary and intended command/file behavior in public docs."
       ],
       "detail_url": "https://clawhub.ai/plugins/aisa-tavily-search-plugin",
-      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-tavily-search-plugin",
+      "local_path": ".tmp-clawhub-batch/plugins/aisa-tavily-search-plugin",
       "release_ref": null,
       "reason": "Detected: suspicious.env_credential_access"
     },
@@ -106,39 +106,6 @@
       "reason": "This looks mostly like a legitimate recent-research skill, but its published metadata understates the credentials, binaries, and network behavior that the bundled skill actually uses."
     },
     {
-      "key": "plugin:last30days-zh-plugin",
-      "kind": "plugin",
-      "name": "last30days-zh-plugin",
-      "publisher_handle": "baofeng-tech",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "metadata_env_mismatch",
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
-        "Declare every required env var in the same shape across all publish layers.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
-      "local_path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
-      "release_ref": "rd79t34w8g0yy724ezfmjzamh185b1r6",
-      "reason": "The skill mostly matches its research purpose, but its registry metadata understates the real runtime requirements and it includes an unexpected local network endpoint."
-    },
-    {
       "key": "skill:openclaw-twitter",
       "kind": "skill",
       "name": "openclaw-twitter",
@@ -163,7 +130,7 @@
         "Avoid phrasing that makes posting look silent or automatic by default."
       ],
       "detail_url": "https://clawhub.ai/0xjordansg-yolo/openclaw-twitter",
-      "local_path": "clawhub-release\\openclaw-twitter",
+      "local_path": "clawhub-release/openclaw-twitter",
       "release_ref": null,
       "reason": "The skill can perform public Twitter/X posting and is instructed to try publishing directly when posting intent is detected."
     },
@@ -192,8 +159,8 @@
         "Avoid phrasing that makes posting look silent or automatic by default."
       ],
       "detail_url": "https://clawhub.ai/aisadocs/openclaw-twitter-post-engage",
-      "local_path": "clawhub-release\\openclaw-twitter-post-engage",
-      "release_ref": null,
+      "local_path": "clawhub-release/openclaw-twitter-post-engage",
+      "release_ref": "k97838fam5hd5nmfzrmrxs68qs86605f",
       "reason": "The public posting workflow is purpose-aligned, but conflicting post-mode instructions create a material misuse risk for external publication."
     },
     {
@@ -221,7 +188,7 @@
         "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/potdealer/prediction-market",
-      "local_path": "/mnt/d/workplace/agent-skills-io/clawhub-release/prediction-market",
+      "local_path": "clawhub-release/prediction-market",
       "release_ref": null,
       "reason": "The skill provides raw on-chain betting transactions and weak project provenance for a real-money market."
     },
@@ -250,7 +217,7 @@
         "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/h4gen/prediction-market-arbitrage",
-      "local_path": "clawhub-release\\prediction-market-arbitrage",
+      "local_path": "clawhub-release/prediction-market-arbitrage",
       "release_ref": null,
       "reason": "The skill uses unpinned dependency installs and a broad `update --all`, plus a disclosed recurring monitoring loop."
     },
@@ -279,7 +246,7 @@
         "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/lee920311/smart-search",
-      "local_path": "clawhub-release\\smart-search",
+      "local_path": "clawhub-release/smart-search",
       "release_ref": null,
       "reason": "The skill uses purpose-aligned shell and Docker tooling, but unsafe .env sourcing and the broad persistent SearX deployment need review."
     },
@@ -308,7 +275,7 @@
         "Keep the auth story API-key-only unless the runtime truly needs more."
       ],
       "detail_url": "https://clawhub.ai/udiedrichsen/stock-analysis",
-      "local_path": "clawhub-release\\stock-analysis",
+      "local_path": "clawhub-release/stock-analysis",
       "release_ref": null,
       "reason": "Optional third-party CLI installation and user-configured cron automation are disclosed and purpose-aligned, but users should review them before enabling."
     },
@@ -337,7 +304,7 @@
         "Avoid phrasing that makes posting look silent or automatic by default."
       ],
       "detail_url": "https://clawhub.ai/evanydl/tavily-extract",
-      "local_path": "clawhub-release\\tavily-extract",
+      "local_path": "clawhub-release/tavily-extract",
       "release_ref": null,
       "reason": "The main concern is automatic execution of an unpinned npm OAuth helper during first-run authentication."
     },
@@ -366,7 +333,7 @@
         "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/persnola1-sketch/twitter-autopilot",
-      "local_path": "clawhub-release\\twitter-autopilot",
+      "local_path": "clawhub-release/twitter-autopilot",
       "release_ref": null,
       "reason": "Direct public Twitter/X mutation commands and optional autonomous cron operation create material public-action risk, though the behavior is disclosed and purpose-aligned."
     },
@@ -395,7 +362,7 @@
         "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/billyutw/web-search",
-      "local_path": "clawhub-release\\web-search",
+      "local_path": "clawhub-release/web-search",
       "release_ref": null,
       "reason": "This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources."
     },
@@ -436,7 +403,7 @@
         "Keep the auth story API-key-only unless the runtime truly needs more."
       ],
       "detail_url": "https://clawhub.ai/karensheng/x-intelligence-automation",
-      "local_path": "clawhub-release\\x-intelligence-automation",
+      "local_path": "clawhub-release/x-intelligence-automation",
       "release_ref": null,
       "reason": "The skill is broadly coherent with a Twitter/X automation client using the AIsa relay, but there are a few mismatches you should be aware of before installing (undeclared env overrides and uploading local files to an external relay)."
     },
@@ -465,7 +432,7 @@
         "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/grpaiva/youtube",
-      "local_path": "clawhub-release\\youtube",
+      "local_path": "clawhub-release/youtube",
       "release_ref": null,
       "reason": "Search YouTube videos, get channel info, fetch video details and transcripts using YouTube Data API v3 via MCP server or yt-dlp fallback."
     },
@@ -494,7 +461,7 @@
         "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/therohitdas/youtube-search",
-      "local_path": "clawhub-release\\youtube-search",
+      "local_path": "clawhub-release/youtube-search",
       "release_ref": null,
       "reason": "Use when the user wants to find YouTube content on any topic: searching for videos or channels, finding creators who cover a subject, discovering tutorials,..."
     },
@@ -523,7 +490,7 @@
         "Retry live scan before treating the package as resolved."
       ],
       "detail_url": "https://clawhub.ai/plugins/aisa-twitter-research-engage-plugin",
-      "local_path": "D:\\workplace\\agent-skills-io\\.tmp-clawhub-batch\\plugins\\aisa-twitter-research-engage-plugin",
+      "local_path": ".tmp-clawhub-batch/plugins/aisa-twitter-research-engage-plugin",
       "release_ref": "rd7481zm68vsvyxstnkm2ee6a585ezhf",
       "reason": null
     }

@@ -232,7 +232,7 @@ def render_artifact_record(item: dict[str, Any], publish_meta: dict[str, Any]) -
     severities = [RULES[rule_id]["severity"] for rule_id in rule_ids if rule_id in RULES]
     for rule_id in rule_ids:
         recommendations.extend(RULES[rule_id]["actions"])
-    severity = "blocker" if item.get("suspicious") or "blocker" in severities else "warning" if severities else "note"
+    severity = "blocker" if item.get("suspicious") else "warning" if severities else "note"
     return {
         "key": item.get("key"),
         "kind": item.get("kind"),

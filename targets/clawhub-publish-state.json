@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-06T16:49:03.198848+00:00",
+  "generated_at": "2026-05-06T17:11:36.516962+00:00",
   "artifacts": {
     "plugin:aisa-multi-search-engine-plugin": {
       "key": "plugin:aisa-multi-search-engine-plugin",
@@ -455,41 +455,41 @@
       "key": "plugin:last30days-zh-plugin",
       "kind": "plugin",
       "name": "last30days-zh-plugin",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
       "status": "published",
-      "last_checked_at": "2026-05-06T16:46:47.540723+00:00",
+      "last_checked_at": "2026-05-06T17:07:38.907686+00:00",
       "token_slot": "token-1",
-      "attempts": 5,
-      "published_at": "2026-05-06T16:46:47.540710+00:00",
-      "last_attempt_at": "2026-05-06T16:46:47.540722+00:00",
+      "attempts": 6,
+      "published_at": "2026-05-06T17:07:38.907669+00:00",
+      "last_attempt_at": "2026-05-06T17:07:38.907685+00:00",
       "last_error": null,
-      "release_ref": "rd7atfrvn7dbgw3bb8fsrvevgd867g91",
+      "release_ref": "rd78yk1q89b6a68zaxedsza91h867v5m",
       "live_scan": {
         "key": "plugin:last30days-zh-plugin",
         "kind": "plugin",
         "name": "last30days-zh-slot1-plugin",
-        "requested_name": null,
-        "version": "1.0.6",
+        "requested_name": "last30days-zh-plugin",
+        "version": "1.0.7",
         "detail_url": "https://clawhub.ai/plugins/last30days-zh-slot1-plugin",
         "resolved_slug": "last30days-zh-slot1-plugin",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "suspicious",
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": "suspicious",
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
         "publisher_handle": "baofeng-tech",
-        "suspicious": true,
-        "suspicious_reason": "This mostly looks like the promised recent multi-source research tool, but its published requirements metadata understates the actual Python/script/API-key runtime.",
-        "pending": true,
+        "suspicious": false,
+        "suspicious_reason": "This appears to be a legitimate recent-research skill that uses an AISA API key and bundled Python scripts, though the registry requirements summary seems incomplete.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T16:49:03.198775+00:00"
+        "checked_at": "2026-05-06T17:13:34.334129+00:00"
       },
       "owner_handle": "baofeng-tech",
       "published_name": "last30days-zh-slot1-plugin",
@@ -904,7 +904,7 @@
         "suspicious_reason": "This skill appears to do what it claims: use Python and an AISA API key to search, post, and engage on Twitter/X through the AISA relay.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T16:34:08.537036+00:00"
+        "checked_at": "2026-05-06T17:13:37.541382+00:00"
       }
     },
     "plugin:openclaw-youtube-plugin": {
@@ -2028,7 +2028,7 @@
         "suspicious_reason": "This skill’s Python scripts, AISA_API_KEY use, and api.aisa.one relay access match its stated Twitter/X research, posting, and engagement purpose, though the registry requirement summary appears incomplete.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T16:34:11.879890+00:00"
+        "checked_at": "2026-05-06T17:13:39.999226+00:00"
       }
     },
     "plugin:youtube-plugin": {
@@ -2568,7 +2568,7 @@
         "suspicious_reason": "The skill appears to implement what it claims (30-day multi-source research via the AIsa API) and only requests an AISA_API_KEY plus Python/bash, but it includes many provider modules and will make network calls (including a default probe to host.docker.internal) so review network and key usage before running.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T15:42:40.428626+00:00"
+        "checked_at": "2026-05-06T17:13:42.256674+00:00"
       }
     },
     "skill:llm-router": {
@@ -2937,19 +2937,19 @@
       "key": "skill:openclaw-twitter-post-engage",
       "kind": "skill",
       "name": "openclaw-twitter-post-engage",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "path": "clawhub-release/openclaw-twitter-post-engage",
       "status": "published",
-      "published_at": "2026-05-06T16:46:59.119205+00:00",
-      "last_checked_at": "2026-05-06T16:46:59.119219+00:00",
+      "published_at": "2026-05-06T17:07:46.269247+00:00",
+      "last_checked_at": "2026-05-06T17:07:46.269263+00:00",
       "last_error": null,
       "token_slot": "token-3",
       "live_scan": {
         "key": "skill:openclaw-twitter-post-engage",
         "kind": "skill",
         "name": "openclaw-twitter-post-engage",
-        "requested_name": null,
-        "version": "1.0.3",
+        "requested_name": "openclaw-twitter-post-engage",
+        "version": "1.0.4",
         "detail_url": "https://clawhub.ai/aisadocs/openclaw-twitter-post-engage",
         "resolved_slug": "openclaw-twitter-post-engage",
         "page_found": true,
@@ -2968,13 +2968,13 @@
         "suspicious_reason": "The public posting workflow is purpose-aligned, but conflicting post-mode instructions create a material misuse risk for external publication.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T16:47:32.738213+00:00"
+        "checked_at": "2026-05-06T17:13:44.515540+00:00"
       },
-      "attempts": 4,
-      "last_attempt_at": "2026-05-06T16:46:59.119217+00:00",
+      "attempts": 5,
+      "last_attempt_at": "2026-05-06T17:07:46.269262+00:00",
       "owner_handle": "aisadocs",
       "published_name": "openclaw-twitter-post-engage",
-      "release_ref": "k97eycd2mk5bx9yev6drvapphh8662rb",
+      "release_ref": "k97838fam5hd5nmfzrmrxs68qs86605f",
       "publish_mode": "published"
     },
     "skill:openclaw-youtube": {
