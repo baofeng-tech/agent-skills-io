@@ -126,7 +126,7 @@ Current scheduler details:
 - hosted auto-commit now uses `persist-credentials: false`, explicit token push, pre-commit `git rebase --autostash`, and push retry rebase; this avoids both the earlier `actions/checkout` post-job `exit code 128` cleanup failure and non-fast-forward races with other action commits
 - schedule runs keep a shared concurrency group; manual dispatches use a per-run concurrency group so urgent manual repair does not sit behind the scheduled queue
 - workflow-dispatch and schedule defaults now keep the publish, suspicious repair, breakout rollout, AISA API regression, ClawHub CLI install, and ClawHub post-publish scan switches open; self-hosted publish is still gated by the hosted preflight before any runner queue is created
-- self-hosted publish, suspicious repair, and breakout rollout now pass through a hosted preflight first; if those lanes are requested and no online self-hosted runner matches `SELF_HOSTED_RUNNER_LABELS` / `SELF_HOSTED_RUNNER_RUNS_ON_JSON` (default `self-hosted`), preflight fails with a summary instead of silently skipping or sitting queued for 24 hours
+- self-hosted publish, suspicious repair, and breakout rollout now pass through a hosted preflight first; if those lanes are requested and no online self-hosted runner matches `SELF_HOSTED_RUNNER_RUNS_ON_JSON` (default `["self-hosted"]`), preflight fails with a summary instead of silently skipping or sitting queued for 24 hours
 - runner availability checks should use `SELF_HOSTED_RUNNER_API_TOKEN` when the default `GITHUB_TOKEN` cannot call the runners API; repository-level runners need repository `Administration: read`, organization-level runners need organization `Self-hosted runners: read`; preflight summaries now include the HTTP message, accepted-permissions header, and SSO hint when GitHub returns `403`
 - preflight now checks the GitHub owner type before trying organization runners; personal repos such as `baofeng-tech/agent-skills-io` only use repository-level runner discovery, so a missing repo runner is reported directly instead of being confused with an organization permission problem
 - hosted AISA API regression now requires `AISA_API_KEY` when enabled; missing secrets fail fast with an actionable message, while real third-party network blips are recorded as `transient` instead of hard skill failures
@@ -311,11 +311,10 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_INSTALL_CLAWHUB_CLI`
 - `AUTO_FORCE_SELF_HOSTED_QUEUE`
 - `SELF_HOSTED_RUNNER_RUNS_ON_JSON`
-- `SELF_HOSTED_RUNNER_LABELS`
 - `AUTO_HERMES_PUBLISH_MODE`
 - `CLAWHUB_CLI_VERSION`
 
-Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` when the runner needs labels beyond the default, for example `["self-hosted","linux","clawhub"]`. `SELF_HOSTED_RUNNER_LABELS` remains a preflight compatibility input, but the JSON value is what aligns the actual `runs-on` target.
+Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` as the single source for runner labels, for example `["self-hosted","linux","clawhub"]`. The preflight parser and the actual self-hosted `runs-on` target both read this JSON value.
 
 If the repository runner endpoint returns `200` with zero runners, preflight first resolves the owner through `GET /users/{owner}`. It only checks organization-level runners when the owner type is `Organization`. For a personal repo owned by `User`, such as `baofeng-tech/agent-skills-io`, the summary reports that organization-runner fallback is not applicable.
 

@@ -216,7 +216,7 @@ def infer_network_targets(skill: dict[str, object], env_vars: list[str]) -> list
         targets.extend(["https://www.reddit.com", "https://hacker-news.firebaseio.com"])
         if "last30days-zh" not in lower:
             targets.append("https://api.github.com")
-        targets.extend(["https://www.xiaohongshu.com", "http://host.docker.internal:18060"])
+        targets.append("https://www.xiaohongshu.com")
     return list(dict.fromkeys(targets))
 
 
@@ -261,7 +261,12 @@ def infer_optional_env_vars(skill_dir: Path, metadata: dict[str, object]) -> lis
         optional_envs = scoped.get("optionalEnv") if isinstance(scoped, dict) else None
         if isinstance(optional_envs, list):
             for env_name in optional_envs:
-                if isinstance(env_name, str) and env_name not in merged:
+                if (
+                    isinstance(env_name, str)
+                    and env_name in OPTIONAL_ENV_ALLOWLIST
+                    and env_name not in OPTIONAL_ENV_IGNORE
+                    and env_name not in merged
+                ):
                     merged.append(env_name)
     if merged:
         return merged
@@ -324,6 +329,45 @@ def write_json(path: Path, payload: dict[str, object]) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def write_root_skill_manifest(
+    plugin_dir: Path,
+    skill: dict[str, object],
+    slug: str,
+    runtime_requirements: dict[str, object],
+    runtime_metadata: dict[str, object],
+) -> None:
+    frontmatter: dict[str, object] = {
+        "name": slug,
+        "description": plugin_description(skill),
+        "version": skill["version"],
+        "license": skill["license"],
+        "requires": {
+            "bins": runtime_requirements.get("bins", []),
+            "env": runtime_requirements.get("env", []),
+        },
+        "metadata": runtime_metadata,
+    }
+    if runtime_requirements.get("primaryEnv"):
+        frontmatter["primaryEnv"] = runtime_requirements["primaryEnv"]
+    if runtime_requirements.get("optionalEnv"):
+        frontmatter["optionalEnv"] = runtime_requirements["optionalEnv"]
+    if runtime_requirements.get("networkTargets"):
+        frontmatter["networkTargets"] = runtime_requirements["networkTargets"]
+
+    body = "\n".join(
+        [
+            f"# {base.prettify_skill_name(str(skill['name']))} Plugin",
+            "",
+            "This root manifest mirrors the packaged skill runtime so ClawHub registry scans can read the same requirements declared in the native plugin manifests.",
+            "",
+            f"- Packaged skill: `skills/{skill['path']}/`",
+            "- Native manifest: `openclaw.plugin.json`",
+            "- Claude-compatible fallback: `.claude-plugin/plugin.json`",
+        ]
+    )
+    (plugin_dir / "SKILL.md").write_text(base.dump_skill(frontmatter, body), encoding="utf-8")
+
+
 def zip_plugin(source_dir: Path, zip_path: Path) -> None:
     write_deterministic_zip(source_dir, zip_path, compresslevel=1)
 
@@ -380,6 +424,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
     if skill.get("emoji"):
         openclaw_manifest["uiHints"] = {"emoji": skill["emoji"]}
     write_json(plugin_dir / "openclaw.plugin.json", openclaw_manifest)
+    write_root_skill_manifest(plugin_dir, skill, slug, runtime_requirements, runtime_metadata)
 
     index_js = [
         "const plugin = {",
@@ -424,6 +469,16 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
     }
     write_json(plugin_dir / "package.json", package_json)
 
+    network_targets = runtime_requirements.get("networkTargets")
+    if isinstance(network_targets, list) and network_targets:
+        network_line = f"- Network targets: `{', '.join(str(target) for target in network_targets)}`"
+    elif relay_default_url(skill):
+        network_line = f"- Network target: `{relay_default_url(skill)}`"
+    elif "AISA_API_KEY" in skill.get("env_vars", []):
+        network_line = "- Network target: `https://api.aisa.one`"
+    else:
+        network_line = "- Network target: see the packaged skill's runtime docs"
+
     readme_lines = [
         f"# {base.prettify_skill_name(skill_name)} Plugin",
         "",
@@ -434,13 +489,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         f"- Required bins: `{', '.join(skill['required_bins'])}`" if skill.get("required_bins") else "- Required bins: none",
         f"- Required env vars: `{', '.join(skill['env_vars'])}`" if skill.get("env_vars") else "- Required env vars: none",
         f"- Primary env: `{skill['primary_env']}`" if skill.get("primary_env") else "- Primary env: none",
-        (
-            f"- Network target: `{relay_default_url(skill)}`"
-            if relay_default_url(skill)
-            else "- Network target: `https://api.aisa.one`"
-            if "AISA_API_KEY" in skill.get("env_vars", [])
-            else "- Network target: see the packaged skill's runtime docs"
-        ),
+        network_line,
         "",
         "## What It Ships",
         "",

@@ -7,6 +7,7 @@ import argparse
 import json
 import os
 import re
+import shlex
 import shutil
 import subprocess
 import sys
@@ -194,17 +195,21 @@ def run_command(
     timeout: int = 600,
 ) -> subprocess.CompletedProcess[str]:
     if args and args[0] == "clawhub":
-        clawhub_bin = (
-            os.environ.get("CLAWHUB_BIN", "").strip()
-            or shutil.which("clawhub")
-            or shutil.which("clawhub.cmd")
-            or shutil.which("clawhub.exe")
-        )
-        if clawhub_bin:
-            if os.name == "nt" and clawhub_bin.lower().endswith((".cmd", ".bat")):
-                args = ["cmd.exe", "/c", clawhub_bin, *args[1:]]
-            else:
-                args = [clawhub_bin, *args[1:]]
+        clawhub_command = os.environ.get("CLAWHUB_COMMAND", "").strip()
+        if clawhub_command:
+            args = [*shlex.split(clawhub_command), *args[1:]]
+        else:
+            clawhub_bin = (
+                os.environ.get("CLAWHUB_BIN", "").strip()
+                or shutil.which("clawhub")
+                or shutil.which("clawhub.cmd")
+                or shutil.which("clawhub.exe")
+            )
+            if clawhub_bin:
+                if os.name == "nt" and clawhub_bin.lower().endswith((".cmd", ".bat")):
+                    args = ["cmd.exe", "/c", clawhub_bin, *args[1:]]
+                else:
+                    args = [clawhub_bin, *args[1:]]
     merged_env = os.environ.copy()
     if env:
         merged_env.update(env)

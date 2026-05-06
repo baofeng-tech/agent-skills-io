@@ -1,6 +1,7 @@
 ---
 name: last30days-zh
 description: '聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.'
+version: 1.0.7
 license: MIT
 allowed-tools: Read Bash Grep
 when_to_use: the user needs recent multi-source research across the last 30 days
@@ -36,6 +37,7 @@ when_to_use: the user needs recent multi-source research across the last 30 days
 - Python `3.12+`
 - 统一使用仓库相对路径下的 `scripts/` 命令，避免运行时变量替换失败。
 - 可选 repo-local 配置文件：`./.last30days-data/config.env`，也可以直接传 `--api-key`。
+- 小红书扩展只在显式提供 `XIAOHONGSHU_API_BASE` 时启用；公开发布包不会默认探测本地网络端点。
 
 ## 快速命令
 

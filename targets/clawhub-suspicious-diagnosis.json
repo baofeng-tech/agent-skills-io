@@ -1,15 +1,15 @@
 {
   "summary": {
-    "artifacts": 18,
-    "blockers": 17,
+    "artifacts": 17,
+    "blockers": 16,
     "warnings": 1,
-    "pending": 5,
+    "pending": 4,
     "rules": {
       "metadata_env_mismatch": 2,
-      "oauth_upload_side_effects": 5,
-      "pending_scan": 5,
-      "platform_trust_gap": 9,
-      "relay_trust_surface": 4,
+      "oauth_upload_side_effects": 4,
+      "pending_scan": 4,
+      "platform_trust_gap": 8,
+      "relay_trust_surface": 3,
       "static_analysis_patterns": 1
     }
   },
@@ -137,47 +137,6 @@
       "local_path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
       "release_ref": "rd79t34w8g0yy724ezfmjzamh185b1r6",
       "reason": "The skill mostly matches its research purpose, but its registry metadata understates the real runtime requirements and it includes an unexpected local network endpoint."
-    },
-    {
-      "key": "plugin:x-intelligence-automation-plugin",
-      "kind": "plugin",
-      "name": "x-intelligence-automation-plugin",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/x-intelligence-automation-plugin",
-      "local_path": "clawhub-plugin-release/plugins/x-intelligence-automation-plugin",
-      "release_ref": "rd7bsae56pj7r6brnyctbdy2v985c1yw",
-      "reason": "The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing."
     },
     {
       "key": "skill:openclaw-twitter",

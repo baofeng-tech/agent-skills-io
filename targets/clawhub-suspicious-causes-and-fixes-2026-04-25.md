@@ -127,18 +127,18 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`18`
-- `blocker`：`17`
+- 诊断对象数：`17`
+- `blocker`：`16`
 - `warning`：`1`
-- `pending`：`5`
+- `pending`：`4`
 
 ### 当前高频规则
 
 - `metadata_env_mismatch`: `2`
-- `oauth_upload_side_effects`: `5`
-- `pending_scan`: `5`
-- `platform_trust_gap`: `9`
-- `relay_trust_surface`: `4`
+- `oauth_upload_side_effects`: `4`
+- `pending_scan`: `4`
+- `platform_trust_gap`: `8`
+- `relay_trust_surface`: `3`
 - `static_analysis_patterns`: `1`
 
 ### 当前重点对象
@@ -159,10 +159,6 @@
   severity: `blocker` | status: `pending`
   rules: `metadata_env_mismatch, pending_scan`
   reason: The skill mostly matches its research purpose, but its registry metadata understates the real runtime requirements and it includes an unexpected local network endpoint.
-- `plugin:x-intelligence-automation-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `oauth_upload_side_effects, pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing.
 - `skill:openclaw-twitter`
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects`
@@ -191,4 +187,8 @@
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects`
   reason: The main concern is automatic execution of an unpinned npm OAuth helper during first-run authentication.
+- `skill:twitter-autopilot`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: Direct public Twitter/X mutation commands and optional autonomous cron operation create material public-action risk, though the behavior is disclosed and purpose-aligned.
 <!-- AUTO-DIAGNOSIS:END -->

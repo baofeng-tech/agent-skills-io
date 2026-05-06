@@ -356,7 +356,7 @@ jobs:
           AUTO_RUN_SUSPICIOUS_REPAIR: ${{ vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'true' }}
           AUTO_RUN_BREAKOUT_ROLLOUT: ${{ vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'true' }}
           AUTO_FORCE_SELF_HOSTED_QUEUE: ${{ vars.AUTO_FORCE_SELF_HOSTED_QUEUE || 'false' }}
-          SELF_HOSTED_RUNNER_LABELS: ${{ vars.SELF_HOSTED_RUNNER_LABELS || vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || 'self-hosted' }}
+          SELF_HOSTED_RUNNER_LABELS: ${{ vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]' }}
         run: |
           set -euo pipefail
 

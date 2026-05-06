@@ -33,8 +33,7 @@
         "https://www.reddit.com",
         "https://hacker-news.firebaseio.com",
         "https://api.github.com",
-        "https://www.xiaohongshu.com",
-        "http://host.docker.internal:18060"
+        "https://www.xiaohongshu.com"
       ]
     }
   },
@@ -105,8 +104,7 @@
       "https://www.reddit.com",
       "https://hacker-news.firebaseio.com",
       "https://api.github.com",
-      "https://www.xiaohongshu.com",
-      "http://host.docker.internal:18060"
+      "https://www.xiaohongshu.com"
     ]
   },
   "requires": {
@@ -132,8 +130,7 @@
     "https://www.reddit.com",
     "https://hacker-news.firebaseio.com",
     "https://api.github.com",
-    "https://www.xiaohongshu.com",
-    "http://host.docker.internal:18060"
+    "https://www.xiaohongshu.com"
   ],
   "aisa": {
     "requires": {
@@ -159,8 +156,7 @@
       "https://www.reddit.com",
       "https://hacker-news.firebaseio.com",
       "https://api.github.com",
-      "https://www.xiaohongshu.com",
-      "http://host.docker.internal:18060"
+      "https://www.xiaohongshu.com"
     ]
   },
   "openclaw": {
@@ -186,8 +182,7 @@
         "https://www.reddit.com",
         "https://hacker-news.firebaseio.com",
         "https://api.github.com",
-        "https://www.xiaohongshu.com",
-        "http://host.docker.internal:18060"
+        "https://www.xiaohongshu.com"
       ]
     }
   }

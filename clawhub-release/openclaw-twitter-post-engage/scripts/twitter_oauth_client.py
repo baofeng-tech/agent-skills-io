@@ -485,6 +485,19 @@ def command_authorize(args: argparse.Namespace) -> None:
 
 def command_post(args: argparse.Namespace) -> None:
     """Split oversized content locally, then publish chunks through the relay."""
+    if not getattr(args, "confirm_public_write", False):
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "error": "Refusing to publish without --confirm-public-write after the final public content has been confirmed.",
+                },
+                indent=2,
+                ensure_ascii=False,
+            )
+        )
+        sys.exit(1)
+
     config = load_config(args)
     media_ids = getattr(args, "media_id", None) or []
     media_files = load_media_files(getattr(args, "media_file", None))
@@ -548,6 +561,7 @@ def command_status(args: argparse.Namespace) -> None:
             "transport": "multipart/form-data",
             "supported_media_types": ["image/*", "video/*"],
         },
+        "requires_confirm_public_write": True,
     }
     print(json.dumps(response, indent=2, ensure_ascii=False))
 
@@ -589,6 +603,11 @@ def build_parser() -> argparse.ArgumentParser:
     post.add_argument(
         "--in-reply-to-tweet-id",
         help="Optional external parent tweet ID for reply-style posting. When provided with --type reply, the first chunk starts from that tweet before continuing the thread.",
+    )
+    post.add_argument(
+        "--confirm-public-write",
+        action="store_true",
+        help="Confirm that the final public post content, media, and reply or quote target were approved before publishing.",
     )
 
     post.set_defaults(func=command_post)

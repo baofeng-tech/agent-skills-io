@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-05T20:53:30.774170+00:00",
+  "generated_at": "2026-05-06T16:34:11.904043+00:00",
   "summary": {
     "total": 116,
-    "suspicious": 17,
-    "pending": 5,
+    "suspicious": 16,
+    "pending": 4,
     "resolved_urls": 116
   },
   "artifacts": [
@@ -584,15 +584,15 @@
     {
       "key": "plugin:last30days-zh-plugin",
       "kind": "plugin",
-      "name": "last30days-zh-plugin",
+      "name": "last30days-zh-slot1-plugin",
       "requested_name": "last30days-zh-plugin",
-      "version": "1.0.0",
-      "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
-      "resolved_slug": "last30days-zh-plugin",
+      "version": "1.0.5",
+      "detail_url": "https://clawhub.ai/plugins/last30days-zh-slot1-plugin",
+      "resolved_slug": "last30days-zh-slot1-plugin",
       "page_found": true,
       "fetch_mode": "http",
       "scan_status": "pending",
-      "virus_total": null,
+      "virus_total": "pending",
       "virus_total_report_url": null,
       "clawscan_verdict": "suspicious",
       "clawscan_confidence": null,
@@ -602,10 +602,10 @@
       "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
       "publisher_handle": "baofeng-tech",
       "suspicious": true,
-      "suspicious_reason": "The skill mostly matches its research purpose, but its registry metadata understates the real runtime requirements and it includes an unexpected local network endpoint.",
+      "suspicious_reason": "The skill’s purpose mostly matches its behavior, but its registry requirements say it needs no credentials or binaries even though its own manifests and instructions require Python, bash, and an AISA_API_KEY.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-05-05T20:49:43.390462+00:00"
+      "checked_at": "2026-05-06T16:34:05.239748+00:00"
     },
     {
       "key": "plugin:llm-router-plugin",
@@ -891,7 +891,7 @@
       "suspicious_reason": "This skill appears to do what it claims: use Python and an AISA API key to search, post, and engage on Twitter/X through the AISA relay.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-05T20:50:14.685650+00:00"
+      "checked_at": "2026-05-06T16:34:08.537036+00:00"
     },
     {
       "key": "plugin:openclaw-youtube-plugin",
@@ -1579,21 +1579,21 @@
       "resolved_slug": "x-intelligence-automation-plugin",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "pending",
-      "virus_total": null,
+      "scan_status": "clean",
+      "virus_total": "clean",
       "virus_total_report_url": null,
-      "clawscan_verdict": "suspicious",
+      "clawscan_verdict": "clean",
       "clawscan_confidence": null,
-      "openclaw_verdict": "suspicious",
+      "openclaw_verdict": "clean",
       "openclaw_confidence": null,
       "static_analysis_status": "clean",
       "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
       "publisher_handle": "bibaofeng",
-      "suspicious": true,
-      "suspicious_reason": "The package largely does what it says (Twitter/X research, monitoring, and OAuth-backed posting via an AIsa relay) but there are metadata inconsistencies and the skill will upload user content and attachments to a third‑party relay (api.aisa.one), so you should verify you trust that service before installing.",
-      "pending": true,
+      "suspicious": false,
+      "suspicious_reason": "This skill’s Python scripts, AISA_API_KEY use, and api.aisa.one relay access match its stated Twitter/X research, posting, and engagement purpose, though the registry requirement summary appears incomplete.",
+      "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-05T20:51:51.022472+00:00"
+      "checked_at": "2026-05-06T16:34:11.879890+00:00"
     },
     {
       "key": "plugin:youtube-plugin",
@@ -2061,7 +2061,7 @@
       "suspicious_reason": "The skill appears to implement what it claims (30-day multi-source research via the AIsa API) and only requests an AISA_API_KEY plus Python/bash, but it includes many provider modules and will make network calls (including a default probe to host.docker.internal) so review network and key usage before running.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-05T20:52:25.576576+00:00"
+      "checked_at": "2026-05-06T15:42:40.428626+00:00"
     },
     {
       "key": "skill:llm-router",
@@ -2347,7 +2347,7 @@
       "suspicious_reason": "The public posting workflow is purpose-aligned, but conflicting post-mode instructions create a material misuse risk for external publication.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-05T20:52:42.997913+00:00"
+      "checked_at": "2026-05-06T15:42:43.231784+00:00"
     },
     {
       "key": "skill:openclaw-youtube",
@@ -2945,7 +2945,7 @@
       "suspicious_reason": "The skill is broadly coherent with a Twitter/X automation client using the AIsa relay, but there are a few mismatches you should be aware of before installing (undeclared env overrides and uploading local files to an external relay).",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-05T20:53:23.470158+00:00"
+      "checked_at": "2026-05-06T15:42:45.915209+00:00"
     },
     {
       "key": "skill:youtube",

@@ -167,6 +167,10 @@ Any AI working in this repository should:
   - Claude standalone / Claude marketplace / Hermes tap / Hermes publish 的收录判断、可安装验证命令与当前状态快照
 - `targets/repo-runbook-and-script-reference.md`
   - 仓库执行流、脚本用途、参数与常用命令的统一参考
+- `targets/task-execution-index.md`
+  - 面向后续 AI 的任务执行索引：项目定位、目录路由、构建顺序、CI secret map、ClawHub 修复循环
+- `targets/github-actions-review-2026-05-06.md`
+  - 本轮 GitHub Actions / self-hosted runner / token / Python 依赖 / ClawHub CLI 审查结论
 - `targets/clawhub-resume-and-breakout-plan-2026-04-24.md`
   - 当前 ClawHub 续跑、版本收口、爆款改造与 skillGet 证据接入的执行计划
 - `targets/aisa-api-breakout-rollout-plan-2026-04-28.md`
@@ -826,7 +830,7 @@ GitHub Actions 工作流层。
 - GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；事故修复后，下游 GitHub 目标已显式排除 `AIsa-team/agent-skills`，仅覆盖 `baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
 - GitHub Actions 自动全平台发布：self-hosted 真发布轨现在默认在 `schedule` 下请求 publish / suspicious repair / breakout rollout / AISA 回归 / ClawHub CLI install / post-publish scan；仍由 hosted preflight 决定是否排队，可用 `AUTO_FULL_PLATFORM_PUBLISH=false`、`AUTO_RUN_SUSPICIOUS_REPAIR=false`、`AUTO_RUN_BREAKOUT_ROLLOUT=false` 等变量关闭对应 lane，并可用 `AUTO_ADJACENT_TARGETS`、`AUTO_CLAWHUB_PUBLISH`、`AUTO_SYNC_ADJACENT_REPOS`、`AUTO_PUSH_ADJACENT_REPOS` 等变量细化“发哪些下游平台”
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每日一次（`21 19 * * *`），避免长发布链路堆积出 pending/canceled 队列
-- GitHub Actions self-hosted 排队防护：publish / suspicious repair / breakout rollout 三条 self-hosted 线现在先经过 hosted preflight，只有发现在线 runner 或显式设置 `force_self_hosted_queue` / `AUTO_FORCE_SELF_HOSTED_QUEUE` 时才入队；若默认 `GITHUB_TOKEN` 无法读取 runners API，应配置 `SELF_HOSTED_RUNNER_API_TOKEN`，repo-level runner 需要 repository `Administration: read`，org-level runner 需要 organization `Self-hosted runners: read`；当 self-hosted lane 被请求但 preflight 不能确认 runner 时 workflow 会 fail fast 并写 summary，避免旧流程静默 skip 或 24 小时排队失败；preflight 现在会把 403 的 message、accepted permissions 和 SSO hint 写进 summary，并在个人账号仓库中跳过无效的 organization runner fallback
+- GitHub Actions self-hosted 排队防护：publish / suspicious repair / breakout rollout 三条 self-hosted 线现在先经过 hosted preflight，只有发现在线 runner 或显式设置 `force_self_hosted_queue` / `AUTO_FORCE_SELF_HOSTED_QUEUE` 时才入队；runner 标签以 `SELF_HOSTED_RUNNER_RUNS_ON_JSON` 为单一来源；若默认 `GITHUB_TOKEN` 无法读取 runners API，应配置 `SELF_HOSTED_RUNNER_API_TOKEN`，repo-level runner 需要 repository `Administration: read`，org-level runner 需要 organization `Self-hosted runners: read`；当 self-hosted lane 被请求但 preflight 不能确认 runner 时 workflow 会 fail fast 并写 summary，避免旧流程静默 skip 或 24 小时排队失败；preflight 现在会把 403 的 message、accepted permissions 和 SSO hint 写进 summary，并在个人账号仓库中跳过无效的 organization runner fallback
 - GitHub Actions checkout 后置失败修复：hosted lane 已改为 `persist-credentials: false` + explicit token push，避免此前的 post-job `exit code 128`
 - GitHub Actions 提交冲突修复：hosted 与 self-hosted repo commit step 现在会在提交前 `git rebase --autostash` 到远端最新 `main`，push 失败时再 fetch/rebase 重试，避免 action 之间互相制造 non-fast-forward 冲突
 - GitHub Actions AISA skill 代码回归：hosted lane 现在支持通过手动参数 `run_aisa_api_regression=true` 或仓库变量 `AUTO_RUN_AISA_API_REGRESSION=true` 运行 `scripts/test_aisa_api_skills.py`，生成并上传/提交 `targets/aisa-api-regression-report-YYYY-MM-DD.json`；开启时必须配置 `AISA_API_KEY`，缺失会 fail fast，第三方网络瞬断只记为 `transient_count`

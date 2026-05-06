@@ -2,7 +2,7 @@
 name: openclaw-twitter-post-engage
 description: 'Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AISA relay. Use when: the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords. Supports read APIs, OAuth-gated posting, and follow or like operations.'
 author: AIsa
-version: 1.0.0
+version: 1.0.4
 license: Apache-2.0
 homepage: https://aisa.one
 source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/openclaw-twitter-post-engage
@@ -72,7 +72,7 @@ All network calls go to `https://api.aisa.one/apis/v1/...`.
 
 - Read user, tweet, trend, list, community, and Spaces data.
 - Publish text, image, and video posts after explicit OAuth approval.
-- Like, unlike, follow, and unfollow through the engagement client once authorization exists.
+- Like, unlike, follow, and unfollow through the engagement client once authorization exists and `--confirm-engagement` is present.
 - Reuse the current conversation context instead of local file-based conversation persistence.
 
 ## Common Commands
@@ -80,9 +80,9 @@ All network calls go to `https://api.aisa.one/apis/v1/...`.
 ```bash
 python3 scripts/twitter_client.py search --query "AI agents" --type Latest
 python3 scripts/twitter_oauth_client.py authorize
-python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa"
-python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
-python3 scripts/twitter_engagement_client.py follow-user --user "@elonmusk"
+python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa" --confirm-public-write
+python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk" --confirm-engagement
+python3 scripts/twitter_engagement_client.py follow-user --user "@elonmusk" --confirm-engagement
 ```
 
 ## Posting and Engagement Workflow

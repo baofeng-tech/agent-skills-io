@@ -58,7 +58,8 @@ Read these files first:
 
 1. `PROJECT_OVERVIEW.md`
 2. `README.md`
-3. one or more of the following if relevant:
+3. `targets/task-execution-index.md` for multi-step execution routing
+4. one or more of the following if relevant:
    - `targetSkills/PUBLISHING.md`
    - `clawhub-release/README.md`
    - files under `targets/`

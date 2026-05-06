@@ -22,10 +22,12 @@ More detailed repo rules live in [AGENTS.md](/mnt/d/workplace/agent-skills-io/AG
 ## Key Docs
 
 - Core workflow:
+  - [Task Execution Index](/mnt/d/workplace/agent-skills-io/targets/task-execution-index.md:1)
   - [Repo Runbook And Script Reference](/mnt/d/workplace/agent-skills-io/targets/repo-runbook-and-script-reference.md:1)
   - [Platform Skill And Plugin Methodology](/mnt/d/workplace/agent-skills-io/targets/platform-skill-plugin-methodology.md:1)
   - [Unified Pipeline And GitHub Actions](/mnt/d/workplace/agent-skills-io/targets/unified-pipeline-and-github-actions.md:1)
 - Current audits:
+  - [GitHub Actions Review 2026-05-06](/mnt/d/workplace/agent-skills-io/targets/github-actions-review-2026-05-06.md:1)
   - [Platform Layer And Rule Split Audit 2026-04-28](/mnt/d/workplace/agent-skills-io/targets/platform-layer-and-rule-split-audit-2026-04-28.md:1)
   - [ClawHub Account Status 2026-04-28](/mnt/d/workplace/agent-skills-io/targets/clawhub-account-status-2026-04-28.md:1)
   - [Breakout Skill Plugin Registry 2026-04-28](/mnt/d/workplace/agent-skills-io/targets/breakout-skill-plugin-registry-2026-04-28.md:1)
@@ -205,7 +207,7 @@ python3 scripts/clawhub_suspicious_remediation.py \
   - runs the dedicated breakout rollout path from `targets/clawhub-breakout-variants.json`
   - keeps breakout experimentation separate from normal sync and suspicious remediation
 
-Schedule runs now request the publish, suspicious-remediation, breakout, AISA regression, ClawHub CLI install, and post-publish scan lanes by default. They still pass through the hosted self-hosted-runner preflight first, so a missing/offline runner skips quickly instead of waiting in queue.
+Schedule runs now request the publish, suspicious-remediation, breakout, AISA regression, ClawHub CLI install, and post-publish scan lanes by default. They still pass through the hosted self-hosted-runner preflight first, so a requested self-hosted lane fails fast with a clear summary when the runner cannot be confirmed instead of waiting in queue for 24 hours.
 
 Set any `AUTO_*` variable below to `false` when you want to close that scheduled lane.
 
@@ -231,12 +233,12 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_BREAKOUT_SKILLS`
 - `AUTO_BREAKOUT_PUBLISH`
 - `AUTO_INSTALL_CLAWHUB_CLI`
+- `AUTO_FORCE_SELF_HOSTED_QUEUE`
 - `AUTO_HERMES_PUBLISH_MODE`
 - `SELF_HOSTED_RUNNER_RUNS_ON_JSON`
-- `SELF_HOSTED_RUNNER_LABELS`
 - `CLAWHUB_CLI_VERSION`
 
-Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` when the runner needs labels beyond the default, for example `["self-hosted","linux","clawhub"]`. `SELF_HOSTED_RUNNER_LABELS` is accepted by preflight for compatibility, but the JSON value keeps the preflight and actual `runs-on` target aligned.
+Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` as the single source for runner labels, for example `["self-hosted","linux","clawhub"]`. The preflight and the actual `runs-on` target both read this JSON value.
 
 For `SELF_HOSTED_RUNNER_API_TOKEN`, repository-level runners need fine-grained PAT repository `Administration: read`. Organization-level runners need organization `Self-hosted runners: read`; otherwise the repo runner API may return `200` with zero runners while the org runner API returns `403`.
 
