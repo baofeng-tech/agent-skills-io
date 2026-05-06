@@ -1,7 +1,7 @@
 # ClawHub Plugin Release Audit
 
 - Generated plugins: 56
-- Packaging mode: native-first dual format (`openclaw.plugin.json` + `index.ts` + `package.json` + optional `.claude-plugin/plugin.json` + embedded `skills/`)
+- Packaging mode: native-first dual format (`openclaw.plugin.json` + `index.js` + `package.json` + optional `.claude-plugin/plugin.json` + embedded `skills/`)
 - Zip rule: archives are written root-flat with required files at archive root.
 
 ## aisa-multi-search-engine-plugin

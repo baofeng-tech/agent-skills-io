@@ -13,7 +13,7 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 
 - Bundle plugin id: `prediction-market-data-zh-plugin`
 - Native manifest: `openclaw.plugin.json`
-- Native entrypoint: `index.ts`
+- Native entrypoint: `index.js`
 - Embedded skill: `skills/prediction-market-data-zh/SKILL.md`
 - Format: native OpenClaw plugin plus Claude-compatible bundle fallback
 

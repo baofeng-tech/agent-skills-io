@@ -33,6 +33,8 @@ TRANSIENT_MARKERS = (
     "TypeError: fetch failed",
     "The read operation timed out",
     "timed out",
+    '"code": "NETWORK_ERROR"',
+    "'code': 'NETWORK_ERROR'",
 )
 
 
@@ -230,8 +232,14 @@ def run_check_with_retries(
         )
         last_result = result
         application_error = has_application_error(result.stdout, result.stderr)
-        status = "passed" if result.returncode == 0 and not application_error else "failed"
-        if status == "passed" or not is_transient_failure(result.stdout, result.stderr):
+        transient = is_transient_failure(result.stdout, result.stderr)
+        if result.returncode == 0 and not application_error:
+            status = "passed"
+        elif transient:
+            status = "transient"
+        else:
+            status = "failed"
+        if status == "passed" or not transient:
             break
         if attempts <= retries:
             time.sleep(2)
@@ -276,7 +284,8 @@ def main() -> int:
                 time.sleep(args.delay)
             results.append(run_check(skill_dir, kind, command, env, args.timeout, args.retries))
 
-    failures = [result for result in results if result.status != "passed"]
+    failures = [result for result in results if result.status == "failed"]
+    transients = [result for result in results if result.status == "transient"]
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "target_root": str(TARGET_ROOT.relative_to(REPO_ROOT)),
@@ -284,6 +293,7 @@ def main() -> int:
         "docs_only_skills": docs_only,
         "check_count": len(results),
         "failure_count": len(failures),
+        "transient_count": len(transients),
         "results": [asdict(result) for result in results],
     }
     report_path = Path(args.report).resolve()
@@ -299,6 +309,10 @@ def main() -> int:
         for failure in failures:
             print(f"  - {failure.skill}: {' '.join(failure.command)}")
         return 1
+    if transients:
+        print("Transient external failures:")
+        for transient in transients:
+            print(f"  - {transient.skill}: {' '.join(transient.command)}")
     return 0
 
 

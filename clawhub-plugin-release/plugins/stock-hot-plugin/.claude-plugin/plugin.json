@@ -69,6 +69,22 @@
       "https://api.aisa.one"
     ]
   },
+  "requires": {
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ]
+  },
+  "optionalEnv": [
+    "AISA_BASE_URL",
+    "AISA_MODEL"
+  ],
+  "primaryEnv": "AISA_API_KEY",
+  "networkTargets": [
+    "https://api.aisa.one"
+  ],
   "aisa": {
     "requires": {
       "bins": [

@@ -52,7 +52,7 @@ python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa"
 ## Platform Notes
 
 - AgentSkills: the package follows the standard `SKILL.md + scripts + references` structure.
-- OpenClaw: `metadata.openclaw` is included for environment and runtime hints.
+- OpenClaw: generated release layers add environment and runtime hints.
 - Hermes: the skill can be used as-is, with optional categorization in a Hermes skill tree.
 - Claude Code: the skill can run standalone, or be wrapped into a plugin marketplace package for distribution.
 

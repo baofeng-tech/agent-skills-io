@@ -13,7 +13,7 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 
 - Bundle plugin id: `aisa-multi-search-engine-plugin`
 - Native manifest: `openclaw.plugin.json`
-- Native entrypoint: `index.ts`
+- Native entrypoint: `index.js`
 - Embedded skill: `skills/aisa-multi-search-engine/SKILL.md`
 - Format: native OpenClaw plugin plus Claude-compatible bundle fallback
 

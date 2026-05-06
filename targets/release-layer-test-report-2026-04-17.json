@@ -1,4 +1,9 @@
 {
+  "summary": {
+    "structure_error_count": 0,
+    "smoke_failure_count": 0,
+    "smoke_transient_count": 5
+  },
   "structure": {
     "claude_errors": [],
     "hermes_errors": [],
@@ -12,7 +17,7 @@
       "layer": "claude",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -21,20 +26,22 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHlVSLXWoDwKAAIceVSkzZZhPgAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUceVWFTIAnEAoABhx5VYVMf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/319974",
+      "status": "passed",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHnHm_GWMCAKAAIcecbsqxtwXQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcecfMnIAnEAoABhx5x8ycf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/135055",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
         "OpenAI"
       ],
       "code": 0,
+      "status": "passed",
       "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1950000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
       "stderr_preview": ""
     },
@@ -42,7 +49,7 @@
       "layer": "claude",
       "path": "search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -51,14 +58,15 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"id\": \"1u26BpjJk4ZBYeyRjnCYIg\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "status": "passed",
+      "stdout_preview": "{\n  \"id\": \"5F2-yjzV70wXskmEdKouiQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -66,18 +74,20 @@
         "1"
       ],
       "code": 1,
-      "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/claude-release/prediction-market/scripts/prediction_market_client.py\", line 574, in <module>\n    main()\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/claude-release/prediction-market/scripts/prediction_market_client.py\", line 492, in main\n    result = client.polymarket_markets(\n             ^^^"
+      "status": "transient",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "llm-router",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/llm_router_client.py",
         "models"
       ],
       "code": 0,
+      "status": "passed",
       "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qw",
       "stderr_preview": ""
     },
@@ -90,6 +100,7 @@
         "--help"
       ],
       "code": 0,
+      "status": "passed",
       "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--quick] [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--store] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research] [--plan PLAN]\n                     [--save-suffix SAVE_SU",
       "stderr_preview": ""
     },
@@ -102,6 +113,7 @@
         "--help"
       ],
       "code": 0,
+      "status": "passed",
       "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--api-key API_KEY] [--config-file CONFIG_FILE] [--quick]\n                     [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research",
       "stderr_preview": ""
     },
@@ -109,7 +121,7 @@
       "layer": "hermes",
       "path": "communication/aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/twitter_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -120,14 +132,15 @@
         "Latest"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHlVtzUW4EsKAAIceVUL2luxGAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUceVXLIgAnEAoABhx5Vcsh_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/7039",
+      "status": "passed",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHnHm_GWMCAKAAIcecbsqxtwXQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcecfXI0AnEAoABhx5x9cjP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/135055",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "research/aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/youtube_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -136,6 +149,7 @@
         "OpenAI"
       ],
       "code": 0,
+      "status": "passed",
       "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1950000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
       "stderr_preview": ""
     },
@@ -143,7 +157,7 @@
       "layer": "hermes",
       "path": "research/search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/search_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -154,14 +168,15 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"id\": \"VaGJFYZBI43O60sEXtPq3g\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "status": "passed",
+      "stdout_preview": "{\n  \"id\": \"sYHQPH5bc76knDrE5OIhZA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "finance/prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/prediction_market_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -171,20 +186,22 @@
         "1"
       ],
       "code": 1,
-      "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/hermes-release/finance/prediction-market/scripts/prediction_market_client.py\", line 576, in <module>\n    main()\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/hermes-release/finance/prediction-market/scripts/prediction_market_client.py\", line 494, in main\n    result = client.polymarket_markets(\n"
+      "status": "transient",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "ai/llm-router",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/llm_router_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
         "models"
       ],
       "code": 0,
+      "status": "passed",
       "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qw",
       "stderr_preview": ""
     },
@@ -197,6 +214,7 @@
         "--help"
       ],
       "code": 0,
+      "status": "passed",
       "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--quick] [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--store] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research] [--plan PLAN]\n                     [--save-suffix SAVE_SU",
       "stderr_preview": ""
     },
@@ -204,7 +222,7 @@
       "layer": "clawhub",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -212,29 +230,31 @@
         "--type",
         "Latest"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHlWAkFWYLQKAAIceVVDYZewHQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUceVYTJ8AnEAoABhx5VhMnv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/191381",
+      "code": 1,
+      "status": "transient",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
         "OpenAI"
       ],
-      "code": 0,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 4,\n      \"subscribers\": 1950000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "code": 1,
+      "status": "transient",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -243,14 +263,15 @@
         "1"
       ],
       "code": 0,
-      "stdout_preview": "{\n  \"id\": \"4wB3BEWc7jllVv3yciohbQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "status": "passed",
+      "stdout_preview": "{\n  \"id\": \"Y2GSf1J_A0t0lZLdwoh06g\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -258,8 +279,9 @@
         "1"
       ],
       "code": 1,
-      "stdout_preview": "",
-      "stderr_preview": "Traceback (most recent call last):\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/clawhub-release/prediction-market/scripts/prediction_market_client.py\", line 574, in <module>\n    main()\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/clawhub-release/prediction-market/scripts/prediction_market_client.py\", line 492, in main\n    result = client.polymarket_markets(\n             ^"
+      "status": "transient",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"The read operation timed out\"\n  }\n}\n",
+      "stderr_preview": ""
     },
     {
       "layer": "clawhub",
@@ -270,6 +292,7 @@
         "--help"
       ],
       "code": 0,
+      "status": "passed",
       "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--quick] [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--store] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research] [--plan PLAN]\n                     [--save-suffix SAVE_SU",
       "stderr_preview": ""
     }

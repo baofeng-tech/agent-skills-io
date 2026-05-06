@@ -275,7 +275,7 @@ Any AI working in this repository should:
 
 位于 `clawhub-release/`：
 
-- 当前包含 `targetSkills/` 下全部 54 个 skill 的 ClawHub-oriented 发布副本
+- 当前包含 `targetSkills/` 下 54 个 skill 加 2 个 ClawHub breakout 变体，共 56 个 ClawHub-oriented 发布副本
 - 由 `scripts/build_clawhub_release.py` 自动生成
 
 这些目录不是母版，而是：
@@ -291,12 +291,13 @@ Any AI working in this repository should:
 
 位于 `clawhub-plugin-release/`：
 
-- 当前包含 54 个独立的 ClawHub bundle plugin 包
+- 当前包含 56 个独立的 ClawHub native-first plugin 包
 - 由 `scripts/build_clawhub_plugin_release.py` 自动生成
 
 这些目录的作用：
 
-- 把 `clawhub-release/` 中的单 skill 包装成 `.claude-plugin/plugin.json` + `package.json` + `skills/<skill>/` 的 bundle plugin
+- 把 `clawhub-release/` 中的单 skill 包装成 `openclaw.plugin.json` + `index.js` + `package.json` + `.claude-plugin/plugin.json` + `skills/<skill>/` 的 native-first / bundle fallback plugin
+- 在 manifest 顶层同步 `requires`、`optionalEnv`、`primaryEnv`、`networkTargets` 等 runtime 字段，降低 ClawHub metadata 与实际运行文件不一致的 Suspicious 风险
 - 为每个 plugin 同时生成 root-flat zip
 - 作为 `clawhub package publish` 的实际输入层
 
@@ -363,7 +364,7 @@ Any AI working in this repository should:
 - 每个 skill 生成单独 README
 - 每个 skill 同时生成 root-flat zip 以应对手工导入场景
 - 根目录额外生成 `README.md`、`PUBLISHING.md`、`AUDIT.md`、`index.json`、`index.md`、`well-known-skills-index.json`、`LICENSE`
-- 会移除标准 skill 分发层里不需要的 plugin 包装文件，例如 `package.json`、`index.ts`
+- 会移除标准 skill 分发层里不需要的 plugin 包装文件，例如 `package.json`、`index.js`、`index.ts`
 
 #### 3.5 agentskill.sh 发布变体
 
@@ -380,7 +381,7 @@ Any AI working in this repository should:
 - 默认把 `platforms` 收敛为 `agentskills.io,agentskill.sh,github`
 - 每个 skill 同时生成 root-flat zip，兼容 direct URL / 手工更新路径
 - 根目录额外生成 `README.md`、`PUBLISHING.md`、`AUDIT.md`、`index.json`、`index.md`、`well-known-skills-index.json`、`LICENSE`
-- 会移除标准 skill 分发层里不需要的 plugin 包装文件，例如 `package.json`、`index.ts`
+- 会移除标准 skill 分发层里不需要的 plugin 包装文件，例如 `package.json`、`index.js`、`index.ts`
 
 #### 4. 发布索引
 
@@ -480,7 +481,8 @@ Any AI working in this repository should:
 - `one_click_distribute_all.sh`
   - 旧的一键全量构建脚本，保留为本地快速重建入口
 - `test_release_layers.py`
-  - 对 Claude / ClawHub / ClawHub plugin / Hermes / AgentSkills.so 发布层做结构校验，并对代表性 skill 做 smoke test
+  - 对 Claude / ClawHub / ClawHub plugin / Hermes / AgentSkills.so / agentskill.sh 发布层做结构校验，并对代表性 skill 做 smoke test
+  - 报告会区分 `failed` 与第三方网络类 `transient`；结构错误或硬失败会让脚本退出 1，transient 只进入报告统计
 - 其余 `publish-*` / `import-*` 脚本
   - 用于 `targetSkills/` 与外部仓库、下载目录之间的导入导出同步
 
@@ -520,6 +522,7 @@ python3 scripts/test_release_layers.py
 - agentskill.sh 发布构建脚本从 `targetSkills/` 生成 `agentskill-sh-release/`，并保持适合 GitHub 仓库扫描的根目录结构
 - agentskill.sh 发布层也会补齐根目录 catalog 文件：`index.json`、`index.md`、`well-known-skills-index.json`、`LICENSE`
 - 发布层测试脚本对 Claude / ClawHub / ClawHub plugin / Hermes / AgentSkills.so / agentskill.sh 目录执行结构校验，并对代表性旧三层做 smoke test
+- 发布层测试报告现在包含 `summary.structure_error_count`、`summary.smoke_failure_count`、`summary.smoke_transient_count`
 - 发布层真实测试现在明确支持读取 `example/accounts` 中的账号与 Python 3.12 路径
 
 #### 5. ClawHub 辅助技能
@@ -585,7 +588,8 @@ ClawHub plugin 分发层。
 
 - 进入 ClawHub plugin catalog
 - 使用 `clawhub package publish` 发布
-- 保持 skill-first 的 bundle plugin 形态，而不是强行改写成 native code plugin
+- 保持 skill-first 的 bundle fallback，同时用 `openclaw.plugin.json` + `index.js` 提供 native-first plugin 入口
+- 在 plugin manifest/package 中显式声明 env、binary、network target 等 runtime metadata
 - 同时产出 root-flat zip 以便审计和归档
 
 ### `claude-release/`
@@ -799,8 +803,8 @@ GitHub Actions 工作流层。
 - Hermes 发布层：已完成，54 个已生成
 - Hermes Guard 批量降风险：历史旧 51-skill 集合已完成一轮，新增到 54-skill 集合后需要补跑
 - Claude / Hermes 发布层测试：已完成一轮结构校验与 smoke test
-- 2026-04-23 新一轮 release-layer 结构校验：`claude/hermes/clawhub/clawhub-plugin/agentskills-so/agentskill-sh` 六类结构错误均为 `0`；18 个 smoke tests 中有 5 个命中上游 `NETWORK_ERROR: timed out`，当前更像外部接口波动而非目录或脚本缺失
-- 2026-05-03 AISA API 回归复核：在 `AIsa-team/agent-skills@main` 同名执行文件一致的前提下，已修复 `stock-dividend` / `stock-hot` JSON block 输出问题，并把 SDK `Connection error` 纳入 transient 重试；最新完整回归为 54 个 AISA-backed skills、72 条 read-only checks、64 通过、8 个剩余失败，剩余失败均为 `api.aisa.one` TLS EOF / 连接断开类
+- 2026-05-06 release-layer 结构校验：`claude/hermes/clawhub/clawhub-plugin/agentskills-so/agentskill-sh` 六类结构错误均为 `0`，smoke 硬失败为 `0`，第三方网络类 transient 为 `5`
+- 2026-05-06 AISA API 回归复核：完整回归为 54 个 AISA-backed skills、72 条 read-only checks、硬失败 `0`、第三方网络类 transient `7`；`stock-hot` 已改为真实调用 AISA 后在上游无实时金融工具时返回结构化 `live_data_unavailable`，prediction-market 系列已把 urllib read timeout/EOF 转为 `NETWORK_ERROR` JSON 而非 traceback
 - Claude / Hermes 发布层真实测试：已完成一轮基于真实账号、真实 Python 3.12、真实上游数据的验证
 - Claude / Claude marketplace / Hermes / agent-skills 外部发布仓库同步：2026-04-22 复核时四个外部仓库均已与 `origin/main` 对齐，不再存在“领先 1 个 commit 尚未 push”的当前阻塞
 - Claude marketplace 外部发布仓库同步：`Aisa-One-Plugins-Claude` 已与 `origin/main` 对齐
@@ -822,10 +826,10 @@ GitHub Actions 工作流层。
 - GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；事故修复后，下游 GitHub 目标已显式排除 `AIsa-team/agent-skills`，仅覆盖 `baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
 - GitHub Actions 自动全平台发布：self-hosted 真发布轨现在默认在 `schedule` 下请求 publish / suspicious repair / breakout rollout / AISA 回归 / ClawHub CLI install / post-publish scan；仍由 hosted preflight 决定是否排队，可用 `AUTO_FULL_PLATFORM_PUBLISH=false`、`AUTO_RUN_SUSPICIOUS_REPAIR=false`、`AUTO_RUN_BREAKOUT_ROLLOUT=false` 等变量关闭对应 lane，并可用 `AUTO_ADJACENT_TARGETS`、`AUTO_CLAWHUB_PUBLISH`、`AUTO_SYNC_ADJACENT_REPOS`、`AUTO_PUSH_ADJACENT_REPOS` 等变量细化“发哪些下游平台”
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每日一次（`21 19 * * *`），避免长发布链路堆积出 pending/canceled 队列
-- GitHub Actions self-hosted 排队防护：publish / suspicious repair / breakout rollout 三条 self-hosted 线现在先经过 hosted preflight，只有发现在线 runner 或显式设置 `force_self_hosted_queue` / `AUTO_FORCE_SELF_HOSTED_QUEUE` 时才入队；若默认 `GITHUB_TOKEN` 无法读取 runners API，应配置 `SELF_HOSTED_RUNNER_API_TOKEN`，repo-level runner 需要 repository `Administration: read`，org-level runner 需要 organization `Self-hosted runners: read`，否则快速跳过并写 summary，避免旧流程那种 24 小时排队失败；preflight 现在会把 403 的 message、accepted permissions 和 SSO hint 写进 summary，repo-level 未命中时会继续检查 org-level runners，并支持用 `SELF_HOSTED_RUNNER_RUNS_ON_JSON` 对齐实际 `runs-on` label
+- GitHub Actions self-hosted 排队防护：publish / suspicious repair / breakout rollout 三条 self-hosted 线现在先经过 hosted preflight，只有发现在线 runner 或显式设置 `force_self_hosted_queue` / `AUTO_FORCE_SELF_HOSTED_QUEUE` 时才入队；若默认 `GITHUB_TOKEN` 无法读取 runners API，应配置 `SELF_HOSTED_RUNNER_API_TOKEN`，repo-level runner 需要 repository `Administration: read`，org-level runner 需要 organization `Self-hosted runners: read`；当 self-hosted lane 被请求但 preflight 不能确认 runner 时 workflow 会 fail fast 并写 summary，避免旧流程静默 skip 或 24 小时排队失败；preflight 现在会把 403 的 message、accepted permissions 和 SSO hint 写进 summary，并在个人账号仓库中跳过无效的 organization runner fallback
 - GitHub Actions checkout 后置失败修复：hosted lane 已改为 `persist-credentials: false` + explicit token push，避免此前的 post-job `exit code 128`
 - GitHub Actions 提交冲突修复：hosted 与 self-hosted repo commit step 现在会在提交前 `git rebase --autostash` 到远端最新 `main`，push 失败时再 fetch/rebase 重试，避免 action 之间互相制造 non-fast-forward 冲突
-- GitHub Actions AISA skill 代码回归：hosted lane 现在支持通过手动参数 `run_aisa_api_regression=true` 或仓库变量 `AUTO_RUN_AISA_API_REGRESSION=true` 运行 `scripts/test_aisa_api_skills.py`，生成并上传/提交 `targets/aisa-api-regression-report-YYYY-MM-DD.json`；workflow_dispatch 默认打开，schedule 仍由仓库变量控制
+- GitHub Actions AISA skill 代码回归：hosted lane 现在支持通过手动参数 `run_aisa_api_regression=true` 或仓库变量 `AUTO_RUN_AISA_API_REGRESSION=true` 运行 `scripts/test_aisa_api_skills.py`，生成并上传/提交 `targets/aisa-api-regression-report-YYYY-MM-DD.json`；开启时必须配置 `AISA_API_KEY`，缺失会 fail fast，第三方网络瞬断只记为 `transient_count`
 - 发布 ZIP 抖动修复：AgentSkills / agentskill.sh / ClawHub plugin 的 root-flat zip 现在通过 `scripts/release_zip.py` 以固定排序、时间戳和 Git index 可执行位生成，并用 `.gitattributes` 固定文本 LF，避免 Windows 挂载盘 `777` 文件模式让例行构建反复制造大面积 skill/zip diff
 - GitHub Actions 三条流程线：现在已经拆成（1）正常 upstream sync + 下游平台发布线，（2）suspicious diagnosis-driven repair 线，（3）breakout rollout 线；三条线在 workflow 中是独立 self-hosted job，不再混在同一个发布 job 里；workflow_dispatch 默认打开三条线，但仍受 preflight 保护
 - GitHub Actions suspicious 修复闭环：self-hosted suspicious lane 现在支持在未显式传入 artifact 列表时，按 `baofeng-tech`、`bibaofeng`、`aisadocs` 自动筛选自有 `blocker + suspicious` artifact，并可用 `AUTO_SUSPICIOUS_MAX_ARTIFACTS` 控制单次处理上限

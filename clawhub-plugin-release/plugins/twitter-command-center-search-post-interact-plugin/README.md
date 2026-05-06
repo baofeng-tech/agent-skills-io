@@ -13,7 +13,7 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 
 - Bundle plugin id: `twitter-command-center-search-post-interact-plugin`
 - Native manifest: `openclaw.plugin.json`
-- Native entrypoint: `index.ts`
+- Native entrypoint: `index.js`
 - Embedded skill: `skills/twitter-command-center-search-post-interact/SKILL.md`
 - Format: native OpenClaw plugin plus Claude-compatible bundle fallback
 

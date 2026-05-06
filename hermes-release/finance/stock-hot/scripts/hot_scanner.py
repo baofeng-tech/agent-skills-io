@@ -187,6 +187,29 @@ def extract_json_block(text: str) -> dict[str, Any]:
     raise ValueError("No JSON block found in model output.")
 
 
+def normalize_hot_json(payload: dict[str, Any], timestamp: str) -> dict[str, Any]:
+    """Keep JSON mode machine-readable even when live market tools are unavailable."""
+    if isinstance(payload.get("error"), str):
+        return {
+            "timestamp": timestamp,
+            "data_available": False,
+            "status": "live_data_unavailable",
+            "limitations": [payload["error"]],
+            "top_stocks": [],
+            "top_crypto": [],
+            "watchlist": [],
+        }
+    payload.setdefault("timestamp", timestamp)
+    payload.setdefault("data_available", True)
+    payload.setdefault("status", "ok")
+    payload.setdefault("limitations", [])
+    payload.setdefault("top_stocks", [])
+    payload.setdefault("top_crypto", [])
+    payload.setdefault("watchlist", [])
+    payload.pop("error", None)
+    return payload
+
+
 def run_hot_scanner(focus: str = "both", output_format: str = "text") -> str:
     client = get_client()
     model = "gpt-4o"
@@ -209,8 +232,12 @@ def run_hot_scanner(focus: str = "both", output_format: str = "text") -> str:
         prompt += (
             "\n\nReturn ONLY valid JSON. Do not include markdown fences, tables, commentary, "
             "or prose outside the JSON object.\n"
+            "If live market tools are unavailable, do not return an error object. Return "
+            "`data_available: false`, `status: live_data_unavailable`, a `limitations` array, "
+            "and empty `top_stocks`, `top_crypto`, and `watchlist` arrays.\n"
             "Use this exact shape:\n"
-            "{\"timestamp\": \"...\", \"top_stocks\": [{\"ticker\": \"NVDA\", \"change_pct\": 8.4, "
+            "{\"timestamp\": \"...\", \"data_available\": true, \"status\": \"ok\", "
+            "\"limitations\": [], \"top_stocks\": [{\"ticker\": \"NVDA\", \"change_pct\": 8.4, "
             "\"catalyst\": \"earnings beat\"}], "
             "\"top_crypto\": [{\"symbol\": \"SOL\", \"change_24h\": 12.1}], "
             "\"watchlist\": [\"NVDA\", \"TSLA\", \"SOL\", \"BTC-USD\", \"AAPL\"]}\n"
@@ -232,7 +259,7 @@ def run_hot_scanner(focus: str = "both", output_format: str = "text") -> str:
         )
         content = response.choices[0].message.content or ""
         if output_format == "json":
-            return json.dumps(extract_json_block(content), indent=2, ensure_ascii=False)
+            return json.dumps(normalize_hot_json(extract_json_block(content), timestamp), indent=2, ensure_ascii=False)
         return content
     except Exception as e:
         print(f"❌ AIsa API error: {e}", file=sys.stderr)

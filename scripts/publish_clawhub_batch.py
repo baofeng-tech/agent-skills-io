@@ -138,6 +138,33 @@ def repo_relative_path(path: Path) -> str:
         return str(resolved)
 
 
+def cli_folder_path(path: str | Path) -> str:
+    folder = Path(path)
+    if not folder.is_absolute():
+        folder = REPO_ROOT / folder
+    return str(folder.resolve())
+
+
+def normalize_state_path(value: Any) -> Any:
+    if not isinstance(value, str):
+        return value
+    text = value.strip()
+    if not text:
+        return text
+    normalized = text.replace("\\", "/")
+    repo_prefix = REPO_ROOT.as_posix().rstrip("/") + "/"
+    if normalized.startswith(repo_prefix):
+        return normalized[len(repo_prefix) :]
+    marker = "/agent-skills-io/"
+    lowered = normalized.lower()
+    marker_index = lowered.find(marker)
+    if marker_index >= 0:
+        return normalized[marker_index + len(marker) :]
+    if lowered.startswith("agent-skills-io/"):
+        return normalized[len("agent-skills-io/") :]
+    return normalized
+
+
 def suffix_publish_name(name: str, suffix: str) -> str:
     cleaned_suffix = re.sub(r"[^a-z0-9-]+", "-", suffix.lower()).strip("-")
     if not cleaned_suffix:
@@ -344,6 +371,9 @@ class StateStore:
             payload = json.loads(self.path.read_text(encoding="utf-8"))
             if isinstance(payload, dict):
                 payload.setdefault("artifacts", {})
+                for meta in payload.get("artifacts", {}).values():
+                    if isinstance(meta, dict) and "path" in meta:
+                        meta["path"] = normalize_state_path(meta.get("path"))
                 return payload
         except json.JSONDecodeError:
             pass
@@ -441,6 +471,7 @@ class SharedQueue:
     def __init__(self, artifacts: list[Artifact]) -> None:
         self._items = deque(artifacts)
         self._lock = threading.Lock()
+        self._unavailable_slots: set[str] = set()
 
     def pop(self) -> Artifact | None:
         with self._lock:
@@ -457,6 +488,14 @@ class SharedQueue:
     def remaining(self) -> int:
         with self._lock:
             return len(self._items)
+
+    def mark_slot_unavailable(self, slot: str) -> None:
+        with self._lock:
+            self._unavailable_slots.add(slot)
+
+    def slot_unavailable(self, slot: str) -> bool:
+        with self._lock:
+            return slot in self._unavailable_slots
 
 
 @dataclass
@@ -662,6 +701,7 @@ class Worker(threading.Thread):
         except Exception as exc:  # noqa: BLE001
             self.result.failed += 1
             self.result.notes.append(str(exc))
+            self.queue.mark_slot_unavailable(self.slot)
             self.log(f"login failed: {exc}")
             return
 
@@ -676,7 +716,7 @@ class Worker(threading.Thread):
                 return
 
             preferred_slot = infer_preferred_slot(self.state.get(artifact))
-            if preferred_slot and preferred_slot != self.slot:
+            if preferred_slot and preferred_slot != self.slot and not self.queue.slot_unavailable(preferred_slot):
                 self.queue.push_back(artifact)
                 time.sleep(1.0)
                 continue
@@ -687,6 +727,7 @@ class Worker(threading.Thread):
                 self.result.notes.append(
                     f"quota reached after {self.result.published} publish(es); rerun after the hourly window resets"
                 )
+                self.queue.mark_slot_unavailable(self.slot)
                 self.log("hourly quota reached; stopping this worker")
                 return
 
@@ -818,6 +859,7 @@ class Worker(threading.Thread):
                     self.result.rate_limited = True
                     self.result.notes.append(exc.message)
                     self.queue.push_front(artifact)
+                    self.queue.mark_slot_unavailable(self.slot)
                     self.log(f"rate-limited while publishing {artifact.name}; stopping this worker")
                     return
                 self.result.failed += 1
@@ -878,7 +920,7 @@ class Worker(threading.Thread):
 
     def publish_artifact(self, artifact: Artifact, *, publish_name: str | None = None) -> tuple[subprocess.CompletedProcess[str], str]:
         target_name = publish_name or self.current_publish_name(artifact)
-        publish_path = artifact.path
+        publish_path = cli_folder_path(artifact.path)
         temp_plugin_dir: Path | None = None
         if artifact.kind == "skill":
             command = [
@@ -938,7 +980,7 @@ class Worker(threading.Thread):
         )
 
     def prepare_plugin_publish_dir(self, artifact: Artifact, publish_name: str) -> Path:
-        source_dir = Path(artifact.path)
+        source_dir = Path(cli_folder_path(artifact.path))
         temp_root = Path(tempfile.mkdtemp(prefix="clawhub-plugin-publish-", dir=str(REPO_ROOT / ".tmp-clawhub-auth")))
         temp_dir = temp_root / source_dir.name
         shutil.copytree(source_dir, temp_dir)

@@ -69,7 +69,12 @@
     ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
-      "https://api.aisa.one"
+      "https://api.aisa.one",
+      "https://www.reddit.com",
+      "https://hacker-news.firebaseio.com",
+      "https://api.github.com",
+      "https://www.xiaohongshu.com",
+      "http://host.docker.internal:18060"
     ]
   },
   "metadata": {
@@ -93,10 +98,41 @@
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
-        "https://api.aisa.one"
+        "https://api.aisa.one",
+        "https://www.reddit.com",
+        "https://hacker-news.firebaseio.com",
+        "https://api.github.com",
+        "https://www.xiaohongshu.com",
+        "http://host.docker.internal:18060"
       ]
     }
   },
+  "requires": {
+    "bins": [
+      "python3",
+      "bash"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ]
+  },
+  "optionalEnv": [
+    "LAST30DAYS_PLANNER_MODEL",
+    "LAST30DAYS_RERANK_MODEL",
+    "LAST30DAYS_FUN_MODEL",
+    "AISA_MODEL",
+    "AISA_BASE_URL",
+    "XIAOHONGSHU_API_BASE"
+  ],
+  "primaryEnv": "AISA_API_KEY",
+  "networkTargets": [
+    "https://api.aisa.one",
+    "https://www.reddit.com",
+    "https://hacker-news.firebaseio.com",
+    "https://api.github.com",
+    "https://www.xiaohongshu.com",
+    "http://host.docker.internal:18060"
+  ],
   "uiHints": {
     "emoji": "🔎"
   }

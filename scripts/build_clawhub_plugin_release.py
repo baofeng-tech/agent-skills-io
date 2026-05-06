@@ -29,9 +29,18 @@ RUNTIME_IGNORE = shutil.ignore_patterns(
 OPTIONAL_ENV_ALLOWLIST = {
     "AISA_BASE_URL",
     "AISA_MODEL",
+    "GH_TOKEN",
+    "GITHUB_TOKEN",
+    "INCLUDE_SOURCES",
+    "LAST30DAYS_CONFIG_DIR",
+    "LAST30DAYS_DEBUG",
     "LAST30DAYS_FUN_MODEL",
     "LAST30DAYS_PLANNER_MODEL",
+    "LAST30DAYS_REASONING_PROVIDER",
+    "LAST30DAYS_REDDIT_COMMENTS",
     "LAST30DAYS_RERANK_MODEL",
+    "LAST30DAYS_X_BACKEND",
+    "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
     "TWITTER_RELAY_BASE_URL",
     "TWITTER_RELAY_TIMEOUT",
     "XIAOHONGSHU_API_BASE",
@@ -44,11 +53,20 @@ OPTIONAL_ENV_ORDER = {
     "LAST30DAYS_PLANNER_MODEL": 10,
     "LAST30DAYS_RERANK_MODEL": 20,
     "LAST30DAYS_FUN_MODEL": 30,
-    "AISA_MODEL": 40,
-    "AISA_BASE_URL": 50,
-    "TWITTER_RELAY_BASE_URL": 60,
-    "TWITTER_RELAY_TIMEOUT": 70,
-    "XIAOHONGSHU_API_BASE": 80,
+    "LAST30DAYS_REASONING_PROVIDER": 40,
+    "AISA_MODEL": 50,
+    "AISA_BASE_URL": 60,
+    "INCLUDE_SOURCES": 70,
+    "LAST30DAYS_X_BACKEND": 80,
+    "LAST30DAYS_YOUTUBE_TRANSCRIPTS": 90,
+    "LAST30DAYS_REDDIT_COMMENTS": 100,
+    "GH_TOKEN": 110,
+    "GITHUB_TOKEN": 120,
+    "LAST30DAYS_CONFIG_DIR": 130,
+    "LAST30DAYS_DEBUG": 140,
+    "TWITTER_RELAY_BASE_URL": 150,
+    "TWITTER_RELAY_TIMEOUT": 160,
+    "XIAOHONGSHU_API_BASE": 170,
 }
 
 
@@ -170,7 +188,7 @@ def build_runtime_requirements(skill: dict[str, object]) -> dict[str, object]:
     env_vars = [value for value in skill.get("env_vars", []) if isinstance(value, str)]
     optional_env_vars = [value for value in skill.get("optional_env_vars", []) if isinstance(value, str)]
     primary_env = str(skill.get("primary_env") or "").strip()
-    network_target = relay_default_url(skill) or ("https://api.aisa.one" if "AISA_API_KEY" in env_vars else "")
+    network_targets = infer_network_targets(skill, env_vars)
 
     if required_bins:
         requirements["bins"] = required_bins
@@ -180,9 +198,26 @@ def build_runtime_requirements(skill: dict[str, object]) -> dict[str, object]:
         requirements["optionalEnv"] = optional_env_vars
     if primary_env:
         requirements["primaryEnv"] = primary_env
-    if network_target:
-        requirements["networkTargets"] = [network_target]
+    if network_targets:
+        requirements["networkTargets"] = network_targets
     return requirements
+
+
+def infer_network_targets(skill: dict[str, object], env_vars: list[str]) -> list[str]:
+    targets: list[str] = []
+    relay_target = relay_default_url(skill)
+    if relay_target:
+        targets.append(relay_target)
+    elif "AISA_API_KEY" in env_vars:
+        targets.append("https://api.aisa.one")
+
+    lower = f"{skill.get('name', '')} {skill.get('path', '')}".lower()
+    if "last30days" in lower:
+        targets.extend(["https://www.reddit.com", "https://hacker-news.firebaseio.com"])
+        if "last30days-zh" not in lower:
+            targets.append("https://api.github.com")
+        targets.extend(["https://www.xiaohongshu.com", "http://host.docker.internal:18060"])
+    return list(dict.fromkeys(targets))
 
 
 def build_runtime_metadata(skill: dict[str, object]) -> dict[str, object]:
@@ -202,6 +237,21 @@ def build_runtime_metadata(skill: dict[str, object]) -> dict[str, object]:
     if runtime.get("networkTargets"):
         metadata_entry["networkTargets"] = runtime["networkTargets"]
     return {"aisa": metadata_entry}
+
+
+def build_top_level_runtime_fields(runtime: dict[str, object]) -> dict[str, object]:
+    fields: dict[str, object] = {}
+    requires: dict[str, object] = {}
+    if runtime.get("bins"):
+        requires["bins"] = runtime["bins"]
+    if runtime.get("env"):
+        requires["env"] = runtime["env"]
+    if requires:
+        fields["requires"] = requires
+    for key in ("optionalEnv", "primaryEnv", "networkTargets"):
+        if runtime.get(key):
+            fields[key] = runtime[key]
+    return fields
 
 
 def infer_optional_env_vars(skill_dir: Path, metadata: dict[str, object]) -> list[str]:
@@ -284,6 +334,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
     plugin_dir = PLUGIN_ROOT / slug
     runtime_requirements = build_runtime_requirements(skill)
     runtime_metadata = build_runtime_metadata(skill)
+    top_level_runtime_fields = build_top_level_runtime_fields(runtime_requirements)
     config_schema = build_config_schema(skill)
     shutil.rmtree(plugin_dir, ignore_errors=True)
     (plugin_dir / ".claude-plugin").mkdir(parents=True, exist_ok=True)
@@ -307,6 +358,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "metadata": runtime_metadata,
         "configSchema": config_schema,
         "runtimeRequirements": runtime_requirements,
+        **top_level_runtime_fields,
         "aisa": runtime_metadata["aisa"],
         "openclaw": {
             "runtimeRequirements": runtime_requirements,
@@ -323,12 +375,13 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "configSchema": config_schema,
         "runtimeRequirements": runtime_requirements,
         "metadata": runtime_metadata,
+        **top_level_runtime_fields,
     }
     if skill.get("emoji"):
         openclaw_manifest["uiHints"] = {"emoji": skill["emoji"]}
     write_json(plugin_dir / "openclaw.plugin.json", openclaw_manifest)
 
-    index_ts = [
+    index_js = [
         "const plugin = {",
         f'  id: "{slug}",',
         f'  name: "{base.prettify_skill_name(skill_name)}",',
@@ -339,7 +392,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "",
         "export default plugin;",
     ]
-    (plugin_dir / "index.ts").write_text("\n".join(index_ts) + "\n", encoding="utf-8")
+    (plugin_dir / "index.js").write_text("\n".join(index_js) + "\n", encoding="utf-8")
 
     package_json = {
         "name": slug,
@@ -353,10 +406,13 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
             "type": "git",
             "url": f"{SOURCE_REPO}.git",
         },
+        "configSchema": config_schema,
+        "runtimeRequirements": runtime_requirements,
         "metadata": runtime_metadata,
+        **top_level_runtime_fields,
         "aisa": runtime_metadata["aisa"],
         "openclaw": {
-            "extensions": ["./index.ts"],
+            "extensions": ["./index.js"],
             "compat": {
                 "pluginApi": "^1.0.0",
             },
@@ -390,7 +446,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "",
         f"- Bundle plugin id: `{slug}`",
         f"- Native manifest: `openclaw.plugin.json`",
-        f"- Native entrypoint: `index.ts`",
+        f"- Native entrypoint: `index.js`",
         f"- Embedded skill: `skills/{skill['path']}/SKILL.md`",
         "- Format: native OpenClaw plugin plus Claude-compatible bundle fallback",
         "",
@@ -500,7 +556,7 @@ def write_docs(plugins: list[dict[str, str]]) -> None:
         "# ClawHub Plugin Release Audit",
         "",
         f"- Generated plugins: {len(plugins)}",
-        "- Packaging mode: native-first dual format (`openclaw.plugin.json` + `index.ts` + `package.json` + optional `.claude-plugin/plugin.json` + embedded `skills/`)",
+        "- Packaging mode: native-first dual format (`openclaw.plugin.json` + `index.js` + `package.json` + optional `.claude-plugin/plugin.json` + embedded `skills/`)",
         "- Zip rule: archives are written root-flat with required files at archive root.",
         "",
     ]

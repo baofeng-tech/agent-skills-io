@@ -19,6 +19,30 @@
     "type": "git",
     "url": "https://github.com/baofeng-tech/agent-skills-io.git"
   },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "AISA_API_KEY": {
+        "type": "string",
+        "title": "Aisa Api Key",
+        "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
+        "format": "password"
+      }
+    },
+    "required": [
+      "AISA_API_KEY"
+    ]
+  },
+  "runtimeRequirements": {
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
   "metadata": {
     "aisa": {
       "requires": {
@@ -32,6 +56,15 @@
       ]
     }
   },
+  "requires": {
+    "env": [
+      "AISA_API_KEY"
+    ]
+  },
+  "primaryEnv": "AISA_API_KEY",
+  "networkTargets": [
+    "https://api.aisa.one"
+  ],
   "aisa": {
     "requires": {
       "env": [
@@ -45,7 +78,7 @@
   },
   "openclaw": {
     "extensions": [
-      "./index.ts"
+      "./index.js"
     ],
     "compat": {
       "pluginApi": "^1.0.0"

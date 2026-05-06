@@ -22,6 +22,17 @@ CLAWHUB_PLUGIN_ROOT = REPO_ROOT / "clawhub-plugin-release"
 AGENTSKILLS_SO_ROOT = REPO_ROOT / "agentskills-so-release"
 AGENTSKILL_SH_ROOT = REPO_ROOT / "agentskill-sh-release"
 ACCOUNTS_PATH = REPO_ROOT / "example" / "accounts"
+TRANSIENT_MARKERS = (
+    "UNEXPECTED_EOF_WHILE_READING",
+    "UND_ERR_CONNECT_TIMEOUT",
+    "Connection reset",
+    "Connection error",
+    "Remote end closed connection",
+    "Client network socket disconnected before secure TLS connection was established",
+    "The read operation timed out",
+    "timed out",
+    '"code": "NETWORK_ERROR"',
+)
 
 
 BANNED_NAMES = {"__pycache__", "compare.sh", "sync.sh", "test-v1-vs-v2.sh", "run-tests.sh"}
@@ -58,6 +69,11 @@ def redact_command(cmd: list[str], secret: str | None) -> list[str]:
             continue
         redacted.append(redact_text(part, secret))
     return redacted
+
+
+def is_transient_failure(stdout: str, stderr: str) -> bool:
+    combined = f"{stdout}\n{stderr}"
+    return any(marker in combined for marker in TRANSIENT_MARKERS)
 
 
 def run(
@@ -161,7 +177,7 @@ def validate_clawhub_plugin_tree(root: Path) -> list[str]:
         manifest_path = plugin_dir / ".claude-plugin" / "plugin.json"
         openclaw_manifest_path = plugin_dir / "openclaw.plugin.json"
         package_path = plugin_dir / "package.json"
-        entry_path = plugin_dir / "index.ts"
+        entry_path = plugin_dir / "index.js"
         readme_path = plugin_dir / "README.md"
         expected_zip = zip_root / f"{plugin_dir.name}.zip"
         if not manifest_path.exists():
@@ -171,7 +187,7 @@ def validate_clawhub_plugin_tree(root: Path) -> list[str]:
         if not package_path.exists():
             errors.append(f"clawhub-plugin: missing package.json in {plugin_dir.relative_to(REPO_ROOT)}")
         if not entry_path.exists():
-            errors.append(f"clawhub-plugin: missing index.ts in {plugin_dir.relative_to(REPO_ROOT)}")
+            errors.append(f"clawhub-plugin: missing index.js in {plugin_dir.relative_to(REPO_ROOT)}")
         if not readme_path.exists():
             errors.append(f"clawhub-plugin: missing README.md in {plugin_dir.relative_to(REPO_ROOT)}")
         if not expected_zip.exists():
@@ -270,18 +286,22 @@ def smoke_tests() -> list[dict[str, object]]:
                     "path": rel_paths[0],
                     "command": redact_command(cmd, aisa_key),
                     "code": 127,
+                    "status": "failed",
                     "stdout_preview": "",
                     "stderr_preview": f"Missing test path candidates: {rel_paths}",
                 }
             )
             continue
         code, stdout, stderr = run(cmd, cwd=cwd, env=env)
+        transient = code != 0 and is_transient_failure(stdout, stderr)
+        status = "passed" if code == 0 else "transient" if transient else "failed"
         results.append(
             {
                 "layer": layer,
                 "path": chosen_path,
                 "command": redact_command(cmd, aisa_key),
                 "code": code,
+                "status": status,
                 "stdout_preview": redact_text(stdout, aisa_key)[:400],
                 "stderr_preview": redact_text(stderr, aisa_key)[:400],
             }
@@ -289,27 +309,39 @@ def smoke_tests() -> list[dict[str, object]]:
     return results
 
 
-def main() -> None:
+def main() -> int:
     for root in (CLAUDE_ROOT, HERMES_ROOT, CLAWHUB_ROOT, AGENTSKILLS_SO_ROOT, AGENTSKILL_SH_ROOT):
         remove_pycache_dirs(root)
     smoke_results = smoke_tests()
     for root in (CLAUDE_ROOT, HERMES_ROOT, CLAWHUB_ROOT, AGENTSKILLS_SO_ROOT, AGENTSKILL_SH_ROOT):
         remove_pycache_dirs(root)
+    structure = {
+        "claude_errors": validate_skill_tree(CLAUDE_ROOT, "claude"),
+        "hermes_errors": validate_skill_tree(HERMES_ROOT, "hermes"),
+        "clawhub_errors": validate_skill_tree(CLAWHUB_ROOT, "clawhub"),
+        "clawhub_plugin_errors": validate_clawhub_plugin_tree(CLAWHUB_PLUGIN_ROOT),
+        "agentskills_so_errors": validate_agentskills_so_tree(AGENTSKILLS_SO_ROOT),
+        "agentskill_sh_errors": validate_agentskill_sh_tree(AGENTSKILL_SH_ROOT),
+    }
+    structure_error_count = sum(len(errors) for errors in structure.values())
+    smoke_failures = [result for result in smoke_results if result.get("status") == "failed"]
+    smoke_transients = [result for result in smoke_results if result.get("status") == "transient"]
     report: dict[str, object] = {
-        "structure": {
-            "claude_errors": validate_skill_tree(CLAUDE_ROOT, "claude"),
-            "hermes_errors": validate_skill_tree(HERMES_ROOT, "hermes"),
-            "clawhub_errors": validate_skill_tree(CLAWHUB_ROOT, "clawhub"),
-            "clawhub_plugin_errors": validate_clawhub_plugin_tree(CLAWHUB_PLUGIN_ROOT),
-            "agentskills_so_errors": validate_agentskills_so_tree(AGENTSKILLS_SO_ROOT),
-            "agentskill_sh_errors": validate_agentskill_sh_tree(AGENTSKILL_SH_ROOT),
+        "summary": {
+            "structure_error_count": structure_error_count,
+            "smoke_failure_count": len(smoke_failures),
+            "smoke_transient_count": len(smoke_transients),
         },
+        "structure": structure,
         "smoke_tests": smoke_results,
     }
     report_path = REPO_ROOT / "targets" / "release-layer-test-report-2026-04-17.json"
     report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(report_path.relative_to(REPO_ROOT))
+    if structure_error_count or smoke_failures:
+        return 1
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

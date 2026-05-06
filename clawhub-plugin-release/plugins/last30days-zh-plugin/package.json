@@ -21,6 +21,70 @@
     "type": "git",
     "url": "https://github.com/baofeng-tech/agent-skills-io.git"
   },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "AISA_API_KEY": {
+        "type": "string",
+        "title": "Aisa Api Key",
+        "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
+        "format": "password"
+      },
+      "LAST30DAYS_RERANK_MODEL": {
+        "type": "string",
+        "title": "Last30Days Rerank Model",
+        "description": "Optional runtime setting for LAST30DAYS_RERANK_MODEL."
+      },
+      "AISA_MODEL": {
+        "type": "string",
+        "title": "Aisa Model",
+        "description": "Optional runtime setting for AISA_MODEL."
+      },
+      "LAST30DAYS_PLANNER_MODEL": {
+        "type": "string",
+        "title": "Last30Days Planner Model",
+        "description": "Optional runtime setting for LAST30DAYS_PLANNER_MODEL."
+      },
+      "AISA_BASE_URL": {
+        "type": "string",
+        "title": "Aisa Base Url",
+        "description": "Optional runtime setting for AISA_BASE_URL."
+      },
+      "XIAOHONGSHU_API_BASE": {
+        "type": "string",
+        "title": "Xiaohongshu Api Base",
+        "description": "Optional runtime setting for XIAOHONGSHU_API_BASE."
+      }
+    },
+    "required": [
+      "AISA_API_KEY"
+    ]
+  },
+  "runtimeRequirements": {
+    "bins": [
+      "python3",
+      "bash"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "optionalEnv": [
+      "LAST30DAYS_RERANK_MODEL",
+      "AISA_MODEL",
+      "LAST30DAYS_PLANNER_MODEL",
+      "AISA_BASE_URL",
+      "XIAOHONGSHU_API_BASE"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one",
+      "https://www.reddit.com",
+      "https://hacker-news.firebaseio.com",
+      "https://www.xiaohongshu.com",
+      "http://host.docker.internal:18060"
+    ]
+  },
   "metadata": {
     "aisa": {
       "requires": {
@@ -41,10 +105,38 @@
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
-        "https://api.aisa.one"
+        "https://api.aisa.one",
+        "https://www.reddit.com",
+        "https://hacker-news.firebaseio.com",
+        "https://www.xiaohongshu.com",
+        "http://host.docker.internal:18060"
       ]
     }
   },
+  "requires": {
+    "bins": [
+      "python3",
+      "bash"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ]
+  },
+  "optionalEnv": [
+    "LAST30DAYS_RERANK_MODEL",
+    "AISA_MODEL",
+    "LAST30DAYS_PLANNER_MODEL",
+    "AISA_BASE_URL",
+    "XIAOHONGSHU_API_BASE"
+  ],
+  "primaryEnv": "AISA_API_KEY",
+  "networkTargets": [
+    "https://api.aisa.one",
+    "https://www.reddit.com",
+    "https://hacker-news.firebaseio.com",
+    "https://www.xiaohongshu.com",
+    "http://host.docker.internal:18060"
+  ],
   "aisa": {
     "requires": {
       "bins": [
@@ -64,12 +156,16 @@
     ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
-      "https://api.aisa.one"
+      "https://api.aisa.one",
+      "https://www.reddit.com",
+      "https://hacker-news.firebaseio.com",
+      "https://www.xiaohongshu.com",
+      "http://host.docker.internal:18060"
     ]
   },
   "openclaw": {
     "extensions": [
-      "./index.ts"
+      "./index.js"
     ],
     "compat": {
       "pluginApi": "^1.0.0"
@@ -94,7 +190,11 @@
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
-        "https://api.aisa.one"
+        "https://api.aisa.one",
+        "https://www.reddit.com",
+        "https://hacker-news.firebaseio.com",
+        "https://www.xiaohongshu.com",
+        "http://host.docker.internal:18060"
       ]
     }
   }

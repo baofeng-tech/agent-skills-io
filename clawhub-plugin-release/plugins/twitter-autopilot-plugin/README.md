@@ -13,7 +13,7 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 
 - Bundle plugin id: `twitter-autopilot-plugin`
 - Native manifest: `openclaw.plugin.json`
-- Native entrypoint: `index.ts`
+- Native entrypoint: `index.js`
 - Embedded skill: `skills/twitter-autopilot/SKILL.md`
 - Format: native OpenClaw plugin plus Claude-compatible bundle fallback
 

@@ -29,6 +29,6 @@ curl -s "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=machine+le
 ## Platform Notes
 
 - AgentSkills: lightweight `SKILL.md`-only package with curl-based examples.
-- OpenClaw: `metadata.openclaw` includes environment and binary hints.
+- OpenClaw: generated release layers add environment and binary hints.
 - Hermes: can be categorized under research or media skills.
 - Claude Code: works as a standalone skill, or can be wrapped in a plugin later.

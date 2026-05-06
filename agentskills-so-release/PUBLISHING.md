@@ -9,5 +9,5 @@
 ## Notes
 
 - This release layer is standards-first, not Claude-specific.
-- It removes plugin-wrapper files such as `package.json` and `index.ts` when they are not part of the shipped standard skill surface.
+- It removes plugin-wrapper files such as `package.json`, `index.js`, and `index.ts` when they are not part of the shipped standard skill surface.
 - It is tuned for `agentskills.so` indexing rather than generic multi-runtime wording.

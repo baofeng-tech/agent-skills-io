@@ -43,6 +43,15 @@
       ]
     }
   },
+  "requires": {
+    "env": [
+      "AISA_API_KEY"
+    ]
+  },
+  "primaryEnv": "AISA_API_KEY",
+  "networkTargets": [
+    "https://api.aisa.one"
+  ],
   "uiHints": {
     "emoji": "▶️"
   }

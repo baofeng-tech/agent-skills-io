@@ -17,18 +17,21 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DIAGNOSIS_FILE = REPO_ROOT / "targets" / "clawhub-suspicious-diagnosis.json"
 DEFAULT_REPORT_FILE = REPO_ROOT / "targets" / "clawhub-suspicious-remediation.json"
 DEFAULT_OWNED_PUBLISHER_HANDLES = ("baofeng-tech", "bibaofeng", "aisadocs")
+PYTHON = sys.executable or "python3"
 DEFAULT_REPO_SKILL_SYNC = [
-    "python3",
+    PYTHON,
     "scripts/sync_codex_repo_skills.py",
     "--if-available",
 ]
+SLUG_GROUPS_FILE = REPO_ROOT / "clawhub-release" / "slug-groups.json"
+BREAKOUT_VARIANTS_FILE = REPO_ROOT / "targets" / "clawhub-breakout-variants.json"
 FULL_BUILD_STEPS = [
-    ["python3", "scripts/normalize_target_skills.py"],
-    ["python3", "scripts/build_targetskills_catalog.py"],
-    ["python3", "scripts/build_clawhub_release.py"],
-    ["python3", "scripts/build_clawhub_plugin_release.py"],
+    [PYTHON, "scripts/normalize_target_skills.py"],
+    [PYTHON, "scripts/build_targetskills_catalog.py"],
+    [PYTHON, "scripts/build_clawhub_release.py"],
+    [PYTHON, "scripts/build_clawhub_plugin_release.py"],
 ]
-TEST_STEP = ["python3", "scripts/test_release_layers.py"]
+TEST_STEP = [PYTHON, "scripts/test_release_layers.py"]
 
 
 def split_csv(value: str) -> list[str]:
@@ -167,28 +170,95 @@ def select_artifacts(
 
 def normalize_local_path(raw: str) -> Path:
     text = str(raw or "").strip().replace("\\", "/")
+    lowered = text.lower()
+    marker = "/agent-skills-io/"
+    marker_index = lowered.find(marker)
+    if marker_index >= 0:
+        text = text[marker_index + len(marker) :]
+    elif lowered.startswith("agent-skills-io/"):
+        text = text[len("agent-skills-io/") :]
     path = Path(text)
     if path.is_absolute():
         return path
     return (REPO_ROOT / path).resolve()
 
 
+def load_slug_source_map() -> dict[str, str]:
+    slug_map: dict[str, str] = {}
+
+    slug_groups = load_json(SLUG_GROUPS_FILE)
+    for group_name in ("original", "breakout"):
+        for item in slug_groups.get(group_name) or []:
+            if not isinstance(item, dict):
+                continue
+            slug = str(item.get("slug") or "").strip()
+            source = str(item.get("source_skill") or item.get("source") or "").strip()
+            if slug and source:
+                slug_map[slug] = source
+                slug_map[f"{slug}-plugin"] = source
+
+    variants = load_json(BREAKOUT_VARIANTS_FILE)
+    for item in variants.get("variants") or []:
+        if not isinstance(item, dict):
+            continue
+        slug = str(item.get("slug") or "").strip()
+        source = str(item.get("source") or "").strip()
+        if slug and source:
+            slug_map[slug] = source
+            slug_map[f"{slug}-plugin"] = source
+
+    return slug_map
+
+
+def resolve_slug_to_source(slug: str, slug_map: dict[str, str]) -> str | None:
+    name = str(slug or "").strip()
+    if not name:
+        return None
+    mapped = slug_map.get(name)
+    if mapped:
+        return mapped
+    if name.endswith("-plugin"):
+        mapped = slug_map.get(name[: -len("-plugin")])
+        if mapped:
+            return mapped
+        name = name[: -len("-plugin")]
+    if (REPO_ROOT / "targetSkills" / name).exists():
+        return name
+    return None
+
+
 def resolve_source_skill(item: dict[str, Any]) -> str | None:
+    slug_map = load_slug_source_map()
     kind = str(item.get("kind") or "").strip()
+    key = str(item.get("key") or "").strip()
     name = str(item.get("name") or "").strip()
 
-    if kind == "skill" and name:
-        return name
+    if kind == "skill":
+        canonical = key.split(":", 1)[1] if key.startswith("skill:") else ""
+        for candidate in (canonical, name):
+            source = resolve_slug_to_source(candidate, slug_map)
+            if source:
+                return source
+        return None
 
     local_path = normalize_local_path(str(item.get("local_path") or ""))
     if local_path.exists():
         embedded = sorted(path.parent.name for path in local_path.glob("skills/*/SKILL.md"))
         if embedded:
-            return embedded[0]
+            source = resolve_slug_to_source(embedded[0], slug_map)
+            return source or embedded[0]
 
-    if kind == "plugin" and name.endswith("-plugin"):
-        return name[: -len("-plugin")]
-    return name or None
+    if kind == "plugin" and key.startswith("plugin:"):
+        canonical_plugin = key.split(":", 1)[1]
+        source = resolve_slug_to_source(canonical_plugin, slug_map)
+        if source:
+            return source
+
+    if kind == "plugin":
+        source = resolve_slug_to_source(name, slug_map)
+        if source:
+            return source
+    return resolve_slug_to_source(name, slug_map)
 
 
 def resolve_source_skills(items: list[dict[str, Any]]) -> list[str]:
@@ -256,7 +326,7 @@ def run_targeted_publish(args: argparse.Namespace, items: list[dict[str, Any]]) 
         return
 
     publish_command = [
-        "python3",
+        PYTHON,
         "scripts/publish_clawhub_batch.py",
         "--targets",
         args.clawhub_publish,
@@ -275,7 +345,7 @@ def run_targeted_publish(args: argparse.Namespace, items: list[dict[str, Any]]) 
 def refresh_diagnosis(items: list[dict[str, Any]]) -> None:
     artifact_keys = [str(item.get("key") or "").strip() for item in items if str(item.get("key") or "").strip()]
     live_scan_command = [
-        "python3",
+        PYTHON,
         "scripts/clawhub_live_status.py",
         "--targets",
         "both",
@@ -286,7 +356,7 @@ def refresh_diagnosis(items: list[dict[str, Any]]) -> None:
         live_scan_command.extend(["--artifact", key])
     run_command(live_scan_command, timeout=3600, check=False)
     run_command(
-        ["python3", "scripts/clawhub_suspicious_diagnosis.py", "--doc-mode", "update"],
+        [PYTHON, "scripts/clawhub_suspicious_diagnosis.py", "--doc-mode", "update"],
         timeout=1800,
         check=False,
     )
@@ -458,7 +528,7 @@ def main() -> int:
         run_command(DEFAULT_REPO_SKILL_SYNC, timeout=900, check=not args.llm_if_available)
 
     llm_command = [
-        "python3",
+        PYTHON,
         "scripts/llm_refine_aisa_skills.py",
         "--profile",
         args.llm_profile,

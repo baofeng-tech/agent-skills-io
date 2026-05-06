@@ -90,6 +90,10 @@ class PredictionMarketClient:
                 return {"success": False, "error": {"code": str(e.code), "message": error_body}}
         except urllib.error.URLError as e:
             return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e.reason)}}
+        except TimeoutError as e:
+            return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e)}}
+        except OSError as e:
+            return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e)}}
 
     # ==================== Polymarket ====================
 
@@ -314,6 +318,10 @@ class PredictionMarketClient:
                 return {"success": False, "error": {"code": str(e.code), "message": error_body}}
         except urllib.error.URLError as e:
             return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e.reason)}}
+        except TimeoutError as e:
+            return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e)}}
+        except OSError as e:
+            return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e)}}
 
 
 def main():

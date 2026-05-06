@@ -21,6 +21,7 @@ PUBLIC_PROVIDER = "AIsa"
 PUBLIC_PLATFORMS = "agentskills.io,agentskills.so,github"
 NON_STANDARD_PLUGIN_FILES = {
     "CHANGELOG.md",
+    "index.js",
     "index.ts",
     "openclaw.plugin.json",
     "package-lock.json",
@@ -346,7 +347,7 @@ def write_docs(skills: list[dict[str, object]]) -> None:
         "## Notes",
         "",
         "- This release layer is standards-first, not Claude-specific.",
-        "- It removes plugin-wrapper files such as `package.json` and `index.ts` when they are not part of the shipped standard skill surface.",
+        "- It removes plugin-wrapper files such as `package.json`, `index.js`, and `index.ts` when they are not part of the shipped standard skill surface.",
         "- It is tuned for `agentskills.so` indexing rather than generic multi-runtime wording.",
     ]
     (OUTPUT_ROOT / "PUBLISHING.md").write_text("\n".join(publishing) + "\n", encoding="utf-8")

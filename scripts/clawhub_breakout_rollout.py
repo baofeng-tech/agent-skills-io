@@ -16,23 +16,24 @@ from unified_skill_pipeline import adjacent_sync_commands, parse_adjacent_target
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_VARIANTS_FILE = REPO_ROOT / "targets" / "clawhub-breakout-variants.json"
 DEFAULT_REPORT_FILE = REPO_ROOT / "targets" / "clawhub-breakout-rollout.json"
+PYTHON = sys.executable or "python3"
 DEFAULT_REPO_SKILL_SYNC = [
-    "python3",
+    PYTHON,
     "scripts/sync_codex_repo_skills.py",
     "--if-available",
 ]
 FULL_BUILD_STEPS = [
-    ["python3", "scripts/normalize_target_skills.py"],
-    ["python3", "scripts/build_targetskills_catalog.py"],
-    ["python3", "scripts/build_clawhub_release.py"],
-    ["python3", "scripts/build_clawhub_plugin_release.py"],
-    ["python3", "scripts/build_claude_release.py"],
-    ["python3", "scripts/build_claude_marketplace.py"],
-    ["python3", "scripts/build_hermes_release.py"],
-    ["python3", "scripts/build_agentskills_so_release.py"],
-    ["python3", "scripts/build_agentskill_sh_release.py"],
+    [PYTHON, "scripts/normalize_target_skills.py"],
+    [PYTHON, "scripts/build_targetskills_catalog.py"],
+    [PYTHON, "scripts/build_clawhub_release.py"],
+    [PYTHON, "scripts/build_clawhub_plugin_release.py"],
+    [PYTHON, "scripts/build_claude_release.py"],
+    [PYTHON, "scripts/build_claude_marketplace.py"],
+    [PYTHON, "scripts/build_hermes_release.py"],
+    [PYTHON, "scripts/build_agentskills_so_release.py"],
+    [PYTHON, "scripts/build_agentskill_sh_release.py"],
 ]
-TEST_STEP = ["python3", "scripts/test_release_layers.py"]
+TEST_STEP = [PYTHON, "scripts/test_release_layers.py"]
 
 
 def split_csv(value: str) -> list[str]:
@@ -134,7 +135,7 @@ def run_targeted_publish(args: argparse.Namespace, variants: list[dict[str, str]
         return
 
     command = [
-        "python3",
+        PYTHON,
         "scripts/publish_clawhub_batch.py",
         "--targets",
         args.clawhub_publish,
@@ -161,7 +162,7 @@ def refresh_live_state(variants: list[dict[str, str]]) -> None:
         return
 
     live_scan_command = [
-        "python3",
+        PYTHON,
         "scripts/clawhub_live_status.py",
         "--targets",
         "both",
@@ -172,7 +173,7 @@ def refresh_live_state(variants: list[dict[str, str]]) -> None:
         live_scan_command.extend(["--artifact", key])
     run_command(live_scan_command, timeout=3600, check=False)
     run_command(
-        ["python3", "scripts/clawhub_suspicious_diagnosis.py", "--doc-mode", "update"],
+        [PYTHON, "scripts/clawhub_suspicious_diagnosis.py", "--doc-mode", "update"],
         timeout=1800,
         check=False,
     )
@@ -286,7 +287,7 @@ def main() -> int:
         run_command(DEFAULT_REPO_SKILL_SYNC, timeout=900, check=not args.llm_if_available)
 
     llm_command = [
-        "python3",
+        PYTHON,
         "scripts/llm_refine_aisa_skills.py",
         "--profile",
         "clawhub_breakout",

@@ -51,6 +51,18 @@
       "https://api.aisa.one/apis/v1/twitter"
     ]
   },
+  "requires": {
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ]
+  },
+  "primaryEnv": "AISA_API_KEY",
+  "networkTargets": [
+    "https://api.aisa.one/apis/v1/twitter"
+  ],
   "aisa": {
     "requires": {
       "bins": [

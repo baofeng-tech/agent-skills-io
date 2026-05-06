@@ -17,6 +17,47 @@
     "type": "git",
     "url": "https://github.com/baofeng-tech/agent-skills-io.git"
   },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "AISA_API_KEY": {
+        "type": "string",
+        "title": "Aisa Api Key",
+        "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
+        "format": "password"
+      },
+      "AISA_BASE_URL": {
+        "type": "string",
+        "title": "Aisa Base Url",
+        "description": "Optional runtime setting for AISA_BASE_URL."
+      },
+      "AISA_MODEL": {
+        "type": "string",
+        "title": "Aisa Model",
+        "description": "Optional runtime setting for AISA_MODEL."
+      }
+    },
+    "required": [
+      "AISA_API_KEY"
+    ]
+  },
+  "runtimeRequirements": {
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "optionalEnv": [
+      "AISA_BASE_URL",
+      "AISA_MODEL"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
   "metadata": {
     "aisa": {
       "requires": {
@@ -37,6 +78,22 @@
       ]
     }
   },
+  "requires": {
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ]
+  },
+  "optionalEnv": [
+    "AISA_BASE_URL",
+    "AISA_MODEL"
+  ],
+  "primaryEnv": "AISA_API_KEY",
+  "networkTargets": [
+    "https://api.aisa.one"
+  ],
   "aisa": {
     "requires": {
       "bins": [
@@ -57,7 +114,7 @@
   },
   "openclaw": {
     "extensions": [
-      "./index.ts"
+      "./index.js"
     ],
     "compat": {
       "pluginApi": "^1.0.0"
