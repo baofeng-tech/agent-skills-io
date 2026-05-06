@@ -1,14 +1,14 @@
 # Crypto Market Data 🪙
 
-Query CoinGecko market data through AIsa from a single CLI.
+Get cryptocurrency market data from CoinGecko through AIsa using a single CLI.
 
-Use this skill when you need current crypto prices, historical charts, OHLC candles, token pricing by contract address, exchange and ticker data, category rankings, trending searches, or crypto news.
+This skill covers spot prices, market charts, OHLC candles, token lookup by contract address, market-cap rankings, exchange metadata and tickers, category data, trending searches, and crypto news.
 
 ## Compatibility
 
 Works with any [agentskills.io](https://agentskills.io)-compatible harness: Claude Code, Claude, OpenCode, Cursor, Codex, Gemini CLI, OpenClaw, Hermes, Goose, and others.
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available at [aisa.one](https://aisa.one)).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
 ## What you can do
 
@@ -156,30 +156,28 @@ python3 scripts/coingecko_client.py trending
 
 ## Inputs and outputs
 
-- **Input:** coin IDs (for example `bitcoin`, `ethereum`, `solana`), fiat or crypto `vs_currency` codes (`usd`, `eur`, `btc`), category IDs, exchange IDs, or platform-plus-contract-address pairs. Use `coins list` and `exchanges id-map` to resolve user-friendly names into CoinGecko IDs.
-- **Output:** JSON printed to stdout, following the CoinGecko schema returned by each endpoint. Depending on the command, that may include price dictionaries, full coin or exchange objects, arrays of timestamped `[ts, value]` pairs for charts, `[ts, o, h, l, c]` tuples for OHLC data, ticker arrays, category market summaries, trending items, or news entries.
+- **Input:** coin IDs such as `bitcoin`, `ethereum`, and `solana`; fiat or crypto `vs_currency` codes such as `usd`, `eur`, and `btc`; category IDs; exchange IDs; or platform + contract address pairs. Use `coins list` and `exchanges id-map` to resolve user-facing names to CoinGecko IDs.
+- **Output:** JSON printed to stdout, following the CoinGecko schema for each endpoint: price dictionaries, coin and exchange objects, arrays of timestamped `[ts, value]` pairs for charts, `[ts, o, h, l, c]` tuples for OHLC, ticker arrays, and related response shapes.
 
 ## When to use / When not to use
 
 **Use when:**
 - You need current or historical **crypto** prices, market caps, volumes, or charts.
-- You need to look up a token by its **on-chain contract address**.
+- You need to look up a token by its **on-chain contract address** such as Ethereum, BNB Smart Chain, or Polygon.
 - You need **exchange-level** data such as trust scores, volumes, or per-pair tickers.
-- You want category-level market breakdowns or trending-coin discovery.
+- You are screening by market cap, category, or trending interest.
 
 **Do not use when:**
 - You need **equities or traditional finance** data — use the `marketpulse` skill.
-- You need **order-book depth on prediction markets** such as Polymarket or Kalshi — use `prediction-market-data`.
-- You need **on-chain wallet balances, transfers, or gas traces** — this skill provides market data, not node RPC access.
+- You need **prediction-market order-book depth** for platforms like Polymarket or Kalshi — use `prediction-market-data`.
+- You need **on-chain wallet balances, transfers, or gas traces** — this is a pricing and market-data skill, not a node or wallet RPC skill.
 
 ## Requirements
 
-- Python 3
-- `curl`
-- POSIX shell
-- `AISA_API_KEY` — required, available at [aisa.one](https://aisa.one)
+- Python 3, `curl`, POSIX shell
+- `AISA_API_KEY` — required, available from [aisa.one](https://aisa.one)
 
-## API Reference
+## API reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.
 

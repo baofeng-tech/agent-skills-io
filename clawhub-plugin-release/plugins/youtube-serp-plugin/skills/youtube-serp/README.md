@@ -8,7 +8,7 @@ Release-ready ClawHub skill package generated from `targetSkills/youtube-serp`.
 
 ## Notes
 
-- Search YouTube result pages through AISA to find ranking videos, channels, and trends for content research, competitor tracking, and regional discovery. Use when: you need YouTube SERP data for a topic, market, or channel niche.
+- Search YouTube SERP results through AIsa for video research, channel discovery, trend analysis, and competitor tracking. Use when you need top-ranking YouTube results for a query, optionally filtered by country or language.
 - This README is release-specific and replaces source READMEs that were written for other runtimes.
 - If the underlying instructions mention OpenClaw, treat that as source-context or compatibility guidance unless the skill is specifically about OpenClaw setup.
 

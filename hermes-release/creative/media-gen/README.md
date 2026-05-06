@@ -8,7 +8,7 @@ Release-ready Hermes skill package generated from `targetSkills/media-gen`.
 
 ## Notes
 
-- Generate images and videos with AIsa using one API key. Supports Gemini image generation, Wan 2.7 image models, Seedream image generation, and Wan text-to-video / image-to-video variants, while routing each model to the correct AIsa endpoint automatically. Use when: you need a neutral cross-platform skill for creating images or videos from prompts or reference images through AIsa.
+- Generate images and videos with AIsa using one API key. Supports Gemini image generation, Wan 2.7 image and image-pro, ByteDance Seedream, and four Wan video variants through the bundled client, which routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
 - This README is release-specific and replaces source READMEs that were written for other runtimes.
 - If the underlying instructions mention OpenClaw, treat that as source-context or compatibility guidance unless the skill is specifically about OpenClaw setup.
 

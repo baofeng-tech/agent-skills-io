@@ -1,6 +1,6 @@
 ---
 name: marketpulse
-description: 'Query real-time and historical equity market data including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
+description: 'Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
 author: AIsa
 version: 1.0.2
 license: MIT
@@ -38,13 +38,14 @@ metadata:
 
 # MarketPulse 📊
 
-Access structured equity market data from AIsa, including prices, news, financial statements, filings, ownership activity, and macro rates.
+MarketPulse provides stock-focused financial data from AIsa for research, screening, and company analysis.
 
-Use this skill when you want to:
-- analyze a public company across price, fundamentals, filings, and ownership data
-- review earnings context with analyst estimates and press releases
-- screen stocks by valuation or growth filters
-- retrieve macro interest-rate context for market research
+Use when you need:
+- historical or intraday equity prices
+- company news and earnings-related context
+- financial statements, metrics, and analyst estimates
+- insider trades, institutional ownership, and SEC filings
+- stock screening, line-item search, or macro interest-rate data
 
 ## Compatibility
 
@@ -55,48 +56,48 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- any other harness that implements the [Agent Skills specification](https://agentskills.io/specification)
+- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
-## Example requests
-
-### Investment research
-```
-"Full analysis: NVDA price trends, insider trades, analyst estimates, SEC filings"
-```
-
-### Earnings analysis
-```
-"Get Tesla earnings press releases, analyst estimates, and price reaction"
-```
-
-### Market screening
-```
-"Find stocks with P/E < 15 and revenue growth > 20%"
-```
-
-### Insider activity review
-```
-"Track insider trades at Apple and correlate with price movements"
-```
-
-### Segment deep-dive
-```
-"Break down Apple's revenue by product segment and geography"
-```
-
-## Quick start
+## Quick Start
 
 ```bash
 export AISA_API_KEY="your-key"
 ```
 
+## Example Requests
+
+### Investment research
+```text
+Full analysis: NVDA price trends, insider trades, analyst estimates, and SEC filings
+```
+
+### Earnings analysis
+```text
+Get Tesla earnings press releases, analyst estimates, and price reaction
+```
+
+### Market screening
+```text
+Find stocks with P/E < 15 and revenue growth > 20%
+```
+
+### Insider activity
+```text
+Track insider trades at Apple and correlate with price movements
+```
+
+### Segment deep dive
+```text
+Break down Apple's revenue by product segment and geography
+```
+
 ---
 
-## Traditional finance data
+## HTTP API Examples
 
-### Stock prices
+### Stock Prices
 
 ```bash
 # Historical price data (daily)
@@ -113,13 +114,13 @@ curl "https://api.aisa.one/apis/v1/financial/prices?ticker=AAPL&interval=minute&
 ```
 
 **Parameters:**
-- `ticker`: Stock symbol (required)
+- `ticker`: stock symbol (required)
 - `interval`: `second`, `minute`, `day`, `week`, `month`, `year` (required)
-- `interval_multiplier`: Multiplier for interval, e.g. `5` for 5-minute bars (required)
-- `start_date`: Start date in `YYYY-MM-DD` format (required)
-- `end_date`: End date in `YYYY-MM-DD` format (required)
+- `interval_multiplier`: multiplier for interval, such as 5 for 5-minute bars (required)
+- `start_date`: start date in `YYYY-MM-DD` format (required)
+- `end_date`: end date in `YYYY-MM-DD` format (required)
 
-### Company news
+### Company News
 
 ```bash
 # Get news by ticker
@@ -127,7 +128,7 @@ curl "https://api.aisa.one/apis/v1/financial/news?ticker=AAPL&limit=10" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### Financial statements
+### Financial Statements
 
 ```bash
 # All financial statements (requires period)
@@ -148,10 +149,10 @@ curl "https://api.aisa.one/apis/v1/financial/financials/cash-flow-statements?tic
 ```
 
 **Parameters:**
-- `ticker`: Stock symbol (required)
+- `ticker`: stock symbol (required)
 - `period`: `annual`, `quarterly`, or `ttm` (required)
 
-### Segmented revenues
+### Segmented Revenues
 
 ```bash
 # Break down revenue by business segment and geography
@@ -160,10 +161,10 @@ curl "https://api.aisa.one/apis/v1/financial/financials/segmented-revenues?ticke
 ```
 
 **Parameters:**
-- `ticker`: Stock symbol (required)
+- `ticker`: stock symbol (required)
 - `period`: `annual` or `quarterly` (required)
 
-### Financial metrics
+### Financial Metrics
 
 ```bash
 # Real-time financial metrics snapshot
@@ -175,7 +176,7 @@ curl "https://api.aisa.one/apis/v1/financial/financial-metrics?ticker=AAPL&perio
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### Analyst estimates
+### Analyst Estimates
 
 ```bash
 # Earnings per share estimates
@@ -183,7 +184,7 @@ curl "https://api.aisa.one/apis/v1/financial/analyst-estimates?ticker=AAPL&perio
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### Earnings press releases
+### Earnings Press Releases
 
 ```bash
 # Get earnings press releases
@@ -193,7 +194,7 @@ curl "https://api.aisa.one/apis/v1/financial/earnings/press-releases?ticker=NVDA
 
 **Note:** This endpoint has narrower ticker coverage than other financial endpoints. Passing an unsupported ticker returns `{"error":"Invalid ticker"}`. See [earnings-press-releases-tickers.md](./earnings-press-releases-tickers.md) for the full list of supported tickers (~2,776 as of 2026-04-14).
 
-### Insider trading
+### Insider Trading
 
 ```bash
 # Get insider trades
@@ -201,7 +202,7 @@ curl "https://api.aisa.one/apis/v1/financial/insider-trades?ticker=AAPL" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### Institutional ownership
+### Institutional Ownership
 
 ```bash
 # Get institutional ownership (by ticker OR investor)
@@ -209,7 +210,7 @@ curl "https://api.aisa.one/apis/v1/financial/institutional-ownership?ticker=AAPL
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### SEC filings
+### SEC Filings
 
 ```bash
 # Get SEC filings
@@ -221,7 +222,7 @@ curl "https://api.aisa.one/apis/v1/financial/filings/items?ticker=AAPL&filing_ty
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### Company facts
+### Company Facts
 
 ```bash
 # Get company facts (by ticker or CIK)
@@ -229,7 +230,7 @@ curl "https://api.aisa.one/apis/v1/financial/company/facts?ticker=AAPL" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### Stock screener
+### Stock Screener
 
 ```bash
 # Screen for stocks matching criteria
@@ -239,7 +240,7 @@ curl -X POST "https://api.aisa.one/apis/v1/financial/financials/search/screener"
   -d '{"filters":{"pe_ratio":{"max":15},"revenue_growth":{"min":0.2}}}'
 ```
 
-### Search line items
+### Search Line Items
 
 ```bash
 # Search specific financial line items across tickers
@@ -249,7 +250,7 @@ curl -X POST "https://api.aisa.one/apis/v1/financial/financials/search/line-item
   -d '{"tickers":["AAPL","MSFT"],"line_items":["revenue","net_income"],"period":"annual"}'
 ```
 
-### Interest rates (macro)
+### Interest Rates (Macro)
 
 ```bash
 # Current interest rates
@@ -263,7 +264,7 @@ curl "https://api.aisa.one/apis/v1/financial/macro/interest-rates?bank=fed" \
 
 ---
 
-## Python client
+## Python Client
 
 ```bash
 # ==================== Stock Data ====================
@@ -306,7 +307,7 @@ python3 scripts/market_client.py stock rates --historical --bank fed
 
 ---
 
-## API endpoints reference
+## API Endpoints Reference
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
@@ -349,13 +350,13 @@ python3 scripts/market_client.py stock rates --historical --bank fed
 
 ---
 
-## Get started
+## Get Started
 
 1. Sign up at [aisa.one](https://aisa.one)
 2. Get your API key
 3. Add credits (pay-as-you-go)
-4. Set the environment variable: `export AISA_API_KEY="your-key"`
+4. Set `AISA_API_KEY`, for example: `export AISA_API_KEY="your-key"`
 
-## Full API reference
+## Full API Reference
 
 See [API Reference](https://aisa.one/docs/api-reference/) for complete endpoint documentation.

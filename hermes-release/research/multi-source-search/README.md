@@ -8,7 +8,7 @@ Release-ready Hermes skill package generated from `targetSkills/multi-source-sea
 
 ## Notes
 
-- Multi-source search and answer generation for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need fast retrieval, citation-rich answers, or deeper research from one AIsa-backed skill.
+- Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need retrieval, citations, or research-grade answers from one AIsa API key.
 - This README is release-specific and replaces source READMEs that were written for other runtimes.
 - If the underlying instructions mention OpenClaw, treat that as source-context or compatibility guidance unless the skill is specifically about OpenClaw setup.
 

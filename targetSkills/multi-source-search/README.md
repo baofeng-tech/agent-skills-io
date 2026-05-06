@@ -8,6 +8,16 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Cl
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
+## Use When
+
+Use this skill when you need to:
+
+- search the web with structured results
+- find papers or scholar-style references
+- get citation-backed answers through Sonar models
+- generate deeper research outputs
+- combine multiple retrieval sources in one workflow
+
 ## Features
 
 - Web search
@@ -17,7 +27,7 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 - Tavily integration
 - Verity-style multi-source retrieval
 
-## Quick start
+## Quick Start
 
 ```bash
 export AISA_API_KEY="your-key"
@@ -29,23 +39,15 @@ python3 scripts/search_client.py sonar-pro --query "Compare coding agents with c
 python3 scripts/search_client.py verity --query "Is quantum computing enterprise-ready?"
 ```
 
-## When to use this skill
-
-Use this skill when you need one AIsa-backed search surface for:
-- fast web lookup
-- scholar-backed research
-- citation-rich answers
-- deeper research workflows across multiple search providers
-
 ## Notes
 
-- Deprecated `/search/full` and `/search/smart` nodes were removed from this skill.
-- Perplexity endpoints are the recommended answer-generation path.
+- Deprecated `/search/full` and `/search/smart` nodes were removed from this skill's documented surface.
+- Perplexity endpoints are now the recommended answer-generation path.
 
 ## Documentation
 
-See [SKILL.md](SKILL.md) for full usage, API examples, and endpoint details.
+See [SKILL.md](SKILL.md) for full usage, endpoint examples, and API notes.
 
-## API reference
+## API Reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.

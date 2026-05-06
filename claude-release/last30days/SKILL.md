@@ -1,18 +1,20 @@
 ---
 name: last30days
-description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when you need recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
+description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 license: MIT
 allowed-tools: Read Bash Grep
-when_to_use: you need recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles
+when_to_use: the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles
 ---
 
 > Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
 
 # last30days 📰
 
-**30-day multi-source research briefs for autonomous agents. Powered by AIsa.**
+**30-day multi-source research brief for autonomous agents. Powered by AIsa.**
 
-One API key pulls recent evidence from Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search, then merges it into a ranked, clustered brief with citations.
+Use this skill when you need recent evidence across social, community, market, developer, and grounded web sources in one ranked brief.
+
+One API key. Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web are merged into a single clustered output with citations.
 
 ## Compatibility
 
@@ -25,13 +27,7 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
 - and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
-
-## Use when
-
-- You need recent evidence from the last 30 days on a person, company, product, market, tool, or trend.
-- You want a multi-source competitor comparison, launch-reaction summary, creator/community sentiment scan, or shipping update.
-- You want a structured markdown or JSON brief that another agent can consume.
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at [aisa.one](https://aisa.one)).
 
 ## Example requests
 
@@ -103,19 +99,25 @@ bash scripts/run-last30days.sh --diagnose
 - `clusters` — semantically grouped findings
 - `items_by_source` — per-source item lists with dates, engagement, and URLs
 - `provider_runtime` — which models and retrieval backends ran
-- `errors_by_source` — source-level failures when the run degrades gracefully
+- `errors_by_source` — source-level failures when a source fails soft
 
-## What it does
+## When to use
 
-- **AISA-powered**: uses an LLM planner for structured query plans, a reranker for relevance ordering, a fun-scorer for lighter signal, and hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and grounded Tavily web search.
-- **Public-path sources**: Reddit and Hacker News work through their public APIs with no extra credentials.
-- **Optional GitHub source**: enabled when `GH_TOKEN` or `GITHUB_TOKEN` is set.
-- **Fail-soft behavior**: if one source errors or times out, the brief still renders from the remaining sources and records the gap.
+- You need recent evidence from the last 30 days on a person, company, product, market, tool, or trend.
+- You want a ranked competitor comparison, launch-reaction summary, creator or community sentiment scan, or shipping update.
+- You want a structured JSON brief that another agent can consume.
 
 ## When not to use
 
-- For timeless reference questions with no recent-evidence requirement.
-- When you only want one official source and do not want social or community signals.
+- Timeless reference questions with no recent-evidence requirement.
+- Cases where you only want one official source and do not want social or community signals.
+
+## Capabilities
+
+- **AISA-powered**: planner for structured query planning, reranker for relevance ordering, fun-scorer for meme or quirk signal, and hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and grounded Tavily web search.
+- **Public sources with no extra credentials**: Reddit and Hacker News.
+- **GitHub support** via the official API when `GH_TOKEN` or `GITHUB_TOKEN` is set.
+- **Fail-soft behavior**: if one source errors or times out, the brief still renders with remaining sources and notes the gap.
 
 ## Model configuration
 
@@ -127,7 +129,7 @@ LAST30DAYS_RERANK_MODEL=qwen-plus-2025-12-01  # quality ranking
 LAST30DAYS_FUN_MODEL=qwen-flash               # cheap vibes
 ```
 
-Or set `AISA_MODEL=...` to use one model across all three roles. Run `last30days setup` to choose interactively; the picker fetches the live catalog from [aisa.one/docs/guides/models](https://aisa.one/docs/guides/models).
+Or set `AISA_MODEL=...` for a single model across all three roles. Run `last30days setup` to pick interactively. The picker fetches the live catalog from [aisa.one/docs/guides/models](https://aisa.one/docs/guides/models).
 
 ## API reference
 

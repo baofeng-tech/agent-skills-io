@@ -1,6 +1,6 @@
 # YouTube SERP 📺
 
-Search YouTube result pages through AISA to find ranking videos, channels, and trends for content research, competitor tracking, and regional discovery.
+Search YouTube SERP results through AIsa for video research, channel discovery, trend analysis, and competitor tracking.
 
 ## Compatibility
 
@@ -10,11 +10,10 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## Features
 
-- **YouTube SERP search** for topic and keyword research
-- **Country and language filters** for regional comparisons
-- **Competitor research** using query-based discovery
-- **Trend discovery** from current search rankings
-- **Structured API output** for downstream analysis workflows
+- Search top-ranking YouTube videos for a query
+- Filter results by country and interface language
+- Research channels and competitor content
+- Explore trending topics and search visibility
 
 ## Quick Start
 
@@ -30,21 +29,21 @@ python3 scripts/youtube_client.py search --query "machine learning" --country us
 # Search with language filter
 python3 scripts/youtube_client.py search --query "python tutorial" --lang en
 
-# Full options
-python3 scripts/youtube_client.py search --query "GPT-5 news" --country us --lang en
+# Combined country and language filters
+python3 scripts/youtube_client.py search --query "GPT-5" --country us --lang en
 ```
 
-## Common Use Cases
+## Use Cases
 
-1. **Content research** - Find what is ranking for a topic
-2. **Competitor tracking** - Inspect search results around competitor topics or brands
-3. **Trend discovery** - Check what is surfacing now for emerging queries
-4. **Keyword research** - Compare result pages across search terms
-5. **Regional analysis** - Review country and language differences
+1. **Content Research** — Find what is ranking to inform content planning
+2. **Competitor Tracking** — Monitor how competitors appear in YouTube search
+3. **Trend Discovery** — Identify popular topics and search patterns
+4. **Keyword Research** — Explore queries and ranking results in a niche
+5. **Audience Research** — Compare results across countries and languages
 
 ## Documentation
 
-See [SKILL.md](SKILL.md) for full usage details, parameters, and response examples.
+See [SKILL.md](SKILL.md) for full usage details, API examples, and parameter reference.
 
 ## API Reference
 

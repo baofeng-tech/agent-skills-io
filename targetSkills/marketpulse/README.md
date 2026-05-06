@@ -1,6 +1,8 @@
 # MarketPulse (Equity Market Data) 📊
 
-Query real-time and historical equity market data including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates.
+MarketPulse provides stock-focused financial data from AIsa for research, screening, and company analysis.
+
+It covers prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, line-item search, and macro interest rates.
 
 ## Compatibility
 
@@ -8,31 +10,35 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Cl
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
-## Use when
+## Use When
 
-- you need price history or company news for a public stock
-- you want financial statements, metrics, or analyst estimates for research
-- you want SEC filings, insider trades, or institutional ownership data
-- you want to screen stocks or compare line items across tickers
-- you need macro interest-rate context alongside equity analysis
+Use this skill when you need to:
+
+- inspect historical or intraday stock prices
+- pull company news and earnings-related context
+- analyze financial statements, metrics, and analyst expectations
+- review insider trades, institutional ownership, and SEC filings
+- run stock screens or line-item queries across multiple tickers
+- fetch macro interest-rate snapshots or history
 
 ## Features
 
-- **Stock Data**: Historical prices and interval-based market data
-- **Company News**: Latest news by ticker
+- **Stock Prices**: Historical and intraday price data
+- **Company News**: Recent news by ticker
 - **Financial Statements**: Income statements, balance sheets, and cash flow
 - **Segmented Revenues**: Revenue by segment and geography
 - **Financial Metrics**: Snapshot and historical metrics
-- **Analyst Estimates**: EPS forecast data
-- **Earnings Press Releases**: Quarterly earnings releases
+- **Analyst Estimates**: Earnings estimate data
+- **Earnings Press Releases**: Earnings release retrieval
 - **Insider Trading**: Insider transaction data
 - **Institutional Ownership**: Holdings data by ticker or investor
-- **SEC Filings**: 10-K, 10-Q, 8-K, and filing item extraction
-- **Stock Screener**: Filter stocks by financial criteria
-- **Line-Item Search**: Pull selected financial line items across multiple tickers
-- **Macro Interest Rates**: Snapshot and historical central-bank rates
+- **SEC Filings**: Filings plus filing item extraction
+- **Company Facts**: Company facts by ticker or CIK
+- **Stock Screener**: Filter equities by financial criteria
+- **Line-Item Search**: Query selected financial line items across tickers
+- **Macro Interest Rates**: Snapshot and historical central-bank rate data
 
-## Quick start
+## Quick Start
 
 ```bash
 export AISA_API_KEY="your-key"
@@ -44,10 +50,16 @@ python3 scripts/market_client.py stock prices --ticker AAPL --start 2025-01-01 -
 python3 scripts/market_client.py stock earnings --ticker AAPL
 ```
 
+## Notes
+
+- The earnings press releases endpoint has narrower ticker coverage than the broader financial dataset.
+- Unsupported earnings tickers return `{"error":"Invalid ticker"}`.
+- See [earnings-press-releases-tickers.md](./earnings-press-releases-tickers.md) for the supported list referenced by the skill.
+
 ## Documentation
 
-See [SKILL.md](SKILL.md) for full usage, curl examples, and endpoint coverage.
+See [SKILL.md](SKILL.md) for complete usage examples, endpoint coverage, and command references.
 
-## API reference
+## API Reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.

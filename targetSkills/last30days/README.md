@@ -25,12 +25,6 @@ last30days "bitcoin price" --quick
 last30days "Perplexity" --emit=json
 ```
 
-## Use when
-
-- You need recent evidence on a person, company, product, market, tool, or trend.
-- You want a competitor comparison, launch-reaction summary, or sentiment scan across multiple public sources.
-- You want markdown or JSON output that can feed another agent workflow.
-
 ## Compatibility
 
 Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**, **Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and others that implement the [Agent Skills specification](https://agentskills.io/specification).
@@ -39,20 +33,20 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## What it returns
 
-A single markdown brief by default, or JSON when requested:
+A single markdown brief by default, or JSON with the full structured output:
 
-- **Ranked evidence clusters** — top findings grouped by theme, each with a URL, date, engagement stats, and a short relevance note
+- **Ranked evidence clusters** — top findings grouped by theme, each with a URL, date, engagement stats, and a one-line relevance note
 - **Stats** — items per source, top communities, domains, or channels
-- **Best Takes** — lighter or meme-worthy items when available
+- **Best Takes** — quirky or meme-worthy items when available
 - **Source coverage** — how many items each source contributed
 
-Pass `--emit=json` for a machine-readable version with the full `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source` fields.
+Pass `--emit=json` for a machine-readable version with the full `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source` fields for downstream agent use.
 
 ## Requirements
 
 - **Python 3.12+**
 - **`AISA_API_KEY`** — powers the planner, reranker, fun-scorer, and hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and grounded web search. Get one at [aisa.one](https://aisa.one).
-- **`GH_TOKEN` or `GITHUB_TOKEN`** *(optional)* — enables the GitHub source.
+- **`GH_TOKEN` or `GITHUB_TOKEN`** *(optional)* — enables the GitHub source. Without it, the other sources still work.
 
 Reddit and Hacker News use public endpoints and need no credentials.
 
@@ -67,23 +61,23 @@ LAST30DAYS_RERANK_MODEL=qwen-plus-2025-12-01  # quality ranking
 LAST30DAYS_FUN_MODEL=qwen-flash               # cheap vibes
 ```
 
-Or set `AISA_MODEL=...` for a single model across all three. The interactive `setup` flow walks you through picking from the live [AIsa model catalog](https://aisa.one/docs/guides/models).
+Or set `AISA_MODEL=...` for a single model across all three roles. The interactive `setup` flow walks you through choosing from the live [AIsa model catalog](https://aisa.one/docs/guides/models).
 
 ## Flags
 
 | Flag | Meaning |
 |---|---|
-| `--quick` | Lower-latency retrieval profile (fewer candidates) |
+| `--quick` | Lower-latency retrieval profile with fewer candidates |
 | `--deep` | Higher-recall retrieval profile |
-| `--emit=json` | Machine-readable output (default: markdown) |
+| `--emit=json` | Machine-readable output instead of markdown |
 | `--search=reddit,x,hackernews` | Restrict to specific sources |
-| `--diagnose` | Print provider / source availability |
+| `--diagnose` | Print provider and source availability |
 | `--save-dir=out/` | Persist the rendered brief to disk |
 | `--store` | Persist findings to the local SQLite research store |
 
 Run `last30days --help` for the full list.
 
-## API reference
+## API Reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.
 

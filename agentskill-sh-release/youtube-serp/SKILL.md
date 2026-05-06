@@ -1,6 +1,6 @@
 ---
 name: youtube-serp
-description: 'Search YouTube result pages through AISA to find ranking videos, channels, and trends for content research, competitor tracking, and regional discovery. Use when: you need YouTube SERP data for a topic, market, or channel niche.'
+description: Search YouTube SERP results through AIsa for video research, channel discovery, trend analysis, and competitor tracking. Use when you need top-ranking YouTube results for a query, optionally filtered by country or language.
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -8,7 +8,7 @@ metadata:
   version: 1.0.0
   homepage: https://aisa.one
   repository: https://github.com/baofeng-tech/agent-skills
-  tags: youtube,search,research,market,video,aisa
+  tags: youtube,search,research,video,aisa
   platforms: agentskills.io,agentskill.sh,github
   primary_env: AISA_API_KEY
 allowed-tools: Read Bash Grep
@@ -16,13 +16,13 @@ allowed-tools: Read Bash Grep
 
 # YouTube SERP 📺
 
-Search YouTube result pages through AISA for content research, competitor tracking, topic discovery, and regional comparisons.
+Search YouTube results through AIsa for content research, channel discovery, trend spotting, and competitor tracking.
 
-Use when:
-- you want the top YouTube results for a query
-- you need to compare results across countries or interface languages
-- you are researching competitor coverage or creator niches
-- you want structured YouTube SERP data for downstream analysis
+Use when you need to:
+- find top-ranking YouTube videos for a topic
+- explore channels publishing in a niche
+- compare regional or language-specific results
+- monitor how topics or competitors appear in YouTube search
 
 ## Compatibility
 
@@ -33,9 +33,36 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and any other harness that implements the [Agent Skills specification](https://agentskills.io/specification)
+- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://aisa.one).
+
+## Example Requests
+
+### Content Research
+```text
+Find top-ranking videos about "AI agents tutorial" to see what is performing well.
+```
+
+### Competitor Tracking
+```text
+Search YouTube for videos from competitor channels about "machine learning".
+```
+
+### Trend Discovery
+```text
+What are the top YouTube videos about "GPT-5" right now?
+```
+
+### Topic Analysis
+```text
+Find popular videos on "autonomous driving" to understand audience interest.
+```
+
+### Channel Discovery
+```text
+Search for channels creating content about "crypto trading".
+```
 
 ## Quick Start
 
@@ -43,45 +70,20 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://ais
 export AISA_API_KEY="your-key"
 ```
 
-## Example Requests
-
-### Content research
-
-```text
-Find top-ranking YouTube videos about "AI agents tutorial".
-```
-
-### Competitor tracking
-
-```text
-Search YouTube results for videos about "machine learning" from competitor channels.
-```
-
-### Trend discovery
-
-```text
-What are the top YouTube results for "GPT-5" right now?
-```
-
-### Channel discovery
-
-```text
-Find YouTube channels creating content about "crypto trading".
-```
-
 ## Core Capabilities
 
-### Basic YouTube search
+### Basic YouTube Search
 
 ```bash
+# Search for videos
 curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AI+agents+tutorial" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### Search with country filter
+### Search with Country Filter
 
 ```bash
-# Search in the United States
+# Search in specific country (US)
 curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=machine+learning&gl=us" \
   -H "Authorization: Bearer $AISA_API_KEY"
 
@@ -90,21 +92,22 @@ curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AI&gl=jp&hl=j
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### Search with language filter
+### Search with Language Filter
 
 ```bash
-# Search with English interface language
+# Search with interface language
 curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=python+tutorial&hl=en" \
   -H "Authorization: Bearer $AISA_API_KEY"
 
-# Search with Simplified Chinese interface language
+# Chinese interface
 curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=编程教程&hl=zh-CN&gl=cn" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### Pagination or advanced filters with `sp`
+### Pagination with Filter Token
 
 ```bash
+# Use sp parameter for pagination or advanced filters
 curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AI&sp=<filter_token>" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
@@ -124,16 +127,16 @@ python3 scripts/youtube_client.py search --query "python tutorial" --lang en
 # Full options
 python3 scripts/youtube_client.py search --query "GPT-5 news" --country us --lang en
 
-# Competitor-oriented research query
+# Competitor research
 python3 scripts/youtube_client.py search --query "OpenAI tutorial"
 
-# Trend discovery query
+# Trend discovery
 python3 scripts/youtube_client.py search --query "AI trends 2025"
 ```
 
 ## Common Use Cases
 
-### 1. Content gap analysis
+### 1. Content Gap Analysis
 
 Find what content is ranking well to identify gaps in your strategy:
 
@@ -143,7 +146,7 @@ results = client.search("AI automation tutorial")
 # Analyze titles, views, and channels to find opportunities
 ```
 
-### 2. Competitor monitoring
+### 2. Competitor Monitoring
 
 Track what competitors are publishing:
 
@@ -153,9 +156,9 @@ results = client.search("OpenAI GPT tutorial")
 # Monitor ranking changes over time
 ```
 
-### 3. Keyword research
+### 3. Keyword Research
 
-Discover what topics are popular in search results:
+Discover what topics are trending:
 
 ```python
 # Search broad topics to see what's popular
@@ -163,9 +166,9 @@ results = client.search("artificial intelligence 2025")
 # Extract common keywords from top-ranking titles
 ```
 
-### 4. Audience research
+### 4. Audience Research
 
-Understand what your target audience watches in different regions:
+Understand what your target audience watches:
 
 ```python
 # Search in specific regions
@@ -173,7 +176,7 @@ results = client.search("coding tutorial", country="jp", lang="ja")
 # Analyze regional content preferences
 ```
 
-### 5. SERP tracking
+### 5. SEO Analysis
 
 Analyze how videos rank for specific keywords:
 
@@ -182,7 +185,7 @@ Analyze how videos rank for specific keywords:
 keywords = ["AI tutorial", "machine learning basics", "Python AI"]
 for kw in keywords:
     results = client.search(kw)
-    # Record top results and their channels
+    # Record top 10 videos and their channels
 ```
 
 ## API Endpoint Reference
@@ -197,8 +200,8 @@ for kw in keywords:
 |-----------|------|----------|-------------|
 | engine | string | Yes | Must be `youtube` |
 | q | string | Yes | Search query |
-| gl | string | No | Country code, such as `us`, `jp`, `uk`, or `cn` |
-| hl | string | No | Interface language, such as `en`, `ja`, or `zh-CN` |
+| gl | string | No | Country code, for example `us`, `jp`, `uk`, `cn` |
+| hl | string | No | Interface language, for example `en`, `ja`, `zh-CN` |
 | sp | string | No | YouTube filter token for pagination or filters |
 
 ## Response Format
@@ -270,7 +273,7 @@ for kw in keywords:
 1. Sign up at [aisa.one](https://aisa.one)
 2. Get your API key
 3. Add credits if needed
-4. Set `AISA_API_KEY` in your shell
+4. Set `AISA_API_KEY` in your environment
 
 ## Full API Reference
 

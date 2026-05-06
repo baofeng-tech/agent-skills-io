@@ -16,9 +16,10 @@ allowed-tools: Read Bash Grep
 
 # Perplexity Search
 
-Use this skill when the user specifically wants Perplexity-powered search answers through AIsa, rather than a broader web or scholarly retrieval workflow.
+Use this skill when the user explicitly wants Perplexity-powered web answers through AIsa, rather than general search or structured scholar/web retrieval.
 
 This skill covers four AIsa endpoints:
+
 - `/perplexity/sonar`
 - `/perplexity/sonar-pro`
 - `/perplexity/sonar-reasoning-pro`
@@ -33,7 +34,7 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and any other harness that implements the [Agent Skills specification](https://agentskills.io/specification)
+- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
@@ -44,10 +45,12 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](
 
 ## Model Selection
 
-- Use `sonar` for fast, lightweight answers with citations
-- Use `sonar-pro` for stronger synthesis and comparison tasks
-- Use `sonar-reasoning-pro` for analytical or multi-step reasoning questions
-- Use `sonar-deep-research` for exhaustive reports; expect slower responses and occasional timeouts
+Choose the endpoint that best matches the task:
+
+- `sonar` for fast, lightweight answers with citations
+- `sonar-pro` for stronger synthesis, comparison, and higher-quality answer drafting
+- `sonar-reasoning-pro` for analytical or multi-step reasoning tasks
+- `sonar-deep-research` for longer research-style reports; expect slower responses and occasional timeouts
 
 ## Python Client
 

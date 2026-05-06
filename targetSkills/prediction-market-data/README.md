@@ -1,9 +1,6 @@
 # Prediction Market Data
 
-Access current odds, prices, and market data from prediction markets such
-as Polymarket and Kalshi. This skill supports market search, price
-lookups, historical orderbooks, candlestick data, trade history, wallet
-positions, PnL, and sports market matching across platforms.
+Access current odds, prices, and market data from prediction markets such as Polymarket and Kalshi. This skill also supports historical orderbook data, candlestick data, trade history, wallet positions, wallet PnL, and cross-platform sports market matching.
 
 ## Compatibility
 
@@ -15,14 +12,20 @@ others that implement the
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
+## Use When
+
+Use this skill when you need to:
+- search Polymarket or Kalshi markets
+- check live prices or implied probabilities
+- inspect historical trades, orderbooks, or candlesticks
+- review wallet activity, positions, or PnL
+- compare matching sports markets across platforms
+
 ## Features
 
-- **Polymarket**: Search markets, fetch live prices, inspect trade
-  history, orderbooks, candlesticks, wallet positions, and PnL
-- **Kalshi**: Search markets, fetch live prices, inspect trade history,
-  and orderbooks
-- **Cross-platform**: Match equivalent sports markets across Polymarket
-  and Kalshi
+- **Polymarket**: search markets, live prices, trade history, orderbooks, candlesticks, wallet positions, wallet info, and PnL
+- **Kalshi**: search markets, live prices, trade history, and orderbooks
+- **Cross-platform**: match equivalent sports markets across Polymarket and Kalshi
 
 ## Quick Start
 
@@ -47,14 +50,11 @@ python scripts/prediction_market_client.py sports by-date nba --date 2025-03-01
 
 ## ID Lookup Notes
 
-Most price and history endpoints require IDs returned by a market search.
-In practice:
+Many price and history endpoints require an ID from a prior market search:
 
-- use `side_a.id` or `side_b.id` from Polymarket market results as the
-  `token_id`
-- use `condition_id` from Polymarket market results for candlesticks
-- use `market_ticker` from Kalshi market results for Kalshi price and
-  history endpoints
+- **Polymarket `token_id`**: from `side_a.id` or `side_b.id` in the `/polymarket/markets` response
+- **Polymarket `condition_id`**: from `condition_id` in the `/polymarket/markets` response
+- **Kalshi `market_ticker`**: from `market_ticker` in the `/kalshi/markets` response
 
 ## API Reference
 
