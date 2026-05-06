@@ -33,6 +33,7 @@ TRANSIENT_MARKERS = (
     "TypeError: fetch failed",
     "The read operation timed out",
     "timed out",
+    "internal server error",
     '"code": "NETWORK_ERROR"',
     "'code': 'NETWORK_ERROR'",
 )

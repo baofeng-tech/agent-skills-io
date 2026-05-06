@@ -31,6 +31,7 @@ TRANSIENT_MARKERS = (
     "Client network socket disconnected before secure TLS connection was established",
     "The read operation timed out",
     "timed out",
+    "internal server error",
     '"code": "NETWORK_ERROR"',
 )
 
@@ -74,6 +75,30 @@ def redact_command(cmd: list[str], secret: str | None) -> list[str]:
 def is_transient_failure(stdout: str, stderr: str) -> bool:
     combined = f"{stdout}\n{stderr}"
     return any(marker in combined for marker in TRANSIENT_MARKERS)
+
+
+def payload_has_application_error(value: object) -> bool:
+    if isinstance(value, dict):
+        if value.get("success") is False or value.get("ok") is False or value.get("error"):
+            return True
+        return any(payload_has_application_error(item) for item in value.values())
+    if isinstance(value, list):
+        return any(payload_has_application_error(item) for item in value)
+    return False
+
+
+def has_application_error(stdout: str, stderr: str) -> bool:
+    combined = f"{stdout}\n{stderr}"
+    if "Traceback (most recent call last)" in combined:
+        return True
+    text = stdout.strip()
+    if not text or text[0] not in "[{":
+        return False
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError:
+        return False
+    return payload_has_application_error(payload)
 
 
 def run(
@@ -293,8 +318,14 @@ def smoke_tests() -> list[dict[str, object]]:
             )
             continue
         code, stdout, stderr = run(cmd, cwd=cwd, env=env)
-        transient = code != 0 and is_transient_failure(stdout, stderr)
-        status = "passed" if code == 0 else "transient" if transient else "failed"
+        application_error = has_application_error(stdout, stderr)
+        transient = is_transient_failure(stdout, stderr)
+        if code == 0 and not application_error:
+            status = "passed"
+        elif transient:
+            status = "transient"
+        else:
+            status = "failed"
         results.append(
             {
                 "layer": layer,
@@ -302,6 +333,7 @@ def smoke_tests() -> list[dict[str, object]]:
                 "command": redact_command(cmd, aisa_key),
                 "code": code,
                 "status": status,
+                "application_error": application_error,
                 "stdout_preview": redact_text(stdout, aisa_key)[:400],
                 "stderr_preview": redact_text(stderr, aisa_key)[:400],
             }

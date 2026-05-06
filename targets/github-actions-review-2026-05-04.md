@@ -56,7 +56,8 @@
 - preflight 在 repo-level runners 未命中时会继续查 organization-level runners，并在 summary 中明确提示 org-level runner 需要 `Self-hosted runners: read` organization permission。
 - 2026-05-06 follow-up：AISA API 回归不再使用 `continue-on-error`。缺少 `AISA_API_KEY` 会直接失败并提示配置 secret；真实回归报告包含 `failure_count` 与 `transient_count`，第三方网络瞬断不会被当作代码硬失败。
 - 2026-05-04 follow-up：preflight 现在先读取 GitHub owner type；`baofeng-tech/agent-skills-io` 是个人仓库，repo-level runner 未命中后不会继续查询 organization runner API，summary 会明确提示个人仓库只命中了 repository-level 检查。
-- 2026-05-05 follow-up：hosted/self-hosted lanes 的 Python dependency bootstrap 统一安装 `PyYAML openai httpx requests`，避免 secret 已配置后又被缺依赖误报成 skill regression。
+- 2026-05-05 follow-up：hosted/self-hosted lanes 的 Python dependency bootstrap 统一安装 `PyYAML openai httpx requests`，避免 secret 已配置后又被缺依赖误报成 skill regression；其中 `openai` 是 OpenAI-compatible Python SDK，当前由 AISA/OpenAI-compatible endpoint 使用，不代表 CI 需要 OpenAI API key。
+- 2026-05-06 follow-up：release-layer smoke test 现在会把退出码 0 但 JSON payload 含 `error` / `success:false` / `ok:false` 的结果识别为应用层失败，避免上游返回 `{"error": ...}` 时被误判为通过。
 
 ## Verdict
 

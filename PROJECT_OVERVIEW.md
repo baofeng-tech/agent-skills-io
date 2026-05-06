@@ -522,7 +522,7 @@ python3 scripts/test_release_layers.py
 - agentskill.sh 发布构建脚本从 `targetSkills/` 生成 `agentskill-sh-release/`，并保持适合 GitHub 仓库扫描的根目录结构
 - agentskill.sh 发布层也会补齐根目录 catalog 文件：`index.json`、`index.md`、`well-known-skills-index.json`、`LICENSE`
 - 发布层测试脚本对 Claude / ClawHub / ClawHub plugin / Hermes / AgentSkills.so / agentskill.sh 目录执行结构校验，并对代表性旧三层做 smoke test
-- 发布层测试报告现在包含 `summary.structure_error_count`、`summary.smoke_failure_count`、`summary.smoke_transient_count`
+- 发布层测试报告现在包含 `summary.structure_error_count`、`summary.smoke_failure_count`、`summary.smoke_transient_count`，并会把 JSON payload 中的 `error` / `success:false` / `ok:false` 识别为应用层错误
 - 发布层真实测试现在明确支持读取 `example/accounts` 中的账号与 Python 3.12 路径
 
 #### 5. ClawHub 辅助技能
@@ -803,7 +803,7 @@ GitHub Actions 工作流层。
 - Hermes 发布层：已完成，54 个已生成
 - Hermes Guard 批量降风险：历史旧 51-skill 集合已完成一轮，新增到 54-skill 集合后需要补跑
 - Claude / Hermes 发布层测试：已完成一轮结构校验与 smoke test
-- 2026-05-06 release-layer 结构校验：`claude/hermes/clawhub/clawhub-plugin/agentskills-so/agentskill-sh` 六类结构错误均为 `0`，smoke 硬失败为 `0`，第三方网络类 transient 为 `5`
+- 2026-05-06 release-layer 结构校验：`claude/hermes/clawhub/clawhub-plugin/agentskills-so/agentskill-sh` 六类结构错误均为 `0`，smoke 硬失败为 `0`，第三方网络类 transient 为 `9`
 - 2026-05-06 AISA API 回归复核：完整回归为 54 个 AISA-backed skills、72 条 read-only checks、硬失败 `0`、第三方网络类 transient `7`；`stock-hot` 已改为真实调用 AISA 后在上游无实时金融工具时返回结构化 `live_data_unavailable`，prediction-market 系列已把 urllib read timeout/EOF 转为 `NETWORK_ERROR` JSON 而非 traceback
 - Claude / Hermes 发布层真实测试：已完成一轮基于真实账号、真实 Python 3.12、真实上游数据的验证
 - Claude / Claude marketplace / Hermes / agent-skills 外部发布仓库同步：2026-04-22 复核时四个外部仓库均已与 `origin/main` 对齐，不再存在“领先 1 个 commit 尚未 push”的当前阻塞

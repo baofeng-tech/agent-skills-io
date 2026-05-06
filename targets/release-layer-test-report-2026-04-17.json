@@ -2,7 +2,7 @@
   "summary": {
     "structure_error_count": 0,
     "smoke_failure_count": 0,
-    "smoke_transient_count": 5
+    "smoke_transient_count": 9
   },
   "structure": {
     "claude_errors": [],
@@ -27,7 +27,8 @@
       ],
       "code": 0,
       "status": "passed",
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHnHm_GWMCAKAAIcecbsqxtwXQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcecfMnIAnEAoABhx5x8ycf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/135055",
+      "application_error": false,
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHoDmjeX0JQKAAIcegLEGVcQlAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcegO10QAnEAoABhx6A7XQ_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/23276",
       "stderr_preview": ""
     },
     {
@@ -40,9 +41,10 @@
         "--query",
         "OpenAI"
       ],
-      "code": 0,
-      "status": "passed",
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1950000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "code": 1,
+      "status": "transient",
+      "application_error": true,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -59,7 +61,8 @@
       ],
       "code": 0,
       "status": "passed",
-      "stdout_preview": "{\n  \"id\": \"5F2-yjzV70wXskmEdKouiQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "application_error": false,
+      "stdout_preview": "{\n  \"id\": \"nX4PBmTw4rHpe1WzjH2Nng\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -75,6 +78,7 @@
       ],
       "code": 1,
       "status": "transient",
+      "application_error": true,
       "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
@@ -88,6 +92,7 @@
       ],
       "code": 0,
       "status": "passed",
+      "application_error": false,
       "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qw",
       "stderr_preview": ""
     },
@@ -101,6 +106,7 @@
       ],
       "code": 0,
       "status": "passed",
+      "application_error": false,
       "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--quick] [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--store] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research] [--plan PLAN]\n                     [--save-suffix SAVE_SU",
       "stderr_preview": ""
     },
@@ -114,6 +120,7 @@
       ],
       "code": 0,
       "status": "passed",
+      "application_error": false,
       "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--api-key API_KEY] [--config-file CONFIG_FILE] [--quick]\n                     [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research",
       "stderr_preview": ""
     },
@@ -131,9 +138,10 @@
         "--type",
         "Latest"
       ],
-      "code": 0,
-      "status": "passed",
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHnHm_GWMCAKAAIcecbsqxtwXQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcecfXI0AnEAoABhx5x9cjP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/135055",
+      "code": 1,
+      "status": "transient",
+      "application_error": true,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -148,9 +156,10 @@
         "--query",
         "OpenAI"
       ],
-      "code": 0,
-      "status": "passed",
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1950000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "code": 1,
+      "status": "transient",
+      "application_error": true,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -169,7 +178,8 @@
       ],
       "code": 0,
       "status": "passed",
-      "stdout_preview": "{\n  \"id\": \"sYHQPH5bc76knDrE5OIhZA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "application_error": false,
+      "stdout_preview": "{\n  \"id\": \"4S3YUo0dGIdit29zBc-Jyg\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -187,6 +197,7 @@
       ],
       "code": 1,
       "status": "transient",
+      "application_error": true,
       "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
@@ -202,6 +213,7 @@
       ],
       "code": 0,
       "status": "passed",
+      "application_error": false,
       "stdout_preview": "{\n  \"openai\": [\n    \"gpt-4.1\",\n    \"gpt-4o\",\n    \"gpt-4o-mini\",\n    \"gpt-4-turbo\",\n    \"o1\",\n    \"o1-mini\",\n    \"o3-mini\"\n  ],\n  \"anthropic\": [\n    \"claude-3-5-sonnet\",\n    \"claude-3-opus\",\n    \"claude-3-sonnet\",\n    \"claude-3-haiku\"\n  ],\n  \"google\": [\n    \"gemini-2.0-flash\",\n    \"gemini-1.5-pro\",\n    \"gemini-1.5-flash\",\n    \"gemini-pro\"\n  ],\n  \"alibaba\": [\n    \"qwen-max\",\n    \"qwen-plus\",\n    \"qw",
       "stderr_preview": ""
     },
@@ -215,6 +227,7 @@
       ],
       "code": 0,
       "status": "passed",
+      "application_error": false,
       "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--quick] [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--store] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research] [--plan PLAN]\n                     [--save-suffix SAVE_SU",
       "stderr_preview": ""
     },
@@ -232,6 +245,7 @@
       ],
       "code": 1,
       "status": "transient",
+      "application_error": true,
       "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
@@ -247,6 +261,7 @@
       ],
       "code": 1,
       "status": "transient",
+      "application_error": true,
       "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
@@ -262,9 +277,10 @@
         "--count",
         "1"
       ],
-      "code": 0,
-      "status": "passed",
-      "stdout_preview": "{\n  \"id\": \"Y2GSf1J_A0t0lZLdwoh06g\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "code": 1,
+      "status": "transient",
+      "application_error": true,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -280,7 +296,8 @@
       ],
       "code": 1,
       "status": "transient",
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"The read operation timed out\"\n  }\n}\n",
+      "application_error": true,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -293,6 +310,7 @@
       ],
       "code": 0,
       "status": "passed",
+      "application_error": false,
       "stdout_preview": "usage: last30days.py [-h] [--emit {compact,json,context,md}] [--search SEARCH]\n                     [--quick] [--deep] [--debug] [--mock] [--diagnose]\n                     [--save-dir SAVE_DIR] [--store] [--x-handle X_HANDLE]\n                     [--x-related X_RELATED] [--web-backend {auto,aisa,none}]\n                     [--deep-research] [--plan PLAN]\n                     [--save-suffix SAVE_SU",
       "stderr_preview": ""
     }

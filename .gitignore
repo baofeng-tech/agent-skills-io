@@ -17,3 +17,5 @@ __pycache__/
 .tmp-clawhub-auth/
 publish-repos/
 targets/clawhub-suspicious-remediation.json
+targets/aisa-api-regression-report-*-local.json
+Doc/githubtoken.png

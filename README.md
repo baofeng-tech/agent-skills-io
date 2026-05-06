@@ -240,6 +240,8 @@ Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` when the runner needs labels beyond the de
 
 For `SELF_HOSTED_RUNNER_API_TOKEN`, repository-level runners need fine-grained PAT repository `Administration: read`. Organization-level runners need organization `Self-hosted runners: read`; otherwise the repo runner API may return `200` with zero runners while the org runner API returns `403`.
 
+The CI bootstrap installs `openai`, `httpx`, and `requests` because some AISA-backed runtime checks use the OpenAI-compatible Python SDK or HTTP clients against `api.aisa.one`; this does not require an OpenAI API key.
+
 What GitHub Actions can do in practice:
 
 - ClawHub

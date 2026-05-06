@@ -46,6 +46,16 @@ import urllib.error
 from typing import Any, Dict, List, Optional
 
 
+def api_result_ok(result: Dict[str, Any]) -> bool:
+    if result.get("success") is False:
+        return False
+    if result.get("ok") is False:
+        return False
+    if result.get("error"):
+        return False
+    return True
+
+
 class PredictionMarketClient:
     """Cross-Platform Prediction Market Data - AIsa API Client."""
 
@@ -575,7 +585,7 @@ Examples:
             print(output)
         except UnicodeEncodeError:
             print(json.dumps(result, indent=2, ensure_ascii=True))
-        sys.exit(0 if result.get("success", True) else 1)
+        sys.exit(0 if api_result_ok(result) else 1)
 
 
 if __name__ == "__main__":
