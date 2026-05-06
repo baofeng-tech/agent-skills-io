@@ -184,6 +184,15 @@ jobs:
       - name: Install Python dependencies
         run: python3 -m pip install --upgrade pip PyYAML openai httpx requests
 
+      - name: Validate GitHub Actions workflow guards
+        run: python3 scripts/test_github_actions_workflow.py
+
+      - name: Validate ClawHub batch publish exit semantics
+        run: python3 scripts/test_clawhub_batch_publish_exit.py
+
+      - name: Validate Twitter OAuth publish safety
+        run: python3 scripts/test_twitter_oauth_client_safety.py
+
       - name: Run unified skill pipeline
         shell: bash
         run: |
@@ -356,7 +365,7 @@ jobs:
           AUTO_RUN_SUSPICIOUS_REPAIR: ${{ vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'true' }}
           AUTO_RUN_BREAKOUT_ROLLOUT: ${{ vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'true' }}
           AUTO_FORCE_SELF_HOSTED_QUEUE: ${{ vars.AUTO_FORCE_SELF_HOSTED_QUEUE || 'false' }}
-          SELF_HOSTED_RUNNER_LABELS: ${{ vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]' }}
+          SELF_HOSTED_RUNNER_RUNS_ON_JSON: ${{ vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]' }}
         run: |
           set -euo pipefail
 
@@ -433,7 +442,7 @@ jobs:
               fi
             else
               result="$(
-                RUNNERS_JSON="${response}" python3 - "${SELF_HOSTED_RUNNER_LABELS}" <<'PY'
+                RUNNERS_JSON="${response}" python3 - "${SELF_HOSTED_RUNNER_RUNS_ON_JSON}" <<'PY'
           import json
           import os
           import sys
@@ -464,9 +473,9 @@ jobs:
               can_queue="${result%%$'\t'*}"
               matched_runner="${result#*$'\t'}"
               if [[ "${can_queue}" == "true" ]]; then
-                reason="online runner matched labels: ${SELF_HOSTED_RUNNER_LABELS}"
+                reason="online runner matched labels: ${SELF_HOSTED_RUNNER_RUNS_ON_JSON}"
               else
-                reason="no online self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_LABELS}"
+                reason="no online self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_RUNS_ON_JSON}"
               fi
 
               if [[ "${can_queue}" != "true" ]]; then
@@ -513,7 +522,7 @@ jobs:
 
                   if [[ "${org_http_code}" == "200" && -n "${org_response}" ]]; then
                     org_result="$(
-                      RUNNERS_JSON="${org_response}" python3 - "${SELF_HOSTED_RUNNER_LABELS}" <<'PY'
+                      RUNNERS_JSON="${org_response}" python3 - "${SELF_HOSTED_RUNNER_RUNS_ON_JSON}" <<'PY'
           import json
           import os
           import sys
@@ -544,9 +553,9 @@ jobs:
                     can_queue="${org_result%%$'\t'*}"
                     matched_runner="${org_result#*$'\t'}"
                     if [[ "${can_queue}" == "true" ]]; then
-                      reason="online organization runner matched labels: ${SELF_HOSTED_RUNNER_LABELS}; ensure its runner group allows ${REPO}"
+                      reason="online organization runner matched labels: ${SELF_HOSTED_RUNNER_RUNS_ON_JSON}; ensure its runner group allows ${REPO}"
                     else
-                      reason="no online repository or organization self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_LABELS}"
+                      reason="no online repository or organization self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_RUNS_ON_JSON}"
                     fi
                   else
                     org_message="$(
@@ -572,7 +581,7 @@ jobs:
                     fi
                   fi
                 elif [[ "${owner_http_code}" == "200" && "${owner_type}" == "user" ]]; then
-                  reason="no online repository self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_LABELS}; ${REPO} is owned by a personal account, so organization-runner fallback is not applicable"
+                  reason="no online repository self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_RUNS_ON_JSON}; ${REPO} is owned by a personal account, so organization-runner fallback is not applicable"
                 else
                   reason="${reason}; skipped organization runner lookup because repo owner type could not be verified (users API HTTP ${owner_http_code:-unknown})"
                 fi
@@ -596,7 +605,7 @@ jobs:
             echo "- Suspicious repair requested: \`${suspicious_requested}\`"
             echo "- Breakout rollout requested: \`${breakout_requested}\`"
             echo "- Can queue self-hosted jobs: \`${can_queue}\`"
-            echo "- Runner labels: \`${SELF_HOSTED_RUNNER_LABELS}\`"
+            echo "- Runner labels: \`${SELF_HOSTED_RUNNER_RUNS_ON_JSON}\`"
             echo "- Reason: ${reason}"
             if [[ -n "${matched_runner}" ]]; then
               echo "- Matched runner: \`${matched_runner}\`"

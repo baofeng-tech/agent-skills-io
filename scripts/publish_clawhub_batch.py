@@ -510,6 +510,7 @@ class WorkerResult:
     skipped: int = 0
     failed: int = 0
     suspicious: int = 0
+    login_failed: bool = False
     rate_limited: bool = False
     notes: list[str] = field(default_factory=list)
 
@@ -704,7 +705,7 @@ class Worker(threading.Thread):
         try:
             self.login()
         except Exception as exc:  # noqa: BLE001
-            self.result.failed += 1
+            self.result.login_failed = True
             self.result.notes.append(str(exc))
             self.queue.mark_slot_unavailable(self.slot)
             self.log(f"login failed: {exc}")
@@ -1413,9 +1414,18 @@ def print_summary(results: list[WorkerResult], pending_after: int) -> None:
     for item in results:
         note = f" ({'; '.join(item.notes)})" if item.notes else ""
         print(
-            f"  {item.slot}: published={item.published}, skipped={item.skipped}, failed={item.failed}, suspicious={item.suspicious}, rate_limited={item.rate_limited}{note}",
+            f"  {item.slot}: published={item.published}, skipped={item.skipped}, failed={item.failed}, suspicious={item.suspicious}, login_failed={item.login_failed}, rate_limited={item.rate_limited}{note}",
             flush=True,
         )
+
+
+def batch_exit_code(results: list[WorkerResult], pending_after: int) -> int:
+    """Return failure only for unfinished artifacts or artifact-level publish failures."""
+    if pending_after > 0:
+        return 1
+    if any(item.failed for item in results):
+        return 1
+    return 0
 
 
 def main() -> int:
@@ -1478,8 +1488,9 @@ def main() -> int:
         worker.join()
 
     results = [worker.result for worker in workers]
-    print_summary(results, queue.remaining())
-    return 0 if not any(item.failed for item in results) else 1
+    pending_after = queue.remaining()
+    print_summary(results, pending_after)
+    return batch_exit_code(results, pending_after)
 
 
 if __name__ == "__main__":

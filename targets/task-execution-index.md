@@ -56,6 +56,9 @@ python3 scripts/build_claude_marketplace.py
 python3 scripts/build_hermes_release.py
 python3 scripts/build_agentskills_so_release.py
 python3 scripts/build_agentskill_sh_release.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_github_actions_workflow.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_batch_publish_exit.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_twitter_oauth_client_safety.py
 python3 scripts/test_release_layers.py
 python3 -m compileall -q scripts
 ```
@@ -74,6 +77,14 @@ Important CI values:
 - `CLAWHUB_CLI_VERSION`: optional CI-controlled ClawHub CLI version.
 
 `GITHUB_TOKEN` in Actions is an auto-generated run token; do not treat it as the same secret as `SELF_HOSTED_RUNNER_API_TOKEN`.
+
+For `baofeng-tech/agent-skills-io`, the owner is a GitHub `User`, not an organization. Repository runner discovery is the relevant API path; organization runner fallback is skipped unless `GET /users/{owner}` returns `Organization`.
+
+Fine-grained PAT guidance:
+
+- `SELF_HOSTED_RUNNER_API_TOKEN`: select `baofeng-tech/agent-skills-io`, grant repository `Administration: read` plus Metadata read.
+- `DOWNSTREAM_REPO_TOKEN`: select each downstream publish repo, grant Contents read/write plus Metadata read.
+- Reuse one PAT only when it covers both permission sets and all selected repos.
 
 ## ClawHub Repair Loop
 
@@ -94,6 +105,13 @@ When the local `clawhub` CLI is older than the registry behavior, prefer a pinne
 
 ```bash
 CLAWHUB_COMMAND="npx -y clawhub@0.12.3" python3 scripts/publish_clawhub_batch.py ...
+```
+
+After a targeted suspicious repair, confirm the public latest version, not only the version you just uploaded:
+
+```bash
+npx -y clawhub@0.12.3 inspect <slug> --json
+python3 scripts/clawhub_live_status.py --targets skill --artifact skill:<slug> --include-status published --render-mode always
 ```
 
 ## Upstream Rule

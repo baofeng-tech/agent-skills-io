@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-06T17:13:44.539303+00:00",
+  "generated_at": "2026-05-06T19:03:07.861593+00:00",
   "summary": {
     "total": 116,
-    "suspicious": 15,
+    "suspicious": 14,
     "pending": 3,
     "resolved_urls": 116
   },
@@ -2328,26 +2328,28 @@
       "kind": "skill",
       "name": "openclaw-twitter-post-engage",
       "requested_name": "openclaw-twitter-post-engage",
-      "version": "1.0.4",
+      "version": "2.0.4",
       "detail_url": "https://clawhub.ai/aisadocs/openclaw-twitter-post-engage",
       "resolved_slug": "openclaw-twitter-post-engage",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "suspicious",
+      "scan_status": "clean",
       "virus_total": "clean",
       "virus_total_report_url": null,
-      "clawscan_verdict": "suspicious",
+      "clawscan_verdict": "clean",
       "clawscan_confidence": null,
-      "openclaw_verdict": null,
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "aisadocs",
-      "suspicious": true,
-      "suspicious_reason": "The public posting workflow is purpose-aligned, but conflicting post-mode instructions create a material misuse risk for external publication.",
+      "suspicious": false,
+      "suspicious_reason": "The skill can perform public Twitter/X posting and engagement actions, but the artifacts disclose this and require explicit confirmation flags.",
       "pending": false,
-      "warnings": [],
-      "checked_at": "2026-05-06T17:13:44.515540+00:00"
+      "warnings": [
+        "Render fallback failed: No module named 'playwright'"
+      ],
+      "checked_at": "2026-05-06T19:03:07.842436+00:00"
     },
     {
       "key": "skill:openclaw-youtube",

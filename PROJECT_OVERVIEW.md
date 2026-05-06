@@ -169,6 +169,8 @@ Any AI working in this repository should:
   - 仓库执行流、脚本用途、参数与常用命令的统一参考
 - `targets/task-execution-index.md`
   - 面向后续 AI 的任务执行索引：项目定位、目录路由、构建顺序、CI secret map、ClawHub 修复循环
+- `targets/github-actions-review-2026-05-07.md`
+  - 本轮对 run `25299535400` / `25289383679`、个人账号 runner fallback、PAT 权限、ClawHub false-negative exit code 与 `openclaw-twitter-post-engage` suspicious 修复的复盘
 - `targets/github-actions-review-2026-05-06.md`
   - 本轮 GitHub Actions / self-hosted runner / token / Python 依赖 / ClawHub CLI 审查结论
 - `targets/clawhub-resume-and-breakout-plan-2026-04-24.md`
@@ -808,6 +810,7 @@ GitHub Actions 工作流层。
 - Hermes Guard 批量降风险：历史旧 51-skill 集合已完成一轮，新增到 54-skill 集合后需要补跑
 - Claude / Hermes 发布层测试：已完成一轮结构校验与 smoke test
 - 2026-05-06 release-layer 结构校验：`claude/hermes/clawhub/clawhub-plugin/agentskills-so/agentskill-sh` 六类结构错误均为 `0`，smoke 硬失败为 `0`，第三方网络类 transient 为 `9`
+- 2026-05-07 release-layer 结构校验：`claude/hermes/clawhub/clawhub-plugin/agentskills-so/agentskill-sh` 六类结构错误均为 `0`，smoke 硬失败为 `0`，第三方网络类 transient 为 `6`
 - 2026-05-06 AISA API 回归复核：完整回归为 54 个 AISA-backed skills、72 条 read-only checks、硬失败 `0`、第三方网络类 transient `7`；`stock-hot` 已改为真实调用 AISA 后在上游无实时金融工具时返回结构化 `live_data_unavailable`，prediction-market 系列已把 urllib read timeout/EOF 转为 `NETWORK_ERROR` JSON 而非 traceback
 - Claude / Hermes 发布层真实测试：已完成一轮基于真实账号、真实 Python 3.12、真实上游数据的验证
 - Claude / Claude marketplace / Hermes / agent-skills 外部发布仓库同步：2026-04-22 复核时四个外部仓库均已与 `origin/main` 对齐，不再存在“领先 1 个 commit 尚未 push”的当前阻塞
@@ -831,7 +834,10 @@ GitHub Actions 工作流层。
 - GitHub Actions 自动全平台发布：self-hosted 真发布轨现在默认在 `schedule` 下请求 publish / suspicious repair / breakout rollout / AISA 回归 / ClawHub CLI install / post-publish scan；仍由 hosted preflight 决定是否排队，可用 `AUTO_FULL_PLATFORM_PUBLISH=false`、`AUTO_RUN_SUSPICIOUS_REPAIR=false`、`AUTO_RUN_BREAKOUT_ROLLOUT=false` 等变量关闭对应 lane，并可用 `AUTO_ADJACENT_TARGETS`、`AUTO_CLAWHUB_PUBLISH`、`AUTO_SYNC_ADJACENT_REPOS`、`AUTO_PUSH_ADJACENT_REPOS` 等变量细化“发哪些下游平台”
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每日一次（`21 19 * * *`），避免长发布链路堆积出 pending/canceled 队列
 - GitHub Actions self-hosted 排队防护：publish / suspicious repair / breakout rollout 三条 self-hosted 线现在先经过 hosted preflight，只有发现在线 runner 或显式设置 `force_self_hosted_queue` / `AUTO_FORCE_SELF_HOSTED_QUEUE` 时才入队；runner 标签以 `SELF_HOSTED_RUNNER_RUNS_ON_JSON` 为单一来源；若默认 `GITHUB_TOKEN` 无法读取 runners API，应配置 `SELF_HOSTED_RUNNER_API_TOKEN`，repo-level runner 需要 repository `Administration: read`，org-level runner 需要 organization `Self-hosted runners: read`；当 self-hosted lane 被请求但 preflight 不能确认 runner 时 workflow 会 fail fast 并写 summary，避免旧流程静默 skip 或 24 小时排队失败；preflight 现在会把 403 的 message、accepted permissions 和 SSO hint 写进 summary，并在个人账号仓库中跳过无效的 organization runner fallback
-- ClawHub 2026-05-06 定向修复：`plugin:last30days-zh-plugin@1.0.7` 已通过 fallback slug `last30days-zh-slot1-plugin` 发布并回查为 `vt=clean/clawscan=clean/static=clean`；`plugin:openclaw-twitter-post-engage-plugin` 与 `plugin:x-intelligence-automation-plugin` 也保持 clean。`skill:openclaw-twitter-post-engage@1.0.4` 已升版并强制公开写入确认，但原 skill 页面仍被 ClawHub 判为 `suspicious`，后续需继续按 `oauth_upload_side_effects` 单独处理。
+- GitHub Actions 2026-05-07 运行复盘：run `25299535400` 的 `cancelled` 发生在显式 `force_self_hosted_queue=true` 后的 self-hosted 队列等待，不是 `sync-build-test` bug；run `25289383679` 的 self-hosted skip 是旧 workflow 的静默跳过问题，当前已由 fail-fast preflight、owner-type 检查和 `scripts/test_github_actions_workflow.py` 固化
+- GitHub Actions token 边界：`baofeng-tech` 是 GitHub `User`，不是 `Organization`，因此 org runner fallback 不适用；`SELF_HOSTED_RUNNER_API_TOKEN` 需要选中 `baofeng-tech/agent-skills-io` 并具备 repository `Administration: read`，`DOWNSTREAM_REPO_TOKEN` 可以复用同一 fine-grained PAT，但必须额外覆盖全部下游仓库的 Contents read/write
+- ClawHub 2026-05-07 定向修复：`skill:openclaw-twitter-post-engage` 已升到 `2.0.4` 并发布为公开 latest；`clawhub inspect` 确认 latest 为 `2.0.4`，live status 为 `vt=clean/clawscan=clean/static=clean/suspicious=0`，之前 `1.0.5` clean 但未影响公开页面的根因是 ClawHub latest 仍指向旧的 `2.0.3`
+- ClawHub 批量发布退出码修复：备用 token 登录或 `whoami` 超时时，如果目标 artifact 已由其它 token 发布且队列清空，`scripts/publish_clawhub_batch.py` 不再返回失败；新增 `scripts/test_clawhub_batch_publish_exit.py`
 - GitHub Actions checkout 后置失败修复：hosted lane 已改为 `persist-credentials: false` + explicit token push，避免此前的 post-job `exit code 128`
 - GitHub Actions 提交冲突修复：hosted 与 self-hosted repo commit step 现在会在提交前 `git rebase --autostash` 到远端最新 `main`，push 失败时再 fetch/rebase 重试，避免 action 之间互相制造 non-fast-forward 冲突
 - GitHub Actions AISA skill 代码回归：hosted lane 现在支持通过手动参数 `run_aisa_api_regression=true` 或仓库变量 `AUTO_RUN_AISA_API_REGRESSION=true` 运行 `scripts/test_aisa_api_skills.py`，生成并上传/提交 `targets/aisa-api-regression-report-YYYY-MM-DD.json`；开启时必须配置 `AISA_API_KEY`，缺失会 fail fast，第三方网络瞬断只记为 `transient_count`

@@ -41,10 +41,10 @@ python3 {baseDir}/scripts/twitter_oauth_client.py post --text "Shipping day." --
 # Publish a video with text
 python3 {baseDir}/scripts/twitter_oauth_client.py post --text "Demo clip" --media-file ./workspace/demo.mp4 --confirm-public-write
 
-# Publish a threaded post using reply relationships between chunks
+# Publish long text as a reply thread when it exceeds one post
 python3 {baseDir}/scripts/twitter_oauth_client.py post --text "Hello from Twitter OAuth" --type reply --confirm-public-write
 
-# Quote another tweet and include its link in the new post
+# Quote another tweet only when the quoted tweet URL is explicit
 python3 {baseDir}/scripts/twitter_oauth_client.py post --text "My take on this:" --type quote --quote-tweet-url "https://x.com/example/status/1888888888888888888" --confirm-public-write
 
 # Start the thread from a specific external tweet
@@ -59,6 +59,7 @@ Recommended flow:
 2. Check authorization status or request an authorization link before publishing when authorization is missing.
 3. Publish only after the user has approved OAuth, the final content is clear, and `--confirm-public-write` is present.
 4. Use `--open-browser` only when the user explicitly wants local browser launch instead of receiving the URL.
+5. Use plain post mode for standalone posts, `--type reply` for reply threads, and `--type quote --quote-tweet-url <url>` only for quote posts.
 
 ### OpenClaw Attachment Flow
 
@@ -78,13 +79,16 @@ When the user asks to publish content to X/Twitter:
 2. Use `post --confirm-public-write` only after the user intent, final content, and authorization state are clear.
 3. If the user attached workspace files, pass each image or video path with `--media-file`.
 4. If the user explicitly wants to quote another tweet, require the tweet URL and pass it with `--quote-tweet-url`.
-5. If posting indicates that authorization is required, run `authorize` and return the approval link.
-6. Do not claim the post succeeded until the publish step actually succeeds.
+5. If the user wants to reply to a specific tweet, use `--type reply --in-reply-to-tweet-id <tweet_id>`.
+6. If posting indicates that authorization is required, run `authorize` and return the approval link.
+7. Do not claim the post succeeded until the publish step actually succeeds.
 
 ## Guardrails
 
 - Do not ask the user for their Twitter password.
 - Do not run the `post` command without `--confirm-public-write`.
+- Do not use `--type quote` without `--quote-tweet-url`.
+- Do not describe `--type reply` as quote posting; it creates reply relationships for a thread or a specific reply target.
 - Do not use cookie-based login or proxy-based login unless the user explicitly asks for legacy behavior.
 - Do not default to `--open-browser`; return the authorization link unless the user explicitly wants local browser launch.
 - Do not invent remote URLs for attachments; always use the provided local workspace file path with `--media-file`.
@@ -95,4 +99,5 @@ When the user asks to publish content to X/Twitter:
 
 - Posting, OAuth, and approved media uploads are relay-based and go to `api.aisa.one`.
 - Required secret: `AISA_API_KEY`.
+- CLI output reports `aisa_api_key_present` instead of printing the key value.
 - This workflow does not use passwords, browser cookies, cache sync, or home-directory persistence.

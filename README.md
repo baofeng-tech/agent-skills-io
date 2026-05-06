@@ -27,6 +27,7 @@ More detailed repo rules live in [AGENTS.md](/mnt/d/workplace/agent-skills-io/AG
   - [Platform Skill And Plugin Methodology](/mnt/d/workplace/agent-skills-io/targets/platform-skill-plugin-methodology.md:1)
   - [Unified Pipeline And GitHub Actions](/mnt/d/workplace/agent-skills-io/targets/unified-pipeline-and-github-actions.md:1)
 - Current audits:
+  - [GitHub Actions Review 2026-05-07](/mnt/d/workplace/agent-skills-io/targets/github-actions-review-2026-05-07.md:1)
   - [GitHub Actions Review 2026-05-06](/mnt/d/workplace/agent-skills-io/targets/github-actions-review-2026-05-06.md:1)
   - [Platform Layer And Rule Split Audit 2026-04-28](/mnt/d/workplace/agent-skills-io/targets/platform-layer-and-rule-split-audit-2026-04-28.md:1)
   - [ClawHub Account Status 2026-04-28](/mnt/d/workplace/agent-skills-io/targets/clawhub-account-status-2026-04-28.md:1)
@@ -110,6 +111,12 @@ flowchart TD
   - Builds the GitHub-import layer for `agentskill.sh`.
 - `scripts/test_release_layers.py`
   - Runs structure validation and representative smoke checks across generated release layers.
+- `scripts/test_github_actions_workflow.py`
+  - Locks self-hosted preflight, owner-type fallback, and hosted validation guard behavior.
+- `scripts/test_clawhub_batch_publish_exit.py`
+  - Prevents spare ClawHub token login timeouts from becoming false artifact publish failures.
+- `scripts/test_twitter_oauth_client_safety.py`
+  - Locks Twitter public-write safety boundaries for reply, quote, threading, and API-key redaction.
 - `scripts/publish-targetSkills-to-agent-skills.sh`
   - Compatibility alias for the agentskill.sh publish lane. Rebuilds/syncs `agentskill-sh-release/` into `baofeng-tech/agent-skills` (default local checkout: `../agent-skills-own`).
 - `scripts/publish-claude-release.sh`

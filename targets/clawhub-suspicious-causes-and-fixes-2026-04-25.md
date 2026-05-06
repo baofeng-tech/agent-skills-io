@@ -127,15 +127,15 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`16`
-- `blocker`：`15`
+- 诊断对象数：`15`
+- `blocker`：`14`
 - `warning`：`1`
 - `pending`：`3`
 
 ### 当前高频规则
 
 - `metadata_env_mismatch`: `1`
-- `oauth_upload_side_effects`: `4`
+- `oauth_upload_side_effects`: `3`
 - `pending_scan`: `3`
 - `platform_trust_gap`: `8`
 - `relay_trust_surface`: `3`
@@ -159,10 +159,6 @@
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects`
   reason: The skill can perform public Twitter/X posting and is instructed to try publishing directly when posting intent is detected.
-- `skill:openclaw-twitter-post-engage`
-  severity: `blocker` | status: `suspicious`
-  rules: `oauth_upload_side_effects`
-  reason: The public posting workflow is purpose-aligned, but conflicting post-mode instructions create a material misuse risk for external publication.
 - `skill:prediction-market`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
@@ -191,4 +187,8 @@
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
   reason: This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources.
+- `skill:x-intelligence-automation`
+  severity: `blocker` | status: `suspicious`
+  rules: `metadata_env_mismatch, oauth_upload_side_effects, platform_trust_gap, relay_trust_surface`
+  reason: The skill is broadly coherent with a Twitter/X automation client using the AIsa relay, but there are a few mismatches you should be aware of before installing (undeclared env overrides and uploading local files to an external relay).
 <!-- AUTO-DIAGNOSIS:END -->

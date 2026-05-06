@@ -123,6 +123,10 @@ When applicable, verify:
 - Python scripts still compile
 - no accidental `__pycache__`, temp files, or other publish noise remains
 - `targetSkills/` and `clawhub-release/` are not being mixed up
+- after GitHub Actions workflow edits, run `python3 scripts/test_github_actions_workflow.py`
+- after ClawHub batch publisher edits, run `python3 scripts/test_clawhub_batch_publish_exit.py`
+- after Twitter OAuth/public-write edits, run `python3 scripts/test_twitter_oauth_client_safety.py`
+- after targeted ClawHub suspicious repair, verify `clawhub inspect <slug> --json` reports the fixed version as `latest`, then refresh live status
 
 ### Step 6: Update project memory
 

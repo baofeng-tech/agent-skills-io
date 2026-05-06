@@ -4,7 +4,7 @@ description: 'Search X/Twitter profiles, tweets, trends, and approved engagement
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
   author: AIsa
-  version: 1.0.4
+  version: 2.0.4
   homepage: https://aisa.one
   repository: https://github.com/baofeng-tech/agent-skills
   tags: twitter,x,search,research,aisa
@@ -67,10 +67,12 @@ python3 scripts/twitter_engagement_client.py follow-user --user "@elonmusk" --co
 - Use `./references/post_twitter.md` for post, reply, quote, and media-upload actions.
 - Use `./references/engage_twitter.md` for likes, unlikes, follows, and unfollows.
 - Obtain OAuth authorization before any write action.
+- Treat plain posts, reply threads, and quote posts as separate modes: quote mode requires an explicit `--quote-tweet-url`, while multi-part text continues as a reply thread.
 
 ## Runtime Boundary
 
 - The package is relay-based: read calls, OAuth requests, engagement actions, and approved media uploads go to `api.aisa.one`.
 - The package is API-key-first: it requires `AISA_API_KEY` and does not ask for passwords, cookies, `CT0`, or other legacy secrets.
+- CLI status and publish results report whether `AISA_API_KEY` is present, but do not print the key value.
 - The package does not include cache sync, self-install logic, home-directory persistence, browser-cookie extraction, or external agent CLI wrappers.
 - Browser opening is optional and not the default workflow; returning the authorization link is the preferred path for this release.

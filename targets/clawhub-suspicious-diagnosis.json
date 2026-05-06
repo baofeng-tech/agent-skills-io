@@ -1,12 +1,12 @@
 {
   "summary": {
-    "artifacts": 16,
-    "blockers": 15,
+    "artifacts": 15,
+    "blockers": 14,
     "warnings": 1,
     "pending": 3,
     "rules": {
       "metadata_env_mismatch": 1,
-      "oauth_upload_side_effects": 4,
+      "oauth_upload_side_effects": 3,
       "pending_scan": 3,
       "platform_trust_gap": 8,
       "relay_trust_surface": 3,
@@ -133,35 +133,6 @@
       "local_path": "clawhub-release/openclaw-twitter",
       "release_ref": null,
       "reason": "The skill can perform public Twitter/X posting and is instructed to try publishing directly when posting intent is detected."
-    },
-    {
-      "key": "skill:openclaw-twitter-post-engage",
-      "kind": "skill",
-      "name": "openclaw-twitter-post-engage",
-      "publisher_handle": "aisadocs",
-      "severity": "blocker",
-      "scan_status": "suspicious",
-      "virus_total": "clean",
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": true,
-      "pending": false,
-      "rule_ids": [
-        "oauth_upload_side_effects"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default."
-      ],
-      "detail_url": "https://clawhub.ai/aisadocs/openclaw-twitter-post-engage",
-      "local_path": "clawhub-release/openclaw-twitter-post-engage",
-      "release_ref": "k97838fam5hd5nmfzrmrxs68qs86605f",
-      "reason": "The public posting workflow is purpose-aligned, but conflicting post-mode instructions create a material misuse risk for external publication."
     },
     {
       "key": "skill:prediction-market",
