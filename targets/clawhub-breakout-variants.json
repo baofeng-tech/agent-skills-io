@@ -16,7 +16,7 @@
       "source": "aisa-twitter-engagement-suite",
       "slug": "twitter-post-aisa",
       "profile": "twitter_engagement",
-      "version": "1.0.2"
+      "version": "1.0.3"
     },
     {
       "source": "aisa-tavily",

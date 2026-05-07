@@ -2,7 +2,7 @@
 name: twitter-post-aisa
 description: 'Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.'
 author: AIsa
-version: 1.0.2
+version: 1.0.3
 license: MIT-0
 homepage: https://aisa.one
 source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/aisa-twitter-engagement-suite
