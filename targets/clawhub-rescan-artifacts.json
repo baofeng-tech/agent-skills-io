@@ -1,62 +1,77 @@
 {
-  "generated_at": "2026-05-07T16:51:11.988820+00:00",
   "summary": {
-    "artifacts": 8,
-    "rescan_requested": 5,
-    "republished": 4,
-    "suspicious_remaining": 0,
-    "pending_remaining": 2
+    "artifacts": 3,
+    "requested": 1,
+    "already_in_progress": 1,
+    "limit_reached": 1,
+    "failed": 0
   },
   "artifacts": [
     {
-      "key": "skill:twitter-post-aisa",
-      "result": "republished",
-      "latest": "1.0.3",
-      "live": "vt=pending, clawscan=clean, static=clean, suspicious=0",
-      "inspect": "latestVersion=1.0.3, moderation=null"
-    },
-    {
       "key": "skill:twitter-aisa",
-      "result": "inspect-clean",
-      "latest": "1.0.2",
-      "inspect": "moderation=null"
+      "kind": "skill",
+      "name": "twitter-aisa",
+      "rescan": {
+        "status": "limit_reached",
+        "token_slot": "token-2",
+        "message": "- Requesting skill rescan for twitter-aisa\n✖ Uncaught ConvexError: Rescan request limit reached for this release (3)\n    at assertCanRequestRescan (../../convex/model/rescans/policy.ts:130:6)\n    at async handler (../../convex/skills.ts:5231:6)\n    at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27)\n (remaining: 2999/3000, reset in 11s)\nError: Uncaught ConvexError: Rescan request limit reached for this release (3)\n    at assertCanRequestRescan (../../convex/model/rescans/policy.ts:130:6)\n    at async handler (../../convex/skills.ts:5231:6)\n    at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27)\n (remaining: 2999/3000, reset in 11s)",
+        "response": null,
+        "actor": "",
+        "auth_attempts_before_success": 1
+      },
+      "post_rescan_inspect": {
+        "status": "clean",
+        "raw": null
+      }
     },
     {
-      "key": "plugin:aisa-perplexity-search-sonar-plugin",
-      "result": "rescan-clean",
-      "live": "vt=clean, clawscan=clean, static=clean"
-    },
-    {
-      "key": "plugin:aisa-tavily-search-plugin",
-      "result": "republished",
-      "latest": "1.0.3",
-      "live": "vt=clean, clawscan=clean, static=clean",
-      "fix": "ClawHub plugin payload now uses explicit --aisa-api-key args instead of JS process.env access."
-    },
-    {
-      "key": "plugin:last30days-plugin",
-      "result": "republished",
-      "latest": "1.0.4",
-      "live": "vt=clean, clawscan=clean, static=clean",
-      "fix": "Manifest now declares optional GitHub credential envs and other optional runtime settings."
-    },
-    {
-      "key": "plugin:aisa-twitter-research-engage-relay-plugin",
-      "result": "republished-clean",
-      "latest": "1.0.6",
-      "live": "vt=clean, clawscan=clean, static=clean"
-    },
-    {
-      "key": "plugin:@clawhub/prediction-market-arbitrage",
-      "result": "inspect-clean",
-      "latest": "1.0.0",
-      "inspect": "scanStatus=clean"
+      "key": "plugin:last30days-slot2-plugin",
+      "kind": "plugin",
+      "name": "last30days-slot2-plugin",
+      "rescan": {
+        "status": "already_in_progress",
+        "token_slot": "token-2",
+        "message": "- Requesting package rescan for last30days-slot2-plugin\n✖ Uncaught ConvexError: A rescan request is already in progress for this release\n    at assertCanRequestRescan (../../convex/model/rescans/policy.ts:127:27)\n    at async handler (../convex/packages.ts:5014:6)\n    at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27)\n (remaining: 2999/3000, reset in 33s)\nError: Uncaught ConvexError: A rescan request is already in progress for this release\n    at assertCanRequestRescan (../../convex/model/rescans/policy.ts:127:27)\n    at async handler (../convex/packages.ts:5014:6)\n    at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27)\n (remaining: 2999/3000, reset in 33s)",
+        "response": null,
+        "actor": "",
+        "auth_attempts_before_success": 1
+      },
+      "post_rescan_inspect": {
+        "status": "pending",
+        "raw": {
+          "scanStatus": "pending",
+          "latestVersion": "1.0.1"
+        }
+      }
     },
     {
       "key": "plugin:@clawhub/aisa-twitter-api",
-      "result": "rescan-requested-pending",
-      "latest": "1.0.0",
-      "inspect": "scanStatus=pending"
+      "kind": "plugin",
+      "name": "@clawhub/aisa-twitter-api",
+      "rescan": {
+        "status": "requested",
+        "token_slot": "token-2",
+        "message": "rescan requested",
+        "response": {
+          "maxRequests": 3,
+          "name": "@clawhub/aisa-twitter-api",
+          "ok": true,
+          "pendingRequestId": "sd7dzgxegs9r2js04jjtsrv0n1868ghp",
+          "remainingRequests": 0,
+          "status": "in_progress",
+          "targetKind": "package",
+          "version": "1.0.0"
+        },
+        "actor": "",
+        "auth_attempts_before_success": 1
+      },
+      "post_rescan_inspect": {
+        "status": "pending",
+        "raw": {
+          "scanStatus": "pending",
+          "latestVersion": "1.0.0"
+        }
+      }
     }
   ]
 }

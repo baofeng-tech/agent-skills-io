@@ -5,7 +5,12 @@
 - 仓库里已经具备 AISA API skill 的批量精修链路：
   - `scripts/llm_refine_aisa_skills.py`
   - `.github/workflows/unified-skill-pipeline.yml`
-- 但当前真正落地产物只有 `targets/llm-skill-refinement/aisa-twitter-api.json` 这一份。
+  - `scripts/clawhub_breakout_rollout.py`
+- 当前 ClawHub breakout 声明已经扩到 4 个变体：
+  - `aisa-twitter-api-command-center`
+  - `aisa-twitter-research-engage-relay`
+  - `twitter-post-aisa`
+  - `aisa-tavily-search`
 - `skillGet` 证据层已经明确：
   - `aisa-twitter-api` 是当前最适合先打爆的 P0 旗舰位
   - 后续应扩 Twitter 家族、Search 家族、YouTube 家族，再推进更高收入的 GitHub / Workspace / Finance 方向
@@ -20,12 +25,15 @@
 
 - 已经从“想法阶段”进入“可批量复制的方法阶段”
 - 但还没有进入“全家族稳定放量阶段”
-- 当前真正跑通的只有：
+- 当前真正跑通的有：
   - `aisa-twitter-api` 作为旗舰实验样本
+  - `aisa-twitter-engagement-suite` 的研究互动与发帖后跟进增长位
+  - `aisa-tavily` 的搜索增长位
 - 当前还没跑通的关键环节：
   - Twitter 家族兄弟位还没完全拉开
   - Search / YouTube / Market 家族还没按 `flagship / growth / supporting` 系统排位
   - suspicious 修复闭环还只覆盖到少量重点 artifact
+  - scoped package 例如 `@clawhub/aisa-twitter-api` 仍受 publisher scope 限制，不能用普通账号精确重发
 
 ### 2.2 所有 AISA API skill 能不能都按爆款思路修改
 
@@ -126,6 +134,6 @@ python3 scripts/llm_refine_aisa_skills.py --plan
 ## 6. 本轮已执行动作
 
 - 修复了 unified pipeline 调度频率的文档漂移：
-  - 现在统一为每 4 小时一次（`21 */4 * * *`）
+  - 当前 hosted cron 为每日一次（`21 19 * * *`）
 - 新增本分层执行计划文档
-- 下一步直接按本计划先执行 Twitter 家族的第一批母 skill 收口
+- 2026-05-08 复核时已刷新 breakout rollout plan 到 4 个变体，并把 scoped package 权限阻塞单独记录

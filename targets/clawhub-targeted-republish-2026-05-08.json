@@ -1,0 +1,66 @@
+{
+  "source_info": {
+    "repo": "baofeng-tech/agent-skills-io",
+    "commit": "4b0cbe6310fba0ce46ba2b75eca008d328edd8e6",
+    "ref": "main"
+  },
+  "artifacts": [
+    {
+      "key": "skill:twitter-aisa",
+      "kind": "skill",
+      "target_name": "twitter-aisa",
+      "version": "1.0.5",
+      "attempts": [
+        {
+          "token_slot": "token-1",
+          "returncode": 1,
+          "message": "- Preparing twitter-aisa@1.0.5 | ✖ Uncaught ConvexError: Slug is already taken. Choose a different slug. Existing skill: /bibaofeng/twitter-aisa | at handler (../../convex/skills.ts:7686:4) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 2999/3000, reset in 27s) | Error: Uncaught ConvexError: Slug is already taken. Choose a different slug. Existing skill: /bibaofeng/twitter-aisa | at handler (../../convex/skills.ts:7686:4) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | (remaining: 2999/3000, reset in 27s)"
+        },
+        {
+          "token_slot": "token-2",
+          "returncode": 0,
+          "message": "- Preparing twitter-aisa@1.0.5 | ✔ OK. Published twitter-aisa@1.0.5 (k977mkvtfeb9n86tmfz603kxbx869vv3)"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "key": "plugin:last30days-slot2-plugin",
+      "kind": "plugin",
+      "target_name": "last30days-slot2-plugin",
+      "version": "1.0.4",
+      "attempts": [
+        {
+          "token_slot": "token-1",
+          "returncode": 1,
+          "message": "- Preparing last30days-slot2-plugin@1.0.4 | ✖ Uncaught ConvexError: Uncaught ConvexError: Package already exists and belongs to another publisher | at handler (../convex/packages.ts:4302:4) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | at async runMutationRef (../convex/packages.ts:483:0) | at async publishPackageImpl (../convex/packages.ts:3788:4) | at async handler (../convex/packages.ts:3898:6) | (remaining: 2999/3000, reset in 30s) | Error: Uncaught ConvexError: Uncaught ConvexError: Package already exists and belongs to another publisher | at handler (../convex/packages.ts:4302:4) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | at async runMutationRef (../convex/packages.ts:483:0) | at async publishPackageImpl (../convex/packages.ts:3788:4) | at async handler (../convex/packages.ts:3898:6) | (remaining: 2999/3000, reset in 30s)"
+        }
+      ],
+      "status": "failed"
+    },
+    {
+      "key": "plugin:@clawhub/aisa-twitter-api",
+      "kind": "plugin",
+      "target_name": "@clawhub/aisa-twitter-api",
+      "version": "1.0.5",
+      "attempts": [
+        {
+          "token_slot": "token-1",
+          "returncode": 1,
+          "message": "- Preparing @clawhub/aisa-twitter-api@1.0.5 | ✖ Uncaught ConvexError: Uncaught ConvexError: Forbidden for \"@clawhub\" | at handler (../convex/publishers.ts:393:11) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | at async runMutationRef (../convex/packages.ts:483:0) | at async publishPackageImpl (../convex/packages.ts:3627:6) | at async handler (../convex/packages.ts:3898:6) | (remaining: 2999/3000, reset in 60s) | Error: Uncaught ConvexError: Uncaught ConvexError: Forbidden for \"@clawhub\" | at handler (../convex/publishers.ts:393:11) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | at async runMutationRef (../convex/packages.ts:483:0) | at async publishPackageImpl (../convex/packages.ts:3627:6) | at async handler (../convex/packages.ts:3898:6) | (remaining: 2999/3000, reset in 60s)"
+        },
+        {
+          "token_slot": "token-2",
+          "returncode": 1,
+          "message": "- Preparing @clawhub/aisa-twitter-api@1.0.5 | ✖ Uncaught ConvexError: Uncaught ConvexError: Forbidden for \"@clawhub\" | at handler (../convex/publishers.ts:393:11) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | at async runMutationRef (../convex/packages.ts:483:0) | at async publishPackageImpl (../convex/packages.ts:3627:6) | at async handler (../convex/packages.ts:3898:6) | (remaining: 2999/3000, reset in 38s) | Error: Uncaught ConvexError: Uncaught ConvexError: Forbidden for \"@clawhub\" | at handler (../convex/publishers.ts:393:11) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | at async runMutationRef (../convex/packages.ts:483:0) | at async publishPackageImpl (../convex/packages.ts:3627:6) | at async handler (../convex/packages.ts:3898:6) | (remaining: 2999/3000, reset in 38s)"
+        },
+        {
+          "token_slot": "token-3",
+          "returncode": 1,
+          "message": "- Preparing @clawhub/aisa-twitter-api@1.0.5 | ✖ Uncaught ConvexError: Uncaught ConvexError: Forbidden for \"@clawhub\" | at handler (../convex/publishers.ts:393:11) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | at async runMutationRef (../convex/packages.ts:483:0) | at async publishPackageImpl (../convex/packages.ts:3627:6) | at async handler (../convex/packages.ts:3898:6) | (remaining: 2999/3000, reset in 46s) | Error: Uncaught ConvexError: Uncaught ConvexError: Forbidden for \"@clawhub\" | at handler (../convex/publishers.ts:393:11) | at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27) | at async runMutationRef (../convex/packages.ts:483:0) | at async publishPackageImpl (../convex/packages.ts:3627:6) | at async handler (../convex/packages.ts:3898:6) | (remaining: 2999/3000, reset in 46s)"
+        }
+      ],
+      "status": "failed"
+    }
+  ]
+}

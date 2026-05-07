@@ -208,10 +208,16 @@ def extract_clawhub_slug_from_url(url: str | None, kind: str) -> str | None:
         parsed = urllib.parse.urlparse(url)
     except ValueError:
         return None
-    segments = [clean_text(piece) for piece in parsed.path.split("/") if clean_text(piece)]
+    segments = [
+        urllib.parse.unquote(clean_text(piece))
+        for piece in parsed.path.split("/")
+        if clean_text(piece)
+    ]
     if not segments:
         return None
     if kind == "plugin":
+        if segments and segments[0] == "plugins" and len(segments) >= 3 and segments[1].startswith("@"):
+            return f"{segments[1]}/{segments[2]}"
         if segments and segments[0] == "plugins" and len(segments) >= 2:
             return segments[1]
         return None

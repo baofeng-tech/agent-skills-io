@@ -1,0 +1,11 @@
+{
+  "key": "plugin:last30days-slot2-plugin",
+  "version": "1.0.4",
+  "attempts": [
+    {
+      "token_slot": "token-2",
+      "returncode": 0,
+      "message": "- Preparing last30days-slot2-plugin@1.0.4 | ✔ OK. Published last30days-slot2-plugin@1.0.4 (rd71299r7hvpqxqpd8njsyhnq5869sgm)"
+    }
+  ]
+}

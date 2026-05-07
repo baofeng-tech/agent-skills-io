@@ -10,7 +10,7 @@
 
 - `targets/clawhub-breakout-variants.json`
 
-当前声明的 breakout 变体有 2 组。
+当前声明的 breakout 变体有 4 个，覆盖 3 个母版来源。
 
 ## 额外说明：fallback slug 也要单独跟踪
 
@@ -93,6 +93,34 @@ breakout slug 和 owner-conflict fallback slug 不是一回事：
 
 - skill slug: `aisa-twitter-engagement-suite`
 - plugin slug: `aisa-twitter-engagement-suite-plugin`
+
+### 额外 ClawHub 修复 / 增长 slug
+
+- breakout slug: `twitter-post-aisa`
+- 发布层目录：`clawhub-release/twitter-post-aisa`
+- plugin slug: `twitter-post-aisa-plugin`
+- 发布层目录：`clawhub-plugin-release/plugins/twitter-post-aisa-plugin`
+- 当前 live skill 状态：`clean`
+- 当前用途：保留原 URL/原 slug 的发帖后跟进增长位，不替代 `aisa-twitter-engagement-suite` 母版
+
+## 3. `aisa-tavily` 家族
+
+### 母版 skill
+
+- source skill: `aisa-tavily`
+- 母版目录：`targetSkills/aisa-tavily`
+
+### ClawHub breakout skill
+
+- breakout slug: `aisa-tavily-search`
+- 发布层目录：`clawhub-release/aisa-tavily-search`
+- 当前 live 状态：`clean`
+
+### ClawHub breakout plugin
+
+- plugin slug: `aisa-tavily-search-plugin`
+- 发布层目录：`clawhub-plugin-release/plugins/aisa-tavily-search-plugin`
+- 当前 live 状态：`clean`
 
 ## 当前判断
 

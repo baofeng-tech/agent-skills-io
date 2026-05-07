@@ -21,9 +21,11 @@ Execution style for this repo:
 - When upstream changes are large or structural, treat `AIsa-team/agent-skills` as the authoritative source first, then adapt that upstream state into mother skills and platform release layers here
 - Do not use `/mnt/d/workplace/agent-skills` as this repo's automation input source; that local checkout is reserved for manual company-skill authoring and upload work
 - GitHub Actions self-hosted lanes are opt-in unless an online repository runner is already registered; `SELF_HOSTED_RUNNER_RUNS_ON_JSON` only selects labels and does not create or start a runner
+- Before declaring GitHub Actions fixed, compare the latest remote run `headSha` with current `HEAD`; if they differ, trigger or request a current-HEAD validation run after pushing the fix
 - Treat ClawHub ClawScan `Review` verdicts as suspicious blockers until a republish or rescan returns clean
 - For ClawHub suspicious repair, request a rescan first when the platform supports it; only edit or republish when the artifact stays suspicious/pending after refresh
 - For targeted suspicious repair of an existing URL, do not accept a fallback slug as the fix unless the user explicitly asks for a new replacement slug
+- For scoped ClawHub plugin URLs such as `/plugins/@clawhub/aisa-twitter-api`, track the artifact as `plugin:@clawhub/aisa-twitter-api`; do not collapse it to `plugin:@clawhub`
 
 ### Before doing substantial work
 

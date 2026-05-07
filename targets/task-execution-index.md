@@ -90,6 +90,27 @@ Fine-grained PAT guidance:
 - `DOWNSTREAM_REPO_TOKEN`: select each downstream publish repo, grant Contents read/write plus Metadata read.
 - Reuse one PAT only when it covers both permission sets and all selected repos.
 
+## Remote Workflow Verification
+
+Before declaring GitHub Actions fixed, check both the latest run result and whether that run used the current `HEAD`:
+
+```bash
+gh run list --repo baofeng-tech/agent-skills-io --limit 5 \
+  --json databaseId,createdAt,headSha,status,conclusion,url
+git rev-parse HEAD
+```
+
+If the latest run failed on an older `headSha`, say that explicitly and trigger a current-HEAD validation run after pushing the fix. A successful older run does not prove the newest workflow state.
+
+Current self-hosted readiness check:
+
+```bash
+gh api repos/baofeng-tech/agent-skills-io/actions/runners \
+  --jq '{total_count, runners: [.runners[]? | {name,status,busy,labels:[.labels[].name]}]}'
+```
+
+Keep `AUTO_FULL_PLATFORM_PUBLISH`, `AUTO_RUN_SUSPICIOUS_REPAIR`, and `AUTO_RUN_BREAKOUT_ROLLOUT` false while `total_count=0` or no online runner matches `SELF_HOSTED_RUNNER_RUNS_ON_JSON`.
+
 ## ClawHub Repair Loop
 
 Use diagnosis first:
@@ -111,6 +132,14 @@ python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode update
 ```
 
 If the rescan clears the artifact, stop. If it stays suspicious or pending, repair from `targetSkills/` or the generator and rebuild the ClawHub layers. For existing suspicious URLs, keep `--slug-conflict-strategy fail` unless the user explicitly accepts a replacement slug; a fallback slug does not repair the flagged URL.
+
+Scoped ClawHub packages need exact URL handling. For a URL like `https://clawhub.ai/plugins/@clawhub/aisa-twitter-api`, track the artifact as:
+
+```text
+plugin:@clawhub/aisa-twitter-api
+```
+
+Do not shorten it to `plugin:@clawhub`. If exact republish returns `Forbidden for "@clawhub"`, record it as a platform/publisher-scope blocker and do not publish a fallback slug as the fix.
 
 For targeted publish:
 

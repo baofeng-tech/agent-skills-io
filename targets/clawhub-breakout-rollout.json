@@ -1,7 +1,8 @@
 {
   "summary": {
-    "variants": 2,
+    "variants": 4,
     "sources": [
+      "aisa-tavily",
       "aisa-twitter-api",
       "aisa-twitter-engagement-suite"
     ],
@@ -9,7 +10,11 @@
       "skill:aisa-twitter-api-command-center",
       "plugin:aisa-twitter-api-command-center-plugin",
       "skill:aisa-twitter-research-engage-relay",
-      "plugin:aisa-twitter-research-engage-relay-plugin"
+      "plugin:aisa-twitter-research-engage-relay-plugin",
+      "skill:twitter-post-aisa",
+      "plugin:twitter-post-aisa-plugin",
+      "skill:aisa-tavily-search",
+      "plugin:aisa-tavily-search-plugin"
     ]
   },
   "variants": [
@@ -24,6 +29,18 @@
       "slug": "aisa-twitter-research-engage-relay",
       "profile": "twitter_engagement",
       "version": "1.0.6"
+    },
+    {
+      "source": "aisa-twitter-engagement-suite",
+      "slug": "twitter-post-aisa",
+      "profile": "twitter_engagement",
+      "version": "1.0.3"
+    },
+    {
+      "source": "aisa-tavily",
+      "slug": "aisa-tavily-search",
+      "profile": "search",
+      "version": "1.0.3"
     }
   ]
 }
