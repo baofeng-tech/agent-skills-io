@@ -24,7 +24,7 @@ Latest remote run checked before this pass:
 - Hosted job result: `sync-build-test` succeeded
 - Failure reason: schedule had `AUTO_FULL_PLATFORM_PUBLISH=true`, `AUTO_RUN_SUSPICIOUS_REPAIR=true`, and `AUTO_RUN_BREAKOUT_ROLLOUT=true`, but repository runner inventory had `total_count=0`.
 
-Current repo state after the previous fix:
+Repo state after the previous fix:
 
 - HEAD: `4b0cbe6310fba0ce46ba2b75eca008d3287a85cc15c64df0fe92b`
 - Repo variables now show:
@@ -33,13 +33,24 @@ Current repo state after the previous fix:
   - `AUTO_RUN_BREAKOUT_ROLLOUT=false`
 - Runner inventory check: `GET /repos/baofeng-tech/agent-skills-io/actions/runners` returns `total_count=0`.
 
-Conclusion:
+Initial conclusion before this pass was pushed:
 
 - The latest remote run itself did not succeed.
 - The failed run was on an older configuration/state before the current false-by-default self-hosted variables.
 - The hosted build/test part is healthy.
 - The self-hosted publish lanes are not "fully runnable" until a matching runner is actually registered and online.
-- A current-HEAD remote validation run is still required before saying the workflow is fully verified remotely.
+- A current-HEAD remote validation run was required before saying the workflow was fully verified remotely.
+
+Post-push validation:
+
+- Run: `25512859636`
+- Created: `2026-05-07T17:53:59Z`
+- Head SHA: `8bdc42c12d1ce50a5642c28011f0db2b22cd9978`
+- Conclusion: `success`
+- `sync-build-test`: success
+- `self-hosted-preflight`: success
+- `self-hosted-publish`, `self-hosted-suspicious-repair`, `self-hosted-breakout-rollout`: skipped as expected because manual inputs requested no self-hosted lanes
+- Note: the run's commit step produced follow-up commit `8c74e34581138dc2dbdacc06925934e78b81d681` with refreshed diagnosis outputs.
 
 ## Test Engineer Findings
 
@@ -47,12 +58,12 @@ Conclusion:
 
 Severity: warning
 
-The latest remote run failed before the current repo-variable fix and before the current local HEAD. Local workflow guard tests pass, but the remote workflow has not yet succeeded on `4b0cbe6`.
+The latest remote run initially failed before the repo-variable fix and before the local repair commit. Local workflow guard tests passed, and post-push run `25512859636` succeeded on the repair commit.
 
 Fix:
 
-- Record the exact run/head mismatch.
-- Trigger a fresh remote validation run after this pass is committed and pushed.
+- Recorded the exact run/head mismatch.
+- Triggered a fresh remote validation run after the repair commit was pushed.
 
 ### 2. Self-hosted lanes are fixed as opt-in, but runner capacity is still zero
 
