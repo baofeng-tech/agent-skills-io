@@ -67,6 +67,33 @@
       ]
     }
   },
+  "providers": [
+    "aisa"
+  ],
+  "providerAuthEnvVars": {
+    "aisa": [
+      "AISA_API_KEY"
+    ]
+  },
+  "providerAuthChoices": [
+    {
+      "provider": "aisa",
+      "method": "api-key",
+      "choiceId": "aisa-api-key",
+      "choiceLabel": "AISA API key",
+      "choiceHint": "Used only to authorize requests to the AIsa API service.",
+      "groupId": "aisa",
+      "groupLabel": "AIsa",
+      "optionKey": "aisaApiKey",
+      "cliFlag": "--aisa-api-key",
+      "cliOption": "--aisa-api-key <key>",
+      "cliDescription": "AISA_API_KEY used by the packaged skill runtime.",
+      "onboardingScopes": [
+        "text-inference"
+      ],
+      "assistantPriority": 0
+    }
+  ],
   "requires": {
     "bins": [
       "python3"
@@ -84,6 +111,21 @@
     "https://api.aisa.one/apis/v1/twitter"
   ],
   "uiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "TWITTER_RELAY_BASE_URL": {
+      "label": "Twitter Relay Base Url",
+      "help": "Optional advanced runtime setting for TWITTER_RELAY_BASE_URL.",
+      "advanced": true
+    },
+    "TWITTER_RELAY_TIMEOUT": {
+      "label": "Twitter Relay Timeout",
+      "help": "Optional advanced runtime setting for TWITTER_RELAY_TIMEOUT.",
+      "advanced": true
+    },
     "emoji": "🐦"
   }
 }

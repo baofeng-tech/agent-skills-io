@@ -117,6 +117,8 @@ flowchart TD
   - Prevents spare ClawHub token login timeouts from becoming false artifact publish failures.
 - `scripts/test_clawhub_live_status_review.py`
   - Locks ClawHub ClawScan `Review` verdicts as suspicious blockers in live-status parsing and diagnosis.
+- `scripts/test_clawhub_plugin_auth_metadata.py`
+  - Locks native plugin auth/config metadata so AISA-backed plugins expose `AISA_API_KEY` before runtime loads.
 - `scripts/test_twitter_oauth_client_safety.py`
   - Locks Twitter public-write safety boundaries for reply, quote, threading, and API-key redaction.
 - `scripts/publish-targetSkills-to-agent-skills.sh`

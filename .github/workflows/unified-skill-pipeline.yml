@@ -193,6 +193,9 @@ jobs:
       - name: Validate ClawHub live status review semantics
         run: python3 scripts/test_clawhub_live_status_review.py
 
+      - name: Validate ClawHub plugin auth metadata
+        run: python3 scripts/test_clawhub_plugin_auth_metadata.py
+
       - name: Validate Twitter OAuth publish safety
         run: python3 scripts/test_twitter_oauth_client_safety.py
 

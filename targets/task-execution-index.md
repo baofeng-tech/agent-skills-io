@@ -59,6 +59,7 @@ python3 scripts/build_agentskill_sh_release.py
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_github_actions_workflow.py
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_batch_publish_exit.py
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_live_status_review.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_plugin_auth_metadata.py
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_twitter_oauth_client_safety.py
 python3 scripts/test_release_layers.py
 python3 -m compileall -q scripts

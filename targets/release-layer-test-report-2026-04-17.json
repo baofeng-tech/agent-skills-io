@@ -2,7 +2,7 @@
   "summary": {
     "structure_error_count": 0,
     "smoke_failure_count": 0,
-    "smoke_transient_count": 3
+    "smoke_transient_count": 5
   },
   "structure": {
     "claude_errors": [],
@@ -25,10 +25,10 @@
         "--type",
         "Latest"
       ],
-      "code": 0,
-      "status": "passed",
-      "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHuIHnyWsSwKAAIce4d7TpshigAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUce4g8BcAnEAoABhx7iDwFv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/17206",
+      "code": 1,
+      "status": "transient",
+      "application_error": true,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"o8ddVgRxZbhy4bGEoTLqtQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"L1R1dPxwMoHGC-H__F5ffQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 1,
       "status": "transient",
       "application_error": true,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"The read operation timed out\"\n  }\n}\n",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHuIdfOWsY0KAAIce4e8C5dBPgAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUce4iBZ4AnEAoABhx7iIFnf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/20456",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHuN2M6a8M4KAAIce40FcRqRfAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUce43iDsAnEAoABhx7jeIOv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/311603",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"ayI943LH5RLzhiV3jYj-qw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"mNAtHwafFHu5NqI6pTNOrw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHuItgtWkF8KAAIce4fgDFfB1wAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUce4jFnYAnEAoABhx7iMWdf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/176315",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHuOHRUWkdIKAAIce40m5FrAeQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUce44l6sAnEAoABhx7jiXqv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/126227",
       "stderr_preview": ""
     },
     {
@@ -277,10 +277,10 @@
         "--count",
         "1"
       ],
-      "code": 0,
-      "status": "passed",
-      "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"ImZRtZxPj46Q9FP9rPFljQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "code": 1,
+      "status": "transient",
+      "application_error": true,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 1,
       "status": "transient",
       "application_error": true,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)\"\n  }\n}\n",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"The read operation timed out\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {

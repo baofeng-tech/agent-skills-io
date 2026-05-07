@@ -325,6 +325,58 @@ def build_config_schema(skill: dict[str, object]) -> dict[str, object]:
     return schema
 
 
+def build_config_ui_hints(skill: dict[str, object]) -> dict[str, object]:
+    env_vars = [env_name for env_name in skill.get("env_vars", []) if isinstance(env_name, str)]
+    optional_env_vars = [env_name for env_name in skill.get("optional_env_vars", []) if isinstance(env_name, str)]
+    hints: dict[str, object] = {}
+    for env_name in env_vars + optional_env_vars:
+        field_hint: dict[str, object] = {
+            "label": humanize_env_name(env_name),
+            "help": (
+                f"Required runtime secret for {env_name}."
+                if env_name in env_vars
+                else f"Optional advanced runtime setting for {env_name}."
+            ),
+        }
+        if env_name.endswith("_API_KEY") or env_name in {"AISA_API_KEY"}:
+            field_hint["sensitive"] = True
+        if env_name in optional_env_vars:
+            field_hint["advanced"] = True
+        hints[env_name] = field_hint
+    if skill.get("emoji"):
+        hints["emoji"] = skill["emoji"]
+    return hints
+
+
+def build_provider_auth_fields(skill: dict[str, object]) -> dict[str, object]:
+    env_vars = [env_name for env_name in skill.get("env_vars", []) if isinstance(env_name, str)]
+    if "AISA_API_KEY" not in env_vars:
+        return {}
+    return {
+        "providers": ["aisa"],
+        "providerAuthEnvVars": {
+            "aisa": ["AISA_API_KEY"],
+        },
+        "providerAuthChoices": [
+            {
+                "provider": "aisa",
+                "method": "api-key",
+                "choiceId": "aisa-api-key",
+                "choiceLabel": "AISA API key",
+                "choiceHint": "Used only to authorize requests to the AIsa API service.",
+                "groupId": "aisa",
+                "groupLabel": "AIsa",
+                "optionKey": "aisaApiKey",
+                "cliFlag": "--aisa-api-key",
+                "cliOption": "--aisa-api-key <key>",
+                "cliDescription": "AISA_API_KEY used by the packaged skill runtime.",
+                "onboardingScopes": ["text-inference"],
+                "assistantPriority": 0,
+            }
+        ],
+    }
+
+
 def write_json(path: Path, payload: dict[str, object]) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
@@ -380,6 +432,8 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
     runtime_metadata = build_runtime_metadata(skill)
     top_level_runtime_fields = build_top_level_runtime_fields(runtime_requirements)
     config_schema = build_config_schema(skill)
+    config_ui_hints = build_config_ui_hints(skill)
+    provider_auth_fields = build_provider_auth_fields(skill)
     shutil.rmtree(plugin_dir, ignore_errors=True)
     (plugin_dir / ".claude-plugin").mkdir(parents=True, exist_ok=True)
     (plugin_dir / "skills").mkdir(parents=True, exist_ok=True)
@@ -419,10 +473,11 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "configSchema": config_schema,
         "runtimeRequirements": runtime_requirements,
         "metadata": runtime_metadata,
+        **provider_auth_fields,
         **top_level_runtime_fields,
     }
-    if skill.get("emoji"):
-        openclaw_manifest["uiHints"] = {"emoji": skill["emoji"]}
+    if config_ui_hints:
+        openclaw_manifest["uiHints"] = config_ui_hints
     write_json(plugin_dir / "openclaw.plugin.json", openclaw_manifest)
     write_root_skill_manifest(plugin_dir, skill, slug, runtime_requirements, runtime_metadata)
 

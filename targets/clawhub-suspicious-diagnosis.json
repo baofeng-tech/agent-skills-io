@@ -1,13 +1,13 @@
 {
   "summary": {
-    "artifacts": 15,
+    "artifacts": 16,
     "blockers": 14,
-    "warnings": 1,
-    "pending": 3,
+    "warnings": 2,
+    "pending": 4,
     "rules": {
       "metadata_env_mismatch": 1,
       "oauth_upload_side_effects": 3,
-      "pending_scan": 3,
+      "pending_scan": 4,
       "platform_trust_gap": 8,
       "relay_trust_surface": 3,
       "static_analysis_patterns": 1
@@ -464,6 +464,35 @@
       "local_path": ".tmp-clawhub-batch/plugins/aisa-twitter-research-engage-plugin",
       "release_ref": "rd7481zm68vsvyxstnkm2ee6a585ezhf",
       "reason": null
+    },
+    {
+      "key": "plugin:last30days-zh-plugin",
+      "kind": "plugin",
+      "name": "last30days-zh-plugin",
+      "publisher_handle": "baofeng-tech",
+      "severity": "warning",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "clawscan_verdict": "pending",
+      "openclaw_verdict": "pending",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+      "suspicious": false,
+      "pending": true,
+      "rule_ids": [
+        "pending_scan"
+      ],
+      "rule_summaries": [
+        "Security scan output is not final yet."
+      ],
+      "recommended_actions": [
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
+      "local_path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
+      "release_ref": "rd7bv87rvnj0jtg2p80xesby89868zw2",
+      "reason": "No ClawScan analysis has been recorded yet."
     }
   ]
 }

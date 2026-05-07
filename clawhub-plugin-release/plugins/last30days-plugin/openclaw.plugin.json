@@ -105,6 +105,33 @@
       ]
     }
   },
+  "providers": [
+    "aisa"
+  ],
+  "providerAuthEnvVars": {
+    "aisa": [
+      "AISA_API_KEY"
+    ]
+  },
+  "providerAuthChoices": [
+    {
+      "provider": "aisa",
+      "method": "api-key",
+      "choiceId": "aisa-api-key",
+      "choiceLabel": "AISA API key",
+      "choiceHint": "Used only to authorize requests to the AIsa API service.",
+      "groupId": "aisa",
+      "groupLabel": "AIsa",
+      "optionKey": "aisaApiKey",
+      "cliFlag": "--aisa-api-key",
+      "cliOption": "--aisa-api-key <key>",
+      "cliDescription": "AISA_API_KEY used by the packaged skill runtime.",
+      "onboardingScopes": [
+        "text-inference"
+      ],
+      "assistantPriority": 0
+    }
+  ],
   "requires": {
     "bins": [
       "python3",
@@ -131,6 +158,41 @@
     "https://www.xiaohongshu.com"
   ],
   "uiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "LAST30DAYS_PLANNER_MODEL": {
+      "label": "Last30Days Planner Model",
+      "help": "Optional advanced runtime setting for LAST30DAYS_PLANNER_MODEL.",
+      "advanced": true
+    },
+    "LAST30DAYS_RERANK_MODEL": {
+      "label": "Last30Days Rerank Model",
+      "help": "Optional advanced runtime setting for LAST30DAYS_RERANK_MODEL.",
+      "advanced": true
+    },
+    "LAST30DAYS_FUN_MODEL": {
+      "label": "Last30Days Fun Model",
+      "help": "Optional advanced runtime setting for LAST30DAYS_FUN_MODEL.",
+      "advanced": true
+    },
+    "AISA_MODEL": {
+      "label": "Aisa Model",
+      "help": "Optional advanced runtime setting for AISA_MODEL.",
+      "advanced": true
+    },
+    "AISA_BASE_URL": {
+      "label": "Aisa Base Url",
+      "help": "Optional advanced runtime setting for AISA_BASE_URL.",
+      "advanced": true
+    },
+    "XIAOHONGSHU_API_BASE": {
+      "label": "Xiaohongshu Api Base",
+      "help": "Optional advanced runtime setting for XIAOHONGSHU_API_BASE.",
+      "advanced": true
+    },
     "emoji": "🔎"
   }
 }

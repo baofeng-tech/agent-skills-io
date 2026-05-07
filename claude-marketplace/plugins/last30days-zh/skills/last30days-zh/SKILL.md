@@ -1,7 +1,7 @@
 ---
 name: last30days-zh
 description: '聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.'
-version: 1.0.7
+version: 1.0.8
 license: MIT
 allowed-tools: Read Bash Grep
 when_to_use: the user needs recent multi-source research across the last 30 days

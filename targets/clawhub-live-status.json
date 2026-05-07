@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-05-06T21:07:36.156873+00:00",
+  "generated_at": "2026-05-07T13:58:48.739192+00:00",
   "summary": {
-    "total": 116,
-    "suspicious": 14,
-    "pending": 3,
-    "resolved_urls": 116
+    "total": 117,
+    "suspicious": 15,
+    "pending": 4,
+    "resolved_urls": 117
   },
   "artifacts": [
     {
@@ -584,28 +584,28 @@
     {
       "key": "plugin:last30days-zh-plugin",
       "kind": "plugin",
-      "name": "last30days-zh-slot1-plugin",
+      "name": "last30days-zh-plugin",
       "requested_name": "last30days-zh-plugin",
       "version": "1.0.7",
-      "detail_url": "https://clawhub.ai/plugins/last30days-zh-slot1-plugin",
-      "resolved_slug": "last30days-zh-slot1-plugin",
+      "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
+      "resolved_slug": "last30days-zh-plugin",
       "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "clean",
-      "virus_total": "clean",
+      "scan_status": "pending",
+      "virus_total": "pending",
       "virus_total_report_url": null,
-      "clawscan_verdict": "clean",
+      "clawscan_verdict": "suspicious",
       "clawscan_confidence": null,
-      "openclaw_verdict": "clean",
+      "openclaw_verdict": "suspicious",
       "openclaw_confidence": null,
       "static_analysis_status": "clean",
       "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
       "publisher_handle": "baofeng-tech",
-      "suspicious": false,
-      "suspicious_reason": "This appears to be a legitimate recent-research skill that uses an AISA API key and bundled Python scripts, though the registry requirements summary seems incomplete.",
-      "pending": false,
+      "suspicious": true,
+      "suspicious_reason": "This mostly matches its stated recent-research purpose, but the registry metadata understates that it needs an AISA API key and runs bundled Python/Bash code.",
+      "pending": true,
       "warnings": [],
-      "checked_at": "2026-05-06T21:03:48.821829+00:00"
+      "checked_at": "2026-05-07T13:58:45.467075+00:00"
     },
     {
       "key": "plugin:llm-router-plugin",
@@ -2660,6 +2660,32 @@
       "pending": false,
       "warnings": [],
       "checked_at": "2026-05-06T21:07:15.396813+00:00"
+    },
+    {
+      "key": "skill:stock-dividend-aisa",
+      "kind": "skill",
+      "name": "stock-dividend-aisa",
+      "requested_name": "stock-dividend-aisa",
+      "version": "1.0.2",
+      "detail_url": "https://clawhub.ai/baofeng-tech/stock-dividend-aisa",
+      "resolved_slug": "stock-dividend-aisa",
+      "page_found": true,
+      "fetch_mode": "http",
+      "scan_status": "clean",
+      "virus_total": "clean",
+      "virus_total_report_url": null,
+      "clawscan_verdict": "clean",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
+      "openclaw_confidence": null,
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "publisher_handle": "baofeng-tech",
+      "suspicious": false,
+      "suspicious_reason": "The only abnormal-behavior-related note is a disclosed, purpose-aligned external Python dependency; there is no hidden execution, persistence, or purchase/trading workflow.",
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-05-07T13:58:48.720272+00:00"
     },
     {
       "key": "skill:stock-hot",

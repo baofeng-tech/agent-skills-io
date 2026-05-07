@@ -43,6 +43,33 @@
       ]
     }
   },
+  "providers": [
+    "aisa"
+  ],
+  "providerAuthEnvVars": {
+    "aisa": [
+      "AISA_API_KEY"
+    ]
+  },
+  "providerAuthChoices": [
+    {
+      "provider": "aisa",
+      "method": "api-key",
+      "choiceId": "aisa-api-key",
+      "choiceLabel": "AISA API key",
+      "choiceHint": "Used only to authorize requests to the AIsa API service.",
+      "groupId": "aisa",
+      "groupLabel": "AIsa",
+      "optionKey": "aisaApiKey",
+      "cliFlag": "--aisa-api-key",
+      "cliOption": "--aisa-api-key <key>",
+      "cliDescription": "AISA_API_KEY used by the packaged skill runtime.",
+      "onboardingScopes": [
+        "text-inference"
+      ],
+      "assistantPriority": 0
+    }
+  ],
   "requires": {
     "env": [
       "AISA_API_KEY"
@@ -53,6 +80,11 @@
     "https://api.aisa.one"
   ],
   "uiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
     "emoji": "📊"
   }
 }

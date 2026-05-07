@@ -74,6 +74,10 @@ def main() -> int:
         "hosted validation must cover ClawHub Review verdict semantics",
     )
     require(
+        "python3 scripts/test_clawhub_plugin_auth_metadata.py" in text,
+        "hosted validation must cover ClawHub plugin auth metadata",
+    )
+    require(
         "python3 scripts/test_twitter_oauth_client_safety.py" in text,
         "hosted validation must cover Twitter OAuth public-write safety",
     )
