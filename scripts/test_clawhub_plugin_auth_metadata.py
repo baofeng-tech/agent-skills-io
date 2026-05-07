@@ -47,11 +47,33 @@ def assert_aisa_auth_metadata(plugin_dir: Path) -> None:
         for choice in provider_auth_choices
     ), f"{manifest_path}: missing AISA api-key auth choice"
 
-    ui_hints = manifest.get("uiHints")
-    assert isinstance(ui_hints, dict), f"{manifest_path}: missing uiHints"
-    aisa_hint = ui_hints.get("AISA_API_KEY")
+    config_ui_hints = manifest.get("configUiHints")
+    assert isinstance(config_ui_hints, dict), f"{manifest_path}: missing configUiHints"
+    aisa_hint = config_ui_hints.get("AISA_API_KEY")
     assert isinstance(aisa_hint, dict) and aisa_hint.get("sensitive") is True, (
         f"{manifest_path}: AISA_API_KEY must be marked sensitive"
+    )
+
+    bundled_skills = manifest.get("bundledSkills")
+    assert isinstance(bundled_skills, list) and bundled_skills, (
+        f"{manifest_path}: missing bundledSkills capability metadata"
+    )
+
+    commands = manifest.get("commands")
+    assert isinstance(commands, list) and commands, f"{manifest_path}: missing command metadata"
+
+    environment = manifest.get("environment")
+    assert isinstance(environment, dict), f"{manifest_path}: missing environment metadata"
+    runtime_requirements = manifest.get("runtimeRequirements")
+    expected_bins = (
+        runtime_requirements.get("bins")
+        if isinstance(runtime_requirements, dict) and isinstance(runtime_requirements.get("bins"), list)
+        else []
+    )
+    if expected_bins:
+        assert environment.get("binaries"), f"{manifest_path}: environment must declare binaries"
+    assert environment.get("externalServices"), (
+        f"{manifest_path}: environment must declare external services"
     )
 
 

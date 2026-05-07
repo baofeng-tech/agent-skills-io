@@ -6,6 +6,15 @@
   "skills": [
     "./skills"
   ],
+  "bundledSkills": [
+    "aisa-twitter-research-engage-relay"
+  ],
+  "commands": [
+    {
+      "name": "aisa-twitter-research-engage-relay",
+      "description": "Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting."
+    }
+  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -20,6 +29,14 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "emoji": "🐦"
   },
   "runtimeRequirements": {
     "bins": [
@@ -95,5 +112,15 @@
       "sensitive": true
     },
     "emoji": "🐦"
+  },
+  "environment": {
+    "binaries": [
+      "python3"
+    ],
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      }
+    ]
   }
 }

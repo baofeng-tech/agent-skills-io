@@ -6,6 +6,15 @@
   "skills": [
     "./skills"
   ],
+  "bundledSkills": [
+    "stock-rumors"
+  ],
+  "commands": [
+    {
+      "name": "stock-rumors",
+      "description": "Rumor Scanner — find early signals including M&A rumors, insider activity, analyst upgrades/downgrades, social whispers, and SEC/regulatory activity via AIsa API. Ranked by impact score. Use when the user asks about rumors, insider trading, M&A activity, analyst changes, or early market signals."
+    }
+  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -30,6 +39,24 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "AISA_BASE_URL": {
+      "label": "Aisa Base Url",
+      "help": "Optional advanced runtime setting for AISA_BASE_URL.",
+      "advanced": true
+    },
+    "AISA_MODEL": {
+      "label": "Aisa Model",
+      "help": "Optional advanced runtime setting for AISA_MODEL.",
+      "advanced": true
+    },
+    "emoji": "📊"
   },
   "runtimeRequirements": {
     "bins": [
@@ -127,5 +154,15 @@
       "advanced": true
     },
     "emoji": "📊"
+  },
+  "environment": {
+    "binaries": [
+      "python3"
+    ],
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      }
+    ]
   }
 }

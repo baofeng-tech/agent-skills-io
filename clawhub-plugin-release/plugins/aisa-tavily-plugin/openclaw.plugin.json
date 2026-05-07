@@ -6,6 +6,15 @@
   "skills": [
     "./skills"
   ],
+  "bundledSkills": [
+    "aisa-tavily"
+  ],
+  "commands": [
+    {
+      "name": "aisa-tavily",
+      "description": "AI-optimized web search via AIsa's Tavily API proxy. Returns concise, relevant results for AI agents through AIsa's unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction."
+    }
+  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -20,6 +29,14 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "emoji": "🔎"
   },
   "runtimeRequirements": {
     "bins": [
@@ -95,5 +112,15 @@
       "sensitive": true
     },
     "emoji": "🔎"
+  },
+  "environment": {
+    "binaries": [
+      "node"
+    ],
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      }
+    ]
   }
 }

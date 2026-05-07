@@ -6,6 +6,15 @@
   "skills": [
     "./skills"
   ],
+  "bundledSkills": [
+    "stock-watchlist"
+  ],
+  "commands": [
+    {
+      "name": "stock-watchlist",
+      "description": "Manage a stock/crypto watchlist with price target and stop-loss alerts via AIsa API. Add, remove, list, and check tickers with live price alerts. Use when the user wants to track stocks, set price alerts, manage a watchlist, or check triggered alerts."
+    }
+  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -20,6 +29,14 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "emoji": "📊"
   },
   "runtimeRequirements": {
     "env": [
@@ -86,5 +103,12 @@
       "sensitive": true
     },
     "emoji": "📊"
+  },
+  "environment": {
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      }
+    ]
   }
 }

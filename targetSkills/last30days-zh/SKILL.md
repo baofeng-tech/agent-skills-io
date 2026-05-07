@@ -1,7 +1,7 @@
 ---
 name: last30days-zh
 description: '聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.'
-version: 1.0.8
+version: 1.0.9
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, bash, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:

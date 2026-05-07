@@ -2,9 +2,18 @@
   "id": "last30days-zh-plugin",
   "name": "Last30days Zh",
   "description": "Requires python3, bash, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `last30days-zh`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. 聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days.",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "skills": [
     "./skills"
+  ],
+  "bundledSkills": [
+    "last30days-zh"
+  ],
+  "commands": [
+    {
+      "name": "last30days-zh",
+      "description": "聚合最近 30 天的 Reddit、X/Twitter、YouTube、TikTok、Instagram、Hacker News、Polymarket 和 web search 结果. Use when: the user needs recent multi-source research across the last 30 days."
+    }
   ],
   "configSchema": {
     "type": "object",
@@ -45,6 +54,39 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "LAST30DAYS_RERANK_MODEL": {
+      "label": "Last30Days Rerank Model",
+      "help": "Optional advanced runtime setting for LAST30DAYS_RERANK_MODEL.",
+      "advanced": true
+    },
+    "AISA_MODEL": {
+      "label": "Aisa Model",
+      "help": "Optional advanced runtime setting for AISA_MODEL.",
+      "advanced": true
+    },
+    "LAST30DAYS_PLANNER_MODEL": {
+      "label": "Last30Days Planner Model",
+      "help": "Optional advanced runtime setting for LAST30DAYS_PLANNER_MODEL.",
+      "advanced": true
+    },
+    "AISA_BASE_URL": {
+      "label": "Aisa Base Url",
+      "help": "Optional advanced runtime setting for AISA_BASE_URL.",
+      "advanced": true
+    },
+    "XIAOHONGSHU_API_BASE": {
+      "label": "Xiaohongshu Api Base",
+      "help": "Optional advanced runtime setting for XIAOHONGSHU_API_BASE.",
+      "advanced": true
+    },
+    "emoji": "🔎"
   },
   "runtimeRequirements": {
     "bins": [
@@ -178,5 +220,25 @@
       "advanced": true
     },
     "emoji": "🔎"
+  },
+  "environment": {
+    "binaries": [
+      "python3",
+      "bash"
+    ],
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      },
+      {
+        "name": "www.reddit.com"
+      },
+      {
+        "name": "hacker-news.firebaseio.com"
+      },
+      {
+        "name": "www.xiaohongshu.com"
+      }
+    ]
   }
 }

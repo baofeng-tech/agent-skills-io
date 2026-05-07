@@ -6,6 +6,15 @@
   "skills": [
     "./skills"
   ],
+  "bundledSkills": [
+    "prediction-market-data"
+  ],
+  "commands": [
+    {
+      "name": "prediction-market-data",
+      "description": "Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows."
+    }
+  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -20,6 +29,14 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "emoji": "📊"
   },
   "runtimeRequirements": {
     "bins": [
@@ -95,5 +112,15 @@
       "sensitive": true
     },
     "emoji": "📊"
+  },
+  "environment": {
+    "binaries": [
+      "python3"
+    ],
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      }
+    ]
   }
 }

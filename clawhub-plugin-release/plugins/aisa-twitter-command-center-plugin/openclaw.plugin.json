@@ -6,6 +6,15 @@
   "skills": [
     "./skills"
   ],
+  "bundledSkills": [
+    "aisa-twitter-command-center"
+  ],
+  "commands": [
+    {
+      "name": "aisa-twitter-command-center",
+      "description": "Search X/Twitter profiles, tweets, trends, lists, communities, and Spaces through the AIsa relay, then support approved posting workflows with OAuth. Use when the user asks for Twitter research, monitoring, or posting without sharing passwords."
+    }
+  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -20,6 +29,14 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "emoji": "🐦"
   },
   "runtimeRequirements": {
     "bins": [
@@ -95,5 +112,15 @@
       "sensitive": true
     },
     "emoji": "🐦"
+  },
+  "environment": {
+    "binaries": [
+      "python3"
+    ],
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      }
+    ]
   }
 }

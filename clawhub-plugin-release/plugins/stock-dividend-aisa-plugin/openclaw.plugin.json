@@ -6,6 +6,15 @@
   "skills": [
     "./skills"
   ],
+  "bundledSkills": [
+    "stock-dividend-aisa"
+  ],
+  "commands": [
+    {
+      "name": "stock-dividend-aisa",
+      "description": "Analyze read-only dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score, income rating, and Dividend Aristocrat/King status without placing trades, making purchases, or managing brokerage accounts. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows."
+    }
+  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -30,6 +39,24 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "AISA_MODEL": {
+      "label": "Aisa Model",
+      "help": "Optional advanced runtime setting for AISA_MODEL.",
+      "advanced": true
+    },
+    "AISA_BASE_URL": {
+      "label": "Aisa Base Url",
+      "help": "Optional advanced runtime setting for AISA_BASE_URL.",
+      "advanced": true
+    },
+    "emoji": "📊"
   },
   "runtimeRequirements": {
     "bins": [
@@ -127,5 +154,15 @@
       "advanced": true
     },
     "emoji": "📊"
+  },
+  "environment": {
+    "binaries": [
+      "python3"
+    ],
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      }
+    ]
   }
 }

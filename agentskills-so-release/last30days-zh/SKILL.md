@@ -5,7 +5,7 @@ license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, bash, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
   author: AIsa
-  version: 1.0.8
+  version: 1.0.9
   homepage: https://aisa.one
   repository: https://github.com/baofeng-tech/agent-skills-so
   tags: twitter,x,youtube,search,research,market

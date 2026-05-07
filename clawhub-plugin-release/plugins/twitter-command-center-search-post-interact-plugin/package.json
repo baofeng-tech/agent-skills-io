@@ -138,6 +138,34 @@
       "networkTargets": [
         "https://api.aisa.one/apis/v1/twitter"
       ]
+    },
+    "configUiHints": {
+      "AISA_API_KEY": {
+        "label": "Aisa Api Key",
+        "help": "Required runtime secret for AISA_API_KEY.",
+        "sensitive": true
+      },
+      "TWITTER_RELAY_BASE_URL": {
+        "label": "Twitter Relay Base Url",
+        "help": "Optional advanced runtime setting for TWITTER_RELAY_BASE_URL.",
+        "advanced": true
+      },
+      "TWITTER_RELAY_TIMEOUT": {
+        "label": "Twitter Relay Timeout",
+        "help": "Optional advanced runtime setting for TWITTER_RELAY_TIMEOUT.",
+        "advanced": true
+      },
+      "emoji": "🐦"
+    },
+    "environment": {
+      "binaries": [
+        "python3"
+      ],
+      "externalServices": [
+        {
+          "name": "api.aisa.one"
+        }
+      ]
     }
   }
 }

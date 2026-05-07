@@ -92,6 +92,21 @@
       "networkTargets": [
         "https://api.aisa.one"
       ]
+    },
+    "configUiHints": {
+      "AISA_API_KEY": {
+        "label": "Aisa Api Key",
+        "help": "Required runtime secret for AISA_API_KEY.",
+        "sensitive": true
+      },
+      "emoji": "📊"
+    },
+    "environment": {
+      "externalServices": [
+        {
+          "name": "api.aisa.one"
+        }
+      ]
     }
   }
 }

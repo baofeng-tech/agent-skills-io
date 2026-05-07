@@ -6,6 +6,15 @@
   "skills": [
     "./skills"
   ],
+  "bundledSkills": [
+    "last30days"
+  ],
+  "commands": [
+    {
+      "name": "last30days",
+      "description": "Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles."
+    }
+  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -50,6 +59,44 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "LAST30DAYS_PLANNER_MODEL": {
+      "label": "Last30Days Planner Model",
+      "help": "Optional advanced runtime setting for LAST30DAYS_PLANNER_MODEL.",
+      "advanced": true
+    },
+    "LAST30DAYS_RERANK_MODEL": {
+      "label": "Last30Days Rerank Model",
+      "help": "Optional advanced runtime setting for LAST30DAYS_RERANK_MODEL.",
+      "advanced": true
+    },
+    "LAST30DAYS_FUN_MODEL": {
+      "label": "Last30Days Fun Model",
+      "help": "Optional advanced runtime setting for LAST30DAYS_FUN_MODEL.",
+      "advanced": true
+    },
+    "AISA_MODEL": {
+      "label": "Aisa Model",
+      "help": "Optional advanced runtime setting for AISA_MODEL.",
+      "advanced": true
+    },
+    "AISA_BASE_URL": {
+      "label": "Aisa Base Url",
+      "help": "Optional advanced runtime setting for AISA_BASE_URL.",
+      "advanced": true
+    },
+    "XIAOHONGSHU_API_BASE": {
+      "label": "Xiaohongshu Api Base",
+      "help": "Optional advanced runtime setting for XIAOHONGSHU_API_BASE.",
+      "advanced": true
+    },
+    "emoji": "🔎"
   },
   "runtimeRequirements": {
     "bins": [
@@ -194,5 +241,28 @@
       "advanced": true
     },
     "emoji": "🔎"
+  },
+  "environment": {
+    "binaries": [
+      "python3",
+      "bash"
+    ],
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      },
+      {
+        "name": "www.reddit.com"
+      },
+      {
+        "name": "hacker-news.firebaseio.com"
+      },
+      {
+        "name": "api.github.com"
+      },
+      {
+        "name": "www.xiaohongshu.com"
+      }
+    ]
   }
 }

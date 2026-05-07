@@ -377,6 +377,20 @@ def build_provider_auth_fields(skill: dict[str, object]) -> dict[str, object]:
     }
 
 
+def build_openclaw_environment(runtime_requirements: dict[str, object]) -> dict[str, object]:
+    environment: dict[str, object] = {}
+    bins = runtime_requirements.get("bins")
+    if isinstance(bins, list) and bins:
+        environment["binaries"] = bins
+    network_targets = runtime_requirements.get("networkTargets")
+    if isinstance(network_targets, list) and network_targets:
+        environment["externalServices"] = [
+            {"name": str(target).replace("https://", "").replace("http://", "").split("/", 1)[0]}
+            for target in network_targets
+        ]
+    return environment
+
+
 def write_json(path: Path, payload: dict[str, object]) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
@@ -434,6 +448,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
     config_schema = build_config_schema(skill)
     config_ui_hints = build_config_ui_hints(skill)
     provider_auth_fields = build_provider_auth_fields(skill)
+    openclaw_environment = build_openclaw_environment(runtime_requirements)
     shutil.rmtree(plugin_dir, ignore_errors=True)
     (plugin_dir / ".claude-plugin").mkdir(parents=True, exist_ok=True)
     (plugin_dir / "skills").mkdir(parents=True, exist_ok=True)
@@ -470,7 +485,15 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         "description": plugin_description(skill),
         "version": skill["version"],
         "skills": ["./skills"],
+        "bundledSkills": [skill["path"]],
+        "commands": [
+            {
+                "name": skill_name,
+                "description": skill["description"],
+            }
+        ],
         "configSchema": config_schema,
+        "configUiHints": config_ui_hints,
         "runtimeRequirements": runtime_requirements,
         "metadata": runtime_metadata,
         **provider_auth_fields,
@@ -478,6 +501,8 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
     }
     if config_ui_hints:
         openclaw_manifest["uiHints"] = config_ui_hints
+    if openclaw_environment:
+        openclaw_manifest["environment"] = openclaw_environment
     write_json(plugin_dir / "openclaw.plugin.json", openclaw_manifest)
     write_root_skill_manifest(plugin_dir, skill, slug, runtime_requirements, runtime_metadata)
 
@@ -520,6 +545,8 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
                 "openclawVersion": "^1.0.0",
             },
             "runtimeRequirements": runtime_requirements,
+            "configUiHints": config_ui_hints,
+            **({"environment": openclaw_environment} if openclaw_environment else {}),
         },
     }
     write_json(plugin_dir / "package.json", package_json)

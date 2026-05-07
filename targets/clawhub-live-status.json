@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T13:58:48.739192+00:00",
+  "generated_at": "2026-05-07T14:15:26.166315+00:00",
   "summary": {
     "total": 117,
     "suspicious": 15,
@@ -586,7 +586,7 @@
       "kind": "plugin",
       "name": "last30days-zh-plugin",
       "requested_name": "last30days-zh-plugin",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
       "resolved_slug": "last30days-zh-plugin",
       "page_found": true,
@@ -602,10 +602,10 @@
       "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
       "publisher_handle": "baofeng-tech",
       "suspicious": true,
-      "suspicious_reason": "This mostly matches its stated recent-research purpose, but the registry metadata understates that it needs an AISA API key and runs bundled Python/Bash code.",
+      "suspicious_reason": "The research function mostly matches the code, but the registry summary says it needs no tools or secrets even though the manifests and instructions require Python, bash, and an AISA API key.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-05-07T13:58:45.467075+00:00"
+      "checked_at": "2026-05-07T14:15:24.046830+00:00"
     },
     {
       "key": "plugin:llm-router-plugin",
@@ -2685,7 +2685,7 @@
       "suspicious_reason": "The only abnormal-behavior-related note is a disclosed, purpose-aligned external Python dependency; there is no hidden execution, persistence, or purchase/trading workflow.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-07T13:58:48.720272+00:00"
+      "checked_at": "2026-05-07T14:15:26.142422+00:00"
     },
     {
       "key": "skill:stock-hot",

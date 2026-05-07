@@ -6,6 +6,15 @@
   "skills": [
     "./skills"
   ],
+  "bundledSkills": [
+    "twitter-autopilot"
+  ],
+  "commands": [
+    {
+      "name": "twitter-autopilot",
+      "description": "Reads and searches X (Twitter) data including profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Also supports posting, likes/unlikes, and follows/unfollows after the user completes OAuth authorization. Use when the user needs Twitter/X research, social listening, posting, or account interactions without sharing account passwords."
+    }
+  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -30,6 +39,24 @@
     "required": [
       "AISA_API_KEY"
     ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "TWITTER_RELAY_BASE_URL": {
+      "label": "Twitter Relay Base Url",
+      "help": "Optional advanced runtime setting for TWITTER_RELAY_BASE_URL.",
+      "advanced": true
+    },
+    "TWITTER_RELAY_TIMEOUT": {
+      "label": "Twitter Relay Timeout",
+      "help": "Optional advanced runtime setting for TWITTER_RELAY_TIMEOUT.",
+      "advanced": true
+    },
+    "emoji": "🐦"
   },
   "runtimeRequirements": {
     "bins": [
@@ -127,5 +154,15 @@
       "advanced": true
     },
     "emoji": "🐦"
+  },
+  "environment": {
+    "binaries": [
+      "python3"
+    ],
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      }
+    ]
   }
 }
