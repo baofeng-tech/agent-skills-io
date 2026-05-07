@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T14:13:29.853466+00:00",
+  "generated_at": "2026-05-07T14:25:39.704388+00:00",
   "artifacts": {
     "plugin:aisa-multi-search-engine-plugin": {
       "key": "plugin:aisa-multi-search-engine-plugin",
@@ -455,16 +455,16 @@
       "key": "plugin:last30days-zh-plugin",
       "kind": "plugin",
       "name": "last30days-zh-plugin",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
       "status": "published",
-      "last_checked_at": "2026-05-07T14:13:29.853466+00:00",
+      "last_checked_at": "2026-05-07T14:25:39.704388+00:00",
       "token_slot": "token-1",
-      "attempts": 8,
-      "published_at": "2026-05-07T14:13:29.853466+00:00",
-      "last_attempt_at": "2026-05-07T14:13:29.853466+00:00",
+      "attempts": 9,
+      "published_at": "2026-05-07T14:25:39.704388+00:00",
+      "last_attempt_at": "2026-05-07T14:25:39.704388+00:00",
       "last_error": null,
-      "release_ref": "rd745kecjf6qatw0rhtt7aa33x868hyp",
+      "release_ref": "rd71nt8582ykhkd2wzgz44gkvs868bqr",
       "owner_handle": "baofeng-tech",
       "published_name": "last30days-zh-plugin",
       "publish_mode": "published-original",
@@ -473,7 +473,7 @@
         "kind": "plugin",
         "name": "last30days-zh-plugin",
         "requested_name": "last30days-zh-plugin",
-        "version": "1.0.8",
+        "version": "1.0.9",
         "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
         "resolved_slug": "last30days-zh-plugin",
         "page_found": true,
@@ -481,18 +481,18 @@
         "scan_status": "pending",
         "virus_total": "pending",
         "virus_total_report_url": null,
-        "clawscan_verdict": "suspicious",
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": "suspicious",
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
         "publisher_handle": "baofeng-tech",
-        "suspicious": true,
-        "suspicious_reason": "The research function mostly matches the code, but the registry summary says it needs no tools or secrets even though the manifests and instructions require Python, bash, and an AISA API key.",
+        "suspicious": false,
+        "suspicious_reason": "This appears to be a recent-research skill that uses an AISA API key and bundled Python scripts in ways that generally match its stated purpose.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-07T14:15:24.046830+00:00"
+        "checked_at": "2026-05-07T14:26:45.192082+00:00"
       }
     },
     "plugin:llm-router-plugin": {
@@ -5094,7 +5094,7 @@
         "suspicious_reason": "The only abnormal-behavior-related note is a disclosed, purpose-aligned external Python dependency; there is no hidden execution, persistence, or purchase/trading workflow.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-07T14:15:26.142422+00:00"
+        "checked_at": "2026-05-07T14:26:48.075446+00:00"
       }
     }
   }

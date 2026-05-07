@@ -473,8 +473,8 @@
       "severity": "warning",
       "scan_status": "pending",
       "virus_total": "pending",
-      "clawscan_verdict": "pending",
-      "openclaw_verdict": "pending",
+      "clawscan_verdict": "clean",
+      "openclaw_verdict": "clean",
       "static_analysis_status": "clean",
       "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
       "suspicious": false,
@@ -491,8 +491,8 @@
       ],
       "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
       "local_path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
-      "release_ref": "rd7bv87rvnj0jtg2p80xesby89868zw2",
-      "reason": "No ClawScan analysis has been recorded yet."
+      "release_ref": "rd71nt8582ykhkd2wzgz44gkvs868bqr",
+      "reason": "This appears to be a recent-research skill that uses an AISA API key and bundled Python scripts in ways that generally match its stated purpose."
     }
   ]
 }

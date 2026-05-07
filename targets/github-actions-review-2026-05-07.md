@@ -10,6 +10,7 @@ This review answers the unresolved May 2026 workflow questions and records the f
 - `baofeng-tech` owner type and organization-runner fallback behavior
 - `SELF_HOSTED_RUNNER_API_TOKEN` and `DOWNSTREAM_REPO_TOKEN` fine-grained PAT requirements
 - `skill:openclaw-twitter-post-engage` ClawHub suspicious remediation
+- `stock-dividend-slot1` rename/remediation and `last30days-zh-plugin` Review/Suspicious remediation
 
 ## Run Answers
 
@@ -82,12 +83,20 @@ Fix:
 - Live status after publish and follow-up refresh: `vt=clean`, `clawscan=clean`, `static=clean`, `suspicious=0`.
 - The earlier `vt=pending` state cleared on the follow-up live-status refresh and was not the previous ClawScan suspicious reason.
 
+## ClawHub Follow-up Result
+
+- `stock-dividend-slot1` was renamed to `stock-dividend-aisa`; the old slug now resolves to the canonical `stock-dividend-aisa` page.
+- `stock-dividend-aisa@1.0.2` is live latest under `baofeng-tech` and reports `vt=clean`, `clawscan=clean`, `static=clean`, `suspicious=0`.
+- `last30days-zh-plugin` was republished as `1.0.9` after adding package-level provider/auth/environment metadata that ClawHub actually extracts into capabilities.
+- `last30days-zh-plugin@1.0.9` now reports `clawscan=clean`, `openclaw=clean`, `static=clean`, `suspicious=0`; VirusTotal remains asynchronous `pending`, so it is tracked as `pending_scan` warning, not suspicious.
+
 ## Validation
 
 - `scripts/test_github_actions_workflow.py`: passed
 - `scripts/test_clawhub_batch_publish_exit.py`: passed
+- `scripts/test_clawhub_plugin_auth_metadata.py`: passed
 - `scripts/test_twitter_oauth_client_safety.py`: passed
-- `scripts/test_release_layers.py`: structure errors `0`, smoke hard failures `0`, transient external failures `6`
+- `scripts/test_release_layers.py`: structure errors `0`, smoke hard failures `0`, transient external failures `5`
 
 ## Remaining Watch Items
 
