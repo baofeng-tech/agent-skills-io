@@ -72,7 +72,9 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `youtube-search` <- source `youtube-search`
 - `youtube-serp` <- source `youtube-serp`
 
-## Breakout Slugs (2)
+## Breakout Slugs (4)
 
+- `aisa-tavily-search` <- source `aisa-tavily` (`search`)
 - `aisa-twitter-api-command-center` <- source `aisa-twitter-api` (`twitter_api`)
 - `aisa-twitter-research-engage-relay` <- source `aisa-twitter-engagement-suite` (`twitter_engagement`)
+- `twitter-post-aisa` <- source `aisa-twitter-engagement-suite` (`twitter_engagement`)

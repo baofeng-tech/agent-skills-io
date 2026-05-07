@@ -47,7 +47,8 @@ The repo now separates neutral mother-skill rules, ClawHub breakout rules, and C
   - Main scheduler for upstream sync, mother-skill copy, release rebuild, validation, and optional publish chaining.
   - This is the normal entry point when you want one repeatable end-to-end run.
 - `scripts/clawhub_suspicious_remediation.py`
-  - Reads suspicious diagnosis, selects matching live artifacts, maps them back to source skills, optionally runs suspicious-profile refinement with the remediation report as extra context, rebuilds ClawHub layers, and force-republishes only the targeted artifacts.
+  - Reads suspicious diagnosis, selects matching live artifacts, optionally requests a ClawHub rescan first, maps remaining blockers back to source skills, rebuilds ClawHub layers, and force-republishes only the targeted artifacts.
+  - Targeted suspicious repair defaults to failing on slug conflicts so fallback slugs do not masquerade as fixes for the flagged URL.
 
 The two repo-local editing skills define the rule boundary:
 
@@ -137,8 +138,10 @@ flowchart TD
   - Pulls live ClawHub scan state back into local JSON, validates fallback slugs against current detail URLs, and reads ClawHub security subpages when the main page is not enough.
 - `scripts/clawhub_suspicious_diagnosis.py`
   - Classifies suspicious / pending artifacts into rule buckets.
+- `scripts/clawhub_rescan_artifacts.py`
+  - Requests ClawHub skill/package rescans for selected artifact keys and can inspect after a wait window.
 - `scripts/clawhub_suspicious_remediation.py`
-  - Runs the targeted repair loop for selected suspicious or pending artifacts.
+  - Runs the targeted rescan-first repair loop for selected suspicious or pending artifacts.
 - `scripts/clawhub_breakout_rollout.py`
   - Runs the dedicated breakout lane from `targets/clawhub-breakout-variants.json`, then optionally rebuilds, syncs, and publishes the selected breakout skills/plugins.
 
@@ -193,6 +196,7 @@ Run targeted ClawHub suspicious remediation for selected artifacts:
 ```bash
 python3 scripts/clawhub_suspicious_remediation.py \
   --apply \
+  --rescan-before-repair \
   --sync-repo-skills \
   --llm-if-available \
   --clawhub-publish both \

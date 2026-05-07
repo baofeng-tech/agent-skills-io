@@ -27,6 +27,7 @@ done
 - `aisa-multi-search-engine-plugin` → `aisa-multi-search-engine`
 - `aisa-provider-plugin` → `aisa-provider`
 - `aisa-tavily-plugin` → `aisa-tavily`
+- `aisa-tavily-search-plugin` → `aisa-tavily-search`
 - `aisa-twitter-api-plugin` → `aisa-twitter-api`
 - `aisa-twitter-api-command-center-plugin` → `aisa-twitter-api-command-center`
 - `aisa-twitter-command-center-plugin` → `aisa-twitter-command-center`
@@ -74,6 +75,7 @@ done
 - `twitter-autopilot-plugin` → `twitter-autopilot`
 - `twitter-command-center-search-post-plugin` → `twitter-command-center-search-post`
 - `twitter-command-center-search-post-interact-plugin` → `twitter-command-center-search-post-interact`
+- `twitter-post-aisa-plugin` → `twitter-post-aisa`
 - `us-stock-analyst-plugin` → `us-stock-analyst`
 - `web-search-plugin` → `web-search`
 - `x-intelligence-automation-plugin` → `x-intelligence-automation`

@@ -330,6 +330,13 @@
     ],
     "breakout": [
       {
+        "slug": "aisa-tavily-search",
+        "source_skill": "aisa-tavily",
+        "profile": "search",
+        "path": "clawhub-release/aisa-tavily-search",
+        "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval."
+      },
+      {
         "slug": "aisa-twitter-api-command-center",
         "source_skill": "aisa-twitter-api",
         "profile": "twitter_api",
@@ -341,6 +348,13 @@
         "source_skill": "aisa-twitter-engagement-suite",
         "profile": "twitter_engagement",
         "path": "clawhub-release/aisa-twitter-research-engage-relay",
+        "description": "Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting."
+      },
+      {
+        "slug": "twitter-post-aisa",
+        "source_skill": "aisa-twitter-engagement-suite",
+        "profile": "twitter_engagement",
+        "path": "clawhub-release/twitter-post-aisa",
         "description": "Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting."
       }
     ]
@@ -380,6 +394,19 @@
       "description": "AI-optimized web search via AIsa's Tavily API proxy. Returns concise, relevant results for AI agents through AIsa's unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction.",
       "changes": [
         "kept the mother-skill body while normalizing ClawHub upload frontmatter",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "aisa-tavily-search",
+      "group": "breakout",
+      "source_skill": "aisa-tavily",
+      "path": "clawhub-release/aisa-tavily-search",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
+      "changes": [
+        "generated a ClawHub-only breakout SKILL.md with family-specific JTBD copy",
         "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
         "copied runtime scripts and essential references only"
       ],
@@ -446,6 +473,20 @@
       "group": "breakout",
       "source_skill": "aisa-twitter-engagement-suite",
       "path": "clawhub-release/aisa-twitter-research-engage-relay",
+      "description": "Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.",
+      "changes": [
+        "disabled browser auto-open in scripts/twitter_oauth_client.py",
+        "generated a ClawHub-only breakout SKILL.md with family-specific JTBD copy",
+        "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
+        "copied runtime scripts and essential references only"
+      ],
+      "residual_risks": []
+    },
+    {
+      "name": "twitter-post-aisa",
+      "group": "breakout",
+      "source_skill": "aisa-twitter-engagement-suite",
+      "path": "clawhub-release/twitter-post-aisa",
       "description": "Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.",
       "changes": [
         "disabled browser auto-open in scripts/twitter_oauth_client.py",

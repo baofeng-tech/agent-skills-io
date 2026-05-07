@@ -560,7 +560,10 @@ class Worker(threading.Thread):
 
     def login(self) -> None:
         self.config_path.parent.mkdir(parents=True, exist_ok=True)
-        result = self.clawhub(["login", "--token", self.token, "--no-browser"], timeout=120)
+        try:
+            result = self.clawhub(["login", "--token", self.token, "--no-browser"], timeout=120)
+        except subprocess.TimeoutExpired as exc:
+            raise RuntimeError(f"ClawHub login timed out for {self.slot}.") from exc
         if result.returncode != 0:
             raise RuntimeError(result.stderr.strip() or result.stdout.strip() or "ClawHub login failed.")
         whoami = self.clawhub(["whoami"], timeout=120)

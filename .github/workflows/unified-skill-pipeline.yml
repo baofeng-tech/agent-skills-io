@@ -118,6 +118,11 @@ on:
         required: false
         default: "0"
         type: string
+      suspicious_rescan_wait_seconds:
+        description: "Wait time after requesting ClawHub rescans before suspicious remediation edits"
+        required: false
+        default: "180"
+        type: string
       run_breakout_rollout:
         description: "Run the dedicated breakout rollout lane"
         required: false
@@ -1051,6 +1056,7 @@ jobs:
       PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'true' }}
       PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || vars.AUTO_SUSPICIOUS_ARTIFACTS || '' }}
       PIPELINE_SUSPICIOUS_MAX_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_max_artifacts || vars.AUTO_SUSPICIOUS_MAX_ARTIFACTS || '0' }}
+      PIPELINE_SUSPICIOUS_RESCAN_WAIT_SECONDS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_rescan_wait_seconds || vars.AUTO_SUSPICIOUS_RESCAN_WAIT_SECONDS || '180' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       DOWNSTREAM_REPO_TOKEN: ${{ secrets.DOWNSTREAM_REPO_TOKEN }}
       CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
@@ -1257,6 +1263,8 @@ jobs:
             "--severity" "blocker"
             "--status" "suspicious"
             "--owned-only"
+            "--rescan-before-repair"
+            "--rescan-wait-seconds" "${PIPELINE_SUSPICIOUS_RESCAN_WAIT_SECONDS:-180}"
             "--clawhub-publish" "${PIPELINE_CLAWHUB_PUBLISH:-both}"
             "--post-publish-scan"
           )

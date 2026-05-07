@@ -272,16 +272,19 @@ Any AI working in this repository should:
   - 可独立扫描已发布 skill/plugin 的 ClawHub live status，提取 `VirusTotal`、`ClawScan`、`Static analysis` 与 `Suspicious` 原因
   - 现在会把 `pending` / `unresolved` 写成显式 `scan_status`，并支持在 skill 页 URL 不稳定时传入 owner hint
   - 现在会校验缓存的 `detail_url` 是否仍匹配当前 `published_name`，并优先读取 security 子页与结构化页面字段
+  - 支持 `CLAWHUB_COMMAND`，可在本地或 CI 固定使用 `npx -y clawhub@0.12.3`
+- `scripts/clawhub_rescan_artifacts.py`
+  - 可对指定 `skill:<slug>` / `plugin:<name>` 请求 ClawHub rescan，并在等待窗口后回查最新 inspect 状态
 - `scripts/publish_clawhub_batch.py`
   - 现在支持可选 `--post-publish-scan`，在发布或探测到远端已存在后立即做 live scan
   - 现在支持为 post-publish scan 传入 skill owner hint，并可在 Windows 侧 `py -3` 环境下直接续发
-  - 现在默认接受 `suffix-by-slot` owner 冲突续发策略，并把 plugin fallback slug 跟随同名 skill 的 fallback slug
+  - 现在默认接受 `suffix-by-aisa` owner 冲突续发策略，并把 plugin fallback slug 跟随同名 skill 的 fallback slug；定向 suspicious repair 默认改为 slug 冲突失败，避免 fallback slug 被误当成原 URL 修复
 
 #### 3. ClawHub 发布变体
 
 位于 `clawhub-release/`：
 
-- 当前包含 `targetSkills/` 下 54 个 skill 加 2 个 ClawHub breakout 变体，共 56 个 ClawHub-oriented 发布副本
+- 当前包含 `targetSkills/` 下 54 个 skill 加 4 个 ClawHub breakout 变体，共 58 个 ClawHub-oriented 发布副本
 - 由 `scripts/build_clawhub_release.py` 自动生成
 
 这些目录不是母版，而是：
@@ -297,7 +300,7 @@ Any AI working in this repository should:
 
 位于 `clawhub-plugin-release/`：
 
-- 当前包含 56 个独立的 ClawHub native-first plugin 包
+- 当前包含 58 个独立的 ClawHub native-first plugin 包
 - 由 `scripts/build_clawhub_plugin_release.py` 自动生成
 
 这些目录的作用：
@@ -810,7 +813,7 @@ GitHub Actions 工作流层。
 - Hermes Guard 批量降风险：历史旧 51-skill 集合已完成一轮，新增到 54-skill 集合后需要补跑
 - Claude / Hermes 发布层测试：已完成一轮结构校验与 smoke test
 - 2026-05-06 release-layer 结构校验：`claude/hermes/clawhub/clawhub-plugin/agentskills-so/agentskill-sh` 六类结构错误均为 `0`，smoke 硬失败为 `0`，第三方网络类 transient 为 `9`
-- 2026-05-07 release-layer 结构校验：`claude/hermes/clawhub/clawhub-plugin/agentskills-so/agentskill-sh` 六类结构错误均为 `0`，smoke 硬失败为 `0`，第三方网络类 transient 为 `6`
+- 2026-05-07 release-layer 结构校验：`claude/hermes/clawhub/clawhub-plugin/agentskills-so/agentskill-sh` 六类结构错误均为 `0`，smoke 硬失败为 `0`，第三方网络类 transient 为 `4`
 - 2026-05-06 AISA API 回归复核：完整回归为 54 个 AISA-backed skills、72 条 read-only checks、硬失败 `0`、第三方网络类 transient `7`；`stock-hot` 已改为真实调用 AISA 后在上游无实时金融工具时返回结构化 `live_data_unavailable`，prediction-market 系列已把 urllib read timeout/EOF 转为 `NETWORK_ERROR` JSON 而非 traceback
 - Claude / Hermes 发布层真实测试：已完成一轮基于真实账号、真实 Python 3.12、真实上游数据的验证
 - Claude / Claude marketplace / Hermes / agent-skills 外部发布仓库同步：2026-04-22 复核时四个外部仓库均已与 `origin/main` 对齐，不再存在“领先 1 个 commit 尚未 push”的当前阻塞
@@ -834,6 +837,7 @@ GitHub Actions 工作流层。
 - GitHub Actions 自动全平台发布：schedule 默认只跑 hosted 同步 / 构建 / 诊断 / 回归；self-hosted 真发布、suspicious repair、breakout rollout 需要显式设置 `AUTO_FULL_PLATFORM_PUBLISH=true`、`AUTO_RUN_SUSPICIOUS_REPAIR=true`、`AUTO_RUN_BREAKOUT_ROLLOUT=true`，并确认仓库 runner inventory 中已有在线匹配 runner；可用 `AUTO_ADJACENT_TARGETS`、`AUTO_CLAWHUB_PUBLISH`、`AUTO_SYNC_ADJACENT_REPOS`、`AUTO_PUSH_ADJACENT_REPOS` 等变量细化“发哪些下游平台”
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每日一次（`21 19 * * *`），避免长发布链路堆积出 pending/canceled 队列
 - GitHub Actions self-hosted 排队防护：publish / suspicious repair / breakout rollout 三条 self-hosted 线现在先经过 hosted preflight，只有发现在线 runner 或显式设置 `force_self_hosted_queue` / `AUTO_FORCE_SELF_HOSTED_QUEUE` 时才入队；runner 标签以 `SELF_HOSTED_RUNNER_RUNS_ON_JSON` 为单一来源，但该变量只选择标签，不会注册或启动 runner；若默认 `GITHUB_TOKEN` 无法读取 runners API，应配置 `SELF_HOSTED_RUNNER_API_TOKEN`，repo-level runner 需要 repository `Administration: read`，org-level runner 需要 organization `Self-hosted runners: read`；当 self-hosted lane 被请求但 preflight 不能确认 runner 时 workflow 会 fail fast 并写 summary，避免旧流程静默 skip 或 24 小时排队失败；preflight 现在会把 403 的 message、accepted permissions 和 SSO hint 写进 summary，并在个人账号仓库中跳过无效的 organization runner fallback
+- GitHub Actions 2026-05-07 现场状态：仓库变量 `AUTO_FULL_PLATFORM_PUBLISH`、`AUTO_RUN_SUSPICIOUS_REPAIR`、`AUTO_RUN_BREAKOUT_ROLLOUT` 当前为 `false`；仓库 runner API 当前返回 `200 / total_count=0`，所以现状不是 403，而是没有已注册且在线的仓库级 self-hosted runner
 - GitHub Actions 2026-05-07 运行复盘：run `25299535400` 的 `cancelled` 发生在显式 `force_self_hosted_queue=true` 后的 self-hosted 队列等待，不是 `sync-build-test` bug；run `25289383679` 的 self-hosted skip 是旧 workflow 的静默跳过问题；run `25460452313` 不是 403，而是仓库 runner API 可读但返回 `total_count=0`，说明没有在线仓库级 self-hosted runner 匹配 `["self-hosted"]`
 - GitHub Actions token 边界：`baofeng-tech` 是 GitHub `User`，不是 `Organization`，因此 org runner fallback 不适用；`SELF_HOSTED_RUNNER_API_TOKEN` 需要选中 `baofeng-tech/agent-skills-io` 并具备 repository `Administration: read`，`DOWNSTREAM_REPO_TOKEN` 可以复用同一 fine-grained PAT，但必须额外覆盖全部下游仓库的 Contents read/write
 - ClawHub 2026-05-07 定向修复：`skill:openclaw-twitter-post-engage` 已升到 `2.0.4` 并发布为公开 latest；`clawhub inspect` 确认 latest 为 `2.0.4`，live status 为 `vt=clean/clawscan=clean/static=clean/suspicious=0`，之前 `1.0.5` clean 但未影响公开页面的根因是 ClawHub latest 仍指向旧的 `2.0.3`
@@ -844,8 +848,8 @@ GitHub Actions 工作流层。
 - GitHub Actions 提交冲突修复：hosted 与 self-hosted repo commit step 现在会在提交前 `git rebase --autostash` 到远端最新 `main`，push 失败时再 fetch/rebase 重试，避免 action 之间互相制造 non-fast-forward 冲突
 - GitHub Actions AISA skill 代码回归：hosted lane 现在支持通过手动参数 `run_aisa_api_regression=true` 或仓库变量 `AUTO_RUN_AISA_API_REGRESSION=true` 运行 `scripts/test_aisa_api_skills.py`，生成并上传/提交 `targets/aisa-api-regression-report-YYYY-MM-DD.json`；开启时必须配置 `AISA_API_KEY`，缺失会 fail fast，第三方网络瞬断只记为 `transient_count`
 - 发布 ZIP 抖动修复：AgentSkills / agentskill.sh / ClawHub plugin 的 root-flat zip 现在通过 `scripts/release_zip.py` 以固定排序、时间戳和 Git index 可执行位生成，并用 `.gitattributes` 固定文本 LF，避免 Windows 挂载盘 `777` 文件模式让例行构建反复制造大面积 skill/zip diff
-- GitHub Actions 三条流程线：现在已经拆成（1）正常 upstream sync + 下游平台发布线，（2）suspicious diagnosis-driven repair 线，（3）breakout rollout 线；三条线在 workflow 中是独立 self-hosted job，不再混在同一个发布 job 里；workflow_dispatch 默认打开三条线，但仍受 preflight 保护
-- GitHub Actions suspicious 修复闭环：self-hosted suspicious lane 现在支持在未显式传入 artifact 列表时，按 `baofeng-tech`、`bibaofeng`、`aisadocs` 自动筛选自有 `blocker + suspicious` artifact，并可用 `AUTO_SUSPICIOUS_MAX_ARTIFACTS` 控制单次处理上限
+- GitHub Actions 三条流程线：现在已经拆成（1）正常 upstream sync + 下游平台发布线，（2）suspicious diagnosis-driven repair 线，（3）breakout rollout 线；三条线在 workflow 中是独立 self-hosted job，不再混在同一个发布 job 里；workflow_dispatch 默认关闭 self-hosted 三条线，只有手动输入或 schedule repo vars 显式打开时才请求
+- GitHub Actions suspicious 修复闭环：self-hosted suspicious lane 现在支持在未显式传入 artifact 列表时，按 `baofeng-tech`、`bibaofeng`、`aisadocs` 自动筛选自有 `blocker + suspicious` artifact，并可用 `AUTO_SUSPICIOUS_MAX_ARTIFACTS` 控制单次处理上限；进入编辑/重发前会先请求 ClawHub rescan，刷新 diagnosis 后仍异常才继续；定向修复默认 slug 冲突失败，避免 fallback slug 被误当作原 URL 修复
 - GitHub Actions breakout 独立入口：新增 `scripts/clawhub_breakout_rollout.py` 与 `run_breakout_rollout` / `AUTO_RUN_BREAKOUT_ROLLOUT`，让爆款变体发布不再和 suspicious 修复链路混用
 - repo-local 精修规则拆层：本轮已把默认母版精修、ClawHub breakout 精修、ClawHub suspicious remediation 精修拆成三个 profile，避免继续把平台私有规则混入 `targetSkills/`
 - repo-local 精修默认模型边界：`gpt-5.4` 只作为 `scripts/llm_refine_aisa_skills.py` 调用大模型精修 skill 时的默认模型，不应传播到 AISA API skill 的原有脚本或运行时默认模型

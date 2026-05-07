@@ -27,6 +27,15 @@
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
+## aisa-tavily-search
+
+- Source: `targetSkills/aisa-tavily -> aisa-tavily-search`
+- Output: `clawhub-release/aisa-tavily-search`
+- Description: Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
+- Change: generated a ClawHub-only breakout SKILL.md with family-specific JTBD copy
+- Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
+- Change: copied runtime scripts and essential references only
+
 ## aisa-twitter-api
 
 - Source: `targetSkills/aisa-twitter-api`
@@ -71,6 +80,16 @@
 
 - Source: `targetSkills/aisa-twitter-engagement-suite -> aisa-twitter-research-engage-relay`
 - Output: `clawhub-release/aisa-twitter-research-engage-relay`
+- Description: Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.
+- Change: disabled browser auto-open in scripts/twitter_oauth_client.py
+- Change: generated a ClawHub-only breakout SKILL.md with family-specific JTBD copy
+- Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
+- Change: copied runtime scripts and essential references only
+
+## twitter-post-aisa
+
+- Source: `targetSkills/aisa-twitter-engagement-suite -> twitter-post-aisa`
+- Output: `clawhub-release/twitter-post-aisa`
 - Description: Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: generated a ClawHub-only breakout SKILL.md with family-specific JTBD copy

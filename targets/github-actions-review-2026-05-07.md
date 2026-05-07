@@ -31,6 +31,14 @@ This review answers the unresolved May 2026 workflow questions and records the f
 - A fine-grained `SELF_HOSTED_RUNNER_API_TOKEN` for this repo should select `baofeng-tech/agent-skills-io` and grant repository `Administration: read` plus Metadata read.
 - `DOWNSTREAM_REPO_TOKEN` may be the same fine-grained PAT only if it also selects every downstream publish repo and grants Contents read/write plus Metadata read. If the same token is used for both roles, it must cover both runner inventory and downstream pushes.
 
+## Current Live State Checked On 2026-05-07
+
+- Repo variables now show `AUTO_FULL_PLATFORM_PUBLISH=false`, `AUTO_RUN_SUSPICIOUS_REPAIR=false`, and `AUTO_RUN_BREAKOUT_ROLLOUT=false`.
+- `SELF_HOSTED_RUNNER_RUNS_ON_JSON` is still `["self-hosted"]`; this is only the requested runner label set.
+- `gh api repos/baofeng-tech/agent-skills-io/actions/runners` currently returns `200` with `total_count=0`, so the current runner inventory condition is still no registered repository runner, not `403`.
+- The latest failed scheduled run in this review window is `25460452313` from 2026-05-06, before those three AUTO vars were flipped to false; its failure was `no online repository self-hosted runner matched labels: ["self-hosted"]`.
+- Hosted schedule still runs sync/build/test/diagnosis/AISA regression. The self-hosted lanes are requested only by manual dispatch inputs or by setting the corresponding `AUTO_*` repo variables true after a matching runner is online.
+
 ## Test Engineer Findings
 
 ### 1. Workflow runner-label contract needed a regression test
@@ -76,6 +84,34 @@ Fix:
 - Public writes still require `--confirm-public-write`.
 - New `scripts/test_twitter_oauth_client_safety.py` locks these boundaries.
 
+### 5. Suspicious remediation needed rescan-first behavior
+
+Risk: ClawHub Review/Suspicious can clear after a platform rescan, so auto-remediation could make unnecessary package edits or republish a package that only needed rescan.
+
+Fix:
+
+- Added `scripts/clawhub_rescan_artifacts.py` for targeted skill/package rescan and post-wait inspect.
+- `scripts/clawhub_suspicious_remediation.py` now supports `--rescan-before-repair` and the workflow suspicious lane passes it before editing or publishing.
+- After the rescan wait, remediation refreshes live diagnosis and exits without edits if no selected suspicious source skill remains.
+
+### 6. Targeted suspicious repair must not hide slug-owner failures
+
+Risk: If the original owner token is unavailable, fallback publishing can create a clean replacement slug while the originally flagged URL remains suspicious.
+
+Fix:
+
+- Suspicious remediation now passes `--slug-conflict-strategy fail` by default.
+- Product-style fallback slugs remain available for general publish/breakout work, but targeted repair of an existing URL should use the original owner token unless the user explicitly accepts a replacement slug.
+
+### 7. ClawHub login timeout errors needed secret-safe wording
+
+Risk: a timed-out CLI login can include the original command in the exception text, which may include a token argument.
+
+Fix:
+
+- `scripts/publish_clawhub_batch.py` and `scripts/clawhub_rescan_artifacts.py` now catch ClawHub login timeouts and report only the token slot.
+- This preserves failure diagnostics without echoing credential-bearing command lines.
+
 ## ClawHub Result
 
 - Local source and all generated release layers were rebuilt at `openclaw-twitter-post-engage` version `2.0.4`.
@@ -96,7 +132,7 @@ Fix:
 - `scripts/test_clawhub_batch_publish_exit.py`: passed
 - `scripts/test_clawhub_plugin_auth_metadata.py`: passed
 - `scripts/test_twitter_oauth_client_safety.py`: passed
-- `scripts/test_release_layers.py`: structure errors `0`, smoke hard failures `0`, transient external failures `5`
+- `scripts/test_release_layers.py`: structure errors `0`, smoke hard failures `0`, transient external failures `4` in the follow-up run
 
 ## Remaining Watch Items
 

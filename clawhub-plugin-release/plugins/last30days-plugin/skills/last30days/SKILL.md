@@ -2,7 +2,7 @@
 name: last30days
 description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 author: AIsa
-version: 1.0.0
+version: 1.0.2
 license: MIT
 homepage: https://aisa.one
 source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/last30days

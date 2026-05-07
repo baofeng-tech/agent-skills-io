@@ -41,6 +41,20 @@ def main() -> int:
         "scheduled self-hosted lanes must be opt-in through repository variables",
     )
     require(
+        "suspicious_rescan_wait_seconds:" in text
+        and "PIPELINE_SUSPICIOUS_RESCAN_WAIT_SECONDS" in text
+        and '"--rescan-before-repair"' in text
+        and '"--rescan-wait-seconds" "${PIPELINE_SUSPICIOUS_RESCAN_WAIT_SECONDS:-180}"' in text,
+        "suspicious remediation must request a ClawHub rescan before editing or republishing",
+    )
+    remediation_text = (REPO_ROOT / "scripts" / "clawhub_suspicious_remediation.py").read_text(encoding="utf-8")
+    require(
+        '"--slug-conflict-strategy"' in remediation_text
+        and 'default="fail"' in remediation_text
+        and "do not repair the flagged URL" in remediation_text,
+        "targeted suspicious remediation must fail on slug conflicts instead of publishing fallback slugs",
+    )
+    require(
         text.count(f"runs-on: {RUNS_ON_EXPR}") == 3,
         "the three self-hosted lanes must all use SELF_HOSTED_RUNNER_RUNS_ON_JSON",
     )

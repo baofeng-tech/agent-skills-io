@@ -16,6 +16,7 @@ from unified_skill_pipeline import adjacent_sync_commands, parse_adjacent_target
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DIAGNOSIS_FILE = REPO_ROOT / "targets" / "clawhub-suspicious-diagnosis.json"
 DEFAULT_REPORT_FILE = REPO_ROOT / "targets" / "clawhub-suspicious-remediation.json"
+DEFAULT_RESCAN_REPORT_FILE = REPO_ROOT / "targets" / "clawhub-rescan-artifacts.json"
 DEFAULT_OWNED_PUBLISHER_HANDLES = ("baofeng-tech", "bibaofeng", "aisadocs")
 PYTHON = sys.executable or "python3"
 DEFAULT_REPO_SKILL_SYNC = [
@@ -332,6 +333,8 @@ def run_targeted_publish(args: argparse.Namespace, items: list[dict[str, Any]]) 
         args.clawhub_publish,
         "--skip-build",
         "--force",
+        "--slug-conflict-strategy",
+        args.clawhub_slug_conflict_strategy,
     ]
     if args.post_publish_scan:
         publish_command.append("--post-publish-scan")
@@ -360,6 +363,27 @@ def refresh_diagnosis(items: list[dict[str, Any]]) -> None:
         timeout=1800,
         check=False,
     )
+
+
+def run_rescan_before_repair(args: argparse.Namespace, items: list[dict[str, Any]]) -> None:
+    artifact_keys = [str(item.get("key") or "").strip() for item in items if str(item.get("key") or "").strip()]
+    if not artifact_keys:
+        return
+    command = [
+        PYTHON,
+        "scripts/clawhub_rescan_artifacts.py",
+        "--inspect-after",
+        "--wait-seconds",
+        str(args.rescan_wait_seconds),
+        "--poll-interval",
+        str(args.rescan_poll_interval),
+        "--report-file",
+        args.rescan_report_file,
+    ]
+    for key in artifact_keys:
+        command.extend(["--artifact", key])
+    run_command(command, timeout=max(600, args.rescan_wait_seconds + 600), check=False)
+    refresh_diagnosis(items)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -482,9 +506,40 @@ def build_parser() -> argparse.ArgumentParser:
         help="When republishing, pass --dry-run to publish_clawhub_batch.py.",
     )
     parser.add_argument(
+        "--clawhub-slug-conflict-strategy",
+        choices=("fail", "suffix-by-aisa", "suffix-by-slot"),
+        default="fail",
+        help=(
+            "Slug conflict behavior for targeted suspicious repairs. "
+            "Default fail avoids publishing fallback slugs that do not repair the flagged URL."
+        ),
+    )
+    parser.add_argument(
         "--post-publish-scan",
         action="store_true",
         help="When republishing, immediately probe live ClawHub scan status after publish.",
+    )
+    parser.add_argument(
+        "--rescan-before-repair",
+        action="store_true",
+        help="Request ClawHub rescans for selected artifacts before changing or republishing them.",
+    )
+    parser.add_argument(
+        "--rescan-wait-seconds",
+        type=int,
+        default=180,
+        help="Seconds to wait before re-reading live status after --rescan-before-repair.",
+    )
+    parser.add_argument(
+        "--rescan-poll-interval",
+        type=int,
+        default=30,
+        help="Progress interval while waiting for ClawHub rescan results.",
+    )
+    parser.add_argument(
+        "--rescan-report-file",
+        default=str(DEFAULT_RESCAN_REPORT_FILE),
+        help="Where rescan request and post-rescan inspect results are written.",
     )
     return parser
 
@@ -523,6 +578,32 @@ def main() -> int:
     if not source_skills:
         print("No matching suspicious source skills were selected; nothing to remediate.", flush=True)
         return 0
+
+    if args.rescan_before_repair:
+        print("Requesting ClawHub rescan before remediation.", flush=True)
+        run_rescan_before_repair(args, items)
+        refreshed_payload = load_json(Path(args.diagnosis_file).resolve())
+        items = select_artifacts(
+            refreshed_payload,
+            exact_keys=exact_keys,
+            contains_tokens=contains_tokens,
+            severity=args.severity,
+            status=args.status,
+            owner_handles=owner_handles,
+            owned_only=args.owned_only,
+            max_artifacts=args.max_artifacts,
+        )
+        source_skills = resolve_source_skills(items)
+        report = build_report(items, source_skills)
+        write_json(Path(args.report_file).resolve(), report)
+        print("Post-rescan remediation plan", flush=True)
+        print(f"  artifacts: {len(items)}", flush=True)
+        print(f"  source skills: {len(source_skills)}", flush=True)
+        for skill_name in source_skills:
+            print(f"  - {skill_name}", flush=True)
+        if not source_skills:
+            print("No matching suspicious source skills remained after rescan; skipping edits and republish.", flush=True)
+            return 0
 
     if args.sync_repo_skills:
         run_command(DEFAULT_REPO_SKILL_SYNC, timeout=900, check=not args.llm_if_available)

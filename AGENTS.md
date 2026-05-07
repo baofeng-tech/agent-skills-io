@@ -22,6 +22,8 @@ Execution style for this repo:
 - Do not use `/mnt/d/workplace/agent-skills` as this repo's automation input source; that local checkout is reserved for manual company-skill authoring and upload work
 - GitHub Actions self-hosted lanes are opt-in unless an online repository runner is already registered; `SELF_HOSTED_RUNNER_RUNS_ON_JSON` only selects labels and does not create or start a runner
 - Treat ClawHub ClawScan `Review` verdicts as suspicious blockers until a republish or rescan returns clean
+- For ClawHub suspicious repair, request a rescan first when the platform supports it; only edit or republish when the artifact stays suspicious/pending after refresh
+- For targeted suspicious repair of an existing URL, do not accept a fallback slug as the fix unless the user explicitly asks for a new replacement slug
 
 ### Before doing substantial work
 
@@ -129,6 +131,7 @@ When applicable, verify:
 - after ClawHub batch publisher edits, run `python3 scripts/test_clawhub_batch_publish_exit.py`
 - after Twitter OAuth/public-write edits, run `python3 scripts/test_twitter_oauth_client_safety.py`
 - after targeted ClawHub suspicious repair, verify `clawhub inspect <slug> --json` reports the fixed version as `latest`, then refresh live status
+- for plugin suspicious repair, prefer `clawhub package rescan <name> --yes --json` before edits; after republish verify with `clawhub package inspect <name> --json` and refresh `scripts/clawhub_live_status.py`
 - for ClawHub plugin repairs, verify with `clawhub package inspect <slug> --json`; for slug conflicts, prefer `-aisa`, `-aisa-api`, or `-aisa-one` suffixes over new `-slotN` names
 
 ### Step 6: Update project memory

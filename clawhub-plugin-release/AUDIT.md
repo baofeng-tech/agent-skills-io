@@ -1,6 +1,6 @@
 # ClawHub Plugin Release Audit
 
-- Generated plugins: 56
+- Generated plugins: 58
 - Packaging mode: native-first dual format (`openclaw.plugin.json` + `index.js` + `package.json` + optional `.claude-plugin/plugin.json` + embedded `skills/`)
 - Zip rule: archives are written root-flat with required files at archive root.
 
@@ -24,6 +24,13 @@
 - Directory: `clawhub-plugin-release/plugins/aisa-tavily-plugin`
 - Zip: `clawhub-plugin-release/zips/aisa-tavily-plugin.zip`
 - Description: Requires node, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `aisa-tavily`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. AI-optimized web search via AIsa's Tavily API proxy. Returns concise, relevant results for AI agents through AIsa's unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction.
+
+## aisa-tavily-search-plugin
+
+- Skill: `aisa-tavily-search`
+- Directory: `clawhub-plugin-release/plugins/aisa-tavily-search-plugin`
+- Zip: `clawhub-plugin-release/zips/aisa-tavily-search-plugin.zip`
+- Description: Requires node, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `aisa-tavily-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.
 
 ## aisa-twitter-api-plugin
 
@@ -353,6 +360,13 @@
 - Directory: `clawhub-plugin-release/plugins/twitter-command-center-search-post-interact-plugin`
 - Zip: `clawhub-plugin-release/zips/twitter-command-center-search-post-interact-plugin.zip`
 - Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one/apis/v1/twitter. Native-first ClawHub plugin for `twitter-command-center-search-post-interact`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks about Twitter/X data, social listening, posting, or interacting with tweets/users without sharing account passwords.
+
+## twitter-post-aisa-plugin
+
+- Skill: `twitter-post-aisa`
+- Directory: `clawhub-plugin-release/plugins/twitter-post-aisa-plugin`
+- Zip: `clawhub-plugin-release/zips/twitter-post-aisa-plugin.zip`
+- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one/apis/v1/twitter. Native-first ClawHub plugin for `twitter-post-aisa`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting.
 
 ## us-stock-analyst-plugin
 

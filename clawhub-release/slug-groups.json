@@ -327,6 +327,13 @@
   ],
   "breakout": [
     {
+      "slug": "aisa-tavily-search",
+      "source_skill": "aisa-tavily",
+      "profile": "search",
+      "path": "clawhub-release/aisa-tavily-search",
+      "description": "Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval."
+    },
+    {
       "slug": "aisa-twitter-api-command-center",
       "source_skill": "aisa-twitter-api",
       "profile": "twitter_api",
@@ -338,6 +345,13 @@
       "source_skill": "aisa-twitter-engagement-suite",
       "profile": "twitter_engagement",
       "path": "clawhub-release/aisa-twitter-research-engage-relay",
+      "description": "Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting."
+    },
+    {
+      "slug": "twitter-post-aisa",
+      "source_skill": "aisa-twitter-engagement-suite",
+      "profile": "twitter_engagement",
+      "path": "clawhub-release/twitter-post-aisa",
       "description": "Run Twitter/X likes, follows, replies, and OAuth-gated posting through AIsa. Use when: the user already knows which account, tweet, or campaign to act on and needs explicit engagement workflows. Supports read context, engagement actions, and approved posting."
     }
   ]

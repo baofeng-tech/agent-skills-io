@@ -99,6 +99,19 @@ python3 scripts/clawhub_live_status.py --targets both --include-status published
 python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode update
 ```
 
+Before editing a suspicious artifact, request a platform rescan when possible:
+
+```bash
+CLAWHUB_COMMAND="npx -y clawhub@0.12.3" python3 scripts/clawhub_rescan_artifacts.py \
+  --artifact plugin:<name> \
+  --inspect-after \
+  --wait-seconds 180
+python3 scripts/clawhub_live_status.py --targets both --artifact plugin:<name> --include-status published --render-mode auto
+python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode update
+```
+
+If the rescan clears the artifact, stop. If it stays suspicious or pending, repair from `targetSkills/` or the generator and rebuild the ClawHub layers. For existing suspicious URLs, keep `--slug-conflict-strategy fail` unless the user explicitly accepts a replacement slug; a fallback slug does not repair the flagged URL.
+
 For targeted publish:
 
 ```bash

@@ -11,6 +11,18 @@
       "slug": "aisa-twitter-research-engage-relay",
       "profile": "twitter_engagement",
       "version": "1.0.6"
+    },
+    {
+      "source": "aisa-twitter-engagement-suite",
+      "slug": "twitter-post-aisa",
+      "profile": "twitter_engagement",
+      "version": "1.0.2"
+    },
+    {
+      "source": "aisa-tavily",
+      "slug": "aisa-tavily-search",
+      "profile": "search",
+      "version": "1.0.2"
     }
   ]
 }
