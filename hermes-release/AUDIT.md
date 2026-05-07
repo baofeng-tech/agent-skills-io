@@ -98,7 +98,7 @@
 
 - Category: `finance`
 - Path: `hermes-release/finance/crypto-market-data`
-- Description: Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Description: Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Change: patched Hermes runtime auth and storage defaults in scripts/coingecko_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -142,7 +142,7 @@
 
 - Category: `finance`
 - Path: `hermes-release/finance/marketpulse`
-- Description: Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Description: Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Change: patched Hermes runtime auth and storage defaults in scripts/market_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -280,7 +280,7 @@
 
 - Category: `finance`
 - Path: `hermes-release/finance/prediction-market-data`
-- Description: Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Description: Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Change: patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -328,7 +328,7 @@
 
 - Category: `finance`
 - Path: `hermes-release/finance/stock-dividend`
-- Description: Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.
+- Description: Analyze read-only dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score, income rating, and Dividend Aristocrat/King status without placing trades, making purchases, or managing brokerage accounts. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Change: patched Hermes runtime auth and storage defaults in scripts/dividends.py
 - Change: replaced source README with a Hermes-oriented release README
 

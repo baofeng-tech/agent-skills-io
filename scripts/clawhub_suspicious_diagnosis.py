@@ -32,6 +32,15 @@ RULES: dict[str, dict[str, Any]] = {
             "Retry live scan before treating the package as resolved.",
         ],
     },
+    "review_scan": {
+        "severity": "blocker",
+        "keywords": ("review",),
+        "summary": "ClawScan returned a Review verdict, which this project treats as suspicious until repaired or rescanned clean.",
+        "actions": [
+            "Treat Review the same way as a suspicious blocker in publish automation.",
+            "Republish or rescan the artifact after clarifying capability, credential, and side-effect boundaries.",
+        ],
+    },
     "relay_trust_surface": {
         "severity": "blocker",
         "keywords": ("relay", "api.aisa.one", "third-party", "aisa_api_key"),
@@ -209,15 +218,18 @@ def is_superseded_by_clean_alias(
 def classify_rules(item: dict[str, Any]) -> list[str]:
     reason = normalize_text(item.get("suspicious_reason"))
     status = normalize_text(item.get("scan_status"))
+    clawscan_status = normalize_text(item.get("clawscan_verdict") or item.get("openclaw_verdict"))
     static_status = normalize_text(item.get("static_analysis_status"))
     static_summary = normalize_text(item.get("static_analysis_summary"))
     matched: list[str] = []
     if item.get("pending") or status in {"pending", "unresolved"}:
         matched.append("pending_scan")
-    if static_status in {"warning", "suspicious", "malicious"} or "pattern detected" in static_summary:
+    if status == "review" or clawscan_status == "review":
+        matched.append("review_scan")
+    if static_status in {"review", "warning", "suspicious", "malicious"} or "pattern detected" in static_summary:
         matched.append("static_analysis_patterns")
     for rule_id, meta in RULES.items():
-        if rule_id in {"pending_scan", "static_analysis_patterns"}:
+        if rule_id in {"pending_scan", "review_scan", "static_analysis_patterns"}:
             continue
         if any(keyword in reason or keyword in static_summary for keyword in meta["keywords"]):
             matched.append(rule_id)

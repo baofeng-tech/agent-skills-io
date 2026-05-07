@@ -58,6 +58,7 @@ python3 scripts/build_agentskills_so_release.py
 python3 scripts/build_agentskill_sh_release.py
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_github_actions_workflow.py
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_batch_publish_exit.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_live_status_review.py
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_twitter_oauth_client_safety.py
 python3 scripts/test_release_layers.py
 python3 -m compileall -q scripts
@@ -69,7 +70,7 @@ Do not run `build_claude_marketplace.py` in parallel with `build_claude_release.
 
 Important CI values:
 
-- `SELF_HOSTED_RUNNER_RUNS_ON_JSON`: single source for self-hosted runner labels, for example `["self-hosted","linux","clawhub"]`.
+- `SELF_HOSTED_RUNNER_RUNS_ON_JSON`: single source for self-hosted runner labels, for example `["self-hosted","linux","clawhub"]`. This only selects labels; it does not register or start a runner.
 - `SELF_HOSTED_RUNNER_API_TOKEN`: PAT used only to confirm runner inventory.
 - `DOWNSTREAM_REPO_TOKEN`: PAT used to clone/fetch/push downstream publish repos.
 - `AISA_API_KEY`: runtime key for AISA-backed skill tests and refinements.
@@ -79,6 +80,8 @@ Important CI values:
 `GITHUB_TOKEN` in Actions is an auto-generated run token; do not treat it as the same secret as `SELF_HOSTED_RUNNER_API_TOKEN`.
 
 For `baofeng-tech/agent-skills-io`, the owner is a GitHub `User`, not an organization. Repository runner discovery is the relevant API path; organization runner fallback is skipped unless `GET /users/{owner}` returns `Organization`.
+
+Scheduled self-hosted publish, suspicious repair, and breakout rollout are opt-in. Keep `AUTO_FULL_PLATFORM_PUBLISH`, `AUTO_RUN_SUSPICIOUS_REPAIR`, and `AUTO_RUN_BREAKOUT_ROLLOUT` false until `GET /repos/baofeng-tech/agent-skills-io/actions/runners` shows an online runner matching `SELF_HOSTED_RUNNER_RUNS_ON_JSON`.
 
 Fine-grained PAT guidance:
 
@@ -106,6 +109,8 @@ When the local `clawhub` CLI is older than the registry behavior, prefer a pinne
 ```bash
 CLAWHUB_COMMAND="npx -y clawhub@0.12.3" python3 scripts/publish_clawhub_batch.py ...
 ```
+
+Owner/slug conflict fallback now prefers product-style suffixes (`-aisa`, `-aisa-api`, `-aisa-one`) instead of new `-slotN` names. Existing `-slotN` live slugs may still exist in state and should be renamed or superseded when the owning token is available.
 
 After a targeted suspicious repair, confirm the public latest version, not only the version you just uploaded:
 

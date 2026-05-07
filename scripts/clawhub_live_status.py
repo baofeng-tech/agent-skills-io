@@ -27,7 +27,17 @@ DEFAULT_STATE_FILE = REPO_ROOT / "targets" / "clawhub-publish-state.json"
 DEFAULT_OUTPUT_FILE = REPO_ROOT / "targets" / "clawhub-live-status.json"
 DEFAULT_CONFIG_ROOT = REPO_ROOT / ".tmp-clawhub-auth"
 USER_AGENT = "Mozilla/5.0 (compatible; agent-skills-io/1.0; ClawHub live status scanner)"
-STATUS_WORDS = {"benign", "clean", "pending", "suspicious", "malicious", "warning", "safe", "unknown"}
+STATUS_WORDS = {
+    "benign",
+    "clean",
+    "pending",
+    "review",
+    "suspicious",
+    "malicious",
+    "warning",
+    "safe",
+    "unknown",
+}
 TOKEN_KEY_PATTERN = re.compile(r"^clawhubapitoken(?P<index>\d*)$")
 DEFAULT_SKILL_OWNER_CANDIDATES = ("baofeng-tech", "bibaofeng", "aisadocs", "aisapay")
 
@@ -250,7 +260,7 @@ def extract_definition_value_from_html(page_html: str, labels: tuple[str, ...]) 
 
 def extract_page_scan_badge_status(page_html: str) -> str | None:
     match = re.search(
-        r"scan-status-(benign|clean|pending|suspicious|malicious|warning|safe|unknown)",
+        r"scan-status-(benign|clean|pending|review|suspicious|malicious|warning|safe|unknown)",
         page_html,
         re.IGNORECASE,
     )
@@ -311,8 +321,8 @@ def extract_block(lines: list[str], headings: list[str]) -> str:
 def extract_status_after_label(lines: list[str], label: str) -> str | None:
     text = "\n".join(lines)
     patterns = [
-        rf"{re.escape(label)}(?:\s+{re.escape(label)})?\s+(Benign|Clean|Pending|Suspicious|Malicious|Warning|Safe|Unknown)",
-        rf"{re.escape(label)}\s*\n\s*(Benign|Clean|Pending|Suspicious|Malicious|Warning|Safe|Unknown)",
+        rf"{re.escape(label)}(?:\s+{re.escape(label)})?\s+(Benign|Clean|Pending|Review|Suspicious|Malicious|Warning|Safe|Unknown)",
+        rf"{re.escape(label)}\s*\n\s*(Benign|Clean|Pending|Review|Suspicious|Malicious|Warning|Safe|Unknown)",
     ]
     for pattern in patterns:
         match = re.search(pattern, text, re.IGNORECASE)
@@ -323,7 +333,11 @@ def extract_status_after_label(lines: list[str], label: str) -> str | None:
 
 def extract_scan_status(lines: list[str]) -> str | None:
     text = "\n".join(lines)
-    match = re.search(r"Scan status\s+(clean|pending|suspicious|malicious|warning|unknown)", text, re.IGNORECASE)
+    match = re.search(
+        r"Scan status\s+(clean|pending|review|suspicious|malicious|warning|unknown)",
+        text,
+        re.IGNORECASE,
+    )
     if match:
         return normalize_status(match.group(1))
     if re.search(r"flagged\s+[—-]\s+suspicious patterns detected", text, re.IGNORECASE):
@@ -460,7 +474,15 @@ def extract_security_detail_summary(lines: list[str]) -> str | None:
         if lowered.startswith("detected:"):
             return line
         if lowered in skip_exact:
-            verdict_seen = verdict_seen or lowered in {"suspicious", "pending", "benign", "clean", "warning", "malicious"}
+            verdict_seen = verdict_seen or lowered in {
+                "suspicious",
+                "pending",
+                "review",
+                "benign",
+                "clean",
+                "warning",
+                "malicious",
+            }
             continue
         if lowered.startswith(skip_prefixes):
             continue
@@ -488,7 +510,7 @@ def decode_js_string(value: str) -> str:
 
 def extract_suspicious_reason(page_html: str, lines: list[str]) -> str:
     patterns = [
-        r'status:"(?:suspicious|malicious)".{0,1200}?summary:"((?:[^"\\]|\\.)*)"',
+        r'status:"(?:review|suspicious|malicious)".{0,1200}?summary:"((?:[^"\\]|\\.)*)"',
         r"scan-status-suspicious[\s\S]{0,1200}?analysis-summary-text\">([^<]+)",
         r"scan-status-malicious[\s\S]{0,1200}?analysis-summary-text\">([^<]+)",
     ]
@@ -889,7 +911,7 @@ def scan_artifact_status(
     suspicious_reason = extract_suspicious_reason(page_html, lines) or None
     publisher_handle = extract_publisher_handle_from_html(page_html) or extract_publisher_handle(lines)
 
-    if detail_url and (clawscan_verdict in {None, "pending", "warning", "suspicious", "malicious"} or not suspicious_reason):
+    if detail_url and (clawscan_verdict in {None, "pending", "review", "warning", "suspicious", "malicious"} or not suspicious_reason):
         openclaw_url = build_security_detail_url(detail_url, "openclaw")
         security_html, _security_mode, security_warning = fetch_page_html(
             openclaw_url,
@@ -905,6 +927,7 @@ def scan_artifact_status(
                 or extract_page_scan_badge_status(security_html)
                 or extract_status_after_label(security_lines, "ClawScan")
                 or extract_status_after_label(security_lines, "OpenClaw")
+                or extract_status_after_label(security_lines, "Verdict")
                 or clawscan_verdict
             )
             suspicious_reason = (
@@ -923,7 +946,7 @@ def scan_artifact_status(
             warnings.append(f"OpenClaw detail lookup failed: {security_warning}")
 
     if detail_url and (
-        static_analysis_status in {None, "pending", "warning", "suspicious", "malicious"}
+        static_analysis_status in {None, "pending", "review", "warning", "suspicious", "malicious"}
         or not static_analysis_summary
     ):
         static_url = build_security_detail_url(detail_url, "static-analysis")
@@ -952,15 +975,15 @@ def scan_artifact_status(
         elif static_warning:
             warnings.append(f"Static analysis detail lookup failed: {static_warning}")
 
-    if static_analysis_status in {"suspicious", "malicious", "warning"} and clawscan_verdict not in {"suspicious", "malicious", "warning"}:
+    if static_analysis_status in {"review", "suspicious", "malicious", "warning"} and clawscan_verdict not in {"review", "suspicious", "malicious", "warning"}:
         suspicious_reason = static_analysis_summary or suspicious_reason
 
     suspicious = any(
-        status in {"suspicious", "malicious", "warning"}
+        status in {"review", "suspicious", "malicious", "warning"}
         for status in (virus_total, clawscan_verdict, static_analysis_status, scan_status)
     )
     explicit_pending_scan = scan_status in {"pending", "unresolved"}
-    explicit_final_scan = scan_status in {"clean", "suspicious", "malicious", "warning"}
+    explicit_final_scan = scan_status in {"clean", "review", "suspicious", "malicious", "warning"}
     pending = explicit_pending_scan or (
         not suspicious
         and not explicit_final_scan
@@ -978,7 +1001,7 @@ def scan_artifact_status(
         elif (
             virus_total in {"benign", "clean", "safe"}
             and clawscan_verdict in {"benign", "clean", "safe"}
-            and static_analysis_status not in {"suspicious", "malicious", "warning"}
+            and static_analysis_status not in {"review", "suspicious", "malicious", "warning"}
         ):
             scan_status = "clean"
     if pending and not suspicious_reason:

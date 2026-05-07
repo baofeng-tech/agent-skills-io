@@ -63,7 +63,7 @@ done
 - `search-plugin` → `search`
 - `smart-search-plugin` → `smart-search`
 - `stock-analysis-plugin` → `stock-analysis`
-- `stock-dividend-plugin` → `stock-dividend`
+- `stock-dividend-aisa-plugin` → `stock-dividend-aisa`
 - `stock-hot-plugin` → `stock-hot`
 - `stock-portfolio-plugin` → `stock-portfolio`
 - `stock-rumors-plugin` → `stock-rumors`

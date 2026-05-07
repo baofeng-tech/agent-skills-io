@@ -93,7 +93,7 @@
 - Skill: `crypto-market-data`
 - Directory: `clawhub-plugin-release/plugins/crypto-market-data-plugin`
 - Zip: `clawhub-plugin-release/zips/crypto-market-data-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `crypto-market-data`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `crypto-market-data`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 
 ## last30days-plugin
 
@@ -128,7 +128,7 @@
 - Skill: `marketpulse`
 - Directory: `clawhub-plugin-release/plugins/marketpulse-plugin`
 - Zip: `clawhub-plugin-release/zips/marketpulse-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `marketpulse`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `marketpulse`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 
 ## media-gen-plugin
 
@@ -240,7 +240,7 @@
 - Skill: `prediction-market-data`
 - Directory: `clawhub-plugin-release/plugins/prediction-market-data-plugin`
 - Zip: `clawhub-plugin-release/zips/prediction-market-data-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `prediction-market-data`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `prediction-market-data`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 
 ## prediction-market-data-zh-plugin
 
@@ -277,12 +277,12 @@
 - Zip: `clawhub-plugin-release/zips/stock-analysis-plugin.zip`
 - Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `stock-analysis`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Analyze stocks and cryptocurrencies with 8-dimension scoring via AIsa API. Provides BUY/HOLD/SELL signals with confidence levels, entry/target/stop prices, and risk flags. Supports single or multi-ticker analysis with optional fast mode and JSON output. Use when the user asks to analyze a stock, check a ticker, or compare investments.
 
-## stock-dividend-plugin
+## stock-dividend-aisa-plugin
 
-- Skill: `stock-dividend`
-- Directory: `clawhub-plugin-release/plugins/stock-dividend-plugin`
-- Zip: `clawhub-plugin-release/zips/stock-dividend-plugin.zip`
-- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `stock-dividend`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.
+- Skill: `stock-dividend-aisa`
+- Directory: `clawhub-plugin-release/plugins/stock-dividend-aisa-plugin`
+- Zip: `clawhub-plugin-release/zips/stock-dividend-aisa-plugin.zip`
+- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `stock-dividend-aisa`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Analyze read-only dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score, income rating, and Dividend Aristocrat/King status without placing trades, making purchases, or managing brokerage accounts. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 
 ## stock-hot-plugin
 

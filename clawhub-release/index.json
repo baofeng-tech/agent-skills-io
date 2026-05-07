@@ -67,7 +67,7 @@
         "slug": "crypto-market-data",
         "source_skill": "crypto-market-data",
         "path": "clawhub-release/crypto-market-data",
-        "description": "Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows."
+        "description": "Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows."
       },
       {
         "slug": "last30days",
@@ -97,7 +97,7 @@
         "slug": "marketpulse",
         "source_skill": "marketpulse",
         "path": "clawhub-release/marketpulse",
-        "description": "Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows."
+        "description": "Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows."
       },
       {
         "slug": "media-gen",
@@ -193,7 +193,7 @@
         "slug": "prediction-market-data",
         "source_skill": "prediction-market-data",
         "path": "clawhub-release/prediction-market-data",
-        "description": "Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows."
+        "description": "Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows."
       },
       {
         "slug": "prediction-market-data-zh",
@@ -226,10 +226,10 @@
         "description": "Analyze stocks and cryptocurrencies with 8-dimension scoring via AIsa API. Provides BUY/HOLD/SELL signals with confidence levels, entry/target/stop prices, and risk flags. Supports single or multi-ticker analysis with optional fast mode and JSON output. Use when the user asks to analyze a stock, check a ticker, or compare investments."
       },
       {
-        "slug": "stock-dividend",
+        "slug": "stock-dividend-aisa",
         "source_skill": "stock-dividend",
-        "path": "clawhub-release/stock-dividend",
-        "description": "Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety."
+        "path": "clawhub-release/stock-dividend-aisa",
+        "description": "Analyze read-only dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score, income rating, and Dividend Aristocrat/King status without placing trades, making purchases, or managing brokerage accounts. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows."
       },
       {
         "slug": "stock-hot",
@@ -512,7 +512,7 @@
       "group": "original",
       "source_skill": "crypto-market-data",
       "path": "clawhub-release/crypto-market-data",
-      "description": "Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
+      "description": "Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
       "changes": [
         "kept the mother-skill body while normalizing ClawHub upload frontmatter",
         "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
@@ -581,7 +581,7 @@
       "group": "original",
       "source_skill": "marketpulse",
       "path": "clawhub-release/marketpulse",
-      "description": "Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
+      "description": "Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
       "changes": [
         "kept the mother-skill body while normalizing ClawHub upload frontmatter",
         "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
@@ -791,7 +791,7 @@
       "group": "original",
       "source_skill": "prediction-market-data",
       "path": "clawhub-release/prediction-market-data",
-      "description": "Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
+      "description": "Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
       "changes": [
         "kept the mother-skill body while normalizing ClawHub upload frontmatter",
         "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",
@@ -865,11 +865,11 @@
       "residual_risks": []
     },
     {
-      "name": "stock-dividend",
+      "name": "stock-dividend-aisa",
       "group": "original",
       "source_skill": "stock-dividend",
-      "path": "clawhub-release/stock-dividend",
-      "description": "Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.",
+      "path": "clawhub-release/stock-dividend-aisa",
+      "description": "Analyze read-only dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score, income rating, and Dividend Aristocrat/King status without placing trades, making purchases, or managing brokerage accounts. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
       "changes": [
         "kept the mother-skill body while normalizing ClawHub upload frontmatter",
         "normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa",

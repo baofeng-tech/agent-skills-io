@@ -1,4 +1,4 @@
-# Stock Dividend Plugin
+# Stock Dividend AIsa Plugin
 
 ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 
@@ -11,10 +11,10 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 
 ## What It Ships
 
-- Bundle plugin id: `stock-dividend-plugin`
+- Bundle plugin id: `stock-dividend-aisa-plugin`
 - Native manifest: `openclaw.plugin.json`
 - Native entrypoint: `index.js`
-- Embedded skill: `skills/stock-dividend/SKILL.md`
+- Embedded skill: `skills/stock-dividend-aisa/SKILL.md`
 - Format: native OpenClaw plugin plus Claude-compatible bundle fallback
 
 ## Why This Format
@@ -27,24 +27,24 @@ ClawHub/OpenClaw native-first plugin wrapper for the packaged AIsa skill.
 ## Provenance
 
 - Source repository: `https://github.com/baofeng-tech/agent-skills-io`
-- Embedded skill path: `skills/stock-dividend/SKILL.md`
+- Embedded skill path: `skills/stock-dividend-aisa/SKILL.md`
 - The runtime behavior remains inside the packaged skill payload and its public docs.
 
 ## Install After Publishing
 
 ```bash
-openclaw plugins install clawhub:stock-dividend-plugin
+openclaw plugins install clawhub:stock-dividend-aisa-plugin
 ```
 
 ## Publish Locally
 
 ```bash
-clawhub package publish ./plugins/stock-dividend-plugin --dry-run
-clawhub package publish ./plugins/stock-dividend-plugin
+clawhub package publish ./plugins/stock-dividend-aisa-plugin --dry-run
+clawhub package publish ./plugins/stock-dividend-aisa-plugin
 ```
 
 ## Notes
 
-- Runtime requirements and guardrails remain inside `skills/stock-dividend/SKILL.md`.
+- Runtime requirements and guardrails remain inside `skills/stock-dividend-aisa/SKILL.md`.
 - If both native and bundle markers exist, OpenClaw prefers the native plugin path.
 - This package keeps side effects explicit and relies on the packaged skill's repo-local defaults where applicable.

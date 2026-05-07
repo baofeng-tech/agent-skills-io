@@ -65,6 +65,7 @@ OWNER_SLOT_HINTS = {
     "aisadocs": "token-3",
 }
 SLOT_OWNER_HINTS = {slot: owner for owner, slot in OWNER_SLOT_HINTS.items()}
+CONFLICT_FALLBACK_SUFFIXES = ("aisa", "aisa-api", "aisa-one")
 
 
 def utc_now() -> datetime:
@@ -173,6 +174,14 @@ def suffix_publish_name(name: str, suffix: str) -> str:
     if name.endswith("-plugin"):
         return f"{name[: -len('-plugin')]}-{cleaned_suffix}-plugin"
     return f"{name}-{cleaned_suffix}"
+
+
+def conflict_fallback_suffix(slot_index: int, strategy: str) -> str:
+    if strategy == "suffix-by-slot":
+        return f"slot{slot_index}"
+    if 1 <= slot_index <= len(CONFLICT_FALLBACK_SUFFIXES):
+        return CONFLICT_FALLBACK_SUFFIXES[slot_index - 1]
+    return f"aisa-{slot_index}"
 
 
 def load_frontmatter(skill_path: Path) -> dict[str, Any]:
@@ -595,7 +604,10 @@ class Worker(threading.Thread):
             sibling_published_name = str(sibling_state.get("published_name") or "").strip()
             if sibling_published_name and sibling_published_name != sibling_name:
                 return f"{sibling_published_name}-plugin"
-        return suffix_publish_name(artifact.name, f"slot{self.slot_index}")
+        return suffix_publish_name(
+            artifact.name,
+            conflict_fallback_suffix(self.slot_index, self.args.slug_conflict_strategy),
+        )
 
     def post_publish_scan(self, artifact: Artifact) -> None:
         if not self.args.post_publish_scan:
@@ -796,7 +808,7 @@ class Worker(threading.Thread):
                 self.post_publish_scan(artifact)
             except PublishError as exc:
                 attempts = self.state.get(artifact).get("attempts", 0) + 1
-                if exc.slug_taken and self.args.slug_conflict_strategy == "suffix-by-slot":
+                if exc.slug_taken and self.args.slug_conflict_strategy in {"suffix-by-aisa", "suffix-by-slot"}:
                     try:
                         if self.publish_with_fallback(
                             artifact,
@@ -808,7 +820,7 @@ class Worker(threading.Thread):
                         exc = fallback_exc
                 if exc.already_exists:
                     remote_version_exists = self.remote_version_exists(artifact)
-                    if self.args.slug_conflict_strategy == "suffix-by-slot" and remote_version_exists is not True:
+                    if self.args.slug_conflict_strategy in {"suffix-by-aisa", "suffix-by-slot"} and remote_version_exists is not True:
                         try:
                             if self.publish_with_fallback(
                                 artifact,
@@ -842,7 +854,7 @@ class Worker(threading.Thread):
                         (
                             f"{exc.message} | remote slug {self.current_publish_name(artifact)} "
                             f"did not confirm version {artifact.version}; use the original owner token "
-                            "or keep the slot fallback strategy."
+                            "or keep the configured fallback strategy."
                         ),
                     )
                 status = "rate_limited" if exc.rate_limited else "failed"
@@ -1329,9 +1341,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--slug-conflict-strategy",
-        choices=("fail", "suffix-by-slot"),
-        default="suffix-by-slot",
-        help="How to handle ClawHub ownership/slug conflicts. The default retries with a slot-specific fallback slug.",
+        choices=("fail", "suffix-by-aisa", "suffix-by-slot"),
+        default="suffix-by-aisa",
+        help=(
+            "How to handle ClawHub ownership/slug conflicts. The default retries with "
+            "product-style fallback slugs such as -aisa, -aisa-api, or -aisa-one."
+        ),
     )
     parser.add_argument(
         "--scan-retries",

@@ -29,6 +29,18 @@ def main() -> int:
         "preflight must read the same runner JSON used by self-hosted runs-on",
     )
     require(
+        "run_self_hosted_publish:\n        description: \"Also run the optional self-hosted publish lane\"\n        required: false\n        default: false" in text
+        and "run_suspicious_repair:\n        description: \"After diagnosis, remediate matching suspicious artifacts and republish them\"\n        required: false\n        default: false" in text
+        and "run_breakout_rollout:\n        description: \"Run the dedicated breakout rollout lane\"\n        required: false\n        default: false" in text,
+        "manual dispatch must not request self-hosted lanes by default when no runner is guaranteed",
+    )
+    require(
+        "AUTO_FULL_PLATFORM_PUBLISH: ${{ vars.AUTO_FULL_PLATFORM_PUBLISH || 'false' }}" in text
+        and "AUTO_RUN_SUSPICIOUS_REPAIR: ${{ vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'false' }}" in text
+        and "AUTO_RUN_BREAKOUT_ROLLOUT: ${{ vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'false' }}" in text,
+        "scheduled self-hosted lanes must be opt-in through repository variables",
+    )
+    require(
         text.count(f"runs-on: {RUNS_ON_EXPR}") == 3,
         "the three self-hosted lanes must all use SELF_HOSTED_RUNNER_RUNS_ON_JSON",
     )
@@ -46,12 +58,20 @@ def main() -> int:
         "preflight must verify owner type and skip org-runner fallback for personal repositories",
     )
     require(
+        "SELF_HOSTED_RUNNER_RUNS_ON_JSON only selects labels and does not register or start a runner" in text,
+        "zero-runner failures must explain that labels are not runner registration",
+    )
+    require(
         "force_self_hosted_queue enabled" in text,
         "manual force queue mode must stay explicit in summaries",
     )
     require(
         "python3 scripts/test_clawhub_batch_publish_exit.py" in text,
         "hosted validation must cover ClawHub batch publish exit-code semantics",
+    )
+    require(
+        "python3 scripts/test_clawhub_live_status_review.py" in text,
+        "hosted validation must cover ClawHub Review verdict semantics",
     )
     require(
         "python3 scripts/test_twitter_oauth_client_safety.py" in text,

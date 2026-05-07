@@ -32,15 +32,16 @@ ClawHub WSL CLI 的 `whoami` 在本机没有稳定返回，因此下面的 token
 
 这个推断对当前文档归档足够用，但如果后续要做账号迁移或清库，仍建议在 Windows / self-hosted 环境再跑一次稳定的 `clawhub whoami` 复核。
 
-## 2026-05-01 补充：slot 策略已经正式成为运行时规则
+## 2026-05-07 补充：新冲突策略改为 AIsa 后缀
 
 在旧 slug owner token 暂时拿不到的情况下，当前自动化不再把 owner/slug 冲突当成“必须人工停下”的异常，而是采用下面的工作规则：
 
-1. skill 若发生 owner/slug 冲突，默认退回 `-slot1` / `-slot2` / `-slot3` fallback slug。
+1. skill 若发生 owner/slug 冲突，默认退回 `-aisa` / `-aisa-api` / `-aisa-one` fallback slug。
 2. plugin 若同名 skill 已经存在 fallback slug，plugin fallback slug 必须跟随 skill，例如：
-   - `aisa-provider` -> `aisa-provider-slot3`
-   - `aisa-provider-plugin` -> `aisa-provider-slot3-plugin`
-3. publish state 与 live status 必须把“原始 artifact key”和“当前 live fallback slug”同时保留，避免新发 slot 包继续被旧 key 的页面视图覆盖。
+   - `stock-dividend` -> `stock-dividend-aisa`
+   - `stock-dividend-plugin` -> `stock-dividend-aisa-plugin`
+3. publish state 与 live status 必须把“原始 artifact key”和“当前 live fallback slug”同时保留，避免新发 fallback 包继续被旧 key 的页面视图覆盖。
+4. 历史 `-slotN` live slug 仍作为旧状态兼容对象存在；如果 owner token 可用，优先 rename 或用新的 AIsa 后缀发布面 supersede。
 
 ## 每个 token 的当前状态
 

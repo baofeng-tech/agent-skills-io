@@ -140,7 +140,7 @@ Use it when you need to:
 | `--probe-retries <int>` | Retry count for transient remote probe failures |
 | `--probe-retry-delay <seconds>` | Delay between remote probe retries |
 | `--post-publish-scan` | After publish or remote-existing skip, probe the live ClawHub page for scan status |
-| `--slug-conflict-strategy fail\|suffix-by-slot` | How to handle ClawHub ownership or slug conflicts; default retries with a slot-specific fallback slug such as `-slot1`, `-slot2`, or `-slot3` |
+| `--slug-conflict-strategy fail\|suffix-by-aisa\|suffix-by-slot` | How to handle ClawHub ownership or slug conflicts; default retries with product-style fallback slugs such as `-aisa`, `-aisa-api`, or `-aisa-one`; `suffix-by-slot` is retained only for old-state compatibility |
 | `--scan-retries <int>` | Retry count for post-publish live scan checks when scan output is still pending |
 | `--scan-retry-delay <seconds>` | Delay between post-publish live scan retries |
 | `--scan-render-mode off|auto|always` | Whether post-publish scan should use Playwright rendering for dynamic pages |
@@ -174,7 +174,8 @@ Use it when you need to:
 
 Operational note:
 
-- `publish_clawhub_batch.py` now treats `suffix-by-slot` as the normal owner-conflict continuation strategy when the original owner token is unavailable.
+- `publish_clawhub_batch.py` now treats `suffix-by-aisa` as the normal owner-conflict continuation strategy when the original owner token is unavailable.
+- ClawScan `Review` verdicts are treated as suspicious blockers in live-status and diagnosis output, not as clean or merely pending states.
 - `targets/clawhub-publish-state.json` should be read as `artifact key -> published_name -> live detail_url`, not as a guarantee that the original slug still owns the live page.
 - `scripts/clawhub_live_status.py` now validates cached `detail_url` against the current published slug and, when needed, re-resolves the live page before reading security state.
 

@@ -54,7 +54,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `search` <- source `search`
 - `smart-search` <- source `smart-search`
 - `stock-analysis` <- source `stock-analysis`
-- `stock-dividend` <- source `stock-dividend`
+- `stock-dividend-aisa` <- source `stock-dividend`
 - `stock-hot` <- source `stock-hot`
 - `stock-portfolio` <- source `stock-portfolio`
 - `stock-rumors` <- source `stock-rumors`

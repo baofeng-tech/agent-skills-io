@@ -43,7 +43,7 @@ on:
       run_self_hosted_publish:
         description: "Also run the optional self-hosted publish lane"
         required: false
-        default: true
+        default: false
         type: boolean
       sync_adjacent_repos:
         description: "In self-hosted mode, sync downstream GitHub publish repos"
@@ -106,7 +106,7 @@ on:
       run_suspicious_repair:
         description: "After diagnosis, remediate matching suspicious artifacts and republish them"
         required: false
-        default: true
+        default: false
         type: boolean
       suspicious_artifacts:
         description: "Optional comma-separated ClawHub-owned artifact keys to target"
@@ -121,7 +121,7 @@ on:
       run_breakout_rollout:
         description: "Run the dedicated breakout rollout lane"
         required: false
-        default: true
+        default: false
         type: boolean
       breakout_skills:
         description: "Optional comma-separated source skill names for breakout rollout"
@@ -189,6 +189,9 @@ jobs:
 
       - name: Validate ClawHub batch publish exit semantics
         run: python3 scripts/test_clawhub_batch_publish_exit.py
+
+      - name: Validate ClawHub live status review semantics
+        run: python3 scripts/test_clawhub_live_status_review.py
 
       - name: Validate Twitter OAuth publish safety
         run: python3 scripts/test_twitter_oauth_client_safety.py
@@ -361,9 +364,9 @@ jobs:
           INPUT_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || 'false' }}
           INPUT_RUN_BREAKOUT_ROLLOUT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_breakout_rollout || 'false' }}
           INPUT_FORCE_SELF_HOSTED_QUEUE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_self_hosted_queue || 'false' }}
-          AUTO_FULL_PLATFORM_PUBLISH: ${{ vars.AUTO_FULL_PLATFORM_PUBLISH || 'true' }}
-          AUTO_RUN_SUSPICIOUS_REPAIR: ${{ vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'true' }}
-          AUTO_RUN_BREAKOUT_ROLLOUT: ${{ vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'true' }}
+          AUTO_FULL_PLATFORM_PUBLISH: ${{ vars.AUTO_FULL_PLATFORM_PUBLISH || 'false' }}
+          AUTO_RUN_SUSPICIOUS_REPAIR: ${{ vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'false' }}
+          AUTO_RUN_BREAKOUT_ROLLOUT: ${{ vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'false' }}
           AUTO_FORCE_SELF_HOSTED_QUEUE: ${{ vars.AUTO_FORCE_SELF_HOSTED_QUEUE || 'false' }}
           SELF_HOSTED_RUNNER_RUNS_ON_JSON: ${{ vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]' }}
         run: |
@@ -581,7 +584,7 @@ jobs:
                     fi
                   fi
                 elif [[ "${owner_http_code}" == "200" && "${owner_type}" == "user" ]]; then
-                  reason="no online repository self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_RUNS_ON_JSON}; ${REPO} is owned by a personal account, so organization-runner fallback is not applicable"
+                reason="no online repository self-hosted runner matched labels: ${SELF_HOSTED_RUNNER_RUNS_ON_JSON}; SELF_HOSTED_RUNNER_RUNS_ON_JSON only selects labels and does not register or start a runner; ${REPO} is owned by a personal account, so organization-runner fallback is not applicable"
                 else
                   reason="${reason}; skipped organization runner lookup because repo owner type could not be verified (users API HTTP ${owner_http_code:-unknown})"
                 fi

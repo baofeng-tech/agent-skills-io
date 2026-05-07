@@ -1,7 +1,7 @@
 {
-  "name": "stock-dividend-plugin",
-  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `stock-dividend`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.",
-  "version": "1.0.0",
+  "name": "stock-dividend-aisa-plugin",
+  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `stock-dividend-aisa`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Analyze read-only dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score, income rating, and Dividend Aristocrat/King status without placing trades, making purchases, or managing brokerage accounts. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
+  "version": "1.0.2",
   "author": {
     "name": "AIsa"
   },
@@ -19,8 +19,8 @@
         ]
       },
       "optionalEnv": [
-        "AISA_BASE_URL",
-        "AISA_MODEL"
+        "AISA_MODEL",
+        "AISA_BASE_URL"
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
@@ -38,15 +38,15 @@
         "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
         "format": "password"
       },
-      "AISA_BASE_URL": {
-        "type": "string",
-        "title": "Aisa Base Url",
-        "description": "Optional runtime setting for AISA_BASE_URL."
-      },
       "AISA_MODEL": {
         "type": "string",
         "title": "Aisa Model",
         "description": "Optional runtime setting for AISA_MODEL."
+      },
+      "AISA_BASE_URL": {
+        "type": "string",
+        "title": "Aisa Base Url",
+        "description": "Optional runtime setting for AISA_BASE_URL."
       }
     },
     "required": [
@@ -61,8 +61,8 @@
       "AISA_API_KEY"
     ],
     "optionalEnv": [
-      "AISA_BASE_URL",
-      "AISA_MODEL"
+      "AISA_MODEL",
+      "AISA_BASE_URL"
     ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
@@ -78,8 +78,8 @@
     ]
   },
   "optionalEnv": [
-    "AISA_BASE_URL",
-    "AISA_MODEL"
+    "AISA_MODEL",
+    "AISA_BASE_URL"
   ],
   "primaryEnv": "AISA_API_KEY",
   "networkTargets": [
@@ -95,8 +95,8 @@
       ]
     },
     "optionalEnv": [
-      "AISA_BASE_URL",
-      "AISA_MODEL"
+      "AISA_MODEL",
+      "AISA_BASE_URL"
     ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
@@ -112,8 +112,8 @@
         "AISA_API_KEY"
       ],
       "optionalEnv": [
-        "AISA_BASE_URL",
-        "AISA_MODEL"
+        "AISA_MODEL",
+        "AISA_BASE_URL"
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [

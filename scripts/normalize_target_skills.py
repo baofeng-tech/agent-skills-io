@@ -132,7 +132,7 @@ def infer_use_when_from_name(name: str) -> str:
         "youtube": "the user needs YouTube search, trend discovery, channel research, or SERP analysis",
         "research": "the user needs recent multi-source research across the last 30 days",
         "search": "the user needs web search, research, source discovery, or content extraction",
-        "finance": "the user needs market data, stock analysis, watchlists, or portfolio workflows",
+        "finance": "the user needs market data, stock analysis, dividend research, or read-only financial data workflows",
         "media": "the user needs AI image or video generation workflows",
         "ai": "the user needs model routing, provider setup, or Chinese LLM access guidance",
         "automation": "the user needs this workflow's domain-specific automation or guidance",
@@ -213,6 +213,11 @@ def normalize_skill(skill_dir: Path) -> bool:
     version_value = frontmatter.get("version")
     if version_value not in (None, "", []):
         cleaned["version"] = str(version_value)
+    for slug_key in ("clawhub-slug", "clawhub_slug"):
+        slug_value = frontmatter.get(slug_key)
+        if isinstance(slug_value, str) and slug_value.strip():
+            cleaned[slug_key] = slug_value.strip()
+            break
     license_value = frontmatter.get("license")
     if license_value not in (None, "", []):
         cleaned["license"] = license_value

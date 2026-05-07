@@ -2,7 +2,7 @@
   "repository": "https://github.com/baofeng-tech/agent-skills-io",
   "branch": "main",
   "branch_url": "https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills",
-  "generated_at": "2026-05-06",
+  "generated_at": "2026-05-07",
   "skills": [
     {
       "name": "aisa-multi-search-engine",
@@ -87,7 +87,7 @@
     {
       "name": "crypto-market-data",
       "category": "finance",
-      "description": "Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
+      "description": "Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
       "path": "crypto-market-data",
       "source": "https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/crypto-market-data",
       "entry": "SKILL.md"
@@ -127,7 +127,7 @@
     {
       "name": "marketpulse",
       "category": "finance",
-      "description": "Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
+      "description": "Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
       "path": "marketpulse",
       "source": "https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/marketpulse",
       "entry": "SKILL.md"
@@ -255,7 +255,7 @@
     {
       "name": "prediction-market-data",
       "category": "finance",
-      "description": "Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.",
+      "description": "Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
       "path": "prediction-market-data",
       "source": "https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/prediction-market-data",
       "entry": "SKILL.md"
@@ -303,7 +303,7 @@
     {
       "name": "stock-dividend",
       "category": "finance",
-      "description": "Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.",
+      "description": "Analyze read-only dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score, income rating, and Dividend Aristocrat/King status without placing trades, making purchases, or managing brokerage accounts. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
       "path": "stock-dividend",
       "source": "https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/stock-dividend",
       "entry": "SKILL.md"

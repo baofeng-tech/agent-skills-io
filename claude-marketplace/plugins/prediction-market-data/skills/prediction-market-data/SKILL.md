@@ -1,9 +1,9 @@
 ---
 name: prediction-market-data
-description: 'Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
+description: 'Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
 license: MIT
 allowed-tools: Read Bash Grep
-when_to_use: 'you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows'
+when_to_use: 'you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows'
 ---
 
 > Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.

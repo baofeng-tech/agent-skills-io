@@ -111,7 +111,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `crypto-market-data`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/crypto-market-data>
-- Summary: Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Summary: Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Includes:
   - `scripts/coingecko_client.py`
   - `SKILL.md`
@@ -160,7 +160,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `marketpulse`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/marketpulse>
-- Summary: Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Summary: Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Includes:
   - `scripts/market_client.py`
   - `SKILL.md`
@@ -311,7 +311,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `prediction-market-data`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/prediction-market-data>
-- Summary: Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+- Summary: Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Includes:
   - `scripts/prediction_market_client.py`
   - `SKILL.md`
@@ -365,7 +365,7 @@ This index is prepared for the public Agent Skills repository used by AgentSkill
 ### `stock-dividend`
 
 - GitHub: <https://github.com/baofeng-tech/agent-skills/tree/main/stock-dividend>
-- Summary: Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.
+- Summary: Analyze read-only dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score, income rating, and Dividend Aristocrat/King status without placing trades, making purchases, or managing brokerage accounts. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Includes:
   - `scripts/dividends.py`
   - `SKILL.md`

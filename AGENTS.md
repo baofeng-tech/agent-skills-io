@@ -20,6 +20,8 @@ Execution style for this repo:
 - Then execute against that plan end-to-end, only pausing when a branch choice has real hidden consequences
 - When upstream changes are large or structural, treat `AIsa-team/agent-skills` as the authoritative source first, then adapt that upstream state into mother skills and platform release layers here
 - Do not use `/mnt/d/workplace/agent-skills` as this repo's automation input source; that local checkout is reserved for manual company-skill authoring and upload work
+- GitHub Actions self-hosted lanes are opt-in unless an online repository runner is already registered; `SELF_HOSTED_RUNNER_RUNS_ON_JSON` only selects labels and does not create or start a runner
+- Treat ClawHub ClawScan `Review` verdicts as suspicious blockers until a republish or rescan returns clean
 
 ### Before doing substantial work
 
@@ -127,6 +129,7 @@ When applicable, verify:
 - after ClawHub batch publisher edits, run `python3 scripts/test_clawhub_batch_publish_exit.py`
 - after Twitter OAuth/public-write edits, run `python3 scripts/test_twitter_oauth_client_safety.py`
 - after targeted ClawHub suspicious repair, verify `clawhub inspect <slug> --json` reports the fixed version as `latest`, then refresh live status
+- for ClawHub plugin repairs, verify with `clawhub package inspect <slug> --json`; for slug conflicts, prefer `-aisa`, `-aisa-api`, or `-aisa-one` suffixes over new `-slotN` names
 
 ### Step 6: Update project memory
 

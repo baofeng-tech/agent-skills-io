@@ -6,6 +6,7 @@ This review answers the unresolved May 2026 workflow questions and records the f
 
 - run `25299535400` cancelled after hosted build/test success
 - run `25289383679` succeeded while self-hosted jobs skipped
+- run `25460452313` failed in `self-hosted-preflight`
 - `baofeng-tech` owner type and organization-runner fallback behavior
 - `SELF_HOSTED_RUNNER_API_TOKEN` and `DOWNSTREAM_REPO_TOKEN` fine-grained PAT requirements
 - `skill:openclaw-twitter-post-engage` ClawHub suspicious remediation
@@ -16,6 +17,7 @@ This review answers the unresolved May 2026 workflow questions and records the f
 | --- | --- | --- | --- |
 | `25299535400` | `sync-build-test` and preflight succeeded; `self-hosted-publish` queued for about 24 hours and the run concluded `cancelled` | This was not a hosted build/test bug. The manual run had `force_self_hosted_queue=true`, so preflight intentionally bypassed runner confirmation and let GitHub queue `runs-on: self-hosted`. No runner picked it up. | Normal result for forced queue with no available runner. Do not use force unless a runner is expected. Current workflow fails fast unless force is explicit. |
 | `25289383679` | Scheduled run succeeded; `sync-build-test` succeeded; self-hosted publish, suspicious repair, and breakout jobs were skipped | This was old workflow behavior: scheduled self-hosted lanes were requested, but preflight could not confirm a runner and downstream `if` conditions skipped the lanes while the overall run stayed green. | Bug in the old flow. Current workflow fails fast when any self-hosted lane is requested but no matching runner can be confirmed. |
+| `25460452313` | Scheduled run failed in `self-hosted-preflight`; `sync-build-test` succeeded first | This was not a `403`. The repo runner API was readable and current local verification returned `total_count=0`; no online repository self-hosted runner matched `["self-hosted"]`. `SELF_HOSTED_RUNNER_RUNS_ON_JSON` only chooses labels and does not register or start a runner. | Workflow defaults and repo variables were changed so scheduled self-hosted lanes are opt-in until an actual runner is online. |
 
 ## Token And Runner Conclusions
 
@@ -23,6 +25,7 @@ This review answers the unresolved May 2026 workflow questions and records the f
 - Organization runner fallback is therefore not applicable for `baofeng-tech/agent-skills-io`.
 - Current workflow resolves the owner through `GET /users/{owner}` and only calls organization runner APIs when the owner type is `Organization`.
 - Local `gh` runner inventory check can read `baofeng-tech/agent-skills-io` repository runners and returned `total_count=0`.
+- Current state for the reported failure is therefore `200 with zero runners`, not `403`.
 - GitHub Actions secrets cannot be introspected from the repo. If CI preflight reports `403`, then `SELF_HOSTED_RUNNER_API_TOKEN` still lacks selected-repo access, repository `Administration: read`, required SSO approval, or an equivalent permission path.
 - A fine-grained `SELF_HOSTED_RUNNER_API_TOKEN` for this repo should select `baofeng-tech/agent-skills-io` and grant repository `Administration: read` plus Metadata read.
 - `DOWNSTREAM_REPO_TOKEN` may be the same fine-grained PAT only if it also selects every downstream publish repo and grants Contents read/write plus Metadata read. If the same token is used for both roles, it must cover both runner inventory and downstream pushes.
@@ -91,3 +94,4 @@ Fix:
 - Keep `scripts/clawhub_live_status.py --targets skill --artifact skill:openclaw-twitter-post-engage --include-status published --skill-owner aisadocs --render-mode always` as the verification command for future drift checks.
 - If a real self-hosted runner exists, register it at repository level or align `SELF_HOSTED_RUNNER_RUNS_ON_JSON` with its actual labels.
 - Keep `AUTO_FORCE_SELF_HOSTED_QUEUE=false` for scheduled runs unless intentionally waiting for a runner that will come online later.
+- Keep `AUTO_FULL_PLATFORM_PUBLISH`, `AUTO_RUN_SUSPICIOUS_REPAIR`, and `AUTO_RUN_BREAKOUT_ROLLOUT` false until the runner inventory API shows an online matching runner.

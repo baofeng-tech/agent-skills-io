@@ -12,16 +12,17 @@
 
 当前声明的 breakout 变体有 2 组。
 
-## 额外说明：slot fallback slug 也要单独跟踪
+## 额外说明：fallback slug 也要单独跟踪
 
-breakout slug 和 slot fallback slug 不是一回事：
+breakout slug 和 owner-conflict fallback slug 不是一回事：
 
 - breakout slug
   - 是 `targets/clawhub-breakout-variants.json` 里主动声明的增长位兄弟包
-- slot fallback slug
-  - 是因为 ClawHub owner/slug 冲突，发布器按 `suffix-by-slot` 策略临时或长期接受的替代 live slug
+- fallback slug
+  - 是因为 ClawHub owner/slug 冲突，发布器按 `suffix-by-aisa` 策略临时或长期接受的替代 live slug
+  - 2026-05-07 起，新 fallback 优先使用 `-aisa` / `-aisa-api` / `-aisa-one`，历史 `-slotN` 只作为旧状态兼容
 
-当前已经确认需要长期跟踪的 slot fallback 例子：
+当前已经确认需要长期跟踪的历史 slot fallback 例子：
 
 - source key: `skill:aisa-provider`
   - live slug: `aisa-provider-slot3`
@@ -33,7 +34,7 @@ breakout slug 和 slot fallback slug 不是一回事：
 
 当前工作结论：
 
-1. 如果拿不到旧 slug 的原 owner token，就正式接受 slot fallback slug 作为当前 live 事实。
+1. 如果拿不到旧 slug 的原 owner token，就正式接受 fallback slug 作为当前 live 事实，但新命名优先使用 AIsa 后缀。
 2. `targets/clawhub-publish-state.json` 必须同时保留：
    - 原始 artifact key
    - `published_name`

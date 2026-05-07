@@ -115,6 +115,8 @@ flowchart TD
   - Locks self-hosted preflight, owner-type fallback, and hosted validation guard behavior.
 - `scripts/test_clawhub_batch_publish_exit.py`
   - Prevents spare ClawHub token login timeouts from becoming false artifact publish failures.
+- `scripts/test_clawhub_live_status_review.py`
+  - Locks ClawHub ClawScan `Review` verdicts as suspicious blockers in live-status parsing and diagnosis.
 - `scripts/test_twitter_oauth_client_safety.py`
   - Locks Twitter public-write safety boundaries for reply, quote, threading, and API-key redaction.
 - `scripts/publish-targetSkills-to-agent-skills.sh`
@@ -214,9 +216,9 @@ python3 scripts/clawhub_suspicious_remediation.py \
   - runs the dedicated breakout rollout path from `targets/clawhub-breakout-variants.json`
   - keeps breakout experimentation separate from normal sync and suspicious remediation
 
-Schedule runs now request the publish, suspicious-remediation, breakout, AISA regression, ClawHub CLI install, and post-publish scan lanes by default. They still pass through the hosted self-hosted-runner preflight first, so a requested self-hosted lane fails fast with a clear summary when the runner cannot be confirmed instead of waiting in queue for 24 hours.
+Schedule runs no longer request self-hosted publish, suspicious-remediation, or breakout lanes unless the corresponding `AUTO_*` repository variable is explicitly set to `true`. Hosted sync, rebuild, diagnosis, and AISA regression can still run without a self-hosted runner.
 
-Set any `AUTO_*` variable below to `false` when you want to close that scheduled lane.
+Set `AUTO_FULL_PLATFORM_PUBLISH=true`, `AUTO_RUN_SUSPICIOUS_REPAIR=true`, or `AUTO_RUN_BREAKOUT_ROLLOUT=true` only after an online repository self-hosted runner exists. Requested self-hosted lanes still pass through hosted preflight and fail fast when the runner cannot be confirmed instead of waiting in queue for 24 hours.
 
 Useful repo variables for scheduled self-hosted automation:
 
@@ -245,9 +247,9 @@ Useful repo variables for scheduled self-hosted automation:
 - `SELF_HOSTED_RUNNER_RUNS_ON_JSON`
 - `CLAWHUB_CLI_VERSION`
 
-Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` as the single source for runner labels, for example `["self-hosted","linux","clawhub"]`. The preflight and the actual `runs-on` target both read this JSON value.
+Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` as the single source for runner labels, for example `["self-hosted","linux","clawhub"]`. The preflight and the actual `runs-on` target both read this JSON value. This variable only selects labels; it does not register, start, or bring a GitHub runner online.
 
-For `SELF_HOSTED_RUNNER_API_TOKEN`, repository-level runners need fine-grained PAT repository `Administration: read`. Organization-level runners need organization `Self-hosted runners: read`; otherwise the repo runner API may return `200` with zero runners while the org runner API returns `403`.
+For `SELF_HOSTED_RUNNER_API_TOKEN`, repository-level runners need fine-grained PAT repository `Administration: read`. Organization-level runners need organization `Self-hosted runners: read`; otherwise the repo runner API may return `403`. If the repo runner API returns `200` with `total_count=0`, the token is readable but no repository runner is registered or online.
 
 The CI bootstrap installs `openai`, `httpx`, and `requests` because some AISA-backed runtime checks use the OpenAI-compatible Python SDK or HTTP clients against `api.aisa.one`; this does not require an OpenAI API key.
 
