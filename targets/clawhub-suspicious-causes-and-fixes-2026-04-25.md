@@ -127,34 +127,21 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`16`
-- `blocker`：`14`
-- `warning`：`2`
-- `pending`：`4`
+- 诊断对象数：`14`
+- `blocker`：`11`
+- `warning`：`3`
+- `pending`：`3`
 
 ### 当前高频规则
 
 - `metadata_env_mismatch`: `1`
-- `oauth_upload_side_effects`: `3`
-- `pending_scan`: `4`
+- `oauth_upload_side_effects`: `4`
+- `pending_scan`: `3`
 - `platform_trust_gap`: `8`
-- `relay_trust_surface`: `3`
-- `static_analysis_patterns`: `1`
+- `relay_trust_surface`: `2`
 
 ### 当前重点对象
 
-- `plugin:aisa-perplexity-search-sonar-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `pending_scan, relay_trust_surface`
-  reason: The search client mostly matches its purpose, but the published requirement metadata conflicts with the bundled manifests and code about needing Python and an AISA_API_KEY.
-- `plugin:aisa-tavily-search-plugin`
-  severity: `blocker` | status: `suspicious`
-  rules: `static_analysis_patterns`
-  reason: Detected: suspicious.env_credential_access
-- `plugin:last30days-plugin`
-  severity: `blocker` | status: `pending`
-  rules: `pending_scan`
-  reason: This looks mostly like a legitimate recent-research skill, but its published metadata understates the credentials, binaries, and network behavior that the bundled skill actually uses.
 - `skill:openclaw-twitter`
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects`
@@ -191,4 +178,15 @@
   severity: `blocker` | status: `suspicious`
   rules: `metadata_env_mismatch, oauth_upload_side_effects, platform_trust_gap, relay_trust_surface`
   reason: The skill is broadly coherent with a Twitter/X automation client using the AIsa relay, but there are a few mismatches you should be aware of before installing (undeclared env overrides and uploading local files to an external relay).
+- `skill:youtube`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: Search YouTube videos, get channel info, fetch video details and transcripts using YouTube Data API v3 via MCP server or yt-dlp fallback.
+- `skill:youtube-search`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: Use when the user wants to find YouTube content on any topic: searching for videos or channels, finding creators who cover a subject, discovering tutorials,...
+- `plugin:aisa-twitter-research-engage-plugin`
+  severity: `warning` | status: `pending`
+  rules: `pending_scan`
 <!-- AUTO-DIAGNOSIS:END -->

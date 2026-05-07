@@ -1,110 +1,18 @@
 {
   "summary": {
-    "artifacts": 16,
-    "blockers": 14,
-    "warnings": 2,
-    "pending": 4,
+    "artifacts": 14,
+    "blockers": 11,
+    "warnings": 3,
+    "pending": 3,
     "rules": {
       "metadata_env_mismatch": 1,
-      "oauth_upload_side_effects": 3,
-      "pending_scan": 4,
+      "oauth_upload_side_effects": 4,
+      "pending_scan": 3,
       "platform_trust_gap": 8,
-      "relay_trust_surface": 3,
-      "static_analysis_patterns": 1
+      "relay_trust_surface": 2
     }
   },
   "artifacts": [
-    {
-      "key": "plugin:aisa-perplexity-search-sonar-plugin",
-      "kind": "plugin",
-      "name": "aisa-perplexity-search-sonar-plugin",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-perplexity-search-sonar-plugin",
-      "local_path": ".tmp-clawhub-batch/plugins/aisa-perplexity-search-sonar-plugin",
-      "release_ref": "rd793hcmfwpqtqwj53zht0hs7d85expt",
-      "reason": "The search client mostly matches its purpose, but the published requirement metadata conflicts with the bundled manifests and code about needing Python and an AISA_API_KEY."
-    },
-    {
-      "key": "plugin:aisa-tavily-search-plugin",
-      "kind": "plugin",
-      "name": "aisa-tavily-search-plugin",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "suspicious",
-      "virus_total": null,
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "suspicious",
-      "static_analysis_summary": "Detected: suspicious.env_credential_access",
-      "suspicious": true,
-      "pending": false,
-      "rule_ids": [
-        "static_analysis_patterns"
-      ],
-      "rule_summaries": [
-        "Static analysis found execution or side-effect patterns that need trimming or clearer justification."
-      ],
-      "recommended_actions": [
-        "Remove non-runtime helper files from the shipped package when they are the source of the finding.",
-        "If the pattern is a real runtime need, explain the exact boundary and intended command/file behavior in public docs."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-tavily-search-plugin",
-      "local_path": ".tmp-clawhub-batch/plugins/aisa-tavily-search-plugin",
-      "release_ref": null,
-      "reason": "Detected: suspicious.env_credential_access"
-    },
-    {
-      "key": "plugin:last30days-plugin",
-      "kind": "plugin",
-      "name": "last30days-plugin",
-      "publisher_handle": "bibaofeng",
-      "severity": "blocker",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": "suspicious",
-      "openclaw_verdict": "suspicious",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": true,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/last30days-plugin",
-      "local_path": "clawhub-plugin-release/plugins/last30days-plugin",
-      "release_ref": null,
-      "reason": "This looks mostly like a legitimate recent-research skill, but its published metadata understates the credentials, binaries, and network behavior that the bundled skill actually uses."
-    },
     {
       "key": "skill:openclaw-twitter",
       "kind": "skill",
@@ -493,6 +401,39 @@
       "local_path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
       "release_ref": "rd71nt8582ykhkd2wzgz44gkvs868bqr",
       "reason": "This appears to be a recent-research skill that uses an AISA API key and bundled Python scripts in ways that generally match its stated purpose."
+    },
+    {
+      "key": "skill:twitter-post-aisa",
+      "kind": "skill",
+      "name": "twitter-post-aisa",
+      "publisher_handle": "bibaofeng",
+      "severity": "warning",
+      "scan_status": "pending",
+      "virus_total": "pending",
+      "clawscan_verdict": "clean",
+      "openclaw_verdict": "benign",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": false,
+      "pending": true,
+      "rule_ids": [
+        "oauth_upload_side_effects",
+        "pending_scan"
+      ],
+      "rule_summaries": [
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Security scan output is not final yet."
+      ],
+      "recommended_actions": [
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved."
+      ],
+      "detail_url": "https://clawhub.ai/bibaofeng/twitter-post-aisa",
+      "local_path": "clawhub-release/twitter-post-aisa",
+      "release_ref": "k9739kccvvzksfj4bk3he4dk21868mnv",
+      "reason": "The skill can perform public social engagement and posting, but the artifacts describe these actions as user-requested, approved, and confirmed by API results."
     }
   ]
 }
