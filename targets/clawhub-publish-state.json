@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T14:25:39.704388+00:00",
+  "generated_at": "2026-05-07T16:47:53.151917+00:00",
   "artifacts": {
     "plugin:aisa-multi-search-engine-plugin": {
       "key": "plugin:aisa-multi-search-engine-plugin",
@@ -121,7 +121,7 @@
         "suspicious_reason": "This skill does what it claims: it uses a single AIsa API key to send search and URL-extraction requests to AIsa's Tavily API proxy.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T21:03:01.558247+00:00"
+        "checked_at": "2026-05-07T16:06:34.298489+00:00"
       }
     },
     "plugin:aisa-twitter-api-plugin": {
@@ -417,11 +417,11 @@
       "key": "plugin:last30days-plugin",
       "kind": "plugin",
       "name": "last30days-plugin",
-      "version": "1.0.0",
+      "version": "1.0.4",
       "path": "clawhub-plugin-release/plugins/last30days-plugin",
       "status": "published",
       "published_at": "2026-04-21T16:30:05.518494+00:00",
-      "last_checked_at": "2026-04-21T16:30:05.518508+00:00",
+      "last_checked_at": "2026-05-07T16:30:44.504463+00:00",
       "last_error": null,
       "token_slot": "token-2",
       "live_scan": {
@@ -429,27 +429,30 @@
         "kind": "plugin",
         "name": "last30days-plugin",
         "requested_name": "last30days-plugin",
-        "version": "1.0.0",
+        "version": "1.0.4",
         "detail_url": "https://clawhub.ai/plugins/last30days-plugin",
         "resolved_slug": "last30days-plugin",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": null,
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "suspicious",
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": "suspicious",
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
         "publisher_handle": "bibaofeng",
-        "suspicious": true,
-        "suspicious_reason": "This looks mostly like a legitimate recent-research skill, but its published metadata understates the credentials, binaries, and network behavior that the bundled skill actually uses.",
-        "pending": true,
+        "suspicious": false,
+        "suspicious_reason": "This appears to be a real recent-research skill using an AIsa API key and public/social data sources, but its registry metadata does not fully reflect the requirements declared inside the package.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T21:03:45.650097+00:00"
-      }
+        "checked_at": "2026-05-07T16:50:32.997699+00:00"
+      },
+      "owner_handle": "bibaofeng",
+      "published_name": "last30days-plugin",
+      "publish_mode": "published"
     },
     "plugin:last30days-zh-plugin": {
       "key": "plugin:last30days-zh-plugin",
@@ -2112,7 +2115,7 @@
         "suspicious_reason": "This appears to be a narrowly scoped YouTube search skill that uses an AIsa API key only to call AIsa's YouTube search endpoint.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T21:06:08.286331+00:00"
+        "checked_at": "2026-05-07T16:06:38.860782+00:00"
       }
     },
     "skill:aisa-multi-search-engine": {
@@ -4188,40 +4191,42 @@
       "key": "plugin:aisa-tavily-search-plugin",
       "kind": "plugin",
       "name": "aisa-tavily-search-plugin",
-      "version": "1.0.0",
-      "path": ".tmp-clawhub-batch/plugins/aisa-tavily-search-plugin",
+      "version": "1.0.3",
+      "path": "clawhub-plugin-release/plugins/aisa-tavily-search-plugin",
       "status": "published",
       "published_at": "2026-04-24T17:02:14.412088+00:00",
-      "last_checked_at": "2026-04-24T17:02:14.412088+00:00",
+      "last_checked_at": "2026-05-07T16:30:44.504463+00:00",
       "last_error": null,
-      "token_slot": "token-1",
-      "publish_mode": "remote-existing",
+      "token_slot": "token-2",
+      "publish_mode": "published",
       "live_scan": {
         "key": "plugin:aisa-tavily-search-plugin",
         "kind": "plugin",
         "name": "aisa-tavily-search-plugin",
         "requested_name": "aisa-tavily-search-plugin",
-        "version": "1.0.0",
+        "version": "1.0.3",
         "detail_url": "https://clawhub.ai/plugins/aisa-tavily-search-plugin",
         "resolved_slug": "aisa-tavily-search-plugin",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "suspicious",
-        "virus_total": null,
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
-        "static_analysis_status": "suspicious",
-        "static_analysis_summary": "Detected: suspicious.env_credential_access",
+        "static_analysis_status": "clean",
+        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
         "publisher_handle": "bibaofeng",
-        "suspicious": true,
-        "suspicious_reason": "Detected: suspicious.env_credential_access",
+        "suspicious": false,
+        "suspicious_reason": "This skill appears to do what it claims: it uses an AISA API key to send search and extraction requests to AIsa's API.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T21:03:05.043372+00:00"
-      }
+        "checked_at": "2026-05-07T16:50:24.534133+00:00"
+      },
+      "owner_handle": "bibaofeng",
+      "published_name": "aisa-tavily-search-plugin"
     },
     "plugin:aisa-twitter-plugin": {
       "key": "plugin:aisa-twitter-plugin",
@@ -4824,21 +4829,21 @@
         "resolved_slug": "aisa-perplexity-search-sonar-plugin",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": null,
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "suspicious",
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": "suspicious",
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
         "publisher_handle": "bibaofeng",
-        "suspicious": true,
-        "suspicious_reason": "The search client mostly matches its purpose, but the published requirement metadata conflicts with the bundled manifests and code about needing Python and an AISA_API_KEY.",
-        "pending": true,
+        "suspicious": false,
+        "suspicious_reason": "This appears to be a straightforward AIsa search plugin that uses Python and an AIsa API key to send search requests to AIsa's API.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T21:02:35.066895+00:00"
+        "checked_at": "2026-05-07T16:50:21.634570+00:00"
       }
     },
     "plugin:aisa-search-command-center-plugin": {
@@ -5021,11 +5026,11 @@
       "attempts": 2,
       "published_at": "2026-04-28T20:05:11.930703+00:00",
       "last_attempt_at": "2026-04-28T20:05:11.930718+00:00",
-      "last_checked_at": "2026-04-28T20:05:11.930720+00:00",
+      "last_checked_at": "2026-05-07T16:30:44.504463+00:00",
       "last_error": null,
-      "token_slot": "token-3",
+      "token_slot": "token-2",
       "release_ref": "rd789r4jfzgpc3cartsk84gj8s85e8nn",
-      "publish_mode": "publish-existing",
+      "publish_mode": "published",
       "live_scan": {
         "key": "plugin:aisa-twitter-research-engage-relay-plugin",
         "kind": "plugin",
@@ -5047,11 +5052,13 @@
         "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent with its stated purpose: it wraps Python clients that call an AIsa relay (api.aisa.one) for Twitter/X research, engagement, and OAuth-backed posting, and it only requires an AISA_API_KEY and python3.",
+        "suspicious_reason": "This appears to be a Twitter/X relay skill that uses a single AIsa API key for the stated Twitter research, engagement, and posting workflows.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-06T21:03:29.737114+00:00"
-      }
+        "checked_at": "2026-05-07T16:50:29.114311+00:00"
+      },
+      "owner_handle": "bibaofeng",
+      "published_name": "aisa-twitter-research-engage-relay-plugin"
     },
     "skill:stock-dividend-aisa": {
       "key": "skill:stock-dividend-aisa",
@@ -5095,6 +5102,50 @@
         "pending": false,
         "warnings": [],
         "checked_at": "2026-05-07T14:26:48.075446+00:00"
+      }
+    },
+    "skill:twitter-post-aisa": {
+      "key": "skill:twitter-post-aisa",
+      "kind": "skill",
+      "name": "twitter-post-aisa",
+      "version": "1.0.3",
+      "path": "clawhub-release/twitter-post-aisa",
+      "status": "published",
+      "attempts": 1,
+      "published_at": "2026-05-07T15:46:51.196702+00:00",
+      "last_attempt_at": "2026-05-07T15:46:51.196722+00:00",
+      "last_checked_at": "2026-05-07T16:47:53.151917+00:00",
+      "last_error": null,
+      "token_slot": "token-2",
+      "owner_handle": "bibaofeng",
+      "published_name": "twitter-post-aisa",
+      "release_ref": "k9739kccvvzksfj4bk3he4dk21868mnv",
+      "publish_mode": "published",
+      "live_scan": {
+        "key": "skill:twitter-post-aisa",
+        "kind": "skill",
+        "name": "twitter-post-aisa",
+        "requested_name": "twitter-post-aisa",
+        "version": "1.0.3",
+        "detail_url": "https://clawhub.ai/bibaofeng/twitter-post-aisa",
+        "resolved_slug": "twitter-post-aisa",
+        "page_found": true,
+        "fetch_mode": "http",
+        "scan_status": "pending",
+        "virus_total": "pending",
+        "virus_total_report_url": null,
+        "clawscan_verdict": "clean",
+        "clawscan_confidence": null,
+        "openclaw_verdict": "benign",
+        "openclaw_confidence": null,
+        "static_analysis_status": "clean",
+        "static_analysis_summary": "No suspicious patterns detected.",
+        "publisher_handle": "bibaofeng",
+        "suspicious": false,
+        "suspicious_reason": "The skill can perform public social engagement and posting, but the artifacts describe these actions as user-requested, approved, and confirmed by API results.",
+        "pending": true,
+        "warnings": [],
+        "checked_at": "2026-05-07T16:50:35.222987+00:00"
       }
     }
   }

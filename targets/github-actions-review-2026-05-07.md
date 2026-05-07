@@ -126,13 +126,24 @@ Fix:
 - `last30days-zh-plugin` was republished as `1.0.9` after adding package-level provider/auth/environment metadata that ClawHub actually extracts into capabilities.
 - `last30days-zh-plugin@1.0.9` now reports `clawscan=clean`, `openclaw=clean`, `static=clean`, `suspicious=0`; VirusTotal remains asynchronous `pending`, so it is tracked as `pending_scan` warning, not suspicious.
 
+## Bibaofeng Targeted ClawHub Result
+
+- `twitter-post-aisa` was rescanned first, then republished on the original slug as `1.0.3` after VirusTotal stayed suspicious; `clawhub inspect` confirms latest `1.0.3` and `moderation=null`. Live status is now `vt=pending`, `clawscan=clean`, `static=clean`, `suspicious=0`.
+- `twitter-aisa` inspect confirms latest `1.0.2` with `moderation=null`.
+- `aisa-perplexity-search-sonar-plugin` is live clean: `vt=clean`, `clawscan=clean`, `static=clean`.
+- `aisa-tavily-search-plugin` stayed static-suspicious after rescan, so the ClawHub plugin payload now uses explicit `--aisa-api-key` arguments instead of JS `process.env` access; `1.0.3` is live clean.
+- `last30days-plugin` was republished as `1.0.4` after the generated manifests began declaring optional `GH_TOKEN` / `GITHUB_TOKEN` and other optional last30days runtime envs; it is live clean.
+- `aisa-twitter-research-engage-relay-plugin@1.0.6` is live clean.
+- `@clawhub/prediction-market-arbitrage` inspect reports `scanStatus=clean`.
+- `@clawhub/aisa-twitter-api` rescan was requested successfully; inspect still reports platform `scanStatus=pending`, not suspicious.
+
 ## Validation
 
 - `scripts/test_github_actions_workflow.py`: passed
 - `scripts/test_clawhub_batch_publish_exit.py`: passed
 - `scripts/test_clawhub_plugin_auth_metadata.py`: passed
 - `scripts/test_twitter_oauth_client_safety.py`: passed
-- `scripts/test_release_layers.py`: structure errors `0`, smoke hard failures `0`, transient external failures `4` in the follow-up run
+- `scripts/test_release_layers.py`: structure errors `0`, smoke hard failures `0`, transient external failures `5` in the latest full run
 
 ## Remaining Watch Items
 

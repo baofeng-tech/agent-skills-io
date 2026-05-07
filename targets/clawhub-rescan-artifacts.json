@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-05-07T16:51:11.988820+00:00",
+  "summary": {
+    "artifacts": 8,
+    "rescan_requested": 5,
+    "republished": 4,
+    "suspicious_remaining": 0,
+    "pending_remaining": 2
+  },
+  "artifacts": [
+    {
+      "key": "skill:twitter-post-aisa",
+      "result": "republished",
+      "latest": "1.0.3",
+      "live": "vt=pending, clawscan=clean, static=clean, suspicious=0",
+      "inspect": "latestVersion=1.0.3, moderation=null"
+    },
+    {
+      "key": "skill:twitter-aisa",
+      "result": "inspect-clean",
+      "latest": "1.0.2",
+      "inspect": "moderation=null"
+    },
+    {
+      "key": "plugin:aisa-perplexity-search-sonar-plugin",
+      "result": "rescan-clean",
+      "live": "vt=clean, clawscan=clean, static=clean"
+    },
+    {
+      "key": "plugin:aisa-tavily-search-plugin",
+      "result": "republished",
+      "latest": "1.0.3",
+      "live": "vt=clean, clawscan=clean, static=clean",
+      "fix": "ClawHub plugin payload now uses explicit --aisa-api-key args instead of JS process.env access."
+    },
+    {
+      "key": "plugin:last30days-plugin",
+      "result": "republished",
+      "latest": "1.0.4",
+      "live": "vt=clean, clawscan=clean, static=clean",
+      "fix": "Manifest now declares optional GitHub credential envs and other optional runtime settings."
+    },
+    {
+      "key": "plugin:aisa-twitter-research-engage-relay-plugin",
+      "result": "republished-clean",
+      "latest": "1.0.6",
+      "live": "vt=clean, clawscan=clean, static=clean"
+    },
+    {
+      "key": "plugin:@clawhub/prediction-market-arbitrage",
+      "result": "inspect-clean",
+      "latest": "1.0.0",
+      "inspect": "scanStatus=clean"
+    },
+    {
+      "key": "plugin:@clawhub/aisa-twitter-api",
+      "result": "rescan-requested-pending",
+      "latest": "1.0.0",
+      "inspect": "scanStatus=pending"
+    }
+  ]
+}
