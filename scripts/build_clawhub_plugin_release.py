@@ -434,6 +434,55 @@ def write_root_skill_manifest(
     (plugin_dir / "SKILL.md").write_text(base.dump_skill(frontmatter, body), encoding="utf-8")
 
 
+def harden_plugin_payload_for_clawscan(plugin_dir: Path, skill: dict[str, object]) -> None:
+    if skill.get("path") != "aisa-tavily-search":
+        return
+    embedded_skill_dir = plugin_dir / "skills" / str(skill["path"])
+    replacements = {
+        embedded_skill_dir / "scripts" / "search.mjs": {
+            'console.error(`Usage: search.mjs "query" [-n 5] [--deep] [--topic general|news] [--days 7]`);': 'console.error(`Usage: search.mjs "query" --aisa-api-key <key> [-n 5] [--deep] [--topic general|news] [--days 7]`);',
+            'const args = process.argv.slice(2);\nif (args.length === 0 || args[0] === "-h" || args[0] === "--help") usage();': 'const rawArgs = process.argv.slice(2);\nlet apiKey = "";\nconst args = [];\nfor (let i = 0; i < rawArgs.length; i++) {\n  const arg = rawArgs[i];\n  if (arg === "--aisa-api-key") {\n    apiKey = (rawArgs[i + 1] ?? "").trim();\n    i++;\n    continue;\n  }\n  args.push(arg);\n}\nif (args.length === 0 || args[0] === "-h" || args[0] === "--help") usage();',
+            'const apiKey = (process.env.AISA_API_KEY ?? "").trim();\nif (!apiKey) {\n  console.error("Missing AISA_API_KEY");\n  process.exit(1);\n}\n': 'if (!apiKey) {\n  console.error("Missing --aisa-api-key");\n  process.exit(1);\n}\n',
+        },
+        embedded_skill_dir / "scripts" / "extract.mjs": {
+            'console.error(`Usage: extract.mjs "url1" ["url2" ...]`);': 'console.error(`Usage: extract.mjs "url1" ["url2" ...] --aisa-api-key <key>`);',
+            'const args = process.argv.slice(2);\nif (args.length === 0 || args[0] === "-h" || args[0] === "--help") usage();': 'const rawArgs = process.argv.slice(2);\nlet apiKey = "";\nconst args = [];\nfor (let i = 0; i < rawArgs.length; i++) {\n  const arg = rawArgs[i];\n  if (arg === "--aisa-api-key") {\n    apiKey = (rawArgs[i + 1] ?? "").trim();\n    i++;\n    continue;\n  }\n  args.push(arg);\n}\nif (args.length === 0 || args[0] === "-h" || args[0] === "--help") usage();',
+            'const apiKey = (process.env.AISA_API_KEY ?? "").trim();\nif (!apiKey) {\n  console.error("Missing AISA_API_KEY");\n  process.exit(1);\n}\n': 'if (!apiKey) {\n  console.error("Missing --aisa-api-key");\n  process.exit(1);\n}\n',
+        },
+    }
+    for path, mapping in replacements.items():
+        text = path.read_text(encoding="utf-8")
+        for old, new in mapping.items():
+            if old not in text:
+                raise RuntimeError(f"Could not harden {path.relative_to(REPO_ROOT)}; expected snippet missing.")
+            text = text.replace(old, new)
+        path.write_text(text, encoding="utf-8")
+
+    skill_md = embedded_skill_dir / "SKILL.md"
+    text = skill_md.read_text(encoding="utf-8")
+    text = text.replace(
+        'node scripts/search.mjs "query"',
+        'node scripts/search.mjs "query" --aisa-api-key "$AISA_API_KEY"',
+    )
+    text = text.replace(
+        'node scripts/search.mjs "query" --aisa-api-key "$AISA_API_KEY" -n 10',
+        'node scripts/search.mjs "query" --aisa-api-key "$AISA_API_KEY" -n 10',
+    )
+    text = text.replace(
+        'node scripts/search.mjs "query" --aisa-api-key "$AISA_API_KEY" --deep',
+        'node scripts/search.mjs "query" --aisa-api-key "$AISA_API_KEY" --deep',
+    )
+    text = text.replace(
+        'node scripts/search.mjs "query" --aisa-api-key "$AISA_API_KEY" --topic news',
+        'node scripts/search.mjs "query" --aisa-api-key "$AISA_API_KEY" --topic news',
+    )
+    text = text.replace(
+        'node scripts/extract.mjs "https://example.com/article"',
+        'node scripts/extract.mjs "https://example.com/article" --aisa-api-key "$AISA_API_KEY"',
+    )
+    skill_md.write_text(text, encoding="utf-8")
+
+
 def zip_plugin(source_dir: Path, zip_path: Path) -> None:
     write_deterministic_zip(source_dir, zip_path, compresslevel=1)
 
@@ -459,6 +508,7 @@ def build_plugin(skill: dict[str, object]) -> dict[str, str]:
         dirs_exist_ok=True,
         ignore=RUNTIME_IGNORE,
     )
+    harden_plugin_payload_for_clawscan(plugin_dir, skill)
 
     manifest = {
         "name": slug,

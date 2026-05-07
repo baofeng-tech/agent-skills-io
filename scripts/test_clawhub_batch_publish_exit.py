@@ -3,7 +3,13 @@
 
 from __future__ import annotations
 
-from publish_clawhub_batch import WorkerResult, batch_exit_code, conflict_fallback_suffix, suffix_publish_name
+from publish_clawhub_batch import (
+    SharedQueue,
+    WorkerResult,
+    batch_exit_code,
+    conflict_fallback_suffix,
+    suffix_publish_name,
+)
 
 
 def main() -> None:
@@ -23,6 +29,9 @@ def main() -> None:
     assert conflict_fallback_suffix(2, "suffix-by-aisa") == "aisa-api"
     assert conflict_fallback_suffix(3, "suffix-by-aisa") == "aisa-one"
     assert suffix_publish_name("stock-dividend-plugin", "aisa") == "stock-dividend-aisa-plugin"
+    queue = SharedQueue([], valid_slots={"token-1"})
+    assert queue.slot_unavailable("token-2")
+    assert not queue.slot_unavailable("token-1")
     print("ClawHub batch publish exit-code checks passed.")
 
 

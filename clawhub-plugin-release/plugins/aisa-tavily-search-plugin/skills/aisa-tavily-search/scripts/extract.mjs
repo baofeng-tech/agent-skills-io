@@ -1,11 +1,22 @@
 #!/usr/bin/env node
 
 function usage() {
-  console.error(`Usage: extract.mjs "url1" ["url2" ...]`);
+  console.error(`Usage: extract.mjs "url1" ["url2" ...] --aisa-api-key <key>`);
   process.exit(2);
 }
 
-const args = process.argv.slice(2);
+const rawArgs = process.argv.slice(2);
+let apiKey = "";
+const args = [];
+for (let i = 0; i < rawArgs.length; i++) {
+  const arg = rawArgs[i];
+  if (arg === "--aisa-api-key") {
+    apiKey = (rawArgs[i + 1] ?? "").trim();
+    i++;
+    continue;
+  }
+  args.push(arg);
+}
 if (args.length === 0 || args[0] === "-h" || args[0] === "--help") usage();
 
 const urls = args.filter(a => !a.startsWith("-"));
@@ -15,9 +26,8 @@ if (urls.length === 0) {
   usage();
 }
 
-const apiKey = (process.env.AISA_API_KEY ?? "").trim();
 if (!apiKey) {
-  console.error("Missing AISA_API_KEY");
+  console.error("Missing --aisa-api-key");
   process.exit(1);
 }
 

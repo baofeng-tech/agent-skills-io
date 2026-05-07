@@ -24,7 +24,13 @@
         "AISA_MODEL",
         "LAST30DAYS_PLANNER_MODEL",
         "AISA_BASE_URL",
-        "XIAOHONGSHU_API_BASE"
+        "XIAOHONGSHU_API_BASE",
+        "LAST30DAYS_REASONING_PROVIDER",
+        "INCLUDE_SOURCES",
+        "LAST30DAYS_X_BACKEND",
+        "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
+        "LAST30DAYS_REDDIT_COMMENTS",
+        "LAST30DAYS_CONFIG_DIR"
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
@@ -69,6 +75,36 @@
         "type": "string",
         "title": "Xiaohongshu Api Base",
         "description": "Optional runtime setting for XIAOHONGSHU_API_BASE."
+      },
+      "LAST30DAYS_REASONING_PROVIDER": {
+        "type": "string",
+        "title": "Last30Days Reasoning Provider",
+        "description": "Optional runtime setting for LAST30DAYS_REASONING_PROVIDER."
+      },
+      "INCLUDE_SOURCES": {
+        "type": "string",
+        "title": "Include Sources",
+        "description": "Optional runtime setting for INCLUDE_SOURCES."
+      },
+      "LAST30DAYS_X_BACKEND": {
+        "type": "string",
+        "title": "Last30Days X Backend",
+        "description": "Optional runtime setting for LAST30DAYS_X_BACKEND."
+      },
+      "LAST30DAYS_YOUTUBE_TRANSCRIPTS": {
+        "type": "string",
+        "title": "Last30Days Youtube Transcripts",
+        "description": "Optional runtime setting for LAST30DAYS_YOUTUBE_TRANSCRIPTS."
+      },
+      "LAST30DAYS_REDDIT_COMMENTS": {
+        "type": "string",
+        "title": "Last30Days Reddit Comments",
+        "description": "Optional runtime setting for LAST30DAYS_REDDIT_COMMENTS."
+      },
+      "LAST30DAYS_CONFIG_DIR": {
+        "type": "string",
+        "title": "Last30Days Config Dir",
+        "description": "Optional runtime setting for LAST30DAYS_CONFIG_DIR."
       }
     },
     "required": [
@@ -88,7 +124,13 @@
       "AISA_MODEL",
       "LAST30DAYS_PLANNER_MODEL",
       "AISA_BASE_URL",
-      "XIAOHONGSHU_API_BASE"
+      "XIAOHONGSHU_API_BASE",
+      "LAST30DAYS_REASONING_PROVIDER",
+      "INCLUDE_SOURCES",
+      "LAST30DAYS_X_BACKEND",
+      "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
+      "LAST30DAYS_REDDIT_COMMENTS",
+      "LAST30DAYS_CONFIG_DIR"
     ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
@@ -112,7 +154,13 @@
     "AISA_MODEL",
     "LAST30DAYS_PLANNER_MODEL",
     "AISA_BASE_URL",
-    "XIAOHONGSHU_API_BASE"
+    "XIAOHONGSHU_API_BASE",
+    "LAST30DAYS_REASONING_PROVIDER",
+    "INCLUDE_SOURCES",
+    "LAST30DAYS_X_BACKEND",
+    "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
+    "LAST30DAYS_REDDIT_COMMENTS",
+    "LAST30DAYS_CONFIG_DIR"
   ],
   "primaryEnv": "AISA_API_KEY",
   "networkTargets": [
@@ -136,7 +184,13 @@
       "AISA_MODEL",
       "LAST30DAYS_PLANNER_MODEL",
       "AISA_BASE_URL",
-      "XIAOHONGSHU_API_BASE"
+      "XIAOHONGSHU_API_BASE",
+      "LAST30DAYS_REASONING_PROVIDER",
+      "INCLUDE_SOURCES",
+      "LAST30DAYS_X_BACKEND",
+      "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
+      "LAST30DAYS_REDDIT_COMMENTS",
+      "LAST30DAYS_CONFIG_DIR"
     ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
@@ -160,7 +214,13 @@
         "AISA_MODEL",
         "LAST30DAYS_PLANNER_MODEL",
         "AISA_BASE_URL",
-        "XIAOHONGSHU_API_BASE"
+        "XIAOHONGSHU_API_BASE",
+        "LAST30DAYS_REASONING_PROVIDER",
+        "INCLUDE_SOURCES",
+        "LAST30DAYS_X_BACKEND",
+        "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
+        "LAST30DAYS_REDDIT_COMMENTS",
+        "LAST30DAYS_CONFIG_DIR"
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [

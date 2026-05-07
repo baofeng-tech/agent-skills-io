@@ -1,7 +1,7 @@
 {
   "name": "last30days-plugin",
   "description": "Requires python3, bash, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `last30days`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "author": {
     "name": "AIsa"
   },
@@ -25,7 +25,16 @@
         "LAST30DAYS_FUN_MODEL",
         "AISA_MODEL",
         "AISA_BASE_URL",
-        "XIAOHONGSHU_API_BASE"
+        "XIAOHONGSHU_API_BASE",
+        "LAST30DAYS_REASONING_PROVIDER",
+        "INCLUDE_SOURCES",
+        "LAST30DAYS_X_BACKEND",
+        "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
+        "LAST30DAYS_REDDIT_COMMENTS",
+        "GH_TOKEN",
+        "GITHUB_TOKEN",
+        "LAST30DAYS_CONFIG_DIR",
+        "LAST30DAYS_DEBUG"
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [
@@ -76,6 +85,51 @@
         "type": "string",
         "title": "Xiaohongshu Api Base",
         "description": "Optional runtime setting for XIAOHONGSHU_API_BASE."
+      },
+      "LAST30DAYS_REASONING_PROVIDER": {
+        "type": "string",
+        "title": "Last30Days Reasoning Provider",
+        "description": "Optional runtime setting for LAST30DAYS_REASONING_PROVIDER."
+      },
+      "INCLUDE_SOURCES": {
+        "type": "string",
+        "title": "Include Sources",
+        "description": "Optional runtime setting for INCLUDE_SOURCES."
+      },
+      "LAST30DAYS_X_BACKEND": {
+        "type": "string",
+        "title": "Last30Days X Backend",
+        "description": "Optional runtime setting for LAST30DAYS_X_BACKEND."
+      },
+      "LAST30DAYS_YOUTUBE_TRANSCRIPTS": {
+        "type": "string",
+        "title": "Last30Days Youtube Transcripts",
+        "description": "Optional runtime setting for LAST30DAYS_YOUTUBE_TRANSCRIPTS."
+      },
+      "LAST30DAYS_REDDIT_COMMENTS": {
+        "type": "string",
+        "title": "Last30Days Reddit Comments",
+        "description": "Optional runtime setting for LAST30DAYS_REDDIT_COMMENTS."
+      },
+      "GH_TOKEN": {
+        "type": "string",
+        "title": "Gh Token",
+        "description": "Optional runtime setting for GH_TOKEN."
+      },
+      "GITHUB_TOKEN": {
+        "type": "string",
+        "title": "Github Token",
+        "description": "Optional runtime setting for GITHUB_TOKEN."
+      },
+      "LAST30DAYS_CONFIG_DIR": {
+        "type": "string",
+        "title": "Last30Days Config Dir",
+        "description": "Optional runtime setting for LAST30DAYS_CONFIG_DIR."
+      },
+      "LAST30DAYS_DEBUG": {
+        "type": "string",
+        "title": "Last30Days Debug",
+        "description": "Optional runtime setting for LAST30DAYS_DEBUG."
       }
     },
     "required": [
@@ -96,7 +150,16 @@
       "LAST30DAYS_FUN_MODEL",
       "AISA_MODEL",
       "AISA_BASE_URL",
-      "XIAOHONGSHU_API_BASE"
+      "XIAOHONGSHU_API_BASE",
+      "LAST30DAYS_REASONING_PROVIDER",
+      "INCLUDE_SOURCES",
+      "LAST30DAYS_X_BACKEND",
+      "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
+      "LAST30DAYS_REDDIT_COMMENTS",
+      "GH_TOKEN",
+      "GITHUB_TOKEN",
+      "LAST30DAYS_CONFIG_DIR",
+      "LAST30DAYS_DEBUG"
     ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
@@ -122,7 +185,16 @@
     "LAST30DAYS_FUN_MODEL",
     "AISA_MODEL",
     "AISA_BASE_URL",
-    "XIAOHONGSHU_API_BASE"
+    "XIAOHONGSHU_API_BASE",
+    "LAST30DAYS_REASONING_PROVIDER",
+    "INCLUDE_SOURCES",
+    "LAST30DAYS_X_BACKEND",
+    "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
+    "LAST30DAYS_REDDIT_COMMENTS",
+    "GH_TOKEN",
+    "GITHUB_TOKEN",
+    "LAST30DAYS_CONFIG_DIR",
+    "LAST30DAYS_DEBUG"
   ],
   "primaryEnv": "AISA_API_KEY",
   "networkTargets": [
@@ -148,7 +220,16 @@
       "LAST30DAYS_FUN_MODEL",
       "AISA_MODEL",
       "AISA_BASE_URL",
-      "XIAOHONGSHU_API_BASE"
+      "XIAOHONGSHU_API_BASE",
+      "LAST30DAYS_REASONING_PROVIDER",
+      "INCLUDE_SOURCES",
+      "LAST30DAYS_X_BACKEND",
+      "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
+      "LAST30DAYS_REDDIT_COMMENTS",
+      "GH_TOKEN",
+      "GITHUB_TOKEN",
+      "LAST30DAYS_CONFIG_DIR",
+      "LAST30DAYS_DEBUG"
     ],
     "primaryEnv": "AISA_API_KEY",
     "networkTargets": [
@@ -174,7 +255,16 @@
         "LAST30DAYS_FUN_MODEL",
         "AISA_MODEL",
         "AISA_BASE_URL",
-        "XIAOHONGSHU_API_BASE"
+        "XIAOHONGSHU_API_BASE",
+        "LAST30DAYS_REASONING_PROVIDER",
+        "INCLUDE_SOURCES",
+        "LAST30DAYS_X_BACKEND",
+        "LAST30DAYS_YOUTUBE_TRANSCRIPTS",
+        "LAST30DAYS_REDDIT_COMMENTS",
+        "GH_TOKEN",
+        "GITHUB_TOKEN",
+        "LAST30DAYS_CONFIG_DIR",
+        "LAST30DAYS_DEBUG"
       ],
       "primaryEnv": "AISA_API_KEY",
       "networkTargets": [

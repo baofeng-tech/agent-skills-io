@@ -1,7 +1,7 @@
 {
   "name": "aisa-tavily-search-plugin",
   "description": "Requires node, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `aisa-tavily-search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "AIsa"
   },

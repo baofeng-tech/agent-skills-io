@@ -77,11 +77,23 @@ def assert_aisa_auth_metadata(plugin_dir: Path) -> None:
     )
 
 
+def assert_tavily_search_plugin_uses_explicit_key() -> None:
+    plugin_dir = PLUGIN_ROOT / "aisa-tavily-search-plugin" / "skills" / "aisa-tavily-search"
+    if not plugin_dir.exists():
+        return
+    for rel_path in ("scripts/search.mjs", "scripts/extract.mjs"):
+        script_path = plugin_dir / rel_path
+        text = script_path.read_text(encoding="utf-8")
+        assert "process.env" not in text, f"{script_path}: ClawHub plugin payload should use explicit api-key args"
+        assert "--aisa-api-key" in text, f"{script_path}: missing explicit --aisa-api-key option"
+
+
 def main() -> None:
     plugin_dirs = sorted(path for path in PLUGIN_ROOT.iterdir() if path.is_dir())
     assert plugin_dirs, "No generated ClawHub plugins found"
     for plugin_dir in plugin_dirs:
         assert_aisa_auth_metadata(plugin_dir)
+    assert_tavily_search_plugin_uses_explicit_key()
     print(f"Validated auth metadata for {len(plugin_dirs)} ClawHub plugin(s).")
 
 

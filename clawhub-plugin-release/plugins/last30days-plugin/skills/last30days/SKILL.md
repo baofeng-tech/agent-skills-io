@@ -2,7 +2,7 @@
 name: last30days
 description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 author: AIsa
-version: 1.0.2
+version: 1.0.4
 license: MIT
 homepage: https://aisa.one
 source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/last30days
@@ -30,6 +30,15 @@ metadata:
     - AISA_MODEL
     - AISA_BASE_URL
     - XIAOHONGSHU_API_BASE
+    - LAST30DAYS_REASONING_PROVIDER
+    - INCLUDE_SOURCES
+    - LAST30DAYS_X_BACKEND
+    - LAST30DAYS_YOUTUBE_TRANSCRIPTS
+    - LAST30DAYS_REDDIT_COMMENTS
+    - GH_TOKEN
+    - GITHUB_TOKEN
+    - LAST30DAYS_CONFIG_DIR
+    - LAST30DAYS_DEBUG
     primaryEnv: AISA_API_KEY
     compatibility:
     - openclaw
@@ -50,6 +59,15 @@ metadata:
     - AISA_MODEL
     - AISA_BASE_URL
     - XIAOHONGSHU_API_BASE
+    - LAST30DAYS_REASONING_PROVIDER
+    - INCLUDE_SOURCES
+    - LAST30DAYS_X_BACKEND
+    - LAST30DAYS_YOUTUBE_TRANSCRIPTS
+    - LAST30DAYS_REDDIT_COMMENTS
+    - GH_TOKEN
+    - GITHUB_TOKEN
+    - LAST30DAYS_CONFIG_DIR
+    - LAST30DAYS_DEBUG
     primaryEnv: AISA_API_KEY
 ---
 

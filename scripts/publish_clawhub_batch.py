@@ -482,10 +482,11 @@ class StateStore:
 
 
 class SharedQueue:
-    def __init__(self, artifacts: list[Artifact]) -> None:
+    def __init__(self, artifacts: list[Artifact], valid_slots: set[str] | None = None) -> None:
         self._items = deque(artifacts)
         self._lock = threading.Lock()
         self._unavailable_slots: set[str] = set()
+        self._valid_slots = set(valid_slots or set())
 
     def pop(self) -> Artifact | None:
         with self._lock:
@@ -509,6 +510,8 @@ class SharedQueue:
 
     def slot_unavailable(self, slot: str) -> bool:
         with self._lock:
+            if self._valid_slots and slot not in self._valid_slots:
+                return True
             return slot in self._unavailable_slots
 
 
@@ -1486,7 +1489,8 @@ def main() -> int:
         return 0
 
     print(f"Resolved {len(pending)} pending artifact(s).", flush=True)
-    queue = SharedQueue(pending)
+    worker_slots = {f"token-{index}" for index, _token in enumerate(tokens, start=1)}
+    queue = SharedQueue(pending, valid_slots=worker_slots)
     workers = [
         Worker(
             slot=f"token-{index}",

@@ -2,7 +2,7 @@
 name: aisa-tavily-search
 description: 'Run web, multi-source, or last-30-days research through AIsa. Use when: the user needs search, synthesis, competitor scans, or trend discovery. Supports research-ready outputs and structured retrieval.'
 author: AIsa
-version: 1.0.2
+version: 1.0.3
 license: Apache-2.0
 homepage: https://aisa.one
 source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/aisa-tavily

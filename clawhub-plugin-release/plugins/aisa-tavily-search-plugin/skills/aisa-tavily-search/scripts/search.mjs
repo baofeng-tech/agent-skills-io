@@ -1,11 +1,22 @@
 #!/usr/bin/env node
 
 function usage() {
-  console.error(`Usage: search.mjs "query" [-n 5] [--deep] [--topic general|news] [--days 7]`);
+  console.error(`Usage: search.mjs "query" --aisa-api-key <key> [-n 5] [--deep] [--topic general|news] [--days 7]`);
   process.exit(2);
 }
 
-const args = process.argv.slice(2);
+const rawArgs = process.argv.slice(2);
+let apiKey = "";
+const args = [];
+for (let i = 0; i < rawArgs.length; i++) {
+  const arg = rawArgs[i];
+  if (arg === "--aisa-api-key") {
+    apiKey = (rawArgs[i + 1] ?? "").trim();
+    i++;
+    continue;
+  }
+  args.push(arg);
+}
 if (args.length === 0 || args[0] === "-h" || args[0] === "--help") usage();
 
 const query = args[0];
@@ -39,9 +50,8 @@ for (let i = 1; i < args.length; i++) {
   usage();
 }
 
-const apiKey = (process.env.AISA_API_KEY ?? "").trim();
 if (!apiKey) {
-  console.error("Missing AISA_API_KEY");
+  console.error("Missing --aisa-api-key");
   process.exit(1);
 }
 
