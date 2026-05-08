@@ -41,10 +41,14 @@ on:
         default: true
         type: boolean
       run_self_hosted_publish:
-        description: "Also run the optional self-hosted publish lane"
+        description: "Publish continuation mode after hosted validation"
         required: false
-        default: false
-        type: boolean
+        default: auto
+        type: choice
+        options:
+          - auto
+          - "true"
+          - "false"
       sync_adjacent_repos:
         description: "In self-hosted mode, sync downstream GitHub publish repos"
         required: false
@@ -104,10 +108,14 @@ on:
         default: true
         type: boolean
       run_suspicious_repair:
-        description: "After diagnosis, remediate matching suspicious artifacts and republish them"
+        description: "Suspicious remediation continuation mode after diagnosis"
         required: false
-        default: false
-        type: boolean
+        default: auto
+        type: choice
+        options:
+          - auto
+          - "true"
+          - "false"
       suspicious_artifacts:
         description: "Optional comma-separated ClawHub-owned artifact keys to target"
         required: false
@@ -124,10 +132,14 @@ on:
         default: "180"
         type: string
       run_breakout_rollout:
-        description: "Run the dedicated breakout rollout lane"
+        description: "Breakout rollout continuation mode"
         required: false
-        default: false
-        type: boolean
+        default: auto
+        type: choice
+        options:
+          - auto
+          - "true"
+          - "false"
       breakout_skills:
         description: "Optional comma-separated source skill names for breakout rollout"
         required: false
@@ -163,6 +175,14 @@ jobs:
   sync-build-test:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    outputs:
+      publish_requested: ${{ steps.continuation.outputs.publish_requested }}
+      suspicious_requested: ${{ steps.continuation.outputs.suspicious_requested }}
+      breakout_requested: ${{ steps.continuation.outputs.breakout_requested }}
+      any_requested: ${{ steps.continuation.outputs.any_requested }}
+      publish_reason: ${{ steps.continuation.outputs.publish_reason }}
+      suspicious_reason: ${{ steps.continuation.outputs.suspicious_reason }}
+      breakout_reason: ${{ steps.continuation.outputs.breakout_reason }}
     env:
       PIPELINE_SELECTION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.selection || vars.AUTO_PIPELINE_SELECTION || 'changed' }}
       PIPELINE_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skills || '' }}
@@ -299,6 +319,23 @@ jobs:
             exit "${status}"
           fi
 
+      - name: Plan continuation lanes
+        if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' }}
+        id: continuation
+        shell: bash
+        env:
+          CONTINUATION_PUBLISH_MODE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish || vars.AUTO_FULL_PLATFORM_PUBLISH || 'auto' }}
+          CONTINUATION_SUSPICIOUS_MODE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'auto' }}
+          CONTINUATION_BREAKOUT_MODE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_breakout_rollout || vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'auto' }}
+          CONTINUATION_OWNER_HANDLES: ${{ vars.AUTO_CLAWHUB_OWNER_HANDLES || 'baofeng-tech,bibaofeng,aisadocs' }}
+        run: |
+          set -euo pipefail
+          python3 scripts/plan_workflow_continuation.py \
+            --publish-mode "${CONTINUATION_PUBLISH_MODE:-auto}" \
+            --suspicious-mode "${CONTINUATION_SUSPICIOUS_MODE:-auto}" \
+            --breakout-mode "${CONTINUATION_BREAKOUT_MODE:-auto}" \
+            --owner-handles "${CONTINUATION_OWNER_HANDLES:-baofeng-tech,bibaofeng,aisadocs}"
+
       - name: Commit regenerated outputs
         if: ${{ success() && env.PIPELINE_DRY_RUN != 'true' }}
         shell: bash
@@ -358,6 +395,8 @@ jobs:
       breakout_requested: ${{ steps.runner.outputs.breakout_requested }}
       any_requested: ${{ steps.runner.outputs.any_requested }}
       can_queue: ${{ steps.runner.outputs.can_queue }}
+      runs_on_json: ${{ steps.runner.outputs.runs_on_json }}
+      hosted_fallback: ${{ steps.runner.outputs.hosted_fallback }}
       reason: ${{ steps.runner.outputs.reason }}
     steps:
       - name: Check self-hosted runner availability
@@ -368,14 +407,15 @@ jobs:
           RUNNER_API_TOKEN: ${{ secrets.SELF_HOSTED_RUNNER_API_TOKEN || secrets.DOWNSTREAM_REPO_TOKEN || github.token }}
           REPO: ${{ github.repository }}
           EVENT_NAME: ${{ github.event_name }}
-          INPUT_RUN_SELF_HOSTED_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish || 'false' }}
-          INPUT_RUN_SUSPICIOUS_REPAIR: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || 'false' }}
-          INPUT_RUN_BREAKOUT_ROLLOUT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_breakout_rollout || 'false' }}
+          PLANNED_PUBLISH_REQUESTED: ${{ needs.sync-build-test.outputs.publish_requested || 'false' }}
+          PLANNED_SUSPICIOUS_REQUESTED: ${{ needs.sync-build-test.outputs.suspicious_requested || 'false' }}
+          PLANNED_BREAKOUT_REQUESTED: ${{ needs.sync-build-test.outputs.breakout_requested || 'false' }}
+          PLANNED_PUBLISH_REASON: ${{ needs.sync-build-test.outputs.publish_reason || 'not planned' }}
+          PLANNED_SUSPICIOUS_REASON: ${{ needs.sync-build-test.outputs.suspicious_reason || 'not planned' }}
+          PLANNED_BREAKOUT_REASON: ${{ needs.sync-build-test.outputs.breakout_reason || 'not planned' }}
           INPUT_FORCE_SELF_HOSTED_QUEUE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_self_hosted_queue || 'false' }}
-          AUTO_FULL_PLATFORM_PUBLISH: ${{ vars.AUTO_FULL_PLATFORM_PUBLISH || 'false' }}
-          AUTO_RUN_SUSPICIOUS_REPAIR: ${{ vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'false' }}
-          AUTO_RUN_BREAKOUT_ROLLOUT: ${{ vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'false' }}
           AUTO_FORCE_SELF_HOSTED_QUEUE: ${{ vars.AUTO_FORCE_SELF_HOSTED_QUEUE || 'false' }}
+          AUTO_ALLOW_HOSTED_CONTINUATION: ${{ vars.AUTO_ALLOW_HOSTED_CONTINUATION || 'true' }}
           SELF_HOSTED_RUNNER_RUNS_ON_JSON: ${{ vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]' }}
         run: |
           set -euo pipefail
@@ -387,17 +427,16 @@ jobs:
             esac
           }
 
+          publish_requested="$(bool "${PLANNED_PUBLISH_REQUESTED:-false}")"
+          suspicious_requested="$(bool "${PLANNED_SUSPICIOUS_REQUESTED:-false}")"
+          breakout_requested="$(bool "${PLANNED_BREAKOUT_REQUESTED:-false}")"
+
           if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
-            publish_requested="$(bool "${INPUT_RUN_SELF_HOSTED_PUBLISH}")"
-            suspicious_requested="$(bool "${INPUT_RUN_SUSPICIOUS_REPAIR}")"
-            breakout_requested="$(bool "${INPUT_RUN_BREAKOUT_ROLLOUT}")"
             force_queue="$(bool "${INPUT_FORCE_SELF_HOSTED_QUEUE}")"
           else
-            publish_requested="$(bool "${AUTO_FULL_PLATFORM_PUBLISH}")"
-            suspicious_requested="$(bool "${AUTO_RUN_SUSPICIOUS_REPAIR}")"
-            breakout_requested="$(bool "${AUTO_RUN_BREAKOUT_ROLLOUT}")"
             force_queue="$(bool "${AUTO_FORCE_SELF_HOSTED_QUEUE}")"
           fi
+          allow_hosted_continuation="$(bool "${AUTO_ALLOW_HOSTED_CONTINUATION}")"
 
           any_requested="false"
           if [[ "${publish_requested}" == "true" || "${suspicious_requested}" == "true" || "${breakout_requested}" == "true" ]]; then
@@ -405,6 +444,8 @@ jobs:
           fi
 
           can_queue="false"
+          runs_on_json="${SELF_HOSTED_RUNNER_RUNS_ON_JSON}"
+          hosted_fallback="false"
           reason="no self-hosted lane requested"
           matched_runner=""
 
@@ -598,6 +639,13 @@ jobs:
                 fi
               fi
             fi
+
+            if [[ "${can_queue}" != "true" && "${allow_hosted_continuation}" == "true" ]]; then
+              can_queue="true"
+              hosted_fallback="true"
+              runs_on_json='["ubuntu-latest"]'
+              reason="${reason}; using GitHub-hosted continuation fallback because no matching self-hosted runner is online"
+            fi
           fi
 
           {
@@ -606,6 +654,8 @@ jobs:
             echo "breakout_requested=${breakout_requested}"
             echo "any_requested=${any_requested}"
             echo "can_queue=${can_queue}"
+            echo "runs_on_json=${runs_on_json}"
+            echo "hosted_fallback=${hosted_fallback}"
             echo "reason=${reason}"
           } >> "${GITHUB_OUTPUT}"
 
@@ -613,9 +663,14 @@ jobs:
             echo "### Self-hosted preflight"
             echo ""
             echo "- Publish lane requested: \`${publish_requested}\`"
+            echo "- Publish reason: ${PLANNED_PUBLISH_REASON}"
             echo "- Suspicious repair requested: \`${suspicious_requested}\`"
+            echo "- Suspicious reason: ${PLANNED_SUSPICIOUS_REASON}"
             echo "- Breakout rollout requested: \`${breakout_requested}\`"
+            echo "- Breakout reason: ${PLANNED_BREAKOUT_REASON}"
             echo "- Can queue self-hosted jobs: \`${can_queue}\`"
+            echo "- Hosted continuation fallback: \`${hosted_fallback}\`"
+            echo "- Runs on: \`${runs_on_json}\`"
             echo "- Runner labels: \`${SELF_HOSTED_RUNNER_RUNS_ON_JSON}\`"
             echo "- Reason: ${reason}"
             if [[ -n "${matched_runner}" ]]; then
@@ -639,7 +694,7 @@ jobs:
     needs:
       - sync-build-test
       - self-hosted-preflight
-    runs-on: ${{ fromJSON(vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]') }}
+    runs-on: ${{ fromJSON(needs['self-hosted-preflight'].outputs.runs_on_json || '["self-hosted"]') }}
     timeout-minutes: 360
     concurrency:
       group: unified-skill-pipeline-self-hosted-publish-${{ github.ref }}
@@ -1041,7 +1096,7 @@ jobs:
       - sync-build-test
       - self-hosted-preflight
       - self-hosted-publish
-    runs-on: ${{ fromJSON(vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]') }}
+    runs-on: ${{ fromJSON(needs['self-hosted-preflight'].outputs.runs_on_json || '["self-hosted"]') }}
     timeout-minutes: 300
     concurrency:
       group: unified-skill-pipeline-self-hosted-suspicious-${{ github.ref }}
@@ -1428,7 +1483,7 @@ jobs:
       - self-hosted-preflight
       - self-hosted-publish
       - self-hosted-suspicious-repair
-    runs-on: ${{ fromJSON(vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]') }}
+    runs-on: ${{ fromJSON(needs['self-hosted-preflight'].outputs.runs_on_json || '["self-hosted"]') }}
     timeout-minutes: 300
     concurrency:
       group: unified-skill-pipeline-self-hosted-breakout-${{ github.ref }}

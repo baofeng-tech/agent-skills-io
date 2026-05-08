@@ -674,14 +674,33 @@ def main() -> int:
             return 0
 
         summary.completed_at = iso_now()
-        if not state_path.exists():
+        last_run = state.get("last_run") if isinstance(state.get("last_run"), dict) else {}
+        state_needs_no_change_refresh = (
+            not state_path.exists()
+            or state.get("last_synced_commit") != upstream_head
+            or state.get("last_detected_commit") != upstream_head
+            or any(
+                last_run.get(field)
+                for field in (
+                    "planned_skills",
+                    "synced_skills",
+                    "created_skills",
+                    "skipped_skills",
+                    "llm_steps",
+                    "diagnosis_steps",
+                    "publish_steps",
+                )
+            )
+        )
+        if not args.dry_run and state_needs_no_change_refresh:
             write_state(
                 state_path,
                 {
                     **state,
-                    "last_synced_commit": previous_commit,
+                    "last_synced_commit": upstream_head,
                     "last_run": asdict(summary),
                     "last_detected_commit": upstream_head,
+                    "pending_manual_review": state.get("pending_manual_review", []),
                 },
             )
         return 0

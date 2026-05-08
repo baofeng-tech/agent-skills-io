@@ -2,7 +2,7 @@
   "summary": {
     "structure_error_count": 0,
     "smoke_failure_count": 0,
-    "smoke_transient_count": 2
+    "smoke_transient_count": 3
   },
   "structure": {
     "claude_errors": [],
@@ -17,7 +17,7 @@
       "layer": "claude",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -28,14 +28,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHyNIuEXwMUKAAIcfIwOidqwmQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcfI1kMcAnEAoABhx8jWQxv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/14798",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHy-wqEWgPcKAAIcfL2pmheBjwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcfL7MpAAnEAoABhx8vsyj_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/20446",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
@@ -44,14 +44,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 2,\n      \"subscribers\": 1950000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1950000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -62,14 +62,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Jlr3FkYwFgHxNzVOX2H4nw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"iN5inFmVcADqz7pz6xGOEQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -79,14 +79,14 @@
       "code": 1,
       "status": "transient",
       "application_error": true,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"The read operation timed out\"\n  }\n}\n",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"UPSTREAM_NON_JSON\",\n    \"message\": \"Upstream returned a non-JSON response: error code: 504\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "llm-router",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/llm_router_client.py",
         "models"
       ],
@@ -128,7 +128,7 @@
       "layer": "hermes",
       "path": "communication/aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/twitter_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -141,14 +141,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHyNhsTW0UUKAAIcfIxb0FtBdQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcfI2o44AnEAoABhx8jajjf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"\",\n        \"createdAt\": \"Sat Nov 05 23:01:",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHy_CbHXMCMKAAIcfL4csJpAEQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcfL8Uz0AnEAoABhx8vxTPP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/44026",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "research/aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/youtube_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -166,7 +166,7 @@
       "layer": "hermes",
       "path": "research/search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/search_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -179,14 +179,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"9rWmMiINyEi4XECxNcStkw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"JmetV-Uy9RM2zMdzPLnpww\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "finance/prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/prediction_market_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -195,17 +195,17 @@
         "--limit",
         "1"
       ],
-      "code": 0,
-      "status": "passed",
-      "application_error": false,
-      "stdout_preview": "{\n  \"markets\": [\n    {\n      \"close_time\": null,\n      \"completed_time\": null,\n      \"condition_id\": \"0x56210c25d6328f07b069c224426ce8331ea3f8ab1928487596fdfba74c2ff4db\",\n      \"description\": \"This market will resolve to \\\"Up\\\" if the Ethereum price at the end of the time range specified in the title is greater than or equal to the price at the beginning of that range. Otherwise, it will resolve t",
+      "code": 1,
+      "status": "transient",
+      "application_error": true,
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"UPSTREAM_NON_JSON\",\n    \"message\": \"Upstream returned a non-JSON response: error code: 504\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "ai/llm-router",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/llm_router_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -235,7 +235,7 @@
       "layer": "clawhub",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -246,14 +246,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHyNvlzbEOsKAAIcfIyHh1thggAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcfI3JiQAnEAoABhx8jcmI_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/21593",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHHy_UTpXMUMKAAIcfL6mENeg4QAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcfL9fNMAnEAoABhx8v180v9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/14372",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
@@ -269,7 +269,7 @@
       "layer": "clawhub",
       "path": "search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -280,14 +280,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"QCiWr5NXClQVR00nbfM_fQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"4N31-JiwqdQIEhy7-_1REA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
+        "/usr/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -297,7 +297,7 @@
       "code": 1,
       "status": "transient",
       "application_error": true,
-      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"NETWORK_ERROR\",\n    \"message\": \"The read operation timed out\"\n  }\n}\n",
+      "stdout_preview": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"UPSTREAM_NON_JSON\",\n    \"message\": \"Upstream returned a non-JSON response: error code: 504\"\n  }\n}\n",
       "stderr_preview": ""
     },
     {

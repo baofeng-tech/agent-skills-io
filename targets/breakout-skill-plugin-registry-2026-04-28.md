@@ -32,6 +32,21 @@ breakout slug 和 owner-conflict fallback slug 不是一回事：
   - live owner: `aisadocs`
   - 规则：plugin fallback slug 跟随同名 skill 的 fallback slug，而不是各自独立乱跳
 
+2026-05-08 breakout 续推后新增确认的 AIsa 后缀 fallback：
+
+- source key: `plugin:aisa-twitter-api-command-center-plugin`
+  - live slug: `aisa-twitter-api-command-center-aisa-api-plugin`
+  - live publisher: `bibaofeng`
+- source key: `skill:aisa-twitter-research-engage-relay`
+  - live slug: `aisa-twitter-research-engage-relay-aisa-api`
+  - live owner: `bibaofeng`
+- source key: `plugin:aisa-twitter-research-engage-relay-plugin`
+  - live slug: `aisa-twitter-research-engage-relay-aisa-api-plugin`
+  - live publisher: `bibaofeng`
+- source key: `skill:twitter-post-aisa`
+  - live slug: `twitter-post-aisa-aisa-one`
+  - live owner: `aisadocs`
+
 当前工作结论：
 
 1. 如果拿不到旧 slug 的原 owner token，就正式接受 fallback slug 作为当前 live 事实，但新命名优先使用 AIsa 后缀。
@@ -54,13 +69,15 @@ breakout slug 和 owner-conflict fallback slug 不是一回事：
 - breakout slug: `aisa-twitter-api-command-center`
 - 发布层目录：`clawhub-release/aisa-twitter-api-command-center`
 - 当前 live 状态：`clean`
-- 当前 live skill owner：`AIsa`
+- 当前 live skill slug：`aisa-twitter-api-command-center`
+- 当前 live skill owner：`aisadocs`
 
 ### ClawHub breakout plugin
 
 - plugin slug: `aisa-twitter-api-command-center-plugin`
 - 发布层目录：`clawhub-plugin-release/plugins/aisa-twitter-api-command-center-plugin`
 - 当前 live 状态：`clean`
+- 当前 live plugin slug：`aisa-twitter-api-command-center-aisa-api-plugin`
 - 当前 live plugin publisher：`bibaofeng`
 
 ### 对照的旧原版
@@ -80,13 +97,15 @@ breakout slug 和 owner-conflict fallback slug 不是一回事：
 - breakout slug: `aisa-twitter-research-engage-relay`
 - 发布层目录：`clawhub-release/aisa-twitter-research-engage-relay`
 - 当前 live 状态：`clean`
-- 当前 live skill owner：`baofeng-tech`
+- 当前 live skill slug：`aisa-twitter-research-engage-relay-aisa-api`
+- 当前 live skill owner：`bibaofeng`
 
 ### ClawHub breakout plugin
 
 - plugin slug: `aisa-twitter-research-engage-relay-plugin`
 - 发布层目录：`clawhub-plugin-release/plugins/aisa-twitter-research-engage-relay-plugin`
 - 当前 live 状态：`clean`
+- 当前 live plugin slug：`aisa-twitter-research-engage-relay-aisa-api-plugin`
 - 当前 live plugin publisher：`bibaofeng`
 
 ### 对照的旧原版
@@ -101,6 +120,11 @@ breakout slug 和 owner-conflict fallback slug 不是一回事：
 - plugin slug: `twitter-post-aisa-plugin`
 - 发布层目录：`clawhub-plugin-release/plugins/twitter-post-aisa-plugin`
 - 当前 live skill 状态：`clean`
+- 当前 live skill slug：`twitter-post-aisa-aisa-one`
+- 当前 live skill owner：`aisadocs`
+- 当前 live plugin 状态：`clean`
+- 当前 live plugin slug：`twitter-post-aisa-plugin`
+- 当前 live plugin publisher：`bibaofeng`
 - 当前用途：保留原 URL/原 slug 的发帖后跟进增长位，不替代 `aisa-twitter-engagement-suite` 母版
 
 ## 3. `aisa-tavily` 家族
@@ -115,12 +139,14 @@ breakout slug 和 owner-conflict fallback slug 不是一回事：
 - breakout slug: `aisa-tavily-search`
 - 发布层目录：`clawhub-release/aisa-tavily-search`
 - 当前 live 状态：`clean`
+- 当前 live skill owner：`bibaofeng`
 
 ### ClawHub breakout plugin
 
 - plugin slug: `aisa-tavily-search-plugin`
 - 发布层目录：`clawhub-plugin-release/plugins/aisa-tavily-search-plugin`
 - 当前 live 状态：`clean`
+- 当前 live plugin publisher：`bibaofeng`
 
 ## 当前判断
 

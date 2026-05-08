@@ -1,21 +1,30 @@
 {
   "summary": {
-    "artifacts": 3,
-    "requested": 1,
-    "already_in_progress": 1,
-    "limit_reached": 1,
+    "artifacts": 2,
+    "requested": 2,
+    "already_in_progress": 0,
+    "limit_reached": 0,
     "failed": 0
   },
   "artifacts": [
     {
-      "key": "skill:twitter-aisa",
+      "key": "skill:aisa-twitter-research-engage-relay-aisa-api",
       "kind": "skill",
-      "name": "twitter-aisa",
+      "name": "aisa-twitter-research-engage-relay-aisa-api",
       "rescan": {
-        "status": "limit_reached",
+        "status": "requested",
         "token_slot": "token-2",
-        "message": "- Requesting skill rescan for twitter-aisa\n✖ Uncaught ConvexError: Rescan request limit reached for this release (3)\n    at assertCanRequestRescan (../../convex/model/rescans/policy.ts:130:6)\n    at async handler (../../convex/skills.ts:5231:6)\n    at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27)\n (remaining: 2999/3000, reset in 11s)\nError: Uncaught ConvexError: Rescan request limit reached for this release (3)\n    at assertCanRequestRescan (../../convex/model/rescans/policy.ts:130:6)\n    at async handler (../../convex/skills.ts:5231:6)\n    at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27)\n (remaining: 2999/3000, reset in 11s)",
-        "response": null,
+        "message": "rescan requested",
+        "response": {
+          "maxRequests": 3,
+          "name": "aisa-twitter-research-engage-relay-aisa-api",
+          "ok": true,
+          "pendingRequestId": "sd79kczy43tngyywtch1cdveyh86b049",
+          "remainingRequests": 2,
+          "status": "in_progress",
+          "targetKind": "skill",
+          "version": "1.0.6"
+        },
         "actor": "",
         "auth_attempts_before_success": 1
       },
@@ -25,51 +34,31 @@
       }
     },
     {
-      "key": "plugin:last30days-slot2-plugin",
+      "key": "plugin:aisa-twitter-research-engage-relay-aisa-api-plugin",
       "kind": "plugin",
-      "name": "last30days-slot2-plugin",
-      "rescan": {
-        "status": "already_in_progress",
-        "token_slot": "token-2",
-        "message": "- Requesting package rescan for last30days-slot2-plugin\n✖ Uncaught ConvexError: A rescan request is already in progress for this release\n    at assertCanRequestRescan (../../convex/model/rescans/policy.ts:127:27)\n    at async handler (../convex/packages.ts:5014:6)\n    at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27)\n (remaining: 2999/3000, reset in 33s)\nError: Uncaught ConvexError: A rescan request is already in progress for this release\n    at assertCanRequestRescan (../../convex/model/rescans/policy.ts:127:27)\n    at async handler (../convex/packages.ts:5014:6)\n    at async handler (../../node_modules/convex-helpers/server/customFunctions.js:268:27)\n (remaining: 2999/3000, reset in 33s)",
-        "response": null,
-        "actor": "",
-        "auth_attempts_before_success": 1
-      },
-      "post_rescan_inspect": {
-        "status": "pending",
-        "raw": {
-          "scanStatus": "pending",
-          "latestVersion": "1.0.1"
-        }
-      }
-    },
-    {
-      "key": "plugin:@clawhub/aisa-twitter-api",
-      "kind": "plugin",
-      "name": "@clawhub/aisa-twitter-api",
+      "name": "aisa-twitter-research-engage-relay-aisa-api-plugin",
       "rescan": {
         "status": "requested",
         "token_slot": "token-2",
         "message": "rescan requested",
         "response": {
           "maxRequests": 3,
-          "name": "@clawhub/aisa-twitter-api",
+          "name": "aisa-twitter-research-engage-relay-aisa-api-plugin",
           "ok": true,
-          "pendingRequestId": "sd7dzgxegs9r2js04jjtsrv0n1868ghp",
-          "remainingRequests": 0,
+          "pendingRequestId": "sd7b8kkqhtwzm05mas3nd8k5k586bkzf",
+          "remainingRequests": 2,
           "status": "in_progress",
           "targetKind": "package",
-          "version": "1.0.0"
+          "version": "1.0.6"
         },
         "actor": "",
         "auth_attempts_before_success": 1
       },
       "post_rescan_inspect": {
-        "status": "pending",
+        "status": "clean",
         "raw": {
-          "scanStatus": "pending",
-          "latestVersion": "1.0.0"
+          "scanStatus": "clean",
+          "latestVersion": "1.0.6"
         }
       }
     }

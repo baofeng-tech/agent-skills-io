@@ -82,7 +82,7 @@ Important CI values:
 
 For `baofeng-tech/agent-skills-io`, the owner is a GitHub `User`, not an organization. Repository runner discovery is the relevant API path; organization runner fallback is skipped unless `GET /users/{owner}` returns `Organization`.
 
-Scheduled self-hosted publish, suspicious repair, and breakout rollout are opt-in. Keep `AUTO_FULL_PLATFORM_PUBLISH`, `AUTO_RUN_SUSPICIOUS_REPAIR`, and `AUTO_RUN_BREAKOUT_ROLLOUT` false until `GET /repos/baofeng-tech/agent-skills-io/actions/runners` shows an online runner matching `SELF_HOSTED_RUNNER_RUNS_ON_JSON`.
+Scheduled publish, suspicious repair, and breakout rollout default to `auto` planning. The hosted lane requests continuation only when upstream/release changes, owned suspicious blockers, or breakout live drift create real work.
 
 Fine-grained PAT guidance:
 
@@ -109,7 +109,7 @@ gh api repos/baofeng-tech/agent-skills-io/actions/runners \
   --jq '{total_count, runners: [.runners[]? | {name,status,busy,labels:[.labels[].name]}]}'
 ```
 
-Keep `AUTO_FULL_PLATFORM_PUBLISH`, `AUTO_RUN_SUSPICIOUS_REPAIR`, and `AUTO_RUN_BREAKOUT_ROLLOUT` false while `total_count=0` or no online runner matches `SELF_HOSTED_RUNNER_RUNS_ON_JSON`.
+When `total_count=0` or no online runner matches `SELF_HOSTED_RUNNER_RUNS_ON_JSON`, continuation lanes use GitHub-hosted fallback if `AUTO_ALLOW_HOSTED_CONTINUATION=true`; otherwise requested lanes fail fast with a preflight summary.
 
 ## ClawHub Repair Loop
 

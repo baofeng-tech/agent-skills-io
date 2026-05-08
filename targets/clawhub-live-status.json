@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-05-08T08:52:22.254974+00:00",
+  "generated_at": "2026-05-08T12:43:05.542232+00:00",
   "summary": {
-    "total": 118,
+    "total": 120,
     "suspicious": 11,
     "pending": 1,
-    "resolved_urls": 118
+    "resolved_urls": 120
   },
   "artifacts": [
     {
@@ -239,16 +239,16 @@
       "suspicious_reason": "This skill appears to do what it claims: it uses an AISA API key to send search and extraction requests to AIsa's API.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-08T08:48:02.482945+00:00"
+      "checked_at": "2026-05-08T12:37:01.410395+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-command-center-plugin",
       "kind": "plugin",
-      "name": "aisa-twitter-api-command-center-plugin",
+      "name": "aisa-twitter-api-command-center-aisa-api-plugin",
       "requested_name": "aisa-twitter-api-command-center-plugin",
       "version": "1.0.3",
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-api-command-center-plugin",
-      "resolved_slug": "aisa-twitter-api-command-center-plugin",
+      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-api-command-center-aisa-api-plugin",
+      "resolved_slug": "aisa-twitter-api-command-center-aisa-api-plugin",
       "page_found": true,
       "fetch_mode": "http",
       "scan_status": "clean",
@@ -262,10 +262,10 @@
       "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
       "publisher_handle": "bibaofeng",
       "suspicious": false,
-      "suspicious_reason": "The available files mostly match the claimed Twitter/X research and posting relay, requesting only an AIsa API key, but the registry metadata and truncated code view leave a few things to verify.",
+      "suspicious_reason": "This skill appears to do what it claims—use an AIsa API key and Python scripts for Twitter/X research and posting—though its registry requirement summary under-reports the API key and Python dependency.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-08T08:48:09.490795+00:00"
+      "checked_at": "2026-05-08T12:37:06.730480+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-plugin",
@@ -428,11 +428,11 @@
     {
       "key": "plugin:aisa-twitter-research-engage-relay-plugin",
       "kind": "plugin",
-      "name": "aisa-twitter-research-engage-relay-plugin",
+      "name": "aisa-twitter-research-engage-relay-aisa-api-plugin",
       "requested_name": "aisa-twitter-research-engage-relay-plugin",
       "version": "1.0.6",
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-research-engage-relay-plugin",
-      "resolved_slug": "aisa-twitter-research-engage-relay-plugin",
+      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-research-engage-relay-aisa-api-plugin",
+      "resolved_slug": "aisa-twitter-research-engage-relay-aisa-api-plugin",
       "page_found": true,
       "fetch_mode": "http",
       "scan_status": "clean",
@@ -446,10 +446,10 @@
       "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
       "publisher_handle": "bibaofeng",
       "suspicious": false,
-      "suspicious_reason": "This appears to be a Twitter/X relay skill that uses a single AIsa API key for the stated Twitter research, engagement, and posting workflows.",
+      "suspicious_reason": "This appears to be what it claims: a Twitter/X relay skill that uses an AIsa API key, though installing it means trusting AIsa with Twitter engagement, posting, and any attached media you send.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-08T08:48:32.981692+00:00"
+      "checked_at": "2026-05-08T12:43:01.450507+00:00"
     },
     {
       "key": "plugin:aisa-youtube-search-plugin",
@@ -1518,6 +1518,32 @@
       "checked_at": "2026-05-08T08:50:47.099981+00:00"
     },
     {
+      "key": "plugin:twitter-post-aisa-plugin",
+      "kind": "plugin",
+      "name": "twitter-post-aisa-plugin",
+      "requested_name": "twitter-post-aisa-plugin",
+      "version": "1.0.3",
+      "detail_url": "https://clawhub.ai/plugins/twitter-post-aisa-plugin",
+      "resolved_slug": "twitter-post-aisa-plugin",
+      "page_found": true,
+      "fetch_mode": "http",
+      "scan_status": "clean",
+      "virus_total": "clean",
+      "virus_total_report_url": null,
+      "clawscan_verdict": "clean",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "clean",
+      "openclaw_confidence": null,
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+      "publisher_handle": "aisadocs",
+      "suspicious": false,
+      "suspicious_reason": "This appears to be a Twitter/X posting and engagement skill that uses one AIsa API key and the documented AIsa API endpoint, with no unrelated credential requests or install steps visible.",
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-05-08T12:37:22.422970+00:00"
+    },
+    {
       "key": "plugin:us-stock-analyst-plugin",
       "kind": "plugin",
       "name": "us-stock-analyst-plugin",
@@ -1886,7 +1912,7 @@
       "kind": "skill",
       "name": "aisa-tavily-search",
       "requested_name": "aisa-tavily-search",
-      "version": "1.0.0",
+      "version": "1.0.3",
       "detail_url": "https://clawhub.ai/bibaofeng/aisa-tavily-search",
       "resolved_slug": "aisa-tavily-search",
       "page_found": true,
@@ -1896,16 +1922,16 @@
       "virus_total_report_url": null,
       "clawscan_verdict": "clean",
       "clawscan_confidence": null,
-      "openclaw_verdict": "clean",
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "bibaofeng",
       "suspicious": false,
-      "suspicious_reason": "The skill's code, instructions, and required environment variable (AISA_API_KEY) are coherent with its stated purpose of querying the AIsa search API and producing multi-source research outputs.",
+      "suspicious_reason": "No artifact-backed evidence of goal hijacking, unsafe automatic execution, deceptive behavior, or persistence was found.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-08T08:51:21.527060+00:00"
+      "checked_at": "2026-05-08T12:37:25.258759+00:00"
     },
     {
       "key": "skill:aisa-twitter",
@@ -1932,6 +1958,32 @@
       "pending": false,
       "warnings": [],
       "checked_at": "2026-05-08T08:51:22.933884+00:00"
+    },
+    {
+      "key": "skill:aisa-twitter-api-command-center",
+      "kind": "skill",
+      "name": "aisa-twitter-api-command-center",
+      "requested_name": "aisa-twitter-api-command-center",
+      "version": "1.0.3",
+      "detail_url": "https://clawhub.ai/aisadocs/aisa-twitter-api-command-center",
+      "resolved_slug": "aisa-twitter-api-command-center",
+      "page_found": true,
+      "fetch_mode": "http",
+      "scan_status": "clean",
+      "virus_total": "clean",
+      "virus_total_report_url": null,
+      "clawscan_verdict": "clean",
+      "clawscan_confidence": null,
+      "openclaw_verdict": "benign",
+      "openclaw_confidence": null,
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "publisher_handle": "aisadocs",
+      "suspicious": false,
+      "suspicious_reason": "The skill can publish public Twitter/X content, but the artifacts frame posting as user-intended and approved.",
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-05-08T12:37:35.731388+00:00"
     },
     {
       "key": "skill:aisa-twitter-research-engage",
@@ -1962,11 +2014,11 @@
     {
       "key": "skill:aisa-twitter-research-engage-relay",
       "kind": "skill",
-      "name": "aisa-twitter-research-engage-relay",
+      "name": "aisa-twitter-research-engage-relay-aisa-api",
       "requested_name": "aisa-twitter-research-engage-relay",
       "version": "1.0.6",
-      "detail_url": "https://clawhub.ai/baofeng-tech/aisa-twitter-research-engage-relay",
-      "resolved_slug": "aisa-twitter-research-engage-relay",
+      "detail_url": "https://clawhub.ai/bibaofeng/aisa-twitter-research-engage-relay-aisa-api",
+      "resolved_slug": "aisa-twitter-research-engage-relay-aisa-api",
       "page_found": true,
       "fetch_mode": "http",
       "scan_status": "clean",
@@ -1974,16 +2026,16 @@
       "virus_total_report_url": null,
       "clawscan_verdict": "clean",
       "clawscan_confidence": null,
-      "openclaw_verdict": "clean",
+      "openclaw_verdict": "benign",
       "openclaw_confidence": null,
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
-      "publisher_handle": "baofeng-tech",
+      "publisher_handle": "bibaofeng",
       "suspicious": false,
-      "suspicious_reason": "The skill's code, instructions, and requested secret (AISA_API_KEY) are consistent with its stated purpose of relaying Twitter/X read, engagement, and OAuth-based posting via the AIsa relay (api.aisa.one); nothing in the package requests unrelated credentials or installs unexpected tooling.",
+      "suspicious_reason": "The skill can perform public Twitter/X actions, but the artifacts disclose this and require user-directed, confirmed workflows.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-08T08:51:25.686143+00:00"
+      "checked_at": "2026-05-08T12:43:05.528529+00:00"
     },
     {
       "key": "skill:cn-llm",
@@ -2898,11 +2950,11 @@
     {
       "key": "skill:twitter-post-aisa",
       "kind": "skill",
-      "name": "twitter-post-aisa",
+      "name": "twitter-post-aisa-aisa-one",
       "requested_name": "twitter-post-aisa",
       "version": "1.0.3",
-      "detail_url": "https://clawhub.ai/bibaofeng/twitter-post-aisa",
-      "resolved_slug": "twitter-post-aisa",
+      "detail_url": "https://clawhub.ai/aisadocs/twitter-post-aisa-aisa-one",
+      "resolved_slug": "twitter-post-aisa-aisa-one",
       "page_found": true,
       "fetch_mode": "http",
       "scan_status": "clean",
@@ -2914,12 +2966,12 @@
       "openclaw_confidence": null,
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
-      "publisher_handle": "bibaofeng",
+      "publisher_handle": "aisadocs",
       "suspicious": false,
-      "suspicious_reason": "The skill can perform public social engagement and posting, but the artifacts describe these actions as user-requested, approved, and confirmed by API results.",
+      "suspicious_reason": "The skill can perform public Twitter/X actions, but the behavior is disclosed and bounded by approval-oriented guardrails.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-08T08:52:15.909529+00:00"
+      "checked_at": "2026-05-08T12:37:41.788012+00:00"
     },
     {
       "key": "skill:us-stock-analyst",

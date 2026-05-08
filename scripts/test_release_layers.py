@@ -33,6 +33,8 @@ TRANSIENT_MARKERS = (
     "timed out",
     "internal server error",
     '"code": "NETWORK_ERROR"',
+    '"code": "UPSTREAM_NON_JSON"',
+    "Upstream returned a non-JSON response",
 )
 
 

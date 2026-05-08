@@ -149,3 +149,51 @@ Fix:
 - `targets/clawhub-live-status-targeted-2026-05-08.json`
 - `targets/clawhub-targeted-republish-2026-05-08.json`
 - `targets/clawhub-targeted-republish-last30days-slot2-2026-05-08.json`
+
+## 2026-05-08 Follow-up: Auto Continuation Repair
+
+### Why the downstream lanes were false
+
+The successful schedule run `25520903382` was on head `747222cb60cc940cd4eed28b2a0f8fe63ff4cf7b`, while the repo had already advanced to `7500f41f211ee4f7f24903a5cfa076911c657825` after the hosted auto-commit. Its preflight reported all three continuation lanes as false because workflow-dispatch defaults and scheduled `AUTO_*` variable fallbacks were hard `false` values. The workflow did not inspect `targets/unified-pipeline-state.json`, diagnosis output, or breakout live status before deciding whether there was work to continue.
+
+Current runner inventory during this follow-up was still `total_count=0`, so `SELF_HOSTED_RUNNER_RUNS_ON_JSON` could not queue a real self-hosted job by itself.
+
+### Test Engineer Findings
+
+1. Blocker: continuation decisions were switch-driven, not evidence-driven. A run with synced skills could still skip publish, suspicious repair, and breakout rollout if the three switches were false.
+2. Blocker: manual dispatch could look successful while silently skipping the requested full flow, because the default values were false and the summary did not distinguish explicit skip from no work.
+3. Warning: no online self-hosted runner exists, but the repo already has the secrets needed for hosted continuation. The workflow had no hosted fallback path for true continuation lanes.
+4. Warning: breakout live drift was not used as a rollout signal; missing/fallback live slugs could stay stale until manually noticed.
+5. Warning: prediction-market smoke tests treated a 200 non-JSON upstream response as a traceback hard failure instead of a structured external transient.
+6. Blocker found during current-HEAD dispatch: adding a manual hosted-fallback input exceeded GitHub's 25-input limit for `workflow_dispatch`, so the workflow could not be dispatched until that input was removed.
+
+### Engineering Fixes
+
+- Added `scripts/plan_workflow_continuation.py`.
+  - `publish=auto` requests continuation when synced/created skills or generated release-layer changes exist.
+  - `suspicious=auto` requests remediation only for owned blocker suspicious artifacts.
+  - `breakout=auto` requests rollout when a breakout source changed or a declared breakout live artifact is missing, pending, or suspicious.
+- Changed manual continuation controls from boolean defaults to `auto` / `true` / `false` choices.
+- Changed scheduled `AUTO_FULL_PLATFORM_PUBLISH`, `AUTO_RUN_SUSPICIOUS_REPAIR`, and `AUTO_RUN_BREAKOUT_ROLLOUT` fallbacks from `false` to `auto`.
+- Updated the remote repository variables to `AUTO_FULL_PLATFORM_PUBLISH=auto`, `AUTO_RUN_SUSPICIOUS_REPAIR=auto`, `AUTO_RUN_BREAKOUT_ROLLOUT=auto`, and `AUTO_ALLOW_HOSTED_CONTINUATION=true`.
+- Added hosted continuation fallback: when no matching self-hosted runner is online and fallback is enabled, continuation lanes run on `ubuntu-latest` instead of being silently skipped.
+- Kept `workflow_dispatch` at 25 inputs by controlling hosted fallback only through `AUTO_ALLOW_HOSTED_CONTINUATION`; added a workflow guard for the input-count limit.
+- Updated workflow guard tests to execute the planner against positive and no-work fixtures.
+- Hardened prediction-market client JSON decoding across the prediction-market family and classified `UPSTREAM_NON_JSON` smoke output as transient.
+
+### ClawHub Follow-up Result
+
+- Owned suspicious repair auto-plan found no owned blocker suspicious artifacts after diagnosis.
+- Breakout rollout published or confirmed 8 breakout artifacts.
+- Rescan-first cleanup cleared the newly suspicious/pending breakout fallback artifacts:
+  - `skill:aisa-twitter-research-engage-relay` now resolves to `https://clawhub.ai/bibaofeng/aisa-twitter-research-engage-relay-aisa-api` and is clean.
+  - `plugin:aisa-twitter-research-engage-relay-plugin` now resolves to `https://clawhub.ai/plugins/aisa-twitter-research-engage-relay-aisa-api-plugin` and is clean.
+- Current breakout variants in `targets/clawhub-live-status.json` are all clean.
+
+### Validation
+
+- `python3 scripts/test_github_actions_workflow.py`: passed.
+- `PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_batch_publish_exit.py`: passed.
+- `PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_live_status_review.py`: passed.
+- `PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_plugin_auth_metadata.py`: passed.
+- Full release rebuild plus `python3 scripts/test_release_layers.py`: passed with `structure_error_count=0`, `smoke_failure_count=0`, `smoke_transient_count=3`.

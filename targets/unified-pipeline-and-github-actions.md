@@ -109,7 +109,7 @@ The workflow now has one hosted lane plus three independent self-hosted lanes:
   - safe default for scheduled or manual sync, rebuild, validation, artifact upload, and committing generated outputs back into this repo
 - self-hosted publish lane
   - true publish continuation for downstream GitHub repo publish and optional ClawHub batch publish
-  - schedule runs now request this lane by default; set `AUTO_FULL_PLATFORM_PUBLISH=false` to close it
+  - schedule and manual runs now default to `auto`, so this lane is requested only when hosted planning sees upstream/release changes or an explicit `true`
 - self-hosted suspicious-remediation lane
   - separate from the normal publish lane
   - can auto-select self-owned suspicious blockers and republish only that subset
@@ -125,8 +125,8 @@ Current scheduler details:
 - workflow-level env now pins `UPSTREAM_BRANCH=main`, so the scheduled sync follows the AIsa upstream `main` branch by default
 - hosted auto-commit now uses `persist-credentials: false`, explicit token push, pre-commit `git rebase --autostash`, and push retry rebase; this avoids both the earlier `actions/checkout` post-job `exit code 128` cleanup failure and non-fast-forward races with other action commits
 - schedule runs keep a shared concurrency group; manual dispatches use a per-run concurrency group so urgent manual repair does not sit behind the scheduled queue
-- workflow-dispatch and schedule defaults now keep self-hosted publish, suspicious repair, and breakout rollout closed unless explicitly requested; hosted AISA regression, diagnosis, and release validation can still run without a self-hosted runner
-- self-hosted publish, suspicious repair, and breakout rollout now pass through a hosted preflight first; if those lanes are requested and no online self-hosted runner matches `SELF_HOSTED_RUNNER_RUNS_ON_JSON` (default `["self-hosted"]`), preflight fails with a summary instead of silently skipping or sitting queued for 24 hours
+- workflow-dispatch and schedule defaults now use `scripts/plan_workflow_continuation.py` to choose publish, suspicious repair, and breakout rollout from actual pipeline outputs instead of hard-coded false switches
+- self-hosted publish, suspicious repair, and breakout rollout now pass through a hosted preflight first; if those lanes are requested and no online self-hosted runner matches `SELF_HOSTED_RUNNER_RUNS_ON_JSON` (default `["self-hosted"]`), preflight can run them on `ubuntu-latest` when hosted continuation fallback is enabled, or fail fast with a summary when fallback is disabled
 - runner availability checks should use `SELF_HOSTED_RUNNER_API_TOKEN` when the default `GITHUB_TOKEN` cannot call the runners API; repository-level runners need repository `Administration: read`, organization-level runners need organization `Self-hosted runners: read`; preflight summaries now include the HTTP message, accepted-permissions header, and SSO hint when GitHub returns `403`
 - preflight now checks the GitHub owner type before trying organization runners; personal repos such as `baofeng-tech/agent-skills-io` only use repository-level runner discovery, so a missing repo runner is reported directly instead of being confused with an organization permission problem
 - hosted validation now runs `scripts/test_github_actions_workflow.py`, `scripts/test_clawhub_batch_publish_exit.py`, and `scripts/test_twitter_oauth_client_safety.py` before the pipeline body, so workflow guard drift, ClawHub batch false-negative exits, and Twitter public-write regressions fail early
@@ -279,13 +279,13 @@ When `run_breakout_rollout=true` on a manual dispatch, the workflow uses the ded
 3. optionally filters to selected source skills
 4. applies breakout-profile refinement, rebuilds, and optionally republishes only those breakout slugs
 
-The same self-hosted lanes can also run from the scheduled trigger without manual dispatch. Scheduled defaults do not request the normal publish, suspicious repair, or breakout rollout lanes; set `AUTO_FULL_PLATFORM_PUBLISH=true`, `AUTO_RUN_SUSPICIOUS_REPAIR=true`, or `AUTO_RUN_BREAKOUT_ROLLOUT=true` only after a matching self-hosted runner is online.
+The same continuation lanes can also run from the scheduled trigger without manual dispatch. Scheduled defaults are `auto`: publish runs after upstream/release changes, suspicious repair runs when diagnosis finds owned blocker artifacts, and breakout rollout runs when declared breakout sources changed or live breakout status drifts.
 
-Self-hosted lane switches are intentionally opt-in and gated:
+Continuation lane switches are tri-state and gated:
 
-- manual dispatch can request publish, suspicious repair, and breakout rollout independently
-- scheduled automation requests those lanes only through repo variables
-- `self-hosted-preflight` checks the GitHub runner API before queueing any self-hosted job
+- manual dispatch can set publish, suspicious repair, and breakout rollout independently to `auto`, `true`, or `false`
+- scheduled automation uses `AUTO_FULL_PLATFORM_PUBLISH`, `AUTO_RUN_SUSPICIOUS_REPAIR`, and `AUTO_RUN_BREAKOUT_ROLLOUT` as `auto`, `true`, or `false`
+- `self-hosted-preflight` checks the GitHub runner API before choosing self-hosted labels or hosted fallback
 - if a runner is intentionally expected to come online later, set manual `force_self_hosted_queue=true` or repo variable `AUTO_FORCE_SELF_HOSTED_QUEUE=true`
 
 Useful repo variables for scheduled self-hosted automation:

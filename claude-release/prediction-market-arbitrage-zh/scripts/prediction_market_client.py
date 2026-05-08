@@ -56,6 +56,22 @@ def api_result_ok(result: Dict[str, Any]) -> bool:
     return True
 
 
+def decode_json_body(body: bytes) -> Dict[str, Any]:
+    text = body.decode("utf-8", errors="replace")
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError:
+        preview = " ".join(text.strip().split())[:500]
+        return {
+            "success": False,
+            "error": {
+                "code": "UPSTREAM_NON_JSON",
+                "message": f"Upstream returned a non-JSON response: {preview}",
+            },
+        }
+    return payload if isinstance(payload, dict) else {"success": True, "data": payload}
+
+
 class PredictionMarketClient:
     """Cross-Platform Prediction Market Data - AIsa API Client."""
 
@@ -91,7 +107,7 @@ class PredictionMarketClient:
 
         try:
             with urllib.request.urlopen(req, timeout=60) as response:
-                return json.loads(response.read().decode("utf-8"))
+                return decode_json_body(response.read())
         except urllib.error.HTTPError as e:
             error_body = e.read().decode("utf-8")
             try:
@@ -319,7 +335,7 @@ class PredictionMarketClient:
         req = urllib.request.Request(url, headers=headers, method="GET")
         try:
             with urllib.request.urlopen(req, timeout=60) as response:
-                return json.loads(response.read().decode("utf-8"))
+                return decode_json_body(response.read())
         except urllib.error.HTTPError as e:
             error_body = e.read().decode("utf-8")
             try:

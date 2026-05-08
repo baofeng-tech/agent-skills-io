@@ -223,9 +223,9 @@ python3 scripts/clawhub_suspicious_remediation.py \
   - runs the dedicated breakout rollout path from `targets/clawhub-breakout-variants.json`
   - keeps breakout experimentation separate from normal sync and suspicious remediation
 
-Schedule runs no longer request self-hosted publish, suspicious-remediation, or breakout lanes unless the corresponding `AUTO_*` repository variable is explicitly set to `true`. Hosted sync, rebuild, diagnosis, and AISA regression can still run without a self-hosted runner.
+Schedule and manual runs now use `auto` continuation planning by default. The hosted lane reads the actual pipeline result, diagnosis output, and breakout live status before requesting downstream publish, suspicious remediation, or breakout rollout.
 
-Set `AUTO_FULL_PLATFORM_PUBLISH=true`, `AUTO_RUN_SUSPICIOUS_REPAIR=true`, or `AUTO_RUN_BREAKOUT_ROLLOUT=true` only after an online repository self-hosted runner exists. Requested self-hosted lanes still pass through hosted preflight and fail fast when the runner cannot be confirmed instead of waiting in queue for 24 hours.
+Use `AUTO_FULL_PLATFORM_PUBLISH`, `AUTO_RUN_SUSPICIOUS_REPAIR`, or `AUTO_RUN_BREAKOUT_ROLLOUT` as `auto`, `true`, or `false`. Requested continuation lanes still prefer an online self-hosted runner, but can fall back to GitHub-hosted runners when `AUTO_ALLOW_HOSTED_CONTINUATION` is true.
 
 Useful repo variables for scheduled self-hosted automation:
 

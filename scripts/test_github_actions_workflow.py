@@ -3,13 +3,17 @@
 
 from __future__ import annotations
 
+import json
+import re
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 WORKFLOW_PATH = REPO_ROOT / ".github" / "workflows" / "unified-skill-pipeline.yml"
-RUNS_ON_EXPR = "${{ fromJSON(vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '[\"self-hosted\"]') }}"
+RUNS_ON_EXPR = "${{ fromJSON(needs['self-hosted-preflight'].outputs.runs_on_json || '[\"self-hosted\"]') }}"
 
 
 def require(condition: bool, message: str) -> None:
@@ -17,8 +21,148 @@ def require(condition: bool, message: str) -> None:
         raise AssertionError(message)
 
 
+def read_outputs(path: Path) -> dict[str, str]:
+    values: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        values[key] = value
+    return values
+
+
+def write_json(path: Path, payload: dict[str, object]) -> None:
+    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def validate_continuation_planner() -> None:
+    with tempfile.TemporaryDirectory() as raw_tmp:
+        tmp = Path(raw_tmp)
+        state = tmp / "state.json"
+        diagnosis = tmp / "diagnosis.json"
+        variants = tmp / "variants.json"
+        live = tmp / "live.json"
+        output = tmp / "github-output.txt"
+
+        write_json(state, {"last_run": {"synced_skills": ["aisa-twitter-api"], "created_skills": []}})
+        write_json(
+            diagnosis,
+            {
+                "artifacts": [
+                    {
+                        "key": "plugin:aisa-twitter-api-plugin",
+                        "publisher_handle": "bibaofeng",
+                        "severity": "blocker",
+                        "scan_status": "suspicious",
+                        "suspicious": True,
+                    }
+                ]
+            },
+        )
+        write_json(variants, {"variants": [{"source": "aisa-twitter-api", "slug": "aisa-twitter-command"}]})
+        write_json(
+            live,
+            {
+                "artifacts": [
+                    {"key": "skill:aisa-twitter-command", "scan_status": "clean", "suspicious": False, "pending": False},
+                    {
+                        "key": "plugin:aisa-twitter-command-plugin",
+                        "scan_status": "clean",
+                        "suspicious": False,
+                        "pending": False,
+                    },
+                ]
+            },
+        )
+
+        result = subprocess.run(
+            [
+                sys.executable,
+                "scripts/plan_workflow_continuation.py",
+                "--state-file",
+                str(state),
+                "--diagnosis-file",
+                str(diagnosis),
+                "--breakout-file",
+                str(variants),
+                "--live-status-file",
+                str(live),
+                "--github-output",
+                str(output),
+                "--ignore-git-status",
+            ],
+            cwd=str(REPO_ROOT),
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        require(result.returncode == 0, f"continuation planner failed: {result.stderr}")
+        values = read_outputs(output)
+        require(values.get("publish_requested") == "true", "planner must auto-request publish for synced skills")
+        require(
+            values.get("suspicious_requested") == "true",
+            "planner must auto-request suspicious repair for owned suspicious blockers",
+        )
+        require(
+            values.get("breakout_requested") == "true",
+            "planner must auto-request breakout rollout when a breakout source changed",
+        )
+
+        output.unlink()
+        write_json(state, {"last_run": {"synced_skills": [], "created_skills": []}})
+        write_json(
+            diagnosis,
+            {
+                "artifacts": [
+                    {
+                        "key": "skill:web-search",
+                        "publisher_handle": "someone-else",
+                        "severity": "blocker",
+                        "scan_status": "suspicious",
+                        "suspicious": True,
+                    }
+                ]
+            },
+        )
+        write_json(variants, {"variants": [{"source": "aisa-twitter-api", "slug": "aisa-twitter-command"}]})
+        result = subprocess.run(
+            [
+                sys.executable,
+                "scripts/plan_workflow_continuation.py",
+                "--state-file",
+                str(state),
+                "--diagnosis-file",
+                str(diagnosis),
+                "--breakout-file",
+                str(variants),
+                "--live-status-file",
+                str(live),
+                "--github-output",
+                str(output),
+                "--ignore-git-status",
+            ],
+            cwd=str(REPO_ROOT),
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        require(result.returncode == 0, f"continuation planner no-work case failed: {result.stderr}")
+        values = read_outputs(output)
+        require(values.get("publish_requested") == "false", "planner must skip publish when no release work exists")
+        require(
+            values.get("suspicious_requested") == "false",
+            "planner must skip non-owned suspicious blockers by default",
+        )
+        require(
+            values.get("breakout_requested") == "false",
+            "planner must skip clean breakout variants when their sources did not change",
+        )
+
+
 def main() -> int:
     text = WORKFLOW_PATH.read_text(encoding="utf-8")
+    dispatch_block = text.split("workflow_dispatch:", 1)[1].split("schedule:", 1)[0]
+    dispatch_input_count = len(re.findall(r"^      [A-Za-z_][A-Za-z0-9_]*:\n", dispatch_block, flags=re.MULTILINE))
 
     require(
         "SELF_HOSTED_RUNNER_LABELS" not in text,
@@ -29,16 +173,26 @@ def main() -> int:
         "preflight must read the same runner JSON used by self-hosted runs-on",
     )
     require(
-        "run_self_hosted_publish:\n        description: \"Also run the optional self-hosted publish lane\"\n        required: false\n        default: false" in text
-        and "run_suspicious_repair:\n        description: \"After diagnosis, remediate matching suspicious artifacts and republish them\"\n        required: false\n        default: false" in text
-        and "run_breakout_rollout:\n        description: \"Run the dedicated breakout rollout lane\"\n        required: false\n        default: false" in text,
-        "manual dispatch must not request self-hosted lanes by default when no runner is guaranteed",
+        "run_self_hosted_publish:\n        description: \"Publish continuation mode after hosted validation\"\n        required: false\n        default: auto\n        type: choice" in text
+        and "run_suspicious_repair:\n        description: \"Suspicious remediation continuation mode after diagnosis\"\n        required: false\n        default: auto\n        type: choice" in text
+        and "run_breakout_rollout:\n        description: \"Breakout rollout continuation mode\"\n        required: false\n        default: auto\n        type: choice" in text,
+        "manual dispatch continuation controls must default to auto, not a hard false skip",
     )
     require(
-        "AUTO_FULL_PLATFORM_PUBLISH: ${{ vars.AUTO_FULL_PLATFORM_PUBLISH || 'false' }}" in text
-        and "AUTO_RUN_SUSPICIOUS_REPAIR: ${{ vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'false' }}" in text
-        and "AUTO_RUN_BREAKOUT_ROLLOUT: ${{ vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'false' }}" in text,
-        "scheduled self-hosted lanes must be opt-in through repository variables",
+        dispatch_input_count <= 25 and "allow_hosted_continuation:" not in text,
+        "workflow_dispatch must stay within GitHub's 25-input limit; hosted fallback is controlled by repo variable",
+    )
+    require(
+        "CONTINUATION_PUBLISH_MODE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_self_hosted_publish || vars.AUTO_FULL_PLATFORM_PUBLISH || 'auto' }}" in text
+        and "CONTINUATION_SUSPICIOUS_MODE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_suspicious_repair || vars.AUTO_RUN_SUSPICIOUS_REPAIR || 'auto' }}" in text
+        and "CONTINUATION_BREAKOUT_MODE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_breakout_rollout || vars.AUTO_RUN_BREAKOUT_ROLLOUT || 'auto' }}" in text,
+        "scheduled continuation lanes must default to auto planning instead of false",
+    )
+    require(
+        "python3 scripts/plan_workflow_continuation.py" in text
+        and "publish_requested: ${{ steps.continuation.outputs.publish_requested }}" in text
+        and "PLANNED_PUBLISH_REQUESTED: ${{ needs.sync-build-test.outputs.publish_requested || 'false' }}" in text,
+        "workflow must plan continuation lanes from hosted pipeline outputs before preflight",
     )
     require(
         "suspicious_rescan_wait_seconds:" in text
@@ -48,6 +202,7 @@ def main() -> int:
         "suspicious remediation must request a ClawHub rescan before editing or republishing",
     )
     remediation_text = (REPO_ROOT / "scripts" / "clawhub_suspicious_remediation.py").read_text(encoding="utf-8")
+    pipeline_text = (REPO_ROOT / "scripts" / "unified_skill_pipeline.py").read_text(encoding="utf-8")
     require(
         '"--slug-conflict-strategy"' in remediation_text
         and 'default="fail"' in remediation_text
@@ -55,14 +210,27 @@ def main() -> int:
         "targeted suspicious remediation must fail on slug conflicts instead of publishing fallback slugs",
     )
     require(
+        "No upstream skill changes detected." in pipeline_text
+        and "state_needs_no_change_refresh = (" in pipeline_text
+        and "or any(\n                last_run.get(field)" in pipeline_text
+        and '"last_run": asdict(summary)' in pipeline_text,
+        "unified pipeline must refresh stale last_run on no-change runs without self-committing every empty run",
+    )
+    require(
         text.count(f"runs-on: {RUNS_ON_EXPR}") == 3,
-        "the three self-hosted lanes must all use SELF_HOSTED_RUNNER_RUNS_ON_JSON",
+        "the three continuation lanes must all use the preflight-selected runs-on target",
     )
     require(
         'if [[ "${any_requested}" == "true" && "${can_queue}" != "true" ]]; then' in text
         and 'echo "::error title=Self-hosted runner preflight::${reason}"' in text
         and "exit 1" in text,
-        "requested self-hosted lanes must fail fast when no matching runner is confirmed",
+        "requested continuation lanes must still fail fast if neither self-hosted nor hosted fallback can run them",
+    )
+    require(
+        "AUTO_ALLOW_HOSTED_CONTINUATION: ${{ vars.AUTO_ALLOW_HOSTED_CONTINUATION || 'true' }}" in text
+        and "runs_on_json='[\"ubuntu-latest\"]'" in text
+        and "using GitHub-hosted continuation fallback" in text,
+        "preflight must be able to use hosted continuation fallback when no self-hosted runner is online",
     )
     require(
         '"https://api.github.com/users/${owner}"' in text
@@ -95,6 +263,7 @@ def main() -> int:
         "python3 scripts/test_twitter_oauth_client_safety.py" in text,
         "hosted validation must cover Twitter OAuth public-write safety",
     )
+    validate_continuation_planner()
     print("GitHub Actions workflow guard checks passed.")
     return 0
 
