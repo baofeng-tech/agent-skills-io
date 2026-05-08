@@ -319,6 +319,10 @@ Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` as the single source for runner labels, fo
 
 If the repository runner endpoint returns `200` with zero runners, preflight first resolves the owner through `GET /users/{owner}`. It only checks organization-level runners when the owner type is `Organization`. For a personal repo owned by `User`, such as `baofeng-tech/agent-skills-io`, the summary reports that organization-runner fallback is not applicable.
 
+In this repo, "no available self-hosted runner" means the GitHub runner inventory has no online runner that is both visible to the repository and carrying every requested label. A runner exists only after someone registers a repository, organization, or enterprise Actions runner and keeps that runner process online. It is still "unavailable" when inventory is empty, the runner service is offline, labels do not match `SELF_HOSTED_RUNNER_RUNS_ON_JSON`, the runner group cannot serve this repository, or the token used by preflight cannot read the relevant runner inventory.
+
+When `AUTO_ALLOW_HOSTED_CONTINUATION=true`, preflight may still let continuation lanes run on `ubuntu-latest`. The summary now reports this as "Continuation lanes can run" plus a runner decision, so hosted fallback is not confused with a real self-hosted runner being online.
+
 Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL. Before committing repo changes, each hosted and self-hosted commit step also fetches and rebases with `--autostash`, then retries push after another rebase if the remote advanced.
 
 Why:

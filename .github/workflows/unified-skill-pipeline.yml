@@ -668,10 +668,19 @@ jobs:
             echo "- Suspicious reason: ${PLANNED_SUSPICIOUS_REASON}"
             echo "- Breakout rollout requested: \`${breakout_requested}\`"
             echo "- Breakout reason: ${PLANNED_BREAKOUT_REASON}"
-            echo "- Can queue self-hosted jobs: \`${can_queue}\`"
+            echo "- Continuation lanes can run: \`${can_queue}\`"
             echo "- Hosted continuation fallback: \`${hosted_fallback}\`"
             echo "- Runs on: \`${runs_on_json}\`"
             echo "- Runner labels: \`${SELF_HOSTED_RUNNER_RUNS_ON_JSON}\`"
+            if [[ "${hosted_fallback}" == "true" ]]; then
+              echo "- Runner decision: GitHub-hosted fallback selected after self-hosted inventory did not match"
+            elif [[ "${can_queue}" == "true" && -n "${matched_runner}" ]]; then
+              echo "- Runner decision: self-hosted runner matched"
+            elif [[ "${any_requested}" == "false" ]]; then
+              echo "- Runner decision: no continuation lane requested"
+            else
+              echo "- Runner decision: self-hosted runner unavailable"
+            fi
             echo "- Reason: ${reason}"
             if [[ -n "${matched_runner}" ]]; then
               echo "- Matched runner: \`${matched_runner}\`"

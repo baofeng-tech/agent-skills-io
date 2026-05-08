@@ -197,3 +197,34 @@ Current runner inventory during this follow-up was still `total_count=0`, so `SE
 - `PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_live_status_review.py`: passed.
 - `PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_clawhub_plugin_auth_metadata.py`: passed.
 - Full release rebuild plus `python3 scripts/test_release_layers.py`: passed with `structure_error_count=0`, `smoke_failure_count=0`, `smoke_transient_count=3`.
+
+## 2026-05-08 Follow-up: Runner Clarity And Current Continuation State
+
+### Current Remote State
+
+- `git pull` returned `Already up to date`.
+- Latest remote run checked in this pass: `25556988565`.
+- Latest run head SHA: `26108947434216d559391f3839dbe01f280b4a36`.
+- Current local `HEAD`: `26108947434216d559391f3839dbe01f280b4a36`.
+- Latest run conclusion: `success`.
+- Repository runner inventory: `total_count=0`.
+
+### Test Engineer Findings
+
+1. Warning: the workflow logic is healthy at current `HEAD`, but the repository still has no registered self-hosted runner. `SELF_HOSTED_RUNNER_RUNS_ON_JSON` only selects labels and does not create, register, or start a runner.
+2. Warning: the preflight summary said `Can queue self-hosted jobs` even when hosted fallback made the continuation lanes runnable. That wording could be read as proof that a real self-hosted runner existed.
+3. Current ClawHub diagnosis contains no owned suspicious blockers for `baofeng-tech`, `bibaofeng`, or `aisadocs`. The remaining suspicious blockers are external publisher URLs and should not be "fixed" by publishing fallback slugs.
+4. Current breakout variants are clean in `targets/clawhub-live-status.json`; no rollout drift was found.
+
+### Engineering Fix
+
+- Updated `.github/workflows/unified-skill-pipeline.yml` preflight summary wording from `Can queue self-hosted jobs` to `Continuation lanes can run`.
+- Added an explicit runner decision line for self-hosted match, hosted fallback, no-request, and unavailable states.
+- Added a workflow guard assertion so the misleading wording cannot return.
+- Documented the concrete conditions that make a self-hosted runner available or unavailable.
+
+### Local Checks
+
+- `python3 scripts/plan_workflow_continuation.py --ignore-git-status`: no publish, suspicious repair, or breakout rollout requested.
+- `python3 scripts/clawhub_suspicious_remediation.py --plan --owned-only --severity blocker --status suspicious`: selected `0` artifacts.
+- `python3 scripts/clawhub_breakout_rollout.py --plan`: selected the 4 declared breakout variants, all already clean in live status.

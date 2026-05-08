@@ -244,6 +244,12 @@ def main() -> int:
         "zero-runner failures must explain that labels are not runner registration",
     )
     require(
+        "- Continuation lanes can run: " in text
+        and "- Runner decision: GitHub-hosted fallback selected after self-hosted inventory did not match" in text
+        and "- Can queue self-hosted jobs: " not in text,
+        "preflight summaries must distinguish continuation executability from self-hosted queue availability",
+    )
+    require(
         "force_self_hosted_queue enabled" in text,
         "manual force queue mode must stay explicit in summaries",
     )
