@@ -328,7 +328,7 @@ When `AUTO_ALLOW_HOSTED_CONTINUATION=true`, preflight may still let continuation
 
 Hosted AISA API regression is intentionally bounded more tightly than a local deep regression run. Scheduled/manual CI defaults to `AUTO_AISA_API_REGRESSION_TIMEOUT=45`, `AUTO_AISA_API_REGRESSION_RETRIES=0`, and `AUTO_AISA_API_REGRESSION_DELAY=0.25`; raise the retry variable only for a slower full external soak. The script prints each command before and after it runs so GitHub logs show progress instead of a long silent wait. Per-command timeout is treated as a transient external failure, not as a Python harness crash.
 
-The read-only AISA regression must not create release work by itself. Smoke commands that write reports now send those files outside `targetSkills/`, and the continuation planner ignores known smoke/report output patterns so a refreshed AISA regression artifact does not auto-trigger the full publish lane.
+The read-only AISA regression must not create release work by itself. Smoke commands that write reports now send those files outside `targetSkills/`, and the continuation planner ignores known smoke/report output patterns so a refreshed AISA regression artifact does not auto-trigger the full publish lane. Hosted auto-commit also restores or removes AISA smoke/report output files before committing, so validation runs do not advance `main` just because timing/report JSON changed.
 
 Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL. Before committing repo changes, each hosted and self-hosted commit step also fetches and rebases with `--autostash`, then retries push after another rebase if the remote advanced.
 

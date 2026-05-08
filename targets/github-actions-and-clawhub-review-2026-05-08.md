@@ -239,3 +239,5 @@ Current runner inventory during this follow-up was still `total_count=0`, so `SE
 - Changed hosted AISA API regression default retry count to `0`; teams can still raise `AUTO_AISA_API_REGRESSION_RETRIES` for deliberate slower soak runs.
 - Current-HEAD run `25566929049` proved `sync-build-test` now completes, including 72 AISA commands in `7m54s`, but exposed a separate blocker: `us-stock-analyst` wrote `AAPL_analysis_20260508.json` under `targetSkills/`, so the planner treated report-only dirtiness as release-layer work and launched the full publish lane.
 - Fixed the regression command to write stock analyst smoke output under the temp directory, and hardened the planner so known smoke/report outputs do not request publish continuation.
+- Run `25567911836` then succeeded with `publish_requested=false` and skipped all three continuation lanes, but its hosted auto-commit still advanced `main` by committing only `targets/aisa-api-regression-report-2026-05-08.json`.
+- Hardened hosted auto-commit to restore or remove AISA smoke/report outputs before committing, so a validation run can finish without moving `main` just because report JSON changed.

@@ -357,6 +357,15 @@ jobs:
           git fetch "$REMOTE_URL" "${GITHUB_REF_NAME}"
           git rebase --autostash FETCH_HEAD
 
+          for report in targets/aisa-api-regression-report-*.json targetSkills/*/*_analysis_*.json; do
+            [[ -e "$report" ]] || continue
+            if git ls-files --error-unmatch "$report" >/dev/null 2>&1; then
+              git restore --staged --worktree -- "$report"
+            else
+              rm -f -- "$report"
+            fi
+          done
+
           if [[ -z "$(git status --porcelain)" ]]; then
             echo "No repo changes to commit."
             exit 0

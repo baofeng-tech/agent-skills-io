@@ -311,6 +311,11 @@ def main() -> int:
         and '"--output"' in aisa_regression_text,
         "AISA regression smoke commands must write stock analyst output outside targetSkills",
     )
+    require(
+        "targets/aisa-api-regression-report-*.json targetSkills/*/*_analysis_*.json" in text
+        and "git restore --staged --worktree -- \"$report\"" in text,
+        "hosted auto-commit must exclude AISA smoke/report outputs so validation HEAD does not drift",
+    )
     validate_continuation_planner()
     validate_continuation_dirty_filter()
     print("GitHub Actions workflow guard checks passed.")
