@@ -1,6 +1,6 @@
 ---
 name: twitter-autopilot
-description: Reads and searches X (Twitter) data including profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Also supports posting, likes/unlikes, and follows/unfollows after the user completes OAuth authorization. Use when the user needs Twitter/X research, social listening, posting, or account interactions without sharing account passwords.
+description: Reads and searches X (Twitter) data including profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Also supports posting, liking/unliking tweets, and following/unfollowing users after the user completes OAuth authorization. Use when the user needs Twitter/X research, social listening, publishing, or account interactions without sharing account passwords.
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -18,12 +18,14 @@ metadata:
 
 # Twitter Autopilot 🐦
 
-Access and act on Twitter/X through AIsa.
+Twitter/X intelligence and action workflows for agents, powered by AIsa.
 
-This skill supports two main workflows:
+Use this skill when you need to:
 
-- **Read/search without login** for Twitter/X research, monitoring, and discovery
-- **Post and engage with OAuth** for publishing and account actions such as like, unlike, follow, and unfollow
+- read public Twitter/X profiles, timelines, mentions, followers, lists, communities, trends, or Spaces
+- search tweets and users for research, monitoring, or social listening
+- publish posts or replies after the user completes OAuth authorization
+- like, unlike, follow, or unfollow through the local engagement workflow after authorization
 
 ## Compatibility
 
@@ -38,14 +40,7 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://aisa.one).
 
-## Use when
-
-- You need Twitter/X profile, tweet, trend, list, community, or Space data
-- You want to monitor accounts, mentions, or topic activity
-- You need social listening or lightweight competitor tracking
-- You want to publish or interact on Twitter/X without sharing account passwords directly with the agent
-
-## Example requests
+## Common requests
 
 ### Monitor accounts
 ```text
@@ -62,23 +57,30 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://ais
 "Search for tweets mentioning our product and analyze sentiment"
 ```
 
-### Competitor tracking
+### Competitor research
 ```text
-"Monitor @anthropic and @GoogleAI - alert me on new announcements"
+"Monitor @anthropic and @GoogleAI and summarize new announcements"
 ```
 
-## Action workflows
+## Workflow routing
 
-This file does not define like / unlike / follow / unfollow logic directly.
+### Read workflows
 
-If the user asks to like, unlike, follow, or unfollow on X/Twitter, handle that workflow with `./references/engage_twitter.md`.
-**OAuth authorization is required and must be obtained from `./references/post_twitter.md` before executing.**
+Use this file and `scripts/twitter_client.py` for public read/search operations.
+These do not require user login.
 
-## Posting workflows
+### Engagement workflows
+
+This file does not define the like / unlike / follow / unfollow procedure directly.
+
+If the user asks to like, unlike, follow, or unfollow on X/Twitter, use `./references/engage_twitter.md`.
+**OAuth authorization must be completed first using `./references/post_twitter.md` before executing engagement actions.**
+
+### Posting workflows
 
 This file does not define publishing logic directly.
 
-If the user asks to send, publish, reply, or quote on X/Twitter, handle that workflow with `./references/post_twitter.md`.
+If the user asks to post, reply, quote, or otherwise publish on X/Twitter, use `./references/post_twitter.md`.
 
 ## Quick start
 
@@ -223,7 +225,7 @@ python3 scripts/twitter_client.py followings --username elonmusk
 python3 scripts/twitter_client.py verified-followers --user-id 44196397
 python3 scripts/twitter_client.py check-follow --source elonmusk --target BillGates
 
-# Search & discovery
+# Search and discovery
 python3 scripts/twitter_client.py search --query "AI agents"
 python3 scripts/twitter_client.py search --query "AI agents" --type Top
 python3 scripts/twitter_client.py user-search --query "AI researcher"

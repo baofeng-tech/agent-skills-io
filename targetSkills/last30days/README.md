@@ -33,14 +33,16 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## What it returns
 
-A single markdown brief by default, or JSON with the full structured output:
+A single markdown brief by default, or JSON when you pass `--emit=json`.
 
-- **Ranked evidence clusters** — top findings grouped by theme, each with a URL, date, engagement stats, and a one-line relevance note
+Typical output includes:
+
+- **Ranked evidence clusters** — top findings grouped by theme, each with a URL, date, engagement stats, and a short relevance rationale
 - **Stats** — items per source, top communities, domains, or channels
-- **Best Takes** — quirky or meme-worthy items when available
+- **Best Takes** — quirky or meme-worthy items (cosmetic)
 - **Source coverage** — how many items each source contributed
 
-Pass `--emit=json` for a machine-readable version with the full `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source` fields for downstream agent use.
+For machine-readable workflows, JSON output includes the full `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source` fields.
 
 ## Requirements
 
@@ -52,7 +54,7 @@ Reddit and Hacker News use public endpoints and need no credentials.
 
 ## Per-role model configuration
 
-The skill makes three LLM calls per run: planner, reranker, and fun-scorer. Each can be pinned independently:
+The skill makes three LLM calls per run: planner (query structure), reranker (relevance ranking), and fun-scorer (quirkiness). Each can be pinned independently:
 
 ```bash
 # ~/.config/last30days/.env
@@ -61,17 +63,17 @@ LAST30DAYS_RERANK_MODEL=qwen-plus-2025-12-01  # quality ranking
 LAST30DAYS_FUN_MODEL=qwen-flash               # cheap vibes
 ```
 
-Or set `AISA_MODEL=...` for a single model across all three roles. The interactive `setup` flow walks you through choosing from the live [AIsa model catalog](https://aisa.one/docs/guides/models).
+Or set `AISA_MODEL=...` for a single model across all three. The interactive `setup` flow walks you through picking from the live [AIsa model catalog](https://aisa.one/docs/guides/models).
 
 ## Flags
 
 | Flag | Meaning |
 |---|---|
-| `--quick` | Lower-latency retrieval profile with fewer candidates |
+| `--quick` | Lower-latency retrieval profile (fewer candidates) |
 | `--deep` | Higher-recall retrieval profile |
-| `--emit=json` | Machine-readable output instead of markdown |
+| `--emit=json` | Machine-readable output (default: markdown) |
 | `--search=reddit,x,hackernews` | Restrict to specific sources |
-| `--diagnose` | Print provider and source availability |
+| `--diagnose` | Print provider / source availability |
 | `--save-dir=out/` | Persist the rendered brief to disk |
 | `--store` | Persist findings to the local SQLite research store |
 

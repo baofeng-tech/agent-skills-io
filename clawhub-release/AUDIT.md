@@ -136,7 +136,7 @@
 
 - Source: `targetSkills/crypto-market-data`
 - Output: `clawhub-release/crypto-market-data`
-- Description: Query real-time and historical cryptocurrency market data via CoinGecko through AIsa — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
+- Description: Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto research, price tracking, on-chain token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
@@ -185,7 +185,7 @@
 
 - Source: `targetSkills/marketpulse`
 - Output: `clawhub-release/marketpulse`
-- Description: Query real-time and historical equity market data—prices, news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need stock-focused financial research from AIsa with a single API key. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
+- Description: Query real-time and historical equity market data through AIsa, including prices, company news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
@@ -194,7 +194,7 @@
 
 - Source: `targetSkills/media-gen`
 - Output: `clawhub-release/media-gen`
-- Description: Generate images and videos with AIsa using one API key. Supports Gemini image generation, Wan 2.7 image and image-pro, ByteDance Seedream, and four Wan video variants through the bundled client, which routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
+- Description: Generate images and videos with AIsa. Supports four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image and image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the bundled client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
@@ -212,7 +212,7 @@
 
 - Source: `targetSkills/multi-source-search`
 - Output: `clawhub-release/multi-source-search`
-- Description: Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need retrieval, citations, or research-grade answers from one AIsa API key.
+- Description: Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need broad retrieval, citation-backed answers, or deeper research from one AIsa API key.
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
@@ -304,7 +304,7 @@
 
 - Source: `targetSkills/prediction-market-arbitrage`
 - Output: `clawhub-release/prediction-market-arbitrage`
-- Description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify liquidity before evaluating a trade.
+- Description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify liquidity before acting on a spread.
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
@@ -331,7 +331,7 @@
 
 - Source: `targetSkills/prediction-market-data`
 - Output: `clawhub-release/prediction-market-data`
-- Description: Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
+- Description: Get prediction market data from Polymarket and Kalshi, including markets, prices, orderbooks, trades, positions, and cross-market sports matching. Use when you need current odds, historical market data, or wallet-level market activity.
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
@@ -458,7 +458,7 @@
 
 - Source: `targetSkills/twitter-autopilot`
 - Output: `clawhub-release/twitter-autopilot`
-- Description: Reads and searches X (Twitter) data including profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Also supports posting, likes/unlikes, and follows/unfollows after the user completes OAuth authorization. Use when the user needs Twitter/X research, social listening, posting, or account interactions without sharing account passwords.
+- Description: Reads and searches X (Twitter) data including profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Also supports posting, liking/unliking tweets, and following/unfollowing users after the user completes OAuth authorization. Use when the user needs Twitter/X research, social listening, publishing, or account interactions without sharing account passwords.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
@@ -533,7 +533,7 @@
 
 - Source: `targetSkills/youtube-serp`
 - Output: `clawhub-release/youtube-serp`
-- Description: Search YouTube SERP results through AIsa for video research, channel discovery, trend analysis, and competitor tracking. Use when you need top-ranking YouTube results for a query, optionally filtered by country or language.
+- Description: Search YouTube SERPs through AIsa to find top-ranking videos, channels, and localized results for content research, trend discovery, and competitor tracking. Use when: you need YouTube search rankings, regional filtering, or topic validation from an agent workflow.
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only

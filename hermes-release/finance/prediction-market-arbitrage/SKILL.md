@@ -1,6 +1,6 @@
 ---
 name: prediction-market-arbitrage
-description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify liquidity before evaluating a trade.
+description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify liquidity before acting on a spread.
 license: MIT
 metadata:
   aisa:
@@ -32,7 +32,7 @@ required_environment_variables:
 
 # prediction-market-arbitrage
 
-Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify liquidity before evaluating a trade.
+Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify liquidity before acting on a spread.
 
 ## When to Use
 

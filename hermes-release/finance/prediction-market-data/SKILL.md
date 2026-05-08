@@ -1,6 +1,6 @@
 ---
 name: prediction-market-data
-description: 'Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
+description: Get prediction market data from Polymarket and Kalshi, including markets, prices, orderbooks, trades, positions, and cross-market sports matching. Use when you need current odds, historical market data, or wallet-level market activity.
 license: MIT
 metadata:
   aisa:
@@ -18,12 +18,8 @@ metadata:
   hermes:
     tags:
     - finance
-    - search
-    - research
     - market
-    - stock
     - prediction
-    - aisa
     related_skills:
     - market
     - prediction-market
@@ -36,7 +32,7 @@ required_environment_variables:
 
 # prediction-market-data
 
-Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
+Get prediction market data from Polymarket and Kalshi, including markets, prices, orderbooks, trades, positions, and cross-market sports matching. Use when you need current odds, historical market data, or wallet-level market activity.
 
 ## When to Use
 

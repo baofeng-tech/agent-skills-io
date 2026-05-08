@@ -4,20 +4,11 @@ Perplexity Sonar search and answer generation through AIsa. Use when the task is
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible harness, including **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**, **Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and other tools that implement the [Agent Skills specification](https://agentskills.io/specification).
+Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**, **Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and others that implement the [Agent Skills specification](https://agentskills.io/specification).
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
-## What this skill covers
-
-This skill provides access to these AIsa Perplexity endpoints:
-
-- `/perplexity/sonar`
-- `/perplexity/sonar-pro`
-- `/perplexity/sonar-reasoning-pro`
-- `/perplexity/sonar-deep-research`
-
-See [SKILL.md](SKILL.md) for the full agent-facing instructions, including model selection, Python client usage, curl examples, and timeout guidance.
+See [SKILL.md](SKILL.md) for the full agent-facing instructions, including supported endpoints, model selection guidance, and `scripts/perplexity_search_client.py` usage.
 
 ## API Reference
 

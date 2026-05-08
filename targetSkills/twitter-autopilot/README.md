@@ -1,8 +1,8 @@
 # Twitter Autopilot 🐦
 
-Twitter/X intelligence and automation for autonomous agents. Powered by AIsa.
+Twitter/X intelligence and automation for agents, powered by AIsa.
 
-This skill supports **read/search**, **engagement**, and **posting** workflows on Twitter/X.
+This skill supports reading, searching, engagement workflows, and posting on Twitter/X.
 
 ## Compatibility
 
@@ -12,9 +12,9 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## Features
 
-- **Read & Search**: Access user info, tweets, advanced search, trends, followers, lists, communities, and Spaces without requiring user login.
-- **Engagement via Relay**: Like/unlike tweets and follow/unfollow users through the local OAuth relay workflow.
-- **Write & Post (OAuth)**: Publish text, images, and videos, create threads, and quote/reply to tweets after user authorization.
+- **Read and search**: Access user info, tweets, advanced search, trends, followers, lists, communities, and Spaces without user login.
+- **Engagement via local relay**: Like/unlike tweets and follow/unfollow users after user authorization.
+- **Posting via OAuth**: Publish text, images, videos, threads, replies, and quotes after user authorization.
 
 ## Installation
 
@@ -22,9 +22,9 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 export AISA_API_KEY="your-key"
 ```
 
-## Quick Start
+## Quick start
 
-### Read & Search
+### Read and search
 ```bash
 # Get user info and search tweets
 python scripts/twitter_client.py user-info --username elonmusk
@@ -32,7 +32,7 @@ python scripts/twitter_client.py search --query "AI agents"
 python scripts/twitter_client.py trends
 ```
 
-### Post & Write (Requires OAuth)
+### Post and publish (requires OAuth)
 ```bash
 # Publish a text post
 python scripts/twitter_oauth_client.py post --text "Hello from AIsa!"
@@ -41,7 +41,7 @@ python scripts/twitter_oauth_client.py post --text "Hello from AIsa!"
 python scripts/twitter_oauth_client.py post --text "Check out this image" --media-file ./photo.png
 ```
 
-### Engagement (Requires OAuth Relay)
+### Engagement (requires authorization)
 ```bash
 # Like the latest tweet from a user
 python scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
@@ -53,9 +53,9 @@ python scripts/twitter_engagement_client.py list-tweets --user "@elonmusk" --lim
 python scripts/twitter_engagement_client.py follow-user --user "@elonmusk"
 ```
 
-> Note: For detailed engagement workflows, see [`./references/engage_twitter.md`](./references/engage_twitter.md). For publishing, authorization, and multi-chunk threading, see [`./references/post_twitter.md`](./references/post_twitter.md).
+> For detailed engagement steps, see [`./references/engage_twitter.md`](./references/engage_twitter.md). For posting, authorization, and multi-chunk threading, see [`./references/post_twitter.md`](./references/post_twitter.md).
 
-## Get API Key
+## Get API key
 
 Sign up at [aisa.one](https://aisa.one)
 
@@ -64,6 +64,6 @@ Sign up at [aisa.one](https://aisa.one)
 - [AIsa](https://aisa.one)
 - [API Reference](https://aisa.one/docs/api-reference/)
 
-## API Reference
+## API reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.

@@ -1,6 +1,6 @@
 # Prediction Market Data
 
-Access current odds, prices, and market data from prediction markets such as Polymarket and Kalshi. This skill also supports historical orderbook data, candlestick data, trade history, wallet positions, wallet PnL, and cross-platform sports market matching.
+Get current odds, prices, and market data from prediction markets such as Polymarket and Kalshi. This skill also supports historical orderbook data, candlestick charts, trade history, Polymarket wallet activity, positions, P&L, and cross-platform sports market matching.
 
 ## Compatibility
 
@@ -12,20 +12,11 @@ others that implement the
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
-## Use When
-
-Use this skill when you need to:
-- search Polymarket or Kalshi markets
-- check live prices or implied probabilities
-- inspect historical trades, orderbooks, or candlesticks
-- review wallet activity, positions, or PnL
-- compare matching sports markets across platforms
-
 ## Features
 
-- **Polymarket**: search markets, live prices, trade history, orderbooks, candlesticks, wallet positions, wallet info, and PnL
-- **Kalshi**: search markets, live prices, trade history, and orderbooks
-- **Cross-platform**: match equivalent sports markets across Polymarket and Kalshi
+- **Polymarket**: Search markets, get live prices, inspect trade history, orderbooks, candlesticks, wallet positions, wallet details, and P&L
+- **Kalshi**: Search markets, get live prices, inspect trade history, and orderbooks
+- **Cross-platform sports matching**: Find equivalent sports markets across Polymarket and Kalshi
 
 ## Quick Start
 
@@ -50,11 +41,13 @@ python scripts/prediction_market_client.py sports by-date nba --date 2025-03-01
 
 ## ID Lookup Notes
 
-Many price and history endpoints require an ID from a prior market search:
+Many downstream endpoints require an identifier returned by a market search first:
 
-- **Polymarket `token_id`**: from `side_a.id` or `side_b.id` in the `/polymarket/markets` response
-- **Polymarket `condition_id`**: from `condition_id` in the `/polymarket/markets` response
-- **Kalshi `market_ticker`**: from `market_ticker` in the `/kalshi/markets` response
+- **Polymarket `token_id`**: returned as `side_a.id` or `side_b.id`
+- **Polymarket `condition_id`**: returned on each market object
+- **Kalshi `market_ticker`**: returned on each Kalshi market object
+
+A common workflow is to query `markets` first, then use the returned ID in a `price`, `orderbooks`, or `candlesticks` request.
 
 ## API Reference
 

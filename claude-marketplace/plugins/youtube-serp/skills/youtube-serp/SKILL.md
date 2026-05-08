@@ -1,22 +1,22 @@
 ---
 name: youtube-serp
-description: Search YouTube SERP results through AIsa for video research, channel discovery, trend analysis, and competitor tracking. Use when you need top-ranking YouTube results for a query, optionally filtered by country or language.
+description: 'Search YouTube SERPs through AIsa to find top-ranking videos, channels, and localized results for content research, trend discovery, and competitor tracking. Use when: you need YouTube search rankings, regional filtering, or topic validation from an agent workflow.'
 license: MIT
 allowed-tools: Read Bash Grep
-when_to_use: you need top-ranking YouTube results for a query, optionally filtered by country or language
+when_to_use: you need YouTube search rankings, regional filtering, or topic validation from an agent workflow
 ---
 
 > Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
 
 # YouTube SERP 📺
 
-Search YouTube results through AIsa for content research, channel discovery, trend spotting, and competitor tracking.
+Search YouTube SERPs through AIsa for videos, channels, and localized ranking results.
 
-Use when you need to:
-- find top-ranking YouTube videos for a topic
-- explore channels publishing in a niche
-- compare regional or language-specific results
-- monitor how topics or competitors appear in YouTube search
+Use this skill when you need to:
+- research which videos rank for a topic
+- compare competitor visibility on YouTube
+- check region- or language-specific search results
+- validate content ideas with current search demand
 
 ## Compatibility
 
@@ -35,27 +35,27 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://ais
 
 ### Content Research
 ```text
-Find top-ranking videos about "AI agents tutorial" to see what is performing well.
+Find top-ranking YouTube videos about "AI agents tutorial" to see what content is already winning.
 ```
 
 ### Competitor Tracking
 ```text
-Search YouTube for videos from competitor channels about "machine learning".
+Search YouTube for videos about "machine learning" and help me spot likely competitor channels.
 ```
 
 ### Trend Discovery
 ```text
-What are the top YouTube videos about "GPT-5" right now?
+What are the top YouTube results for "GPT-5" right now?
 ```
 
-### Topic Analysis
+### Topic Validation
 ```text
-Find popular videos on "autonomous driving" to understand audience interest.
+Find popular YouTube videos on "autonomous driving" so I can assess audience interest.
 ```
 
 ### Channel Discovery
 ```text
-Search for channels creating content about "crypto trading".
+Search YouTube for channels creating content about "crypto trading".
 ```
 
 ## Quick Start
@@ -132,7 +132,7 @@ python3 scripts/youtube_client.py search --query "AI trends 2025"
 
 ### 1. Content Gap Analysis
 
-Find what content is ranking well to identify gaps in your strategy:
+Find what content is already ranking so you can identify gaps in your strategy:
 
 ```python
 # Search for top videos in your niche
@@ -142,7 +142,7 @@ results = client.search("AI automation tutorial")
 
 ### 2. Competitor Monitoring
 
-Track what competitors are publishing:
+Track what adjacent or competing brands are publishing:
 
 ```python
 # Search for competitor brand + topic
@@ -152,7 +152,7 @@ results = client.search("OpenAI GPT tutorial")
 
 ### 3. Keyword Research
 
-Discover what topics are trending:
+Discover which topics and phrases are surfacing in YouTube search:
 
 ```python
 # Search broad topics to see what's popular
@@ -162,7 +162,7 @@ results = client.search("artificial intelligence 2025")
 
 ### 4. Audience Research
 
-Understand what your target audience watches:
+Understand what audiences in different regions are watching:
 
 ```python
 # Search in specific regions
@@ -172,7 +172,7 @@ results = client.search("coding tutorial", country="jp", lang="ja")
 
 ### 5. SEO Analysis
 
-Analyze how videos rank for specific keywords:
+Review which videos rank for target keywords:
 
 ```python
 # Track ranking positions for target keywords
@@ -194,8 +194,8 @@ for kw in keywords:
 |-----------|------|----------|-------------|
 | engine | string | Yes | Must be `youtube` |
 | q | string | Yes | Search query |
-| gl | string | No | Country code, for example `us`, `jp`, `uk`, `cn` |
-| hl | string | No | Interface language, for example `en`, `ja`, `zh-CN` |
+| gl | string | No | Country code, such as `us`, `jp`, `uk`, `cn` |
+| hl | string | No | Interface language, such as `en`, `ja`, `zh-CN` |
 | sp | string | No | YouTube filter token for pagination or filters |
 
 ## Response Format
@@ -267,7 +267,7 @@ for kw in keywords:
 1. Sign up at [aisa.one](https://aisa.one)
 2. Get your API key
 3. Add credits if needed
-4. Set `AISA_API_KEY` in your environment
+4. Set `AISA_API_KEY`, for example: `export AISA_API_KEY="your-key"`
 
 ## Full API Reference
 

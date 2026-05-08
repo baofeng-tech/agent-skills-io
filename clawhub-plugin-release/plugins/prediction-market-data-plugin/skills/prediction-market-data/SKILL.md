@@ -1,6 +1,6 @@
 ---
 name: prediction-market-data
-description: 'Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
+description: Get prediction market data from Polymarket and Kalshi, including markets, prices, orderbooks, trades, positions, and cross-market sports matching. Use when you need current odds, historical market data, or wallet-level market activity.
 author: AIsa
 version: 1.0.0
 license: MIT
@@ -41,28 +41,28 @@ metadata:
 Access prediction market data from Polymarket and Kalshi through AIsa.
 
 Use this skill when you need to:
-- check live market odds or implied probabilities
+- look up live market prices or implied probabilities
 - search open or historical markets
-- inspect trade, orderbook, or candlestick history
-- review wallet activity, positions, or PnL
+- review trade history, orderbooks, or candlestick data
+- inspect Polymarket wallet activity, positions, or P&L
 - compare matching sports markets across platforms
 
-One API key provides a single access path to the supported endpoints.
+One API key gives agents a single path to prediction market data across both platforms.
 
 ## Compatibility
 
 Works with any [agentskills.io](https://agentskills.io)-compatible
 harness, including:
 
-- **Claude Code** and **Claude**
+- **Claude Code** and **Claude** (Anthropic)
 - **OpenAI Codex**
 - **Cursor**
-- **Gemini CLI**
+- **Gemini CLI** (Google)
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other harnesses that implement the [Agent Skills
+- and any other harness that implements the [Agent Skills
   specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at
 [aisa.one](https://aisa.one)).
 
 ## Common Requests
@@ -100,13 +100,11 @@ export AISA_API_KEY="your-key"
 
 ## How to Look Up IDs
 
-Many downstream endpoints require an ID returned by a prior market lookup.
-In practice, query the relevant `/markets` endpoint first, then pass the
-returned identifier into the next call.
+Most downstream endpoints require an ID returned by a market lookup. Query markets first, then pass the relevant identifier into the next request.
 
-1. **Polymarket `token_id`**: Query `/polymarket/markets`, find `side_a.id` or `side_b.id`, then pass it to `/polymarket/market-price/{token_id}`.
-2. **Polymarket `condition_id`**: Query `/polymarket/markets`, find `condition_id`, then pass it to `/polymarket/candlesticks/{condition_id}`.
-3. **Kalshi `market_ticker`**: Query `/kalshi/markets`, find `market_ticker`, then pass it to `/kalshi/market-price/{market_ticker}`.
+1. **Polymarket `token_id`**: Query `/polymarket/markets`, find `side_a.id` or `side_b.id` in the response, then pass it to `/polymarket/market-price/{token_id}`.
+2. **Polymarket `condition_id`**: Query `/polymarket/markets`, find `condition_id` in the response, then pass it to `/polymarket/candlesticks/{condition_id}`.
+3. **Kalshi `market_ticker`**: Query `/kalshi/markets`, find `market_ticker` in the response, then pass it to `/kalshi/market-price/{market_ticker}`.
 
 ## End-to-End Examples
 
@@ -150,7 +148,7 @@ The response includes a `side_a.id` and `side_b.id` for each market; these are t
 python scripts/prediction_market_client.py polymarket price 44482086252598348208660011972852804909957485351743405768768577675743702971026
 ```
 
-The price is a decimal between 0 and 1 representing the implied probability (for example, `0.20` = 20% chance of Yes).
+The price is a decimal between 0 and 1 representing the probability (e.g. `0.20` = 20% chance of Yes).
 
 ---
 
@@ -391,10 +389,10 @@ Returns activities array:
 - `tx_hash` (string) - Blockchain transaction hash
 
 ## Understanding Odds
-- Prices are shown as decimals (`0.65` = 65% probability)
-- "Yes" price represents the market-implied chance that the event happens
-- Higher volume usually means deeper liquidity and stronger market participation
-- Prices move as participants trade and new information is reflected in the market
+- Prices are shown as decimals (0.65 = 65% probability)
+- "Yes" price = probability market thinks event will happen
+- Higher volume = more confidence/liquidity
+- Prices change based on trading activity
 
 ## Pricing
 

@@ -1,13 +1,13 @@
 {
   "summary": {
-    "artifacts": 14,
+    "artifacts": 12,
     "blockers": 11,
-    "warnings": 3,
-    "pending": 3,
+    "warnings": 1,
+    "pending": 1,
     "rules": {
       "metadata_env_mismatch": 1,
-      "oauth_upload_side_effects": 4,
-      "pending_scan": 3,
+      "oauth_upload_side_effects": 3,
+      "pending_scan": 1,
       "platform_trust_gap": 8,
       "relay_trust_surface": 2
     }
@@ -22,7 +22,7 @@
       "scan_status": "suspicious",
       "virus_total": "clean",
       "clawscan_verdict": "suspicious",
-      "openclaw_verdict": null,
+      "openclaw_verdict": "review",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
@@ -51,7 +51,7 @@
       "scan_status": "suspicious",
       "virus_total": "suspicious",
       "clawscan_verdict": "suspicious",
-      "openclaw_verdict": null,
+      "openclaw_verdict": "review",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
@@ -80,7 +80,7 @@
       "scan_status": "suspicious",
       "virus_total": "clean",
       "clawscan_verdict": "suspicious",
-      "openclaw_verdict": null,
+      "openclaw_verdict": "review",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
@@ -109,7 +109,7 @@
       "scan_status": "suspicious",
       "virus_total": "clean",
       "clawscan_verdict": "suspicious",
-      "openclaw_verdict": null,
+      "openclaw_verdict": "review",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
@@ -138,7 +138,7 @@
       "scan_status": "suspicious",
       "virus_total": "suspicious",
       "clawscan_verdict": "suspicious",
-      "openclaw_verdict": null,
+      "openclaw_verdict": "review",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
@@ -167,7 +167,7 @@
       "scan_status": "suspicious",
       "virus_total": "clean",
       "clawscan_verdict": "suspicious",
-      "openclaw_verdict": null,
+      "openclaw_verdict": "review",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
@@ -196,7 +196,7 @@
       "scan_status": "suspicious",
       "virus_total": "suspicious",
       "clawscan_verdict": "suspicious",
-      "openclaw_verdict": null,
+      "openclaw_verdict": "review",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
@@ -372,68 +372,6 @@
       "local_path": ".tmp-clawhub-batch/plugins/aisa-twitter-research-engage-plugin",
       "release_ref": "rd7481zm68vsvyxstnkm2ee6a585ezhf",
       "reason": null
-    },
-    {
-      "key": "plugin:last30days-zh-plugin",
-      "kind": "plugin",
-      "name": "last30days-zh-plugin",
-      "publisher_handle": "baofeng-tech",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/last30days-zh-plugin",
-      "local_path": "clawhub-plugin-release/plugins/last30days-zh-plugin",
-      "release_ref": "rd71nt8582ykhkd2wzgz44gkvs868bqr",
-      "reason": "This appears to be a recent-research skill that uses an AISA API key and bundled Python scripts in ways that generally match its stated purpose."
-    },
-    {
-      "key": "skill:twitter-post-aisa",
-      "kind": "skill",
-      "name": "twitter-post-aisa",
-      "publisher_handle": "bibaofeng",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "benign",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/twitter-post-aisa",
-      "local_path": "clawhub-release/twitter-post-aisa",
-      "release_ref": "k9739kccvvzksfj4bk3he4dk21868mnv",
-      "reason": "The skill can perform public social engagement and posting, but the artifacts describe these actions as user-requested, approved, and confirmed by API results."
     }
   ]
 }

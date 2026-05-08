@@ -1,7 +1,7 @@
 {
   "name": "prediction-market-data-plugin",
   "version": "1.0.0",
-  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `prediction-market-data`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Access Polymarket and Kalshi market data, prices, positions, trades, and cross-platform sports market matching through AIsa. Use when you need current odds, historical market data, wallet activity, or side-by-side prediction market research. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
+  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `prediction-market-data`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Get prediction market data from Polymarket and Kalshi, including markets, prices, orderbooks, trades, positions, and cross-market sports matching. Use when you need current odds, historical market data, or wallet-level market activity.",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -10,10 +10,7 @@
     "openclaw",
     "native-plugin",
     "agent-skill",
-    "search",
-    "research",
     "market",
-    "stock",
     "prediction"
   ],
   "homepage": "https://aisa.one",

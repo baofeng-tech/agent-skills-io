@@ -1,6 +1,6 @@
 ---
 name: youtube-serp
-description: Search YouTube SERP results through AIsa for video research, channel discovery, trend analysis, and competitor tracking. Use when you need top-ranking YouTube results for a query, optionally filtered by country or language.
+description: 'Search YouTube SERPs through AIsa to find top-ranking videos, channels, and localized results for content research, trend discovery, and competitor tracking. Use when: you need YouTube search rankings, regional filtering, or topic validation from an agent workflow.'
 license: MIT
 metadata:
   aisa:
@@ -34,7 +34,7 @@ required_environment_variables:
 
 # youtube-serp
 
-Search YouTube SERP results through AIsa for video research, channel discovery, trend analysis, and competitor tracking. Use when you need top-ranking YouTube results for a query, optionally filtered by country or language.
+Search YouTube SERPs through AIsa to find top-ranking videos, channels, and localized results for content research, trend discovery, and competitor tracking. Use when: you need YouTube search rankings, regional filtering, or topic validation from an agent workflow.
 
 ## When to Use
 

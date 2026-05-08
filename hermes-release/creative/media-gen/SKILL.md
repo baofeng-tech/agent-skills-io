@@ -1,6 +1,6 @@
 ---
 name: media-gen
-description: 'Generate images and videos with AIsa using one API key. Supports Gemini image generation, Wan 2.7 image and image-pro, ByteDance Seedream, and four Wan video variants through the bundled client, which routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.'
+description: 'Generate images and videos with AIsa. Supports four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image and image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the bundled client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.'
 license: MIT
 metadata:
   aisa:
@@ -30,7 +30,7 @@ required_environment_variables:
 
 # media-gen
 
-Generate images and videos with AIsa using one API key. Supports Gemini image generation, Wan 2.7 image and image-pro, ByteDance Seedream, and four Wan video variants through the bundled client, which routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
+Generate images and videos with AIsa. Supports four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image and image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the bundled client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
 
 ## When to Use
 

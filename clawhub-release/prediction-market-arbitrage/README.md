@@ -8,7 +8,7 @@ Release-ready ClawHub skill package generated from `targetSkills/prediction-mark
 
 ## Notes
 
-- Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify liquidity before evaluating a trade.
+- Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify liquidity before acting on a spread.
 - This README is release-specific and replaces source READMEs that were written for other runtimes.
 - If the underlying instructions mention OpenClaw, treat that as source-context or compatibility guidance unless the skill is specifically about OpenClaw setup.
 
