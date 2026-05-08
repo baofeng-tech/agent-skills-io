@@ -271,9 +271,9 @@ def main() -> int:
     )
     require(
         "PIPELINE_AISA_API_REGRESSION_TIMEOUT: ${{ vars.AUTO_AISA_API_REGRESSION_TIMEOUT || '45' }}" in text
-        and "PIPELINE_AISA_API_REGRESSION_RETRIES: ${{ vars.AUTO_AISA_API_REGRESSION_RETRIES || '1' }}" in text
+        and "PIPELINE_AISA_API_REGRESSION_RETRIES: ${{ vars.AUTO_AISA_API_REGRESSION_RETRIES || '0' }}" in text
         and "--timeout \"${PIPELINE_AISA_API_REGRESSION_TIMEOUT:-45}\"" in text
-        and "--retries \"${PIPELINE_AISA_API_REGRESSION_RETRIES:-1}\"" in text,
+        and "--retries \"${PIPELINE_AISA_API_REGRESSION_RETRIES:-0}\"" in text,
         "hosted AISA regression must be bounded by CI-level timeout and retry controls",
     )
     aisa_regression_text = (REPO_ROOT / "scripts" / "test_aisa_api_skills.py").read_text(encoding="utf-8")

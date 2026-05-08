@@ -231,3 +231,9 @@ Current runner inventory during this follow-up was still `total_count=0`, so `SE
 - `python3 scripts/clawhub_suspicious_remediation.py --plan --owned-only --severity blocker --status suspicious`: selected `0` artifacts.
 - `python3 scripts/clawhub_breakout_rollout.py --plan`: selected the 4 declared breakout variants, all already clean in live status.
 - Canceled remote run `25559955152` after it revealed the unbounded practical runtime of the default AISA regression step; this was a test finding, not a workflow syntax failure.
+
+### 2026-05-09 Continuation Note
+
+- Pulled workflow-generated commit `cd1d547a`, which refreshed AISA regression and upstream-generated report artifacts only.
+- Run `25561525792` confirmed the `TimeoutExpired` fix no longer crashes the harness, but the default `1` retry still made hosted CI wait too long on multiple slow external commands.
+- Changed hosted AISA API regression default retry count to `0`; teams can still raise `AUTO_AISA_API_REGRESSION_RETRIES` for deliberate slower soak runs.
