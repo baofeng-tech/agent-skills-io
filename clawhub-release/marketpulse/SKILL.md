@@ -1,6 +1,6 @@
 ---
 name: marketpulse
-description: 'Query real-time and historical equity market data through AIsa, including prices, company news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
+description: 'Query real-time and historical equity market data through AIsa, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
 author: AIsa
 version: 1.0.2
 license: MIT
@@ -38,9 +38,17 @@ metadata:
 
 # MarketPulse 📊
 
-Broad equity market data for autonomous agents, powered by AIsa.
+Query equity market data from AIsa for research, monitoring, and analysis.
 
-Use this skill when you need one place to fetch stock prices, company news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening results, and macro interest rates.
+Use this skill when you need:
+- historical or intraday stock prices
+- company news and market-moving events
+- financial statements and segmented revenue data
+- financial metrics and analyst estimates
+- insider trades and institutional ownership
+- SEC filings and filing item extraction
+- stock screening or line-item search across tickers
+- macro interest-rate context
 
 ## Compatibility
 
@@ -51,7 +59,7 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
+- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
@@ -72,7 +80,7 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](
 "Find stocks with P/E < 15 and revenue growth > 20%"
 ```
 
-### Insider activity review
+### Insider activity
 ```
 "Track insider trades at Apple and correlate with price movements"
 ```
@@ -90,7 +98,7 @@ export AISA_API_KEY="your-key"
 
 ---
 
-## Traditional finance data
+## Equity and macro data
 
 ### Stock prices
 

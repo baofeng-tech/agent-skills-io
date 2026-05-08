@@ -1,23 +1,21 @@
 ---
 name: twitter-autopilot
-description: Reads and searches X (Twitter) data including profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Also supports posting, liking/unliking tweets, and following/unfollowing users after the user completes OAuth authorization. Use when the user needs Twitter/X research, social listening, publishing, or account interactions without sharing account passwords.
+description: 'Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks for Twitter/X research, social listening, posting, or account interactions without sharing account passwords.'
 license: MIT
 allowed-tools: Read Bash Grep
-when_to_use: the user needs Twitter/X research, social listening, publishing, or account interactions without sharing account passwords
+when_to_use: the user asks for Twitter/X research, social listening, posting, or account interactions without sharing account passwords
 ---
 
 > Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
 
 # Twitter Autopilot 🐦
 
-Twitter/X intelligence and action workflows for agents, powered by AIsa.
+Twitter/X research and account actions for agents, powered by AIsa.
 
 Use this skill when you need to:
-
-- read public Twitter/X profiles, timelines, mentions, followers, lists, communities, trends, or Spaces
-- search tweets and users for research, monitoring, or social listening
-- publish posts or replies after the user completes OAuth authorization
-- like, unlike, follow, or unfollow through the local engagement workflow after authorization
+- read Twitter/X profiles, timelines, mentions, followers, lists, communities, Spaces, or trends
+- search tweets and users for monitoring, research, or social listening
+- publish posts or interact with tweets and users after the user completes OAuth
 
 ## Compatibility
 
@@ -28,11 +26,11 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
+- any other harness that implements the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://aisa.one).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
-## Common requests
+## Common Requests
 
 ### Monitor accounts
 ```text
@@ -49,42 +47,38 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://ais
 "Search for tweets mentioning our product and analyze sentiment"
 ```
 
-### Competitor research
+### Competitor tracking
 ```text
-"Monitor @anthropic and @GoogleAI and summarize new announcements"
+"Monitor @anthropic and @GoogleAI and alert me on new announcements"
 ```
 
-## Workflow routing
+## Workflow Routing
 
 ### Read workflows
-
-Use this file and `scripts/twitter_client.py` for public read/search operations.
-These do not require user login.
+Use this skill directly for read-only tasks such as profile lookup, tweet search, timeline inspection, trends, lists, communities, and Spaces.
 
 ### Engagement workflows
+This file does not define like / unlike / follow / unfollow logic directly.
 
-This file does not define the like / unlike / follow / unfollow procedure directly.
-
-If the user asks to like, unlike, follow, or unfollow on X/Twitter, use `./references/engage_twitter.md`.
-**OAuth authorization must be completed first using `./references/post_twitter.md` before executing engagement actions.**
+If the user asks to like, unlike, follow, or unfollow on X/Twitter, handle that workflow with `./references/engage_twitter.md`.
+**OAuth authorization is required and must be obtained from `./references/post_twitter.md` before executing.**
 
 ### Posting workflows
-
 This file does not define publishing logic directly.
 
-If the user asks to post, reply, quote, or otherwise publish on X/Twitter, use `./references/post_twitter.md`.
+If the user asks to send, publish, reply, or quote on X/Twitter, handle that workflow with `./references/post_twitter.md`.
 
-## Quick start
+## Quick Start
 
 ```bash
 export AISA_API_KEY="your-key"
 ```
 
-## Core capabilities
+## Core Capabilities
 
-### Read operations (no login required)
+### Read Operations (No Login Required)
 
-#### User endpoints
+#### User Endpoints
 
 ```bash
 # Get user info
@@ -128,7 +122,7 @@ curl "https://api.aisa.one/apis/v1/twitter/user/search?query=AI+researcher" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-#### Tweet endpoints
+#### Tweet Endpoints
 
 ```bash
 # Advanced tweet search (queryType is required: Latest or Top)
@@ -164,7 +158,7 @@ curl "https://api.aisa.one/apis/v1/twitter/article?tweet_id=1895096451033985024"
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-#### Trends, lists, communities, and Spaces
+#### Trends, Lists, Communities & Spaces
 
 ```bash
 # Get trending topics (worldwide)
@@ -204,7 +198,7 @@ curl "https://api.aisa.one/apis/v1/twitter/spaces/detail?space_id=1dRJZlbLkjexB"
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-## Python client
+## Python Client
 
 ```bash
 # User operations
@@ -217,7 +211,7 @@ python3 scripts/twitter_client.py followings --username elonmusk
 python3 scripts/twitter_client.py verified-followers --user-id 44196397
 python3 scripts/twitter_client.py check-follow --source elonmusk --target BillGates
 
-# Search and discovery
+# Search & discovery
 python3 scripts/twitter_client.py search --query "AI agents"
 python3 scripts/twitter_client.py search --query "AI agents" --type Top
 python3 scripts/twitter_client.py user-search --query "AI researcher"
@@ -248,9 +242,9 @@ python3 scripts/twitter_engagement_client.py follow-user --user "@elonmusk"
 python3 scripts/twitter_engagement_client.py unfollow-user --user "@elonmusk"
 ```
 
-## API endpoints reference
+## API Endpoints Reference
 
-### Read endpoints (GET)
+### Read Endpoints (GET)
 
 | Endpoint | Description | Key Params |
 |----------|-------------|------------|
@@ -287,13 +281,13 @@ python3 scripts/twitter_engagement_client.py unfollow-user --user "@elonmusk"
 |-----|------|
 | Twitter read query | ~$0.0004 |
 
-## Get started
+## Get Started
 
 1. Sign up at [aisa.one](https://aisa.one)
 2. Get your API key
 3. Add credits (pay-as-you-go)
 4. Set the environment variable: `export AISA_API_KEY="your-key"`
 
-## Full API reference
+## Full API Reference
 
 See [API Reference](https://aisa.one/docs/api-reference/) for complete endpoint documentation.

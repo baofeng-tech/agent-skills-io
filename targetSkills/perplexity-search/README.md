@@ -8,7 +8,7 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Cl
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
-See [SKILL.md](SKILL.md) for the full agent-facing instructions, including supported endpoints, model selection guidance, and `scripts/perplexity_search_client.py` usage.
+See [SKILL.md](SKILL.md) for the full agent-facing instructions, including supported endpoints, model-selection guidance, and command examples.
 
 ## API Reference
 

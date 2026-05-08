@@ -8,7 +8,7 @@ Release-ready ClawHub skill package generated from `targetSkills/prediction-mark
 
 ## Notes
 
-- Get prediction market data from Polymarket and Kalshi, including markets, prices, orderbooks, trades, positions, and cross-market sports matching. Use when you need current odds, historical market data, or wallet-level market activity.
+- Access prediction market data from Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, candlesticks, and cross-platform sports market matching. Use when you need current odds, historical market data, wallet activity, or market comparison workflows.
 - This README is release-specific and replaces source READMEs that were written for other runtimes.
 - If the underlying instructions mention OpenClaw, treat that as source-context or compatibility guidance unless the skill is specifically about OpenClaw setup.
 

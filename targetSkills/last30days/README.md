@@ -1,6 +1,6 @@
 # last30days
 
-Multi-source research skill for the last 30 days. One command pulls a ranked, clustered brief on any topic across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search.
+Multi-source research skill for the last 30 days. One command pulls a ranked, clustered brief on a topic across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search.
 
 ## Quick start
 
@@ -33,28 +33,26 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## What it returns
 
-A single markdown brief by default, or JSON when you pass `--emit=json`.
-
-Typical output includes:
+A single markdown brief by default, or JSON with:
 
 - **Ranked evidence clusters** — top findings grouped by theme, each with a URL, date, engagement stats, and a short relevance rationale
 - **Stats** — items per source, top communities, domains, or channels
-- **Best Takes** — quirky or meme-worthy items (cosmetic)
+- **Best Takes** — quirky or meme-worthy items
 - **Source coverage** — how many items each source contributed
 
-For machine-readable workflows, JSON output includes the full `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source` fields.
+Pass `--emit=json` for a machine-readable result with the full `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source` fields.
 
 ## Requirements
 
 - **Python 3.12+**
-- **`AISA_API_KEY`** — powers the planner, reranker, fun-scorer, and hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and grounded web search. Get one at [aisa.one](https://aisa.one).
-- **`GH_TOKEN` or `GITHUB_TOKEN`** *(optional)* — enables the GitHub source. Without it, the other sources still work.
+- **`AISA_API_KEY`** — required for the planner, reranker, fun-scorer, and hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and grounded web search. Get one at [aisa.one](https://aisa.one).
+- **`GH_TOKEN` or `GITHUB_TOKEN`** *(optional)* — enables the GitHub source
 
-Reddit and Hacker News use public endpoints and need no credentials.
+Reddit and Hacker News use public endpoints and require no credentials.
 
 ## Per-role model configuration
 
-The skill makes three LLM calls per run: planner (query structure), reranker (relevance ranking), and fun-scorer (quirkiness). Each can be pinned independently:
+The skill makes three LLM calls per run: planner, reranker, and fun-scorer. Each role can be pinned independently:
 
 ```bash
 # ~/.config/last30days/.env
@@ -63,7 +61,7 @@ LAST30DAYS_RERANK_MODEL=qwen-plus-2025-12-01  # quality ranking
 LAST30DAYS_FUN_MODEL=qwen-flash               # cheap vibes
 ```
 
-Or set `AISA_MODEL=...` for a single model across all three. The interactive `setup` flow walks you through picking from the live [AIsa model catalog](https://aisa.one/docs/guides/models).
+Or set `AISA_MODEL=...` for one model across all three roles. The interactive `setup` flow helps you choose from the live [AIsa model catalog](https://aisa.one/docs/guides/models).
 
 ## Flags
 
@@ -73,13 +71,13 @@ Or set `AISA_MODEL=...` for a single model across all three. The interactive `se
 | `--deep` | Higher-recall retrieval profile |
 | `--emit=json` | Machine-readable output (default: markdown) |
 | `--search=reddit,x,hackernews` | Restrict to specific sources |
-| `--diagnose` | Print provider / source availability |
+| `--diagnose` | Print provider and source availability |
 | `--save-dir=out/` | Persist the rendered brief to disk |
 | `--store` | Persist findings to the local SQLite research store |
 
 Run `last30days --help` for the full list.
 
-## API Reference
+## API reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.
 

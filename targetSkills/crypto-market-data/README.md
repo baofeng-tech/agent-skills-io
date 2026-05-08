@@ -1,16 +1,16 @@
 # Crypto Market Data 🪙
 
-Query cryptocurrency prices, charts, exchange data, categories, trending searches, and news through AIsa's CoinGecko-backed API.
+Query cryptocurrency market data through AIsa's CoinGecko-backed endpoints.
 
-Use this skill when you need current or historical crypto market data, token lookup by contract address, market-cap screening, exchange research, or category-level analysis.
+Use this skill when you need current prices, historical charts, OHLC candles, token lookup by contract address, exchange data, category rankings, trending searches, or crypto news from a single CLI.
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible harness, including Claude Code, Claude, OpenCode, Cursor, Codex, Gemini CLI, OpenClaw, Hermes, Goose, and others.
+Works with any [agentskills.io](https://agentskills.io)-compatible harness: Claude Code, Claude, OpenCode, Cursor, Codex, Gemini CLI, OpenClaw, Hermes, Goose, and others.
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://aisa.one).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at [aisa.one](https://aisa.one)).
 
-## What this skill can do
+## Example requests
 
 ### Price tracking
 ```text
@@ -156,30 +156,28 @@ python3 scripts/coingecko_client.py trending
 
 ## Inputs and outputs
 
-- **Input:** coin IDs such as `bitcoin`, `ethereum`, and `solana`; fiat or crypto `vs_currency` codes such as `usd`, `eur`, and `btc`; category IDs; exchange IDs; or platform + contract-address pairs. Use `coins list` and `exchanges id-map` to resolve user-friendly names to CoinGecko IDs.
-- **Output:** JSON printed to stdout, matching the CoinGecko schema for each endpoint. Depending on the command, outputs include price dictionaries, coin or exchange objects, arrays of timestamped `[ts, value]` pairs for charts, `[ts, o, h, l, c]` tuples for OHLC, ticker arrays, and news or trending payloads.
+- **Input:** coin IDs (for example `bitcoin`, `ethereum`, `solana`), fiat/crypto `vs_currency` codes (`usd`, `eur`, `btc`), category or exchange IDs, or platform + contract-address pairs. Use `coins list` and `exchanges id-map` to resolve user-friendly names to CoinGecko IDs.
+- **Output:** JSON responses printed to stdout, matching the CoinGecko schema for each endpoint: price dictionaries, coin and exchange objects, arrays of timestamped `[ts, value]` pairs for charts, `[ts, o, h, l, c]` tuples for OHLC, ticker arrays, and related endpoint-specific payloads.
 
 ## When to use / When not to use
 
 **Use when:**
 - You need current or historical **crypto** prices, market caps, volumes, or charts.
-- You need to look up a token by its **on-chain contract address** such as `ethereum`, `binance-smart-chain`, or `polygon-pos`.
-- You need **exchange-level** data such as trust scores, volumes, and per-pair tickers.
-- You want to screen categories like DeFi, AI, or L1s, or surface trending coins.
+- You need to look up a token by its **on-chain contract address** (ethereum, binance-smart-chain, polygon-pos, etc.).
+- You need **exchange-level** data — trust scores, volumes, per-pair tickers.
+- You're screening across categories or surfacing trending coins.
 
 **Do not use when:**
 - You need **equities or traditional finance** data — use the `marketpulse` skill.
-- You need **order-book depth on prediction markets** such as Polymarket or Kalshi — use `prediction-market-data`.
+- You need **order-book depth on prediction markets** (Polymarket, Kalshi) — use `prediction-market-data`.
 - You need **on-chain wallet balances, transfers, or gas traces** — CoinGecko is a pricing and market-data source, not a node RPC.
 
 ## Requirements
 
-- Python 3
-- `curl`
-- POSIX shell
-- `AISA_API_KEY` — required; get one at [aisa.one](https://aisa.one)
+- Python 3, `curl`, POSIX shell
+- `AISA_API_KEY` — required, get one at [aisa.one](https://aisa.one)
 
-## API Reference
+## API reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.
 

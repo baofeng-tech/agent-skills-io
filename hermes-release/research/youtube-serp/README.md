@@ -8,7 +8,7 @@ Release-ready Hermes skill package generated from `targetSkills/youtube-serp`.
 
 ## Notes
 
-- Search YouTube SERPs through AIsa to find top-ranking videos, channels, and localized results for content research, trend discovery, and competitor tracking. Use when: you need YouTube search rankings, regional filtering, or topic validation from an agent workflow.
+- Search YouTube SERP results through AIsa for video research, channel discovery, competitor tracking, and trend analysis. Use when you need ranked YouTube results with optional country and language filters.
 - This README is release-specific and replaces source READMEs that were written for other runtimes.
 - If the underlying instructions mention OpenClaw, treat that as source-context or compatibility guidance unless the skill is specifically about OpenClaw setup.
 

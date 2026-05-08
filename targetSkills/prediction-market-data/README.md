@@ -1,22 +1,18 @@
 # Prediction Market Data
 
-Get current odds, prices, and market data from prediction markets such as Polymarket and Kalshi. This skill also supports historical orderbook data, candlestick charts, trade history, Polymarket wallet activity, positions, P&L, and cross-platform sports market matching.
+Access current odds, prices, and market data from prediction markets such as Polymarket and Kalshi. This skill supports market search, live pricing, historical orderbooks, candlestick data, trade history, wallet activity, positions, P&L, and cross-platform sports market matching.
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible
-harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**,
-**Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and
-others that implement the
-[Agent Skills specification](https://agentskills.io/specification).
+Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**, **Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and others that implement the [Agent Skills specification](https://agentskills.io/specification).
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## Features
 
-- **Polymarket**: Search markets, get live prices, inspect trade history, orderbooks, candlesticks, wallet positions, wallet details, and P&L
-- **Kalshi**: Search markets, get live prices, inspect trade history, and orderbooks
-- **Cross-platform sports matching**: Find equivalent sports markets across Polymarket and Kalshi
+- **Polymarket**: search markets, get live prices, review trade history, inspect orderbooks, retrieve candlesticks, and check wallet positions and P&L
+- **Kalshi**: search markets, get live prices, review trade history, and inspect orderbooks
+- **Cross-platform sports matching**: find equivalent sports markets across Polymarket and Kalshi
 
 ## Quick Start
 
@@ -41,15 +37,12 @@ python scripts/prediction_market_client.py sports by-date nba --date 2025-03-01
 
 ## ID Lookup Notes
 
-Many downstream endpoints require an identifier returned by a market search first:
+Some downstream queries require IDs returned by market listing endpoints.
 
-- **Polymarket `token_id`**: returned as `side_a.id` or `side_b.id`
-- **Polymarket `condition_id`**: returned on each market object
-- **Kalshi `market_ticker`**: returned on each Kalshi market object
-
-A common workflow is to query `markets` first, then use the returned ID in a `price`, `orderbooks`, or `candlesticks` request.
+- For **Polymarket price** queries, first call `polymarket markets` and use `side_a.id` or `side_b.id` as the `token_id`.
+- For **Polymarket candlesticks**, first call `polymarket markets` and use the returned `condition_id`.
+- For **Kalshi price** queries, first call `kalshi markets` and use the returned `market_ticker`.
 
 ## API Reference
 
-See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the
-complete catalog of endpoints this skill can call.
+See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.

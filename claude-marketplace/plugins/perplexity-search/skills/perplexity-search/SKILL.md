@@ -10,7 +10,7 @@ when_to_use: the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar
 
 # Perplexity Search
 
-Use this skill when the user specifically wants Perplexity-powered search or answer generation through AIsa, rather than a general web-search or scholar-search workflow.
+Use this skill when the user specifically wants Perplexity-powered search answers rather than a general web or scholar retrieval workflow.
 
 This skill covers four AIsa endpoints:
 - `/perplexity/sonar`
@@ -22,14 +22,14 @@ This skill covers four AIsa endpoints:
 
 Works with any [agentskills.io](https://agentskills.io)-compatible harness, including:
 
-- **Claude Code** and **Claude** (Anthropic)
+- **Claude Code** and **Claude**
 - **OpenAI Codex**
 - **Cursor**
-- **Gemini CLI** (Google)
+- **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and any other harness that implements the [Agent Skills specification](https://agentskills.io/specification)
+- and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at [aisa.one](https://aisa.one)).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
 ## Requirements
 

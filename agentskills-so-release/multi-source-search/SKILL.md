@@ -1,6 +1,6 @@
 ---
 name: multi-source-search
-description: Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need broad retrieval, citation-backed answers, or deeper research from one AIsa API key.
+description: 'Multi-source search and answer generation for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when: the user needs web search, research, source discovery, or content extraction.'
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -8,7 +8,7 @@ metadata:
   version: 1.0.0
   homepage: https://aisa.one
   repository: https://github.com/baofeng-tech/agent-skills-so
-  tags: x,search,research,aisa
+  tags: x,search,research
   platforms: agentskills.io,agentskills.so,github
   primary_env: AISA_API_KEY
 allowed-tools: Read Bash Grep
@@ -16,29 +16,45 @@ allowed-tools: Read Bash Grep
 
 # Multi-source Search
 
-Multi-source search for agents, powered by AIsa.
+Search across multiple AIsa-backed sources from one skill.
 
-Use this skill when you want one API-backed workflow for:
+This skill covers:
 - Structured web search
 - Scholar search
 - Hybrid scholar search
 - Tavily search and extraction utilities
-- Perplexity Sonar answer and research endpoints with citations
+- Perplexity Sonar answer endpoints with citations
+- Verity-style multi-source retrieval
+
+Use when:
+- You need fast web lookup with structured results
+- You want scholar-backed research across recent papers
+- You need citation-rich answers for analysis or reporting
+- You want to compare multiple retrieval sources from one interface
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible harness, including:
+Works with any [agentskills.io](https://agentskills.io)-compatible
+harness, including:
 
 - **Claude Code** and **Claude**
 - **OpenAI Codex**
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
+- and any other harness that implements the [Agent Skills
+  specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at
+[aisa.one](https://aisa.one)).
 
-## Best-fit tasks
+## Quick Start
+
+```bash
+export AISA_API_KEY="your-key"
+```
+
+## Example Requests
 
 ### Fast web lookup
 ```text
@@ -58,12 +74,6 @@ Use Sonar Pro to answer which open-source agent frameworks are gaining traction 
 ### Deep research reports
 ```text
 Use Sonar Deep Research to produce a thorough market map of AI browser agents.
-```
-
-## Quick Start
-
-```bash
-export AISA_API_KEY="your-key"
 ```
 
 ## Search APIs
@@ -96,7 +106,7 @@ curl -X POST "https://api.aisa.one/apis/v1/scholar/search/smart?query=machine+le
 
 The deprecated `/search/full` and `/search/smart` nodes have been removed from this skill.
 
-The current answer-generation and research flow uses the Perplexity endpoint family:
+The replacement flow is the Perplexity API family:
 
 | Endpoint | Use case |
 |----------|----------|
@@ -260,13 +270,13 @@ This skill sends a minimal OpenAI-style payload:
 }
 ```
 
-Use `messages` because the AIsa Perplexity endpoints are presented as Ask AI endpoints in the official docs. This skill keeps the payload intentionally small for broad compatibility.
+Use `messages` because the AIsa Perplexity endpoints are presented as "Ask AI" endpoints in the official docs. This skill keeps the payload intentionally small for broad compatibility.
 
 ## Notes
 
-- `/search/full` and `/search/smart` are no longer documented here because those nodes have been retired.
-- The scholar and Tavily endpoints listed above remain available.
-- `verity` focuses on parallel retrieval from scholar, web, hybrid scholar, and Tavily sources.
+- `/search/full` and `/search/smart` are no longer documented here because you indicated those nodes have been retired.
+- The existing scholar and Tavily endpoints remain available.
+- `verity` still focuses on parallel retrieval from scholar, web, hybrid scholar, and Tavily sources.
 
 ## Full API Reference
 
@@ -274,5 +284,5 @@ See [API Reference](https://aisa.one/docs/api-reference/) for complete endpoint 
 
 ## Resources
 
-- [AIsa Verity](https://github.com/AIsa-team/verity) - Reference implementation of a confidence-scored search agent
+- [AIsa Verity](https://github.com/AIsa-team/verity) - Reference implementation of confidence-scored search agent
 - [AIsa Documentation](https://aisa.one/docs) - Complete API documentation

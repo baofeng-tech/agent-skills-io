@@ -1,6 +1,6 @@
 # YouTube SERP 📺
 
-Search YouTube SERPs through AIsa for top-ranking videos, channels, and localized results.
+Search ranked YouTube results through AIsa for content research, channel discovery, competitor tracking, and trend analysis.
 
 ## Compatibility
 
@@ -10,10 +10,10 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## Features
 
-- **YouTube SERP Search**: Find top-ranking results for any query
-- **Country and Language Filters**: Check regionalized search output
-- **Competitor Research**: Review visible channels and topics in search results
-- **Trend Discovery**: See what topics and videos are surfacing now
+- **SERP Search**: Find top-ranking YouTube videos for a query
+- **Country and Language Filters**: Target specific regions and interfaces
+- **Competitor Research**: Inspect videos around brands, creators, or topics
+- **Trend Discovery**: Check what is ranking for emerging subjects
 
 ## Quick Start
 
@@ -29,22 +29,22 @@ python3 scripts/youtube_client.py search --query "machine learning" --country us
 # Search with language filter
 python3 scripts/youtube_client.py search --query "python tutorial" --lang en
 
-# Combined filters
+# Full options
 python3 scripts/youtube_client.py search --query "GPT-5 news" --country us --lang en
 ```
 
-## Common Use Cases
+## Typical use cases
 
-1. **Content Research** - Find what is ranking for a topic
-2. **Competitor Tracking** - Review search-visible videos and channels in your space
-3. **Trend Discovery** - Identify currently surfacing topics
-4. **Keyword Research** - Discover popular search phrasing
-5. **Audience Research** - Compare regional preferences with `gl` and `hl`
+1. **Content Research** - Find what is ranking to plan new content
+2. **Competitor Tracking** - Review results around competitor brands or channels
+3. **Trend Discovery** - Identify popular topics and result patterns
+4. **Keyword Research** - Explore how topics perform across queries
+5. **Audience Research** - Compare results by country and language
 
 ## Documentation
 
-See [SKILL.md](SKILL.md) for usage details, API examples, parameters, and response format.
+See [SKILL.md](SKILL.md) for full usage details, request parameters, and response examples.
 
 ## API Reference
 
-See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.
+See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the broader endpoint catalog.

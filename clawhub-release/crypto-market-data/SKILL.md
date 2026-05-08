@@ -1,6 +1,6 @@
 ---
 name: crypto-market-data
-description: 'Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto research, price tracking, on-chain token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
+description: 'Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, on-chain token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
 author: AIsa
 version: 1.0.1
 license: MIT
@@ -38,9 +38,9 @@ metadata:
 
 # Crypto Market Data 🪙
 
-Query cryptocurrency prices, charts, exchange data, categories, trending searches, and news through AIsa's CoinGecko-backed API.
+Query cryptocurrency market data through AIsa's CoinGecko-backed endpoints.
 
-Use this skill when you need current or historical crypto market data, token lookup by contract address, market-cap screening, exchange research, or category-level analysis.
+Use this skill when you need current prices, historical charts, OHLC candles, token lookup by contract address, exchange data, category rankings, trending searches, or crypto news from a single CLI.
 
 ## Compatibility
 
@@ -51,11 +51,11 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
+- and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://aisa.one).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
-## What this skill can do
+## Example requests
 
 ### Price tracking
 ```text
@@ -201,56 +201,54 @@ python3 scripts/coingecko_client.py trending
 
 ## Inputs and outputs
 
-- **Input:** coin IDs such as `bitcoin`, `ethereum`, and `solana`; fiat or crypto `vs_currency` codes such as `usd`, `eur`, and `btc`; category IDs; exchange IDs; or platform + contract-address pairs. Use `coins list` and `exchanges id-map` to resolve user-friendly names to CoinGecko IDs.
-- **Output:** JSON printed to stdout, matching the CoinGecko schema for each endpoint. Depending on the command, outputs include price dictionaries, coin or exchange objects, arrays of timestamped `[ts, value]` pairs for charts, `[ts, o, h, l, c]` tuples for OHLC, ticker arrays, and news or trending payloads.
+- **Input:** coin IDs such as `bitcoin`, `ethereum`, and `solana`; fiat or crypto `vs_currency` codes such as `usd`, `eur`, and `btc`; category IDs; exchange IDs; or platform + contract-address pairs. Use `coins list` and `exchanges id-map` to resolve user-facing names to CoinGecko IDs.
+- **Output:** JSON printed to stdout, following the CoinGecko schema for each endpoint: price dictionaries, coin and exchange objects, arrays of timestamped `[ts, value]` pairs for charts, `[ts, o, h, l, c]` tuples for OHLC, ticker arrays, and related endpoint-specific payloads.
 
 ## When to use / When not to use
 
 **Use when:**
 - You need current or historical **crypto** prices, market caps, volumes, or charts.
 - You need to look up a token by its **on-chain contract address** such as `ethereum`, `binance-smart-chain`, or `polygon-pos`.
-- You need **exchange-level** data such as trust scores, volumes, and per-pair tickers.
-- You want to screen categories like DeFi, AI, or L1s, or surface trending coins.
+- You need **exchange-level** market data, including trust scores, volumes, and per-pair tickers.
+- You want category-level screening or trending coin discovery.
 
 **Do not use when:**
 - You need **equities or traditional finance** data — use the `marketpulse` skill.
 - You need **order-book depth on prediction markets** such as Polymarket or Kalshi — use `prediction-market-data`.
-- You need **on-chain wallet balances, transfers, or gas traces** — CoinGecko is a pricing and market-data source, not a node RPC.
+- You need **on-chain wallet balances, transfers, or gas traces** — this is a pricing and market-data skill, not a node RPC client.
 
 ## Requirements
 
-- Python 3
-- `curl`
-- POSIX shell
+- Python 3, `curl`, POSIX shell
 - `AISA_API_KEY` — required; get one at [aisa.one](https://aisa.one)
 
 ## API reference
 
 This skill calls the following AIsa CoinGecko endpoints directly:
 
-- [Simple Price](https://aisa.one/docs/api-reference/coingecko/simple-price) — current price for one or more coins in any supported currencies
-- [Supported Currencies](https://aisa.one/docs/api-reference/coingecko/supported-currencies) — list of all supported fiat and crypto `vs_currency` codes
-- [Coin Price by Token Address](https://aisa.one/docs/api-reference/coingecko/coin-price-by-token-address) — current price of tokens by contract address on a supported platform
+- [Simple Price](https://aisa.one/docs/api-reference/coingecko/simple-price) — current price for one or more coins in supported quote currencies
+- [Supported Currencies](https://aisa.one/docs/api-reference/coingecko/supported-currencies) — list of supported fiat and crypto `vs_currency` codes
+- [Coin Price by Token Address](https://aisa.one/docs/api-reference/coingecko/coin-price-by-token-address) — current token price by contract address on a supported platform
 - [Coins List (ID Map)](https://aisa.one/docs/api-reference/coingecko/coins-list) — directory of all coins with id, symbol, and name
-- [Coins Markets](https://aisa.one/docs/api-reference/coingecko/coins-markets) — all coins with full market data such as price, market cap, and volume
-- [Coin Data by ID](https://aisa.one/docs/api-reference/coingecko/coin-data-by-id) — current coin info including price, markets, links, community, and developer data
+- [Coins Markets](https://aisa.one/docs/api-reference/coingecko/coins-markets) — market-wide coin data including price, market cap, volume, and related fields
+- [Coin Data by ID](https://aisa.one/docs/api-reference/coingecko/coin-data-by-id) — current coin information including market, link, community, and developer fields
 - [Coin Tickers](https://aisa.one/docs/api-reference/coingecko/coin-tickers) — exchange-listed trading pairs for a coin
 - [Coin Historical Data](https://aisa.one/docs/api-reference/coingecko/coin-historical-data) — historical snapshot for a given date
 - [Coin Historical Chart](https://aisa.one/docs/api-reference/coingecko/coin-historical-chart) — historical market data over the last N days
-- [Coin Market Chart Range](https://aisa.one/docs/api-reference/coingecko/coin-market-chart-range) — historical market data within an explicit UNIX timestamp range
+- [Coin Market Chart Range](https://aisa.one/docs/api-reference/coingecko/coin-market-chart-range) — historical market data for an explicit UNIX timestamp range
 - [Coin OHLC](https://aisa.one/docs/api-reference/coingecko/coin-ohlc) — OHLC candles for a coin
 - [Coin Data by Token Address](https://aisa.one/docs/api-reference/coingecko/coin-data-by-token-address) — full coin data by contract address on a supported platform
-- [Coin Historical Chart by Contract](https://aisa.one/docs/api-reference/coingecko/coin-historical-chart-by-contract) — historical market data for a token by contract address
-- [Categories List](https://aisa.one/docs/api-reference/coingecko/categories-list) — all coin categories used by CoinGecko
-- [Categories with Market Data](https://aisa.one/docs/api-reference/coingecko/categories-with-market-data) — categories with market cap, volume, and top-3 coins
-- [Exchanges List](https://aisa.one/docs/api-reference/coingecko/exchanges-list) — all exchanges with current trading volume and metadata
+- [Coin Historical Chart by Contract](https://aisa.one/docs/api-reference/coingecko/coin-historical-chart-by-contract) — historical token market data by contract address
+- [Categories List](https://aisa.one/docs/api-reference/coingecko/categories-list) — all CoinGecko category identifiers
+- [Categories with Market Data](https://aisa.one/docs/api-reference/coingecko/categories-with-market-data) — category-level market cap, volume, and top-coin data
+- [Exchanges List](https://aisa.one/docs/api-reference/coingecko/exchanges-list) — exchanges with current trading volume and metadata
 - [Exchanges List (ID Map)](https://aisa.one/docs/api-reference/coingecko/exchanges-list-id-map) — exchange identifiers and names for mapping
 - [Exchange Data by ID](https://aisa.one/docs/api-reference/coingecko/exchange-data-by-id) — detailed data for a single exchange
 - [Exchange Tickers](https://aisa.one/docs/api-reference/coingecko/exchange-tickers) — trading pairs listed on a given exchange
-- [Crypto News](https://aisa.one/docs/api-reference/coingecko/crypto-news) — latest crypto news articles aggregated by CoinGecko
+- [Crypto News](https://aisa.one/docs/api-reference/coingecko/crypto-news) — recent crypto news articles aggregated by CoinGecko
 - [Trending Search](https://aisa.one/docs/api-reference/coingecko/trending-search) — top trending coin searches in the last 24 hours
 
-See the [full AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog.
+See the [full AIsa API Reference](https://aisa.one/docs/api-reference) for the broader catalog.
 
 ## License
 

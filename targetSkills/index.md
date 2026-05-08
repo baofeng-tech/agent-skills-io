@@ -52,11 +52,11 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `crypto-market-data`
   - Category: `finance`
   - Path: `crypto-market-data`
-  - Description: Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto research, price tracking, on-chain token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
+  - Description: Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, on-chain token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - `last30days`
   - Category: `youtube`
   - Path: `last30days`
-  - Description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
+  - Description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when you need recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 - `last30days-zh`
   - Category: `twitter`
   - Path: `last30days-zh`
@@ -72,11 +72,11 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `marketpulse`
   - Category: `finance`
   - Path: `marketpulse`
-  - Description: Query real-time and historical equity market data through AIsa, including prices, company news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
+  - Description: Query real-time and historical equity market data through AIsa, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - `media-gen`
   - Category: `media`
   - Path: `media-gen`
-  - Description: Generate images and videos with AIsa. Supports four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image and image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the bundled client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
+  - Description: Generate images and videos with AIsa. Supports four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image + image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
 - `multi-search`
   - Category: `search`
   - Path: `multi-search`
@@ -84,7 +84,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `multi-source-search`
   - Category: `search`
   - Path: `multi-source-search`
-  - Description: Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need broad retrieval, citation-backed answers, or deeper research from one AIsa API key.
+  - Description: Multi-source search and answer generation for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when: the user needs web search, research, source discovery, or content extraction.
 - `openclaw-aisa-youtube-aisa`
   - Category: `youtube`
   - Path: `openclaw-aisa-youtube-aisa`
@@ -124,7 +124,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `prediction-market-arbitrage`
   - Category: `finance`
   - Path: `prediction-market-arbitrage`
-  - Description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify liquidity before acting on a spread.
+  - Description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify whether spreads are actionable.
 - `prediction-market-arbitrage-api`
   - Category: `finance`
   - Path: `prediction-market-arbitrage-api`
@@ -136,7 +136,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `prediction-market-data`
   - Category: `finance`
   - Path: `prediction-market-data`
-  - Description: Get prediction market data from Polymarket and Kalshi, including markets, prices, orderbooks, trades, positions, and cross-market sports matching. Use when you need current odds, historical market data, or wallet-level market activity.
+  - Description: Access prediction market data from Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, candlesticks, and cross-platform sports market matching. Use when you need current odds, historical market data, wallet activity, or market comparison workflows.
 - `prediction-market-data-zh`
   - Category: `finance`
   - Path: `prediction-market-data-zh`
@@ -192,7 +192,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `twitter-autopilot`
   - Category: `twitter`
   - Path: `twitter-autopilot`
-  - Description: Reads and searches X (Twitter) data including profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Also supports posting, liking/unliking tweets, and following/unfollowing users after the user completes OAuth authorization. Use when the user needs Twitter/X research, social listening, publishing, or account interactions without sharing account passwords.
+  - Description: Searches and reads X (Twitter): profiles, timelines, mentions, followers, tweet search, trends, lists, communities, and Spaces. Publishes posts, likes/unlikes tweets, and follows/unfollows users after the user completes OAuth in the browser. Use when the user asks for Twitter/X research, social listening, posting, or account interactions without sharing account passwords.
 - `twitter-command-center-search-post`
   - Category: `twitter`
   - Path: `twitter-command-center-search-post`
@@ -224,4 +224,4 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `youtube-serp`
   - Category: `youtube`
   - Path: `youtube-serp`
-  - Description: Search YouTube SERPs through AIsa to find top-ranking videos, channels, and localized results for content research, trend discovery, and competitor tracking. Use when: you need YouTube search rankings, regional filtering, or topic validation from an agent workflow.
+  - Description: Search YouTube SERP results through AIsa for video research, channel discovery, competitor tracking, and trend analysis. Use when you need ranked YouTube results with optional country and language filters.
