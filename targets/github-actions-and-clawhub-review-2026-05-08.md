@@ -223,6 +223,7 @@ Current runner inventory during this follow-up was still `total_count=0`, so `SE
 - Added a workflow guard assertion so the misleading wording cannot return.
 - Documented the concrete conditions that make a self-hosted runner available or unavailable.
 - After current-HEAD remote validation spent 23 minutes inside `Run AISA API skill regression`, bounded hosted AISA regression with CI-level timeout/retry/delay vars and added per-command progress logs.
+- After run `25561267587` exposed a `subprocess.TimeoutExpired` crash on `prediction-market`, changed the regression harness so command timeouts become transient results and still produce a report.
 
 ### Local Checks
 

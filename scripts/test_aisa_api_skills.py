@@ -219,18 +219,28 @@ def run_check_with_retries(
     status = "failed"
     while attempts <= retries:
         attempts += 1
-        result = subprocess.run(
-            command,
-            cwd=str(skill_dir),
-            env=env,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            timeout=timeout,
-            check=False,
-        )
+        try:
+            result = subprocess.run(
+                command,
+                cwd=str(skill_dir),
+                env=env,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                timeout=timeout,
+                check=False,
+            )
+        except subprocess.TimeoutExpired as exc:
+            stdout = exc.stdout.decode("utf-8", errors="replace") if isinstance(exc.stdout, bytes) else (exc.stdout or "")
+            stderr = exc.stderr.decode("utf-8", errors="replace") if isinstance(exc.stderr, bytes) else (exc.stderr or "")
+            result = subprocess.CompletedProcess(
+                command,
+                124,
+                stdout=stdout,
+                stderr=f"{stderr}\nCommand timed out after {timeout} seconds".strip(),
+            )
         last_result = result
         application_error = has_application_error(result.stdout, result.stderr)
         transient = is_transient_failure(result.stdout, result.stderr)

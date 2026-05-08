@@ -326,7 +326,7 @@ In this repo, "no available self-hosted runner" means the GitHub runner inventor
 
 When `AUTO_ALLOW_HOSTED_CONTINUATION=true`, preflight may still let continuation lanes run on `ubuntu-latest`. The summary now reports this as "Continuation lanes can run" plus a runner decision, so hosted fallback is not confused with a real self-hosted runner being online.
 
-Hosted AISA API regression is intentionally bounded more tightly than a local deep regression run. Scheduled/manual CI defaults to `AUTO_AISA_API_REGRESSION_TIMEOUT=45`, `AUTO_AISA_API_REGRESSION_RETRIES=1`, and `AUTO_AISA_API_REGRESSION_DELAY=0.25`; use local `scripts/test_aisa_api_skills.py` options when a slower full external soak is needed. The script prints each command before and after it runs so GitHub logs show progress instead of a long silent wait.
+Hosted AISA API regression is intentionally bounded more tightly than a local deep regression run. Scheduled/manual CI defaults to `AUTO_AISA_API_REGRESSION_TIMEOUT=45`, `AUTO_AISA_API_REGRESSION_RETRIES=1`, and `AUTO_AISA_API_REGRESSION_DELAY=0.25`; use local `scripts/test_aisa_api_skills.py` options when a slower full external soak is needed. The script prints each command before and after it runs so GitHub logs show progress instead of a long silent wait. Per-command timeout is treated as a transient external failure, not as a Python harness crash.
 
 Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL. Before committing repo changes, each hosted and self-hosted commit step also fetches and rebases with `--autostash`, then retries push after another rebase if the remote advanced.
 

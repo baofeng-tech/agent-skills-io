@@ -281,6 +281,12 @@ def main() -> int:
         "AISA API regression [{index}]" in aisa_regression_text and "flush=True" in aisa_regression_text,
         "AISA regression must print per-command progress so CI logs do not look stuck",
     )
+    require(
+        "except subprocess.TimeoutExpired as exc:" in aisa_regression_text
+        and "Command timed out after {timeout} seconds" in aisa_regression_text
+        and "subprocess.CompletedProcess(" in aisa_regression_text,
+        "AISA regression command timeouts must become transient results instead of crashing the runner",
+    )
     validate_continuation_planner()
     print("GitHub Actions workflow guard checks passed.")
     return 0
