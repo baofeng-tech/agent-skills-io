@@ -294,6 +294,9 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_PIPELINE_SELECTION`
 - `AUTO_DIAGNOSIS_DOC_UPDATE`
 - `AUTO_RUN_AISA_API_REGRESSION`
+- `AUTO_AISA_API_REGRESSION_TIMEOUT`
+- `AUTO_AISA_API_REGRESSION_RETRIES`
+- `AUTO_AISA_API_REGRESSION_DELAY`
 - `AUTO_RUN_LLM_STEP`
 - `AUTO_LLM_APPLY`
 - `AUTO_SYNC_REPO_SKILLS`
@@ -322,6 +325,8 @@ If the repository runner endpoint returns `200` with zero runners, preflight fir
 In this repo, "no available self-hosted runner" means the GitHub runner inventory has no online runner that is both visible to the repository and carrying every requested label. A runner exists only after someone registers a repository, organization, or enterprise Actions runner and keeps that runner process online. It is still "unavailable" when inventory is empty, the runner service is offline, labels do not match `SELF_HOSTED_RUNNER_RUNS_ON_JSON`, the runner group cannot serve this repository, or the token used by preflight cannot read the relevant runner inventory.
 
 When `AUTO_ALLOW_HOSTED_CONTINUATION=true`, preflight may still let continuation lanes run on `ubuntu-latest`. The summary now reports this as "Continuation lanes can run" plus a runner decision, so hosted fallback is not confused with a real self-hosted runner being online.
+
+Hosted AISA API regression is intentionally bounded more tightly than a local deep regression run. Scheduled/manual CI defaults to `AUTO_AISA_API_REGRESSION_TIMEOUT=45`, `AUTO_AISA_API_REGRESSION_RETRIES=1`, and `AUTO_AISA_API_REGRESSION_DELAY=0.25`; use local `scripts/test_aisa_api_skills.py` options when a slower full external soak is needed. The script prints each command before and after it runs so GitHub logs show progress instead of a long silent wait.
 
 Before those publish/remediation steps, the self-hosted job now fast-forwards its checkout to the latest `main` using an explicit token URL. Before committing repo changes, each hosted and self-hosted commit step also fetches and rebases with `--autostash`, then retries push after another rebase if the remote advanced.
 

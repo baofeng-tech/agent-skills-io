@@ -222,9 +222,11 @@ Current runner inventory during this follow-up was still `total_count=0`, so `SE
 - Added an explicit runner decision line for self-hosted match, hosted fallback, no-request, and unavailable states.
 - Added a workflow guard assertion so the misleading wording cannot return.
 - Documented the concrete conditions that make a self-hosted runner available or unavailable.
+- After current-HEAD remote validation spent 23 minutes inside `Run AISA API skill regression`, bounded hosted AISA regression with CI-level timeout/retry/delay vars and added per-command progress logs.
 
 ### Local Checks
 
 - `python3 scripts/plan_workflow_continuation.py --ignore-git-status`: no publish, suspicious repair, or breakout rollout requested.
 - `python3 scripts/clawhub_suspicious_remediation.py --plan --owned-only --severity blocker --status suspicious`: selected `0` artifacts.
 - `python3 scripts/clawhub_breakout_rollout.py --plan`: selected the 4 declared breakout variants, all already clean in live status.
+- Canceled remote run `25559955152` after it revealed the unbounded practical runtime of the default AISA regression step; this was a test finding, not a workflow syntax failure.

@@ -283,7 +283,18 @@ def main() -> int:
         for kind, command in specs:
             if results and args.delay > 0:
                 time.sleep(args.delay)
-            results.append(run_check(skill_dir, kind, command, env, args.timeout, args.retries))
+            index = len(results) + 1
+            print(
+                f"AISA API regression [{index}] {skill_dir.name}: {' '.join(command)}",
+                flush=True,
+            )
+            result = run_check(skill_dir, kind, command, env, args.timeout, args.retries)
+            print(
+                f"AISA API regression [{index}] {skill_dir.name}: {result.status} "
+                f"(attempts={result.attempts}, code={result.code})",
+                flush=True,
+            )
+            results.append(result)
 
     failures = [result for result in results if result.status == "failed"]
     transients = [result for result in results if result.status == "transient"]

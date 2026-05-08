@@ -192,6 +192,9 @@ jobs:
       PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || vars.AUTO_SYNC_REPO_SKILLS || 'true' }}
       PIPELINE_DIAGNOSIS_DOC_UPDATE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.diagnosis_doc_update || vars.AUTO_DIAGNOSIS_DOC_UPDATE || 'true' }}
       PIPELINE_RUN_AISA_API_REGRESSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_aisa_api_regression || vars.AUTO_RUN_AISA_API_REGRESSION || 'true' }}
+      PIPELINE_AISA_API_REGRESSION_TIMEOUT: ${{ vars.AUTO_AISA_API_REGRESSION_TIMEOUT || '45' }}
+      PIPELINE_AISA_API_REGRESSION_RETRIES: ${{ vars.AUTO_AISA_API_REGRESSION_RETRIES || '1' }}
+      PIPELINE_AISA_API_REGRESSION_DELAY: ${{ vars.AUTO_AISA_API_REGRESSION_DELAY || '0.25' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
     steps:
@@ -285,7 +288,11 @@ jobs:
             } >> "${GITHUB_STEP_SUMMARY}"
             exit 1
           fi
-          if python3 scripts/test_aisa_api_skills.py --report "$REPORT_PATH"; then
+          if python3 scripts/test_aisa_api_skills.py \
+            --report "$REPORT_PATH" \
+            --timeout "${PIPELINE_AISA_API_REGRESSION_TIMEOUT:-45}" \
+            --retries "${PIPELINE_AISA_API_REGRESSION_RETRIES:-1}" \
+            --delay "${PIPELINE_AISA_API_REGRESSION_DELAY:-0.25}"; then
             status=0
           else
             status=$?

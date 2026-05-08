@@ -269,6 +269,18 @@ def main() -> int:
         "python3 scripts/test_twitter_oauth_client_safety.py" in text,
         "hosted validation must cover Twitter OAuth public-write safety",
     )
+    require(
+        "PIPELINE_AISA_API_REGRESSION_TIMEOUT: ${{ vars.AUTO_AISA_API_REGRESSION_TIMEOUT || '45' }}" in text
+        and "PIPELINE_AISA_API_REGRESSION_RETRIES: ${{ vars.AUTO_AISA_API_REGRESSION_RETRIES || '1' }}" in text
+        and "--timeout \"${PIPELINE_AISA_API_REGRESSION_TIMEOUT:-45}\"" in text
+        and "--retries \"${PIPELINE_AISA_API_REGRESSION_RETRIES:-1}\"" in text,
+        "hosted AISA regression must be bounded by CI-level timeout and retry controls",
+    )
+    aisa_regression_text = (REPO_ROOT / "scripts" / "test_aisa_api_skills.py").read_text(encoding="utf-8")
+    require(
+        "AISA API regression [{index}]" in aisa_regression_text and "flush=True" in aisa_regression_text,
+        "AISA regression must print per-command progress so CI logs do not look stuck",
+    )
     validate_continuation_planner()
     print("GitHub Actions workflow guard checks passed.")
     return 0
