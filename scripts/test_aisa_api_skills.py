@@ -9,6 +9,7 @@ import os
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
@@ -19,6 +20,7 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TARGET_ROOT = REPO_ROOT / "targetSkills"
 DEFAULT_REPORT = REPO_ROOT / "targets" / f"aisa-api-regression-report-{datetime.now(timezone.utc).date().isoformat()}.json"
+REGRESSION_OUTPUT_ROOT = Path(os.environ.get("AISA_REGRESSION_OUTPUT_DIR", tempfile.gettempdir()))
 ACCOUNTS_PATH = REPO_ROOT / "example" / "accounts"
 API_MARKERS = ("AISA_API_KEY", "api.aisa.one")
 PREVIEW_LIMIT = 6000
@@ -105,6 +107,7 @@ def discover_skills(names: list[str]) -> list[Path]:
 
 
 def python_command(script_name: str) -> list[str] | None:
+    stock_analyst_smoke_output = REGRESSION_OUTPUT_ROOT / f"aisa-api-regression-stock-analyst-{os.getpid()}.json"
     commands = {
         "twitter_client.py": ["search", "--query", "OpenAI", "--type", "Latest"],
         "twitter_engagement_client.py": ["list-tweets", "--user", "OpenAI", "--limit", "1"],
@@ -123,7 +126,17 @@ def python_command(script_name: str) -> list[str] | None:
         "hot_scanner.py": ["--focus", "stocks", "--output", "json"],
         "rumor_scanner.py": ["--focus", "analyst", "--output", "json"],
         "portfolio.py": ["list"],
-        "stock_analyst.py": ["--ticker", "AAPL", "--depth", "quick", "--models", "gpt-4.1", "--json-only"],
+        "stock_analyst.py": [
+            "--ticker",
+            "AAPL",
+            "--depth",
+            "quick",
+            "--models",
+            "gpt-4.1",
+            "--json-only",
+            "--output",
+            str(stock_analyst_smoke_output),
+        ],
         "arbitrage_finder.py": ["--help"],
         "last30days.py": ["OpenAI", "--quick", "--mock", "--emit", "json"],
     }

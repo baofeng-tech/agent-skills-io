@@ -237,3 +237,5 @@ Current runner inventory during this follow-up was still `total_count=0`, so `SE
 - Pulled workflow-generated commit `cd1d547a`, which refreshed AISA regression and upstream-generated report artifacts only.
 - Run `25561525792` confirmed the `TimeoutExpired` fix no longer crashes the harness, but the default `1` retry still made hosted CI wait too long on multiple slow external commands.
 - Changed hosted AISA API regression default retry count to `0`; teams can still raise `AUTO_AISA_API_REGRESSION_RETRIES` for deliberate slower soak runs.
+- Current-HEAD run `25566929049` proved `sync-build-test` now completes, including 72 AISA commands in `7m54s`, but exposed a separate blocker: `us-stock-analyst` wrote `AAPL_analysis_20260508.json` under `targetSkills/`, so the planner treated report-only dirtiness as release-layer work and launched the full publish lane.
+- Fixed the regression command to write stock analyst smoke output under the temp directory, and hardened the planner so known smoke/report outputs do not request publish continuation.

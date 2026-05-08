@@ -159,6 +159,24 @@ def validate_continuation_planner() -> None:
         )
 
 
+def validate_continuation_dirty_filter() -> None:
+    import plan_workflow_continuation as planner
+
+    require(
+        not planner.generated_release_dirty(
+            [
+                "targetSkills/us-stock-analyst/AAPL_analysis_20260508.json",
+                "targets/aisa-api-regression-report-2026-05-08.json",
+            ]
+        ),
+        "planner must not request publish continuation for AISA smoke/report output only",
+    )
+    require(
+        planner.generated_release_dirty(["targetSkills/aisa-twitter-api/SKILL.md"]),
+        "planner must still request publish continuation for real targetSkills source changes",
+    )
+
+
 def main() -> int:
     text = WORKFLOW_PATH.read_text(encoding="utf-8")
     dispatch_block = text.split("workflow_dispatch:", 1)[1].split("schedule:", 1)[0]
@@ -287,7 +305,14 @@ def main() -> int:
         and "subprocess.CompletedProcess(" in aisa_regression_text,
         "AISA regression command timeouts must become transient results instead of crashing the runner",
     )
+    require(
+        "AISA_REGRESSION_OUTPUT_DIR" in aisa_regression_text
+        and "aisa-api-regression-stock-analyst" in aisa_regression_text
+        and '"--output"' in aisa_regression_text,
+        "AISA regression smoke commands must write stock analyst output outside targetSkills",
+    )
     validate_continuation_planner()
+    validate_continuation_dirty_filter()
     print("GitHub Actions workflow guard checks passed.")
     return 0
 

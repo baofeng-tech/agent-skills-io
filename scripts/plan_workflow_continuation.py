@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import os
 import subprocess
@@ -27,6 +28,9 @@ GENERATED_RELEASE_PREFIXES = (
     "hermes-release/",
     "agentskills-so-release/",
     "agentskill-sh-release/",
+)
+IGNORED_RELEASE_DIRTY_PATTERNS = (
+    "targetSkills/*/*_analysis_*.json",
 )
 
 
@@ -75,8 +79,15 @@ def git_changed_paths() -> list[str]:
     return paths
 
 
+def is_ignored_release_dirty_path(path: str) -> bool:
+    return any(fnmatch.fnmatch(path, pattern) for pattern in IGNORED_RELEASE_DIRTY_PATTERNS)
+
+
 def generated_release_dirty(paths: list[str]) -> bool:
-    return any(path.startswith(GENERATED_RELEASE_PREFIXES) for path in paths)
+    return any(
+        path.startswith(GENERATED_RELEASE_PREFIXES) and not is_ignored_release_dirty_path(path)
+        for path in paths
+    )
 
 
 def last_synced_skills(state: dict[str, Any]) -> list[str]:
