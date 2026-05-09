@@ -1,19 +1,8 @@
 # MarketPulse (Equity Market Data) 📊
 
-Query real-time and historical equity market data through AIsa, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates.
+Query real-time and historical equity market data, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates.
 
-## Use when
-
-Use this skill when you need:
-
-- stock price history or intraday market data
-- company news and event context
-- financial statements and fundamentals
-- analyst estimates and financial metrics
-- insider or institutional activity
-- SEC filings and filing item extraction
-- screening across multiple equities
-- macro interest-rate context for market analysis
+Use this skill when you need broad stock research coverage from one AIsa-backed surface.
 
 ## Compatibility
 
@@ -23,18 +12,18 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## Features
 
-- **Stock Data**: Historical prices and interval-based market data
-- **Company News**: Latest news by ticker
-- **Financial Statements**: Income statements, balance sheets, and cash flow statements
-- **Segmented Revenues**: Revenue broken out by segment and geography
-- **Financial Metrics**: Snapshot and historical company metrics
-- **Analyst Estimates**: EPS forecast data
-- **Earnings Press Releases**: Quarterly earnings releases
-- **Insider Trading**: Insider transaction tracking
+- **Stock Prices**: Historical price series across multiple intervals
+- **Company News**: Recent news by ticker
+- **Financial Statements**: Income statements, balance sheets, and cash flow
+- **Segmented Revenues**: Revenue by business segment and geography
+- **Financial Metrics**: Snapshot and historical metrics
+- **Analyst Estimates**: EPS estimate data
+- **Earnings Press Releases**: Company earnings release coverage
+- **Insider Trading**: Insider transaction data
 - **Institutional Ownership**: Institutional holdings data
-- **SEC Filings**: 10-K, 10-Q, 8-K, and more, plus filing item extraction
+- **SEC Filings**: Filing history plus filing item extraction
 - **Stock Screener**: Filter equities by financial criteria
-- **Line-Item Search**: Pull specific line items across multiple tickers
+- **Line-Item Search**: Query specific financial line items across tickers
 - **Macro Interest Rates**: Snapshot and historical central-bank rates
 
 ## Quick start
@@ -51,7 +40,7 @@ python3 scripts/market_client.py stock earnings --ticker AAPL
 
 ## Documentation
 
-See [SKILL.md](SKILL.md) for the full usage guide, endpoint examples, and command reference.
+See [SKILL.md](SKILL.md) for full usage details, curl examples, and endpoint coverage.
 
 ## API reference
 

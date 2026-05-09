@@ -1,54 +1,38 @@
 ---
 name: multi-source-search
-description: 'Multi-source search and answer generation for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when: the user needs web search, research, source discovery, or content extraction.'
+description: Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need fast retrieval, citation-backed answers, or broader research coverage from one AIsa key.
 license: MIT
 allowed-tools: Read Bash Grep
-when_to_use: the user needs web search, research, source discovery, or content extraction
+when_to_use: you need fast retrieval, citation-backed answers, or broader research coverage from one AIsa key
 ---
 
 > Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
 
 # Multi-source Search
 
-Search across multiple AIsa-backed sources from one skill.
+Multi-source search for autonomous agents, powered by AIsa.
 
-This skill covers:
+Use this skill when you want one API key to cover:
 - Structured web search
 - Scholar search
 - Hybrid scholar search
-- Tavily search and extraction utilities
-- Perplexity Sonar answer endpoints with citations
-- Verity-style multi-source retrieval
-
-Use when:
-- You need fast web lookup with structured results
-- You want scholar-backed research across recent papers
-- You need citation-rich answers for analysis or reporting
-- You want to compare multiple retrieval sources from one interface
+- Tavily search and extraction tools
+- Perplexity Sonar answer-generation endpoints with citations
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible
-harness, including:
+Works with any [agentskills.io](https://agentskills.io)-compatible harness, including:
 
 - **Claude Code** and **Claude**
 - **OpenAI Codex**
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and any other harness that implements the [Agent Skills
-  specification](https://agentskills.io/specification)
+- Any other harness that implements the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at
-[aisa.one](https://aisa.one)).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
-## Quick Start
-
-```bash
-export AISA_API_KEY="your-key"
-```
-
-## Example Requests
+## Best Fit
 
 ### Fast web lookup
 ```text
@@ -68,6 +52,12 @@ Use Sonar Pro to answer which open-source agent frameworks are gaining traction 
 ### Deep research reports
 ```text
 Use Sonar Deep Research to produce a thorough market map of AI browser agents.
+```
+
+## Quick Start
+
+```bash
+export AISA_API_KEY="your-key"
 ```
 
 ## Search APIs

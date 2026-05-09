@@ -4,6 +4,6 @@ GitHub-ready Agent Skills release package for AgentSkills-compatible marketplace
 
 ## Notes
 
-- Query real-time and historical equity market data through AIsa, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
+- Query real-time and historical equity market data, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - This release keeps the standard `SKILL.md` + `scripts/` + `references/` shape for GitHub indexing and ZIP export.
 - Publish each skill as a root-level directory in a public repository for best marketplace pickup.

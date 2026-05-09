@@ -1,23 +1,25 @@
 ---
 name: prediction-market-data
-description: Access prediction market data from Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, candlesticks, and cross-platform sports market matching. Use when you need current odds, historical market data, wallet activity, or market comparison workflows.
+description: 'Prediction market data for Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, and cross-platform matching. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
 license: MIT
 allowed-tools: Read Bash Grep
-when_to_use: you need current odds, historical market data, wallet activity, or market comparison workflows
+when_to_use: the user needs market data, stock analysis, watchlists, or portfolio workflows
 ---
 
 > Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
 
 # Prediction Market Data 📈
 
-Access Polymarket and Kalshi market data through AIsa.
+Access prediction market data from Polymarket and Kalshi through AIsa.
 
-Use this skill when you need to:
-- look up current prediction market odds
-- search open or historical markets
-- analyze trades, orderbooks, and candlesticks
-- inspect wallet activity, positions, or P&L
-- compare equivalent sports markets across platforms
+Use when you need to:
+- look up current market odds and implied probabilities
+- search active or historical prediction markets
+- inspect trade history, orderbooks, and candlesticks
+- review wallet positions, wallet info, or realized PnL
+- compare matching sports markets across platforms
+
+One API key gives agents a consistent read-only interface for prediction market research and monitoring.
 
 ## Compatibility
 
@@ -67,7 +69,7 @@ export AISA_API_KEY="your-key"
 
 ## How to Look Up IDs
 
-Several endpoints require an ID returned by a market listing response. In most cases, query markets first, then pass the relevant identifier to a downstream endpoint.
+Most downstream endpoints require an ID from a prior market lookup. Query markets first, then pass the relevant identifier to the next endpoint.
 
 1. **Polymarket `token_id`**: Query `/polymarket/markets`, find `side_a.id` or `side_b.id`, then pass it to `/polymarket/market-price/{token_id}`.
 2. **Polymarket `condition_id`**: Query `/polymarket/markets`, find `condition_id`, then pass it to `/polymarket/candlesticks/{condition_id}`.
@@ -77,9 +79,9 @@ Several endpoints require an ID returned by a market listing response. In most c
 
 ### Get the current price of a Polymarket market
 
-Prices require a `token_id`, which comes from the `/markets` response. Query markets first.
+Prices require a `token_id`, which comes from the `/markets` response. Always query markets first.
 
-**Step 1: Find a market and extract the token_id**
+**Step 1: Find a market and extract the token_id:**
 
 ```bash
 # Search for open election markets and grab a token_id
@@ -108,20 +110,20 @@ The response includes a `side_a.id` and `side_b.id` for each market; these are t
 }
 ```
 
-**Step 2: Fetch the current price using the token_id**
+**Step 2: Fetch the current price using the token_id:**
 
 ```bash
 # Use side_a.id (Yes) or side_b.id (No) from Step 1
 python scripts/prediction_market_client.py polymarket price 44482086252598348208660011972852804909957485351743405768768577675743702971026
 ```
 
-The price is a decimal between 0 and 1 representing probability (for example, `0.20` = 20% chance of Yes).
+The price is a decimal between 0 and 1 representing the implied probability (for example, `0.20` = 20% chance of Yes).
 
 ---
 
 ### Get the current price of a Kalshi market
 
-**Step 1: Find a market and extract the market_ticker**
+**Step 1: Find a market and extract the market_ticker:**
 
 ```bash
 python scripts/prediction_market_client.py kalshi markets --search "fed rate" --status open --limit 5
@@ -139,7 +141,7 @@ python scripts/prediction_market_client.py kalshi markets --search "fed rate" --
 }
 ```
 
-**Step 2: Fetch the price using the market_ticker**
+**Step 2: Fetch the price using the market_ticker:**
 
 ```bash
 python scripts/prediction_market_client.py kalshi price KXFED-26MAR-T3.75
@@ -356,11 +358,10 @@ Returns activities array:
 - `tx_hash` (string) - Blockchain transaction hash
 
 ## Understanding Odds
-
-- Prices are shown as decimals (`0.65` = 65% probability)
-- "Yes" price represents the market-implied probability that the event will happen
-- Higher volume generally indicates deeper liquidity and stronger participation
-- Prices move as traders update their views
+- Prices are shown as decimals (0.65 = 65% probability)
+- "Yes" price = probability market thinks event will happen
+- Higher volume = more confidence/liquidity
+- Prices change based on trading activity
 
 ## Pricing
 

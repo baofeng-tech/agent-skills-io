@@ -1,16 +1,16 @@
 ---
 name: perplexity-search
-description: Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
+description: Perplexity Sonar search and answer generation through AIsa. Use when you specifically need Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
 license: MIT
 allowed-tools: Read Bash Grep
-when_to_use: the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports
+when_to_use: you specifically need Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports
 ---
 
 > Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
 
-# Perplexity Search
+# perplexity-search
 
-Use this skill when the user specifically wants Perplexity-powered search answers rather than a general web or scholar retrieval workflow.
+Use this skill when the user specifically wants Perplexity-powered search and answer generation through AIsa, rather than more general web retrieval or scholar-style search.
 
 This skill covers four AIsa endpoints:
 - `/perplexity/sonar`
@@ -27,7 +27,7 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
+- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 

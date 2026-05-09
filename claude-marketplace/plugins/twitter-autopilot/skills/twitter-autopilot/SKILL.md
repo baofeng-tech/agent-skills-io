@@ -12,10 +12,12 @@ when_to_use: the user asks for Twitter/X research, social listening, posting, or
 
 Twitter/X research and account actions for agents, powered by AIsa.
 
-Use this skill when you need to:
-- read Twitter/X profiles, timelines, mentions, followers, lists, communities, Spaces, or trends
-- search tweets and users for monitoring, research, or social listening
-- publish posts or interact with tweets and users after the user completes OAuth
+Use this skill when the user wants to:
+
+- inspect profiles, timelines, mentions, followers, lists, communities, trends, or Spaces
+- search tweets or monitor a topic on X/Twitter
+- publish posts or replies after completing OAuth authorization
+- like, unlike, follow, or unfollow without sharing account passwords directly
 
 ## Compatibility
 
@@ -26,59 +28,84 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- any other harness that implements the [Agent Skills specification](https://agentskills.io/specification)
+- and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
-## Common Requests
+## What this skill covers
 
-### Monitor accounts
+### Read and research
+
+Use the read APIs and `scripts/twitter_client.py` to:
+
+- fetch user profiles and account metadata
+- inspect recent tweets, mentions, followers, and followings
+- search tweets and users
+- review replies, quotes, retweeters, and thread context
+- inspect trends, lists, communities, and Spaces
+
+These read operations do **not** require Twitter/X login.
+
+### Account actions
+
+This skill also supports authenticated actions after the user completes OAuth in the browser, including:
+
+- publishing posts
+- liking and unliking tweets
+- following and unfollowing users
+
+These flows have real external side effects on Twitter/X and should only be run when the user explicitly requests them.
+
+## Example requests
+
+### Monitor influencers
+
 ```text
 "Get Elon Musk's latest tweets and notify me of any AI-related posts"
 ```
 
 ### Track trends
+
 ```text
 "What's trending on Twitter worldwide right now?"
 ```
 
 ### Social listening
+
 ```text
 "Search for tweets mentioning our product and analyze sentiment"
 ```
 
-### Competitor tracking
+### Competitor research
+
 ```text
-"Monitor @anthropic and @GoogleAI and alert me on new announcements"
+"Monitor @anthropic and @GoogleAI and summarize new announcements"
 ```
 
-## Workflow Routing
+## Action workflows
 
-### Read workflows
-Use this skill directly for read-only tasks such as profile lookup, tweet search, timeline inspection, trends, lists, communities, and Spaces.
-
-### Engagement workflows
 This file does not define like / unlike / follow / unfollow logic directly.
 
 If the user asks to like, unlike, follow, or unfollow on X/Twitter, handle that workflow with `./references/engage_twitter.md`.
 **OAuth authorization is required and must be obtained from `./references/post_twitter.md` before executing.**
 
-### Posting workflows
+## Posting workflows
+
 This file does not define publishing logic directly.
 
-If the user asks to send, publish, reply, or quote on X/Twitter, handle that workflow with `./references/post_twitter.md`.
+If the user asks to send, publish, reply, or quote-post on X/Twitter, handle that workflow with `./references/post_twitter.md`.
 
-## Quick Start
+## Quick start
 
 ```bash
 export AISA_API_KEY="your-key"
 ```
 
-## Core Capabilities
+## Core capabilities
 
-### Read Operations (No Login Required)
+### Read operations (no login required)
 
-#### User Endpoints
+#### User endpoints
 
 ```bash
 # Get user info
@@ -122,7 +149,7 @@ curl "https://api.aisa.one/apis/v1/twitter/user/search?query=AI+researcher" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-#### Tweet Endpoints
+#### Tweet endpoints
 
 ```bash
 # Advanced tweet search (queryType is required: Latest or Top)
@@ -158,7 +185,7 @@ curl "https://api.aisa.one/apis/v1/twitter/article?tweet_id=1895096451033985024"
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-#### Trends, Lists, Communities & Spaces
+#### Trends, lists, communities, and Spaces
 
 ```bash
 # Get trending topics (worldwide)
@@ -198,7 +225,7 @@ curl "https://api.aisa.one/apis/v1/twitter/spaces/detail?space_id=1dRJZlbLkjexB"
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-## Python Client
+## Python client
 
 ```bash
 # User operations
@@ -242,9 +269,9 @@ python3 scripts/twitter_engagement_client.py follow-user --user "@elonmusk"
 python3 scripts/twitter_engagement_client.py unfollow-user --user "@elonmusk"
 ```
 
-## API Endpoints Reference
+## API endpoints reference
 
-### Read Endpoints (GET)
+### Read endpoints (GET)
 
 | Endpoint | Description | Key Params |
 |----------|-------------|------------|
@@ -281,13 +308,13 @@ python3 scripts/twitter_engagement_client.py unfollow-user --user "@elonmusk"
 |-----|------|
 | Twitter read query | ~$0.0004 |
 
-## Get Started
+## Get started
 
 1. Sign up at [aisa.one](https://aisa.one)
 2. Get your API key
 3. Add credits (pay-as-you-go)
-4. Set the environment variable: `export AISA_API_KEY="your-key"`
+4. Set environment variable: `export AISA_API_KEY="your-key"`
 
-## Full API Reference
+## Full API reference
 
 See [API Reference](https://aisa.one/docs/api-reference/) for complete endpoint documentation.

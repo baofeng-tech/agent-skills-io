@@ -1,6 +1,6 @@
 ---
 name: marketpulse
-description: 'Query real-time and historical equity market data through AIsa, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
+description: 'Query real-time and historical equity market data, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
 license: MIT
 metadata:
   aisa:
@@ -22,7 +22,6 @@ metadata:
     - research
     - market
     - stock
-    - aisa
     related_skills:
     - market
     - prediction-market
@@ -35,7 +34,7 @@ required_environment_variables:
 
 # marketpulse
 
-Query real-time and historical equity market data through AIsa, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
+Query real-time and historical equity market data, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 
 ## When to Use
 

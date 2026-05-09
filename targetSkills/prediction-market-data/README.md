@@ -1,6 +1,6 @@
 # Prediction Market Data
 
-Access current odds, prices, and market data from prediction markets such as Polymarket and Kalshi. This skill supports market search, live pricing, historical orderbooks, candlestick data, trade history, wallet activity, positions, P&L, and cross-platform sports market matching.
+Access current odds, prices, and market data from prediction markets such as Polymarket and Kalshi. This skill supports market search, live pricing, trade history, orderbooks, candlesticks, wallet positions, wallet info, realized P&L, and cross-platform sports market matching.
 
 ## Compatibility
 
@@ -10,9 +10,9 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## Features
 
-- **Polymarket**: search markets, get live prices, review trade history, inspect orderbooks, retrieve candlesticks, and check wallet positions and P&L
-- **Kalshi**: search markets, get live prices, review trade history, and inspect orderbooks
-- **Cross-platform sports matching**: find equivalent sports markets across Polymarket and Kalshi
+- **Polymarket**: Search markets, check live prices, inspect trade history, orderbooks, candlesticks, wallet positions, wallet info, and realized P&L
+- **Kalshi**: Search markets, check live prices, inspect trade history, and review orderbooks
+- **Cross-platform matching**: Find equivalent sports markets across Polymarket and Kalshi
 
 ## Quick Start
 
@@ -37,11 +37,11 @@ python scripts/prediction_market_client.py sports by-date nba --date 2025-03-01
 
 ## ID Lookup Notes
 
-Some downstream queries require IDs returned by market listing endpoints.
+Most price and history endpoints require an identifier returned by a prior market search.
 
-- For **Polymarket price** queries, first call `polymarket markets` and use `side_a.id` or `side_b.id` as the `token_id`.
-- For **Polymarket candlesticks**, first call `polymarket markets` and use the returned `condition_id`.
-- For **Kalshi price** queries, first call `kalshi markets` and use the returned `market_ticker`.
+- **Polymarket `token_id`**: use `side_a.id` or `side_b.id` from the `/polymarket/markets` response
+- **Polymarket `condition_id`**: use `condition_id` from the `/polymarket/markets` response
+- **Kalshi `market_ticker`**: use `market_ticker` from the `/kalshi/markets` response
 
 ## API Reference
 

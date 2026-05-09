@@ -1,6 +1,6 @@
 ---
 name: prediction-market-arbitrage
-description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify whether spreads are actionable.
+description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, or verify liquidity before acting on a spread.
 author: AIsa
 version: 1.0.0
 license: MIT
@@ -38,15 +38,15 @@ metadata:
 
 # Prediction Market Arbitrage ⚖️
 
-Find and analyze arbitrage opportunities across prediction markets using AIsa.
+Find and analyze arbitrage opportunities across prediction markets such as Polymarket and Kalshi using the AIsa API.
 
-Use this skill when you want to:
-- match equivalent markets across Polymarket and Kalshi
-- compare cross-platform prices for the same event
-- check whether a spread is potentially actionable
-- inspect orderbook depth before treating a spread as executable
+Use when you need to:
+- match equivalent events across platforms
+- compare current prices for the same outcome
+- inspect orderbook depth before judging whether a spread is actionable
+- monitor cross-market discrepancies for sports or other prediction events
 
-One API key gives agents a unified way to look up matching markets, fetch prices, and review liquidity across supported prediction market endpoints.
+One API key gives agents a unified way to query market matching, pricing, and liquidity data across supported prediction markets.
 
 ## Compatibility
 
@@ -57,9 +57,9 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
+- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
 ## Example Requests
 
@@ -89,9 +89,9 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 export AISA_API_KEY="your-key"
 ```
 
-## ID Lookup Workflow
+## How to Look Up IDs
 
-Most downstream endpoints require an ID returned by a prior market lookup. Query a markets or matching-markets endpoint first, then pass the returned identifier into the price or orderbook endpoint you need.
+Most endpoints require an ID from the `/markets` or `/matching-markets` responses. Query markets first, then pass the relevant ID to downstream endpoints.
 
 1. **Polymarket `token_id`**: Query `/polymarket/markets`, find `side_a.id` or `side_b.id` in the response, then use that value in the market price and orderbook endpoints.
 2. **Kalshi `market_ticker`**: Query `/kalshi/markets`, find `market_ticker` in the response, then use that value in the market price and orderbook endpoints.

@@ -1,17 +1,10 @@
 # Media Gen 🎬
 
-Generate images and videos with a single AIsa API key.
+Generate images and videos through AIsa with a single API key.
 
-This skill covers AIsa media generation across three endpoint families:
-Gemini image generation, Wan image generation, Seedream image
-generation, and Wan async video generation.
-
-## Use when
-
-- You want one skill for both AIsa image and video generation
-- You need to switch between Gemini, Wan, and Seedream image models
-- You want Wan text-to-video or image-to-video generation
-- You want a single client that hides model-specific endpoint differences
+This skill covers AIsa image and video models across three image
+endpoint styles and one async video workflow. The bundled client routes
+each supported model to the correct endpoint automatically.
 
 ## Compatibility
 
@@ -23,19 +16,26 @@ others that implement the
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
+## Use when
+
+- You want one skill for AIsa image and video generation
+- You need the same command surface across multiple media models
+- You want endpoint differences handled automatically by the client
+- You need text-to-video or image-to-video generation with Wan models
+
 ## Supported models
 
 ### Image (4 models across 3 endpoints)
 
-- `gemini-3-pro-image-preview` (Google) — `POST /v1/models/{model}:generateContent`
-- `wan2.7-image`, `wan2.7-image-pro` (Alibaba) — `POST /v1/chat/completions`
-- `seedream-4-5-251128` (ByteDance) — `POST /v1/images/generations` (OpenAI-compatible; minimum 3,686,400 pixels)
+- `gemini-3-pro-image-preview` (Google) — via `POST /v1/models/{model}:generateContent`
+- `wan2.7-image`, `wan2.7-image-pro` (Alibaba) — via `POST /v1/chat/completions`
+- `seedream-4-5-251128` (ByteDance) — via `POST /v1/images/generations` (OpenAI-compatible; minimum 3,686,400 pixels)
 
 ### Video (4 Wan variants, 1 async endpoint)
 
 - `wan2.6-t2v`, `wan2.7-t2v` — text-to-video
-- `wan2.6-i2v` — image-to-video via `input.img_url`
-- `wan2.7-i2v` — image-to-video via `input.media[]` (the client handles this difference)
+- `wan2.6-i2v` — image-to-video (uses `input.img_url`)
+- `wan2.7-i2v` — image-to-video (uses `input.media[]`; the client handles this automatically)
 
 ## Quick start
 
@@ -58,7 +58,7 @@ python scripts/media_gen_client.py image \
   --prompt "Ultra-detailed product shot, studio lighting" \
   --out out.png
 
-# Seedream (requires at least 3,686,400 pixels)
+# Seedream (needs ≥ 3,686,400 px)
 python scripts/media_gen_client.py image \
   --model seedream-4-5-251128 \
   --prompt "Neo-noir detective portrait" \
@@ -74,7 +74,7 @@ python scripts/media_gen_client.py video-create \
   --model wan2.7-t2v \
   --prompt "Sweeping shot of a neon cyberpunk skyline"
 
-# Image-to-video (client routes --img-url into the correct field per model)
+# Image-to-video (client routes --img-url into the right field per model)
 python scripts/media_gen_client.py video-create \
   --model wan2.7-i2v \
   --prompt "gentle camera push-in" \
@@ -94,7 +94,13 @@ python scripts/media_gen_client.py video-wait \
   --task-id <task_id> --download --out out.mp4
 ```
 
-## API reference
+## Notes
+
+- `wan2.7-i2v` uses `input.media[]` instead of `input.img_url`; the bundled client handles this difference.
+- Seedream requests must meet the upstream minimum size requirement of `3,686,400` pixels.
+- Video generation is asynchronous: create a task first, then poll or wait for completion.
+
+## API Reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the
-complete catalog of endpoints used by this skill.
+complete catalog of endpoints this skill can call.

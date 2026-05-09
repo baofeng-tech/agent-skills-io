@@ -98,7 +98,7 @@
 
 - Category: `finance`
 - Path: `hermes-release/finance/crypto-market-data`
-- Description: Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use when you need crypto market research, price tracking, on-chain token lookup, portfolio analysis, or market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
+- Description: Query real-time and historical cryptocurrency market data via CoinGecko — simple prices, coin details, historical charts, OHLC candles, token prices by contract address, market-cap rankings, exchange data and tickers, categories, trending searches, and crypto news. Use for crypto research, price tracking, on-chain token lookup, portfolio analysis, and market-cap screening. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Change: patched Hermes runtime auth and storage defaults in scripts/coingecko_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -142,7 +142,7 @@
 
 - Category: `finance`
 - Path: `hermes-release/finance/marketpulse`
-- Description: Query real-time and historical equity market data through AIsa, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
+- Description: Query real-time and historical equity market data, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.
 - Change: patched Hermes runtime auth and storage defaults in scripts/market_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -150,7 +150,7 @@
 
 - Category: `creative`
 - Path: `hermes-release/creative/media-gen`
-- Description: Generate images and videos with AIsa. Supports four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image + image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.
+- Description: Generate images and videos with AIsa. Supports four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image and image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: you want a neutral cross-platform skill for AIsa image or video generation from prompts or reference images.
 - Change: patched Hermes runtime auth and storage defaults in scripts/media_gen_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -166,7 +166,7 @@
 
 - Category: `research`
 - Path: `hermes-release/research/multi-source-search`
-- Description: Multi-source search and answer generation for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when: the user needs web search, research, source discovery, or content extraction.
+- Description: Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need fast retrieval, citation-backed answers, or broader research coverage from one AIsa key.
 - Change: patched Hermes runtime auth and storage defaults in scripts/search_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -237,7 +237,7 @@
 
 - Category: `research`
 - Path: `hermes-release/research/perplexity-search`
-- Description: Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
+- Description: Perplexity Sonar search and answer generation through AIsa. Use when you specifically need Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
 - Change: patched Hermes runtime auth and storage defaults in scripts/perplexity_search_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -253,7 +253,7 @@
 
 - Category: `finance`
 - Path: `hermes-release/finance/prediction-market-arbitrage`
-- Description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify whether spreads are actionable.
+- Description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, or verify liquidity before acting on a spread.
 - Change: patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py
 - Change: patched Hermes runtime auth and storage defaults in scripts/arbitrage_finder.py
 - Change: replaced source README with a Hermes-oriented release README
@@ -280,7 +280,7 @@
 
 - Category: `finance`
 - Path: `hermes-release/finance/prediction-market-data`
-- Description: Access prediction market data from Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, candlesticks, and cross-platform sports market matching. Use when you need current odds, historical market data, wallet activity, or market comparison workflows.
+- Description: Prediction market data for Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, and cross-platform matching. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
 - Change: patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
@@ -475,6 +475,6 @@
 
 - Category: `research`
 - Path: `hermes-release/research/youtube-serp`
-- Description: Search YouTube SERP results through AIsa for video research, channel discovery, competitor tracking, and trend analysis. Use when you need ranked YouTube results with optional country and language filters.
+- Description: Search YouTube SERP results through AIsa for video discovery, competitor research, trend monitoring, and regional content analysis. Use when you need ranked YouTube results, channels, and metadata for a query.
 - Change: patched Hermes runtime auth and storage defaults in scripts/youtube_client.py
 - Change: replaced source README with a Hermes-oriented release README

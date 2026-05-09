@@ -1,6 +1,6 @@
 ---
 name: marketpulse
-description: 'Query real-time and historical equity market data through AIsa, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
+description: 'Query real-time and historical equity market data, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -18,17 +18,9 @@ metadata:
 
 # MarketPulse 📊
 
-Query equity market data from AIsa for research, monitoring, and analysis.
+Broad equity market data for agents, powered by AIsa.
 
-Use this skill when you need:
-- historical or intraday stock prices
-- company news and market-moving events
-- financial statements and segmented revenue data
-- financial metrics and analyst estimates
-- insider trades and institutional ownership
-- SEC filings and filing item extraction
-- stock screening or line-item search across tickers
-- macro interest-rate context
+Use this skill when you need stock research data from a single surface: historical prices, company news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, line-item search, and macro interest rates.
 
 ## Compatibility
 
@@ -39,9 +31,9 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
+- any other harness that implements the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## Example requests
 
@@ -60,7 +52,7 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](
 "Find stocks with P/E < 15 and revenue growth > 20%"
 ```
 
-### Insider activity
+### Insider activity review
 ```
 "Track insider trades at Apple and correlate with price movements"
 ```
@@ -78,7 +70,7 @@ export AISA_API_KEY="your-key"
 
 ---
 
-## Equity and macro data
+## Traditional finance data
 
 ### Stock prices
 
@@ -99,9 +91,9 @@ curl "https://api.aisa.one/apis/v1/financial/prices?ticker=AAPL&interval=minute&
 **Parameters:**
 - `ticker`: Stock symbol (required)
 - `interval`: `second`, `minute`, `day`, `week`, `month`, `year` (required)
-- `interval_multiplier`: Multiplier for interval, for example `5` for 5-minute bars (required)
-- `start_date`: Start date in `YYYY-MM-DD` format (required)
-- `end_date`: End date in `YYYY-MM-DD` format (required)
+- `interval_multiplier`: Multiplier for interval, e.g. 5 for 5-minute bars (required)
+- `start_date`: Start date `YYYY-MM-DD` (required)
+- `end_date`: End date `YYYY-MM-DD` (required)
 
 ### Company news
 

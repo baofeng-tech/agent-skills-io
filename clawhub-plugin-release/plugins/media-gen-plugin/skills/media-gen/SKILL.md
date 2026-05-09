@@ -1,6 +1,6 @@
 ---
 name: media-gen
-description: 'Generate images and videos with AIsa. Supports four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image + image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: the user needs AI image or video generation workflows.'
+description: 'Generate images and videos with AIsa. Supports four image models (Google Gemini 3 Pro Image, Alibaba Wan 2.7 image and image-pro, ByteDance Seedream) and four Wan video variants (wan2.6/2.7 × t2v/i2v). One API key; the client routes each model to the correct endpoint automatically. Use when: you want a neutral cross-platform skill for AIsa image or video generation from prompts or reference images.'
 author: AIsa
 version: 1.0.0
 license: MIT
@@ -38,19 +38,12 @@ metadata:
 
 # Media Gen 🎬
 
-Generate images and videos with a single AIsa API key.
+Generate images and videos through AIsa with a single API key.
 
-This skill covers AIsa media generation across three endpoint families:
-Gemini image generation, Wan image generation, Seedream image generation,
-and Wan async video generation. The bundled client automatically routes
-supported models to the correct endpoint and output format.
-
-## Use when
-
-- You want one neutral skill for AIsa image and video generation
-- You need to switch between Gemini, Wan, and Seedream image models
-- You want to create Wan text-to-video or image-to-video jobs
-- You want a single CLI that hides endpoint differences between models
+This skill covers the current AIsa image and video models exposed across
+three image endpoint styles and one async video workflow. The bundled
+client in `scripts/media_gen_client.py` routes each supported model to
+the correct endpoint automatically.
 
 ## Compatibility
 
@@ -62,35 +55,42 @@ harness, including:
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- any other harness that implements the [Agent Skills
+- and other harnesses that implement the [Agent Skills
   specification](https://agentskills.io/specification)
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from
 [aisa.one](https://aisa.one)).
 
+## Use when
+
+- You want one neutral skill for AIsa image and video generation
+- You need the same command surface across multiple AIsa media models
+- You want the client to handle endpoint differences automatically
+- You need text-to-video or image-to-video generation with Wan models
+
 ## What you can do
 
-### Image — Gemini
+### Image — Gemini (base64 inline)
 ```text
 "Generate a cyberpunk-style city nightscape, neon lights, rainy night, cinematic feel"
 ```
 
-### Image — Wan 2.7
+### Image — Wan 2.7 (URL in chat response)
 ```text
 "Generate an ultra-detailed product shot of a red panda, studio lighting, sharp focus"
 ```
 
-### Image — Seedream
+### Image — Seedream (OpenAI-compatible, large format)
 ```text
 "Generate a 2048×2048 magazine cover: neo-noir detective portrait, film grain"
 ```
 
-### Video — text-to-video
+### Video — text-to-video (Wan t2v)
 ```text
 "Sweeping establishing shot of a neon cyberpunk skyline at dusk, 5 seconds"
 ```
 
-### Video — image-to-video
+### Video — image-to-video (Wan i2v)
 ```text
 "Starting from this reference image, gentle camera push-in with parallax"
 ```
@@ -101,10 +101,10 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from
 
 | Model | Developer | Endpoint | Notes |
 |---|---|---|---|
-| `gemini-3-pro-image-preview` | Google | `POST /v1/models/{model}:generateContent` | Returns base64 image data in `candidates[].parts[].inline_data` |
-| `wan2.7-image` | Alibaba | `POST /v1/chat/completions` | Returns image URL parts in `choices[].message.content[]` with `type="image"` |
-| `wan2.7-image-pro` | Alibaba | `POST /v1/chat/completions` | Higher-fidelity Wan image variant |
-| `seedream-4-5-251128` | ByteDance | `POST /v1/images/generations` | OpenAI-compatible; minimum 3,686,400 pixels |
+| `gemini-3-pro-image-preview` | Google | `POST /v1/models/{model}:generateContent` | Images return as base64 in `candidates[].parts[].inline_data` |
+| `wan2.7-image` | Alibaba | `POST /v1/chat/completions` | Images return as URL parts in `choices[].message.content[]` (`type="image"`). $0.030/image |
+| `wan2.7-image-pro` | Alibaba | `POST /v1/chat/completions` | Higher fidelity. $0.075/image |
+| `seedream-4-5-251128` | ByteDance | `POST /v1/images/generations` | OpenAI-compatible. **Minimum 3,686,400 pixels** (for example `1920×1920`). $0.040/image |
 
 ### Video generation — 4 Wan variants, 1 endpoint
 
@@ -113,19 +113,22 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from
 | `wan2.6-t2v` | text-to-video | *none* | 1080 |
 | `wan2.6-i2v` | image-to-video | `input.img_url` (string) | 720 |
 | `wan2.7-t2v` | text-to-video | *none* | 720 |
-| `wan2.7-i2v` | image-to-video | `input.media` (array) | 720 |
+| `wan2.7-i2v` | image-to-video | **`input.media`** (array) ⚠ | 720 |
 
-> **Important:** `wan2.7-i2v` expects the reference image in
-> `input.media` as an array of URLs, not `input.img_url` like
-> `wan2.6-i2v`. The bundled client handles this automatically when you
-> pass `--img-url` and choose the model.
+> ⚠ **Important schema difference for `wan2.7-i2v`.** It expects the
+> reference image in `input.media` (an array of URLs), **not**
+> `input.img_url` like `wan2.6-i2v`. Requests without `media` may return
+> HTTP 200 with a `task_id` and then fail downstream with
+> `InvalidParameter: Field required: input.media`. The bundled client
+> handles this automatically when you pass `--img-url` with the chosen
+> model.
 
 ## Quick start
 
 ```bash
 export AISA_API_KEY="your-key"
 
-# Any image model — client routes to the correct endpoint
+# Any image model — client routes to the right endpoint
 python3 scripts/media_gen_client.py image \
   --model gemini-3-pro-image-preview \
   --prompt "A cute red panda, cinematic lighting" \
@@ -142,12 +145,12 @@ python3 scripts/media_gen_client.py image \
   --size 2048x2048 \
   --out out.png
 
-# Video — text-to-video
+# Video — text-to-video (no image needed)
 python3 scripts/media_gen_client.py video-create \
   --model wan2.7-t2v \
   --prompt "Sweeping shot of a neon cyberpunk skyline"
 
-# Video — image-to-video
+# Video — image-to-video on wan2.7-i2v (client routes to input.media[])
 python3 scripts/media_gen_client.py video-create \
   --model wan2.7-i2v \
   --prompt "gentle zoom with parallax" \
@@ -158,6 +161,8 @@ python3 scripts/media_gen_client.py video-create \
 python3 scripts/media_gen_client.py video-wait \
   --task-id <task_id> --download --out out.mp4
 ```
+
+---
 
 ## Image generation endpoint reference
 
@@ -176,14 +181,14 @@ curl -X POST "https://api.aisa.one/v1/models/gemini-3-pro-image-preview:generate
   }'
 ```
 
-The response contains `candidates[].parts[].inline_data` with
-`{mime_type, data}`, where `data` is base64-encoded image content.
+Response contains `candidates[].parts[].inline_data` with `{mime_type, data}`
+where `data` is a base64 PNG.
 
 ### Wan 2.7 family → `POST /v1/chat/completions`
 
 Documentation: [Image Generation via Chat](https://aisa.one/docs/api-reference/chat/image-generation).
 
-**Critical rule:** `messages[].content` must be an array of typed parts.
+**Critical rule:** `messages[].content` must be an **array of typed parts**.
 A plain string returns HTTP 400 `invalid_parameter_error`.
 
 ```bash
@@ -201,7 +206,7 @@ curl -X POST "https://api.aisa.one/v1/chat/completions" \
   }'
 ```
 
-Images are returned as `{type: "image", image: "<url>"}` parts inside
+Images come back as `{type: "image", image: "<url>"}` parts inside
 `choices[].message.content[]`.
 
 ### Seedream → `POST /v1/images/generations`
@@ -220,17 +225,18 @@ curl -X POST "https://api.aisa.one/v1/images/generations" \
   }'
 ```
 
-Response fields may include `data[].url` or `data[].b64_json`.
-Upstream enforces a minimum of 3,686,400 pixels, so `1024×1024` and
-`1536×1536` are rejected. Any aspect ratio works as long as
-`width × height ≥ 3,686,400`.
+Response: `data[].url` or `data[].b64_json`. **Upstream enforces a
+minimum of 3,686,400 pixels.** `1024×1024` and `1536×1536` are rejected.
+Any aspect ratio works as long as `width × height ≥ 3,686,400`.
+
+---
 
 ## Video generation endpoint reference
 
 ### Create task → `POST /apis/v1/services/aigc/video-generation/video-synthesis`
 
 Documentation: [Create video generation task](https://aisa.one/docs/api-reference/video/post_services-aigc-video-generation-video-synthesis).
-The header `X-DashScope-Async: enable` is required.
+Header `X-DashScope-Async: enable` is required.
 
 ```bash
 # wan2.6-t2v — text-to-video
@@ -244,7 +250,7 @@ curl -X POST "https://api.aisa.one/apis/v1/services/aigc/video-generation/video-
     "parameters":{"resolution":"720P","duration":5}
   }'
 
-# wan2.7-i2v — image-to-video
+# wan2.7-i2v — image-to-video (⚠ input.media not input.img_url)
 curl -X POST "https://api.aisa.one/apis/v1/services/aigc/video-generation/video-synthesis" \
   -H "Authorization: Bearer $AISA_API_KEY" \
   -H "Content-Type: application/json" \
@@ -263,22 +269,24 @@ curl -X POST "https://api.aisa.one/apis/v1/services/aigc/video-generation/video-
 
 Documentation: [Get video generation task result](https://aisa.one/docs/api-reference/video/get_services-aigc-tasks).
 
-> `task_id` is a path parameter. The query-string form `?task_id=...`
-> returns HTTP 500 `unsupported uri`.
+> `task_id` is a **path parameter**. The query-string form
+> `?task_id=...` returns HTTP 500 `unsupported uri`.
 
 ```bash
 curl "https://api.aisa.one/apis/v1/services/aigc/tasks/YOUR_TASK_ID" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
+---
+
 ## Python client
 
 The bundled client at `scripts/media_gen_client.py` auto-routes each
-supported image model to the correct endpoint and saves normalized
-output to a file.
+image model to the correct endpoint and normalizes the response to a
+saved file.
 
 ```bash
-# Image — model selects endpoint
+# Image — model picks the endpoint
 python3 scripts/media_gen_client.py image \
   --model <gemini-3-pro-image-preview | wan2.7-image | wan2.7-image-pro | seedream-4-5-251128> \
   --prompt "..." \
@@ -303,13 +311,12 @@ python3 scripts/media_gen_client.py video-wait --task-id <id> --download --out o
 This skill calls the following AIsa endpoints directly:
 
 - [Google Gemini Chat — `generateContent`](https://aisa.one/docs/api-reference/chat/generatecontent) — Gemini image models
-- [Image Generation via Chat](https://aisa.one/docs/api-reference/chat/image-generation) — Wan 2.7 image models
-- [OpenAI-Compatible Image Generations](https://aisa.one/docs/api-reference/chat/openai-image-generations) — Seedream image generation
-- [Create video generation task](https://aisa.one/docs/api-reference/video/post_services-aigc-video-generation-video-synthesis) — Wan video creation
-- [Get video generation task result](https://aisa.one/docs/api-reference/video/get_services-aigc-tasks) — async task polling
+- [Image Generation via Chat](https://aisa.one/docs/api-reference/chat/image-generation) — Wan 2.7 image family
+- [OpenAI-Compatible Image Generations](https://aisa.one/docs/api-reference/chat/openai-image-generations) — Seedream
+- [Create video generation task](https://aisa.one/docs/api-reference/video/post_services-aigc-video-generation-video-synthesis) — all 4 Wan video variants
+- [Get video generation task result](https://aisa.one/docs/api-reference/video/get_services-aigc-tasks) — async polling
 
-See the [full AIsa API Reference](https://aisa.one/docs/api-reference)
-for the complete catalog.
+See the [full AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog.
 
 ## License
 

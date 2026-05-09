@@ -12,7 +12,7 @@ when_to_use: you need recent social evidence, competitor comparisons, launch rea
 
 **30-day multi-source research brief for autonomous agents. Powered by AIsa.**
 
-Use this skill when you need a recent, cross-source view of a topic instead of a single search result or timeless reference. It pulls evidence from Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search, then merges the results into a ranked brief with citations.
+One API key. Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search — merged into a single ranked brief.
 
 ## Compatibility
 
@@ -25,9 +25,9 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
 - and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available at [aisa.one](https://aisa.one)).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at [aisa.one](https://aisa.one)).
 
-## Example requests
+## What it does
 
 ### Trend scan
 ```text
@@ -88,7 +88,7 @@ bash scripts/run-last30days.sh --diagnose
 
 ## Inputs and outputs
 
-**Input.** A topic, person, company, product, market, or comparison, for example `OpenAI Agents SDK`, `Claude Code vs Codex`, or `Peter Steinberger`.
+**Input.** A topic, person, company, product, or comparison, for example: `OpenAI Agents SDK`, `OpenClaw vs Codex`, or `Peter Steinberger`.
 
 **Output.** A markdown brief by default, or JSON with:
 
@@ -97,29 +97,29 @@ bash scripts/run-last30days.sh --diagnose
 - `clusters` — semantically grouped findings
 - `items_by_source` — per-source item lists with dates, engagement, and URLs
 - `provider_runtime` — which models and retrieval backends ran
-- `errors_by_source` — source-level failures, if any
+- `errors_by_source` — any source-level failures (fail-soft)
 
-## Use when
+## When to use
 
 - You need last-30-days evidence on a person, company, product, market, tool, or trend.
 - You want a ranked competitor comparison, launch-reaction summary, creator/community sentiment scan, or shipping update.
-- You want a structured JSON brief that another agent can consume.
+- You want structured JSON output to feed into another agent.
 
-## Not ideal when
+## When not to use
 
-- The question is timeless and does not depend on recent evidence.
-- You only want one official source and do not want social or community signals.
+- For timeless reference questions with no recent-evidence requirement.
+- When you only want one official source and do not want social or community signals.
 
 ## Capabilities
 
-- **AISA-powered**: planner, reranker, fun-scorer, and hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and grounded Tavily web search.
-- **Public-source coverage**: Reddit and Hacker News work without extra credentials.
-- **Optional GitHub coverage**: GitHub is enabled when `GH_TOKEN` or `GITHUB_TOKEN` is set.
-- **Fail-soft behavior**: if one source errors or times out, the brief still renders from the remaining sources and notes the gap.
+- **AISA-powered**: planner (structured JSON query plan), reranker (relevance ordering), fun-scorer (meme/quirk signal), and hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and grounded Tavily web search.
+- **Public paths (no extra credentials)**: Reddit and Hacker News.
+- **GitHub** via the official API when `GH_TOKEN` or `GITHUB_TOKEN` is set — optional.
+- **Fail-soft**: if one source errors or times out, the brief still renders with the others and notes the gap.
 
 ## Model configuration
 
-The skill makes three LLM calls per run. Each role can be pinned independently via `~/.config/last30days/.env`:
+The skill makes three LLM calls per run. Each role is independently pinnable via `~/.config/last30days/.env`:
 
 ```bash
 LAST30DAYS_PLANNER_MODEL=qwen-flash           # fast + reliable JSON
@@ -127,11 +127,11 @@ LAST30DAYS_RERANK_MODEL=qwen-plus-2025-12-01  # quality ranking
 LAST30DAYS_FUN_MODEL=qwen-flash               # cheap vibes
 ```
 
-Or set `AISA_MODEL=...` to use one model across all three roles. Run `last30days setup` to choose interactively; the picker fetches the live catalog from [aisa.one/docs/guides/models](https://aisa.one/docs/guides/models).
+Or set `AISA_MODEL=...` for a single model across all three roles. Run `last30days setup` to pick interactively — the picker fetches the live catalog from [aisa.one/docs/guides/models](https://aisa.one/docs/guides/models).
 
 ## API reference
 
-last30days calls the following AIsa endpoints directly. See the [full API reference](https://aisa.one/docs/api-reference) for the complete catalog.
+last30days calls the following AIsa endpoints directly. See the [full API Reference](https://aisa.one/docs/api-reference) for the complete catalog.
 
 - [OpenAI Chat / `createChatCompletion`](https://aisa.one/docs/api-reference/chat/createchatcompletion) — planner, reranker, fun-scorer
 - [Twitter Advanced Search](https://aisa.one/docs/api-reference/twitter/get_twitter-tweet-advanced-search) — X retrieval
@@ -139,13 +139,13 @@ last30days calls the following AIsa endpoints directly. See the [full API refere
 - [Tavily Search](https://aisa.one/docs/api-reference/search/post_tavily-search) — grounded web
 - [Polymarket Markets](https://aisa.one/docs/api-reference/prediction-market/get_polymarket-markets) — prediction-market retrieval
 
-Reddit and Hacker News use their public APIs directly rather than an AISA proxy.
+Reddit and Hacker News use their respective public APIs directly and do not require the AISA proxy.
 
 ## Requirements
 
 - **Python 3.12+**
 - **`AISA_API_KEY`** — required. Get one at [aisa.one](https://aisa.one).
-- **`GH_TOKEN` / `GITHUB_TOKEN`** — optional; enables the GitHub source.
+- **`GH_TOKEN` / `GITHUB_TOKEN`** — optional, enables the GitHub source.
 
 ```bash
 # Pin an interpreter ≥ 3.12

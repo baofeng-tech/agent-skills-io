@@ -4,6 +4,6 @@ GitHub-ready release package prepared specifically for agentskill.sh import and 
 
 ## Notes
 
-- Access prediction market data from Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, candlesticks, and cross-platform sports market matching. Use when you need current odds, historical market data, wallet activity, or market comparison workflows.
+- Prediction market data for Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, and cross-platform matching. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
 - This directory keeps one root-level skill per folder so agentskill.sh can scan the repository cleanly.
 - The same skill can also be submitted by direct `SKILL.md` URL when needed.

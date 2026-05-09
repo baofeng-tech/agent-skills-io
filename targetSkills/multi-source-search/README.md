@@ -1,18 +1,14 @@
 # Multi-source Search
 
-Multi-source search and answer generation for agents with structured retrieval plus Perplexity Sonar endpoints.
+Multi-source search for autonomous agents with structured retrieval, Tavily utilities, and Perplexity Sonar answer endpoints.
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible
-harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**,
-**Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and
-others that implement the
-[Agent Skills specification](https://agentskills.io/specification).
+Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**, **Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and others that implement the [Agent Skills specification](https://agentskills.io/specification).
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
-## Features
+## What it covers
 
 - Web search
 - Scholar search
@@ -26,11 +22,11 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 ```bash
 export AISA_API_KEY="your-key"
 
-python scripts/search_client.py web --query "AI frameworks"
-python scripts/search_client.py scholar --query "transformer models"
-python scripts/search_client.py sonar --query "What changed in AI this week?"
-python scripts/search_client.py sonar-pro --query "Compare coding agents with citations"
-python scripts/search_client.py verity --query "Is quantum computing enterprise-ready?"
+python3 scripts/search_client.py web --query "AI frameworks"
+python3 scripts/search_client.py scholar --query "transformer models"
+python3 scripts/search_client.py sonar --query "What changed in AI this week?"
+python3 scripts/search_client.py sonar-pro --query "Compare coding agents with citations"
+python3 scripts/search_client.py verity --query "Is quantum computing enterprise-ready?"
 ```
 
 ## Notes
@@ -40,9 +36,8 @@ python scripts/search_client.py verity --query "Is quantum computing enterprise-
 
 ## Documentation
 
-See [SKILL.md](SKILL.md) for full usage and examples.
+See [SKILL.md](SKILL.md) for full usage, API examples, and endpoint details.
 
 ## API Reference
 
-See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the
-complete catalog of endpoints this skill can call.
+See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.
