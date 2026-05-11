@@ -1,18 +1,27 @@
 ---
 name: marketpulse
-description: 'Query real-time and historical equity market data, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
+description: 'Query real-time and historical equity market data—prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates. Use when you need broad public-market research from a single AIsa-backed skill. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.'
 license: MIT
 allowed-tools: Read Bash Grep
-when_to_use: the user needs market data, stock analysis, dividend research, or read-only financial data workflows
+when_to_use: 'you need broad public-market research from a single AIsa-backed skill. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows'
 ---
 
 > Release note: This package is published for Claude Code. References to OpenClaw below describe the original source workflow, a companion runtime, or compatibility guidance unless the skill is explicitly about OpenClaw itself.
 
 # MarketPulse 📊
 
-Broad equity market data for agents, powered by AIsa.
+Broad equity market data for autonomous agents, powered by AIsa.
 
-Use this skill when you need stock research data from a single surface: historical prices, company news, financial statements, financial metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, line-item search, and macro interest rates.
+Use this skill when you need one place to query stock prices, company news, financial statements, filings, estimates, ownership activity, screening results, and macro interest-rate context.
+
+## Use when
+
+- You want historical or intraday price data for a public equity ticker.
+- You need company news, SEC filings, insider trades, or institutional ownership data.
+- You want annual, quarterly, or TTM financial statements and related metrics.
+- You need analyst estimates, earnings press releases, or segmented revenue breakdowns.
+- You want to screen stocks or compare specific financial line items across multiple tickers.
+- You need macro interest-rate data to add policy context to equity research.
 
 ## Compatibility
 
@@ -23,36 +32,9 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- any other harness that implements the [Agent Skills specification](https://agentskills.io/specification)
+- and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
-
-## Example requests
-
-### Investment research
-```
-"Full analysis: NVDA price trends, insider trades, analyst estimates, SEC filings"
-```
-
-### Earnings analysis
-```
-"Get Tesla earnings press releases, analyst estimates, and price reaction"
-```
-
-### Market screening
-```
-"Find stocks with P/E < 15 and revenue growth > 20%"
-```
-
-### Insider activity review
-```
-"Track insider trades at Apple and correlate with price movements"
-```
-
-### Segment deep dive
-```
-"Break down Apple's revenue by product segment and geography"
-```
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
 ## Quick start
 
@@ -60,9 +42,41 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 export AISA_API_KEY="your-key"
 ```
 
+## Example requests
+
+### Investment research
+
+```text
+"Full analysis: NVDA price trends, insider trades, analyst estimates, SEC filings"
+```
+
+### Earnings analysis
+
+```text
+"Get Tesla earnings press releases, analyst estimates, and price reaction"
+```
+
+### Market screening
+
+```text
+"Find stocks with P/E < 15 and revenue growth > 20%"
+```
+
+### Insider activity review
+
+```text
+"Track insider trades at Apple and correlate with price movements"
+```
+
+### Segment deep-dive
+
+```text
+"Break down Apple's revenue by product segment and geography"
+```
+
 ---
 
-## Traditional finance data
+## Traditional finance endpoints
 
 ### Stock prices
 
@@ -83,9 +97,9 @@ curl "https://api.aisa.one/apis/v1/financial/prices?ticker=AAPL&interval=minute&
 **Parameters:**
 - `ticker`: Stock symbol (required)
 - `interval`: `second`, `minute`, `day`, `week`, `month`, `year` (required)
-- `interval_multiplier`: Multiplier for interval, e.g. 5 for 5-minute bars (required)
-- `start_date`: Start date `YYYY-MM-DD` (required)
-- `end_date`: End date `YYYY-MM-DD` (required)
+- `interval_multiplier`: Multiplier for interval, for example 5 for 5-minute bars (required)
+- `start_date`: Start date in `YYYY-MM-DD` format (required)
+- `end_date`: End date in `YYYY-MM-DD` format (required)
 
 ### Company news
 

@@ -1,6 +1,6 @@
 ---
 name: youtube-serp
-description: Search YouTube SERP results through AIsa for video discovery, competitor research, trend monitoring, and regional content analysis. Use when you need ranked YouTube results, channels, and metadata for a query.
+description: 'Search YouTube SERP results through AISA for video research, channel discovery, trend checking, and competitor tracking. Use when: you need ranked YouTube results for a query, optionally filtered by country or language.'
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -18,13 +18,7 @@ metadata:
 
 # YouTube SERP 📺
 
-Search YouTube SERP results through AIsa for ranked video discovery, channel research, trend monitoring, and regional analysis.
-
-Use when you need to:
-- find top-ranking YouTube videos for a topic
-- monitor competitor or brand visibility in YouTube search
-- compare results across countries or interface languages
-- inspect titles, channels, views, and published dates for research workflows
+Search ranked YouTube results through AISA for content research, channel discovery, trend analysis, and competitor tracking.
 
 ## Compatibility
 
@@ -39,39 +33,52 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://aisa.one).
 
-## Example Requests
+## Use when
+
+- You want the top YouTube results for a keyword or topic
+- You need region-specific or language-specific YouTube search results
+- You are researching competitor videos or channels
+- You want quick SERP-style inputs for content planning or SEO analysis
+
+## Example requests
 
 ### Content research
 
 ```text
-Find the top-ranking YouTube videos for "AI agents tutorial" and summarize the leading channels.
+Find top-ranking videos about "AI agents tutorial" to see what is performing well.
 ```
 
 ### Competitor tracking
 
 ```text
-Search YouTube for "OpenAI tutorial" and list the highest-ranking videos and channels.
+Search for videos from competitor channels about "machine learning".
 ```
 
 ### Trend discovery
 
 ```text
-What are the top YouTube results for "GPT-5" right now?
+What are the top YouTube videos about "GPT-5" right now?
 ```
 
-### Regional analysis
+### Topic analysis
 
 ```text
-Compare YouTube results for "machine learning" in the US and Japan.
+Find popular videos on "autonomous driving" to understand audience interest.
 ```
 
-## Quick Start
+### Channel discovery
+
+```text
+Search for channels creating content about "crypto trading".
+```
+
+## Quick start
 
 ```bash
 export AISA_API_KEY="your-key"
 ```
 
-## Core Capabilities
+## Core capabilities
 
 ### Basic YouTube search
 
@@ -83,11 +90,11 @@ curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AI+agents+tut
 ### Search with country filter
 
 ```bash
-# Search in the United States
+# Search in specific country (US)
 curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=machine+learning&gl=us" \
   -H "Authorization: Bearer $AISA_API_KEY"
 
-# Search in Japan with a Japanese interface
+# Search in Japan
 curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AI&gl=jp&hl=ja" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
@@ -95,7 +102,7 @@ curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AI&gl=jp&hl=j
 ### Search with language filter
 
 ```bash
-# English interface
+# Search with interface language
 curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=python+tutorial&hl=en" \
   -H "Authorization: Bearer $AISA_API_KEY"
 
@@ -104,101 +111,107 @@ curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=编程教程&
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### Pagination or advanced filter token
+### Pagination with filter token
 
 ```bash
+# Use sp parameter for pagination or advanced filters
 curl "https://api.aisa.one/apis/v1/youtube/search?engine=youtube&q=AI&sp=<filter_token>" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-## Python Client
+## Python client
 
 ```bash
 # Basic search
 python3 scripts/youtube_client.py search --query "AI agents tutorial"
 
-# Search with country filter
+# Search with country
 python3 scripts/youtube_client.py search --query "machine learning" --country us
 
-# Search with language filter
+# Search with language
 python3 scripts/youtube_client.py search --query "python tutorial" --lang en
 
 # Full options
 python3 scripts/youtube_client.py search --query "GPT-5 news" --country us --lang en
 
-# Competitor-style research
+# Competitor research
 python3 scripts/youtube_client.py search --query "OpenAI tutorial"
 
 # Trend discovery
 python3 scripts/youtube_client.py search --query "AI trends 2025"
 ```
 
-## Common Use Cases
+## Use cases
 
 ### 1. Content gap analysis
 
-Find what is already ranking in your niche to spot positioning gaps.
+Find what content is ranking well to identify gaps in your strategy:
 
 ```python
+# Search for top videos in your niche
 results = client.search("AI automation tutorial")
-# Analyze titles, views, and channels to identify opportunities
+# Analyze titles, views, and channels to find opportunities
 ```
 
 ### 2. Competitor monitoring
 
-Track how competitor-related topics appear in YouTube search.
+Track what competitors are publishing:
 
 ```python
+# Search for competitor brand + topic
 results = client.search("OpenAI GPT tutorial")
 # Monitor ranking changes over time
 ```
 
 ### 3. Keyword research
 
-Discover what topics and phrasing appear in top-ranked results.
+Discover what topics are trending:
 
 ```python
+# Search broad topics to see what's popular
 results = client.search("artificial intelligence 2025")
 # Extract common keywords from top-ranking titles
 ```
 
 ### 4. Audience research
 
-Inspect regional differences in visible content.
+Understand what your target audience watches:
 
 ```python
+# Search in specific regions
 results = client.search("coding tutorial", country="jp", lang="ja")
 # Analyze regional content preferences
 ```
 
-### 5. Search visibility analysis
+### 5. SEO analysis
 
-Check which videos and channels rank for target keywords.
+Analyze how videos rank for specific keywords:
 
 ```python
+# Track ranking positions for target keywords
 keywords = ["AI tutorial", "machine learning basics", "Python AI"]
 for kw in keywords:
     results = client.search(kw)
-    # Record top results and channels
+    # Record top 10 videos and their channels
 ```
 
-## API Endpoint Reference
+## API endpoint reference
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/youtube/search` | GET | Search YouTube SERP |
 
-## Request Parameters
+## Request parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | engine | string | Yes | Must be `youtube` |
 | q | string | Yes | Search query |
-| gl | string | No | Country code such as `us`, `jp`, `uk`, `cn` |
-| hl | string | No | Interface language such as `en`, `ja`, `zh-CN` |
+| gl | string | No | Country code (for example `us`, `jp`, `uk`, `cn`) |
+| hl | string | No | Interface language (for example `en`, `ja`, `zh-CN`) |
 | sp | string | No | YouTube filter token for pagination or filters |
 
-## Response Format
+## Response format
 
 ```json
 {
@@ -226,7 +239,7 @@ for kw in keywords:
 }
 ```
 
-## Country Codes (`gl`)
+## Country codes (`gl`)
 
 | Code | Country |
 |------|---------|
@@ -241,7 +254,7 @@ for kw in keywords:
 | br | Brazil |
 | au | Australia |
 
-## Language Codes (`hl`)
+## Language codes (`hl`)
 
 | Code | Language |
 |------|----------|
@@ -262,14 +275,13 @@ for kw in keywords:
 |-----|------|
 | YouTube search | ~$0.002 |
 
-## Get Started
+## Get started
 
 1. Sign up at [aisa.one](https://aisa.one)
 2. Get your API key
-3. Add credits if needed
-4. Set `AISA_API_KEY`
-5. Call the API directly with `curl` or use `scripts/youtube_client.py`
+3. Add credits (pay-as-you-go)
+4. Set the environment variable: `export AISA_API_KEY="your-key"`
 
-## Full API Reference
+## Full API reference
 
-See [AIsa API Reference](https://aisa.one/docs/api-reference/) for broader endpoint documentation.
+See [API Reference](https://aisa.one/docs/api-reference/) for complete endpoint documentation.

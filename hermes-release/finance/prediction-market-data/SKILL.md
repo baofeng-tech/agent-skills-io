@@ -1,6 +1,6 @@
 ---
 name: prediction-market-data
-description: 'Prediction market data for Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, and cross-platform matching. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
+description: Access prediction market data from Polymarket and Kalshi, including markets, prices, trades, orderbooks, positions, and cross-platform market matching. Use when you need current odds, historical market data, or wallet-level prediction market analysis.
 license: MIT
 metadata:
   aisa:
@@ -19,7 +19,6 @@ metadata:
     tags:
     - finance
     - market
-    - stock
     - prediction
     related_skills:
     - market
@@ -33,7 +32,7 @@ required_environment_variables:
 
 # prediction-market-data
 
-Prediction market data for Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, and cross-platform matching. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.
+Access prediction market data from Polymarket and Kalshi, including markets, prices, trades, orderbooks, positions, and cross-platform market matching. Use when you need current odds, historical market data, or wallet-level prediction market analysis.
 
 ## When to Use
 

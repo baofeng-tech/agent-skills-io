@@ -1,19 +1,19 @@
-# Prediction Market Arbitrage ⚖️
+# AIsa Prediction Market Toolkit 📈⚖️
 
-A toolkit for accessing prediction market data and analyzing cross-platform arbitrage opportunities with AIsa.
+A toolkit for accessing prediction market data and finding cross-platform arbitrage opportunities with a unified AIsa API.
 
-This skill and its scripts help agents and developers work with prediction markets such as **Polymarket** and **Kalshi** through a unified API surface for market matching, price comparison, and liquidity checks.
+This skill directory is centered on matching and comparing markets across **Polymarket** and **Kalshi**, then checking whether a visible spread may be actionable after looking at liquidity.
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**, **Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and others that implement the [Agent Skills specification](https://agentskills.io/specification).
+Works with any [agentskills.io](https://agentskills.io)-compatible harness, including **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**, **Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification).
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
-## Included Files
+## Included files
 
 ### Skill
-- `SKILL.md`: Cross-platform skill definition for prediction-market arbitrage lookups.
+- `SKILL.md`: Cross-platform skill instructions for prediction-market arbitrage lookups.
 
 ### Scripts
 - `scripts/prediction_market_client.py`: CLI and Python wrapper for Polymarket, Kalshi, and cross-platform market-matching endpoints.
@@ -27,11 +27,11 @@ Both the skill and the Python scripts require an AIsa API key.
 export AISA_API_KEY="your-key-here"
 ```
 
-## Using the Python Scripts
+## Using the Python scripts
 
 Run the scripts from the repository root with the `scripts/` path prefix.
 
-### Prediction Market Client
+### Prediction market client
 
 ```bash
 # Search for open election markets
@@ -51,7 +51,7 @@ python scripts/prediction_market_client.py kalshi markets --search "fed rate" --
 python scripts/prediction_market_client.py kalshi orderbooks --ticker <ticker>
 ```
 
-### Arbitrage Finder
+### Arbitrage finder
 
 ```bash
 # Scan all NBA games on March 30, 2025, showing only spreads > 2% and liquidity > $500
@@ -64,7 +64,7 @@ python scripts/arbitrage_finder.py match --polymarket-slug nba-lakers-vs-celtics
 python scripts/arbitrage_finder.py match --kalshi-ticker KXNBA-25-LAL-BOS
 ```
 
-## Using the Skill
+## Using the skill
 
 Load `SKILL.md` into the agent context.
 
@@ -73,7 +73,7 @@ Important details:
 - Before executing any `curl` command, the runner must verify that every `{...}` placeholder has been replaced with a concrete value.
 - If a final command still contains `{token_id}` or any other brace placeholder, do not execute it. Fail fast and report a missing-parameter error.
 
-## ID Lookup Workflow
+## ID lookup workflow
 
 Most endpoints require IDs fetched from a markets endpoint first:
 
@@ -87,6 +87,6 @@ Most endpoints require IDs fetched from a markets endpoint first:
 |---------------|------|
 | Prediction market read query | $0.01 |
 
-## API Reference
+## API reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.

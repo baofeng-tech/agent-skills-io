@@ -1,6 +1,6 @@
 {
   "name": "multi-source-search",
-  "description": "Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need fast retrieval, citation-backed answers, or broader research coverage from one AIsa key.",
+  "description": "Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need structured retrieval, citation-backed answers, or broad research coverage from one AIsa API key.",
   "version": "1.0.0",
   "author": {
     "name": "AIsa"

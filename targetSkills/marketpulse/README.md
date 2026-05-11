@@ -1,8 +1,14 @@
 # MarketPulse (Equity Market Data) 📊
 
-Query real-time and historical equity market data, including prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates.
+Query real-time and historical equity market data—prices, news, financial statements, metrics, analyst estimates, insider and institutional activity, SEC filings, earnings press releases, segmented revenues, stock screening, and macro interest rates.
 
-Use this skill when you need broad stock research coverage from one AIsa-backed surface.
+## Use when
+
+- You need broad public-market data from a single skill.
+- You want price history, company news, or filing history for a ticker.
+- You need financial statements, metrics, analyst estimates, or revenue segmentation.
+- You want to review insider trades or institutional ownership.
+- You need stock screening, line-item comparison, or macro interest-rate context.
 
 ## Compatibility
 
@@ -12,18 +18,19 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## Features
 
-- **Stock Prices**: Historical price series across multiple intervals
-- **Company News**: Recent news by ticker
-- **Financial Statements**: Income statements, balance sheets, and cash flow
+- **Stock Prices**: Historical and intraday price data
+- **Company News**: Latest news by ticker
+- **Financial Statements**: Income statements, balance sheets, and cash flow statements
 - **Segmented Revenues**: Revenue by business segment and geography
 - **Financial Metrics**: Snapshot and historical metrics
-- **Analyst Estimates**: EPS estimate data
-- **Earnings Press Releases**: Company earnings release coverage
+- **Analyst Estimates**: Earnings-per-share estimate data
+- **Earnings Press Releases**: Quarterly earnings release coverage
 - **Insider Trading**: Insider transaction data
-- **Institutional Ownership**: Institutional holdings data
+- **Institutional Ownership**: Holdings and ownership data
 - **SEC Filings**: Filing history plus filing item extraction
-- **Stock Screener**: Filter equities by financial criteria
-- **Line-Item Search**: Query specific financial line items across tickers
+- **Company Facts**: Company facts by ticker or CIK
+- **Stock Screener**: Filter stocks by financial criteria
+- **Line-Item Search**: Pull specific financial line items across tickers
 - **Macro Interest Rates**: Snapshot and historical central-bank rates
 
 ## Quick start
@@ -40,8 +47,8 @@ python3 scripts/market_client.py stock earnings --ticker AAPL
 
 ## Documentation
 
-See [SKILL.md](SKILL.md) for full usage details, curl examples, and endpoint coverage.
+See [SKILL.md](SKILL.md) for the full command surface, curl examples, endpoint list, and pricing notes.
 
-## API reference
+## API Reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.

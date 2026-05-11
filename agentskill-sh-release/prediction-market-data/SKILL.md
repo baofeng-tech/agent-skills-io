@@ -1,6 +1,6 @@
 ---
 name: prediction-market-data
-description: 'Prediction market data for Polymarket and Kalshi, including markets, prices, positions, trades, orderbooks, and cross-platform matching. Use when: the user needs market data, stock analysis, watchlists, or portfolio workflows.'
+description: Access prediction market data from Polymarket and Kalshi, including markets, prices, trades, orderbooks, positions, and cross-platform market matching. Use when you need current odds, historical market data, or wallet-level prediction market analysis.
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -8,7 +8,7 @@ metadata:
   version: 1.0.0
   homepage: https://aisa.one
   repository: https://github.com/baofeng-tech/agent-skills
-  tags: market,stock,prediction
+  tags: market,prediction
   platforms: agentskills.io,agentskill.sh,github
   primary_env: AISA_API_KEY
 allowed-tools: Read Bash Grep
@@ -16,29 +16,31 @@ allowed-tools: Read Bash Grep
 
 # Prediction Market Data 📈
 
-Access prediction market data from Polymarket and Kalshi through AIsa.
+Access Polymarket and Kalshi market data through AIsa.
 
-Use when you need to:
-- look up current market odds and implied probabilities
-- search active or historical prediction markets
-- inspect trade history, orderbooks, and candlesticks
-- review wallet positions, wallet info, or realized PnL
-- compare matching sports markets across platforms
+Use this skill when you need to:
 
-One API key gives agents a consistent read-only interface for prediction market research and monitoring.
+- check current implied odds for an event
+- search open or resolved markets
+- inspect trade history, orderbooks, or candlesticks
+- review wallet activity, positions, or P&L
+- compare equivalent sports markets across platforms
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible harness, including:
+Works with any [agentskills.io](https://agentskills.io)-compatible
+harness, including:
 
 - **Claude Code** and **Claude**
 - **OpenAI Codex**
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
+- and other harnesses that implement the [Agent Skills
+  specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from
+[aisa.one](https://aisa.one)).
 
 ## Quick Start
 
@@ -75,17 +77,24 @@ export AISA_API_KEY="your-key"
 
 ## How to Look Up IDs
 
-Most downstream endpoints require an ID from a prior market lookup. Query markets first, then pass the relevant identifier to the next endpoint.
+Most downstream endpoints require an ID returned by a market search. In
+practice, start with `/markets`, inspect the response, then pass the
+relevant identifier to the next endpoint.
 
-1. **Polymarket `token_id`**: Query `/polymarket/markets`, find `side_a.id` or `side_b.id`, then pass it to `/polymarket/market-price/{token_id}`.
-2. **Polymarket `condition_id`**: Query `/polymarket/markets`, find `condition_id`, then pass it to `/polymarket/candlesticks/{condition_id}`.
-3. **Kalshi `market_ticker`**: Query `/kalshi/markets`, find `market_ticker`, then pass it to `/kalshi/market-price/{market_ticker}`.
+1. **Polymarket `token_id`**: Query `/polymarket/markets`, then use
+   `side_a.id` or `side_b.id` with
+   `/polymarket/market-price/{token_id}`.
+2. **Polymarket `condition_id`**: Query `/polymarket/markets`, then use
+   `condition_id` with `/polymarket/candlesticks/{condition_id}`.
+3. **Kalshi `market_ticker`**: Query `/kalshi/markets`, then use
+   `market_ticker` with `/kalshi/market-price/{market_ticker}`.
 
 ## End-to-End Examples
 
 ### Get the current price of a Polymarket market
 
-Prices require a `token_id`, which comes from the `/markets` response. Always query markets first.
+Prices require a `token_id`, which comes from the `/markets` response.
+Always query markets first.
 
 **Step 1: Find a market and extract the token_id:**
 
@@ -94,7 +103,8 @@ Prices require a `token_id`, which comes from the `/markets` response. Always qu
 python scripts/prediction_market_client.py polymarket markets --search "election" --status open --limit 5
 ```
 
-The response includes a `side_a.id` and `side_b.id` for each market; these are the token IDs for the Yes and No sides respectively:
+The response includes a `side_a.id` and `side_b.id` for each market;
+these are the token IDs for the Yes and No sides respectively:
 
 ```json
 {
@@ -123,7 +133,8 @@ The response includes a `side_a.id` and `side_b.id` for each market; these are t
 python scripts/prediction_market_client.py polymarket price 44482086252598348208660011972852804909957485351743405768768577675743702971026
 ```
 
-The price is a decimal between 0 and 1 representing the implied probability (for example, `0.20` = 20% chance of Yes).
+The price is a decimal between 0 and 1 representing probability (for
+example, `0.20` means a 20% chance of Yes).
 
 ---
 
@@ -364,10 +375,10 @@ Returns activities array:
 - `tx_hash` (string) - Blockchain transaction hash
 
 ## Understanding Odds
-- Prices are shown as decimals (0.65 = 65% probability)
-- "Yes" price = probability market thinks event will happen
-- Higher volume = more confidence/liquidity
-- Prices change based on trading activity
+- Prices are shown as decimals (`0.65` = 65% probability)
+- "Yes" price represents the market-implied probability that the event happens
+- Higher volume can indicate deeper liquidity and stronger participation
+- Prices change as traders buy and sell shares
 
 ## Pricing
 

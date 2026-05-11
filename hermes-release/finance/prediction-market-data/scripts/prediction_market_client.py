@@ -45,7 +45,6 @@ import urllib.parse
 import urllib.error
 from typing import Any, Dict, List, Optional
 
-
 def api_result_ok(result: Any) -> bool:
     """Return whether an AIsa API payload should produce a successful CLI exit."""
     if not isinstance(result, dict):
@@ -74,6 +73,7 @@ def decode_json_body(body: bytes) -> Dict[str, Any]:
             },
         }
     return payload if isinstance(payload, dict) else {"success": True, "data": payload}
+
 
 
 class PredictionMarketClient:

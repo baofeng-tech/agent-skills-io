@@ -1,6 +1,6 @@
 # Multi-source Search
 
-Multi-source search for autonomous agents with structured retrieval, Tavily utilities, and Perplexity Sonar answer endpoints.
+Multi-source search for autonomous agents with structured retrieval plus Perplexity Sonar answer endpoints.
 
 ## Compatibility
 
@@ -8,7 +8,7 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Cl
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
-## What it covers
+## Features
 
 - Web search
 - Scholar search
@@ -22,12 +22,19 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 ```bash
 export AISA_API_KEY="your-key"
 
-python3 scripts/search_client.py web --query "AI frameworks"
-python3 scripts/search_client.py scholar --query "transformer models"
-python3 scripts/search_client.py sonar --query "What changed in AI this week?"
-python3 scripts/search_client.py sonar-pro --query "Compare coding agents with citations"
-python3 scripts/search_client.py verity --query "Is quantum computing enterprise-ready?"
+python scripts/search_client.py web --query "AI frameworks"
+python scripts/search_client.py scholar --query "transformer models"
+python scripts/search_client.py sonar --query "What changed in AI this week?"
+python scripts/search_client.py sonar-pro --query "Compare coding agents with citations"
+python scripts/search_client.py verity --query "Is quantum computing enterprise-ready?"
 ```
+
+## Best For
+
+- Fast web lookup
+- Scholar-backed research
+- Citation-rich answers
+- Broad multi-source investigation from one API key
 
 ## Notes
 
@@ -36,7 +43,7 @@ python3 scripts/search_client.py verity --query "Is quantum computing enterprise
 
 ## Documentation
 
-See [SKILL.md](SKILL.md) for full usage, API examples, and endpoint details.
+See [SKILL.md](SKILL.md) for full usage and examples.
 
 ## API Reference
 

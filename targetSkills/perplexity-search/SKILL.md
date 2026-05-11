@@ -1,6 +1,6 @@
 ---
 name: perplexity-search
-description: Perplexity Sonar search and answer generation through AIsa. Use when you specifically need Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
+description: Perplexity Sonar search and answer generation through AIsa. Use when the task is specifically to call Perplexity Sonar, Sonar Pro, Sonar Reasoning Pro, or Sonar Deep Research for citation-backed web answers, analytical reasoning, or long-form research reports.
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -16,9 +16,9 @@ metadata:
     compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 ---
 
-# perplexity-search
+# Perplexity Search
 
-Use this skill when the user specifically wants Perplexity-powered search and answer generation through AIsa, rather than more general web retrieval or scholar-style search.
+Use this skill when the user specifically wants Perplexity-powered search and answer generation through AIsa, especially for citation-backed web answers, analytical reasoning, or long-form research reports.
 
 This skill covers four AIsa endpoints:
 - `/perplexity/sonar`
@@ -35,7 +35,7 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
+- and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 

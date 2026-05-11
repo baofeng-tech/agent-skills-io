@@ -1,48 +1,20 @@
 # Twitter Autopilot 🐦
 
-Twitter/X research and account actions for autonomous agents, powered by AIsa.
+Twitter/X intelligence and automation for autonomous agents, powered by AIsa.
 
-This skill supports three main workflows:
-
-- **Read and search** Twitter/X data without user login
-- **Engage** with tweets and users after OAuth authorization
-- **Publish** posts and replies after OAuth authorization
+This skill supports Twitter/X research, search, social listening, engagement, and posting workflows.
 
 ## Compatibility
 
-Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**, **Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and others that implement the [Agent Skills specification](https://agentskills.io/specification).
+Works with any [agentskills.io](https://agentskills.io)-compatible harness: **Claude Code**, **Claude**, **OpenAI Codex**, **Cursor**, **Gemini CLI**, **OpenCode**, **Goose**, **OpenClaw**, **Hermes**, and other tools that implement the [Agent Skills specification](https://agentskills.io/specification).
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
-## What it does
+## Features
 
-### Read & search
-
-Use `scripts/twitter_client.py` to:
-
-- get user info and account metadata
-- fetch recent tweets, mentions, followers, and followings
-- search tweets and users
-- inspect replies, quotes, retweeters, and thread context
-- review trends, lists, communities, and Spaces
-
-These read operations do not require Twitter/X login.
-
-### Engagement via relay
-
-Use `scripts/twitter_engagement_client.py` for authenticated actions such as:
-
-- liking or unliking tweets
-- following or unfollowing users
-- listing recent tweets to support follow-up actions
-
-These actions require user OAuth authorization and have real side effects on Twitter/X.
-
-### Publishing
-
-Publishing flows are documented in [`./references/post_twitter.md`](./references/post_twitter.md).
-
-Use them when the user wants to publish, reply, or quote-post on X/Twitter after completing OAuth authorization in the browser.
+- **Read and search**: Access user info, tweets, advanced search, trends, followers, lists, communities, and Spaces without user login.
+- **Engagement via relay**: Like or unlike tweets and follow or unfollow users through the local OAuth relay workflow.
+- **Posting with OAuth**: Publish text and media posts, create threads, and quote or reply to tweets after the user completes authorization.
 
 ## Installation
 
@@ -50,19 +22,26 @@ Use them when the user wants to publish, reply, or quote-post on X/Twitter after
 export AISA_API_KEY="your-key"
 ```
 
-## Quick start
+## Quick Start
 
-### Read & search
-
+### Read and search
 ```bash
 # Get user info and search tweets
 python scripts/twitter_client.py user-info --username elonmusk
 python scripts/twitter_client.py search --query "AI agents"
-python scripts/twitter_client.py trends --woeid 1
+python scripts/twitter_client.py trends
 ```
 
-### Engagement (requires OAuth)
+### Post and publish (requires OAuth)
+```bash
+# Publish a text post
+python scripts/twitter_oauth_client.py post --text "Hello from AIsa!"
 
+# Publish a post with media
+python scripts/twitter_oauth_client.py post --text "Check out this image" --media-file ./photo.png
+```
+
+### Engagement (requires OAuth relay)
 ```bash
 # Like the latest tweet from a user
 python scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
@@ -74,27 +53,17 @@ python scripts/twitter_engagement_client.py list-tweets --user "@elonmusk" --lim
 python scripts/twitter_engagement_client.py follow-user --user "@elonmusk"
 ```
 
-### Publish (requires OAuth)
+> For engagement workflows, see [`./references/engage_twitter.md`](./references/engage_twitter.md). For publishing, authorization, and multi-part threading, see [`./references/post_twitter.md`](./references/post_twitter.md).
 
-```bash
-# Publish a text post
-python scripts/twitter_oauth_client.py post --text "Hello from AIsa!"
+## Get API Key
 
-# Publish a post with media
-python scripts/twitter_oauth_client.py post --text "Check out this image" --media-file ./photo.png
-```
-
-> For engagement workflows, see [`./references/engage_twitter.md`](./references/engage_twitter.md). For publishing, authorization, and threading guidance, see [`./references/post_twitter.md`](./references/post_twitter.md).
-
-## Get an API key
-
-Sign up at [aisa.one](https://aisa.one).
+Sign up at [aisa.one](https://aisa.one)
 
 ## Links
 
 - [AIsa](https://aisa.one)
 - [API Reference](https://aisa.one/docs/api-reference/)
 
-## API reference
+## API Reference
 
 See the [AIsa API Reference](https://aisa.one/docs/api-reference) for the complete catalog of endpoints this skill can call.

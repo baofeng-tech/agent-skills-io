@@ -1,6 +1,6 @@
 ---
 name: prediction-market-arbitrage
-description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, or verify liquidity before acting on a spread.
+description: Find and analyze arbitrage opportunities across prediction markets like Polymarket and Kalshi. Use when you need to match equivalent markets, compare prices, and verify whether a spread looks actionable.
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -18,15 +18,23 @@ metadata:
 
 # Prediction Market Arbitrage ⚖️
 
-Find and analyze arbitrage opportunities across prediction markets such as Polymarket and Kalshi using the AIsa API.
+Find and analyze arbitrage opportunities across prediction markets such as Polymarket and Kalshi.
 
-Use when you need to:
-- match equivalent events across platforms
-- compare current prices for the same outcome
-- inspect orderbook depth before judging whether a spread is actionable
-- monitor cross-market discrepancies for sports or other prediction events
+This skill helps agents:
 
-One API key gives agents a unified way to query market matching, pricing, and liquidity data across supported prediction markets.
+- find matching markets across platforms
+- compare current prices
+- inspect orderbook depth and liquidity
+- judge whether an apparent spread may be actionable
+
+Powered by AIsa with a single `AISA_API_KEY`.
+
+## Use when
+
+- You want to find the Kalshi or Polymarket equivalent of a market on another platform.
+- You want to compare implied probabilities across platforms for the same event.
+- You want to check whether a price gap is large enough to investigate as a possible arbitrage.
+- You want to verify liquidity before treating a spread as actionable.
 
 ## Compatibility
 
@@ -37,52 +45,56 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 - **Cursor**
 - **Gemini CLI**
 - **OpenCode**, **Goose**, **OpenClaw**, **Hermes**
-- and other tools that implement the [Agent Skills specification](https://agentskills.io/specification)
+- and other harnesses that implement the [Agent Skills specification](https://agentskills.io/specification)
 
-Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
+Requires Python 3, a POSIX shell, and `AISA_API_KEY` from [aisa.one](https://aisa.one).
 
-## Example Requests
-
-### Detect Price Discrepancies
-```text
-"Find the current price difference for the US election market between Polymarket and Kalshi."
-```
-
-### Match Cross-Platform Markets
-```text
-"Find the Kalshi equivalent for this Polymarket sports event."
-```
-
-### Track Arbitrage Spreads
-```text
-"Monitor the price spread for the upcoming NBA game across all supported prediction markets."
-```
-
-### Analyze Orderbook Depth
-```text
-"Check the orderbook depth on both platforms to see if the arbitrage opportunity is actionable."
-```
-
-## Quick Start
+## Quick start
 
 ```bash
 export AISA_API_KEY="your-key"
 ```
 
-## How to Look Up IDs
+## Example requests
 
-Most endpoints require an ID from the `/markets` or `/matching-markets` responses. Query markets first, then pass the relevant ID to downstream endpoints.
+### Detect price discrepancies
+
+```text
+"Find the current price difference for the US election market between Polymarket and Kalshi."
+```
+
+### Match cross-platform markets
+
+```text
+"Find the Kalshi equivalent for this Polymarket sports event."
+```
+
+### Track arbitrage spreads
+
+```text
+"Monitor the price spread for the upcoming NBA game across all supported prediction markets."
+```
+
+### Analyze orderbook depth
+
+```text
+"Check the orderbook depth on both platforms to see if the arbitrage opportunity is actionable."
+```
+
+## How to look up IDs
+
+Most endpoints require an ID from the `/markets` or `/matching-markets` responses. Query markets first, then pass the relevant ID into downstream endpoints.
 
 1. **Polymarket `token_id`**: Query `/polymarket/markets`, find `side_a.id` or `side_b.id` in the response, then use that value in the market price and orderbook endpoints.
 2. **Kalshi `market_ticker`**: Query `/kalshi/markets`, find `market_ticker` in the response, then use that value in the market price and orderbook endpoints.
 
-## Core Capabilities
+## Core capabilities
 
-### 1. Find Matching Markets
+### 1. Find matching markets
 
 The first step in arbitrage analysis is finding the same event on multiple platforms.
 
-#### Match by Event Ticker or Slug
+#### Match by event ticker or slug
 
 ```bash
 # Find equivalent markets across platforms using a Polymarket slug
@@ -94,7 +106,7 @@ curl -X GET "https://api.aisa.one/apis/v1/matching-markets/sports?kalshi_event_t
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-#### Match Sports by Date
+#### Match sports by date
 
 ```bash
 # Find all matching sports markets across platforms for a specific date
@@ -102,11 +114,11 @@ curl -X GET "https://api.aisa.one/apis/v1/matching-markets/sports/{sport}?date={
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### 2. Compare Prices
+### 2. Compare prices
 
 Once matching markets are found, fetch the current prices on both platforms to calculate the spread.
 
-#### Get Polymarket Price
+#### Get Polymarket price
 
 ```bash
 # token_id comes from side_a.id or side_b.id in /polymarket/markets response
@@ -114,7 +126,7 @@ curl -X GET "https://api.aisa.one/apis/v1/polymarket/market-price/{token_id}" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-#### Get Kalshi Price
+#### Get Kalshi price
 
 ```bash
 # market_ticker comes from /kalshi/markets response
@@ -122,11 +134,11 @@ curl -X GET "https://api.aisa.one/apis/v1/kalshi/market-price/{market_ticker}" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-### 3. Verify Liquidity
+### 3. Verify liquidity
 
 A price discrepancy is only actionable if there is enough liquidity to execute the trades.
 
-#### Polymarket Orderbook
+#### Polymarket orderbook
 
 ```bash
 # token_id comes from side_a.id or side_b.id in /polymarket/markets response
@@ -134,7 +146,7 @@ curl -X GET "https://api.aisa.one/apis/v1/polymarket/orderbooks?token_id={token_
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-#### Kalshi Orderbook
+#### Kalshi orderbook
 
 ```bash
 # ticker is the same value as market_ticker from /kalshi/markets response
@@ -142,16 +154,16 @@ curl -X GET "https://api.aisa.one/apis/v1/kalshi/orderbooks?ticker={ticker}" \
   -H "Authorization: Bearer $AISA_API_KEY"
 ```
 
-## API Endpoints Reference
+## API endpoints reference
 
-### Cross-Platform Endpoints
+### Cross-platform endpoints
 
 | Endpoint | Description | Key Params |
 |----------|-------------|------------|
 | `/matching-markets/sports` | Find matching sports markets | `polymarket_market_slug` or `kalshi_event_ticker` |
 | `/matching-markets/sports/<sport>` | Find sports markets by date | `sport`, `date` |
 
-### Price and Liquidity Endpoints
+### Price and liquidity endpoints
 
 | Endpoint | Description | Key Params |
 |----------|-------------|------------|
@@ -160,7 +172,7 @@ curl -X GET "https://api.aisa.one/apis/v1/kalshi/orderbooks?ticker={ticker}" \
 | `/polymarket/orderbooks` | Get Polymarket orderbook | `token_id`, `start_time`, `end_time` |
 | `/kalshi/orderbooks` | Get Kalshi orderbook | `ticker`, `start_time`, `end_time` |
 
-## Important Note About cURL Placeholders
+## Important note about cURL placeholders
 
 The `{...}` values in the cURL examples are product-level placeholders and must be replaced before execution.
 
@@ -170,7 +182,7 @@ Execution constraint:
 
 This constraint is required because a literal brace placeholder may be interpreted by `curl` as URL globbing syntax rather than as plain text.
 
-## Understanding Arbitrage and Odds
+## Understanding arbitrage and odds
 
 - **Prices as probabilities**: Prices are usually shown as decimals. For example, `0.65` means a 65% implied probability.
 - **Arbitrage opportunity**: An opportunity exists when the combined price of all mutually exclusive outcomes across different platforms is less than `1.0`. For example, if "Yes" is trading at `0.40` on Polymarket and "No" is trading at `0.55` on Kalshi, buying both guarantees a payout of `1.00` for a total cost of `0.95`, before fees and slippage.
@@ -182,13 +194,13 @@ This constraint is required because a literal brace placeholder may be interpret
 |-----|------|
 | Prediction market read query | $0.01 |
 
-## Get Started
+## Get started
 
 1. Sign up at [aisa.one](https://aisa.one)
 2. Get your API key
 3. Add credits (pay-as-you-go)
-4. Set environment variable: `export AISA_API_KEY="your-key"`
+4. Set the environment variable: `export AISA_API_KEY="your-key"`
 
-## Full API Reference
+## Full API reference
 
 See [API Reference](https://aisa.one/docs/api-reference/) for complete endpoint documentation.

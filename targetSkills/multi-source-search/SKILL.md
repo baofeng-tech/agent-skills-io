@@ -1,6 +1,6 @@
 ---
 name: multi-source-search
-description: Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need fast retrieval, citation-backed answers, or broader research coverage from one AIsa key.
+description: Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need structured retrieval, citation-backed answers, or broad research coverage from one AIsa API key.
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries curl, python3, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -20,7 +20,7 @@ metadata:
 
 Multi-source search for autonomous agents, powered by AIsa.
 
-Use this skill when you want one API key to cover:
+Use this skill when you need one API surface for:
 - Structured web search
 - Scholar search
 - Hybrid scholar search
@@ -40,7 +40,7 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` (available from [aisa.one](https://aisa.one)).
 
-## Best Fit
+## What This Skill Is Best For
 
 ### Fast web lookup
 ```text
@@ -266,7 +266,7 @@ Use `messages` because the AIsa Perplexity endpoints are presented as "Ask AI" e
 
 ## Notes
 
-- `/search/full` and `/search/smart` are no longer documented here because you indicated those nodes have been retired.
+- `/search/full` and `/search/smart` are no longer documented here because those nodes have been retired.
 - The existing scholar and Tavily endpoints remain available.
 - `verity` still focuses on parallel retrieval from scholar, web, hybrid scholar, and Tavily sources.
 

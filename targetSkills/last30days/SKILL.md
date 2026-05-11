@@ -1,6 +1,6 @@
 ---
 name: last30days
-description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when you need recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
+description: Research the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, and grounded web search. Returns a ranked, clustered brief with citations. Use when the task needs recent social evidence, competitor comparisons, launch reactions, trend scans, or person/company profiles.
 license: MIT
 compatibility: Designed for Agent Skills compatible clients such as OpenClaw, Claude Code, Hermes, and GitHub-backed skill catalogs. Requires system binaries python3, bash, environment variables AISA_API_KEY and internet access to api.aisa.one.
 metadata:
@@ -35,7 +35,7 @@ Works with any [agentskills.io](https://agentskills.io)-compatible harness, incl
 
 Requires Python 3, a POSIX shell, and `AISA_API_KEY` (get one at [aisa.one](https://aisa.one)).
 
-## What it does
+## Example requests
 
 ### Trend scan
 ```text
@@ -96,7 +96,7 @@ bash scripts/run-last30days.sh --diagnose
 
 ## Inputs and outputs
 
-**Input.** A topic, person, company, product, or comparison, for example: `OpenAI Agents SDK`, `OpenClaw vs Codex`, or `Peter Steinberger`.
+**Input.** A topic, person, company, product, or comparison — for example: `OpenAI Agents SDK`, `OpenClaw vs Codex`, or `Peter Steinberger`.
 
 **Output.** A markdown brief by default, or JSON with:
 
@@ -109,18 +109,18 @@ bash scripts/run-last30days.sh --diagnose
 
 ## When to use
 
-- You need last-30-days evidence on a person, company, product, market, tool, or trend.
-- You want a ranked competitor comparison, launch-reaction summary, creator/community sentiment scan, or shipping update.
-- You want structured JSON output to feed into another agent.
+- You need recent evidence from the last 30 days about a person, company, product, market, tool, or trend.
+- You want a ranked competitor comparison, launch-reaction summary, creator or community sentiment scan, or shipping update.
+- You want a structured JSON brief to feed into another agent.
 
 ## When not to use
 
-- For timeless reference questions with no recent-evidence requirement.
-- When you only want one official source and do not want social or community signals.
+- Timeless reference questions with no recent-evidence requirement.
+- Tasks where you only want one official source and do not want social or community signals.
 
 ## Capabilities
 
-- **AISA-powered**: planner (structured JSON query plan), reranker (relevance ordering), fun-scorer (meme/quirk signal), and hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and grounded Tavily web search.
+- **AISA-powered**: planner (structured JSON query plan), reranker (relevance ordering), fun-scorer (meme or quirk signal), and hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and grounded Tavily web search.
 - **Public paths (no extra credentials)**: Reddit and Hacker News.
 - **GitHub** via the official API when `GH_TOKEN` or `GITHUB_TOKEN` is set — optional.
 - **Fail-soft**: if one source errors or times out, the brief still renders with the others and notes the gap.
@@ -147,7 +147,7 @@ last30days calls the following AIsa endpoints directly. See the [full API Refere
 - [Tavily Search](https://aisa.one/docs/api-reference/search/post_tavily-search) — grounded web
 - [Polymarket Markets](https://aisa.one/docs/api-reference/prediction-market/get_polymarket-markets) — prediction-market retrieval
 
-Reddit and Hacker News use their respective public APIs directly and do not require the AISA proxy.
+Reddit and Hacker News use their respective public APIs directly (no AISA proxy required).
 
 ## Requirements
 

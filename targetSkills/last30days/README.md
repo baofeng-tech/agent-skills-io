@@ -15,7 +15,7 @@ bash scripts/run-last30days.sh setup
 bash scripts/run-last30days.sh "OpenAI Agents SDK"
 ```
 
-## Examples
+## Example requests
 
 ```bash
 last30days "OpenAI Agents SDK"
@@ -33,22 +33,20 @@ Requires Python 3, a POSIX shell, and `AISA_API_KEY`.
 
 ## What it returns
 
-A single markdown brief by default, or JSON when you pass `--emit=json`.
+A single markdown brief by default, or JSON with:
 
-Typical output includes:
-
-- **Ranked evidence clusters** — top findings grouped by theme, each with a URL, date, engagement stats, and a short rationale
+- **Ranked evidence clusters** — top findings grouped by theme, each with a URL, date, engagement stats, and a one-line relevance rationale
 - **Stats** — items per source, top communities, domains, or channels
-- **Best Takes** — quirky or meme-worthy items
+- **Best Takes** — quirky or meme-worthy items (cosmetic)
 - **Source coverage** — how many items each source contributed
 
-For machine-readable output, `--emit=json` returns fields including `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source`.
+Pass `--emit=json` for a machine-readable version with the full `query_plan`, `ranked_candidates`, `clusters`, and `items_by_source` fields.
 
 ## Requirements
 
 - **Python 3.12+**
 - **`AISA_API_KEY`** — powers the planner, reranker, fun-scorer, and hosted retrieval for X, YouTube, TikTok, Instagram, Polymarket, and grounded web search. Get one at [aisa.one](https://aisa.one).
-- **`GH_TOKEN` or `GITHUB_TOKEN`** *(optional)* — enables the GitHub source
+- **`GH_TOKEN` or `GITHUB_TOKEN`** *(optional)* — enables the GitHub source. Without it, the other sources still work.
 
 Reddit and Hacker News use public endpoints and need no credentials.
 
@@ -63,7 +61,7 @@ LAST30DAYS_RERANK_MODEL=qwen-plus-2025-12-01  # quality ranking
 LAST30DAYS_FUN_MODEL=qwen-flash               # cheap vibes
 ```
 
-Or set `AISA_MODEL=...` for a single model across all three roles. The interactive `setup` flow walks you through picking from the live [AIsa model catalog](https://aisa.one/docs/guides/models).
+Or set `AISA_MODEL=...` for a single model across all three. The interactive `setup` flow walks you through picking from the live [AIsa model catalog](https://aisa.one/docs/guides/models).
 
 ## Flags
 
