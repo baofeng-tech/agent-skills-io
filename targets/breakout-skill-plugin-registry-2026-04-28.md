@@ -57,6 +57,21 @@ breakout slug 和 owner-conflict fallback slug 不是一回事：
    - live `publisher_handle`
 3. `targets/clawhub-live-status.json` 的扫描结果也必须围绕 fallback live slug 回写，而不是再把结果错误归到旧 canonical slug 视角。
 
+## 2026-05-11 live refresh
+
+本轮重新刷新 `targets/clawhub-live-status.json` 后，4 个 breakout 变体对应的 8 个 live artifact 仍全部为 `clean`：
+
+- `skill:aisa-twitter-api-command-center`
+- `plugin:aisa-twitter-api-command-center-plugin`
+- `skill:aisa-twitter-research-engage-relay`
+- `plugin:aisa-twitter-research-engage-relay-plugin`
+- `skill:twitter-post-aisa`
+- `plugin:twitter-post-aisa-plugin`
+- `skill:aisa-tavily-search`
+- `plugin:aisa-tavily-search-plugin`
+
+当前没有 breakout live drift；本轮只刷新状态和计划报告，没有新增 fallback slug。
+
 ## 1. `aisa-twitter-api` 家族
 
 ### 母版 skill

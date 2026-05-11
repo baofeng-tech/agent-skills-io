@@ -177,6 +177,70 @@ def validate_continuation_dirty_filter() -> None:
     )
 
 
+def validate_prediction_market_client_hardening() -> None:
+    """Lock the upstream-sync hardening that keeps prediction-market smoke tests stable."""
+    import unified_skill_pipeline as pipeline
+
+    with tempfile.TemporaryDirectory() as raw_tmp:
+        tmp = Path(raw_tmp)
+        client = tmp / "prediction_market_client.py"
+        client.write_text(
+            '''\
+import json
+import urllib.error
+import urllib.request
+from typing import Any, Dict, List, Optional
+
+
+class PredictionMarketClient:
+    """Small fixture that mirrors the upstream client shape."""
+
+    def _request(self) -> Dict[str, Any]:
+        req = urllib.request.Request("https://example.test")
+        try:
+            with urllib.request.urlopen(req, timeout=60) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.URLError as e:
+            return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e.reason)}}
+
+    def _raw_get(self) -> Dict[str, Any]:
+        req = urllib.request.Request("https://example.test")
+        try:
+            with urllib.request.urlopen(req, timeout=60) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.URLError as e:
+            return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e.reason)}}
+
+
+def main() -> None:
+    result = []
+    sys.exit(0 if result.get("success", True) else 1)
+''',
+            encoding="utf-8",
+        )
+
+        require(
+            pipeline.harden_prediction_market_client(client),
+            "pipeline must patch upstream prediction-market clients after sync",
+        )
+        hardened = client.read_text(encoding="utf-8")
+        require("def api_result_ok(result: Any) -> bool:" in hardened, "hardener must add list-safe exit logic")
+        require("def decode_json_body(body: bytes) -> Dict[str, Any]:" in hardened, "hardener must add JSON decoder")
+        require(
+            hardened.count("return decode_json_body(response.read())") == 2,
+            "hardener must wrap both normal request paths",
+        )
+        require("except TimeoutError as e:" in hardened, "hardener must classify timeout errors as network errors")
+        require(
+            "sys.exit(0 if api_result_ok(result) else 1)" in hardened,
+            "hardener must avoid calling dict.get on list payloads",
+        )
+        require(
+            not pipeline.harden_prediction_market_client(client),
+            "prediction-market hardening must be idempotent",
+        )
+
+
 def main() -> int:
     text = WORKFLOW_PATH.read_text(encoding="utf-8")
     dispatch_block = text.split("workflow_dispatch:", 1)[1].split("schedule:", 1)[0]
@@ -316,8 +380,15 @@ def main() -> int:
         and "git restore --staged --worktree -- \"$report\"" in text,
         "hosted auto-commit must exclude AISA smoke/report outputs so validation HEAD does not drift",
     )
+    require(
+        "harden_synced_skill_runtime(dst_dir)" in pipeline_text
+        and "harden_prediction_market_client" in pipeline_text
+        and "UPSTREAM_NON_JSON" in pipeline_text,
+        "unified pipeline must preserve prediction-market client hardening after upstream all-sync",
+    )
     validate_continuation_planner()
     validate_continuation_dirty_filter()
+    validate_prediction_market_client_hardening()
     print("GitHub Actions workflow guard checks passed.")
     return 0
 

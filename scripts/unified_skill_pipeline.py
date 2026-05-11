@@ -371,6 +371,87 @@ def copy_runtime_dir(src: Path, dst: Path) -> None:
         shutil.copy2(path, destination)
 
 
+PREDICTION_MARKET_CLIENT_HELPERS = '''\
+def api_result_ok(result: Any) -> bool:
+    """Return whether an AIsa API payload should produce a successful CLI exit."""
+    if not isinstance(result, dict):
+        return True
+    if result.get("success") is False:
+        return False
+    if result.get("ok") is False:
+        return False
+    if result.get("error"):
+        return False
+    return True
+
+
+def decode_json_body(body: bytes) -> Dict[str, Any]:
+    """Decode upstream JSON while preserving successful non-dict payloads."""
+    text = body.decode("utf-8", errors="replace")
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError:
+        preview = " ".join(text.strip().split())[:500]
+        return {
+            "success": False,
+            "error": {
+                "code": "UPSTREAM_NON_JSON",
+                "message": f"Upstream returned a non-JSON response: {preview}",
+            },
+        }
+    return payload if isinstance(payload, dict) else {"success": True, "data": payload}
+
+
+'''
+
+
+def harden_prediction_market_client(client_path: Path) -> bool:
+    """Patch upstream prediction-market clients so list responses do not fail CI."""
+    if not client_path.exists():
+        return False
+
+    original = client_path.read_text(encoding="utf-8")
+    text = original
+    import_line = "from typing import Any, Dict, List, Optional\n\n"
+    if "def api_result_ok(" not in text and import_line in text:
+        text = text.replace(import_line, import_line + PREDICTION_MARKET_CLIENT_HELPERS, 1)
+
+    text = text.replace(
+        'return json.loads(response.read().decode("utf-8"))',
+        "return decode_json_body(response.read())",
+    )
+    text = text.replace(
+        'sys.exit(0 if result.get("success", True) else 1)',
+        "sys.exit(0 if api_result_ok(result) else 1)",
+    )
+
+    if "except TimeoutError as e:" not in text:
+        text = text.replace(
+            '        except urllib.error.URLError as e:\n'
+            '            return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e.reason)}}\n',
+            '        except urllib.error.URLError as e:\n'
+            '            return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e.reason)}}\n'
+            '        except TimeoutError as e:\n'
+            '            return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e)}}\n'
+            '        except OSError as e:\n'
+            '            return {"success": False, "error": {"code": "NETWORK_ERROR", "message": str(e)}}\n',
+        )
+
+    if text == original:
+        return False
+    client_path.write_text(text, encoding="utf-8")
+    return True
+
+
+def harden_synced_skill_runtime(skill_dir: Path) -> list[str]:
+    """Apply repo-local runtime fixes that must survive upstream all-sync runs."""
+    changed: list[str] = []
+    client_path = skill_dir / "scripts" / "prediction_market_client.py"
+    if harden_prediction_market_client(client_path):
+        changed.append(client_path.relative_to(REPO_ROOT).as_posix())
+    return changed
+
+
 def sync_skill(plan: SkillPlan, *, dry_run: bool) -> tuple[bool, bool]:
     src_dir = Path(plan.source)
     dst_dir = Path(plan.target)
@@ -398,6 +479,8 @@ def sync_skill(plan: SkillPlan, *, dry_run: bool) -> tuple[bool, bool]:
 
     shutil.rmtree(dst_dir, ignore_errors=True)
     temp_dir.replace(dst_dir)
+    for changed_path in harden_synced_skill_runtime(dst_dir):
+        print(f"Applied repo runtime hardening: {changed_path}", flush=True)
     return existed, True
 
 

@@ -127,57 +127,44 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`12`
-- `blocker`：`11`
+- 诊断对象数：`9`
+- `blocker`：`8`
 - `warning`：`1`
 - `pending`：`1`
 
 ### 当前高频规则
 
-- `metadata_env_mismatch`: `1`
-- `oauth_upload_side_effects`: `3`
+- `oauth_upload_side_effects`: `1`
 - `pending_scan`: `1`
-- `platform_trust_gap`: `8`
-- `relay_trust_surface`: `2`
+- `platform_trust_gap`: `6`
+- `relay_trust_surface`: `1`
 
 ### 当前重点对象
 
-- `skill:openclaw-twitter`
-  severity: `blocker` | status: `suspicious`
-  rules: `oauth_upload_side_effects`
-  reason: The skill can perform public Twitter/X posting and is instructed to try publishing directly when posting intent is detected.
 - `skill:prediction-market`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
-  reason: The skill provides raw on-chain betting transactions and weak project provenance for a real-money market.
-- `skill:prediction-market-arbitrage`
-  severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
-  reason: The skill uses unpinned dependency installs and a broad `update --all`, plus a disclosed recurring monitoring loop.
+  reason: The main concern is raw, agent-usable transaction guidance for spending ETH without clear confirmation or spending controls.
 - `skill:smart-search`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
-  reason: The skill uses purpose-aligned shell and Docker tooling, but unsafe .env sourcing and the broad persistent SearX deployment need review.
+  reason: The main concerns are unsafe optional SearX exposure, executing .env as shell code, and over-strong safety claims.
 - `skill:stock-analysis`
   severity: `blocker` | status: `suspicious`
   rules: `relay_trust_surface`
-  reason: Optional third-party CLI installation and user-configured cron automation are disclosed and purpose-aligned, but users should review them before enabling.
+  reason: Optional third-party CLI installation and user-directed cron automation are disclosed and purpose-aligned, but they add external code and recurring execution if enabled.
 - `skill:tavily-extract`
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects`
-  reason: The main concern is automatic execution of an unpinned npm OAuth helper during first-run authentication.
+  reason: The OAuth fallback can automatically execute an unpinned npm helper through `npx -y`.
 - `skill:twitter-autopilot`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
-  reason: Direct public Twitter/X mutation commands and optional autonomous cron operation create material public-action risk, though the behavior is disclosed and purpose-aligned.
+  reason: The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script.
 - `skill:web-search`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
   reason: This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources.
-- `skill:x-intelligence-automation`
-  severity: `blocker` | status: `suspicious`
-  rules: `metadata_env_mismatch, oauth_upload_side_effects, platform_trust_gap, relay_trust_surface`
-  reason: The skill is broadly coherent with a Twitter/X automation client using the AIsa relay, but there are a few mismatches you should be aware of before installing (undeclared env overrides and uploading local files to an external relay).
 - `skill:youtube`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`

@@ -27,6 +27,7 @@ More detailed repo rules live in [AGENTS.md](/mnt/d/workplace/agent-skills-io/AG
   - [Platform Skill And Plugin Methodology](/mnt/d/workplace/agent-skills-io/targets/platform-skill-plugin-methodology.md:1)
   - [Unified Pipeline And GitHub Actions](/mnt/d/workplace/agent-skills-io/targets/unified-pipeline-and-github-actions.md:1)
 - Current audits:
+  - [GitHub Actions And ClawHub Review 2026-05-11](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-review-2026-05-11.md:1)
   - [GitHub Actions And ClawHub Review 2026-05-08](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-review-2026-05-08.md:1)
   - [GitHub Actions Review 2026-05-07](/mnt/d/workplace/agent-skills-io/targets/github-actions-review-2026-05-07.md:1)
   - [GitHub Actions Review 2026-05-06](/mnt/d/workplace/agent-skills-io/targets/github-actions-review-2026-05-06.md:1)
@@ -88,6 +89,7 @@ flowchart TD
 
 - `scripts/unified_skill_pipeline.py`
   - Orchestrates upstream diffing, `targetSkills/` sync, rebuild, test, and optional publish chaining.
+  - Applies repo-local prediction-market client hardening after upstream sync so list JSON responses and non-JSON upstream responses remain CI-safe.
 - `scripts/sync_codex_repo_skills.py`
   - Refreshes repo-local `.agents/skills` from installed global `*-all` skills before repo-local LLM refinement.
 - `scripts/llm_refine_aisa_skills.py`
