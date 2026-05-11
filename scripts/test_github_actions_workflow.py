@@ -328,8 +328,14 @@ def main() -> int:
     require(
         "- Continuation lanes can run: " in text
         and "- Runner decision: GitHub-hosted fallback selected after self-hosted inventory did not match" in text
+        and "- Self-hosted label selector: " in text
+        and "- Runner labels: " not in text
         and "- Can queue self-hosted jobs: " not in text,
-        "preflight summaries must distinguish continuation executability from self-hosted queue availability",
+        "preflight summaries must distinguish continuation executability from self-hosted label selection",
+    )
+    require(
+        "Leave the repo variable unset" in text,
+        "workflow comments must make SELF_HOSTED_RUNNER_RUNS_ON_JSON optional until a custom self-hosted runner exists",
     )
     require(
         "force_self_hosted_queue enabled" in text,

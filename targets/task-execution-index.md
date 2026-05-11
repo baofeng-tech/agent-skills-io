@@ -71,7 +71,7 @@ Do not run `build_claude_marketplace.py` in parallel with `build_claude_release.
 
 Important CI values:
 
-- `SELF_HOSTED_RUNNER_RUNS_ON_JSON`: single source for self-hosted runner labels, for example `["self-hosted","linux","clawhub"]`. This only selects labels; it does not register or start a runner.
+- `SELF_HOSTED_RUNNER_RUNS_ON_JSON`: optional single source for self-hosted runner labels, for example `["self-hosted","linux","clawhub"]`. This only selects labels; it does not register or start a runner. If no self-hosted runner is registered, omit/delete this variable and keep `AUTO_ALLOW_HOSTED_CONTINUATION=true` for hosted fallback.
 - `SELF_HOSTED_RUNNER_API_TOKEN`: PAT used only to confirm runner inventory.
 - `DOWNSTREAM_REPO_TOKEN`: PAT used to clone/fetch/push downstream publish repos.
 - `AISA_API_KEY`: runtime key for AISA-backed skill tests and refinements.

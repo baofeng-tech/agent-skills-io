@@ -432,6 +432,8 @@ jobs:
           INPUT_FORCE_SELF_HOSTED_QUEUE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_self_hosted_queue || 'false' }}
           AUTO_FORCE_SELF_HOSTED_QUEUE: ${{ vars.AUTO_FORCE_SELF_HOSTED_QUEUE || 'false' }}
           AUTO_ALLOW_HOSTED_CONTINUATION: ${{ vars.AUTO_ALLOW_HOSTED_CONTINUATION || 'true' }}
+          # This is only a self-hosted label selector. Leave the repo variable unset
+          # until a real runner with custom labels is registered.
           SELF_HOSTED_RUNNER_RUNS_ON_JSON: ${{ vars.SELF_HOSTED_RUNNER_RUNS_ON_JSON || '["self-hosted"]' }}
         run: |
           set -euo pipefail
@@ -687,7 +689,7 @@ jobs:
             echo "- Continuation lanes can run: \`${can_queue}\`"
             echo "- Hosted continuation fallback: \`${hosted_fallback}\`"
             echo "- Runs on: \`${runs_on_json}\`"
-            echo "- Runner labels: \`${SELF_HOSTED_RUNNER_RUNS_ON_JSON}\`"
+            echo "- Self-hosted label selector: \`${SELF_HOSTED_RUNNER_RUNS_ON_JSON}\`"
             if [[ "${hosted_fallback}" == "true" ]]; then
               echo "- Runner decision: GitHub-hosted fallback selected after self-hosted inventory did not match"
             elif [[ "${can_queue}" == "true" && -n "${matched_runner}" ]]; then

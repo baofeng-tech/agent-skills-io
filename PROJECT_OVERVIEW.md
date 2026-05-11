@@ -169,6 +169,8 @@ Any AI working in this repository should:
   - 仓库执行流、脚本用途、参数与常用命令的统一参考
 - `targets/task-execution-index.md`
   - 面向后续 AI 的任务执行索引：项目定位、目录路由、构建顺序、CI secret map、ClawHub 修复循环
+- `targets/github-actions-and-clawhub-review-2026-05-12.md`
+  - 本轮删除误导性的 self-hosted runner label repo variable、复核当前 runner inventory、刷新 ClawHub suspicious / breakout 状态，并记录 current-HEAD 远端验证需求
 - `targets/github-actions-and-clawhub-review-2026-05-11.md`
   - 本轮解释 self-hosted runner 缺失条件、复核当前 HEAD Actions 失败根因、修复 prediction-market 回归，并刷新 ClawHub suspicious / breakout 状态
 - `targets/github-actions-and-clawhub-review-2026-05-08.md`
@@ -842,6 +844,7 @@ GitHub Actions 工作流层。
 - GitHub Actions 自动全平台发布：schedule / workflow_dispatch 默认采用 `auto` continuation planning，由 `scripts/plan_workflow_continuation.py` 根据 upstream/release 变化、自有 suspicious blocker、breakout live drift 决定是否请求 publish / suspicious repair / breakout rollout；三类 `AUTO_*` 变量现在可取 `auto` / `true` / `false`，并可用 `AUTO_ADJACENT_TARGETS`、`AUTO_CLAWHUB_PUBLISH`、`AUTO_SYNC_ADJACENT_REPOS`、`AUTO_PUSH_ADJACENT_REPOS` 等变量细化“发哪些下游平台”
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每日一次（`21 19 * * *`），避免长发布链路堆积出 pending/canceled 队列
 - GitHub Actions continuation 排队防护：publish / suspicious repair / breakout rollout 三条线现在先经过 hosted preflight，优先使用在线 self-hosted runner，若没有匹配 runner 且 `AUTO_ALLOW_HOSTED_CONTINUATION=true`，则改用 GitHub-hosted `ubuntu-latest` 继续执行；runner 标签以 `SELF_HOSTED_RUNNER_RUNS_ON_JSON` 为单一来源，但该变量只选择标签，不会注册或启动 runner；若默认 `GITHUB_TOKEN` 无法读取 runners API，应配置 `SELF_HOSTED_RUNNER_API_TOKEN`，repo-level runner 需要 repository `Administration: read`，org-level runner 需要 organization `Self-hosted runners: read`
+- GitHub Actions 2026-05-12 复核：仓库 runner inventory 仍为 `total_count=0`，因此已删除远端 repo variable `SELF_HOSTED_RUNNER_RUNS_ON_JSON`，让 workflow 使用内部默认 `["self-hosted"]` selector；该变量只有在真实 self-hosted runner 需要额外 label 时才应配置，不应写成 `["ubuntu-latest"]`。最新成功远端 run `25673284894` 对应旧 head `5dd1f008`，本轮 push 后需要 current-HEAD validation。
 - GitHub Actions 2026-05-08 现场状态：仓库变量 `AUTO_FULL_PLATFORM_PUBLISH`、`AUTO_RUN_SUSPICIOUS_REPAIR`、`AUTO_RUN_BREAKOUT_ROLLOUT` 已改为 `auto`，`AUTO_ALLOW_HOSTED_CONTINUATION=true`；仓库 runner API 当前仍返回 `200 / total_count=0`，所以 continuation 会优先找 self-hosted，找不到时走 hosted fallback
 - GitHub Actions 2026-05-11 复核：最新远端 run `25638481528` 已是当前 HEAD `e56a8223`，失败点在 hosted `Run AISA API skill regression`，不是 self-hosted preflight；仓库 runner inventory 仍为 `total_count=0`，说明没有注册 repository self-hosted runner。已修复 `prediction-market-data` / `prediction-market-arbitrage` 客户端对 JSON list 成功响应调用 `result.get(...)` 的 bug，并把该 hardening 固化到 `scripts/unified_skill_pipeline.py` 的 upstream sync 后处理。
 - GitHub Actions 2026-05-07 运行复盘：run `25299535400` 的 `cancelled` 发生在显式 `force_self_hosted_queue=true` 后的 self-hosted 队列等待，不是 `sync-build-test` bug；run `25289383679` 的 self-hosted skip 是旧 workflow 的静默跳过问题；run `25460452313` 不是 403，而是仓库 runner API 可读但返回 `total_count=0`，说明没有在线仓库级 self-hosted runner 匹配 `["self-hosted"]`

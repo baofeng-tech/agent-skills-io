@@ -27,6 +27,7 @@ More detailed repo rules live in [AGENTS.md](/mnt/d/workplace/agent-skills-io/AG
   - [Platform Skill And Plugin Methodology](/mnt/d/workplace/agent-skills-io/targets/platform-skill-plugin-methodology.md:1)
   - [Unified Pipeline And GitHub Actions](/mnt/d/workplace/agent-skills-io/targets/unified-pipeline-and-github-actions.md:1)
 - Current audits:
+  - [GitHub Actions And ClawHub Review 2026-05-12](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-review-2026-05-12.md:1)
   - [GitHub Actions And ClawHub Review 2026-05-11](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-review-2026-05-11.md:1)
   - [GitHub Actions And ClawHub Review 2026-05-08](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-review-2026-05-08.md:1)
   - [GitHub Actions Review 2026-05-07](/mnt/d/workplace/agent-skills-io/targets/github-actions-review-2026-05-07.md:1)
@@ -256,7 +257,9 @@ Useful repo variables for scheduled self-hosted automation:
 - `SELF_HOSTED_RUNNER_RUNS_ON_JSON`
 - `CLAWHUB_CLI_VERSION`
 
-Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` as the single source for runner labels, for example `["self-hosted","linux","clawhub"]`. The preflight and the actual `runs-on` target both read this JSON value. This variable only selects labels; it does not register, start, or bring a GitHub runner online.
+Use `SELF_HOSTED_RUNNER_RUNS_ON_JSON` as the single source for self-hosted runner labels, for example `["self-hosted","linux","clawhub"]`. The preflight and the actual `runs-on` target both read this JSON value. This variable only selects labels; it does not register, start, or bring a GitHub runner online.
+
+If no self-hosted runner is registered, omit or delete `SELF_HOSTED_RUNNER_RUNS_ON_JSON`; the workflow already defaults the selector to `["self-hosted"]` for preflight. Do not set this variable to `["ubuntu-latest"]`; hosted continuation is controlled separately by `AUTO_ALLOW_HOSTED_CONTINUATION`.
 
 For `SELF_HOSTED_RUNNER_API_TOKEN`, repository-level runners need fine-grained PAT repository `Administration: read`. Organization-level runners need organization `Self-hosted runners: read`; otherwise the repo runner API may return `403`. If the repo runner API returns `200` with `total_count=0`, the token is readable but no repository runner is registered or online.
 
