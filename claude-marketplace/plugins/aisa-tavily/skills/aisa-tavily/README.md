@@ -8,7 +8,7 @@ Release-ready Claude Code skill package generated from `targetSkills/aisa-tavily
 
 ## Notes
 
-- AI-optimized web search via AIsa's Tavily API proxy. Returns concise, relevant results for AI agents through AIsa's unified API gateway. Use when: the user needs web search, research, source discovery, or content extraction.
+- Search the web and extract page content through AIsa's Tavily-backed API relay. Use when: the user needs web search, source discovery, current-news lookup, or content extraction from a URL. Supports concise result sets, deeper research, and news-focused queries.
 - This README is release-specific and replaces source READMEs that were written for other runtimes.
 - If the underlying instructions mention OpenClaw, treat that as source-context or compatibility guidance unless the skill is specifically about OpenClaw setup.
 
