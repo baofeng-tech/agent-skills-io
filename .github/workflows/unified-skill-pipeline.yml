@@ -105,7 +105,7 @@ on:
       run_aisa_api_regression:
         description: "Run read-only AISA-backed skill code regression and generate a dated report"
         required: false
-        default: true
+        default: false
         type: boolean
       run_suspicious_repair:
         description: "Suspicious remediation continuation mode after diagnosis"
@@ -191,7 +191,8 @@ jobs:
       PIPELINE_LLM_APPLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.llm_apply || vars.AUTO_LLM_APPLY || 'false' }}
       PIPELINE_SYNC_REPO_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sync_repo_skills || vars.AUTO_SYNC_REPO_SKILLS || 'true' }}
       PIPELINE_DIAGNOSIS_DOC_UPDATE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.diagnosis_doc_update || vars.AUTO_DIAGNOSIS_DOC_UPDATE || 'true' }}
-      PIPELINE_RUN_AISA_API_REGRESSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_aisa_api_regression || vars.AUTO_RUN_AISA_API_REGRESSION || 'true' }}
+      # This uses paid AISA_API_KEY traffic, so scheduled runs stay opt-in.
+      PIPELINE_RUN_AISA_API_REGRESSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_aisa_api_regression || vars.AUTO_RUN_AISA_API_REGRESSION || 'false' }}
       PIPELINE_AISA_API_REGRESSION_TIMEOUT: ${{ vars.AUTO_AISA_API_REGRESSION_TIMEOUT || '45' }}
       PIPELINE_AISA_API_REGRESSION_RETRIES: ${{ vars.AUTO_AISA_API_REGRESSION_RETRIES || '0' }}
       PIPELINE_AISA_API_REGRESSION_DELAY: ${{ vars.AUTO_AISA_API_REGRESSION_DELAY || '0.25' }}

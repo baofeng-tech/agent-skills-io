@@ -360,9 +360,11 @@ def main() -> int:
     require(
         "PIPELINE_AISA_API_REGRESSION_TIMEOUT: ${{ vars.AUTO_AISA_API_REGRESSION_TIMEOUT || '45' }}" in text
         and "PIPELINE_AISA_API_REGRESSION_RETRIES: ${{ vars.AUTO_AISA_API_REGRESSION_RETRIES || '0' }}" in text
+        and "run_aisa_api_regression:\n        description: \"Run read-only AISA-backed skill code regression and generate a dated report\"\n        required: false\n        default: false\n        type: boolean" in text
+        and "PIPELINE_RUN_AISA_API_REGRESSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_aisa_api_regression || vars.AUTO_RUN_AISA_API_REGRESSION || 'false' }}" in text
         and "--timeout \"${PIPELINE_AISA_API_REGRESSION_TIMEOUT:-45}\"" in text
         and "--retries \"${PIPELINE_AISA_API_REGRESSION_RETRIES:-0}\"" in text,
-        "hosted AISA regression must be bounded by CI-level timeout and retry controls",
+        "hosted AISA regression must stay opt-in and bounded by CI-level timeout and retry controls",
     )
     aisa_regression_text = (REPO_ROOT / "scripts" / "test_aisa_api_skills.py").read_text(encoding="utf-8")
     require(

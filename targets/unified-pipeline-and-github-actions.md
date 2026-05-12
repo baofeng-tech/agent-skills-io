@@ -184,7 +184,8 @@ In workflow-dispatch mode, the controls are:
 
 Current default behavior:
 
-- normal hosted/self-hosted sync runs the helper with `--profile source`
+- normal hosted/self-hosted sync keeps the helper off unless `run_llm_step=true` or `AUTO_RUN_LLM_STEP=true`
+- when enabled, normal sync runs the helper with `--profile source`
 - targeted ClawHub suspicious remediation runs the helper with `--profile clawhub_suspicious`
 
 This split exists specifically to avoid mixing ClawHub breakout copy into the neutral mother-skill layer during routine syncs.
@@ -459,6 +460,8 @@ Use the hosted lane for:
 - smoke-test regression watch
 - optional `scripts/test_aisa_api_skills.py` reports when `run_aisa_api_regression=true` or `AUTO_RUN_AISA_API_REGRESSION=true`
 - committing generated repo state
+
+The LLM refinement helper and AISA API regression both consume paid AISA API traffic. Keep `AUTO_RUN_LLM_STEP=false`, `AUTO_LLM_APPLY=false`, and `AUTO_RUN_AISA_API_REGRESSION=false` for routine scheduled runs unless a run is intentionally validating or rewriting AISA-backed skills.
 
 ### Manual self-hosted publish continuation
 

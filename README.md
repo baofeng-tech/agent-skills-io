@@ -27,6 +27,7 @@ More detailed repo rules live in [AGENTS.md](/mnt/d/workplace/agent-skills-io/AG
   - [Platform Skill And Plugin Methodology](/mnt/d/workplace/agent-skills-io/targets/platform-skill-plugin-methodology.md:1)
   - [Unified Pipeline And GitHub Actions](/mnt/d/workplace/agent-skills-io/targets/unified-pipeline-and-github-actions.md:1)
 - Current audits:
+  - [GitHub Actions And AISA Usage Review 2026-05-12](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-aisa-usage-review-2026-05-12.md:1)
   - [GitHub Actions And ClawHub Review 2026-05-12](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-review-2026-05-12.md:1)
   - [GitHub Actions And ClawHub Review 2026-05-11](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-review-2026-05-11.md:1)
   - [GitHub Actions And ClawHub Review 2026-05-08](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-review-2026-05-08.md:1)
@@ -229,6 +230,8 @@ python3 scripts/clawhub_suspicious_remediation.py \
 Schedule and manual runs now use `auto` continuation planning by default. The hosted lane reads the actual pipeline result, diagnosis output, and breakout live status before requesting downstream publish, suspicious remediation, or breakout rollout.
 
 Use `AUTO_FULL_PLATFORM_PUBLISH`, `AUTO_RUN_SUSPICIOUS_REPAIR`, or `AUTO_RUN_BREAKOUT_ROLLOUT` as `auto`, `true`, or `false`. Requested continuation lanes still prefer an online self-hosted runner, but can fall back to GitHub-hosted runners when `AUTO_ALLOW_HOSTED_CONTINUATION` is true.
+
+Cost note: `AUTO_RUN_LLM_STEP=true` and `AUTO_RUN_AISA_API_REGRESSION=true` both spend AISA API credits. Routine scheduled runs should keep them disabled unless the goal is an intentional LLM refinement or live API regression pass.
 
 Useful repo variables for scheduled self-hosted automation:
 
