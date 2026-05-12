@@ -127,17 +127,18 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`9`
+- 诊断对象数：`30`
 - `blocker`：`8`
-- `warning`：`1`
-- `pending`：`1`
+- `warning`：`22`
+- `pending`：`22`
 
 ### 当前高频规则
 
-- `oauth_upload_side_effects`: `1`
-- `pending_scan`: `1`
-- `platform_trust_gap`: `6`
-- `relay_trust_surface`: `1`
+- `oauth_upload_side_effects`: `5`
+- `pending_scan`: `22`
+- `platform_trust_gap`: `5`
+- `relay_trust_surface`: `4`
+- `review_scan`: `3`
 
 ### 当前重点对象
 
@@ -147,7 +148,7 @@
   reason: The main concern is raw, agent-usable transaction guidance for spending ETH without clear confirmation or spending controls.
 - `skill:smart-search`
   severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
+  rules: `review_scan`
   reason: The main concerns are unsafe optional SearX exposure, executing .env as shell code, and over-strong safety claims.
 - `skill:stock-analysis`
   severity: `blocker` | status: `suspicious`
@@ -155,25 +156,37 @@
   reason: Optional third-party CLI installation and user-directed cron automation are disclosed and purpose-aligned, but they add external code and recurring execution if enabled.
 - `skill:tavily-extract`
   severity: `blocker` | status: `suspicious`
-  rules: `oauth_upload_side_effects`
+  rules: `oauth_upload_side_effects, review_scan`
   reason: The OAuth fallback can automatically execute an unpinned npm helper through `npx -y`.
 - `skill:twitter-autopilot`
   severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
+  rules: `review_scan`
   reason: The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script.
 - `skill:web-search`
   severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
-  reason: This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources.
+  rules: `relay_trust_surface`
+  reason: The only noted control-related issue is a normal, purpose-aligned but unpinned third-party package install.
 - `skill:youtube`
   severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
-  reason: Search YouTube videos, get channel info, fetch video details and transcripts using YouTube Data API v3 via MCP server or yt-dlp fallback.
+  rules: `relay_trust_surface`
+  reason: The skill uses user-directed third-party tool installation and includes broad safety wording, but this is aligned with the YouTube integration purpose.
 - `skill:youtube-search`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
-  reason: Use when the user wants to find YouTube content on any topic: searching for videos or channels, finding creators who cover a subject, discovering tutorials,...
+  reason: The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits.
 - `plugin:aisa-twitter-research-engage-plugin`
   severity: `warning` | status: `pending`
   rules: `pending_scan`
+- `skill:aisa-provider`
+  severity: `warning` | status: `pending`
+  rules: `pending_scan`
+  reason: No suspicious code execution or autonomous behavior is shown, but the documentation contains strong privacy assurances users should independently verify.
+- `skill:aisa-tavily-search`
+  severity: `warning` | status: `pending`
+  rules: `pending_scan`
+  reason: No artifact-backed evidence of goal hijacking, unsafe automatic execution, deceptive behavior, or persistence was found.
+- `skill:aisa-twitter`
+  severity: `warning` | status: `pending`
+  rules: `pending_scan`
+  reason: The skill can publish public Twitter/X posts, replies, and quotes, but this is disclosed and purpose-aligned.
 <!-- AUTO-DIAGNOSIS:END -->

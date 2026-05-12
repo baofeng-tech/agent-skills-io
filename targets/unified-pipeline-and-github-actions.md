@@ -308,11 +308,14 @@ Useful repo variables for scheduled self-hosted automation:
 - `AUTO_CLAWHUB_PUBLISH`
 - `AUTO_CLAWHUB_DRY_RUN`
 - `AUTO_CLAWHUB_POST_PUBLISH_SCAN`
+- `AUTO_CLAWHUB_VERSION_CONFLICT_STRATEGY`
 - `AUTO_RUN_SUSPICIOUS_REPAIR`
 - `AUTO_SUSPICIOUS_ARTIFACTS`
 - `AUTO_SUSPICIOUS_MAX_ARTIFACTS`
 - `AUTO_RUN_BREAKOUT_ROLLOUT`
 - `AUTO_BREAKOUT_SKILLS`
+
+Do not use `AUTO_FULL_PLATFORM_PUBLISH=false` or `AUTO_CLAWHUB_PUBLISH=none` as the long-term fix for slug/version conflicts. Keep paid AISA paths opt-in when needed, but let publish continuation run in `auto` mode and let `publish_clawhub_batch.py` classify conflicts: same-owner version conflicts can use `AUTO_CLAWHUB_VERSION_CONFLICT_STRATEGY=bump-patch`, external-owner slug conflicts become same-version non-fatal blockers, and configured-owner conflicts are deferred to the matching ClawHub token slot.
 - `AUTO_BREAKOUT_PUBLISH`
 - `AUTO_INSTALL_CLAWHUB_CLI`
 - `AUTO_FORCE_SELF_HOSTED_QUEUE`

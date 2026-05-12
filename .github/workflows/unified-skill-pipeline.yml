@@ -740,6 +740,7 @@ jobs:
       PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || vars.AUTO_CLAWHUB_PUBLISH || 'both' }}
       PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || vars.AUTO_CLAWHUB_DRY_RUN || 'false' }}
       PIPELINE_CLAWHUB_POST_PUBLISH_SCAN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_post_publish_scan || vars.AUTO_CLAWHUB_POST_PUBLISH_SCAN || 'true' }}
+      PIPELINE_CLAWHUB_VERSION_CONFLICT_STRATEGY: ${{ vars.AUTO_CLAWHUB_VERSION_CONFLICT_STRATEGY || 'bump-patch' }}
       PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'true' }}
       AISA_API_KEY: ${{ secrets.AISA_API_KEY }}
       UPSTREAM_REPO_TOKEN: ${{ secrets.UPSTREAM_REPO_TOKEN }}
@@ -966,6 +967,7 @@ jobs:
 
           if [[ "${PIPELINE_CLAWHUB_PUBLISH:-none}" != "none" ]]; then
             EXTRA_ARGS+=("--clawhub-publish" "${PIPELINE_CLAWHUB_PUBLISH}")
+            EXTRA_ARGS+=("--clawhub-version-conflict-strategy" "${PIPELINE_CLAWHUB_VERSION_CONFLICT_STRATEGY:-bump-patch}")
             if [[ "${PIPELINE_CLAWHUB_DRY_RUN:-false}" == "true" ]]; then
               EXTRA_ARGS+=("--clawhub-dry-run")
             fi
@@ -1136,6 +1138,7 @@ jobs:
       PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || vars.AUTO_PUSH_ADJACENT_REPOS || 'true' }}
       PIPELINE_CLAWHUB_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_publish || vars.AUTO_CLAWHUB_PUBLISH || 'both' }}
       PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || vars.AUTO_CLAWHUB_DRY_RUN || 'false' }}
+      PIPELINE_CLAWHUB_VERSION_CONFLICT_STRATEGY: ${{ vars.AUTO_CLAWHUB_VERSION_CONFLICT_STRATEGY || 'bump-patch' }}
       PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'true' }}
       PIPELINE_SUSPICIOUS_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_artifacts || vars.AUTO_SUSPICIOUS_ARTIFACTS || '' }}
       PIPELINE_SUSPICIOUS_MAX_ARTIFACTS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.suspicious_max_artifacts || vars.AUTO_SUSPICIOUS_MAX_ARTIFACTS || '0' }}
@@ -1349,6 +1352,7 @@ jobs:
             "--rescan-before-repair"
             "--rescan-wait-seconds" "${PIPELINE_SUSPICIOUS_RESCAN_WAIT_SECONDS:-180}"
             "--clawhub-publish" "${PIPELINE_CLAWHUB_PUBLISH:-both}"
+            "--clawhub-version-conflict-strategy" "${PIPELINE_CLAWHUB_VERSION_CONFLICT_STRATEGY:-bump-patch}"
             "--post-publish-scan"
           )
 
@@ -1522,6 +1526,7 @@ jobs:
       PIPELINE_ADJACENT_TARGETS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.adjacent_targets || vars.AUTO_ADJACENT_TARGETS || 'all' }}
       PIPELINE_PUSH_ADJACENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.push_adjacent_repos || vars.AUTO_PUSH_ADJACENT_REPOS || 'true' }}
       PIPELINE_CLAWHUB_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.clawhub_dry_run || vars.AUTO_CLAWHUB_DRY_RUN || 'false' }}
+      PIPELINE_CLAWHUB_VERSION_CONFLICT_STRATEGY: ${{ vars.AUTO_CLAWHUB_VERSION_CONFLICT_STRATEGY || 'bump-patch' }}
       PIPELINE_INSTALL_CLAWHUB_CLI: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.install_clawhub_cli || vars.AUTO_INSTALL_CLAWHUB_CLI || 'true' }}
       PIPELINE_BREAKOUT_SKILLS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.breakout_skills || vars.AUTO_BREAKOUT_SKILLS || '' }}
       PIPELINE_BREAKOUT_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.breakout_publish || vars.AUTO_BREAKOUT_PUBLISH || 'both' }}
@@ -1725,6 +1730,7 @@ jobs:
             "--sync-repo-skills"
             "--llm-if-available"
             "--clawhub-publish" "${PIPELINE_BREAKOUT_PUBLISH:-both}"
+            "--clawhub-version-conflict-strategy" "${PIPELINE_CLAWHUB_VERSION_CONFLICT_STRATEGY:-bump-patch}"
           )
 
           if [[ -n "${PIPELINE_BREAKOUT_SKILLS:-}" ]]; then

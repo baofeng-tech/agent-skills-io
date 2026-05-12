@@ -155,6 +155,13 @@ CLAWHUB_COMMAND="npx -y clawhub@0.12.3" python3 scripts/publish_clawhub_batch.py
 
 Owner/slug conflict fallback now prefers product-style suffixes (`-aisa`, `-aisa-api`, `-aisa-one`) instead of new `-slotN` names. Existing `-slotN` live slugs may still exist in state and should be renamed or superseded when the owning token is available.
 
+Full ClawHub publish should not be disabled just because slug/version conflicts exist. `publish_clawhub_batch.py` now treats expected ownership conflicts as recoverable:
+
+- configured-owner conflicts (`baofeng-tech`, `bibaofeng`, `aisadocs`) are deferred to the matching token slot
+- external-owner or locked slug conflicts try product fallback slugs, then become same-version non-fatal blockers
+- version conflicts can use `--version-conflict-strategy bump-patch` to try the next patch version
+- non-fatal blockers are skipped on later runs for the same version, but a newer local version is evaluated again
+
 After a targeted suspicious repair, confirm the public latest version, not only the version you just uploaded:
 
 ```bash

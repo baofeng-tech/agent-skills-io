@@ -283,13 +283,26 @@ def main() -> int:
         and '"--rescan-wait-seconds" "${PIPELINE_SUSPICIOUS_RESCAN_WAIT_SECONDS:-180}"' in text,
         "suspicious remediation must request a ClawHub rescan before editing or republishing",
     )
+    require(
+        "PIPELINE_CLAWHUB_VERSION_CONFLICT_STRATEGY: ${{ vars.AUTO_CLAWHUB_VERSION_CONFLICT_STRATEGY || 'bump-patch' }}" in text
+        and '"--clawhub-version-conflict-strategy" "${PIPELINE_CLAWHUB_VERSION_CONFLICT_STRATEGY:-bump-patch}"' in text,
+        "publish continuation lanes must pass non-fatal version-conflict handling through to the ClawHub publisher",
+    )
     remediation_text = (REPO_ROOT / "scripts" / "clawhub_suspicious_remediation.py").read_text(encoding="utf-8")
     pipeline_text = (REPO_ROOT / "scripts" / "unified_skill_pipeline.py").read_text(encoding="utf-8")
+    batch_publish_text = (REPO_ROOT / "scripts" / "publish_clawhub_batch.py").read_text(encoding="utf-8")
     require(
         '"--slug-conflict-strategy"' in remediation_text
         and 'default="fail"' in remediation_text
         and "do not repair the flagged URL" in remediation_text,
         "targeted suspicious remediation must fail on slug conflicts instead of publishing fallback slugs",
+    )
+    require(
+        "--version-conflict-strategy" in batch_publish_text
+        and "blocked_external_conflict" in batch_publish_text
+        and "deferred_owner_token" in batch_publish_text
+        and "published-version-bump" in batch_publish_text,
+        "ClawHub batch publish must classify slug/version ownership conflicts without failing the whole batch",
     )
     require(
         "No upstream skill changes detected." in pipeline_text

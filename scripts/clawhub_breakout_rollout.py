@@ -141,6 +141,8 @@ def run_targeted_publish(args: argparse.Namespace, variants: list[dict[str, str]
         args.clawhub_publish,
         "--skip-build",
         "--force",
+        "--version-conflict-strategy",
+        args.clawhub_version_conflict_strategy,
     ]
     if args.post_publish_scan:
         command.append("--post-publish-scan")
@@ -251,6 +253,12 @@ def build_parser() -> argparse.ArgumentParser:
         "--clawhub-dry-run",
         action="store_true",
         help="When publishing, pass --dry-run to publish_clawhub_batch.py.",
+    )
+    parser.add_argument(
+        "--clawhub-version-conflict-strategy",
+        choices=("mark-existing", "bump-patch"),
+        default="bump-patch",
+        help="Version conflict behavior passed to publish_clawhub_batch.py.",
     )
     parser.add_argument(
         "--post-publish-scan",

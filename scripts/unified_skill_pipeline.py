@@ -547,6 +547,12 @@ def run_publish_steps(args: argparse.Namespace, summary: RunSummary) -> None:
             clawhub_command.append("--dry-run")
         if args.clawhub_post_publish_scan:
             clawhub_command.append("--post-publish-scan")
+        clawhub_command.extend(
+            [
+                "--version-conflict-strategy",
+                args.clawhub_version_conflict_strategy,
+            ]
+        )
         run_command(clawhub_command, cwd=REPO_ROOT, timeout=7200)
         summary.publish_steps.append(" ".join(clawhub_command))
 
@@ -682,6 +688,12 @@ def build_parser() -> argparse.ArgumentParser:
         "--clawhub-post-publish-scan",
         action="store_true",
         help="Pass --post-publish-scan to publish_clawhub_batch.py.",
+    )
+    parser.add_argument(
+        "--clawhub-version-conflict-strategy",
+        choices=("mark-existing", "bump-patch"),
+        default="bump-patch",
+        help="Pass --version-conflict-strategy to publish_clawhub_batch.py.",
     )
     parser.add_argument(
         "--dry-run",

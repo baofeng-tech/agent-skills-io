@@ -27,6 +27,7 @@ More detailed repo rules live in [AGENTS.md](/mnt/d/workplace/agent-skills-io/AG
   - [Platform Skill And Plugin Methodology](/mnt/d/workplace/agent-skills-io/targets/platform-skill-plugin-methodology.md:1)
   - [Unified Pipeline And GitHub Actions](/mnt/d/workplace/agent-skills-io/targets/unified-pipeline-and-github-actions.md:1)
 - Current audits:
+  - [GitHub Actions And ClawHub Publish Conflict Review 2026-05-13](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-publish-conflict-review-2026-05-13.md:1)
   - [GitHub Actions And AISA Usage Review 2026-05-12](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-aisa-usage-review-2026-05-12.md:1)
   - [GitHub Actions And ClawHub Review 2026-05-12](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-review-2026-05-12.md:1)
   - [GitHub Actions And ClawHub Review 2026-05-11](/mnt/d/workplace/agent-skills-io/targets/github-actions-and-clawhub-review-2026-05-11.md:1)

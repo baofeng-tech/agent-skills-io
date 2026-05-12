@@ -169,6 +169,8 @@ Any AI working in this repository should:
   - 仓库执行流、脚本用途、参数与常用命令的统一参考
 - `targets/task-execution-index.md`
   - 面向后续 AI 的任务执行索引：项目定位、目录路由、构建顺序、CI secret map、ClawHub 修复循环
+- `targets/github-actions-and-clawhub-publish-conflict-review-2026-05-13.md`
+  - 本轮解释 Actions 远端变量“安全档”、review ClawHub 全量发布失败根因，并修复 slug / version 归属冲突导致 batch publish 失败的问题
 - `targets/github-actions-and-clawhub-review-2026-05-12.md`
   - 本轮删除误导性的 self-hosted runner label repo variable、复核当前 runner inventory、刷新 ClawHub suspicious / breakout 状态，并记录 current-HEAD 远端验证需求
 - `targets/github-actions-and-aisa-usage-review-2026-05-12.md`
@@ -287,6 +289,7 @@ Any AI working in this repository should:
   - 现在支持可选 `--post-publish-scan`，在发布或探测到远端已存在后立即做 live scan
   - 现在支持为 post-publish scan 传入 skill owner hint，并可在 Windows 侧 `py -3` 环境下直接续发
   - 现在默认接受 `suffix-by-aisa` owner 冲突续发策略，并把 plugin fallback slug 跟随同名 skill 的 fallback slug；定向 suspicious repair 默认改为 slug 冲突失败，避免 fallback slug 被误当成原 URL 修复
+  - 现在会把三 token 内 owner 冲突转成 owner-token 延后处理，把外部/locked slug 冲突转成同版本非致命 blocker，并支持 `--version-conflict-strategy bump-patch` 对简单数字版本做 patch bump
 
 #### 3. ClawHub 发布变体
 
@@ -832,7 +835,7 @@ GitHub Actions 工作流层。
 - ClawHub plugin 真发布环境：已接通，`clawhub` CLI 已登录并完成首批 7 个 plugin 真实发布
 - ClawHub plugin registry 识别验证：首批已发布 plugin 已可通过 `clawhub package inspect` 查到
 - ClawHub 批量续传：`scripts/publish_clawhub_batch.py` 已升级为 3+ token、版本感知 probe、错峰起跑，并会跨多次 rerun 记住每个 token 近一小时内的真实 publish 次数
-- ClawHub owner 冲突续发策略：当旧 slug 的原 owner token 暂时不可用时，当前自动化默认使用 `suffix-by-aisa` fallback slug（`-aisa` / `-aisa-api` / `-aisa-one`），并把 publish state / live status 一起对齐到真实 live slug；旧 `-slotN` slug 仍按历史状态兼容和清理
+- ClawHub owner 冲突续发策略：当前自动化会先识别 existing owner 是否属于 `baofeng-tech` / `bibaofeng` / `aisadocs` 三个 token；三 token 内冲突延后给正确 token，外部或 locked slug 冲突会尝试 `-aisa` / `-aisa-api` / `-aisa-one` fallback，仍不可用时记录为同版本非致命 blocker；旧 `-slotN` slug 仍按历史状态兼容和清理
 - ClawHub 2026-05-01 search/provider 二轮收口：`skill:aisa-provider@1.0.4`、`plugin:aisa-provider-plugin@1.0.4`、`plugin:aisa-tavily-plugin@1.0.2` 已完成定向重发；当前三者 live 状态都已从 `suspicious` 收回到纯 `pending`，其中 `clawscan` 与 `static analysis` 已恢复为 `clean`
 - ClawHub 2026-04-23 真实发布推进：新增上线 `aisa-search`、`aisa-tavily-search`，并确认 `aisa-twitter` 已由自有账号 `bibaofeng` 持有且同版本存在；新增 plugin 上线 `aisa-search-plugin`、`aisa-tavily-search-plugin`、`prediction-market-arbitrage-plugin`、`prediction-market-arbitrage-zh-plugin`、`prediction-market-data-plugin`、`prediction-market-data-zh-plugin`、`prediction-market-plugin`、`smart-search-plugin`、`stock-analysis-plugin`
 - ClawHub 当前活跃发布状态：历史发布进度仍对应旧 51-skill 基线；在 2026-04-23 扩展到 54-skill / 54-plugin 生成集后，需要按新集合重新对账待补发清单
@@ -844,6 +847,7 @@ GitHub Actions 工作流层。
 - `last30days` 上游跟随策略：已从 2026-04-26 起取消统一调度层的人工 hold，改为直接跟随 `AIsa-team/agent-skills@main`，保守收敛放到发布层与 suspicious 诊断 / 修复链路中处理
 - GitHub Actions 真发布模式：已扩展为 hosted 同步/构建/校验 + self-hosted 下游仓库 push / ClawHub publish 双轨；事故修复后，下游 GitHub 目标已显式排除 `AIsa-team/agent-skills`，仅覆盖 `baofeng-tech/agent-skills-so`、`baofeng-tech/agent-skills`、Claude、Claude marketplace、Hermes
 - GitHub Actions 自动全平台发布：schedule / workflow_dispatch 默认采用 `auto` continuation planning，由 `scripts/plan_workflow_continuation.py` 根据 upstream/release 变化、自有 suspicious blocker、breakout live drift 决定是否请求 publish / suspicious repair / breakout rollout；三类 `AUTO_*` 变量现在可取 `auto` / `true` / `false`，并可用 `AUTO_ADJACENT_TARGETS`、`AUTO_CLAWHUB_PUBLISH`、`AUTO_SYNC_ADJACENT_REPOS`、`AUTO_PUSH_ADJACENT_REPOS` 等变量细化“发哪些下游平台”
+- GitHub Actions 2026-05-13 发布冲突修复：2026-05-12 的远端“安全档”中 `AUTO_FULL_PLATFORM_PUBLISH=false` / `AUTO_CLAWHUB_PUBLISH=none` 只是临时止血；长期应恢复 `AUTO_FULL_PLATFORM_PUBLISH=auto`、`AUTO_CLAWHUB_PUBLISH=both`，同时保留 `AUTO_RUN_LLM_STEP=false`、`AUTO_LLM_APPLY=false`、`AUTO_RUN_AISA_API_REGRESSION=false` 这些省钱项。新增 `AUTO_CLAWHUB_VERSION_CONFLICT_STRATEGY=bump-patch` 可让 full publish 在 version conflict 时尝试 patch bump。
 - 触发策略已收敛：本仓库统一流水线默认采用 GitHub Actions 的 `schedule + workflow_dispatch`，不再依赖上游仓库 push 触发；当前 hosted cron 为每日一次（`21 19 * * *`），避免长发布链路堆积出 pending/canceled 队列
 - GitHub Actions continuation 排队防护：publish / suspicious repair / breakout rollout 三条线现在先经过 hosted preflight，优先使用在线 self-hosted runner，若没有匹配 runner 且 `AUTO_ALLOW_HOSTED_CONTINUATION=true`，则改用 GitHub-hosted `ubuntu-latest` 继续执行；runner 标签以 `SELF_HOSTED_RUNNER_RUNS_ON_JSON` 为单一来源，但该变量只选择标签，不会注册或启动 runner；若默认 `GITHUB_TOKEN` 无法读取 runners API，应配置 `SELF_HOSTED_RUNNER_API_TOKEN`，repo-level runner 需要 repository `Administration: read`，org-level runner 需要 organization `Self-hosted runners: read`
 - GitHub Actions 2026-05-12 复核：仓库 runner inventory 仍为 `total_count=0`，因此已删除远端 repo variable `SELF_HOSTED_RUNNER_RUNS_ON_JSON`，让 workflow 使用内部默认 `["self-hosted"]` selector；该变量只有在真实 self-hosted runner 需要额外 label 时才应配置，不应写成 `["ubuntu-latest"]`。最新成功远端 run `25673284894` 对应旧 head `5dd1f008`，本轮 push 后需要 current-HEAD validation。

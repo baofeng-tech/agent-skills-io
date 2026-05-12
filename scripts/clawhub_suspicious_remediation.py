@@ -335,6 +335,8 @@ def run_targeted_publish(args: argparse.Namespace, items: list[dict[str, Any]]) 
         "--force",
         "--slug-conflict-strategy",
         args.clawhub_slug_conflict_strategy,
+        "--version-conflict-strategy",
+        args.clawhub_version_conflict_strategy,
     ]
     if args.post_publish_scan:
         publish_command.append("--post-publish-scan")
@@ -513,6 +515,12 @@ def build_parser() -> argparse.ArgumentParser:
             "Slug conflict behavior for targeted suspicious repairs. "
             "Default fail avoids publishing fallback slugs that do not repair the flagged URL."
         ),
+    )
+    parser.add_argument(
+        "--clawhub-version-conflict-strategy",
+        choices=("mark-existing", "bump-patch"),
+        default="bump-patch",
+        help="Version conflict behavior passed to publish_clawhub_batch.py.",
     )
     parser.add_argument(
         "--post-publish-scan",

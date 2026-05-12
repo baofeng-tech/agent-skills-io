@@ -30,13 +30,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This appears to be a coherent AIsa search plugin that uses one expected API key, but its registry-level requirements do not match the requirements declared inside the plugin files.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:04:24.266028+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:09.443329+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:03:11.797027+00:00",
@@ -74,13 +76,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This appears to be an AIsa/OpenClaw provider setup skill that uses the AIsa API key it advertises, with only minor metadata and credential-handling notes.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:04:41.888938+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:17.768437+00:00"
       }
     },
     "plugin:aisa-tavily-plugin": {
@@ -115,13 +119,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "This skill does what it claims: it uses a single AIsa API key to send search and URL-extraction requests to AIsa's Tavily API proxy.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:04:50.621765+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:26.145429+00:00"
       }
     },
     "plugin:aisa-twitter-api-plugin": {
@@ -157,13 +163,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package appears to do what it says: a Python-based wrapper that communicates with the AIsa relay (api.aisa.one) for Twitter/X research and OAuth-gated posting and requires only a single relay API key and python3.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:03.960476+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:38.653538+00:00"
       }
     },
     "plugin:aisa-twitter-command-center-plugin": {
@@ -195,13 +203,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent with its stated Twitter/X research and OAuth-backed posting purpose — it requires only AISA_API_KEY and runs local Python clients that call the documented relay (api.aisa.one) to read/search and to publish when authorized.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:06.966994+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:41.632847+00:00"
       },
       "attempts": 3,
       "last_attempt_at": "2026-04-28T20:04:31.254969+00:00",
@@ -239,13 +249,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package's code, instructions, and required secret (AISA_API_KEY) are consistent with a Twitter/X relay-based engagement and posting client that uses api.aisa.one; it does not request unrelated credentials or perform unexplained local access.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:09.763361+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:44.277602+00:00"
       },
       "publish_mode": "published"
     },
@@ -278,13 +290,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This appears to be a coherent Twitter/X relay skill, though its published metadata underreports its required API key/python runtime and its declared network path is narrower than the actual AIsa relay base.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:15.392855+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:50.166175+00:00"
       },
       "attempts": 3,
       "last_attempt_at": "2026-04-28T20:04:44.811229+00:00",
@@ -319,13 +333,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent for a YouTube search plugin that calls the AIsa service and only requires an AISA_API_KEY; nothing in the files suggests unexpected or unrelated privileges.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:23.602482+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:58.037213+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:05:25.000713+00:00",
@@ -360,13 +376,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package consistently implements a YouTube SERP client that calls AIsa's API and only requires an AISA_API_KEY and python3 — the requested access and instructions line up with the stated purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:26.243134+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:00.574191+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:05:57.592298+00:00",
@@ -404,13 +422,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package and runtime instructions are internally consistent: it requires only AISA_API_KEY and python3 to talk to the AIsa API (api.aisa.one) and the included code matches that stated purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:29.082538+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:03.258895+00:00"
       }
     },
     "plugin:last30days-plugin": {
@@ -442,13 +462,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This appears to be a real recent-research skill using an AIsa API key and public/social data sources, but its registry metadata does not fully reflect the requirements declared inside the package.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:40.148708+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:08.749376+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "last30days-plugin",
@@ -489,13 +511,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "This appears to be a recent-research skill that uses an AISA API key and bundled Python scripts in ways that generally match its stated purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:47.154608+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:11.559583+00:00"
       }
     },
     "plugin:llm-router-plugin": {
@@ -530,13 +554,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent: it wraps an AIsa LLM-router client, requires only AISA_API_KEY (which it uses to call api.aisa.one), and its files/instructions match that purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:49.842745+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:18.802957+00:00"
       }
     },
     "plugin:market-plugin": {
@@ -568,13 +594,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package and its runtime instructions are internally consistent for a market-data client that requires a single AISA_API_KEY and python3; nothing in the code or SKILL.md tries to access unrelated credentials or system files.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:53.029113+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:21.487004+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:06:05.293964+00:00",
@@ -613,13 +641,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package behaves like a market-data client that requires a single AISA_API_KEY and a Python runtime; its files, instructions, and required secrets align with the declared purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:55.922243+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:28.619328+00:00"
       },
       "publish_mode": "publish-existing"
     },
@@ -655,13 +685,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The skill is internally consistent: it wraps a small Python client that calls AIsa's media APIs and only requests a single service API key and python3, which matches the stated purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:58.704643+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:31.686348+00:00"
       }
     },
     "plugin:multi-search-plugin": {
@@ -696,13 +728,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent: it wraps a Python CLI that calls AIsa's web API and correctly declares the single required credential (AISA_API_KEY); nothing in the files attempts unrelated access or covert exfiltration.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:01.540326+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:34.439692+00:00"
       }
     },
     "plugin:openclaw-aisa-youtube-aisa-plugin": {
@@ -737,13 +771,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package and bundled scripts are coherent with a YouTube research skill: they require a single AISA_API_KEY and python3 and make API calls to api.aisa.one — nothing in the files requests unrelated credentials or surprising system access.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:07.464426+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:39.691148+00:00"
       }
     },
     "plugin:openclaw-media-gen-plugin": {
@@ -778,13 +814,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent: it implements an AIsa-backed image/video generator that only requires AISA_API_KEY and python3 and contains a CLI client that calls api.aisa.one and saves generated media locally.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:10.171323+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:42.586820+00:00"
       }
     },
     "plugin:openclaw-search-plugin": {
@@ -819,13 +857,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package appears to be a straightforward OpenClaw/ClawHub wrapper around an AIsa-backed search client that requires a single AISA_API_KEY and Python; the main inconsistencies are metadata mismatches (registry vs embedded manifests) but the code and instructions are coherent with the stated purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:12.709018+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:45.362011+00:00"
       }
     },
     "plugin:openclaw-twitter-plugin": {
@@ -860,13 +900,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package's code, required env var, and runtime instructions are consistent with a Twitter/X research/posting skill that uses an AIsa relay (api.aisa.one); nothing requested or installed is disproportionate to that stated purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:15.640671+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:52.863475+00:00"
       }
     },
     "plugin:openclaw-twitter-post-engage-plugin": {
@@ -901,13 +943,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "This skill appears to match its Twitter/X relay purpose, but the registry requirements summary is incomplete even though the manifests and code require an AISA API key.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:18.433410+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:55.561704+00:00"
       }
     },
     "plugin:openclaw-youtube-plugin": {
@@ -942,13 +986,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent with its stated YouTube research purpose: it requires a single AISA_API_KEY, uses a local Python client to call the aisa.one API, and does not request unrelated credentials or perform unexpected system access.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:21.149341+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:58.152005+00:00"
       }
     },
     "plugin:perplexity-research-plugin": {
@@ -983,13 +1029,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package behavior matches its stated purpose: it runs a bundled Python CLI that uses an AISA API key to perform multi-source research; nothing in the files attempts unrelated access or persistence.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:23.852046+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:01.078874+00:00"
       }
     },
     "plugin:perplexity-search-plugin": {
@@ -1024,13 +1072,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The package and runtime instructions are coherent with a search client for AIsa: it only requires python3 and an AISA_API_KEY and calls api.aisa.one; nothing in the files requests unrelated credentials or performs unexpected actions.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:27.358155+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:03.932140+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-api-plugin": {
@@ -1065,13 +1115,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "This skill appears to do what it claims—query AIsa for prediction-market arbitrage data using an AIsa API key—though its registry requirement summary is inconsistent with the files that clearly require that key.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:30.107730+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:06.443203+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-plugin": {
@@ -1106,13 +1158,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent with its stated purpose: it includes Python scripts that use a single AISA_API_KEY to call the AIsa prediction-market API and the SKILL.md instructs running those scripts; nothing requested or installed appears disproportionate or unrelated.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:32.873835+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:13.556735+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-zh-plugin": {
@@ -1147,13 +1201,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent with its stated purpose: it is a Python-based wrapper that calls AIsa's prediction-market API and only requests the AISA_API_KEY it needs.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:35.701197+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:16.254822+00:00"
       }
     },
     "plugin:prediction-market-data-plugin": {
@@ -1188,13 +1244,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent with a prediction-market data client: it requires python3 and an AISA_API_KEY, its instructions point to the included Python client which contacts api.aisa.one, and there are no unrelated credentials, strange installers, or hidden endpoints.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:38.866060+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:18.819810+00:00"
       }
     },
     "plugin:prediction-market-data-zh-plugin": {
@@ -1229,13 +1287,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package and its runtime instructions are internally consistent: it ships a Python client that queries AIsa's API and requires only an AISA_API_KEY and python3, which matches the skill's stated purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:41.705331+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:21.705309+00:00"
       }
     },
     "plugin:prediction-market-plugin": {
@@ -1270,13 +1330,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The package appears to do what it says: it wraps a Python client that queries AIsa's prediction-market API and requires an AISA_API_KEY; there are no hidden installers or unrelated credential requests, though there is a small metadata mismatch about declared requirements.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:44.355904+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:24.463498+00:00"
       },
       "publish_mode": "publish-existing"
     },
@@ -1313,13 +1375,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The package, manifests, SKILL.md, and included Python client are consistent: the skill requires a single AISA_API_KEY and runs a local Python CLI that calls aisa.one APIs to perform searches; nothing in the bundle requests unrelated credentials, installs remote code, or reads unexpected local data.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:47.731268+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:27.193445+00:00"
       }
     },
     "plugin:search-plugin": {
@@ -1355,13 +1419,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent: it requires python3 and a single AISA_API_KEY and contains a local Python client that calls https://api.aisa.one — the requested permissions and instructions match the stated search/research purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:50.685420+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:29.928963+00:00"
       }
     },
     "plugin:smart-search-plugin": {
@@ -1396,13 +1462,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This mostly matches its stated purpose: it uses a Python client and an AISA_API_KEY to send search-related requests to AIsa, though the registry requirements summary appears to under-report those requirements.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:53.545686+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:33.006165+00:00"
       }
     },
     "plugin:stock-analysis-plugin": {
@@ -1437,13 +1505,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "This skill appears to do what it claims: it runs a local Python script that sends stock or crypto ticker requests to the AIsa API using an AISA_API_KEY.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:56.359252+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:35.661743+00:00"
       }
     },
     "plugin:stock-dividend-plugin": {
@@ -1479,13 +1549,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The package appears to do what it says (dividend research via the AIsa API) and requests an AISA_API_KEY which is proportionate, but there are small inconsistencies you should verify before installing.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:59.210526+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:38.631601+00:00"
       }
     },
     "plugin:stock-hot-plugin": {
@@ -1521,13 +1593,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent with its stated purpose (a wrapper that calls the AIsa API to produce market research), but there are a few small mismatches (undeclared environment variables and an uninstalled Python dependency) you should be aware of before installing.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:01.916671+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:41.504770+00:00"
       }
     },
     "plugin:stock-portfolio-plugin": {
@@ -1563,13 +1637,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package and its runtime instructions are coherent for a portfolio tool that fetches live prices via the AIsa API and stores portfolios locally; required credentials and files align with the stated purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:04.648871+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:44.469068+00:00"
       }
     },
     "plugin:stock-rumors-plugin": {
@@ -1605,13 +1681,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "This skill appears to do what it claims: it runs a bundled Python script that uses an AIsa API key to request stock-rumor and market-signal reports, with a few packaging metadata inconsistencies.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:07.590212+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:47.201105+00:00"
       }
     },
     "plugin:stock-watchlist-plugin": {
@@ -1647,13 +1725,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package does what it says: a Python-based watchlist that calls an AIsa API using an AISA_API_KEY and stores a local JSON watchlist; its requirements and behavior are consistent with the description.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:10.446934+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:49.953391+00:00"
       }
     },
     "plugin:tavily-extract-plugin": {
@@ -1689,13 +1769,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package is internally coherent for a research/search skill: it calls the AIsa API and requires an AISA_API_KEY; nothing in the files indicates hidden exfiltration or unrelated privileges.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:13.261662+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:52.727599+00:00"
       }
     },
     "plugin:tavily-search-plugin": {
@@ -1731,13 +1813,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent: it implements a Python CLI that calls AIsa's API and requires only an AISA_API_KEY, which matches the skill's stated search/retrieval purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:15.969468+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:55.807690+00:00"
       }
     },
     "plugin:twitter-autopilot-plugin": {
@@ -1773,13 +1857,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package is coherent with its stated purpose: it is a Twitter/X client that uses an AIsa relay (api.aisa.one) and requires an AISA_API_KEY to perform reads, engagement, and OAuth-backed posting; the main issues are minor packaging metadata inconsistencies you should be aware of before installing.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:23.577350+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:11:58.504940+00:00"
       }
     },
     "plugin:twitter-command-center-search-post-interact-plugin": {
@@ -1815,13 +1901,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The skill appears to implement the Twitter/X search, engagement, and OAuth posting flows via AIsa relay (api.aisa.one) and its requirements and behavior are broadly coherent with that purpose, but there are metadata inconsistencies and privacy implications you should review before installing.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:26.730556+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:12:01.534266+00:00"
       }
     },
     "plugin:twitter-command-center-search-post-plugin": {
@@ -1857,13 +1945,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This appears to be a Twitter/X search-and-post skill that uses an AIsa API key as advertised, with one caution that an optional relay URL can redirect where requests are sent.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:29.709445+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:12:04.212554+00:00"
       }
     },
     "plugin:twitter-plugin": {
@@ -1899,13 +1989,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package appears to implement a Twitter/X client that talks to AIsa relay endpoints and requires a single AISA_API_KEY; its files, instructions, and requested credential are largely coherent with the stated purpose, though there are small metadata inconsistencies you should verify before installing.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:32.543023+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:12:07.013524+00:00"
       }
     },
     "plugin:us-stock-analyst-plugin": {
@@ -1941,13 +2033,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The skill's files, runtime instructions, and required AISA_API_KEY align with its stated purpose (calling the AIsa market-data APIs via bundled Python scripts); nothing requests unrelated credentials or hidden endpoints.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:38.413746+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:12:12.739801+00:00"
       }
     },
     "plugin:web-search-plugin": {
@@ -1983,13 +2077,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package does what it says: a wrapper around an AIsa-backed web-search skill that requires an AISA_API_KEY and calls api.aisa.one; its requirements and runtime behavior are coherent with its stated purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:41.729166+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:12:23.046462+00:00"
       }
     },
     "plugin:x-intelligence-automation-plugin": {
@@ -2025,13 +2121,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This skill’s Python scripts, AISA_API_KEY use, and api.aisa.one relay access match its stated Twitter/X research, posting, and engagement purpose, though the registry requirement summary appears incomplete.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:44.776306+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:12:25.809183+00:00"
       }
     },
     "plugin:youtube-plugin": {
@@ -2067,13 +2165,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "This appears to be a coherent YouTube search skill that uses one AIsa API key to query the advertised AIsa YouTube search endpoint.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:47.711088+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:12:28.391049+00:00"
       }
     },
     "plugin:youtube-search-plugin": {
@@ -2109,13 +2209,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "This appears to be a narrowly scoped YouTube search skill that uses an AIsa API key only to call AIsa's YouTube search endpoint.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:55.205712+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:12:30.935038+00:00"
       }
     },
     "skill:aisa-multi-search-engine": {
@@ -2148,12 +2250,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "AIsa",
         "suspicious": false,
         "suspicious_reason": "The skill's code, runtime instructions, and requested environment access are consistent with a multi-source search plugin that calls the AIsa API and only requires an AISA_API_KEY plus python3/node runtimes.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:05.659260+00:00"
+        "checked_at": "2026-05-12T20:12:38.886711+00:00"
       },
       "publish_mode": "published",
       "attempts": 1,
@@ -2184,21 +2286,21 @@
         "resolved_slug": "aisa-provider",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "tePlus",
         "suspicious": false,
         "suspicious_reason": "No suspicious code execution or autonomous behavior is shown, but the documentation contains strong privacy assurances users should independently verify.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:09.665661+00:00"
+        "checked_at": "2026-05-12T20:12:47.030929+00:00"
       }
     },
     "skill:aisa-tavily": {
@@ -2234,12 +2336,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's files, runtime instructions, and requested environment variable line up with its stated purpose (web/multi-source research via AIsa); it only requires Node and an AISA_API_KEY and sends queries/URLs to api.aisa.one, so the main risk is trusting that external service with your data and API key.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:13.459930+00:00"
+        "checked_at": "2026-05-12T20:12:55.386079+00:00"
       }
     },
     "skill:aisa-twitter-api": {
@@ -2486,12 +2588,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, runtime instructions, and required environment variables are coherent with its stated purpose (AIsa-backed Chinese LLM routing) and do not request unrelated credentials or perform unexpected actions.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:21.421470+00:00"
+        "checked_at": "2026-05-12T20:13:09.944568+00:00"
       }
     },
     "skill:last30days": {
@@ -2516,21 +2618,21 @@
         "resolved_slug": "last30days",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "zats",
+        "publisher_handle": "script",
         "suspicious": false,
         "suspicious_reason": "The skill runs bundled Python code and has limited provenance metadata, but the behavior is disclosed and aligned with the research purpose.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:22.746352+00:00"
+        "checked_at": "2026-05-12T20:13:12.477979+00:00"
       }
     },
     "skill:last30days-zh": {
@@ -2557,21 +2659,21 @@
         "resolved_slug": "last30days-zh",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill runs bundled Bash/Python scripts as part of its normal research workflow; no static scan findings or hidden execution behavior were shown.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:24.023508+00:00"
+        "checked_at": "2026-05-12T20:13:15.024172+00:00"
       }
     },
     "skill:llm-router": {
@@ -2607,12 +2709,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's requirements and bundled script match its stated purpose (routing through the AIsa API); it only needs python3 and an AISA_API_KEY and contains no obvious incoherent or excessive requests.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:25.343835+00:00"
+        "checked_at": "2026-05-12T20:13:17.319718+00:00"
       }
     },
     "skill:market": {
@@ -2648,12 +2750,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "AIsa",
         "suspicious": false,
         "suspicious_reason": "The skill's requests, instructions, and bundled client code are consistent with a market-data client that uses a single AISA_API_KEY to call https://api.aisa.one; nothing in the package requires unrelated credentials or privileges.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:26.641185+00:00"
+        "checked_at": "2026-05-12T20:13:19.821667+00:00"
       },
       "publish_mode": "published"
     },
@@ -2690,12 +2792,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "aisadocs",
+        "publisher_handle": "AIsa",
         "suspicious": false,
         "suspicious_reason": "The skill's code, examples, and required environment variable align with its stated purpose (market data via the AIsa API) and do not request unrelated credentials or perform suspicious actions.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:28.014191+00:00"
+        "checked_at": "2026-05-12T20:13:22.205226+00:00"
       },
       "publish_mode": "published"
     },
@@ -2732,12 +2834,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's requirements and instructions align with its stated purpose (media generation via the AIsa API); it asks only for an AISA_API_KEY and uses python3 to call api.aisa.one and save downloaded media.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:29.289891+00:00"
+        "checked_at": "2026-05-12T20:13:24.621136+00:00"
       }
     },
     "skill:multi-search": {
@@ -2761,21 +2863,21 @@
         "resolved_slug": "multi-search",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "neverchenx",
+        "publisher_handle": "priority",
         "suspicious": false,
         "suspicious_reason": "The skill uses disclosed multi-agent web retrieval as part of its research workflow; no hidden or destructive behavior is evidenced.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:30.557415+00:00"
+        "checked_at": "2026-05-12T20:13:27.305937+00:00"
       }
     },
     "skill:openclaw-aisa-youtube-aisa": {
@@ -2799,21 +2901,21 @@
         "resolved_slug": "openclaw-aisa-youtube-aisa",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "country",
         "suspicious": false,
         "suspicious_reason": "The skill exposes a bounded external API client and has limited provenance; no artifact evidence shows goal hijacking, unsafe code execution, cascading effects, or rogue behavior.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:33.436538+00:00"
+        "checked_at": "2026-05-12T20:13:32.521606+00:00"
       }
     },
     "skill:openclaw-media-gen": {
@@ -2849,12 +2951,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's requirements and runtime instructions match its stated purpose (AIsa image/video generation); it asks only for one API key and uses python3 to call api.aisa.one endpoints, which is coherent with the description.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:34.779407+00:00"
+        "checked_at": "2026-05-12T20:13:34.773953+00:00"
       }
     },
     "skill:openclaw-search": {
@@ -2890,12 +2992,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, runtime instructions, and requested environment (AISA_API_KEY + python3) are coherent with its stated purpose (an AIsa-backed search client) and do not request unrelated credentials or elevated persistence.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:36.221231+00:00"
+        "checked_at": "2026-05-12T20:13:42.049908+00:00"
       }
     },
     "skill:openclaw-twitter": {
@@ -2919,21 +3021,21 @@
         "resolved_slug": "openclaw-twitter",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "0xjordansg-yolo",
+        "publisher_handle": "AIsa",
         "suspicious": false,
         "suspicious_reason": "The skill can invoke public posting actions when the user asks; this is disclosed and purpose-aligned, but users should review ambiguous requests.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:37.625987+00:00"
+        "checked_at": "2026-05-12T20:13:49.560489+00:00"
       }
     },
     "skill:openclaw-twitter-post-engage": {
@@ -2957,21 +3059,21 @@
         "resolved_slug": "openclaw-twitter-post-engage",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "aisadocs",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill can perform public Twitter/X posting and engagement actions, but the artifacts disclose this and require explicit confirmation flags.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:39.018255+00:00"
+        "checked_at": "2026-05-12T20:13:52.114421+00:00"
       },
       "attempts": 7,
       "last_attempt_at": "2026-05-06T18:58:55.777900+00:00",
@@ -3013,12 +3115,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's requirements and instructions are coherent with its stated purpose: it runs a bundled Python client that calls the AIsa API using an AISA_API_KEY to search YouTube data.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:40.410247+00:00"
+        "checked_at": "2026-05-12T20:14:03.663635+00:00"
       }
     },
     "skill:perplexity-research": {
@@ -3042,21 +3144,21 @@
         "resolved_slug": "perplexity-research",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "hushenglang",
+        "publisher_handle": "Perplexity",
         "suspicious": false,
         "suspicious_reason": "The skill uses automatic web search after invocation and relies on unpinned third-party Python packages, both of which are purpose-aligned but worth reviewing.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:41.800945+00:00"
+        "checked_at": "2026-05-12T20:14:05.935038+00:00"
       }
     },
     "skill:perplexity-search": {
@@ -3098,16 +3200,16 @@
         "virus_total_report_url": null,
         "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": "review",
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "potdealer",
+        "publisher_handle": "betting",
         "suspicious": true,
         "suspicious_reason": "The main concern is raw, agent-usable transaction guidance for spending ETH without clear confirmation or spending controls.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:43.094406+00:00"
+        "checked_at": "2026-05-12T20:14:08.383814+00:00"
       },
       "publish_mode": "remote-existing"
     },
@@ -3133,21 +3235,21 @@
         "resolved_slug": "prediction-market-arbitrage",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "h4gen",
+        "publisher_handle": "explicit",
         "suspicious": false,
         "suspicious_reason": "The skill relies on user-run upstream installs and a broad update-all command, but no hidden or automatic execution is shown.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:44.341345+00:00"
+        "checked_at": "2026-05-12T20:14:10.838694+00:00"
       }
     },
     "skill:prediction-market-arbitrage-api": {
@@ -3180,12 +3282,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Polymarket",
         "suspicious": false,
         "suspicious_reason": "The skill's code, instructions, and requested environment variable line up with its stated purpose (read-only arbitrage scanning via the AIsa API); nothing in the bundle appears to require unrelated credentials or installs, but the origin is unknown so verify the third-party API before use.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:45.668424+00:00"
+        "checked_at": "2026-05-12T20:14:13.397506+00:00"
       }
     },
     "skill:prediction-market-arbitrage-zh": {
@@ -3218,12 +3320,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, runtime instructions, and requested environment variable (AISA_API_KEY) are consistent with its stated purpose of read-only arbitrage scanning via the AIsa API.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:46.942047+00:00"
+        "checked_at": "2026-05-12T20:14:20.295801+00:00"
       }
     },
     "skill:prediction-market-data": {
@@ -3257,12 +3359,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill appears to do exactly what it says: a read-only AIsa API client for Polymarket/Kalshi data that requires a single AISA_API_KEY and Python 3, with no unexpected installs or unrelated credentials.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:48.289617+00:00"
+        "checked_at": "2026-05-12T20:14:22.939840+00:00"
       }
     },
     "skill:prediction-market-data-zh": {
@@ -3295,12 +3397,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, declared requirements, and runtime instructions are internally consistent: it only needs AISA_API_KEY and python3 and makes read-only GET calls to api.aisa.one to fetch prediction-market data.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:49.517794+00:00"
+        "checked_at": "2026-05-12T20:14:25.448033+00:00"
       }
     },
     "skill:scholar-search": {
@@ -3324,21 +3426,21 @@
         "resolved_slug": "scholar-search",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "xxxxxxxxxxxxxxxxxxx20gex",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The only abnormal-behavior note is a purpose-aligned, unpinned Python dependency install; no hidden execution, destructive action, or deceptive control flow is shown.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:50.927378+00:00"
+        "checked_at": "2026-05-12T20:14:28.101784+00:00"
       }
     },
     "skill:search": {
@@ -3380,18 +3482,18 @@
         "scan_status": "suspicious",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "suspicious",
+        "clawscan_verdict": "review",
         "clawscan_confidence": null,
         "openclaw_verdict": "review",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "lee920311",
+        "publisher_handle": "Convex",
         "suspicious": true,
         "suspicious_reason": "The main concerns are unsafe optional SearX exposure, executing .env as shell code, and over-strong safety claims.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:56.708289+00:00"
+        "checked_at": "2026-05-12T20:14:30.572371+00:00"
       }
     },
     "skill:stock-analysis": {
@@ -3420,16 +3522,16 @@
         "virus_total_report_url": null,
         "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": "review",
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "udiedrichsen",
+        "publisher_handle": "potential",
         "suspicious": true,
         "suspicious_reason": "Optional third-party CLI installation and user-directed cron automation are disclosed and purpose-aligned, but they add external code and recurring execution if enabled.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:57.494952+00:00"
+        "checked_at": "2026-05-12T20:14:33.159883+00:00"
       }
     },
     "skill:stock-dividend": {
@@ -3453,21 +3555,21 @@
         "resolved_slug": "stock-dividend",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "Only a purpose-aligned external Python dependency is noted; no hidden code execution, destructive commands, or autonomous background behavior is shown.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:58.837788+00:00"
+        "checked_at": "2026-05-12T20:14:35.550239+00:00"
       }
     },
     "skill:stock-hot": {
@@ -3500,12 +3602,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "This skill is internally consistent: it needs only an AISA API key and python, runs a local script that calls the AISA API, and does not request unrelated credentials or system access.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:01.513416+00:00"
+        "checked_at": "2026-05-12T20:14:40.214152+00:00"
       }
     },
     "skill:stock-portfolio": {
@@ -3529,21 +3631,21 @@
         "resolved_slug": "stock-portfolio",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "yinshengf",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "No hidden control behavior is shown; notes relate to under-declared Python setup, optional cron persistence, and avoiding over-trust in simplified recommendations.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:02.941825+00:00"
+        "checked_at": "2026-05-12T20:14:42.830947+00:00"
       }
     },
     "skill:stock-rumors": {
@@ -3567,21 +3669,21 @@
         "resolved_slug": "stock-rumors",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "impact",
         "suspicious": false,
         "suspicious_reason": "The skill asks the provider to perform broad live-data searches and uses an unpinned Python dependency, both of which are purpose-aligned but worth noticing.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:04.437020+00:00"
+        "checked_at": "2026-05-12T20:14:45.176414+00:00"
       }
     },
     "skill:stock-watchlist": {
@@ -3605,21 +3707,21 @@
         "resolved_slug": "stock-watchlist",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "0xhyperdan",
+        "publisher_handle": "ticker",
         "suspicious": false,
         "suspicious_reason": "The skill performs documented, purpose-aligned Markdown watchlist updates with visible path-scope guidance.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:05.798165+00:00"
+        "checked_at": "2026-05-12T20:14:48.000167+00:00"
       }
     },
     "skill:tavily-extract": {
@@ -3648,18 +3750,18 @@
         "scan_status": "suspicious",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "suspicious",
+        "clawscan_verdict": "review",
         "clawscan_confidence": null,
         "openclaw_verdict": "review",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "evanydl",
+        "publisher_handle": "relevance",
         "suspicious": true,
         "suspicious_reason": "The OAuth fallback can automatically execute an unpinned npm helper through `npx -y`.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:07.069571+00:00"
+        "checked_at": "2026-05-12T20:15:10.559320+00:00"
       }
     },
     "skill:tavily-search": {
@@ -3712,18 +3814,18 @@
         "scan_status": "suspicious",
         "virus_total": "suspicious",
         "virus_total_report_url": null,
-        "clawscan_verdict": "suspicious",
+        "clawscan_verdict": "review",
         "clawscan_confidence": null,
         "openclaw_verdict": "review",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "persnola1-sketch",
+        "publisher_handle": "Convex",
         "suspicious": true,
         "suspicious_reason": "The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:08.319689+00:00"
+        "checked_at": "2026-05-12T20:15:13.180796+00:00"
       }
     },
     "skill:twitter-command-center-search-post": {
@@ -3759,12 +3861,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill’s files, required binary, and single API key align with its stated Twitter/X read-and-posting purpose, but it sends credentials and media to a third-party relay (api.aisa.one) and references undeclared environment overrides you should review before use.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:09.584485+00:00"
+        "checked_at": "2026-05-12T20:15:15.697245+00:00"
       }
     },
     "skill:twitter-command-center-search-post-interact": {
@@ -3800,12 +3902,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, instructions, and required credential (AISA_API_KEY) are consistent with its stated purpose of read/search/engagement and OAuth-backed posting via the AIsa relay service.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:10.886670+00:00"
+        "checked_at": "2026-05-12T20:15:18.094828+00:00"
       }
     },
     "skill:us-stock-analyst": {
@@ -3841,12 +3943,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "aisadocs",
+        "publisher_handle": "AIsa",
         "suspicious": false,
         "suspicious_reason": "The skill's requested resources, runtime instructions, and bundled code are coherent with a US stock analysis tool that uses the AIsa API and a local Python client; nothing requests unrelated credentials or installs arbitrary code.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:13.725262+00:00"
+        "checked_at": "2026-05-12T20:15:22.772596+00:00"
       },
       "publish_mode": "published"
     },
@@ -3874,18 +3976,18 @@
         "scan_status": "suspicious",
         "virus_total": "suspicious",
         "virus_total_report_url": null,
-        "clawscan_verdict": "benign",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "billyutw",
+        "publisher_handle": "description",
         "suspicious": true,
-        "suspicious_reason": "This skill should be used when users need to search the web for information, find current content, look up news articles, search for images, or find videos. It uses DuckDuckGo's search API to return results in clean, formatted output (text, markdown, or JSON). Use for research, fact-checking, finding recent information, or gathering web resources.",
+        "suspicious_reason": "The only noted control-related issue is a normal, purpose-aligned but unpinned third-party package install.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:14.673716+00:00"
+        "checked_at": "2026-05-12T20:15:25.121500+00:00"
       }
     },
     "skill:x-intelligence-automation": {
@@ -3909,21 +4011,21 @@
         "resolved_slug": "x-intelligence-automation",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "karensheng",
+        "publisher_handle": "AIsa",
         "suspicious": false,
         "suspicious_reason": "The skill can perform public Twitter/X posting and engagement actions, but this is disclosed and purpose-aligned.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:16.011879+00:00"
+        "checked_at": "2026-05-12T20:15:27.261721+00:00"
       }
     },
     "skill:youtube": {
@@ -3950,18 +4052,18 @@
         "scan_status": "suspicious",
         "virus_total": "suspicious",
         "virus_total_report_url": null,
-        "clawscan_verdict": "benign",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "grpaiva",
+        "publisher_handle": "Convex",
         "suspicious": true,
-        "suspicious_reason": "Search YouTube videos, get channel info, fetch video details and transcripts using YouTube Data API v3 via MCP server or yt-dlp fallback.",
+        "suspicious_reason": "The skill uses user-directed third-party tool installation and includes broad safety wording, but this is aligned with the YouTube integration purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:16.321514+00:00"
+        "checked_at": "2026-05-12T20:15:29.774614+00:00"
       }
     },
     "skill:youtube-search": {
@@ -3988,18 +4090,18 @@
         "scan_status": "suspicious",
         "virus_total": "suspicious",
         "virus_total_report_url": null,
-        "clawscan_verdict": "benign",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "therohitdas",
+        "publisher_handle": "name",
         "suspicious": true,
-        "suspicious_reason": "Use when the user wants to find YouTube content on any topic: searching for videos or channels, finding creators who cover a subject, discovering tutorials,...",
+        "suspicious_reason": "The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:17.298481+00:00"
+        "checked_at": "2026-05-12T20:15:32.343309+00:00"
       }
     },
     "skill:aisa-perplexity-search": {
@@ -4048,12 +4150,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, instructions, and required environment variable (AISA_API_KEY) are consistent with its stated purpose of calling the AIsa search API; it does not request unrelated credentials or perform unexpected local file access.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:10.838039+00:00"
+        "checked_at": "2026-05-12T20:12:49.767098+00:00"
       }
     },
     "skill:aisa-tavily-search": {
@@ -4078,21 +4180,21 @@
         "resolved_slug": "aisa-tavily-search",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "No artifact-backed evidence of goal hijacking, unsafe automatic execution, deceptive behavior, or persistence was found.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:14.890581+00:00"
+        "checked_at": "2026-05-12T20:12:57.657846+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-05-08T12:33:54.633113+00:00",
@@ -4121,21 +4223,21 @@
         "resolved_slug": "aisa-twitter",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill can publish public Twitter/X posts, replies, and quotes, but this is disclosed and purpose-aligned.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:16.174245+00:00"
+        "checked_at": "2026-05-12T20:13:00.055865+00:00"
       }
     },
     "plugin:aisa-perplexity-search-plugin": {
@@ -4183,13 +4285,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent: it wraps a bundled AIsa search skill that requires an AISA_API_KEY and Python, and the code and instructions match that purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:04:47.613846+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:23.381403+00:00"
       }
     },
     "plugin:aisa-tavily-search-plugin": {
@@ -4222,13 +4326,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This skill appears to do what it claims: it uses an AISA API key to send search and extraction requests to AIsa's API.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:04:53.469682+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:28.766065+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-tavily-search-plugin",
@@ -4268,13 +4374,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package appears to do what it claims — a Python-based AIsa-backed Twitter/X client requiring an AISA_API_KEY — with no unexpected credential requests or arbitrary downloads, though there are minor metadata inconsistencies to note.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:12.584647+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:47.313040+00:00"
       }
     },
     "skill:aisa-perplexity-sonar-search": {
@@ -4311,12 +4419,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill is internally consistent: it requires a single AISA_API_KEY, runs a small Python client that POSTs queries to api.aisa.one, and the requested resources match the described search/synthesis purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:08.349149+00:00"
+        "checked_at": "2026-05-12T20:12:44.348479+00:00"
       }
     },
     "plugin:aisa-perplexity-sonar-search-plugin": {
@@ -4352,13 +4460,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent: it wraps a bundled Python client that calls AIsa's API and only asks for the AISA_API_KEY and python3 as declared.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:04:34.633071+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:15.110482+00:00"
       }
     },
     "plugin:crypto-market-data-plugin": {
@@ -4394,13 +4504,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The skill is internally consistent: it requires a single AISA_API_KEY and python3, calls the AIsa proxy API (api.aisa.one) for CoinGecko data, and the included scripts/instructions match those requirements.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:37.367191+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:06.026145+00:00"
       }
     },
     "plugin:multi-source-search-plugin": {
@@ -4433,13 +4545,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent: it implements a search client that requires a single AISA_API_KEY and python3, and its code and instructions align with the stated search/synthesis purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:06:04.697776+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:10:37.104194+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:07:24.834332+00:00"
@@ -4474,13 +4588,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "The package's code, manifests, and runtime instructions are consistent with a YouTube SERP client that calls the AIsa API and only requires an AISA_API_KEY; nothing requests unrelated credentials or installs arbitrary code.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:58.053431+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:12:33.848738+00:00"
       }
     },
     "skill:crypto-market-data": {
@@ -4524,12 +4640,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, runtime instructions, and required environment variable are consistent with its stated purpose of aggregating searches via the AIsa (aisa.one) API; nothing in the package requests unrelated credentials or performs unexpected local operations.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:32.011868+00:00"
+        "checked_at": "2026-05-12T20:13:29.915238+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:11:22.096772+00:00",
@@ -4566,12 +4682,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, instructions, and required credential (AISA_API_KEY) are consistent with a YouTube SERP/analytics client that calls the AIsa API; nothing in the package appears disproportionate or unrelated to its stated purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:18.661526+00:00"
+        "checked_at": "2026-05-12T20:15:35.299300+00:00"
       }
     },
     "skill:aisa-perplexity-search-sonar": {
@@ -4605,12 +4721,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, runtime instructions, and required credential (AISA_API_KEY) are consistent with a search/synthesis client for the AIsa Perplexity Sonar API and do not request unrelated privileges or perform unexpected actions.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:06.879409+00:00"
+        "checked_at": "2026-05-12T20:12:41.880258+00:00"
       }
     },
     "skill:aisa-search-command-center": {
@@ -4644,12 +4760,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, runtime instructions, and requested credentials align with a search/aggregation client that calls the AIsa API; nothing requires unexplained privileges or unrelated secrets.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:12.122266+00:00"
+        "checked_at": "2026-05-12T20:12:52.620559+00:00"
       }
     },
     "skill:aisa-twitter-research-engage": {
@@ -4683,12 +4799,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "aisadocs",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, instructions, and requested credential (AISA_API_KEY) are consistent with its stated purpose (Twitter/X read, engagement, and OAuth-backed posting via an external relay service); the main user decision is whether to trust the external relay (api.aisa.one) with your API key and media.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:18.931841+00:00"
+        "checked_at": "2026-05-12T20:13:04.916437+00:00"
       }
     },
     "skill:aisa-crypto-market-data": {
@@ -4725,12 +4841,12 @@
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill is coherent with its stated purpose of fetching crypto market data via the AIsa service: it requires only python3 and an AISA_API_KEY and the bundled script calls the AIsa API — nothing in the package requests unrelated credentials or installs arbitrary code from unknown hosts.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:04.267373+00:00"
+        "checked_at": "2026-05-12T20:12:36.381740+00:00"
       }
     },
     "skill:aisa-twitter-api-command-center": {
@@ -4758,21 +4874,21 @@
         "resolved_slug": "aisa-twitter-api-command-center",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "aisadocs",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill can publish public Twitter/X content, but the artifacts frame posting as user-intended and approved.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:17.481810+00:00"
+        "checked_at": "2026-05-12T20:13:02.456768+00:00"
       },
       "owner_handle": "aisadocs",
       "published_name": "aisa-twitter-api-command-center"
@@ -4810,13 +4926,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "baofeng-tech",
         "suspicious": false,
-        "suspicious_reason": "The package is internally coherent for a crypto market-data plugin: it requires a single AISA_API_KEY and runs a local Python client against api.aisa.one; there are no unexpected credentials, third-party downloads, or broad system access requested.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:04:21.513076+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:06.596945+00:00"
       }
     },
     "plugin:aisa-perplexity-search-sonar-plugin": {
@@ -4852,13 +4970,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This appears to be a straightforward AIsa search plugin that uses Python and an AIsa API key to send search requests to AIsa's API.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:04:27.032891+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:12.283078+00:00"
       }
     },
     "plugin:aisa-search-command-center-plugin": {
@@ -4894,13 +5014,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent: it is a search/research skill that requires a single AISA_API_KEY and runs a bundled Python client against api.aisa.one — the requested files, env var, and instructions line up with that purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:04:44.748673+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:20.739603+00:00"
       }
     },
     "plugin:aisa-twitter-api-command-center-plugin": {
@@ -4936,13 +5058,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This skill appears to do what it claims—use an AIsa API key and Python scripts for Twitter/X research and posting—though its registry requirement summary under-reports the API key and Python dependency.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:04:56.455543+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:35.777258+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-twitter-api-command-center-aisa-api-plugin"
@@ -4986,9 +5110,10 @@
         "suspicious_reason": null,
         "pending": true,
         "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'",
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-05-11T21:05:17.817266+00:00"
+        "checked_at": "2026-05-12T20:09:52.897905+00:00"
       }
     },
     "skill:aisa-twitter-research-engage-relay": {
@@ -5016,21 +5141,21 @@
         "resolved_slug": "aisa-twitter-research-engage-relay-aisa-api",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "bibaofeng",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill can perform public Twitter/X actions, but the artifacts disclose this and require user-directed, confirmed workflows.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:08:20.280508+00:00"
+        "checked_at": "2026-05-12T20:13:07.504322+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-twitter-research-engage-relay-aisa-api"
@@ -5068,13 +5193,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "bibaofeng",
         "suspicious": false,
-        "suspicious_reason": "This appears to be what it claims: a Twitter/X relay skill that uses an AIsa API key, though installing it means trusting AIsa with Twitter engagement, posting, and any attached media you send.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:05:20.837446+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:09:55.441290+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-twitter-research-engage-relay-aisa-api-plugin"
@@ -5106,21 +5233,21 @@
         "resolved_slug": "stock-dividend-aisa",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "baofeng-tech",
+        "publisher_handle": "default",
         "suspicious": false,
         "suspicious_reason": "The only abnormal-behavior-related note is a disclosed, purpose-aligned external Python dependency; there is no hidden execution, persistence, or purchase/trading workflow.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:00.166558+00:00"
+        "checked_at": "2026-05-12T20:14:37.932043+00:00"
       }
     },
     "skill:twitter-post-aisa": {
@@ -5150,21 +5277,21 @@
         "resolved_slug": "twitter-post-aisa-aisa-one",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
+        "scan_status": "pending",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "benign",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "aisadocs",
+        "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill can perform public Twitter/X actions, but the behavior is disclosed and bounded by approval-oriented guardrails.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-11T21:09:12.400531+00:00"
+        "checked_at": "2026-05-12T20:15:20.353356+00:00"
       }
     },
     "plugin:twitter-post-aisa-plugin": {
@@ -5202,13 +5329,15 @@
         "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
-        "static_analysis_summary": "Validated package structure and linked the release to source metadata.",
+        "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "aisadocs",
         "suspicious": false,
-        "suspicious_reason": "This appears to be a Twitter/X posting and engagement skill that uses one AIsa API key and the documented AIsa API endpoint, with no unrelated credential requests or install steps visible.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-11T21:07:35.436350+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-05-12T20:12:09.844805+00:00"
       }
     }
   }
