@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T20:15:35.333357+00:00",
+  "generated_at": "2026-05-12T20:28:47.581894+00:00",
   "summary": {
     "total": 120,
     "suspicious": 8,
@@ -252,12 +252,10 @@
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "bibaofeng",
       "suspicious": false,
-      "suspicious_reason": null,
+      "suspicious_reason": "This skill appears to do what it claims: it uses an AISA API key to send search and extraction requests to AIsa's API.",
       "pending": false,
-      "warnings": [
-        "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-05-12T20:09:28.766065+00:00"
+      "warnings": [],
+      "checked_at": "2026-05-12T20:28:35.460299+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-command-center-plugin",
@@ -280,12 +278,10 @@
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "bibaofeng",
       "suspicious": false,
-      "suspicious_reason": null,
+      "suspicious_reason": "This skill appears to do what it claims—use an AIsa API key and Python scripts for Twitter/X research and posting—though its registry requirement summary under-reports the API key and Python dependency.",
       "pending": false,
-      "warnings": [
-        "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-05-12T20:09:35.777258+00:00"
+      "warnings": [],
+      "checked_at": "2026-05-12T20:28:38.565644+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-plugin",
@@ -477,12 +473,10 @@
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "bibaofeng",
       "suspicious": false,
-      "suspicious_reason": null,
+      "suspicious_reason": "This appears to be what it claims: a Twitter/X relay skill that uses an AIsa API key, though installing it means trusting AIsa with Twitter engagement, posting, and any attached media you send.",
       "pending": false,
-      "warnings": [
-        "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-05-12T20:09:55.441290+00:00"
+      "warnings": [],
+      "checked_at": "2026-05-12T20:28:40.561841+00:00"
     },
     {
       "key": "plugin:aisa-youtube-search-plugin",
@@ -1653,12 +1647,10 @@
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "aisadocs",
       "suspicious": false,
-      "suspicious_reason": null,
+      "suspicious_reason": "This appears to be a Twitter/X posting and engagement skill that uses one AIsa API key and the documented AIsa API endpoint, with no unrelated credential requests or install steps visible.",
       "pending": false,
-      "warnings": [
-        "OpenClaw detail lookup failed: HTTP 308 while fetching detail page. Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-05-12T20:12:09.844805+00:00"
+      "warnings": [],
+      "checked_at": "2026-05-12T20:28:42.588822+00:00"
     },
     {
       "key": "plugin:us-stock-analyst-plugin",
@@ -2060,7 +2052,7 @@
       "suspicious_reason": "No artifact-backed evidence of goal hijacking, unsafe automatic execution, deceptive behavior, or persistence was found.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-05-12T20:12:57.657846+00:00"
+      "checked_at": "2026-05-12T20:28:43.937034+00:00"
     },
     {
       "key": "skill:aisa-twitter",
@@ -2112,7 +2104,7 @@
       "suspicious_reason": "The skill can publish public Twitter/X content, but the artifacts frame posting as user-intended and approved.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-05-12T20:13:02.456768+00:00"
+      "checked_at": "2026-05-12T20:28:45.035241+00:00"
     },
     {
       "key": "skill:aisa-twitter-research-engage",
@@ -2164,7 +2156,7 @@
       "suspicious_reason": "The skill can perform public Twitter/X actions, but the artifacts disclose this and require user-directed, confirmed workflows.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-05-12T20:13:07.504322+00:00"
+      "checked_at": "2026-05-12T20:28:46.024043+00:00"
     },
     {
       "key": "skill:cn-llm",
@@ -3100,7 +3092,7 @@
       "suspicious_reason": "The skill can perform public Twitter/X actions, but the behavior is disclosed and bounded by approval-oriented guardrails.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-05-12T20:15:20.353356+00:00"
+      "checked_at": "2026-05-12T20:28:47.575484+00:00"
     },
     {
       "key": "skill:us-stock-analyst",

@@ -1,6 +1,6 @@
 # AIsa Twitter API
 
-Flagship Twitter/X command center for research, monitoring, watchlists, and approved posting through the AIsa relay.
+Flagship Twitter/X command center for research, monitoring, watchlists, and OAuth-approved posting through the AIsa relay.
 
 ## What it does
 
@@ -11,7 +11,7 @@ Flagship Twitter/X command center for research, monitoring, watchlists, and appr
 
 ## Best fit
 
-- Use this as the primary Twitter/X skill when the user wants one general-purpose surface.
+- Use this as the primary Twitter/X skill when the user wants one general-purpose surface for research, monitoring, and approved posting.
 - Use `aisa-twitter-engagement-suite` when the task is mainly likes, follows, replies, or other engagement actions.
 - Use `aisa-twitter-command-center` when the task is mainly watchlists, trend scanning, and monitoring.
 
@@ -24,7 +24,10 @@ export AISA_API_KEY="your-key"
 Requires:
 
 - `python3`
+- `AISA_API_KEY`
 - network access to `https://api.aisa.one/apis/v1/...`
+- explicit OAuth approval before posting
+- user-provided media files for image or video uploads
 
 ## Common Commands
 
@@ -36,6 +39,7 @@ python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa"
 
 ## Security & Trust
 
-- Requires only `AISA_API_KEY`.
+- Requires only `AISA_API_KEY` as the declared environment secret.
+- Uses a relay-based flow to `https://api.aisa.one` for reads, OAuth handling, and approved uploads.
 - Does not require passwords or browser cookies.
 - Do not claim posting succeeded until the relay returns success.

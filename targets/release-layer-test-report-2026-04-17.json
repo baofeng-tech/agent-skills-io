@@ -17,7 +17,7 @@
       "layer": "claude",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -28,14 +28,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHIJSP2bWQGYKAAIcglGmbZuxOwAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcglJPYcAnEAoABhyCUk9hv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/875029",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHIJULJfWYcIKAAIcglNasldgogAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcglQuYQAnEAoABhyCVC5g_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/188172",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
@@ -51,7 +51,7 @@
       "layer": "claude",
       "path": "search",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -62,14 +62,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"IGLPpr6GLKxppvJ2rwVmvA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Pk4MOxJyj7FQevPG4VKcMA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "prediction-market",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -79,14 +79,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.52,\n      \"bestBid\": 0.51,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"98022490269692409998126496127597032490334070080325855126491859",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.58,\n      \"bestBid\": 0.56,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"98022490269692409998126496127597032490334070080325855126491859",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "llm-router",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/llm_router_client.py",
         "models"
       ],
@@ -128,7 +128,7 @@
       "layer": "hermes",
       "path": "communication/aisa-twitter-command-center",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/twitter_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -141,14 +141,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHIJSTu2XQN4KAAIcglG7DdbR7QAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcglJbNQAnEAoABhyCUls0_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/19244",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHIJULJfWYcIKAAIcglNasldgogAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcglQ42AAnEAoABhyCVDjX_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/188172",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "research/aisa-youtube-serp-scout",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/youtube_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -166,7 +166,7 @@
       "layer": "hermes",
       "path": "research/search",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/search_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -179,14 +179,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Z2DfIp3_I_MpN940NK1_tw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"xzgEhuLTU65rs1wg0gj39Q\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "finance/prediction-market",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/prediction_market_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -205,7 +205,7 @@
       "layer": "hermes",
       "path": "ai/llm-router",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/llm_router_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -235,7 +235,7 @@
       "layer": "clawhub",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -246,14 +246,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHIJSU4AWoYcKAAIcglHH-hbACQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcglJlawAnEAoABhyCUmVq_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/10437",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHIJULJfWYcIKAAIcglNasldgogAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcglRHzEAnEAoABhyCVEfMP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/188172",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
@@ -269,7 +269,7 @@
       "layer": "clawhub",
       "path": "search",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -280,14 +280,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"0KfIkWyj9nzi6oMi5Q1G9w\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"MQU_S_3j56B5-DSsIjmFlA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "prediction-market",
       "command": [
-        "/usr/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
