@@ -1,6 +1,6 @@
 # AIsa Tavily Search
 
-Search the web and extract page content through AIsa's Tavily-backed API relay.
+Search the web and extract public page content through AIsa's Tavily-backed API relay.
 
 ## What it does
 
@@ -55,16 +55,17 @@ node scripts/extract.mjs "https://example.com/article"
 - Look up recent news
 - Extract readable content from a public URL
 
-## Auth and side effects
+## Auth, relay, and side effects
 
 - Uses `AISA_API_KEY` for authenticated requests
 - Sends search queries and public target URLs to AIsa's remote relay
-- Connects to `https://aisa.one` / `api.aisa.one`
+- Connects to `https://aisa.one` / `https://api.aisa.one`
 - Does not use OAuth
 - Does not upload media or files
 
 ## Notes
 
-- Powered by AIsa's unified API gateway (https://aisa.one)
+- Powered by AIsa's unified API gateway (`https://aisa.one` / `https://api.aisa.one`)
 - Use `--deep` for complex research questions
 - Use `--topic news` for current events
+- This skill is for remote web search and public URL extraction, not local browser automation

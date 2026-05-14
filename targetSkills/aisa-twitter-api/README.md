@@ -11,7 +11,7 @@ Flagship Twitter/X command center for research, monitoring, watchlists, and OAut
 
 ## Best fit
 
-- Use this as the primary Twitter/X skill when the user wants one general-purpose surface for research, monitoring, and approved posting.
+- Use this as the primary Twitter/X skill when the user wants one general-purpose surface for research, monitoring, watchlists, and approved posting.
 - Use `aisa-twitter-engagement-suite` when the task is mainly likes, follows, replies, or other engagement actions.
 - Use `aisa-twitter-command-center` when the task is mainly watchlists, trend scanning, and monitoring.
 

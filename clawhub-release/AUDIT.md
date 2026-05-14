@@ -22,7 +22,7 @@
 
 - Source: `targetSkills/aisa-tavily`
 - Output: `clawhub-release/aisa-tavily`
-- Description: Search the web and extract page content through AIsa's Tavily-backed API relay. Use when: the user needs web search, source discovery, current-news lookup, or content extraction from a URL. Supports concise result sets, deeper research, and news-focused queries.
+- Description: Search the web and extract public page content through AIsa's Tavily-backed API relay. Use when: the user needs web search, source discovery, current news lookup, or URL content extraction. Supports concise result sets, deeper research, and news-focused queries.
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only

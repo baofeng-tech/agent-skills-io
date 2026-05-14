@@ -128,20 +128,28 @@
 ## 最新自动诊断快照
 
 - 诊断对象数：`30`
-- `blocker`：`8`
-- `warning`：`22`
-- `pending`：`22`
+- `blocker`：`11`
+- `warning`：`19`
+- `pending`：`19`
 
 ### 当前高频规则
 
 - `oauth_upload_side_effects`: `5`
-- `pending_scan`: `22`
+- `pending_scan`: `19`
 - `platform_trust_gap`: `5`
 - `relay_trust_surface`: `4`
-- `review_scan`: `3`
+- `review_scan`: `6`
 
 ### 当前重点对象
 
+- `skill:aisa-twitter-api-command-center`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects, review_scan`
+  reason: The skill can publish public Twitter/X content, but the artifacts frame posting as user-intended and approved.
+- `skill:aisa-twitter-research-engage-relay`
+  severity: `blocker` | status: `suspicious`
+  rules: `review_scan`
+  reason: The skill can perform public Twitter/X actions, but the artifacts disclose this and require user-directed, confirmed workflows.
 - `skill:prediction-market`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
@@ -162,6 +170,10 @@
   severity: `blocker` | status: `suspicious`
   rules: `review_scan`
   reason: The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script.
+- `skill:twitter-post-aisa`
+  severity: `blocker` | status: `suspicious`
+  rules: `review_scan`
+  reason: The skill can perform public Twitter/X actions, but the behavior is disclosed and bounded by approval-oriented guardrails.
 - `skill:web-search`
   severity: `blocker` | status: `suspicious`
   rules: `relay_trust_surface`
@@ -177,16 +189,4 @@
 - `plugin:aisa-twitter-research-engage-plugin`
   severity: `warning` | status: `pending`
   rules: `pending_scan`
-- `skill:aisa-provider`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan`
-  reason: No suspicious code execution or autonomous behavior is shown, but the documentation contains strong privacy assurances users should independently verify.
-- `skill:aisa-tavily-search`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan`
-  reason: No artifact-backed evidence of goal hijacking, unsafe automatic execution, deceptive behavior, or persistence was found.
-- `skill:aisa-twitter`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan`
-  reason: The skill can publish public Twitter/X posts, replies, and quotes, but this is disclosed and purpose-aligned.
 <!-- AUTO-DIAGNOSIS:END -->

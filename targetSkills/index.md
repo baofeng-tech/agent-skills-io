@@ -2,7 +2,7 @@
 
 This catalog lists the current cross-platform mother skills in `targetSkills/`.
 
-- Generated at: `2026-05-13`
+- Generated at: `2026-05-14`
 - Repository target: `https://github.com/baofeng-tech/agent-skills-io`
 - Branch target: `main`
 - Total skills: `54`
@@ -20,7 +20,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `aisa-tavily`
   - Category: `search`
   - Path: `aisa-tavily`
-  - Description: Search the web and extract page content through AIsa's Tavily-backed API relay. Use when: the user needs web search, source discovery, current-news lookup, or content extraction from a URL. Supports concise result sets, deeper research, and news-focused queries.
+  - Description: Search the web and extract public page content through AIsa's Tavily-backed API relay. Use when: the user needs web search, source discovery, current news lookup, or URL content extraction. Supports concise result sets, deeper research, and news-focused queries.
 - `aisa-twitter-api`
   - Category: `twitter`
   - Path: `aisa-twitter-api`
