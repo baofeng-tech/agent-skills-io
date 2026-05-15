@@ -7,7 +7,7 @@ Flagship Twitter/X command center for research, monitoring, watchlists, and OAut
 - Search Twitter/X profiles, tweets, trends, lists, communities, and Spaces
 - Inspect timelines, mentions, replies, quotes, and thread context
 - Support watchlist-style monitoring and approved posting workflows through OAuth
-- Relay API requests, OAuth approvals, and approved media uploads through `https://api.aisa.one`
+- Relay API requests, OAuth approval, and approved media uploads through `https://api.aisa.one`
 
 ## Best fit
 
