@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T20:40:28.143162+00:00",
+  "generated_at": "2026-05-16T20:12:03.944490+00:00",
   "artifacts": {
     "plugin:aisa-multi-search-engine-plugin": {
       "key": "plugin:aisa-multi-search-engine-plugin",
@@ -4165,8 +4165,8 @@
       "version": "1.0.3",
       "path": "clawhub-release/aisa-tavily-search",
       "status": "published",
-      "published_at": "2026-05-15T20:38:50.220650+00:00",
-      "last_checked_at": "2026-05-15T20:38:50.220668+00:00",
+      "published_at": "2026-05-16T20:10:42.846205+00:00",
+      "last_checked_at": "2026-05-16T20:10:42.846221+00:00",
       "last_error": null,
       "token_slot": "token-2",
       "publish_mode": "publish-existing",
@@ -4194,10 +4194,10 @@
         "suspicious_reason": "No artifact-backed evidence of goal hijacking, unsafe automatic execution, deceptive behavior, or persistence was found.",
         "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-15T20:41:00.928752+00:00"
+        "checked_at": "2026-05-16T20:12:38.406010+00:00"
       },
-      "attempts": 6,
-      "last_attempt_at": "2026-05-15T20:38:50.220665+00:00",
+      "attempts": 7,
+      "last_attempt_at": "2026-05-16T20:10:42.846219+00:00",
       "owner_handle": "bibaofeng",
       "published_name": "aisa-tavily-search",
       "release_ref": "k97bd4twq3v3hqvyrz1rz0zat186bpr6"
@@ -4303,8 +4303,8 @@
       "version": "1.0.3",
       "path": "clawhub-plugin-release/plugins/aisa-tavily-search-plugin",
       "status": "published",
-      "published_at": "2026-05-15T20:40:03.634408+00:00",
-      "last_checked_at": "2026-05-15T20:40:03.634425+00:00",
+      "published_at": "2026-05-16T20:11:59.273763+00:00",
+      "last_checked_at": "2026-05-16T20:11:59.273781+00:00",
       "last_error": null,
       "token_slot": "token-2",
       "publish_mode": "publish-existing",
@@ -4332,12 +4332,12 @@
         "suspicious_reason": "This skill appears to do what it claims: it uses an AISA API key to send search and extraction requests to AIsa's API.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-15T20:40:32.538404+00:00"
+        "checked_at": "2026-05-16T20:12:12.902827+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-tavily-search-plugin",
-      "attempts": 6,
-      "last_attempt_at": "2026-05-15T20:40:03.634423+00:00"
+      "attempts": 7,
+      "last_attempt_at": "2026-05-16T20:11:59.273778+00:00"
     },
     "plugin:aisa-twitter-plugin": {
       "key": "plugin:aisa-twitter-plugin",
@@ -4854,10 +4854,10 @@
       "version": "1.0.3",
       "path": "clawhub-release/aisa-twitter-api-command-center",
       "status": "published",
-      "attempts": 8,
-      "published_at": "2026-05-15T20:38:54.929602+00:00",
-      "last_attempt_at": "2026-05-15T20:38:54.929617+00:00",
-      "last_checked_at": "2026-05-15T20:38:54.929620+00:00",
+      "attempts": 9,
+      "published_at": "2026-05-16T20:10:55.071081+00:00",
+      "last_attempt_at": "2026-05-16T20:10:55.071096+00:00",
+      "last_checked_at": "2026-05-16T20:10:55.071098+00:00",
       "last_error": null,
       "token_slot": "token-3",
       "release_ref": "k97f2echfgvrzyzvxs5k0h7bm186bj3z",
@@ -4886,7 +4886,7 @@
         "suspicious_reason": "The skill can publish public Twitter/X content, but the artifacts frame posting as user-intended and approved.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-15T20:41:02.234635+00:00"
+        "checked_at": "2026-05-16T20:12:39.980344+00:00"
       },
       "owner_handle": "aisadocs",
       "published_name": "aisa-twitter-api-command-center"
@@ -5030,10 +5030,10 @@
       "version": "1.0.3",
       "path": "clawhub-plugin-release/plugins/aisa-twitter-api-command-center-plugin",
       "status": "published",
-      "attempts": 8,
-      "published_at": "2026-05-15T20:38:39.106382+00:00",
-      "last_attempt_at": "2026-05-15T20:38:39.106400+00:00",
-      "last_checked_at": "2026-05-15T20:38:39.106403+00:00",
+      "attempts": 9,
+      "published_at": "2026-05-16T20:10:26.338047+00:00",
+      "last_attempt_at": "2026-05-16T20:10:26.338060+00:00",
+      "last_checked_at": "2026-05-16T20:10:26.338062+00:00",
       "last_error": null,
       "token_slot": "token-2",
       "release_ref": "rd7fp8nvwfmtd4691sejp27ywx86bv79",
@@ -5062,7 +5062,7 @@
         "suspicious_reason": "This skill appears to do what it claims—use an AIsa API key and Python scripts for Twitter/X research and posting—though its registry requirement summary under-reports the API key and Python dependency.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-15T20:40:46.722420+00:00"
+        "checked_at": "2026-05-16T20:12:18.003157+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-twitter-api-command-center-aisa-api-plugin"
@@ -5119,10 +5119,10 @@
       "version": "1.0.6",
       "path": "clawhub-release/aisa-twitter-research-engage-relay",
       "status": "published",
-      "attempts": 8,
-      "published_at": "2026-05-15T20:40:16.063115+00:00",
-      "last_attempt_at": "2026-05-15T20:40:16.063130+00:00",
-      "last_checked_at": "2026-05-15T20:40:16.063133+00:00",
+      "attempts": 9,
+      "published_at": "2026-05-16T20:11:40.425941+00:00",
+      "last_attempt_at": "2026-05-16T20:11:40.425955+00:00",
+      "last_checked_at": "2026-05-16T20:11:40.425957+00:00",
       "last_error": null,
       "token_slot": "token-2",
       "release_ref": "k977v9thzreannpde9dntq0nfd86b3zf",
@@ -5151,7 +5151,7 @@
         "suspicious_reason": "The skill can perform public Twitter/X actions, but the artifacts disclose this and require user-directed, confirmed workflows.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-15T20:41:03.211947+00:00"
+        "checked_at": "2026-05-16T20:12:41.166314+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-twitter-research-engage-relay-aisa-api"
@@ -5163,10 +5163,10 @@
       "version": "1.0.6",
       "path": "clawhub-plugin-release/plugins/aisa-twitter-research-engage-relay-plugin",
       "status": "published",
-      "attempts": 8,
-      "published_at": "2026-05-15T20:40:23.512700+00:00",
-      "last_attempt_at": "2026-05-15T20:40:23.512716+00:00",
-      "last_checked_at": "2026-05-15T20:40:23.512718+00:00",
+      "attempts": 9,
+      "published_at": "2026-05-16T20:11:48.657868+00:00",
+      "last_attempt_at": "2026-05-16T20:11:48.657883+00:00",
+      "last_checked_at": "2026-05-16T20:11:48.657885+00:00",
       "last_error": null,
       "token_slot": "token-2",
       "release_ref": "rd72dgrscqzcw06j2e2kvajfpx86am5n",
@@ -5195,7 +5195,7 @@
         "suspicious_reason": "This appears to be what it claims: a Twitter/X relay skill that uses an AIsa API key, though installing it means trusting AIsa with Twitter engagement, posting, and any attached media you send.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-15T20:40:50.432481+00:00"
+        "checked_at": "2026-05-16T20:12:31.884787+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-twitter-research-engage-relay-aisa-api-plugin"
@@ -5251,10 +5251,10 @@
       "version": "1.0.3",
       "path": "clawhub-release/twitter-post-aisa",
       "status": "published",
-      "attempts": 7,
-      "published_at": "2026-05-15T20:38:46.578162+00:00",
-      "last_attempt_at": "2026-05-15T20:38:46.578177+00:00",
-      "last_checked_at": "2026-05-15T20:38:46.578180+00:00",
+      "attempts": 8,
+      "published_at": "2026-05-16T20:10:34.098099+00:00",
+      "last_attempt_at": "2026-05-16T20:10:34.098113+00:00",
+      "last_checked_at": "2026-05-16T20:10:34.098116+00:00",
       "last_error": null,
       "token_slot": "token-3",
       "owner_handle": "aisadocs",
@@ -5285,7 +5285,7 @@
         "suspicious_reason": "The skill can perform public Twitter/X actions, but the behavior is disclosed and bounded by approval-oriented guardrails.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-15T20:41:04.508603+00:00"
+        "checked_at": "2026-05-16T20:12:42.808488+00:00"
       }
     },
     "plugin:twitter-post-aisa-plugin": {
@@ -5295,10 +5295,10 @@
       "version": "1.0.3",
       "path": "clawhub-plugin-release/plugins/twitter-post-aisa-plugin",
       "status": "published",
-      "attempts": 6,
-      "published_at": "2026-05-15T20:39:02.219124+00:00",
-      "last_attempt_at": "2026-05-15T20:39:02.219139+00:00",
-      "last_checked_at": "2026-05-15T20:39:02.219141+00:00",
+      "attempts": 7,
+      "published_at": "2026-05-16T20:10:42.534915+00:00",
+      "last_attempt_at": "2026-05-16T20:10:42.534929+00:00",
+      "last_checked_at": "2026-05-16T20:10:42.534932+00:00",
       "last_error": null,
       "token_slot": "token-3",
       "owner_handle": "aisadocs",
@@ -5329,7 +5329,7 @@
         "suspicious_reason": "This appears to be a Twitter/X posting and engagement skill that uses one AIsa API key and the documented AIsa API endpoint, with no unrelated credential requests or install steps visible.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-15T20:40:59.619436+00:00"
+        "checked_at": "2026-05-16T20:12:36.855026+00:00"
       }
     }
   }

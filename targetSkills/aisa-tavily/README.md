@@ -8,11 +8,18 @@ Search the web and extract public page content through AIsa's Tavily-backed API 
 - News-focused search with recent-day filtering
 - Public URL content extraction for downstream analysis
 
+## When to use
+
+- Research a topic on the open web
+- Find sources before summarizing or comparing claims
+- Look up recent news
+- Extract readable content from a public URL
+
 ## Requirements
 
 - `node`
 - `AISA_API_KEY`
-- Internet access with outbound requests to `api.aisa.one`
+- Internet access with outbound requests to `https://aisa.one` and `https://api.aisa.one`
 
 ## Setup
 
@@ -48,24 +55,17 @@ node scripts/search.mjs "query" --topic news
 node scripts/extract.mjs "https://example.com/article"
 ```
 
-## When to use
-
-- Research a topic on the open web
-- Find sources before summarizing or comparing claims
-- Look up recent news
-- Extract readable content from a public URL
-
-## Auth, relay, and side effects
+## Auth, relay, upload, and side effects
 
 - Uses `AISA_API_KEY` for authenticated requests
 - Sends search queries and public target URLs to AIsa's remote relay
 - Connects to `https://aisa.one` / `https://api.aisa.one`
 - Does not use OAuth
 - Does not upload media or files
+- This skill is for remote web search and public URL extraction, not local browser automation
 
 ## Notes
 
 - Powered by AIsa's unified API gateway (`https://aisa.one` / `https://api.aisa.one`)
 - Use `--deep` for complex research questions
 - Use `--topic news` for current events
-- This skill is for remote web search and public URL extraction, not local browser automation
