@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T20:12:42.814837+00:00",
+  "generated_at": "2026-05-17T20:14:53.772082+00:00",
   "summary": {
     "total": 120,
     "suspicious": 11,
@@ -255,7 +255,7 @@
       "suspicious_reason": "This skill appears to do what it claims: it uses an AISA API key to send search and extraction requests to AIsa's API.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-16T20:12:12.902827+00:00"
+      "checked_at": "2026-05-17T20:14:36.034411+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-command-center-plugin",
@@ -281,7 +281,7 @@
       "suspicious_reason": "This skill appears to do what it claims—use an AIsa API key and Python scripts for Twitter/X research and posting—though its registry requirement summary under-reports the API key and Python dependency.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-16T20:12:18.003157+00:00"
+      "checked_at": "2026-05-17T20:14:41.338738+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-plugin",
@@ -476,7 +476,7 @@
       "suspicious_reason": "This appears to be what it claims: a Twitter/X relay skill that uses an AIsa API key, though installing it means trusting AIsa with Twitter engagement, posting, and any attached media you send.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-16T20:12:31.884787+00:00"
+      "checked_at": "2026-05-17T20:14:44.847813+00:00"
     },
     {
       "key": "plugin:aisa-youtube-search-plugin",
@@ -1650,7 +1650,7 @@
       "suspicious_reason": "This appears to be a Twitter/X posting and engagement skill that uses one AIsa API key and the documented AIsa API endpoint, with no unrelated credential requests or install steps visible.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-16T20:12:36.855026+00:00"
+      "checked_at": "2026-05-17T20:14:49.358301+00:00"
     },
     {
       "key": "plugin:us-stock-analyst-plugin",
@@ -2052,7 +2052,7 @@
       "suspicious_reason": "No artifact-backed evidence of goal hijacking, unsafe automatic execution, deceptive behavior, or persistence was found.",
       "pending": true,
       "warnings": [],
-      "checked_at": "2026-05-16T20:12:38.406010+00:00"
+      "checked_at": "2026-05-17T20:14:50.571407+00:00"
     },
     {
       "key": "skill:aisa-twitter",
@@ -2104,7 +2104,7 @@
       "suspicious_reason": "The skill can publish public Twitter/X content, but the artifacts frame posting as user-intended and approved.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-16T20:12:39.980344+00:00"
+      "checked_at": "2026-05-17T20:14:51.820581+00:00"
     },
     {
       "key": "skill:aisa-twitter-research-engage",
@@ -2156,7 +2156,7 @@
       "suspicious_reason": "The skill can perform public Twitter/X actions, but the artifacts disclose this and require user-directed, confirmed workflows.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-16T20:12:41.166314+00:00"
+      "checked_at": "2026-05-17T20:14:52.465191+00:00"
     },
     {
       "key": "skill:cn-llm",
@@ -3092,7 +3092,7 @@
       "suspicious_reason": "The skill can perform public Twitter/X actions, but the behavior is disclosed and bounded by approval-oriented guardrails.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-05-16T20:12:42.808488+00:00"
+      "checked_at": "2026-05-17T20:14:53.765207+00:00"
     },
     {
       "key": "skill:us-stock-analyst",
