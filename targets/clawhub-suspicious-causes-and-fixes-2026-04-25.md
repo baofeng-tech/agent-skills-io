@@ -128,20 +128,24 @@
 ## 最新自动诊断快照
 
 - 诊断对象数：`30`
-- `blocker`：`11`
-- `warning`：`19`
-- `pending`：`19`
+- `blocker`：`15`
+- `warning`：`15`
+- `pending`：`15`
 
 ### 当前高频规则
 
-- `oauth_upload_side_effects`: `5`
-- `pending_scan`: `19`
+- `oauth_upload_side_effects`: `4`
+- `pending_scan`: `15`
 - `platform_trust_gap`: `5`
-- `relay_trust_surface`: `4`
-- `review_scan`: `6`
+- `relay_trust_surface`: `3`
+- `review_scan`: `11`
 
 ### 当前重点对象
 
+- `skill:aisa-twitter`
+  severity: `blocker` | status: `suspicious`
+  rules: `review_scan`
+  reason: The skill can publish public Twitter/X posts, replies, and quotes, but this is disclosed and purpose-aligned.
 - `skill:aisa-twitter-api-command-center`
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects, review_scan`
@@ -150,18 +154,30 @@
   severity: `blocker` | status: `suspicious`
   rules: `review_scan`
   reason: The skill can perform public Twitter/X actions, but the artifacts disclose this and require user-directed, confirmed workflows.
+- `skill:openclaw-twitter`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects, review_scan`
+  reason: The skill can invoke public posting actions when the user asks; this is disclosed and purpose-aligned, but users should review ambiguous requests.
+- `skill:openclaw-twitter-post-engage`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects, review_scan`
+  reason: The skill can perform public Twitter/X posting and engagement actions, but the artifacts disclose this and require explicit confirmation flags.
 - `skill:prediction-market`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
-  reason: The main concern is raw, agent-usable transaction guidance for spending ETH without clear confirmation or spending controls.
+  reason: The skill documents raw Base mainnet betting transactions and an agent betting strategy without clear per-transaction confirmation or spending controls.
+- `skill:prediction-market-arbitrage`
+  severity: `blocker` | status: `suspicious`
+  rules: `review_scan`
+  reason: The skill relies on user-run upstream installs and a broad update-all command, but no hidden or automatic execution is shown.
 - `skill:smart-search`
   severity: `blocker` | status: `suspicious`
   rules: `review_scan`
   reason: The main concerns are unsafe optional SearX exposure, executing .env as shell code, and over-strong safety claims.
 - `skill:stock-analysis`
   severity: `blocker` | status: `suspicious`
-  rules: `relay_trust_surface`
-  reason: Optional third-party CLI installation and user-directed cron automation are disclosed and purpose-aligned, but they add external code and recurring execution if enabled.
+  rules: `platform_trust_gap`
+  reason: Optional external CLI installation and cron automation are disclosed and purpose-aligned, but users should verify and control them.
 - `skill:tavily-extract`
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects, review_scan`
@@ -174,19 +190,4 @@
   severity: `blocker` | status: `suspicious`
   rules: `review_scan`
   reason: The skill can perform public Twitter/X actions, but the behavior is disclosed and bounded by approval-oriented guardrails.
-- `skill:web-search`
-  severity: `blocker` | status: `suspicious`
-  rules: `relay_trust_surface`
-  reason: The only noted control-related issue is a normal, purpose-aligned but unpinned third-party package install.
-- `skill:youtube`
-  severity: `blocker` | status: `suspicious`
-  rules: `relay_trust_surface`
-  reason: The skill uses user-directed third-party tool installation and includes broad safety wording, but this is aligned with the YouTube integration purpose.
-- `skill:youtube-search`
-  severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
-  reason: The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits.
-- `plugin:aisa-twitter-research-engage-plugin`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan`
 <!-- AUTO-DIAGNOSIS:END -->
