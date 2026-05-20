@@ -15,6 +15,12 @@ Search the web and extract public page content through AIsa's Tavily-backed API 
 - Look up recent news
 - Extract readable content from a public URL
 
+## When not to use
+
+- Do not use for sites that require login, cookies, browser sessions, or private account access
+- Do not use for posting, social engagement, OAuth-based actions, or file/media upload
+- Do not use as a local browser automation tool
+
 ## Requirements
 
 - `node`
@@ -63,6 +69,7 @@ node scripts/extract.mjs "https://example.com/article"
 - Does not use OAuth
 - Does not upload media or files
 - This skill is for remote web search and public URL extraction, not local browser automation
+- This skill does not access private accounts, cookies, or authenticated pages
 
 ## Notes
 
