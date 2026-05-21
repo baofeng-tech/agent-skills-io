@@ -128,17 +128,17 @@
 ## 最新自动诊断快照
 
 - 诊断对象数：`30`
-- `blocker`：`15`
-- `warning`：`15`
-- `pending`：`15`
+- `blocker`：`12`
+- `warning`：`18`
+- `pending`：`18`
 
 ### 当前高频规则
 
 - `oauth_upload_side_effects`: `4`
-- `pending_scan`: `15`
+- `pending_scan`: `18`
 - `platform_trust_gap`: `5`
 - `relay_trust_surface`: `3`
-- `review_scan`: `11`
+- `review_scan`: `8`
 
 ### 当前重点对象
 
@@ -146,14 +146,6 @@
   severity: `blocker` | status: `suspicious`
   rules: `review_scan`
   reason: The skill can publish public Twitter/X posts, replies, and quotes, but this is disclosed and purpose-aligned.
-- `skill:aisa-twitter-api-command-center`
-  severity: `blocker` | status: `suspicious`
-  rules: `oauth_upload_side_effects, review_scan`
-  reason: The skill can publish public Twitter/X content, but the artifacts frame posting as user-intended and approved.
-- `skill:aisa-twitter-research-engage-relay`
-  severity: `blocker` | status: `suspicious`
-  rules: `review_scan`
-  reason: The skill can perform public Twitter/X actions, but the artifacts disclose this and require user-directed, confirmed workflows.
 - `skill:openclaw-twitter`
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects, review_scan`
@@ -186,8 +178,16 @@
   severity: `blocker` | status: `suspicious`
   rules: `review_scan`
   reason: The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script.
-- `skill:twitter-post-aisa`
+- `skill:web-search`
+  severity: `blocker` | status: `suspicious`
+  rules: `relay_trust_surface`
+  reason: The only noted control-related issue is a normal, purpose-aligned but unpinned third-party package install.
+- `skill:youtube`
+  severity: `blocker` | status: `suspicious`
+  rules: `relay_trust_surface`
+  reason: The skill uses user-directed third-party tool installation and includes broad safety wording, but this is aligned with the YouTube integration purpose.
+- `skill:youtube-search`
   severity: `blocker` | status: `suspicious`
   rules: `review_scan`
-  reason: The skill can perform public Twitter/X actions, but the behavior is disclosed and bounded by approval-oriented guardrails.
+  reason: The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits.
 <!-- AUTO-DIAGNOSIS:END -->

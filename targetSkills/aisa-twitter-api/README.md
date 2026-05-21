@@ -6,10 +6,10 @@ Flagship Twitter/X command center for research, monitoring, watchlists, and OAut
 
 - Search Twitter/X profiles, tweets, trends, lists, communities, and Spaces
 - Inspect timelines, mentions, replies, quotes, and thread context
-- Support watchlist-style monitoring and approved posting workflows through OAuth
+- Run watchlist-style monitoring and approved posting workflows through OAuth
 - Send relay API requests, OAuth approval, and approved media uploads through `https://api.aisa.one`
 
-## Best fit
+## When to use
 
 - Use this as the primary Twitter/X skill when the user wants one general-purpose surface for research, monitoring, watchlists, and approved posting.
 - Use `aisa-twitter-engagement-suite` when the task is mainly likes, follows, replies, or other engagement actions.
@@ -25,9 +25,9 @@ Requires:
 
 - `python3`
 - `AISA_API_KEY`
-- network access to `https://api.aisa.one`
-- explicit OAuth approval before posting
-- user-provided media files for image or video uploads
+- Network access to `https://api.aisa.one`
+- Explicit OAuth approval before posting
+- User-provided media files for image or video uploads
 
 ## Common Commands
 
@@ -42,6 +42,6 @@ python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa"
 - Requires only `AISA_API_KEY` as the declared environment secret.
 - Uses a relay-based flow to `https://api.aisa.one` for reads, OAuth handling, and approved uploads.
 - External writes happen only after explicit OAuth approval.
-- Image and video posting send user-selected media through the relay for upload.
+- Image and video posting sends user-selected media through the relay for upload.
 - Does not require passwords or browser cookies.
 - Do not claim posting succeeded until the relay returns success.
