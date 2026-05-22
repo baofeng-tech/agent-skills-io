@@ -26,7 +26,7 @@ This directory is a GitHub-ready Claude / skills.sh release layer generated from
 
 ## Skill Count
 
-- Generated skills: 54
+- Generated skills: 58
 
 ## Validation
 

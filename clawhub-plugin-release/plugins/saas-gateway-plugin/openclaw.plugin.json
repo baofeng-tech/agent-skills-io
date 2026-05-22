@@ -1,0 +1,114 @@
+{
+  "id": "saas-gateway-plugin",
+  "name": "Saas Gateway",
+  "description": "Requires AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `saas-gateway`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Unified SaaS integration gateway via api.aisa.one (AISA gateway, v3.1): manage OAuth auth for third-party SaaS apps (Gmail/Slack/GitHub/Notion etc.), tool execution, tool-router sessions, triggers, webhooks, MCP servers, and usage stats. Use when connecting third-party SaaS accounts, running cross-SaaS tools, managing MCP servers, setting up triggers, or checking usage. Keywords: SaaS gateway, connect app, OAuth link, run tool, auth config, tool router, MCP server, trigger, webhook, connected account, usage stats",
+  "version": "1.0.0",
+  "skills": [
+    "./skills"
+  ],
+  "bundledSkills": [
+    "saas-gateway"
+  ],
+  "commands": [
+    {
+      "name": "saas-gateway",
+      "description": "Unified SaaS integration gateway via api.aisa.one (AISA gateway, v3.1): manage OAuth auth for third-party SaaS apps (Gmail/Slack/GitHub/Notion etc.), tool execution, tool-router sessions, triggers, webhooks, MCP servers, and usage stats. Use when connecting third-party SaaS accounts, running cross-SaaS tools, managing MCP servers, setting up triggers, or checking usage. Keywords: SaaS gateway, connect app, OAuth link, run tool, auth config, tool router, MCP server, trigger, webhook, connected account, usage stats"
+    }
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "AISA_API_KEY": {
+        "type": "string",
+        "title": "Aisa Api Key",
+        "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
+        "format": "password"
+      }
+    },
+    "required": [
+      "AISA_API_KEY"
+    ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "emoji": "🤖"
+  },
+  "runtimeRequirements": {
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
+  "metadata": {
+    "aisa": {
+      "requires": {
+        "env": [
+          "AISA_API_KEY"
+        ]
+      },
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
+    }
+  },
+  "providers": [
+    "aisa"
+  ],
+  "providerAuthEnvVars": {
+    "aisa": [
+      "AISA_API_KEY"
+    ]
+  },
+  "providerAuthChoices": [
+    {
+      "provider": "aisa",
+      "method": "api-key",
+      "choiceId": "aisa-api-key",
+      "choiceLabel": "AISA API key",
+      "choiceHint": "Used only to authorize requests to the AIsa API service.",
+      "groupId": "aisa",
+      "groupLabel": "AIsa",
+      "optionKey": "aisaApiKey",
+      "cliFlag": "--aisa-api-key",
+      "cliOption": "--aisa-api-key <key>",
+      "cliDescription": "AISA_API_KEY used by the packaged skill runtime.",
+      "onboardingScopes": [
+        "text-inference"
+      ],
+      "assistantPriority": 0
+    }
+  ],
+  "requires": {
+    "env": [
+      "AISA_API_KEY"
+    ]
+  },
+  "primaryEnv": "AISA_API_KEY",
+  "networkTargets": [
+    "https://api.aisa.one"
+  ],
+  "uiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "emoji": "🤖"
+  },
+  "environment": {
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      }
+    ]
+  }
+}

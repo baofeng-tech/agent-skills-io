@@ -15,7 +15,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - The root stays flat because the current publish/test/live-status scripts discover `clawhub-release/*` directly.
 - Read `slug-groups.json` or the grouped lists below when you need the human-friendly split between original and breakout slugs.
 
-## Original Slugs (54)
+## Original Slugs (58)
 
 - `aisa-multi-search-engine` <- source `aisa-multi-search-engine`
 - `aisa-provider` <- source `aisa-provider`
@@ -28,6 +28,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `aisa-youtube-serp-scout` <- source `aisa-youtube-serp-scout`
 - `cn-llm` <- source `cn-llm`
 - `crypto-market-data` <- source `crypto-market-data`
+- `gmail-lead-desk` <- source `gmail-lead-desk`
 - `last30days` <- source `last30days`
 - `last30days-zh` <- source `last30days-zh`
 - `llm-router` <- source `llm-router`
@@ -36,6 +37,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `media-gen` <- source `media-gen`
 - `multi-search` <- source `multi-search`
 - `multi-source-search` <- source `multi-source-search`
+- `notion-workspace` <- source `notion-workspace`
 - `openclaw-aisa-youtube-aisa` <- source `openclaw-aisa-youtube-aisa`
 - `openclaw-media-gen` <- source `openclaw-media-gen`
 - `openclaw-search` <- source `openclaw-search`
@@ -50,6 +52,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `prediction-market-arbitrage-zh` <- source `prediction-market-arbitrage-zh`
 - `prediction-market-data` <- source `prediction-market-data`
 - `prediction-market-data-zh` <- source `prediction-market-data-zh`
+- `saas-gateway` <- source `saas-gateway`
 - `scholar-search` <- source `scholar-search`
 - `search` <- source `search`
 - `smart-search` <- source `smart-search`
@@ -61,6 +64,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `stock-watchlist` <- source `stock-watchlist`
 - `tavily-extract` <- source `tavily-extract`
 - `tavily-search` <- source `tavily-search`
+- `trend-forecast` <- source `trend-forecast`
 - `twitter` <- source `twitter`
 - `twitter-autopilot` <- source `twitter-autopilot`
 - `twitter-command-center-search-post` <- source `twitter-command-center-search-post`

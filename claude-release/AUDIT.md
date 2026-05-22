@@ -4,7 +4,7 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 ## Summary
 
-- Skills converted: 54
+- Skills converted: 58
 - Skills with residual risk notes: 15
 
 ## Per Skill
@@ -148,6 +148,18 @@ This report summarizes structural cleanup and residual publishing risk for the g
 - Change: replaced source README with a Claude-oriented release README
 - Change: copied runtime scripts/references only
 
+### gmail-lead-desk
+
+- Source: `targetSkills/gmail-lead-desk`
+- Output: `claude-release/gmail-lead-desk`
+- Description: Gmail Lead Desk — standalone sales/CS Gmail skill via the AISA gateway: OAuth connect, scan unread leads, summarize threads, draft template replies (default draft-only), archive with labels. Keywords: Gmail Lead Desk, Gmail, lead desk, sales, customer support, follow-up, unread, inquiry summary, draft reply, archive, OAuth, AISA, connected account, thread_id. Use when: the user needs this workflow's domain-specific automation or guidance.
+- Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
+- Change: stripped platform-specific metadata from release frontmatter
+- Change: inferred allowed-tools for Claude Code compatibility
+- Change: ensured description carries explicit trigger phrasing for search and selection
+- Change: replaced source README with a Claude-oriented release README
+- Change: copied runtime scripts/references only
+
 ### last30days
 
 - Source: `targetSkills/last30days`
@@ -245,6 +257,18 @@ This report summarizes structural cleanup and residual publishing risk for the g
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility
+- Change: replaced source README with a Claude-oriented release README
+- Change: copied runtime scripts/references only
+
+### notion-workspace
+
+- Source: `targetSkills/notion-workspace`
+- Output: `claude-release/notion-workspace`
+- Description: Manage Notion workspace: search pages and databases, read markdown, create pages, insert rows, triggers, MCP. Powered by AISA gateway (Notion toolkit). Requires AISA_API_KEY and curl. Keywords: notion, workspace, page, database, block, markdown, wiki, task board, insert row, OAuth. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
+- Change: stripped platform-specific metadata from release frontmatter
+- Change: inferred allowed-tools for Claude Code compatibility
+- Change: ensured description carries explicit trigger phrasing for search and selection
 - Change: replaced source README with a Claude-oriented release README
 - Change: copied runtime scripts/references only
 
@@ -418,6 +442,17 @@ This report summarizes structural cleanup and residual publishing risk for the g
 - Change: replaced source README with a Claude-oriented release README
 - Change: copied runtime scripts/references only
 
+### saas-gateway
+
+- Source: `targetSkills/saas-gateway`
+- Output: `claude-release/saas-gateway`
+- Description: Unified SaaS integration gateway via api.aisa.one (AISA gateway, v3.1): manage OAuth auth for third-party SaaS apps (Gmail/Slack/GitHub/Notion etc.), tool execution, tool-router sessions, triggers, webhooks, MCP servers, and usage stats. Use when connecting third-party SaaS accounts, running cross-SaaS tools, managing MCP servers, setting up triggers, or checking usage. Keywords: SaaS gateway, connect app, OAuth link, run tool, auth config, tool router, MCP server, trigger, webhook, connected account, usage stats
+- Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
+- Change: stripped platform-specific metadata from release frontmatter
+- Change: inferred allowed-tools for Claude Code compatibility
+- Change: replaced source README with a Claude-oriented release README
+- Change: copied runtime scripts/references only
+
 ### scholar-search
 
 - Source: `targetSkills/scholar-search`
@@ -540,6 +575,18 @@ This report summarizes structural cleanup and residual publishing risk for the g
 - Source: `targetSkills/tavily-search`
 - Output: `claude-release/tavily-search`
 - Description: Advanced web search via Tavily through AIsa API. Supports search depth, topic filtering (general/news/finance), time ranges, domain inclusion/exclusion, and LLM-generated answers. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
+- Change: stripped platform-specific metadata from release frontmatter
+- Change: inferred allowed-tools for Claude Code compatibility
+- Change: ensured description carries explicit trigger phrasing for search and selection
+- Change: replaced source README with a Claude-oriented release README
+- Change: copied runtime scripts/references only
+
+### trend-forecast
+
+- Source: `targetSkills/trend-forecast`
+- Output: `claude-release/trend-forecast`
+- Description: Multi-signal trend forecasting for autonomous agents. Combines prediction market odds, Twitter/X social sentiment, news velocity, and stock market data into a unified trend analysis with confidence scoring. Powered by AIsa — one API key, five data streams. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility

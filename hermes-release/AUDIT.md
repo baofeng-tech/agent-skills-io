@@ -1,6 +1,6 @@
 # Hermes Release Audit
 
-- Skills converted: 54
+- Skills converted: 58
 
 ## aisa-multi-search-engine
 
@@ -102,6 +102,14 @@
 - Change: patched Hermes runtime auth and storage defaults in scripts/coingecko_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
+## gmail-lead-desk
+
+- Category: `automation`
+- Path: `hermes-release/automation/gmail-lead-desk`
+- Description: Gmail Lead Desk — standalone sales/CS Gmail skill via the AISA gateway: OAuth connect, scan unread leads, summarize threads, draft template replies (default draft-only), archive with labels. Keywords: Gmail Lead Desk, Gmail, lead desk, sales, customer support, follow-up, unread, inquiry summary, draft reply, archive, OAuth, AISA, connected account, thread_id. Use when: the user needs this workflow's domain-specific automation or guidance.
+- Change: removed non-runtime documentation directories from the Hermes release bundle
+- Change: replaced source README with a Hermes-oriented release README
+
 ## last30days
 
 - Category: `research`
@@ -168,6 +176,14 @@
 - Path: `hermes-release/research/multi-source-search`
 - Description: Multi-source search for agents across web, scholar, Tavily, and Perplexity Sonar endpoints. Use when you need structured retrieval, citation-backed answers, or broad research coverage from one AIsa API key.
 - Change: patched Hermes runtime auth and storage defaults in scripts/search_client.py
+- Change: replaced source README with a Hermes-oriented release README
+
+## notion-workspace
+
+- Category: `research`
+- Path: `hermes-release/research/notion-workspace`
+- Description: Manage Notion workspace: search pages and databases, read markdown, create pages, insert rows, triggers, MCP. Powered by AISA gateway (Notion toolkit). Requires AISA_API_KEY and curl. Keywords: notion, workspace, page, database, block, markdown, wiki, task board, insert row, OAuth. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: replaced source README with a Hermes-oriented release README
 
 ## openclaw-aisa-youtube-aisa
@@ -292,6 +308,14 @@
 - Change: patched Hermes runtime auth and storage defaults in scripts/prediction_market_client.py
 - Change: replaced source README with a Hermes-oriented release README
 
+## saas-gateway
+
+- Category: `ai`
+- Path: `hermes-release/ai/saas-gateway`
+- Description: Unified SaaS integration gateway via api.aisa.one (AISA gateway, v3.1): manage OAuth auth for third-party SaaS apps (Gmail/Slack/GitHub/Notion etc.), tool execution, tool-router sessions, triggers, webhooks, MCP servers, and usage stats. Use when connecting third-party SaaS accounts, running cross-SaaS tools, managing MCP servers, setting up triggers, or checking usage. Keywords: SaaS gateway, connect app, OAuth link, run tool, auth config, tool router, MCP server, trigger, webhook, connected account, usage stats
+- Change: removed non-runtime documentation directories from the Hermes release bundle
+- Change: replaced source README with a Hermes-oriented release README
+
 ## scholar-search
 
 - Category: `research`
@@ -378,6 +402,14 @@
 - Path: `hermes-release/finance/tavily-search`
 - Description: Advanced web search via Tavily through AIsa API. Supports search depth, topic filtering (general/news/finance), time ranges, domain inclusion/exclusion, and LLM-generated answers. Use when: the user needs web search, research, source discovery, or content extraction.
 - Change: patched Hermes runtime auth and storage defaults in scripts/search_client.py
+- Change: replaced source README with a Hermes-oriented release README
+
+## trend-forecast
+
+- Category: `communication`
+- Path: `hermes-release/communication/trend-forecast`
+- Description: Multi-signal trend forecasting for autonomous agents. Combines prediction market odds, Twitter/X social sentiment, news velocity, and stock market data into a unified trend analysis with confidence scoring. Powered by AIsa — one API key, five data streams. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.
+- Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: replaced source README with a Hermes-oriented release README
 
 ## twitter

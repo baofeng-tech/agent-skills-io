@@ -127,56 +127,32 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`30`
-- `blocker`：`12`
-- `warning`：`18`
-- `pending`：`18`
+- 诊断对象数：`56`
+- `blocker`：`6`
+- `warning`：`50`
+- `pending`：`50`
 
 ### 当前高频规则
 
-- `oauth_upload_side_effects`: `4`
-- `pending_scan`: `18`
-- `platform_trust_gap`: `5`
-- `relay_trust_surface`: `3`
-- `review_scan`: `8`
+- `metadata_env_mismatch`: `1`
+- `oauth_upload_side_effects`: `8`
+- `pending_scan`: `50`
+- `platform_trust_gap`: `16`
+- `relay_trust_surface`: `23`
 
 ### 当前重点对象
 
-- `skill:aisa-twitter`
-  severity: `blocker` | status: `suspicious`
-  rules: `review_scan`
-  reason: The skill can publish public Twitter/X posts, replies, and quotes, but this is disclosed and purpose-aligned.
-- `skill:openclaw-twitter`
-  severity: `blocker` | status: `suspicious`
-  rules: `oauth_upload_side_effects, review_scan`
-  reason: The skill can invoke public posting actions when the user asks; this is disclosed and purpose-aligned, but users should review ambiguous requests.
-- `skill:openclaw-twitter-post-engage`
-  severity: `blocker` | status: `suspicious`
-  rules: `oauth_upload_side_effects, review_scan`
-  reason: The skill can perform public Twitter/X posting and engagement actions, but the artifacts disclose this and require explicit confirmation flags.
 - `skill:prediction-market`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
   reason: The skill documents raw Base mainnet betting transactions and an agent betting strategy without clear per-transaction confirmation or spending controls.
-- `skill:prediction-market-arbitrage`
-  severity: `blocker` | status: `suspicious`
-  rules: `review_scan`
-  reason: The skill relies on user-run upstream installs and a broad update-all command, but no hidden or automatic execution is shown.
-- `skill:smart-search`
-  severity: `blocker` | status: `suspicious`
-  rules: `review_scan`
-  reason: The main concerns are unsafe optional SearX exposure, executing .env as shell code, and over-strong safety claims.
 - `skill:stock-analysis`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
-  reason: Optional external CLI installation and cron automation are disclosed and purpose-aligned, but users should verify and control them.
-- `skill:tavily-extract`
-  severity: `blocker` | status: `suspicious`
-  rules: `oauth_upload_side_effects, review_scan`
-  reason: The OAuth fallback can automatically execute an unpinned npm helper through `npx -y`.
+  reason: No artifact-backed abnormal behavior-control issue was confirmed.
 - `skill:twitter-autopilot`
   severity: `blocker` | status: `suspicious`
-  rules: `review_scan`
+  rules: `platform_trust_gap`
   reason: The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script.
 - `skill:web-search`
   severity: `blocker` | status: `suspicious`
@@ -188,6 +164,29 @@
   reason: The skill uses user-directed third-party tool installation and includes broad safety wording, but this is aligned with the YouTube integration purpose.
 - `skill:youtube-search`
   severity: `blocker` | status: `suspicious`
-  rules: `review_scan`
+  rules: `platform_trust_gap`
   reason: The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits.
+- `plugin:aisa-twitter-research-engage-plugin`
+  severity: `warning` | status: `pending`
+  rules: `pending_scan`
+- `skill:aisa-crypto-market-data`
+  severity: `warning` | status: `pending`
+  rules: `pending_scan, platform_trust_gap, relay_trust_surface`
+  reason: The skill is coherent with its stated purpose of fetching crypto market data via the AIsa service: it requires only python3 and an AISA_API_KEY and the bundled script calls the AIsa API — nothing in the package requests unrelated credentials or installs arbitrary code from unknown hosts.
+- `skill:aisa-multi-search-engine`
+  severity: `warning` | status: `pending`
+  rules: `pending_scan, relay_trust_surface`
+  reason: The skill's code, runtime instructions, and requested environment access are consistent with a multi-source search plugin that calls the AIsa API and only requires an AISA_API_KEY plus python3/node runtimes.
+- `skill:aisa-perplexity-search-sonar`
+  severity: `warning` | status: `pending`
+  rules: `pending_scan, relay_trust_surface`
+  reason: The skill's code, runtime instructions, and required credential (AISA_API_KEY) are consistent with a search/synthesis client for the AIsa Perplexity Sonar API and do not request unrelated privileges or perform unexpected actions.
+- `skill:aisa-perplexity-sonar-search`
+  severity: `warning` | status: `pending`
+  rules: `pending_scan, relay_trust_surface`
+  reason: The skill is internally consistent: it requires a single AISA_API_KEY, runs a small Python client that POSTs queries to api.aisa.one, and the requested resources match the described search/synthesis purpose.
+- `skill:aisa-provider`
+  severity: `warning` | status: `pending`
+  rules: `pending_scan`
+  reason: No suspicious code execution or autonomous behavior is shown, but the documentation contains strong privacy assurances users should independently verify.
 <!-- AUTO-DIAGNOSIS:END -->

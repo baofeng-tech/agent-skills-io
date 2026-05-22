@@ -136,6 +136,17 @@
       ]
     },
     {
+      "name": "gmail-lead-desk",
+      "category": "automation",
+      "path": "hermes-release/automation/gmail-lead-desk",
+      "description": "Gmail Lead Desk — standalone sales/CS Gmail skill via the AISA gateway: OAuth connect, scan unread leads, summarize threads, draft template replies (default draft-only), archive with labels. Keywords: Gmail Lead Desk, Gmail, lead desk, sales, customer support, follow-up, unread, inquiry summary, draft reply, archive, OAuth, AISA, connected account, thread_id. Use when: the user needs this workflow's domain-specific automation or guidance.",
+      "residual_risks": [],
+      "changes": [
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "replaced source README with a Hermes-oriented release README"
+      ]
+    },
+    {
       "name": "last30days",
       "category": "research",
       "path": "hermes-release/research/last30days",
@@ -224,6 +235,17 @@
       "residual_risks": [],
       "changes": [
         "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
+        "replaced source README with a Hermes-oriented release README"
+      ]
+    },
+    {
+      "name": "notion-workspace",
+      "category": "research",
+      "path": "hermes-release/research/notion-workspace",
+      "description": "Manage Notion workspace: search pages and databases, read markdown, create pages, insert rows, triggers, MCP. Powered by AISA gateway (Notion toolkit). Requires AISA_API_KEY and curl. Keywords: notion, workspace, page, database, block, markdown, wiki, task board, insert row, OAuth. Use when: the user needs web search, research, source discovery, or content extraction.",
+      "residual_risks": [],
+      "changes": [
+        "removed non-runtime documentation directories from the Hermes release bundle",
         "replaced source README with a Hermes-oriented release README"
       ]
     },
@@ -392,6 +414,17 @@
       ]
     },
     {
+      "name": "saas-gateway",
+      "category": "ai",
+      "path": "hermes-release/ai/saas-gateway",
+      "description": "Unified SaaS integration gateway via api.aisa.one (AISA gateway, v3.1): manage OAuth auth for third-party SaaS apps (Gmail/Slack/GitHub/Notion etc.), tool execution, tool-router sessions, triggers, webhooks, MCP servers, and usage stats. Use when connecting third-party SaaS accounts, running cross-SaaS tools, managing MCP servers, setting up triggers, or checking usage. Keywords: SaaS gateway, connect app, OAuth link, run tool, auth config, tool router, MCP server, trigger, webhook, connected account, usage stats",
+      "residual_risks": [],
+      "changes": [
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "replaced source README with a Hermes-oriented release README"
+      ]
+    },
+    {
       "name": "scholar-search",
       "category": "research",
       "path": "hermes-release/research/scholar-search",
@@ -509,6 +542,17 @@
       "residual_risks": [],
       "changes": [
         "patched Hermes runtime auth and storage defaults in scripts/search_client.py",
+        "replaced source README with a Hermes-oriented release README"
+      ]
+    },
+    {
+      "name": "trend-forecast",
+      "category": "communication",
+      "path": "hermes-release/communication/trend-forecast",
+      "description": "Multi-signal trend forecasting for autonomous agents. Combines prediction market odds, Twitter/X social sentiment, news velocity, and stock market data into a unified trend analysis with confidence scoring. Powered by AIsa — one API key, five data streams. Use when: the user needs X/Twitter research, monitoring, posting, or engagement workflows.",
+      "residual_risks": [],
+      "changes": [
+        "removed non-runtime documentation directories from the Hermes release bundle",
         "replaced source README with a Hermes-oriented release README"
       ]
     },

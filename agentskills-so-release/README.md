@@ -34,6 +34,7 @@ Agent Skills open-standard release layer generated from `targetSkills/`.
 - `aisa-youtube-serp-scout`
 - `cn-llm`
 - `crypto-market-data`
+- `gmail-lead-desk`
 - `last30days`
 - `last30days-zh`
 - `llm-router`
@@ -42,6 +43,7 @@ Agent Skills open-standard release layer generated from `targetSkills/`.
 - `media-gen`
 - `multi-search`
 - `multi-source-search`
+- `notion-workspace`
 - `openclaw-aisa-youtube-aisa`
 - `openclaw-media-gen`
 - `openclaw-search`
@@ -56,6 +58,7 @@ Agent Skills open-standard release layer generated from `targetSkills/`.
 - `prediction-market-arbitrage-zh`
 - `prediction-market-data`
 - `prediction-market-data-zh`
+- `saas-gateway`
 - `scholar-search`
 - `search`
 - `smart-search`
@@ -67,6 +70,7 @@ Agent Skills open-standard release layer generated from `targetSkills/`.
 - `stock-watchlist`
 - `tavily-extract`
 - `tavily-search`
+- `trend-forecast`
 - `twitter`
 - `twitter-autopilot`
 - `twitter-command-center-search-post`

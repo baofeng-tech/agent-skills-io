@@ -38,6 +38,7 @@ done
 - `aisa-youtube-serp-scout-plugin` → `aisa-youtube-serp-scout`
 - `cn-llm-plugin` → `cn-llm`
 - `crypto-market-data-plugin` → `crypto-market-data`
+- `gmail-lead-desk-plugin` → `gmail-lead-desk`
 - `last30days-plugin` → `last30days`
 - `last30days-zh-plugin` → `last30days-zh`
 - `llm-router-plugin` → `llm-router`
@@ -46,6 +47,7 @@ done
 - `media-gen-plugin` → `media-gen`
 - `multi-search-plugin` → `multi-search`
 - `multi-source-search-plugin` → `multi-source-search`
+- `notion-workspace-plugin` → `notion-workspace`
 - `openclaw-aisa-youtube-aisa-plugin` → `openclaw-aisa-youtube-aisa`
 - `openclaw-media-gen-plugin` → `openclaw-media-gen`
 - `openclaw-search-plugin` → `openclaw-search`
@@ -60,6 +62,7 @@ done
 - `prediction-market-arbitrage-zh-plugin` → `prediction-market-arbitrage-zh`
 - `prediction-market-data-plugin` → `prediction-market-data`
 - `prediction-market-data-zh-plugin` → `prediction-market-data-zh`
+- `saas-gateway-plugin` → `saas-gateway`
 - `scholar-search-plugin` → `scholar-search`
 - `search-plugin` → `search`
 - `smart-search-plugin` → `smart-search`
@@ -71,6 +74,7 @@ done
 - `stock-watchlist-plugin` → `stock-watchlist`
 - `tavily-extract-plugin` → `tavily-extract`
 - `tavily-search-plugin` → `tavily-search`
+- `trend-forecast-plugin` → `trend-forecast`
 - `twitter-plugin` → `twitter`
 - `twitter-autopilot-plugin` → `twitter-autopilot`
 - `twitter-command-center-search-post-plugin` → `twitter-command-center-search-post`
