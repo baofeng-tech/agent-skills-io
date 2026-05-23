@@ -2,40 +2,22 @@
   "last_synced_commit": "dd4bb4c02f25b644f69c248cf9dff2527e7df769",
   "last_detected_commit": "dd4bb4c02f25b644f69c248cf9dff2527e7df769",
   "last_run": {
-    "started_at": "2026-05-22T20:49:50.173201+00:00",
+    "started_at": "2026-05-23T20:12:31.076832+00:00",
     "source_mode": "clone",
     "upstream_root": "/home/runner/work/agent-skills-io/agent-skills-io/.cache/upstream-agent-skills",
     "upstream_branch": "main",
     "upstream_head": "dd4bb4c02f25b644f69c248cf9dff2527e7df769",
-    "baseline_commit": "b2c37ab3d7aafff1bef1bc3f5d3bf653767b4ccb",
+    "baseline_commit": "dd4bb4c02f25b644f69c248cf9dff2527e7df769",
     "selection": "changed",
     "include_working_tree": false,
-    "planned_skills": [
-      "gmail-lead-desk",
-      "notion-workspace",
-      "saas-gateway",
-      "trend-forecast"
-    ],
-    "synced_skills": [
-      "gmail-lead-desk",
-      "notion-workspace",
-      "saas-gateway",
-      "trend-forecast"
-    ],
-    "created_skills": [
-      "gmail-lead-desk",
-      "notion-workspace",
-      "saas-gateway",
-      "trend-forecast"
-    ],
+    "planned_skills": [],
+    "synced_skills": [],
+    "created_skills": [],
     "skipped_skills": [],
     "llm_steps": [],
-    "diagnosis_steps": [
-      "python3 scripts/clawhub_live_status.py --targets both --include-status published",
-      "python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode update"
-    ],
+    "diagnosis_steps": [],
     "publish_steps": [],
-    "completed_at": "2026-05-22T21:02:33.496083+00:00"
+    "completed_at": "2026-05-23T20:12:31.076878+00:00"
   },
   "pending_manual_review": []
 }
