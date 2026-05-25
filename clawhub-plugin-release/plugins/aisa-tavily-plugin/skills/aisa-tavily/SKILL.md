@@ -1,6 +1,6 @@
 ---
 name: aisa-tavily
-description: 'Search the web and extract public page content through AIsa''s Tavily-backed API relay. Use when: the user needs web search, source discovery, current news lookup, or URL content extraction. Supports concise result sets, deeper research, and news-focused queries.'
+description: 'Search the web and extract public page content through AIsa''s Tavily-backed API relay. Use when: the user needs web search, source discovery, current news lookup, or public URL content extraction. Supports concise result sets, deeper research, and news-focused queries.'
 author: AIsa
 version: 1.0.0
 license: Apache-2.0

@@ -37,7 +37,7 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 - Source: `targetSkills/aisa-tavily`
 - Output: `claude-release/aisa-tavily`
-- Description: Search the web and extract public page content through AIsa's Tavily-backed API relay. Use when: the user needs web search, source discovery, current news lookup, or URL content extraction. Supports concise result sets, deeper research, and news-focused queries.
+- Description: Search the web and extract public page content through AIsa's Tavily-backed API relay. Use when: the user needs web search, source discovery, current news lookup, or public URL content extraction. Supports concise result sets, deeper research, and news-focused queries.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility
