@@ -127,21 +127,25 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`56`
-- `blocker`：`6`
-- `warning`：`50`
-- `pending`：`50`
+- 诊断对象数：`55`
+- `blocker`：`7`
+- `warning`：`48`
+- `pending`：`48`
 
 ### 当前高频规则
 
 - `metadata_env_mismatch`: `1`
-- `oauth_upload_side_effects`: `8`
-- `pending_scan`: `50`
-- `platform_trust_gap`: `16`
-- `relay_trust_surface`: `23`
+- `oauth_upload_side_effects`: `9`
+- `pending_scan`: `48`
+- `platform_trust_gap`: `15`
+- `relay_trust_surface`: `24`
 
 ### 当前重点对象
 
+- `plugin:aisa-twitter-research-engage-plugin`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects, relay_trust_surface`
+  reason: The skill's code and runtime instructions largely match a Twitter research/posting tool using an AIsa relay, but there are internal inconsistencies in the declared requirements and some undocumented environment hooks and behaviors that you should review before installing.
 - `skill:prediction-market`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
@@ -149,7 +153,7 @@
 - `skill:stock-analysis`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
-  reason: No artifact-backed abnormal behavior-control issue was confirmed.
+  reason: The skill is a coherent stock-analysis tool, but its optional social scanning asks users to expose live X/Twitter session credentials to an external CLI with overly broad local permissions.
 - `skill:twitter-autopilot`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
@@ -166,9 +170,6 @@
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
   reason: The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits.
-- `plugin:aisa-twitter-research-engage-plugin`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan`
 - `skill:aisa-crypto-market-data`
   severity: `warning` | status: `pending`
   rules: `pending_scan, platform_trust_gap, relay_trust_surface`

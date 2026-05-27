@@ -15,7 +15,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - The root stays flat because the current publish/test/live-status scripts discover `clawhub-release/*` directly.
 - Read `slug-groups.json` or the grouped lists below when you need the human-friendly split between original and breakout slugs.
 
-## Original Slugs (58)
+## Original Slugs (59)
 
 - `aisa-multi-search-engine` <- source `aisa-multi-search-engine`
 - `aisa-provider` <- source `aisa-provider`
@@ -55,6 +55,7 @@ ClawHub-oriented packaged copy of all `targetSkills/` mother skills.
 - `saas-gateway` <- source `saas-gateway`
 - `scholar-search` <- source `scholar-search`
 - `search` <- source `search`
+- `seo-keyword-research` <- source `seo-keyword-research`
 - `smart-search` <- source `smart-search`
 - `stock-analysis` <- source `stock-analysis`
 - `stock-dividend-aisa` <- source `stock-dividend`

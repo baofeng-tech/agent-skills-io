@@ -1,0 +1,126 @@
+{
+  "id": "seo-keyword-research-plugin",
+  "name": "Seo Keyword Research",
+  "description": "Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `seo-keyword-research`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use this skill when a user asks for SEO keyword research, keyword discovery, search volume analysis, keyword difficulty, search intent mapping, topic clusters, content opportunities, competitor keyword gaps, or a keyword strategy for a domain, URL, product, market, or seed topic. When a website is provided, crawl and interpret the site first, then use AIsa API access to DataForSEO keyword, SERP, trend, Labs, and OnPage endpoints plus AIsa LLM reasoning to find non-brand keyword opportunities. Use when: the user needs web search, research, source discovery, or content extraction.",
+  "version": "1.0.0",
+  "skills": [
+    "./skills"
+  ],
+  "bundledSkills": [
+    "seo-keyword-research"
+  ],
+  "commands": [
+    {
+      "name": "seo-keyword-research",
+      "description": "Use this skill when a user asks for SEO keyword research, keyword discovery, search volume analysis, keyword difficulty, search intent mapping, topic clusters, content opportunities, competitor keyword gaps, or a keyword strategy for a domain, URL, product, market, or seed topic. When a website is provided, crawl and interpret the site first, then use AIsa API access to DataForSEO keyword, SERP, trend, Labs, and OnPage endpoints plus AIsa LLM reasoning to find non-brand keyword opportunities. Use when: the user needs web search, research, source discovery, or content extraction."
+    }
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "AISA_API_KEY": {
+        "type": "string",
+        "title": "Aisa Api Key",
+        "description": "Provide AISA_API_KEY for the packaged AIsa skill runtime.",
+        "format": "password"
+      }
+    },
+    "required": [
+      "AISA_API_KEY"
+    ]
+  },
+  "configUiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "emoji": "🔎"
+  },
+  "runtimeRequirements": {
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ],
+    "primaryEnv": "AISA_API_KEY",
+    "networkTargets": [
+      "https://api.aisa.one"
+    ]
+  },
+  "metadata": {
+    "aisa": {
+      "requires": {
+        "bins": [
+          "python3"
+        ],
+        "env": [
+          "AISA_API_KEY"
+        ]
+      },
+      "primaryEnv": "AISA_API_KEY",
+      "networkTargets": [
+        "https://api.aisa.one"
+      ]
+    }
+  },
+  "providers": [
+    "aisa"
+  ],
+  "providerAuthEnvVars": {
+    "aisa": [
+      "AISA_API_KEY"
+    ]
+  },
+  "providerAuthChoices": [
+    {
+      "provider": "aisa",
+      "method": "api-key",
+      "choiceId": "aisa-api-key",
+      "choiceLabel": "AISA API key",
+      "choiceHint": "Used only to authorize requests to the AIsa API service.",
+      "groupId": "aisa",
+      "groupLabel": "AIsa",
+      "optionKey": "aisaApiKey",
+      "cliFlag": "--aisa-api-key",
+      "cliOption": "--aisa-api-key <key>",
+      "cliDescription": "AISA_API_KEY used by the packaged skill runtime.",
+      "onboardingScopes": [
+        "text-inference"
+      ],
+      "assistantPriority": 0
+    }
+  ],
+  "requires": {
+    "bins": [
+      "python3"
+    ],
+    "env": [
+      "AISA_API_KEY"
+    ]
+  },
+  "primaryEnv": "AISA_API_KEY",
+  "networkTargets": [
+    "https://api.aisa.one"
+  ],
+  "uiHints": {
+    "AISA_API_KEY": {
+      "label": "Aisa Api Key",
+      "help": "Required runtime secret for AISA_API_KEY.",
+      "sensitive": true
+    },
+    "emoji": "🔎"
+  },
+  "environment": {
+    "binaries": [
+      "python3"
+    ],
+    "externalServices": [
+      {
+        "name": "api.aisa.one"
+      }
+    ]
+  }
+}

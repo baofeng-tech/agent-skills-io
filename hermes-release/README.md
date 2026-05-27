@@ -14,7 +14,7 @@ Hermes-oriented packaged copy of all `targetSkills/` mother skills.
 - `automation`: 1
 - `communication`: 14
 - `creative`: 2
-- `finance`: 17
+- `finance`: 18
 - `research`: 20
 
 ## Publish Paths

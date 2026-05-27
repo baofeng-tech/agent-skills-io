@@ -2,10 +2,10 @@
 
 This catalog lists the current cross-platform mother skills in `targetSkills/`.
 
-- Generated at: `2026-05-26`
+- Generated at: `2026-05-27`
 - Repository target: `https://github.com/baofeng-tech/agent-skills-io`
 - Branch target: `main`
-- Total skills: `58`
+- Total skills: `59`
 
 ## Skills
 
@@ -161,6 +161,10 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
   - Category: `search`
   - Path: `search`
   - Description: Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
+- `seo-keyword-research`
+  - Category: `finance`
+  - Path: `seo-keyword-research`
+  - Description: Use this skill when a user asks for SEO keyword research, keyword discovery, search volume analysis, keyword difficulty, search intent mapping, topic clusters, content opportunities, competitor keyword gaps, or a keyword strategy for a domain, URL, product, market, or seed topic. When a website is provided, crawl and interpret the site first, then use AIsa API access to DataForSEO keyword, SERP, trend, Labs, and OnPage endpoints plus AIsa LLM reasoning to find non-brand keyword opportunities. Use when: the user needs web search, research, source discovery, or content extraction.
 - `smart-search`
   - Category: `search`
   - Path: `smart-search`

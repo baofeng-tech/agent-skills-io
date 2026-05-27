@@ -1,6 +1,6 @@
 # ClawHub Plugin Release Audit
 
-- Generated plugins: 62
+- Generated plugins: 63
 - Packaging mode: native-first dual format (`openclaw.plugin.json` + `index.js` + `package.json` + optional `.claude-plugin/plugin.json` + embedded `skills/`)
 - Zip rule: archives are written root-flat with required files at archive root.
 
@@ -290,6 +290,13 @@
 - Directory: `clawhub-plugin-release/plugins/search-plugin`
 - Zip: `clawhub-plugin-release/zips/search-plugin.zip`
 - Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `search`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
+
+## seo-keyword-research-plugin
+
+- Skill: `seo-keyword-research`
+- Directory: `clawhub-plugin-release/plugins/seo-keyword-research-plugin`
+- Zip: `clawhub-plugin-release/zips/seo-keyword-research-plugin.zip`
+- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `seo-keyword-research`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use this skill when a user asks for SEO keyword research, keyword discovery, search volume analysis, keyword difficulty, search intent mapping, topic clusters, content opportunities, competitor keyword gaps, or a keyword strategy for a domain, URL, product, market, or seed topic. When a website is provided, crawl and interpret the site first, then use AIsa API access to DataForSEO keyword, SERP, trend, Labs, and OnPage endpoints plus AIsa LLM reasoning to find non-brand keyword opportunities. Use when: the user needs web search, research, source discovery, or content extraction.
 
 ## smart-search-plugin
 

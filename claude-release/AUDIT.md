@@ -4,7 +4,7 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 ## Summary
 
-- Skills converted: 58
+- Skills converted: 59
 - Skills with residual risk notes: 15
 
 ## Per Skill
@@ -470,6 +470,18 @@ This report summarizes structural cleanup and residual publishing risk for the g
 - Source: `targetSkills/search`
 - Output: `claude-release/search`
 - Description: Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
+- Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
+- Change: stripped platform-specific metadata from release frontmatter
+- Change: inferred allowed-tools for Claude Code compatibility
+- Change: ensured description carries explicit trigger phrasing for search and selection
+- Change: replaced source README with a Claude-oriented release README
+- Change: copied runtime scripts/references only
+
+### seo-keyword-research
+
+- Source: `targetSkills/seo-keyword-research`
+- Output: `claude-release/seo-keyword-research`
+- Description: Use this skill when a user asks for SEO keyword research, keyword discovery, search volume analysis, keyword difficulty, search intent mapping, topic clusters, content opportunities, competitor keyword gaps, or a keyword strategy for a domain, URL, product, market, or seed topic. When a website is provided, crawl and interpret the site first, then use AIsa API access to DataForSEO keyword, SERP, trend, Labs, and OnPage endpoints plus AIsa LLM reasoning to find non-brand keyword opportunities. Use when: the user needs web search, research, source discovery, or content extraction.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility

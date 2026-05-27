@@ -1,6 +1,6 @@
 # Hermes Release Audit
 
-- Skills converted: 58
+- Skills converted: 59
 
 ## aisa-multi-search-engine
 
@@ -330,6 +330,14 @@
 - Path: `hermes-release/research/search`
 - Description: Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.
 - Change: patched Hermes runtime auth and storage defaults in scripts/search_client.py
+- Change: replaced source README with a Hermes-oriented release README
+
+## seo-keyword-research
+
+- Category: `finance`
+- Path: `hermes-release/finance/seo-keyword-research`
+- Description: Use this skill when a user asks for SEO keyword research, keyword discovery, search volume analysis, keyword difficulty, search intent mapping, topic clusters, content opportunities, competitor keyword gaps, or a keyword strategy for a domain, URL, product, market, or seed topic. When a website is provided, crawl and interpret the site first, then use AIsa API access to DataForSEO keyword, SERP, trend, Labs, and OnPage endpoints plus AIsa LLM reasoning to find non-brand keyword opportunities. Use when: the user needs web search, research, source discovery, or content extraction.
+- Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: replaced source README with a Hermes-oriented release README
 
 ## smart-search

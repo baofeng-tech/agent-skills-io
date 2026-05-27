@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-05-26",
+  "generated_at": "2026-05-27",
   "provider": {
     "name": "AIsa",
     "repository": "https://github.com/baofeng-tech/agent-skills-io",
@@ -197,6 +197,11 @@
       "name": "search",
       "description": "Search command center for web, academic, Tavily, and Perplexity-backed research through one AIsa API key. Use when: the user needs one flagship skill for live search, source discovery, or citation-ready research. Supports fast lookup, answer generation, and deep research reports.",
       "location": "https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/search"
+    },
+    {
+      "name": "seo-keyword-research",
+      "description": "Use this skill when a user asks for SEO keyword research, keyword discovery, search volume analysis, keyword difficulty, search intent mapping, topic clusters, content opportunities, competitor keyword gaps, or a keyword strategy for a domain, URL, product, market, or seed topic. When a website is provided, crawl and interpret the site first, then use AIsa API access to DataForSEO keyword, SERP, trend, Labs, and OnPage endpoints plus AIsa LLM reasoning to find non-brand keyword opportunities. Use when: the user needs web search, research, source discovery, or content extraction.",
+      "location": "https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/seo-keyword-research"
     },
     {
       "name": "smart-search",

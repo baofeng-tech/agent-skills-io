@@ -65,6 +65,7 @@ done
 - `saas-gateway-plugin` → `saas-gateway`
 - `scholar-search-plugin` → `scholar-search`
 - `search-plugin` → `search`
+- `seo-keyword-research-plugin` → `seo-keyword-research`
 - `smart-search-plugin` → `smart-search`
 - `stock-analysis-plugin` → `stock-analysis`
 - `stock-dividend-aisa-plugin` → `stock-dividend-aisa`

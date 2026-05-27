@@ -1,18 +1,51 @@
 {
   "summary": {
-    "artifacts": 56,
-    "blockers": 6,
-    "warnings": 50,
-    "pending": 50,
+    "artifacts": 55,
+    "blockers": 7,
+    "warnings": 48,
+    "pending": 48,
     "rules": {
       "metadata_env_mismatch": 1,
-      "oauth_upload_side_effects": 8,
-      "pending_scan": 50,
-      "platform_trust_gap": 16,
-      "relay_trust_surface": 23
+      "oauth_upload_side_effects": 9,
+      "pending_scan": 48,
+      "platform_trust_gap": 15,
+      "relay_trust_surface": 24
     }
   },
   "artifacts": [
+    {
+      "key": "plugin:aisa-twitter-research-engage-plugin",
+      "kind": "plugin",
+      "name": "aisa-twitter-research-engage-plugin",
+      "publisher_handle": "Convex",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "malicious",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "oauth_upload_side_effects",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-research-engage-plugin",
+      "local_path": ".tmp-clawhub-batch/plugins/aisa-twitter-research-engage-plugin",
+      "release_ref": "rd7481zm68vsvyxstnkm2ee6a585ezhf",
+      "reason": "The skill's code and runtime instructions largely match a Twitter research/posting tool using an AIsa relay, but there are internal inconsistencies in the declared requirements and some undocumented environment hooks and behaviors that you should review before installing."
+    },
     {
       "key": "skill:prediction-market",
       "kind": "skill",
@@ -50,8 +83,8 @@
       "severity": "blocker",
       "scan_status": "suspicious",
       "virus_total": "suspicious",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
@@ -69,7 +102,7 @@
       "detail_url": "https://clawhub.ai/udiedrichsen/stock-analysis",
       "local_path": "clawhub-release/stock-analysis",
       "release_ref": null,
-      "reason": "No artifact-backed abnormal behavior-control issue was confirmed."
+      "reason": "The skill is a coherent stock-analysis tool, but its optional social scanning asks users to expose live X/Twitter session credentials to an external CLI with overly broad local permissions."
     },
     {
       "key": "skill:twitter-autopilot",
@@ -186,35 +219,6 @@
       "local_path": "clawhub-release/youtube-search",
       "release_ref": null,
       "reason": "The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits."
-    },
-    {
-      "key": "plugin:aisa-twitter-research-engage-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-research-engage-plugin",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": null,
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": null,
-      "static_analysis_summary": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-research-engage-plugin",
-      "local_path": ".tmp-clawhub-batch/plugins/aisa-twitter-research-engage-plugin",
-      "release_ref": "rd7481zm68vsvyxstnkm2ee6a585ezhf",
-      "reason": null
     },
     {
       "key": "skill:aisa-crypto-market-data",
@@ -673,39 +677,6 @@
       "local_path": "clawhub-release/cn-llm",
       "release_ref": "k976hqw5s3561da27z94ps0wtx859x2j",
       "reason": "The skill's code, runtime instructions, and required environment variables are coherent with its stated purpose (AIsa-backed Chinese LLM routing) and do not request unrelated credentials or perform unexpected actions."
-    },
-    {
-      "key": "skill:last30days",
-      "kind": "skill",
-      "name": "last30days",
-      "publisher_handle": "script",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "clean",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
-      ],
-      "detail_url": "https://clawhub.ai/zats/last30days",
-      "local_path": "clawhub-release/last30days",
-      "release_ref": null,
-      "reason": "The skill runs bundled Python code and has limited provenance metadata, but the behavior is disclosed and aligned with the research purpose."
     },
     {
       "key": "skill:last30days-zh",
