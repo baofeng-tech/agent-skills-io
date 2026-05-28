@@ -2,31 +2,22 @@
   "last_synced_commit": "9fd69b2ea1d29ce20c7c5c2425bea59fb79e31f5",
   "last_detected_commit": "9fd69b2ea1d29ce20c7c5c2425bea59fb79e31f5",
   "last_run": {
-    "started_at": "2026-05-27T21:15:58.510130+00:00",
+    "started_at": "2026-05-28T21:23:03.194688+00:00",
     "source_mode": "clone",
     "upstream_root": "/home/runner/work/agent-skills-io/agent-skills-io/.cache/upstream-agent-skills",
     "upstream_branch": "main",
     "upstream_head": "9fd69b2ea1d29ce20c7c5c2425bea59fb79e31f5",
-    "baseline_commit": "c9561d710c85e8db8782c96cefb088358d6eef2e",
+    "baseline_commit": "9fd69b2ea1d29ce20c7c5c2425bea59fb79e31f5",
     "selection": "changed",
     "include_working_tree": false,
-    "planned_skills": [
-      "seo-keyword-research"
-    ],
-    "synced_skills": [
-      "seo-keyword-research"
-    ],
-    "created_skills": [
-      "seo-keyword-research"
-    ],
+    "planned_skills": [],
+    "synced_skills": [],
+    "created_skills": [],
     "skipped_skills": [],
     "llm_steps": [],
-    "diagnosis_steps": [
-      "python3 scripts/clawhub_live_status.py --targets both --include-status published",
-      "python3 scripts/clawhub_suspicious_diagnosis.py --doc-mode update"
-    ],
+    "diagnosis_steps": [],
     "publish_steps": [],
-    "completed_at": "2026-05-27T21:23:33.150912+00:00"
+    "completed_at": "2026-05-28T21:23:03.194734+00:00"
   },
   "pending_manual_review": []
 }
