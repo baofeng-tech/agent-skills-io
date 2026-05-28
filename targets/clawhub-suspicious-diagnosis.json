@@ -1,15 +1,15 @@
 {
   "summary": {
     "artifacts": 55,
-    "blockers": 7,
-    "warnings": 48,
-    "pending": 48,
+    "blockers": 10,
+    "warnings": 45,
+    "pending": 45,
     "rules": {
       "metadata_env_mismatch": 1,
-      "oauth_upload_side_effects": 9,
-      "pending_scan": 48,
-      "platform_trust_gap": 15,
-      "relay_trust_surface": 24
+      "oauth_upload_side_effects": 10,
+      "pending_scan": 45,
+      "platform_trust_gap": 16,
+      "relay_trust_surface": 26
     }
   },
   "artifacts": [
@@ -45,6 +45,68 @@
       "local_path": ".tmp-clawhub-batch/plugins/aisa-twitter-research-engage-plugin",
       "release_ref": "rd7481zm68vsvyxstnkm2ee6a585ezhf",
       "reason": "The skill's code and runtime instructions largely match a Twitter research/posting tool using an AIsa relay, but there are internal inconsistencies in the declared requirements and some undocumented environment hooks and behaviors that you should review before installing."
+    },
+    {
+      "key": "skill:aisa-twitter-api-command-center",
+      "kind": "skill",
+      "name": "aisa-twitter-api-command-center",
+      "publisher_handle": "Convex",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "pending",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "platform_trust_gap"
+      ],
+      "rule_summaries": [
+        "Trust and provenance surfaces are weaker than the package behavior requires."
+      ],
+      "recommended_actions": [
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
+      ],
+      "detail_url": "https://clawhub.ai/aisadocs/aisa-twitter-api-command-center",
+      "local_path": "clawhub-release/aisa-twitter-api-command-center",
+      "release_ref": "k97f2echfgvrzyzvxs5k0h7bm186bj3z",
+      "reason": "The skill does what it says, but it exposes the AIsa API key in normal command output, which can leak a sensitive credential into logs or agent transcripts."
+    },
+    {
+      "key": "skill:aisa-twitter-research-engage-relay",
+      "kind": "skill",
+      "name": "aisa-twitter-research-engage-relay-aisa-api",
+      "publisher_handle": "Convex",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "pending",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "oauth_upload_side_effects",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/bibaofeng/aisa-twitter-research-engage-relay-aisa-api",
+      "local_path": "clawhub-release/aisa-twitter-research-engage-relay",
+      "release_ref": "k977v9thzreannpde9dntq0nfd86b3zf",
+      "reason": "The skill mostly matches its Twitter/X relay purpose, but it needs review because it can print the AIsa API key and can perform live account actions immediately once invoked."
     },
     {
       "key": "skill:prediction-market",
@@ -132,6 +194,39 @@
       "local_path": "clawhub-release/twitter-autopilot",
       "release_ref": null,
       "reason": "The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script."
+    },
+    {
+      "key": "skill:twitter-post-aisa",
+      "kind": "skill",
+      "name": "twitter-post-aisa-aisa-one",
+      "publisher_handle": "Convex",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "pending",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "oauth_upload_side_effects",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/aisadocs/twitter-post-aisa-aisa-one",
+      "local_path": "clawhub-release/twitter-post-aisa",
+      "release_ref": "k97165v95gbqtvryc147r9pdex86a2wr",
+      "reason": "The skill’s Twitter/X relay purpose is mostly disclosed, but reported credential exposure in its posting and authorization scripts needs review before use."
     },
     {
       "key": "skill:web-search",
@@ -492,8 +587,8 @@
       "severity": "warning",
       "scan_status": "pending",
       "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "clean",
+      "openclaw_verdict": "clean",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": false,
@@ -511,7 +606,7 @@
       "detail_url": "https://clawhub.ai/bibaofeng/aisa-tavily-search",
       "local_path": "clawhub-release/aisa-tavily-search",
       "release_ref": "k97bd4twq3v3hqvyrz1rz0zat186bpr6",
-      "reason": "No artifact-backed evidence of goal hijacking, unsafe automatic execution, deceptive behavior, or persistence was found."
+      "reason": "This skill is a straightforward AIsa web-research integration that uses an API key to send user-provided searches or URLs to AIsa, with no hidden persistence or destructive behavior found."
     },
     {
       "key": "skill:aisa-twitter",
@@ -541,39 +636,6 @@
       "local_path": "clawhub-release/aisa-twitter",
       "release_ref": null,
       "reason": "The skill can publish public Twitter/X posts, replies, and quotes, but this is disclosed and purpose-aligned."
-    },
-    {
-      "key": "skill:aisa-twitter-api-command-center",
-      "kind": "skill",
-      "name": "aisa-twitter-api-command-center",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisadocs/aisa-twitter-api-command-center",
-      "local_path": "clawhub-release/aisa-twitter-api-command-center",
-      "release_ref": "k97f2echfgvrzyzvxs5k0h7bm186bj3z",
-      "reason": "The skill can publish public Twitter/X content, but the artifacts frame posting as user-intended and approved."
     },
     {
       "key": "skill:aisa-twitter-research-engage",
@@ -615,35 +677,6 @@
       "local_path": ".tmp-clawhub-batch/skills/aisa-twitter-research-engage",
       "release_ref": null,
       "reason": "The skill's code, instructions, and requested credential (AISA_API_KEY) are consistent with its stated purpose (Twitter/X read, engagement, and OAuth-backed posting via an external relay service); the main user decision is whether to trust the external relay (api.aisa.one) with your API key and media."
-    },
-    {
-      "key": "skill:aisa-twitter-research-engage-relay",
-      "kind": "skill",
-      "name": "aisa-twitter-research-engage-relay-aisa-api",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/aisa-twitter-research-engage-relay-aisa-api",
-      "local_path": "clawhub-release/aisa-twitter-research-engage-relay",
-      "release_ref": "k977v9thzreannpde9dntq0nfd86b3zf",
-      "reason": "The skill can perform public Twitter/X actions, but the artifacts disclose this and require user-directed, confirmed workflows."
     },
     {
       "key": "skill:cn-llm",
@@ -1651,35 +1684,6 @@
       "local_path": "clawhub-release/twitter-command-center-search-post-interact",
       "release_ref": "k97343sqqfcjc3bn7v2evk56zs85b82e",
       "reason": "The skill's code, instructions, and required credential (AISA_API_KEY) are consistent with its stated purpose of read/search/engagement and OAuth-backed posting via the AIsa relay service."
-    },
-    {
-      "key": "skill:twitter-post-aisa",
-      "kind": "skill",
-      "name": "twitter-post-aisa-aisa-one",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisadocs/twitter-post-aisa-aisa-one",
-      "local_path": "clawhub-release/twitter-post-aisa",
-      "release_ref": "k97165v95gbqtvryc147r9pdex86a2wr",
-      "reason": "The skill can perform public Twitter/X actions, but the behavior is disclosed and bounded by approval-oriented guardrails."
     },
     {
       "key": "skill:us-stock-analyst",

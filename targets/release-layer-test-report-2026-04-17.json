@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHJWvZ4_W4RoKAAIcla5vOtawhQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcla-exQAnEAoABhyVr57E_9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/1087",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHJb688hWINoKAAIclvp4pduBaQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUclvsv0EAnEAoABhyW-y_QP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/199470",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"lpBSBlsdyU0GJg5pdRiIdw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"9qieqYpR8V5IiEgcdAZleg\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.54,\n      \"bestBid\": 0.53,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"98022490269692409998126496127597032490334070080325855126491859",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.51,\n      \"bestBid\": 0.5,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"980224902696924099981264961275970324903340700803258551264918593",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHJWvlXsW0MkKAAIcla6HJhtB8wAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcla-r08AnEAoABhyVr6vTv9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/14964",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHJb7MFYW4TMKAAIclvp8N9uAMAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUclvtAioAnEAoABhyW-0CKf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/2465",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"CRZtWptSaW7zbB4UTFJ6PA\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"rjsOoRsgcmkTsDtNSYLLCQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.54,\n      \"bestBid\": 0.53,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"98022490269692409998126496127597032490334070080325855126491859",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.51,\n      \"bestBid\": 0.5,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"980224902696924099981264961275970324903340700803258551264918593",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHJWvlXsW0MkKAAIcla6HJhtB8wAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUcla-2KIAnEAoABhyVr7Yof9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/14964",
+      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHJb7P_ta4DwKAAIclvp9epaQ2gAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUclvtLEkAnEAoABhyW-0sSP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/20438",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"9pEq6WNBQpE2ZePjPhMadw\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"_vlGGiR7U-mvVKukGCRc1w\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.54,\n      \"bestBid\": 0.53,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"98022490269692409998126496127597032490334070080325855126491859",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.51,\n      \"bestBid\": 0.5,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"980224902696924099981264961275970324903340700803258551264918593",
       "stderr_preview": ""
     },
     {

@@ -128,17 +128,17 @@
 ## 最新自动诊断快照
 
 - 诊断对象数：`55`
-- `blocker`：`7`
-- `warning`：`48`
-- `pending`：`48`
+- `blocker`：`10`
+- `warning`：`45`
+- `pending`：`45`
 
 ### 当前高频规则
 
 - `metadata_env_mismatch`: `1`
-- `oauth_upload_side_effects`: `9`
-- `pending_scan`: `48`
-- `platform_trust_gap`: `15`
-- `relay_trust_surface`: `24`
+- `oauth_upload_side_effects`: `10`
+- `pending_scan`: `45`
+- `platform_trust_gap`: `16`
+- `relay_trust_surface`: `26`
 
 ### 当前重点对象
 
@@ -146,6 +146,14 @@
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects, relay_trust_surface`
   reason: The skill's code and runtime instructions largely match a Twitter research/posting tool using an AIsa relay, but there are internal inconsistencies in the declared requirements and some undocumented environment hooks and behaviors that you should review before installing.
+- `skill:aisa-twitter-api-command-center`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: The skill does what it says, but it exposes the AIsa API key in normal command output, which can leak a sensitive credential into logs or agent transcripts.
+- `skill:aisa-twitter-research-engage-relay`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects, relay_trust_surface`
+  reason: The skill mostly matches its Twitter/X relay purpose, but it needs review because it can print the AIsa API key and can perform live account actions immediately once invoked.
 - `skill:prediction-market`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
@@ -158,6 +166,10 @@
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
   reason: The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script.
+- `skill:twitter-post-aisa`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects, relay_trust_surface`
+  reason: The skill’s Twitter/X relay purpose is mostly disclosed, but reported credential exposure in its posting and authorization scripts needs review before use.
 - `skill:web-search`
   severity: `blocker` | status: `suspicious`
   rules: `relay_trust_surface`
@@ -178,16 +190,4 @@
   severity: `warning` | status: `pending`
   rules: `pending_scan, relay_trust_surface`
   reason: The skill's code, runtime instructions, and requested environment access are consistent with a multi-source search plugin that calls the AIsa API and only requires an AISA_API_KEY plus python3/node runtimes.
-- `skill:aisa-perplexity-search-sonar`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan, relay_trust_surface`
-  reason: The skill's code, runtime instructions, and required credential (AISA_API_KEY) are consistent with a search/synthesis client for the AIsa Perplexity Sonar API and do not request unrelated privileges or perform unexpected actions.
-- `skill:aisa-perplexity-sonar-search`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan, relay_trust_surface`
-  reason: The skill is internally consistent: it requires a single AISA_API_KEY, runs a small Python client that POSTs queries to api.aisa.one, and the requested resources match the described search/synthesis purpose.
-- `skill:aisa-provider`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan`
-  reason: No suspicious code execution or autonomous behavior is shown, but the documentation contains strong privacy assurances users should independently verify.
 <!-- AUTO-DIAGNOSIS:END -->
