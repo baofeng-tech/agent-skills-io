@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHJb688hWINoKAAIclvp4pduBaQAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUclvsv0EAnEAoABhyW-y_QP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": true,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/199470",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2061573135112061180\",\n      \"url\": \"https://x.com/stark4833/status/2061573135112061180\",\n      \"twitterUrl\": \"https://twitter.com/stark4833/status/2061573135112061180\",\n      \"text\": \"@hunoematic @OpenAI Some people use it just to chat, not everybody uses it for work, and for chatting it’s pretty shit 4o what’s the best for that? And yeah a",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1960000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mR5DzpePyDIWM2mDg4YdGQno\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-01T22:18:39Z\",\n    \"request_time_taken\": 1.11,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.19,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mR5DzpePyDIWM2mDg4",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"9qieqYpR8V5IiEgcdAZleg\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"RV7fElAPVZyREMkRemfHQw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.51,\n      \"bestBid\": 0.5,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"980224902696924099981264961275970324903340700803258551264918593",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20575.3092\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHJb7MFYW4TMKAAIclvp8N9uAMAAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUclvtAioAnEAoABhyW-0CKf9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": false,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/2465",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2061573183317430400\",\n      \"url\": \"https://x.com/jobchangerss/status/2061573183317430400\",\n      \"twitterUrl\": \"https://twitter.com/jobchangerss/status/2061573183317430400\",\n      \"text\": \"【速報】ソフトバンクGの時価総額がトヨタを逆転！約26年ぶりの歴史的王座交代。OpenAI上場観測＋フランスへ14兆円AI投資発表で株価は1年で約3倍。日本株式市場がAI時代へ本格移行したことを告げる歴史的瞬間🔥 $9984\\nhttps://t.co/rtWND1PbZ5\",\n      \"sourc",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1960000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_6dAL2p4KqYs7NwKaQk7wnGOm\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-01T22:18:53Z\",\n    \"request_time_taken\": 1.32,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.43,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_6dAL2p4KqYs7NwKaQk7",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"rjsOoRsgcmkTsDtNSYLLCQ\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"X4StZMZYZFT4cd_N-q3xtw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.51,\n      \"bestBid\": 0.5,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"980224902696924099981264961275970324903340700803258551264918593",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20575.3092\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"has_next_page\": true,\n  \"next_cursor\": \"DAADDAABCgABHJb7P_ta4DwKAAIclvp9epaQ2gAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUclvtLEkAnEAoABhyW-0sSP9jwAAA\",\n  \"tweets\": [\n    {\n      \"article\": null,\n      \"author\": {\n        \"affiliatesHighlightedLabel\": {},\n        \"automatedBy\": null,\n        \"canDm\": false,\n        \"canMediaTag\": true,\n        \"coverPicture\": \"https://pbs.twimg.com/profile_banners/20438",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2061573183317430400\",\n      \"url\": \"https://x.com/jobchangerss/status/2061573183317430400\",\n      \"twitterUrl\": \"https://twitter.com/jobchangerss/status/2061573183317430400\",\n      \"text\": \"【速報】ソフトバンクGの時価総額がトヨタを逆転！約26年ぶりの歴史的王座交代。OpenAI上場観測＋フランスへ14兆円AI投資発表で株価は1年で約3倍。日本株式市場がAI時代へ本格移行したことを告げる歴史的瞬間🔥 $9984\\nhttps://t.co/rtWND1PbZ5\",\n      \"sourc",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"channels\": [\n    {\n      \"description\": \"OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity.\",\n      \"id\": \"UCXZCJLdBC09xxGZ6gcdrc6A\",\n      \"is_verified\": true,\n      \"link\": \"https://www.youtube.com/@OpenAI\",\n      \"position\": 1,\n      \"subscribers\": 1960000,\n      \"thumbnail\": {\n        \"rich\": \"https://yt3.ggpht.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5I",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_yawpDZvY5RcZjrxBovWPdXoM\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-01T22:19:04Z\",\n    \"request_time_taken\": 1.6,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.69,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_yawpDZvY5RcZjrxBovW",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"_vlGGiR7U-mvVKukGCRc1w\",\n  \"results\": [\n    {\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\",\n      \"title\": \"OpenAI News\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"8ir0Q91g3JbI9dEoJrXkUg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"acceptingOrders\": true,\n      \"acceptingOrdersTimestamp\": \"2025-05-02T15:47:45Z\",\n      \"active\": true,\n      \"approved\": true,\n      \"archived\": false,\n      \"automaticallyActive\": true,\n      \"bestAsk\": 0.51,\n      \"bestBid\": 0.5,\n      \"clearBookOnStart\": true,\n      \"clobTokenIds\": \"[\\\"980224902696924099981264961275970324903340700803258551264918593",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20575.3092\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {

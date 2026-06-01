@@ -127,16 +127,16 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`55`
+- 诊断对象数：`54`
 - `blocker`：`10`
-- `warning`：`45`
-- `pending`：`45`
+- `warning`：`44`
+- `pending`：`44`
 
 ### 当前高频规则
 
 - `metadata_env_mismatch`: `1`
 - `oauth_upload_side_effects`: `10`
-- `pending_scan`: `45`
+- `pending_scan`: `44`
 - `platform_trust_gap`: `16`
 - `relay_trust_surface`: `26`
 

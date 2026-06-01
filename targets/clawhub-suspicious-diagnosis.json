@@ -1,13 +1,13 @@
 {
   "summary": {
-    "artifacts": 55,
+    "artifacts": 54,
     "blockers": 10,
-    "warnings": 45,
-    "pending": 45,
+    "warnings": 44,
+    "pending": 44,
     "rules": {
       "metadata_env_mismatch": 1,
       "oauth_upload_side_effects": 10,
-      "pending_scan": 45,
+      "pending_scan": 44,
       "platform_trust_gap": 16,
       "relay_trust_surface": 26
     }
@@ -53,7 +53,7 @@
       "publisher_handle": "Convex",
       "severity": "blocker",
       "scan_status": "suspicious",
-      "virus_total": "pending",
+      "virus_total": "clean",
       "clawscan_verdict": "suspicious",
       "openclaw_verdict": "suspicious",
       "static_analysis_status": "clean",
@@ -82,7 +82,7 @@
       "publisher_handle": "Convex",
       "severity": "blocker",
       "scan_status": "suspicious",
-      "virus_total": "pending",
+      "virus_total": "clean",
       "clawscan_verdict": "suspicious",
       "openclaw_verdict": "suspicious",
       "static_analysis_status": "clean",
@@ -202,7 +202,7 @@
       "publisher_handle": "Convex",
       "severity": "blocker",
       "scan_status": "suspicious",
-      "virus_total": "pending",
+      "virus_total": "clean",
       "clawscan_verdict": "suspicious",
       "openclaw_verdict": "suspicious",
       "static_analysis_status": "clean",
@@ -578,35 +578,6 @@
       "local_path": "clawhub-release/aisa-tavily",
       "release_ref": "k97eprs9w52050gwcb4vayc3j9858dk0",
       "reason": "The skill's files, runtime instructions, and requested environment variable line up with its stated purpose (web/multi-source research via AIsa); it only requires Node and an AISA_API_KEY and sends queries/URLs to api.aisa.one, so the main risk is trusting that external service with your data and API key."
-    },
-    {
-      "key": "skill:aisa-tavily-search",
-      "kind": "skill",
-      "name": "aisa-tavily-search",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/aisa-tavily-search",
-      "local_path": "clawhub-release/aisa-tavily-search",
-      "release_ref": "k97bd4twq3v3hqvyrz1rz0zat186bpr6",
-      "reason": "This skill is a straightforward AIsa web-research integration that uses an API key to send user-provided searches or URLs to AIsa, with no hidden persistence or destructive behavior found."
     },
     {
       "key": "skill:aisa-twitter",
