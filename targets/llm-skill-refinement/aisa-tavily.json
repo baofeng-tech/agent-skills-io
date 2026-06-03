@@ -1,6 +1,6 @@
 {
   "skill": "aisa-tavily",
-  "error": "LLM request failed (502): {\"error\":\"no available channel\"}",
+  "error": "LLM request failed (403): error code: 1010",
   "summary": null,
   "notes": [],
   "skill_md": null,
