@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2062295246697119832\",\n      \"url\": \"https://x.com/EugenioFierro3/status/2062295246697119832\",\n      \"twitterUrl\": \"https://twitter.com/EugenioFierro3/status/2062295246697119832\",\n      \"text\": \"@OpenAI says it is time to fly, but the clues point to GPT-5.5\\n\\n✈️ OpenAI posted a video with a very simple line: “It’s time to fly.”\\nNo clear ex",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2062642006732542317\",\n      \"url\": \"https://x.com/dancavlli/status/2062642006732542317\",\n      \"twitterUrl\": \"https://twitter.com/dancavlli/status/2062642006732542317\",\n      \"text\": \"@artchad It's the same thing OpenAI did and requested with GPT-4 when they were compute constrained. \\nSounds a lot like regulatory capture on their part\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqT0dx9AMeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-03T22:08:04Z\",\n    \"request_time_taken\": 1.33,\n    \"parsing_time_taken\": 0.14,\n    \"total_time_taken\": 1.47,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqT0dx9AMe",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1r3VbxvXpgtVWZbwjvB26gOP\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-04T21:06:11Z\",\n    \"request_time_taken\": 0.88,\n    \"parsing_time_taken\": 0.15,\n    \"total_time_taken\": 1.03,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1r3VbxvXpgtVWZbwjv",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"E0gmF8c1Y5nPc9NHI4XWEg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"-w3NfMn90yi2uTRrQ2G9ZA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.5 · GPT-5.4 ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"17733.5858\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"25127.1746\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2062295265495990598\",\n      \"url\": \"https://x.com/freenewman88/status/2062295265495990598\",\n      \"twitterUrl\": \"https://twitter.com/freenewman88/status/2062295265495990598\",\n      \"text\": \"@ShannonJoyRadio @AnthropicAI @SpaceX @OpenAI @databricks @krakenfx @anduriltech @CoreWeave 👍\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCoun",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2062642006732542317\",\n      \"url\": \"https://x.com/dancavlli/status/2062642006732542317\",\n      \"twitterUrl\": \"https://twitter.com/dancavlli/status/2062642006732542317\",\n      \"text\": \"@artchad It's the same thing OpenAI did and requested with GPT-4 when they were compute constrained. \\nSounds a lot like regulatory capture on their part\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mpKN8l48W3i7NDWLGe3n1ZDx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-03T22:08:14Z\",\n    \"request_time_taken\": 2.42,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 2.54,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mpKN8l48W3i7NDWLGe",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_16dWXw4JOrI5YgLYWvqoKNGl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-04T21:06:20Z\",\n    \"request_time_taken\": 1.4,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.5,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_16dWXw4JOrI5YgLYWvqoK",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"pJ3Nz2hOp7yKahdiCGLvgQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"C4MP1o0XELPlP62BLzb2Kw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.5 · GPT-5.4 ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"17733.5858\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"25127.1746\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2062295265495990598\",\n      \"url\": \"https://x.com/freenewman88/status/2062295265495990598\",\n      \"twitterUrl\": \"https://twitter.com/freenewman88/status/2062295265495990598\",\n      \"text\": \"@ShannonJoyRadio @AnthropicAI @SpaceX @OpenAI @databricks @krakenfx @anduriltech @CoreWeave 👍\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCoun",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2062642110340411745\",\n      \"url\": \"https://x.com/vermoutharc/status/2062642110340411745\",\n      \"twitterUrl\": \"https://twitter.com/vermoutharc/status/2062642110340411745\",\n      \"text\": \"Anthropic warns AI development is out of control, risking recursive self-improvement. Calls for global pause on research. Will OpenAI, Google slow down?\",",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4moruGANKYXk03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-03T22:08:23Z\",\n    \"request_time_taken\": 0.92,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 0.99,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4moruGANKYXk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lpb2Z8vDqdsqp8EPPkVgQzRy\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-04T21:06:27Z\",\n    \"request_time_taken\": 1.34,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.45,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lpb2Z8vDqdsqp8EPPk",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"5VF4pHtgAxw76DO2UFyvIw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant · GPT-5.3-Codex. Safety. Safety Approach · Security & Privacy · Trust & Transparency. ChatGPT. Explore ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"5_y1sJNGvW4usWbMAb0m6Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Our Research. Research Index · Research Overview ; Latest Advancements. GPT-5.5 · GPT-5.4 ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"17733.5858\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"25127.1746\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
