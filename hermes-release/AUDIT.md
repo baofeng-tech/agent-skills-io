@@ -51,7 +51,7 @@
 
 - Category: `communication`
 - Path: `hermes-release/communication/aisa-twitter-engagement-suite`
-- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user asks for Twitter/X research, posting, likes, follows, or related workflows without sharing passwords.
+- Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user needs Twitter/X research plus posting, likes, follows, or related follow-through without sharing passwords.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: patched Hermes runtime auth and storage defaults in scripts/twitter_oauth_client.py

@@ -1,16 +1,18 @@
 # AIsa Twitter Engagement Suite
 
-Engagement-focused Twitter/X variant for likes, follows, replies, and approved posting through the AIsa relay.
+Engagement-focused Twitter/X skill for research, approved posting, and follow-through actions through the AIsa relay.
 
 ## What it does
 
 - Search Twitter/X profiles, tweets, and trends
 - Publish through OAuth after explicit approval
-- Like, unlike, follow, and unfollow through a bundled Python client
+- Like, unlike, follow, and unfollow through bundled Python clients
+- Keep read and write workflows in one package without asking for passwords
 
 ## Best fit
 
 - Use this when the user already knows what to engage with and needs action-oriented Twitter/X follow-through.
+- Use this when the workflow needs both research and approved engagement in the same package.
 - Use `aisa-twitter-api` for the flagship all-purpose Twitter lane.
 - Use `aisa-twitter-command-center` for watchlists, trend scanning, and recurring monitoring.
 
@@ -23,10 +25,27 @@ export AISA_API_KEY="your-key"
 Requires:
 
 - `python3`
-- network access to `https://api.aisa.one/apis/v1/...`
+- network access to `https://api.aisa.one/`
+- explicit OAuth approval before posting or engagement writes
+
+## Runtime entry points
+
+- Read client: `scripts/twitter_client.py`
+- Post client: `scripts/twitter_oauth_client.py`
+- Engage client: `scripts/twitter_engagement_client.py`
+
+## Example commands
+
+```bash
+python3 scripts/twitter_client.py search --query "AI agents" --type Latest
+python3 scripts/twitter_oauth_client.py authorize
+python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
+```
 
 ## Security & Trust
 
 - Requires only `AISA_API_KEY`.
-- All write actions and approved uploads are relayed through `api.aisa.one`.
+- All reads, writes, and approved uploads are relayed through `api.aisa.one`.
+- Write actions require explicit OAuth approval.
+- Media posting uses relay-based upload paths supported by the runtime.
 - Do not claim a write action succeeded until the API confirms it.
