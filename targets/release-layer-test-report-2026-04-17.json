@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2063359744765821245\",\n      \"url\": \"https://x.com/itsnikhildaga/status/2063359744765821245\",\n      \"twitterUrl\": \"https://twitter.com/itsnikhildaga/status/2063359744765821245\",\n      \"text\": \"@embirico GPT 5.5 became unbearable. I have been complaining since weeks but it kept getting worse and nobody at @OpenAI cared. Finally, switched to C",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2063722901535158781\",\n      \"url\": \"https://x.com/EcevitBIKTIM/status/2063722901535158781\",\n      \"twitterUrl\": \"https://twitter.com/EcevitBIKTIM/status/2063722901535158781\",\n      \"text\": \"OpenAI, ChatGPT İçin Güvenlik Kilidini Sıkılaştırıyor https://t.co/cDB8izUrl1 @donanimgunlugu aracılığıyla\",\n      \"source\": \"Twitter for iPhone\",\n     ",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_gM5dQzeGq7srWVpPnvOlAjp3\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-06T20:38:02Z\",\n    \"request_time_taken\": 1.79,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.86,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_gM5dQzeGq7srWVpPnv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_6dAL2p4KqYs7wJxxGk7wnGOm\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-07T20:41:17Z\",\n    \"request_time_taken\": 1.1,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.18,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_6dAL2p4KqYs7wJxxGk7",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"bDHzH-ZIwNblYLlocBLZ4Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"BZcDzviF5FO-4xaFYHQrqw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22631.3251\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20460.6552\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2063359788436574715\",\n      \"url\": \"https://x.com/aria301298/status/2063359788436574715\",\n      \"twitterUrl\": \"https://twitter.com/aria301298/status/2063359788436574715\",\n      \"text\": \"@Blue_Beba_ @sama @gdb @OpenAI\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quoteCou",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2063722996284440822\",\n      \"url\": \"https://x.com/EcevitBIKTIM/status/2063722996284440822\",\n      \"twitterUrl\": \"https://twitter.com/EcevitBIKTIM/status/2063722996284440822\",\n      \"text\": \"OpenAI, ChatGPT’yi Süper Uygulamaya Çevirmek İçin Düğmeye Bastı https://t.co/7xy2VxZRLB @donanimgunlugu aracılığıyla\",\n      \"source\": \"Twitter for iPho",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7t2NJK77k2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-06T20:38:14Z\",\n    \"request_time_taken\": 1.18,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.29,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7t2NJK77k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_WDz0ZKeWNOcKaNDbokQyABpo\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-07T20:41:29Z\",\n    \"request_time_taken\": 1.46,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.58,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_WDz0ZKeWNOcKaNDbok",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"CCleXTwES9DedVQE965mPA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Kiq4M-3wbtnrmzXF3DRbMw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22631.3251\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20460.6552\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2063359814537773062\",\n      \"url\": \"https://x.com/species_x/status/2063359814537773062\",\n      \"twitterUrl\": \"https://twitter.com/species_x/status/2063359814537773062\",\n      \"text\": \"TechCrunch: OpenAI unveils Lockdown Mode to protect sensitive data from prompt injection attacks https://t.co/BlrqHlPFPo https://t.co/Ukfd2ZjgBH\",\n      \"sour",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2063723032322183305\",\n      \"url\": \"https://x.com/ba_ruud/status/2063723032322183305\",\n      \"twitterUrl\": \"https://twitter.com/ba_ruud/status/2063723032322183305\",\n      \"text\": \"@Uber @UberEng @Microsoft @OpenAI @AnthropicAI @Charles_Leclerc @ScuderiaFerrari @F1 7/8\\n2026 AI report card\\n@Uber annual budget. 4 months. ratio'd by their own",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_W75dANvqloTWPE3am4blrDJ3\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-06T20:38:23Z\",\n    \"request_time_taken\": 1.27,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.36,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_W75dANvqloTWPE3am4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_jOZRYa4201H7jRKD6klD6mVx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-07T20:41:39Z\",\n    \"request_time_taken\": 4.97,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 5.08,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_jOZRYa4201H7jRKD6k",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"FsBoYUg2ojLvkTi6n2Tkog\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"1qr7JUFhBTBlww5Tlc_A5w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22631.3251\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20460.6552\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
