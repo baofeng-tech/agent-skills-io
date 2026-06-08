@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2063722901535158781\",\n      \"url\": \"https://x.com/EcevitBIKTIM/status/2063722901535158781\",\n      \"twitterUrl\": \"https://twitter.com/EcevitBIKTIM/status/2063722901535158781\",\n      \"text\": \"OpenAI, ChatGPT İçin Güvenlik Kilidini Sıkılaştırıyor https://t.co/cDB8izUrl1 @donanimgunlugu aracılığıyla\",\n      \"source\": \"Twitter for iPhone\",\n     ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2064095164746891315\",\n      \"url\": \"https://x.com/axios/status/2064095164746891315\",\n      \"twitterUrl\": \"https://twitter.com/axios/status/2064095164746891315\",\n      \"text\": \"BREAKING: OpenAI files paperwork for an IPO https://t.co/13x6WM7j0w\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"lik",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_6dAL2p4KqYs7wJxxGk7wnGOm\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-07T20:41:17Z\",\n    \"request_time_taken\": 1.1,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.18,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_6dAL2p4KqYs7wJxxGk7",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mxzD17vdE2uKd0b2EklRw056\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-08T21:20:22Z\",\n    \"request_time_taken\": 5.55,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 5.64,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mxzD17vdE2uKd0b2Ek",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"BZcDzviF5FO-4xaFYHQrqw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"M28LWP4761zdwe2BlgV3eg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20460.6552\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19906.9805\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2063722996284440822\",\n      \"url\": \"https://x.com/EcevitBIKTIM/status/2063722996284440822\",\n      \"twitterUrl\": \"https://twitter.com/EcevitBIKTIM/status/2063722996284440822\",\n      \"text\": \"OpenAI, ChatGPT’yi Süper Uygulamaya Çevirmek İçin Düğmeye Bastı https://t.co/7xy2VxZRLB @donanimgunlugu aracılığıyla\",\n      \"source\": \"Twitter for iPho",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2064095248926613764\",\n      \"url\": \"https://x.com/ThCryptoCook/status/2064095248926613764\",\n      \"twitterUrl\": \"https://twitter.com/ThCryptoCook/status/2064095248926613764\",\n      \"text\": \"⚡️ BREAKING: OpenAI has confidentially submitted a draft S-1 registration statement to the SEC, taking a major step toward a potential IPO. \\n\\nOne of t",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_WDz0ZKeWNOcKaNDbokQyABpo\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-07T20:41:29Z\",\n    \"request_time_taken\": 1.46,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.58,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_WDz0ZKeWNOcKaNDbok",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_gM5dQzeGq7srKMD3pvOlAjp3\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-08T21:20:41Z\",\n    \"request_time_taken\": 1.47,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.56,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_gM5dQzeGq7srKMD3pv",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Kiq4M-3wbtnrmzXF3DRbMw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"4AWDim2Gz7ofEdjb0y9hLQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20460.6552\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19906.9805\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2063723032322183305\",\n      \"url\": \"https://x.com/ba_ruud/status/2063723032322183305\",\n      \"twitterUrl\": \"https://twitter.com/ba_ruud/status/2063723032322183305\",\n      \"text\": \"@Uber @UberEng @Microsoft @OpenAI @AnthropicAI @Charles_Leclerc @ScuderiaFerrari @F1 7/8\\n2026 AI report card\\n@Uber annual budget. 4 months. ratio'd by their own",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2064095300827099253\",\n      \"url\": \"https://x.com/AI_Investor27/status/2064095300827099253\",\n      \"twitterUrl\": \"https://twitter.com/AI_Investor27/status/2064095300827099253\",\n      \"text\": \"2️⃣ OpenAIとAnthropicの株式が投資対象として注目。ある家族はマイアミの260万ドルの自宅を売却し、賃貸物件として保有するよりも、これらAI企業の株式を保有したいと判断した。\\n\\nhttps://t.co/wuLGs9gMbo\",\n      \"source\": \"Twitter ",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_jOZRYa4201H7jRKD6klD6mVx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-07T20:41:39Z\",\n    \"request_time_taken\": 4.97,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 5.08,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_jOZRYa4201H7jRKD6k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7t2EaNbpk2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-08T21:20:51Z\",\n    \"request_time_taken\": 5.94,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 6.05,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7t2EaNbpk",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"1qr7JUFhBTBlww5Tlc_A5w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"r2iYB31VZG7iogqS-_xRPQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20460.6552\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19906.9805\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {

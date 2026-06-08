@@ -4,9 +4,9 @@ Search the web and extract public page content through AIsa's Tavily-backed API 
 
 ## What it does
 
-- Web search for research and source discovery
-- News-focused search with recent-day filtering
-- Public URL content extraction for downstream analysis
+- Search the open web for research and source discovery
+- Run news-focused search with recent-day filtering
+- Extract readable content from a public URL for downstream analysis
 
 ## When to use
 
