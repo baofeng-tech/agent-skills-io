@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2064095164746891315\",\n      \"url\": \"https://x.com/axios/status/2064095164746891315\",\n      \"twitterUrl\": \"https://twitter.com/axios/status/2064095164746891315\",\n      \"text\": \"BREAKING: OpenAI files paperwork for an IPO https://t.co/13x6WM7j0w\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"lik",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2064456610399821901\",\n      \"url\": \"https://x.com/emojisdotnews/status/2064456610399821901\",\n      \"twitterUrl\": \"https://twitter.com/emojisdotnews/status/2064456610399821901\",\n      \"text\": \"🚁⚡🇮🇷  Apache Downed, Trump Vows Retaliation\\n🏛️🧾🚧  House Moves $70B ICE Crackdown\\n⚖️💼💸  Judge KOs $100K H-1B Fee\\n🪙⏳📉  Social Security Trust Fund Dop",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mxzD17vdE2uKd0b2EklRw056\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-08T21:20:22Z\",\n    \"request_time_taken\": 5.55,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 5.64,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mxzD17vdE2uKd0b2Ek",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mMjwVJvBznTVdwAQQvynp5OY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-09T21:16:48Z\",\n    \"request_time_taken\": 1.43,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.52,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mMjwVJvBznTVdwAQQv",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"M28LWP4761zdwe2BlgV3eg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"PPAeoySMRm6yjbCAjKbwAg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19906.9805\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"17319.8949\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2064095248926613764\",\n      \"url\": \"https://x.com/ThCryptoCook/status/2064095248926613764\",\n      \"twitterUrl\": \"https://twitter.com/ThCryptoCook/status/2064095248926613764\",\n      \"text\": \"⚡️ BREAKING: OpenAI has confidentially submitted a draft S-1 registration statement to the SEC, taking a major step toward a potential IPO. \\n\\nOne of t",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2064456709637333009\",\n      \"url\": \"https://x.com/kevinefiles/status/2064456709637333009\",\n      \"twitterUrl\": \"https://twitter.com/kevinefiles/status/2064456709637333009\",\n      \"text\": \"@Ananth7e i think openai knew they were going to drop fable any day and thats why they held out. i was expecting them to drop it within 24 hours of 4.8 bu",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_gM5dQzeGq7srKMD3pvOlAjp3\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-08T21:20:41Z\",\n    \"request_time_taken\": 1.47,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.56,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_gM5dQzeGq7srKMD3pv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4moruGrd7Vpk03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-09T21:17:00Z\",\n    \"request_time_taken\": 1.31,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.43,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4moruGrd7Vpk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"4AWDim2Gz7ofEdjb0y9hLQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"leaDR5lfoM8d3eKMFvXr_g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19906.9805\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"17319.8949\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2064095300827099253\",\n      \"url\": \"https://x.com/AI_Investor27/status/2064095300827099253\",\n      \"twitterUrl\": \"https://twitter.com/AI_Investor27/status/2064095300827099253\",\n      \"text\": \"2️⃣ OpenAIとAnthropicの株式が投資対象として注目。ある家族はマイアミの260万ドルの自宅を売却し、賃貸物件として保有するよりも、これらAI企業の株式を保有したいと判断した。\\n\\nhttps://t.co/wuLGs9gMbo\",\n      \"source\": \"Twitter ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2064456740192518266\",\n      \"url\": \"https://x.com/saberjet/status/2064456740192518266\",\n      \"twitterUrl\": \"https://twitter.com/saberjet/status/2064456740192518266\",\n      \"text\": \"@IanBaer @cremieuxrecueil This is exactly how OpenAI was treating me. I was using it to evaluate OPORDS for Arma missions I was making and it suddenly decided I",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7t2EaNbpk2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-08T21:20:51Z\",\n    \"request_time_taken\": 5.94,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 6.05,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7t2EaNbpk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lmagj14OoquPKr3xR45E8MQp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-09T21:17:13Z\",\n    \"request_time_taken\": 5.88,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 5.99,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lmagj14OoquPKr3xR4",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"r2iYB31VZG7iogqS-_xRPQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"1IoYOudvya6Up7PFIoD_ag\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant ; Safety. Safety Approach ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19906.9805\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"17319.8949\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
