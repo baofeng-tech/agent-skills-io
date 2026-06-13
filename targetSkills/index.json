@@ -2,7 +2,7 @@
   "repository": "https://github.com/baofeng-tech/agent-skills-io",
   "branch": "main",
   "branch_url": "https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills",
-  "generated_at": "2026-06-12",
+  "generated_at": "2026-06-13",
   "skills": [
     {
       "name": "aisa-multi-search-engine",
@@ -31,7 +31,7 @@
     {
       "name": "aisa-twitter-api",
       "category": "twitter",
-      "description": "Twitter/X research, monitoring, watchlists, and OAuth-approved posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, timeline analysis, or approved posting without sharing passwords. Supports search, watchlists, relay-based reads, and OAuth-gated text or media posting.",
+      "description": "Twitter/X research, monitoring, watchlists, and OAuth-approved posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, timeline analysis, or approved posting without sharing passwords. Supports relay-based reads, watchlists, search, and OAuth-gated text or media posting.",
       "path": "aisa-twitter-api",
       "source": "https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/aisa-twitter-api",
       "entry": "SKILL.md"

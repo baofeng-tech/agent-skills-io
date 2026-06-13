@@ -40,7 +40,7 @@
 
 - Source: `targetSkills/aisa-twitter-api`
 - Output: `clawhub-release/aisa-twitter-api`
-- Description: Twitter/X research, monitoring, watchlists, and OAuth-approved posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, timeline analysis, or approved posting without sharing passwords. Supports search, watchlists, relay-based reads, and OAuth-gated text or media posting.
+- Description: Twitter/X research, monitoring, watchlists, and OAuth-approved posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, timeline analysis, or approved posting without sharing passwords. Supports relay-based reads, watchlists, search, and OAuth-gated text or media posting.
 - Change: disabled browser auto-open in scripts/twitter_oauth_client.py
 - Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa

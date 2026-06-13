@@ -49,7 +49,7 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 - Source: `targetSkills/aisa-twitter-api`
 - Output: `claude-release/aisa-twitter-api`
-- Description: Twitter/X research, monitoring, watchlists, and OAuth-approved posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, timeline analysis, or approved posting without sharing passwords. Supports search, watchlists, relay-based reads, and OAuth-gated text or media posting.
+- Description: Twitter/X research, monitoring, watchlists, and OAuth-approved posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, timeline analysis, or approved posting without sharing passwords. Supports relay-based reads, watchlists, search, and OAuth-gated text or media posting.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility
