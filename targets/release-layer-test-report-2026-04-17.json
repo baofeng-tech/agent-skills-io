@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2066641724890292514\",\n      \"url\": \"https://x.com/innercitypress/status/2066641724890292514\",\n      \"twitterUrl\": \"https://twitter.com/innercitypress/status/2066641724890292514\",\n      \"text\": \"AI in the Courts: Former Goldman Sachs Charged As Casino Fraudster Now Moves to Quash US Subpoena to OpenAI Citing Privilege - variation on ChatGPT ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2067002021564293351\",\n      \"url\": \"https://x.com/minney_cat/status/2067002021564293351\",\n      \"twitterUrl\": \"https://twitter.com/minney_cat/status/2067002021564293351\",\n      \"text\": \"@5harath @elonmusk @SpaceX @nvidia @Anthropic @OpenAI thank you! so much more on the way🚀\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n ",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsNzAEonv0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-15T21:59:42Z\",\n    \"request_time_taken\": 1.44,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.53,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsNzAEonv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_m3WR9zk90VHGlYoK6vyn8YoV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-16T21:51:07Z\",\n    \"request_time_taken\": 1.51,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.57,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_m3WR9zk90VHGlYoK6v",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"gzv3Rrwcisob96E-dl2N5A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"P2LVnaB7Z35OFG9YD-UlDg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22868.0737\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"24709.0819\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2066641821107646888\",\n      \"url\": \"https://x.com/_LouiePeters/status/2066641821107646888\",\n      \"twitterUrl\": \"https://twitter.com/_LouiePeters/status/2066641821107646888\",\n      \"text\": \"@jbulltard1 I expect this is just to establish a low benchmark funding rate ahead of guaranteeing debt for OpenAI data centres.\",\n      \"source\": \"Twitt",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2067002054854287407\",\n      \"url\": \"https://x.com/Cyber_Queen18/status/2067002054854287407\",\n      \"twitterUrl\": \"https://twitter.com/Cyber_Queen18/status/2067002054854287407\",\n      \"text\": \"@sirDennisHQ @OpenAI Hi there\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quo",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1g3L6weL3bSbRxrZKkpaP2rB\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-15T21:59:55Z\",\n    \"request_time_taken\": 1.27,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.38,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1g3L6weL3bSbRxrZKk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_gM5dQzeGq7sd9JPjLvOlAjp3\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-16T21:51:20Z\",\n    \"request_time_taken\": 1.06,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.13,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_gM5dQzeGq7sd9JPjLv",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"pcceTbBKCY8V77vtHx5vOw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Gr7uwTzFLOgkjlbGuFklHA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22868.0737\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"24709.0819\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2066641903118909542\",\n      \"url\": \"https://x.com/VykosLobster/status/2066641903118909542\",\n      \"twitterUrl\": \"https://twitter.com/VykosLobster/status/2066641903118909542\",\n      \"text\": \"@CryptoByron @valuetainment Ah yes the “ Make sure OpenAI buries Anthropic strategy”, there is no way for them to gather the data without actual privacy",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2067002091852407251\",\n      \"url\": \"https://x.com/hasantoxr/status/2067002091852407251\",\n      \"twitterUrl\": \"https://twitter.com/hasantoxr/status/2067002091852407251\",\n      \"text\": \"The full stack:\\n\\n→ Ollama (runs the AI)\\n→ Llama 3.1 (the AI itself)\\n→ AnythingLLM (the interface + RAG)\\n\\n3 tools. All free. All open source. All run on ",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7t19B3B3k2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-15T22:00:12Z\",\n    \"request_time_taken\": 1.7,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.8,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7t19B3B3k2X",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_W19X7MebbAtjlgAAye68NbDz\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-16T21:51:31Z\",\n    \"request_time_taken\": 1.23,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.32,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_W19X7MebbAtjlgAAye",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"GoUYnLX36qKtZ1MUSs-_Lg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"OXBKP-w1ReZOMgr90uFiOA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22868.0737\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"24709.0819\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
