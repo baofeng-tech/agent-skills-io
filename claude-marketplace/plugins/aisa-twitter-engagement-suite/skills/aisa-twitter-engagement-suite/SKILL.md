@@ -1,10 +1,10 @@
 ---
 name: aisa-twitter-engagement-suite
-description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user needs Twitter/X research plus posting, likes, follows, or related follow-through without sharing passwords.
+description: 'Research Twitter/X profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when: the user needs Twitter/X research plus posting, likes, follows, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows.'
 version: 1.0.3
 license: MIT-0
 allowed-tools: Read Bash Grep
-when_to_use: the user needs Twitter/X research plus posting, likes, follows, or related follow-through without sharing passwords
+when_to_use: the user needs Twitter/X research plus posting, likes, follows, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows
 ---
 
 # AIsa Twitter Engagement Suite
@@ -13,27 +13,29 @@ Research Twitter/X profiles, tweets, and trends, then run approved posting and e
 
 ## When to use
 
-- The user needs Twitter/X research plus action-oriented follow-through such as posting, liking, unliking, following, or unfollowing.
-- The workflow can use a Python client with `AISA_API_KEY` and network access to `api.aisa.one`.
-- The task needs relay-based Twitter/X writes without asking the user to share passwords.
-- The user can complete explicit OAuth approval before write actions or media posting.
+- When the user needs Twitter/X research plus action-oriented follow-through such as posting, liking, unliking, following, or unfollowing.
+- When the workflow can use a Python client with `AISA_API_KEY` and network access to `api.aisa.one`.
+- When the task needs relay-based Twitter/X writes without asking the user to share passwords.
+- When the user can complete explicit OAuth approval before write actions or media posting.
 
 ## When NOT to use
 
-- The user needs cookie extraction, password login, or a fully local Twitter client.
-- The workflow must avoid relay-based network calls, remote writes, or media upload through `api.aisa.one`.
-- The task needs undocumented secrets, browser-derived auth values, or hidden credential flows.
-- The user only needs the broad flagship Twitter lane; use `aisa-twitter-api` for that surface.
+- Do not use this for cookie extraction, password login, or a fully local Twitter client.
+- Do not use this when the workflow must avoid relay-based network calls, remote writes, or media upload through `api.aisa.one`.
+- Do not use this for undocumented secrets, browser-derived auth values, or hidden credential flows.
+- Do not use this when the user only needs the broader flagship Twitter lane; use `aisa-twitter-api` for that surface.
 
 ## Quick Reference
 
-- Required environment variable: `AISA_API_KEY`
-- Required binary: `python3`
-- Relay target: `api.aisa.one`
-- Read client: `scripts/twitter_client.py`
-- Post client: `scripts/twitter_oauth_client.py`
-- Engage client: `scripts/twitter_engagement_client.py`
-- References: `references/post_twitter.md`, `references/engage_twitter.md`
+| Need | Path / Requirement |
+| --- | --- |
+| API key | `AISA_API_KEY` |
+| Required binary | `python3` |
+| Relay target | `api.aisa.one` |
+| Read client | `scripts/twitter_client.py` |
+| Post client | `scripts/twitter_oauth_client.py` |
+| Engage client | `scripts/twitter_engagement_client.py` |
+| References | `references/post_twitter.md`, `references/engage_twitter.md` |
 
 ## Setup
 
@@ -46,7 +48,7 @@ Requirements:
 - `python3`
 - Internet access to `api.aisa.one`
 - Explicit OAuth approval before posting or engagement writes
-- Media upload support is relay-based and only applies when using approved post flows
+- Relay-based upload support for approved media posting flows
 
 ## Common Commands
 
@@ -61,11 +63,12 @@ python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
 - Research Twitter/X accounts, tweets, trends, lists, communities, and Spaces.
 - Publish text, image, and video posts after explicit OAuth approval.
 - Like, unlike, follow, and unfollow after authorization exists.
-- Keep read and write workflows in one package while making relay and approval requirements explicit.
+- Keep read and write workflows in one package while making relay, approval, and upload requirements explicit.
 
 ## Trust and Side Effects
 
 - All networked operations go through the AIsa relay at `api.aisa.one`.
 - Write actions require explicit OAuth approval before they can succeed.
 - Posting with media uses relay-based upload paths supported by the runtime.
+- Reads, writes, and uploads are remote API operations, not local-only actions.
 - Do not claim a post, like, follow, or unfollow succeeded until the API confirms it.

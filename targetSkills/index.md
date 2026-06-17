@@ -2,7 +2,7 @@
 
 This catalog lists the current cross-platform mother skills in `targetSkills/`.
 
-- Generated at: `2026-06-16`
+- Generated at: `2026-06-17`
 - Repository target: `https://github.com/baofeng-tech/agent-skills-io`
 - Branch target: `main`
 - Total skills: `59`
@@ -32,7 +32,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `aisa-twitter-engagement-suite`
   - Category: `twitter`
   - Path: `aisa-twitter-engagement-suite`
-  - Description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user needs Twitter/X research plus posting, likes, follows, or related follow-through without sharing passwords.
+  - Description: Research Twitter/X profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when: the user needs Twitter/X research plus posting, likes, follows, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows.
 - `aisa-twitter-post-engage`
   - Category: `twitter`
   - Path: `aisa-twitter-post-engage`

@@ -1,6 +1,6 @@
 ---
 name: aisa-twitter-engagement-suite
-description: Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user needs Twitter/X research plus posting, likes, follows, or related follow-through without sharing passwords.
+description: 'Research Twitter/X profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when: the user needs Twitter/X research plus posting, likes, follows, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows.'
 version: 1.0.3
 license: MIT-0
 metadata:
@@ -36,7 +36,7 @@ required_environment_variables:
 
 # aisa-twitter-engagement-suite
 
-Search X/Twitter profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when the user needs Twitter/X research plus posting, likes, follows, or related follow-through without sharing passwords.
+Research Twitter/X profiles, tweets, trends, and approved engagement actions through the AIsa relay. Use when: the user needs Twitter/X research plus posting, likes, follows, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows.
 
 ## When to Use
 

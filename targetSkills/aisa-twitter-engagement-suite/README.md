@@ -13,6 +13,7 @@ Engagement-focused Twitter/X skill for research, approved posting, and follow-th
 
 - Use this when the user already knows what to engage with and needs action-oriented Twitter/X follow-through.
 - Use this when the workflow needs both research and approved engagement in the same package.
+- Use this when relay-based reads and OAuth-approved writes are acceptable.
 - Use `aisa-twitter-api` for the flagship all-purpose Twitter lane.
 - Use `aisa-twitter-command-center` for watchlists, trend scanning, and recurring monitoring.
 
@@ -27,6 +28,7 @@ Requires:
 - `python3`
 - network access to `https://api.aisa.one/`
 - explicit OAuth approval before posting or engagement writes
+- relay-based upload support for approved media posting flows
 
 ## Runtime entry points
 
@@ -48,4 +50,5 @@ python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
 - All reads, writes, and approved uploads are relayed through `api.aisa.one`.
 - Write actions require explicit OAuth approval.
 - Media posting uses relay-based upload paths supported by the runtime.
+- Reads, writes, and uploads are remote API operations, not local-only actions.
 - Do not claim a write action succeeded until the API confirms it.
