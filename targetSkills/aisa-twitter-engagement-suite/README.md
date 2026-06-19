@@ -7,7 +7,7 @@ Engagement-focused Twitter/X skill for research, approved posting, and follow-th
 - Search Twitter/X profiles, tweets, and trends
 - Publish through OAuth after explicit approval
 - Like, unlike, follow, and unfollow through bundled Python clients
-- Keep read and write workflows in one package without asking for passwords
+- Keep research and engagement follow-through in one package without asking for passwords
 
 ## Best fit
 

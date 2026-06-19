@@ -15,7 +15,7 @@ Flagship Twitter/X command center for research, monitoring, watchlists, and OAut
 - Use `aisa-twitter-engagement-suite` when the task is mainly likes, follows, replies, or other engagement actions.
 - Use `aisa-twitter-command-center` when the task is mainly watchlists, trend scanning, and monitoring.
 
-## Setup
+## Runtime requirements
 
 ```bash
 export AISA_API_KEY="your-key"
@@ -29,6 +29,13 @@ Requires:
 - Explicit OAuth approval before posting
 - User-provided media files for image or video uploads
 
+## Relay, OAuth, and upload behavior
+
+- Read operations are sent through the relay target `https://api.aisa.one`.
+- Posting is an external write and requires explicit OAuth approval before it can occur.
+- Image and video posting sends user-selected media through the relay for upload.
+- This skill does not require Twitter/X passwords or browser cookies.
+
 ## Common Commands
 
 ```bash
@@ -36,6 +43,12 @@ python3 scripts/twitter_client.py search --query "AI agents" --type Latest
 python3 scripts/twitter_oauth_client.py authorize
 python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa"
 ```
+
+## Included runtime files
+
+- Read client: `scripts/twitter_client.py`
+- OAuth and posting client: `scripts/twitter_oauth_client.py`
+- Posting guide: `references/post_twitter.md`
 
 ## Security & Trust
 
