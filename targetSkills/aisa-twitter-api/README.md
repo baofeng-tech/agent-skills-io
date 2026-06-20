@@ -29,7 +29,7 @@ Requires:
 - Explicit OAuth approval before posting
 - User-provided media files for image or video uploads
 
-## Relay, OAuth, and upload behavior
+## Relay, OAuth, upload, and write behavior
 
 - Read operations are sent through the relay target `https://api.aisa.one`.
 - Posting is an external write and requires explicit OAuth approval before it can occur.

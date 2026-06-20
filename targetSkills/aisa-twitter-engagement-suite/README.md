@@ -46,6 +46,12 @@ python3 scripts/twitter_oauth_client.py authorize
 python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
 ```
 
+## Workflow focus
+
+- Research first, then take an approved engagement action from the same package.
+- Use this for posting and post-research engagement follow-through, not as the broad flagship Twitter surface.
+- Keep relay target, OAuth approval, upload behavior, and remote side effects explicit in user-facing usage.
+
 ## Security & Trust
 
 - Requires only `AISA_API_KEY` for the shipped runtime.
