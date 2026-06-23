@@ -78,7 +78,7 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 - Source: `targetSkills/aisa-twitter-engagement-suite`
 - Output: `claude-release/aisa-twitter-engagement-suite`
-- Description: Research Twitter/X profiles, tweets, and trends, then run approved engagement actions through the AIsa relay. Use when: the user needs Twitter/X research plus posting, likes, follows, unfollows, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows.
+- Description: Research Twitter/X profiles, tweets, and trends, then run approved engagement and posting actions through the AIsa relay. Use when: the user needs Twitter/X research plus likes, follows, unfollows, posting, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility

@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069172882966745481\",\n      \"url\": \"https://x.com/kuro_8021_/status/2069172882966745481\",\n      \"twitterUrl\": \"https://twitter.com/kuro_8021_/status/2069172882966745481\",\n      \"text\": \"9/\\n\\n公式情報はこちら。\\n\\nOpenAI Daybreak\\nhttps://t.co/kEHLIWXqCw\\n\\n現時点では、\\n「すごい新モデルが誰でも使える」という話ではなく、\\n防御側向けにAIセキュリティ基盤を広げる発表として見るのが正確。\",\n      \"source\": \"Twitte",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069528235822514448\",\n      \"url\": \"https://x.com/iMasters/status/2069528235822514448\",\n      \"twitterUrl\": \"https://twitter.com/iMasters/status/2069528235822514448\",\n      \"text\": \"OpenAI redefine a segurança com a nova tecnologia GPT 5.5 Cyber https://t.co/l73mDZnufu\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqTL73KGneYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-22T21:37:23Z\",\n    \"request_time_taken\": 1.71,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.78,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqTL73KGne",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_BZAYNyvAW2i9wPOJ2eo93VJQ\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-23T21:10:08Z\",\n    \"request_time_taken\": 1.18,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.27,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_BZAYNyvAW2i9wPOJ2eo",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"RKGOztNinAe86d3g0PcYLQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"CnOV7zClri0ODDlCoOo88Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16350.595\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16734.9209\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069172882966745481\",\n      \"url\": \"https://x.com/kuro_8021_/status/2069172882966745481\",\n      \"twitterUrl\": \"https://twitter.com/kuro_8021_/status/2069172882966745481\",\n      \"text\": \"9/\\n\\n公式情報はこちら。\\n\\nOpenAI Daybreak\\nhttps://t.co/kEHLIWXqCw\\n\\n現時点では、\\n「すごい新モデルが誰でも使える」という話ではなく、\\n防御側向けにAIセキュリティ基盤を広げる発表として見るのが正確。\",\n      \"source\": \"Twitte",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069528455125844053\",\n      \"url\": \"https://x.com/Punto_Turkiye/status/2069528455125844053\",\n      \"twitterUrl\": \"https://twitter.com/Punto_Turkiye/status/2069528455125844053\",\n      \"text\": \"OpenAI, siber güvenlik odaklı yeni yapay zekâ modeli GPT-5.5-Cyber'ı kısıtlı olarak kullanıma sunduğunu duyurdu.\\n\\nGPT-5.5-Cyber; yazılım açıklarını ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mR5DzpePyDIy8xgxK4YdGQno\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-22T21:37:36Z\",\n    \"request_time_taken\": 2.46,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 2.53,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mR5DzpePyDIy8xgxK4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4morugQdobqk03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-23T21:10:22Z\",\n    \"request_time_taken\": 1.28,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.34,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4morugQdobqk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"o4guH4RaueGc9ToB64SIag\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"KGIbi7ALlVh3ijr2MHiE_A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16350.595\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16734.9209\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069172945935851850\",\n      \"url\": \"https://x.com/tpAJZqNG1NewajG/status/2069172945935851850\",\n      \"twitterUrl\": \"https://twitter.com/tpAJZqNG1NewajG/status/2069172945935851850\",\n      \"text\": \"おはようございます😃\\n\\nナス下げのSOX爆上げ🚀\\nわっしょい、わっしょい🚀🚀🚀\\n\\n•  ナスダック下落の主因\\n•  Alphabet：-5%前後 → AI研究者2名（DeepMind）の競合移籍（Anthropic/OpenAI）で人材流出懸念\\n•  SpaceX：-16% →",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069528519005376853\",\n      \"url\": \"https://x.com/JackHudler/status/2069528519005376853\",\n      \"twitterUrl\": \"https://twitter.com/JackHudler/status/2069528519005376853\",\n      \"text\": \"@klara_sjo @OpenAI It was a clickbait article. Right down to the guy saying the AI tried to stop it from turned off.\",\n      \"source\": \"Twitter for iPhone\",",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_W19X7MebbAtj9Y1gBe68NbDz\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-22T21:37:48Z\",\n    \"request_time_taken\": 1.21,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.33,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_W19X7MebbAtj9Y1gBe",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mpO7djkNqos92n7qLvAPE9xq\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-23T21:10:33Z\",\n    \"request_time_taken\": 1.03,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.13,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mpO7djkNqos92n7qLvA",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"7UXbDa74-0y_Rq7q2Hu6KQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"wekonxseqZlb_Yos839dBg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16350.595\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16734.9209\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {

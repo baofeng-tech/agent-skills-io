@@ -1,10 +1,10 @@
 ---
 name: aisa-twitter-engagement-suite
-description: 'Research Twitter/X profiles, tweets, and trends, then run approved engagement actions through the AIsa relay. Use when: the user needs Twitter/X research plus posting, likes, follows, unfollows, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows.'
+description: 'Research Twitter/X profiles, tweets, and trends, then run approved engagement and posting actions through the AIsa relay. Use when: the user needs Twitter/X research plus likes, follows, unfollows, posting, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows.'
 version: 1.0.3
 license: MIT-0
 allowed-tools: Read Bash Grep
-when_to_use: the user needs Twitter/X research plus posting, likes, follows, unfollows, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows
+when_to_use: the user needs Twitter/X research plus likes, follows, unfollows, posting, or post-action follow-through without sharing passwords. Supports relay-based reads, OAuth-approved writes, and media-capable posting flows
 ---
 
 # AIsa Twitter Engagement Suite
