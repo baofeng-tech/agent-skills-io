@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069528235822514448\",\n      \"url\": \"https://x.com/iMasters/status/2069528235822514448\",\n      \"twitterUrl\": \"https://twitter.com/iMasters/status/2069528235822514448\",\n      \"text\": \"OpenAI redefine a segurança com a nova tecnologia GPT 5.5 Cyber https://t.co/l73mDZnufu\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069888482932404459\",\n      \"url\": \"https://x.com/rachelmetz/status/2069888482932404459\",\n      \"twitterUrl\": \"https://twitter.com/rachelmetz/status/2069888482932404459\",\n      \"text\": \"really interesting look from @dinabass at the long-in-the-works effort by @OpenAI and @Broadcom to develop an AI chip that can make models run faster and ch",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_BZAYNyvAW2i9wPOJ2eo93VJQ\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-23T21:10:08Z\",\n    \"request_time_taken\": 1.18,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.27,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_BZAYNyvAW2i9wPOJ2eo",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_XJELrMkzrOFMoLaGrk2PNQw7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-24T21:01:01Z\",\n    \"request_time_taken\": 1.06,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.17,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_XJELrMkzrOFMoLaGrk",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"CnOV7zClri0ODDlCoOo88Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"9IDgmT_kBEtUUyit_gL2_w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16734.9209\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"10576.0709\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069528455125844053\",\n      \"url\": \"https://x.com/Punto_Turkiye/status/2069528455125844053\",\n      \"twitterUrl\": \"https://twitter.com/Punto_Turkiye/status/2069528455125844053\",\n      \"text\": \"OpenAI, siber güvenlik odaklı yeni yapay zekâ modeli GPT-5.5-Cyber'ı kısıtlı olarak kullanıma sunduğunu duyurdu.\\n\\nGPT-5.5-Cyber; yazılım açıklarını ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069888576544973043\",\n      \"url\": \"https://x.com/Laneless_/status/2069888576544973043\",\n      \"twitterUrl\": \"https://twitter.com/Laneless_/status/2069888576544973043\",\n      \"text\": \"@jachiam0 \\\"We need to be more powerful\\\" is the reason the original OpenAI was founded. And while we'll never know the counterfactual for sure, we're now in ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4morugQdobqk03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-23T21:10:22Z\",\n    \"request_time_taken\": 1.28,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.34,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4morugQdobqk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mxzD17vdE2u7MPQKRklRw056\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-24T21:01:13Z\",\n    \"request_time_taken\": 1.13,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.24,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mxzD17vdE2u7MPQKRk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"KGIbi7ALlVh3ijr2MHiE_A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"RrH6VcVms8HAz1wbOOYxRQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16734.9209\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"10576.0709\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069528519005376853\",\n      \"url\": \"https://x.com/JackHudler/status/2069528519005376853\",\n      \"twitterUrl\": \"https://twitter.com/JackHudler/status/2069528519005376853\",\n      \"text\": \"@klara_sjo @OpenAI It was a clickbait article. Right down to the guy saying the AI tried to stop it from turned off.\",\n      \"source\": \"Twitter for iPhone\",",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2069888508949352695\",\n      \"url\": \"https://x.com/solveit_dev/status/2069888508949352695\",\n      \"twitterUrl\": \"https://twitter.com/solveit_dev/status/2069888508949352695\",\n      \"text\": \"El primer chip de IA de OpenAI, Jalapeño, marca un avance significativo. Este ASIC creado con Broadcom ejecutará inferencias en modelos de lenguaje. ¡El f",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mpO7djkNqos92n7qLvAPE9xq\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-23T21:10:33Z\",\n    \"request_time_taken\": 1.03,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.13,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mpO7djkNqos92n7qLvA",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_yawpDZvY5Rca5K8GjvWPdXoM\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-24T21:01:24Z\",\n    \"request_time_taken\": 1.05,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.16,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_yawpDZvY5Rca5K8Gjv",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"wekonxseqZlb_Yos839dBg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"oXIyBf8MtM9NQ0g2B-0jag\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16734.9209\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"10576.0709\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
