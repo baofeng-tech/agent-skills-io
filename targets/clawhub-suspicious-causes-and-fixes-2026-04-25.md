@@ -127,16 +127,16 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`54`
+- 诊断对象数：`56`
 - `blocker`：`10`
-- `warning`：`44`
-- `pending`：`44`
+- `warning`：`46`
+- `pending`：`46`
 
 ### 当前高频规则
 
 - `metadata_env_mismatch`: `1`
 - `oauth_upload_side_effects`: `10`
-- `pending_scan`: `44`
+- `pending_scan`: `46`
 - `platform_trust_gap`: `16`
 - `relay_trust_surface`: `26`
 
@@ -182,12 +182,10 @@
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
   reason: The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits.
-- `skill:aisa-crypto-market-data`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The skill is coherent with its stated purpose of fetching crypto market data via the AIsa service: it requires only python3 and an AISA_API_KEY and the bundled script calls the AIsa API — nothing in the package requests unrelated credentials or installs arbitrary code from unknown hosts.
-- `skill:aisa-multi-search-engine`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan, relay_trust_surface`
-  reason: The skill's code, runtime instructions, and requested environment access are consistent with a multi-source search plugin that calls the AIsa API and only requires an AISA_API_KEY plus python3/node runtimes.
+- `plugin:aisa-twitter-api-command-center-plugin`
+  severity: `warning` | status: `unresolved`
+  rules: `pending_scan`
+- `plugin:twitter-post-aisa-plugin`
+  severity: `warning` | status: `unresolved`
+  rules: `pending_scan`
 <!-- AUTO-DIAGNOSIS:END -->
