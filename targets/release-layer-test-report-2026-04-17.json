@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2070251852734607581\",\n      \"url\": \"https://x.com/C_Barraud/status/2070251852734607581\",\n      \"twitterUrl\": \"https://twitter.com/C_Barraud/status/2070251852734607581\",\n      \"text\": \"🇺🇸 #OpenAI Leans Toward Holding Up I.P.O. Until Next Year - NYT\\nhttps://t.co/oCgUcWzE59\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n    ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2070612702213599570\",\n      \"url\": \"https://x.com/TokaiKii/status/2070612702213599570\",\n      \"twitterUrl\": \"https://twitter.com/TokaiKii/status/2070612702213599570\",\n      \"text\": \"openAI社もロビー活動に失敗したんや(^◇^;)\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quoteCount\": 0,\n",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_16dWXw4JOrIjZAN5pvqoKNGl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-25T21:05:12Z\",\n    \"request_time_taken\": 1.43,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.49,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_16dWXw4JOrIjZAN5pv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_W19X7MebbAtjNKBzJe68NbDz\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-26T20:58:42Z\",\n    \"request_time_taken\": 4.81,\n    \"parsing_time_taken\": 0.14,\n    \"total_time_taken\": 4.95,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_W19X7MebbAtjNKBzJe",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"XXKjqEH-SiNX_wGARX_WkQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; How agents are transforming work > Cover image. How agents are transforming work. Company Jun 25, 2026 ; OpenAI and Broadcom Jalapeño inference chip card ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"U40GyjQPVt71YxCRapN4NQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20597.9696\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"18339.6999\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2070251971408257250\",\n      \"url\": \"https://x.com/business/status/2070251971408257250\",\n      \"twitterUrl\": \"https://twitter.com/business/status/2070251971408257250\",\n      \"text\": \"OpenAI Leans Toward Waiting Until 2027 for IPO, NY Times Says https://t.co/1SYa7ujWa1\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"re",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2070612735776157785\",\n      \"url\": \"https://x.com/Marketdire7243/status/2070612735776157785\",\n      \"twitterUrl\": \"https://twitter.com/Marketdire7243/status/2070612735776157785\",\n      \"text\": \"@arvidkahl This pricing shift exposes the real margin pressure OpenAI is facing. By killing the ultra-cheap nano layer, they are essentially forcing",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7t1YxnAok2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-25T21:05:26Z\",\n    \"request_time_taken\": 1.39,\n    \"parsing_time_taken\": 0.15,\n    \"total_time_taken\": 1.53,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7t1YxnAok",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1r3VbxvXpgtaxdmN8vB26gOP\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-26T20:58:58Z\",\n    \"request_time_taken\": 1.4,\n    \"parsing_time_taken\": 0.13,\n    \"total_time_taken\": 1.53,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1r3VbxvXpgtaxdmN8vB",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"1c8unKCWXo3pmERf162kZQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; How agents are transforming work > Cover image. How agents are transforming work. Company Jun 25, 2026 ; OpenAI and Broadcom Jalapeño inference chip card ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"fqdQMqHdgRy9w1av3RjQZQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20597.9696\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"18339.6999\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2070252027951693895\",\n      \"url\": \"https://x.com/OverfitForTruth/status/2070252027951693895\",\n      \"twitterUrl\": \"https://twitter.com/OverfitForTruth/status/2070252027951693895\",\n      \"text\": \"@trashbaby40k @Andr3jH @inductionheads @karpathy will be temporary regardless imo. he stayed at OpenAI during his second stint only for a year. I ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2070612735776157785\",\n      \"url\": \"https://x.com/Marketdire7243/status/2070612735776157785\",\n      \"twitterUrl\": \"https://twitter.com/Marketdire7243/status/2070612735776157785\",\n      \"text\": \"@arvidkahl This pricing shift exposes the real margin pressure OpenAI is facing. By killing the ultra-cheap nano layer, they are essentially forcing",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mOgBEZe50gHgDzKoDkzwL3jW\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-25T21:05:37Z\",\n    \"request_time_taken\": 1.32,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.44,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mOgBEZe50gHgDzKoDk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_pVr1MO4QrQF0qxVWRvblzoE9\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-06-26T20:59:09Z\",\n    \"request_time_taken\": 1.13,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.23,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_pVr1MO4QrQF0qxVWRv",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"MfQJBQ44VbpuKRefMGJCDg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; How agents are transforming work > Cover image. How agents are transforming work. Company Jun 25, 2026 ; OpenAI and Broadcom Jalapeño inference chip card ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"uY4ZDStKoxpAWc39FRgd1A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"20597.9696\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"18339.6999\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {

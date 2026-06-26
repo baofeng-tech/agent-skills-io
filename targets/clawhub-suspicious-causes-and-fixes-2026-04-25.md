@@ -185,7 +185,7 @@
 - `plugin:aisa-twitter-api-command-center-plugin`
   severity: `warning` | status: `unresolved`
   rules: `pending_scan`
-- `plugin:twitter-post-aisa-plugin`
+- `plugin:aisa-twitter-research-engage-relay-plugin`
   severity: `warning` | status: `unresolved`
   rules: `pending_scan`
 <!-- AUTO-DIAGNOSIS:END -->

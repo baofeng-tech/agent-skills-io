@@ -52,6 +52,13 @@ python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
 - Use this for posting and post-research engagement follow-through, not as the broad flagship Twitter surface.
 - Keep relay target, OAuth approval, upload behavior, and remote side effects explicit in user-facing usage.
 
+## Example requests
+
+- "Research this Twitter/X account, then like the latest post if it matches our topic."
+- "Search Twitter/X for AI agents, review the results, then prepare an approved engagement action."
+- "Authorize posting, then publish a Twitter/X update with media through the relay flow."
+- "Check recent activity from this account and decide whether to follow or unfollow."
+
 ## Security & Trust
 
 - Requires only `AISA_API_KEY` for the shipped runtime.

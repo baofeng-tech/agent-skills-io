@@ -345,9 +345,9 @@
       "reason": null
     },
     {
-      "key": "plugin:twitter-post-aisa-plugin",
+      "key": "plugin:aisa-twitter-research-engage-relay-plugin",
       "kind": "plugin",
-      "name": "twitter-post-aisa-plugin",
+      "name": "aisa-twitter-research-engage-relay-aisa-api-plugin",
       "publisher_handle": null,
       "severity": "warning",
       "scan_status": "unresolved",
@@ -368,9 +368,9 @@
         "Keep pending, clean, and suspicious as separate states in automation.",
         "Retry live scan before treating the package as resolved."
       ],
-      "detail_url": "https://clawhub.ai/plugins/twitter-post-aisa-plugin",
-      "local_path": "clawhub-plugin-release/plugins/twitter-post-aisa-plugin",
-      "release_ref": "rd78a8r18k7ec85pf7tjjh0ebd86b086",
+      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-research-engage-relay-aisa-api-plugin",
+      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-research-engage-relay-plugin",
+      "release_ref": "rd72dgrscqzcw06j2e2kvajfpx86am5n",
       "reason": null
     },
     {
