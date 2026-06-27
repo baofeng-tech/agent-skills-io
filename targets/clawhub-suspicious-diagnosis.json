@@ -1,13 +1,13 @@
 {
   "summary": {
-    "artifacts": 56,
+    "artifacts": 54,
     "blockers": 10,
-    "warnings": 46,
-    "pending": 46,
+    "warnings": 44,
+    "pending": 44,
     "rules": {
       "metadata_env_mismatch": 1,
       "oauth_upload_side_effects": 10,
-      "pending_scan": 46,
+      "pending_scan": 44,
       "platform_trust_gap": 16,
       "relay_trust_surface": 26
     }
@@ -314,64 +314,6 @@
       "local_path": "clawhub-release/youtube-search",
       "release_ref": null,
       "reason": "The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits."
-    },
-    {
-      "key": "plugin:aisa-twitter-api-command-center-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-api-command-center-aisa-api-plugin",
-      "publisher_handle": null,
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": null,
-      "static_analysis_summary": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-api-command-center-aisa-api-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-api-command-center-plugin",
-      "release_ref": "rd7fp8nvwfmtd4691sejp27ywx86bv79",
-      "reason": null
-    },
-    {
-      "key": "plugin:aisa-twitter-research-engage-relay-plugin",
-      "kind": "plugin",
-      "name": "aisa-twitter-research-engage-relay-aisa-api-plugin",
-      "publisher_handle": null,
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": null,
-      "static_analysis_summary": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-research-engage-relay-aisa-api-plugin",
-      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-research-engage-relay-plugin",
-      "release_ref": "rd72dgrscqzcw06j2e2kvajfpx86am5n",
-      "reason": null
     },
     {
       "key": "skill:aisa-crypto-market-data",

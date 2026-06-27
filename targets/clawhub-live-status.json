@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-26T21:01:58.561828+00:00",
+  "generated_at": "2026-06-27T20:38:12.998307+00:00",
   "summary": {
     "total": 120,
     "suspicious": 10,
-    "pending": 46,
+    "pending": 44,
     "resolved_urls": 120
   },
   "artifacts": [
@@ -239,7 +239,7 @@
       "suspicious_reason": "This skill appears to do what it claims: it uses an AISA API key to send search and extraction requests to AIsa's API.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-06-26T21:01:20.499805+00:00"
+      "checked_at": "2026-06-27T20:37:41.932102+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-command-center-plugin",
@@ -249,25 +249,23 @@
       "version": "1.0.3",
       "detail_url": "https://clawhub.ai/plugins/aisa-twitter-api-command-center-aisa-api-plugin",
       "resolved_slug": "aisa-twitter-api-command-center-aisa-api-plugin",
-      "page_found": false,
+      "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "unresolved",
-      "virus_total": null,
+      "scan_status": "clean",
+      "virus_total": "clean",
       "virus_total_report_url": null,
-      "clawscan_verdict": null,
+      "clawscan_verdict": "clean",
       "clawscan_confidence": null,
-      "openclaw_verdict": null,
+      "openclaw_verdict": "clean",
       "openclaw_confidence": null,
-      "static_analysis_status": null,
-      "static_analysis_summary": null,
-      "publisher_handle": null,
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "publisher_handle": "Convex",
       "suspicious": false,
-      "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "HTTP 500 while fetching detail page. Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-06-26T21:01:30.011406+00:00"
+      "suspicious_reason": "This skill appears to do what it claims—use an AIsa API key and Python scripts for Twitter/X research and posting—though its registry requirement summary under-reports the API key and Python dependency.",
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-06-27T20:37:50.252781+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-plugin",
@@ -433,25 +431,23 @@
       "version": "1.0.6",
       "detail_url": "https://clawhub.ai/plugins/aisa-twitter-research-engage-relay-aisa-api-plugin",
       "resolved_slug": "aisa-twitter-research-engage-relay-aisa-api-plugin",
-      "page_found": false,
+      "page_found": true,
       "fetch_mode": "http",
-      "scan_status": "unresolved",
-      "virus_total": null,
+      "scan_status": "clean",
+      "virus_total": "clean",
       "virus_total_report_url": null,
-      "clawscan_verdict": null,
+      "clawscan_verdict": "clean",
       "clawscan_confidence": null,
-      "openclaw_verdict": null,
+      "openclaw_verdict": "clean",
       "openclaw_confidence": null,
-      "static_analysis_status": null,
-      "static_analysis_summary": null,
-      "publisher_handle": null,
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "publisher_handle": "Convex",
       "suspicious": false,
-      "suspicious_reason": null,
-      "pending": true,
-      "warnings": [
-        "HTTP 500 while fetching detail page. Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-06-26T21:01:37.001014+00:00"
+      "suspicious_reason": "This appears to be what it claims: a Twitter/X relay skill that uses an AIsa API key, though installing it means trusting AIsa with Twitter engagement, posting, and any attached media you send.",
+      "pending": false,
+      "warnings": [],
+      "checked_at": "2026-06-27T20:37:58.697168+00:00"
     },
     {
       "key": "plugin:aisa-youtube-search-plugin",
@@ -1540,12 +1536,10 @@
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "Convex",
       "suspicious": false,
-      "suspicious_reason": null,
+      "suspicious_reason": "This appears to be a Twitter/X posting and engagement skill that uses one AIsa API key and the documented AIsa API endpoint, with no unrelated credential requests or install steps visible.",
       "pending": false,
-      "warnings": [
-        "OpenClaw detail lookup failed: HTTP 500 while fetching detail page. Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-06-26T21:01:52.142104+00:00"
+      "warnings": [],
+      "checked_at": "2026-06-27T20:38:07.273266+00:00"
     },
     {
       "key": "plugin:us-stock-analyst-plugin",
@@ -1935,7 +1929,7 @@
       "suspicious_reason": "This skill is a straightforward AIsa web-research integration that uses an API key to send user-provided searches or URLs to AIsa, with no hidden persistence or destructive behavior found.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-06-26T21:01:53.977988+00:00"
+      "checked_at": "2026-06-27T20:38:08.787535+00:00"
     },
     {
       "key": "skill:aisa-twitter",
@@ -1987,7 +1981,7 @@
       "suspicious_reason": "The skill does what it says, but it exposes the AIsa API key in normal command output, which can leak a sensitive credential into logs or agent transcripts.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-06-26T21:01:55.445404+00:00"
+      "checked_at": "2026-06-27T20:38:10.184268+00:00"
     },
     {
       "key": "skill:aisa-twitter-research-engage",
@@ -2039,7 +2033,7 @@
       "suspicious_reason": "The skill mostly matches its Twitter/X relay purpose, but it needs review because it can print the AIsa API key and can perform live account actions immediately once invoked.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-06-26T21:01:56.991109+00:00"
+      "checked_at": "2026-06-27T20:38:11.635174+00:00"
     },
     {
       "key": "skill:cn-llm",
@@ -2975,7 +2969,7 @@
       "suspicious_reason": "The skill’s Twitter/X relay purpose is mostly disclosed, but reported credential exposure in its posting and authorization scripts needs review before use.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-06-26T21:01:58.555910+00:00"
+      "checked_at": "2026-06-27T20:38:12.991749+00:00"
     },
     {
       "key": "skill:us-stock-analyst",

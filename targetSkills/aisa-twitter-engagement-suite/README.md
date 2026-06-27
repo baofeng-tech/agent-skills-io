@@ -1,6 +1,6 @@
 # AIsa Twitter Engagement Suite
 
-Engagement-focused Twitter/X skill for research, approved posting, and follow-through actions through the AIsa relay.
+Twitter/X research plus approved engagement follow-through through the AIsa relay.
 
 ## What it does
 
