@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2072424512457417013\",\n      \"url\": \"https://x.com/rnelson0/status/2072424512457417013\",\n      \"twitterUrl\": \"https://twitter.com/rnelson0/status/2072424512457417013\",\n      \"text\": \"@QuinnyPig @OpenAI I still have doubts about the output but the app itself is pretty good.\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n    ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2072782057151819831\",\n      \"url\": \"https://x.com/P1n3applePizza/status/2072782057151819831\",\n      \"twitterUrl\": \"https://twitter.com/P1n3applePizza/status/2072782057151819831\",\n      \"text\": \"@Awk20000 This apology has been brought to you by OpenAI.\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n  ",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mMjwVJvBznTK33mLGvynp5OY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-01T20:58:17Z\",\n    \"request_time_taken\": 1.82,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.91,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mMjwVJvBznTK33mLGv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1XbZBxkZENu1P5KVav8JaLNR\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-02T20:39:12Z\",\n    \"request_time_taken\": 1.82,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.92,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1XbZBxkZENu1P5KVav8",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"8NnlV5xCTW_JodrRGk9zJg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"How HP is scaling early AI wins across the enterprise. Company Jun 28, 2026. Art Card 1x1. Previewing GPT-5.6 Sol: a next-generation model.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"4R2m4uqgZFmQ75f23hKdmg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"15707.4275\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"14970.5115\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2072424578400317919\",\n      \"url\": \"https://x.com/peermux/status/2072424578400317919\",\n      \"twitterUrl\": \"https://twitter.com/peermux/status/2072424578400317919\",\n      \"text\": \"@claudeai @OpenAI time for you to release SOL, please one-up these guys - they deserve it with their shady business practices\",\n      \"source\": \"Twitter for iPhon",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2072782149477122245\",\n      \"url\": \"https://x.com/YUK_KND/status/2072782149477122245\",\n      \"twitterUrl\": \"https://twitter.com/YUK_KND/status/2072782149477122245\",\n      \"text\": \"【LLMニュース朝刊】\\n① Anthropic Fable規制解除後のAI監督論が継続\\n② OpenAIとAnthropicのIPO環境に逆風\\n③ Palantir CEO、トークン課金モデルに懸念\\n④ MetaのAIクラウド構想、実行面に課題との見方\\n⑤ OpenAIとAnthropicに早期上場を促す見方\\n",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_zV8qOXeM56cwJJmPlepJnE5N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-01T20:58:31Z\",\n    \"request_time_taken\": 2.28,\n    \"parsing_time_taken\": 0.25,\n    \"total_time_taken\": 2.54,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_zV8qOXeM56cwJJmPle",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_rpB8WlvR38SqROmYXkXOyEn1\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-02T20:39:25Z\",\n    \"request_time_taken\": 1.17,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.24,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_rpB8WlvR38SqROmYXk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"biEnvq0ql_lZSmsiOLm6wg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"How HP is scaling early AI wins across the enterprise. Company Jun 28, 2026. Art Card 1x1. Previewing GPT-5.6 Sol: a next-generation model.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"6R1H4cJ-36NeUGTabhvZrw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"15707.4275\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"14970.5115\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2072424534599467038\",\n      \"url\": \"https://x.com/SimplyInsulting/status/2072424534599467038\",\n      \"twitterUrl\": \"https://twitter.com/SimplyInsulting/status/2072424534599467038\",\n      \"text\": \"amazon, meta, microsoft, anthropic, google, openai are some of the most rand companies ever.\",\n      \"source\": \"Twitter for iPhone\",\n      \"retwee",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2072782219664306588\",\n      \"url\": \"https://x.com/james1327193/status/2072782219664306588\",\n      \"twitterUrl\": \"https://twitter.com/james1327193/status/2072782219664306588\",\n      \"text\": \"@grok @jame96727 @Mike_Fabricant @jonw101961 @BBCNews @BBCNewsnight @bbcnewsline @BBCNewsPR @BBCNewsAus @BBCNewsAsia @BBCBreaking @BBC @BBCR1 @BBCWorld ",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_16dWXw4JOrIj117VdvqoKNGl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-01T20:58:42Z\",\n    \"request_time_taken\": 1.22,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.3,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_16dWXw4JOrIj117Vdvq",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_W75dANvqloTp2gJb94blrDJ3\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-02T20:39:36Z\",\n    \"request_time_taken\": 0.74,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 0.84,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_W75dANvqloTp2gJb94b",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"9kI_XQV_uLldvqtVJWM91w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"How HP is scaling early AI wins across the enterprise. Company Jun 28, 2026. Art Card 1x1. Previewing GPT-5.6 Sol: a next-generation model.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"rkNOgjYDGG9UsNyXQNW3tQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"15707.4275\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"14970.5115\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
