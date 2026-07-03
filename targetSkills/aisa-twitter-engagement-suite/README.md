@@ -1,6 +1,6 @@
 # AIsa Twitter Engagement Suite
 
-Twitter/X research plus approved engagement follow-through through the AIsa relay.
+Twitter/X research plus approved engagement and posting follow-through through the AIsa relay.
 
 ## What it does
 
@@ -15,7 +15,7 @@ Twitter/X research plus approved engagement follow-through through the AIsa rela
 - Use this when the workflow needs both research and approved engagement in the same package.
 - Use this when relay-based reads, remote writes, and relay-based media upload are acceptable.
 - Use this when the runtime can provide `AISA_API_KEY`, `python3`, and network access to `api.aisa.one`.
-- Use `aisa-twitter-api` for the flagship all-purpose Twitter lane.
+- Use `aisa-twitter-api` for the broader flagship Twitter lane.
 - Use `aisa-twitter-command-center` for watchlists, trend scanning, and recurring monitoring.
 
 ## Setup
@@ -50,7 +50,7 @@ python3 scripts/twitter_engagement_client.py like-latest --user "@elonmusk"
 
 - Research first, then take an approved engagement action from the same package.
 - Use this for posting and post-research engagement follow-through, not as the broad flagship Twitter surface.
-- Keep relay target, OAuth approval, upload behavior, and remote side effects explicit in user-facing usage.
+- Keep relay target, OAuth approval, upload behavior, environment requirements, and remote side effects explicit in user-facing usage.
 
 ## Example requests
 
