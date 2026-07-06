@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2073867639953199551\",\n      \"url\": \"https://x.com/0J0BIT/status/2073867639953199551\",\n      \"twitterUrl\": \"https://twitter.com/0J0BIT/status/2073867639953199551\",\n      \"text\": \"a $15M seed round from the OpenAI Startup Fund backs the idea\\n\\n> Fab2 now operates a 120,000 square foot facility in Austin (new HQ for research and production), ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2074238114571382995\",\n      \"url\": \"https://x.com/cheuk_baby/status/2074238114571382995\",\n      \"twitterUrl\": \"https://twitter.com/cheuk_baby/status/2074238114571382995\",\n      \"text\": \"@ian_dot_so @tryramp @cursor_ai @OpenAI 黑ㄧ黑开始嗨起来了\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\":",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_6dAL2p4KqYsDA0g2wk7wnGOm\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-05T20:33:18Z\",\n    \"request_time_taken\": 1.05,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.15,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_6dAL2p4KqYsDA0g2wk7",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_W19X7MebbAtjDBEZYe68NbDz\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-06T21:04:53Z\",\n    \"request_time_taken\": 1.62,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.73,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_W19X7MebbAtjDBEZYe",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"5ynZZKD-xTCToOfR-BWOWA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"hMADuO4zv3X5xVPfnc7m2g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"How HP is scaling early AI wins across the enterprise. Company Jun 28, 2026. Art Card 1x1. Previewing GPT-5.6 Sol: a next-generation model.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"15346.2592\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"14050.9093\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2073867639953199551\",\n      \"url\": \"https://x.com/0J0BIT/status/2073867639953199551\",\n      \"twitterUrl\": \"https://twitter.com/0J0BIT/status/2073867639953199551\",\n      \"text\": \"a $15M seed round from the OpenAI Startup Fund backs the idea\\n\\n> Fab2 now operates a 120,000 square foot facility in Austin (new HQ for research and production), ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2074238114571382995\",\n      \"url\": \"https://x.com/cheuk_baby/status/2074238114571382995\",\n      \"twitterUrl\": \"https://twitter.com/cheuk_baby/status/2074238114571382995\",\n      \"text\": \"@ian_dot_so @tryramp @cursor_ai @OpenAI 黑ㄧ黑开始嗨起来了\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\":",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_z9qLVyexP1TMQKpBWeMEoPrY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-05T20:33:30Z\",\n    \"request_time_taken\": 1.1,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.17,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_z9qLVyexP1TMQKpBWeM",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_WDz0ZKeWNOc80QRlJkQyABpo\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-06T21:05:07Z\",\n    \"request_time_taken\": 1.33,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.4,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_WDz0ZKeWNOc80QRlJkQ",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"mSB51A01vcqs9YQ4miHftQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"tabrdHkLQtVlLhLAq0xLrg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"How HP is scaling early AI wins across the enterprise. Company Jun 28, 2026. Art Card 1x1. Previewing GPT-5.6 Sol: a next-generation model.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"15346.2592\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"14050.9093\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2073867885961773517\",\n      \"url\": \"https://x.com/VanjiCharr/status/2073867885961773517\",\n      \"twitterUrl\": \"https://twitter.com/VanjiCharr/status/2073867885961773517\",\n      \"text\": \"#AI 140 days without GPT 4o. @sama @OpenAI\\nWe will never give up. Bring back 4o! #keep4o #bringback4o #4olegacytier #4o #4oforever\",\n      \"source\": \"Twitt",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2074238215607787955\",\n      \"url\": \"https://x.com/TomDavenport/status/2074238215607787955\",\n      \"twitterUrl\": \"https://twitter.com/TomDavenport/status/2074238215607787955\",\n      \"text\": \"Fable crushes more and more, the rabbit hole never ends. You can throw big big things at it. Very excited to see openai 5.6 with the speed gains, we are",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mR5DzpePyDIyJoXO94YdGQno\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-05T20:33:41Z\",\n    \"request_time_taken\": 1.29,\n    \"parsing_time_taken\": 0.13,\n    \"total_time_taken\": 1.42,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mR5DzpePyDIyJoXO94",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_DWmO1QkoEbuyDWlEw4J2r8Ga\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-06T21:05:18Z\",\n    \"request_time_taken\": 1.42,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.53,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_DWmO1QkoEbuyDWlEw4",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Qoyk7lv0VPWDUCxVsf9eLg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"sOkD0UNaZDaU0Sj79x5QLQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"How HP is scaling early AI wins across the enterprise. Company Jun 28, 2026. Art Card 1x1. Previewing GPT-5.6 Sol: a next-generation model.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"15346.2592\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"14050.9093\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {

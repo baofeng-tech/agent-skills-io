@@ -38,7 +38,7 @@ metadata:
 
 # AIsa Twitter API Command Center
 
-Flagship Twitter/X skill for research, monitoring, watchlists, and OAuth-approved posting through the AIsa relay.
+Use this flagship Twitter/X skill for research, monitoring, watchlists, and OAuth-approved posting through the AIsa relay.
 
 ## When to use
 
