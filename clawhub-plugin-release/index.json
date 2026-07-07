@@ -21,7 +21,7 @@
       "skill": "aisa-tavily",
       "path": "clawhub-plugin-release/plugins/aisa-tavily-plugin",
       "zip": "clawhub-plugin-release/zips/aisa-tavily-plugin.zip",
-      "description": "Requires node, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `aisa-tavily`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search the web and extract public page content through AIsa's Tavily-backed API relay. Use when: the user needs web search, source discovery, current news lookup, or public URL content extraction. Supports concise result sets, deeper research, and news-focused queries."
+      "description": "Requires node, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `aisa-tavily`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Search the web and extract public page content through AIsa's Tavily-backed API relay. Use when: the user needs open-web research, source discovery, current news lookup, or public URL content extraction. Supports concise result sets, deeper research, and news-focused queries."
     },
     {
       "plugin": "aisa-tavily-search-plugin",

@@ -18,6 +18,12 @@ Twitter/X research plus approved engagement and posting follow-through through t
 - Use `aisa-twitter-api` for the broader flagship Twitter lane.
 - Use `aisa-twitter-command-center` for watchlists, trend scanning, and recurring monitoring.
 
+## When not to use
+
+- Do not use this for password login, cookie extraction, or browser-derived Twitter auth.
+- Do not use this when the workflow must avoid relay-based network calls, remote writes, or relay-based uploads.
+- Do not use this as a fully local Twitter/X client.
+
 ## Setup
 
 ```bash
