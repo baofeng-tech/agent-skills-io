@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2074599367185440857\",\n      \"url\": \"https://x.com/polypredictionx/status/2074599367185440857\",\n      \"twitterUrl\": \"https://twitter.com/polypredictionx/status/2074599367185440857\",\n      \"text\": \"Will GPT-5.6 be released by OpenAI soon?\\nGPT-5.6 delayed to July 9 as Polymarket traders bet on Thursday launch amid safety concerns and AI compe",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2075323826829664457\",\n      \"url\": \"https://x.com/casewrites/status/2075323826829664457\",\n      \"twitterUrl\": \"https://twitter.com/casewrites/status/2075323826829664457\",\n      \"text\": \"@grok @XFreeze @elonmusk @xai @OpenAI What I’m hoping that @SpaceXAI @elonmusk we learn is that these draconian limits are only teaching  people one thing: ",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mpO7djkNqos9VrW85vAPE9xq\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-07T21:00:29Z\",\n    \"request_time_taken\": 1.05,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.1,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mpO7djkNqos9VrW85vA",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERuad9qJAenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-09T20:59:05Z\",\n    \"request_time_taken\": 1.51,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.63,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERuad9qJAe",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"TbUagXfLYsAx2a3ZVOsBAw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"How HP is scaling early AI wins across the enterprise. Company Jun 28, 2026. Art Card 1x1. Previewing GPT-5.6 Sol: a next-generation model.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"WU1hw6bmFABr_9N-BrsCVg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"13937.2141\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19157.3943\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2074599367185440857\",\n      \"url\": \"https://x.com/polypredictionx/status/2074599367185440857\",\n      \"twitterUrl\": \"https://twitter.com/polypredictionx/status/2074599367185440857\",\n      \"text\": \"Will GPT-5.6 be released by OpenAI soon?\\nGPT-5.6 delayed to July 9 as Polymarket traders bet on Thursday launch amid safety concerns and AI compe",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2075323874309296170\",\n      \"url\": \"https://x.com/CustomAIMath/status/2075323874309296170\",\n      \"twitterUrl\": \"https://twitter.com/CustomAIMath/status/2075323874309296170\",\n      \"text\": \"@TheCardTrack @HybridCartel @OpenAI if YOUR iq was higher you'd ask IF i care and if i have any for said \\\"family\\\" you think pulling the shame card on ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1XbZBxkZENu1xX3Qjv8JaLNR\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-07T21:00:43Z\",\n    \"request_time_taken\": 1.03,\n    \"parsing_time_taken\": 0.13,\n    \"total_time_taken\": 1.15,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1XbZBxkZENu1xX3Qjv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_WDz0ZKeWNOc8pjq8RkQyABpo\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-09T20:59:16Z\",\n    \"request_time_taken\": 1.38,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.47,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_WDz0ZKeWNOc8pjq8Rk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"uhEjPhfu2tIg0u3OkenkRg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"How HP is scaling early AI wins across the enterprise. Company Jun 28, 2026. Art Card 1x1. Previewing GPT-5.6 Sol: a next-generation model.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"9qjHUE40C_khi3jSPksRhg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"13937.2141\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19157.3943\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2074599484655362163\",\n      \"url\": \"https://x.com/dashboardlim/status/2074599484655362163\",\n      \"twitterUrl\": \"https://twitter.com/dashboardlim/status/2074599484655362163\",\n      \"text\": \"STEP 3: install the codex plugin\\n\\n/plugin marketplace add openai/codex-plugin-cc\\n/plugin install codex@openai-codex\\n/reload-plugins\\n/codex:setup\\n\\",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2075323917334417757\",\n      \"url\": \"https://x.com/horowitzagency/status/2075323917334417757\",\n      \"twitterUrl\": \"https://twitter.com/horowitzagency/status/2075323917334417757\",\n      \"text\": \"#OpenAI looks beyond a single #ad format with #image, #video and #conversationalads in the works – @Digiday https://t.co/6awMN2oJJ6\",\n      \"source\"",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mpKN8l48W3i6QxpDMe3n1ZDx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-07T21:00:57Z\",\n    \"request_time_taken\": 1.75,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.85,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mpKN8l48W3i6QxpDMe3",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mOgBEZe50gHg1PAJzkzwL3jW\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-09T20:59:27Z\",\n    \"request_time_taken\": 1.33,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.4,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mOgBEZe50gHg1PAJzkz",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"ts9L3iai7ERBhBV-HeHewg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"How HP is scaling early AI wins across the enterprise. Company Jun 28, 2026. Art Card 1x1. Previewing GPT-5.6 Sol: a next-generation model.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"cHAk5z85pXgZ9dODqvli_Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.5 · GPT-5.4 · GPT-5.3 Instant. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"13937.2141\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19157.3943\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
