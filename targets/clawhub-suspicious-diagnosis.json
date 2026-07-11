@@ -1,15 +1,15 @@
 {
   "summary": {
-    "artifacts": 54,
-    "blockers": 10,
-    "warnings": 44,
-    "pending": 44,
+    "artifacts": 22,
+    "blockers": 19,
+    "warnings": 3,
+    "pending": 3,
     "rules": {
       "metadata_env_mismatch": 1,
-      "oauth_upload_side_effects": 10,
-      "pending_scan": 44,
-      "platform_trust_gap": 16,
-      "relay_trust_surface": 26
+      "oauth_upload_side_effects": 7,
+      "pending_scan": 3,
+      "platform_trust_gap": 11,
+      "relay_trust_surface": 8
     }
   },
   "artifacts": [
@@ -47,6 +47,68 @@
       "reason": "The skill's code and runtime instructions largely match a Twitter research/posting tool using an AIsa relay, but there are internal inconsistencies in the declared requirements and some undocumented environment hooks and behaviors that you should review before installing."
     },
     {
+      "key": "skill:aisa-provider",
+      "kind": "skill",
+      "name": "aisa-provider",
+      "publisher_handle": "tePlus",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "clean",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "platform_trust_gap"
+      ],
+      "rule_summaries": [
+        "Trust and provenance surfaces are weaker than the package behavior requires."
+      ],
+      "recommended_actions": [
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
+      ],
+      "detail_url": "https://clawhub.ai/baofeng-tech/aisa-provider",
+      "local_path": "clawhub-release/aisa-provider",
+      "release_ref": "k97fctxrqvnyt4nz1fn0mpryw5858seb",
+      "reason": "This appears to be a legitimate AIsa setup skill, but it gives users risky API-key handling guidance that deserves manual review."
+    },
+    {
+      "key": "skill:aisa-twitter",
+      "kind": "skill",
+      "name": "aisa-twitter",
+      "publisher_handle": "Convex",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "clean",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "oauth_upload_side_effects",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/bibaofeng/aisa-twitter",
+      "local_path": "clawhub-release/aisa-twitter",
+      "release_ref": null,
+      "reason": "This is a disclosed Twitter/X relay skill, but its OAuth posting client can print the full AIsa API key in command output."
+    },
+    {
       "key": "skill:aisa-twitter-api-command-center",
       "kind": "skill",
       "name": "aisa-twitter-api-command-center",
@@ -74,6 +136,35 @@
       "local_path": "clawhub-release/aisa-twitter-api-command-center",
       "release_ref": "k97f2echfgvrzyzvxs5k0h7bm186bj3z",
       "reason": "The skill does what it says, but it exposes the AIsa API key in normal command output, which can leak a sensitive credential into logs or agent transcripts."
+    },
+    {
+      "key": "skill:aisa-twitter-research-engage",
+      "kind": "skill",
+      "name": "aisa-twitter-research-engage",
+      "publisher_handle": "Convex",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "clean",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "platform_trust_gap"
+      ],
+      "rule_summaries": [
+        "Trust and provenance surfaces are weaker than the package behavior requires."
+      ],
+      "recommended_actions": [
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
+      ],
+      "detail_url": "https://clawhub.ai/aisadocs/aisa-twitter-research-engage",
+      "local_path": ".tmp-clawhub-batch/skills/aisa-twitter-research-engage",
+      "release_ref": null,
+      "reason": "This Twitter/X skill mostly does what it claims, but it exposes the required AIsa API key in normal command output."
     },
     {
       "key": "skill:aisa-twitter-research-engage-relay",
@@ -109,6 +200,35 @@
       "reason": "The skill mostly matches its Twitter/X relay purpose, but it needs review because it can print the AIsa API key and can perform live account actions immediately once invoked."
     },
     {
+      "key": "skill:openclaw-twitter",
+      "kind": "skill",
+      "name": "openclaw-twitter",
+      "publisher_handle": "AIsa",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "clean",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "platform_trust_gap"
+      ],
+      "rule_summaries": [
+        "Trust and provenance surfaces are weaker than the package behavior requires."
+      ],
+      "recommended_actions": [
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
+      ],
+      "detail_url": "https://clawhub.ai/0xjordansg-yolo/openclaw-twitter",
+      "local_path": "clawhub-release/openclaw-twitter",
+      "release_ref": null,
+      "reason": "This Twitter/X skill largely does what it advertises, but it exposes the AISA API key in normal command output and should be reviewed before use."
+    },
+    {
       "key": "skill:prediction-market",
       "kind": "skill",
       "name": "prediction-market",
@@ -116,8 +236,8 @@
       "severity": "blocker",
       "scan_status": "suspicious",
       "virus_total": "suspicious",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
@@ -135,7 +255,94 @@
       "detail_url": "https://clawhub.ai/potdealer/prediction-market",
       "local_path": "clawhub-release/prediction-market",
       "release_ref": null,
-      "reason": "The skill documents raw Base mainnet betting transactions and an agent betting strategy without clear per-transaction confirmation or spending controls."
+      "reason": "The skill is for a real ETH prediction market and matches that purpose, but it gives agents ready-to-use betting transactions and raw private-key command examples without enough safeguards."
+    },
+    {
+      "key": "skill:prediction-market-arbitrage-api",
+      "kind": "skill",
+      "name": "prediction-market-arbitrage-api",
+      "publisher_handle": "Polymarket",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "clean",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "platform_trust_gap"
+      ],
+      "rule_summaries": [
+        "Trust and provenance surfaces are weaker than the package behavior requires."
+      ],
+      "recommended_actions": [
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
+      ],
+      "detail_url": "https://clawhub.ai/bibaofeng/prediction-market-arbitrage-api",
+      "local_path": "clawhub-release/prediction-market-arbitrage-api",
+      "release_ref": null,
+      "reason": "The skill is mostly read-only arbitrage tooling, but it includes under-disclosed wallet and financial lookup commands beyond the advertised workflow."
+    },
+    {
+      "key": "skill:prediction-market-arbitrage-zh",
+      "kind": "skill",
+      "name": "prediction-market-arbitrage-zh",
+      "publisher_handle": "Convex",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "clean",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/bibaofeng/prediction-market-arbitrage-zh",
+      "local_path": "clawhub-release/prediction-market-arbitrage-zh",
+      "release_ref": null,
+      "reason": "The skill is mostly a read-only arbitrage tool, but it also includes under-disclosed wallet and P&L lookup commands that can expose financial activity through a third-party API."
+    },
+    {
+      "key": "skill:smart-search",
+      "kind": "skill",
+      "name": "smart-search",
+      "publisher_handle": "Convex",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "clean",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "platform_trust_gap"
+      ],
+      "rule_summaries": [
+        "Trust and provenance surfaces are weaker than the package behavior requires."
+      ],
+      "recommended_actions": [
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
+      ],
+      "detail_url": "https://clawhub.ai/lee920311/smart-search",
+      "local_path": "clawhub-release/smart-search",
+      "release_ref": null,
+      "reason": "Smart Search appears to be a legitimate web-search skill, but its privacy, credential, trigger, and SearX deployment behavior are under-disclosed enough that users should review it carefully before installing."
     },
     {
       "key": "skill:stock-analysis",
@@ -164,7 +371,7 @@
       "detail_url": "https://clawhub.ai/udiedrichsen/stock-analysis",
       "local_path": "clawhub-release/stock-analysis",
       "release_ref": null,
-      "reason": "The skill is a coherent stock-analysis tool, but its optional social scanning asks users to expose live X/Twitter session credentials to an external CLI with overly broad local permissions."
+      "reason": "This is a coherent stock-analysis skill, but its optional Twitter/X scanners ask users to expose live session cookies to an external CLI with broader credential handling than the feature warrants."
     },
     {
       "key": "skill:twitter-autopilot",
@@ -174,26 +381,88 @@
       "severity": "blocker",
       "scan_status": "suspicious",
       "virus_total": "suspicious",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
       "pending": false,
       "rule_ids": [
-        "platform_trust_gap"
+        "oauth_upload_side_effects"
       ],
       "rule_summaries": [
-        "Trust and provenance surfaces are weaker than the package behavior requires."
+        "OAuth, posting, or media-upload side effects are not explicit enough."
       ],
       "recommended_actions": [
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default."
       ],
       "detail_url": "https://clawhub.ai/persnola1-sketch/twitter-autopilot",
       "local_path": "clawhub-release/twitter-autopilot",
       "release_ref": null,
-      "reason": "The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script."
+      "reason": "The skill matches its Twitter automation purpose, but it needs review because it can use live OAuth credentials to post, delete, and follow autonomously with weak guardrails."
+    },
+    {
+      "key": "skill:twitter-command-center-search-post",
+      "kind": "skill",
+      "name": "twitter-command-center-search-post",
+      "publisher_handle": "Convex",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "clean",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "oauth_upload_side_effects",
+        "relay_trust_surface"
+      ],
+      "rule_summaries": [
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Relay/API trust surface is under-described for the shipped package."
+      ],
+      "recommended_actions": [
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
+      ],
+      "detail_url": "https://clawhub.ai/baofeng-tech/twitter-command-center-search-post",
+      "local_path": "clawhub-release/twitter-command-center-search-post",
+      "release_ref": "k976yjhn5xgssrffx7yn0ejj6d85av0d",
+      "reason": "The skill matches its Twitter/X search-and-posting purpose, but it exposes the AISA API key in normal command output and sends post content/media through a relay, so it needs review before installation."
+    },
+    {
+      "key": "skill:twitter-command-center-search-post-interact",
+      "kind": "skill",
+      "name": "twitter-command-center-search-post-interact",
+      "publisher_handle": "Convex",
+      "severity": "blocker",
+      "scan_status": "suspicious",
+      "virus_total": "clean",
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": true,
+      "pending": false,
+      "rule_ids": [
+        "oauth_upload_side_effects"
+      ],
+      "rule_summaries": [
+        "OAuth, posting, or media-upload side effects are not explicit enough."
+      ],
+      "recommended_actions": [
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default."
+      ],
+      "detail_url": "https://clawhub.ai/bibaofeng/twitter-command-center-search-post-interact",
+      "local_path": "clawhub-release/twitter-command-center-search-post-interact",
+      "release_ref": "k97343sqqfcjc3bn7v2evk56zs85b82e",
+      "reason": "This Twitter/X skill mostly matches its stated purpose, but it exposes the configured API key in normal command output and can perform real posting and engagement actions."
     },
     {
       "key": "skill:twitter-post-aisa",
@@ -236,26 +505,26 @@
       "severity": "blocker",
       "scan_status": "suspicious",
       "virus_total": "suspicious",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "clean",
+      "openclaw_verdict": "clean",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
       "pending": false,
       "rule_ids": [
-        "relay_trust_surface"
+        "platform_trust_gap"
       ],
       "rule_summaries": [
-        "Relay/API trust surface is under-described for the shipped package."
+        "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/billyutw/web-search",
       "local_path": "clawhub-release/web-search",
       "release_ref": null,
-      "reason": "The only noted control-related issue is a normal, purpose-aligned but unpinned third-party package install."
+      "reason": "No suspicious patterns detected."
     },
     {
       "key": "skill:youtube",
@@ -265,26 +534,26 @@
       "severity": "blocker",
       "scan_status": "suspicious",
       "virus_total": "suspicious",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "clean",
+      "openclaw_verdict": "clean",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
       "pending": false,
       "rule_ids": [
-        "relay_trust_surface"
+        "platform_trust_gap"
       ],
       "rule_summaries": [
-        "Relay/API trust surface is under-described for the shipped package."
+        "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/grpaiva/youtube",
       "local_path": "clawhub-release/youtube",
       "release_ref": null,
-      "reason": "The skill uses user-directed third-party tool installation and includes broad safety wording, but this is aligned with the YouTube integration purpose."
+      "reason": "Search YouTube videos, get channel info, fetch video details and transcripts using YouTube Data API v3 via MCP server or yt-dlp fallback."
     },
     {
       "key": "skill:youtube-search",
@@ -294,1400 +563,96 @@
       "severity": "blocker",
       "scan_status": "suspicious",
       "virus_total": "suspicious",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
+      "clawscan_verdict": "suspicious",
+      "openclaw_verdict": "suspicious",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": true,
       "pending": false,
       "rule_ids": [
-        "platform_trust_gap"
+        "platform_trust_gap",
+        "relay_trust_surface"
       ],
       "rule_summaries": [
-        "Trust and provenance surfaces are weaker than the package behavior requires."
+        "Trust and provenance surfaces are weaker than the package behavior requires.",
+        "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
         "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
+        "Make external writes, uploads, and remote execution boundaries easy to verify.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
       ],
       "detail_url": "https://clawhub.ai/therohitdas/youtube-search",
       "local_path": "clawhub-release/youtube-search",
       "release_ref": null,
-      "reason": "The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits."
+      "reason": "This YouTube skill is mostly coherent, but it asks agents to create or handle a third-party account and persist an API key with broad local changes that deserve review before use."
     },
     {
-      "key": "skill:aisa-crypto-market-data",
-      "kind": "skill",
-      "name": "aisa-crypto-market-data",
+      "key": "plugin:openclaw-twitter-post-engage-plugin",
+      "kind": "plugin",
+      "name": "openclaw-twitter-post-engage-plugin",
       "publisher_handle": "Convex",
       "severity": "warning",
       "scan_status": "pending",
-      "virus_total": "pending",
+      "virus_total": null,
       "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/aisa-crypto-market-data",
-      "local_path": ".tmp-clawhub-batch/skills/aisa-crypto-market-data",
-      "release_ref": "k97a45y8zq9x3h6fn1fxx2nrkx85e2m5",
-      "reason": "The skill is coherent with its stated purpose of fetching crypto market data via the AIsa service: it requires only python3 and an AISA_API_KEY and the bundled script calls the AIsa API — nothing in the package requests unrelated credentials or installs arbitrary code from unknown hosts."
-    },
-    {
-      "key": "skill:aisa-multi-search-engine",
-      "kind": "skill",
-      "name": "aisa-multi-search-engine",
-      "publisher_handle": "AIsa",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/aisa-multi-search-engine",
-      "local_path": "clawhub-release/aisa-multi-search-engine",
-      "release_ref": "k973jqj30sx6g2028tmw4p8y2985q6az",
-      "reason": "The skill's code, runtime instructions, and requested environment access are consistent with a multi-source search plugin that calls the AIsa API and only requires an AISA_API_KEY plus python3/node runtimes."
-    },
-    {
-      "key": "skill:aisa-perplexity-search-sonar",
-      "kind": "skill",
-      "name": "aisa-perplexity-search-sonar",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/aisa-perplexity-search-sonar",
-      "local_path": ".tmp-clawhub-batch/skills/aisa-perplexity-search-sonar",
-      "release_ref": null,
-      "reason": "The skill's code, runtime instructions, and required credential (AISA_API_KEY) are consistent with a search/synthesis client for the AIsa Perplexity Sonar API and do not request unrelated privileges or perform unexpected actions."
-    },
-    {
-      "key": "skill:aisa-perplexity-sonar-search",
-      "kind": "skill",
-      "name": "aisa-perplexity-sonar-search",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/aisa-perplexity-sonar-search",
-      "local_path": "clawhub-release/aisa-perplexity-sonar-search",
-      "release_ref": "k975d0mw4xsrcv6hpr9q89ze2185bg67",
-      "reason": "The skill is internally consistent: it requires a single AISA_API_KEY, runs a small Python client that POSTs queries to api.aisa.one, and the requested resources match the described search/synthesis purpose."
-    },
-    {
-      "key": "skill:aisa-provider",
-      "kind": "skill",
-      "name": "aisa-provider",
-      "publisher_handle": "tePlus",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
       "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/aisa-provider",
-      "local_path": "clawhub-release/aisa-provider",
-      "release_ref": "k97fctxrqvnyt4nz1fn0mpryw5858seb",
-      "reason": "No suspicious code execution or autonomous behavior is shown, but the documentation contains strong privacy assurances users should independently verify."
-    },
-    {
-      "key": "skill:aisa-search",
-      "kind": "skill",
-      "name": "aisa-search",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/aisa-search",
-      "local_path": "clawhub-release/aisa-search",
-      "release_ref": "k976egx7fnp1k569aav79xfk3585beqd",
-      "reason": "The skill's code, instructions, and required environment variable (AISA_API_KEY) are consistent with its stated purpose of calling the AIsa search API; it does not request unrelated credentials or perform unexpected local file access."
-    },
-    {
-      "key": "skill:aisa-search-command-center",
-      "kind": "skill",
-      "name": "aisa-search-command-center",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/aisa-search-command-center",
-      "local_path": ".tmp-clawhub-batch/skills/aisa-search-command-center",
-      "release_ref": null,
-      "reason": "The skill's code, runtime instructions, and requested credentials align with a search/aggregation client that calls the AIsa API; nothing requires unexplained privileges or unrelated secrets."
-    },
-    {
-      "key": "skill:aisa-tavily",
-      "kind": "skill",
-      "name": "aisa-tavily",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/aisa-tavily",
-      "local_path": "clawhub-release/aisa-tavily",
-      "release_ref": "k97eprs9w52050gwcb4vayc3j9858dk0",
-      "reason": "The skill's files, runtime instructions, and requested environment variable line up with its stated purpose (web/multi-source research via AIsa); it only requires Node and an AISA_API_KEY and sends queries/URLs to api.aisa.one, so the main risk is trusting that external service with your data and API key."
-    },
-    {
-      "key": "skill:aisa-twitter",
-      "kind": "skill",
-      "name": "aisa-twitter",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/aisa-twitter",
-      "local_path": "clawhub-release/aisa-twitter",
-      "release_ref": null,
-      "reason": "The skill can publish public Twitter/X posts, replies, and quotes, but this is disclosed and purpose-aligned."
-    },
-    {
-      "key": "skill:aisa-twitter-research-engage",
-      "kind": "skill",
-      "name": "aisa-twitter-research-engage",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/aisadocs/aisa-twitter-research-engage",
-      "local_path": ".tmp-clawhub-batch/skills/aisa-twitter-research-engage",
-      "release_ref": null,
-      "reason": "The skill's code, instructions, and requested credential (AISA_API_KEY) are consistent with its stated purpose (Twitter/X read, engagement, and OAuth-backed posting via an external relay service); the main user decision is whether to trust the external relay (api.aisa.one) with your API key and media."
-    },
-    {
-      "key": "skill:cn-llm",
-      "kind": "skill",
-      "name": "cn-llm",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/cn-llm",
-      "local_path": "clawhub-release/cn-llm",
-      "release_ref": "k976hqw5s3561da27z94ps0wtx859x2j",
-      "reason": "The skill's code, runtime instructions, and required environment variables are coherent with its stated purpose (AIsa-backed Chinese LLM routing) and do not request unrelated credentials or perform unexpected actions."
-    },
-    {
-      "key": "skill:last30days-zh",
-      "kind": "skill",
-      "name": "last30days-zh",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/last30days-zh",
-      "local_path": "clawhub-release/last30days-zh",
-      "release_ref": "k97dm4edakv7zhdmyt3ebh9k2h859wxb",
-      "reason": "The skill runs bundled Bash/Python scripts as part of its normal research workflow; no static scan findings or hidden execution behavior were shown."
-    },
-    {
-      "key": "skill:llm-router",
-      "kind": "skill",
-      "name": "llm-router",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/llm-router",
-      "local_path": "clawhub-release/llm-router",
-      "release_ref": "k97fqp1n6vx6y6zx937ecqpyah85bp7k",
-      "reason": "The skill's requirements and bundled script match its stated purpose (routing through the AIsa API); it only needs python3 and an AISA_API_KEY and contains no obvious incoherent or excessive requests."
-    },
-    {
-      "key": "skill:market",
-      "kind": "skill",
-      "name": "market",
-      "publisher_handle": "AIsa",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/market",
-      "local_path": "clawhub-release/market",
-      "release_ref": "k97656j2pjqpevkkkvgmxfg45d85pdgd",
-      "reason": "The skill's requests, instructions, and bundled client code are consistent with a market-data client that uses a single AISA_API_KEY to call https://api.aisa.one; nothing in the package requires unrelated credentials or privileges."
-    },
-    {
-      "key": "skill:marketpulse",
-      "kind": "skill",
-      "name": "marketpulse",
-      "publisher_handle": "AIsa",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisadocs/marketpulse",
-      "local_path": "clawhub-release/marketpulse",
-      "release_ref": "k97d4ejk02n7n3j8cyw0nzj9dh85qj1h",
-      "reason": "The skill's code, examples, and required environment variable align with its stated purpose (market data via the AIsa API) and do not request unrelated credentials or perform suspicious actions."
-    },
-    {
-      "key": "skill:media-gen",
-      "kind": "skill",
-      "name": "media-gen",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/media-gen",
-      "local_path": "clawhub-release/media-gen",
-      "release_ref": "k977ngzabfwjz8z0tv0g90csys85as9r",
-      "reason": "The skill's requirements and instructions align with its stated purpose (media generation via the AIsa API); it asks only for an AISA_API_KEY and uses python3 to call api.aisa.one and save downloaded media."
-    },
-    {
-      "key": "skill:multi-search",
-      "kind": "skill",
-      "name": "multi-search",
-      "publisher_handle": "priority",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/neverchenx/multi-search",
-      "local_path": "clawhub-release/multi-search",
-      "release_ref": null,
-      "reason": "The skill uses disclosed multi-agent web retrieval as part of its research workflow; no hidden or destructive behavior is evidenced."
-    },
-    {
-      "key": "skill:multi-source-search",
-      "kind": "skill",
-      "name": "multi-source-search",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/multi-source-search",
-      "local_path": "clawhub-release/multi-source-search",
-      "release_ref": "k970b1q3wbxfg2nryq8cykvx3h85p4tc",
-      "reason": "The skill's code, runtime instructions, and required environment variable are consistent with its stated purpose of aggregating searches via the AIsa (aisa.one) API; nothing in the package requests unrelated credentials or performs unexpected local operations."
-    },
-    {
-      "key": "skill:openclaw-aisa-youtube-aisa",
-      "kind": "skill",
-      "name": "openclaw-aisa-youtube-aisa",
-      "publisher_handle": "country",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/openclaw-aisa-youtube-aisa",
-      "local_path": "clawhub-release/openclaw-aisa-youtube-aisa",
-      "release_ref": null,
-      "reason": "The skill exposes a bounded external API client and has limited provenance; no artifact evidence shows goal hijacking, unsafe code execution, cascading effects, or rogue behavior."
-    },
-    {
-      "key": "skill:openclaw-media-gen",
-      "kind": "skill",
-      "name": "openclaw-media-gen",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/openclaw-media-gen",
-      "local_path": "clawhub-release/openclaw-media-gen",
-      "release_ref": "k97e2523rzn7skreaktnyswsm585a65f",
-      "reason": "The skill's requirements and runtime instructions match its stated purpose (AIsa image/video generation); it asks only for one API key and uses python3 to call api.aisa.one endpoints, which is coherent with the description."
-    },
-    {
-      "key": "skill:openclaw-search",
-      "kind": "skill",
-      "name": "openclaw-search",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/openclaw-search",
-      "local_path": "clawhub-release/openclaw-search",
-      "release_ref": "k97axhqh1bs866zt46p8bvdyg185a0z5",
-      "reason": "The skill's code, runtime instructions, and requested environment (AISA_API_KEY + python3) are coherent with its stated purpose (an AIsa-backed search client) and do not request unrelated credentials or elevated persistence."
-    },
-    {
-      "key": "skill:openclaw-twitter",
-      "kind": "skill",
-      "name": "openclaw-twitter",
-      "publisher_handle": "AIsa",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "clean",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/0xjordansg-yolo/openclaw-twitter",
-      "local_path": "clawhub-release/openclaw-twitter",
-      "release_ref": null,
-      "reason": "The skill can invoke public posting actions when the user asks; this is disclosed and purpose-aligned, but users should review ambiguous requests."
-    },
-    {
-      "key": "skill:openclaw-twitter-post-engage",
-      "kind": "skill",
-      "name": "openclaw-twitter-post-engage",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/aisadocs/openclaw-twitter-post-engage",
-      "local_path": "clawhub-release/openclaw-twitter-post-engage",
-      "release_ref": "k977hmwz16xkhneyy5np7c691n866yeq",
-      "reason": "The skill can perform public Twitter/X posting and engagement actions, but the artifacts disclose this and require explicit confirmation flags."
-    },
-    {
-      "key": "skill:openclaw-youtube",
-      "kind": "skill",
-      "name": "openclaw-youtube",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/openclaw-youtube",
-      "local_path": "clawhub-release/openclaw-youtube",
-      "release_ref": "k978kmktfrzrfgj6c882h4ty3985amy7",
-      "reason": "The skill's requirements and instructions are coherent with its stated purpose: it runs a bundled Python client that calls the AIsa API using an AISA_API_KEY to search YouTube data."
-    },
-    {
-      "key": "skill:perplexity-research",
-      "kind": "skill",
-      "name": "perplexity-research",
-      "publisher_handle": "Perplexity",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "clean",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/hushenglang/perplexity-research",
-      "local_path": "clawhub-release/perplexity-research",
-      "release_ref": null,
-      "reason": "The skill uses automatic web search after invocation and relies on unpinned third-party Python packages, both of which are purpose-aligned but worth reviewing."
-    },
-    {
-      "key": "skill:prediction-market-arbitrage",
-      "kind": "skill",
-      "name": "prediction-market-arbitrage",
-      "publisher_handle": "explicit",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "clean",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/h4gen/prediction-market-arbitrage",
-      "local_path": "clawhub-release/prediction-market-arbitrage",
-      "release_ref": null,
-      "reason": "The skill relies on user-run upstream installs and a broad update-all command, but no hidden or automatic execution is shown."
-    },
-    {
-      "key": "skill:prediction-market-arbitrage-api",
-      "kind": "skill",
-      "name": "prediction-market-arbitrage-api",
-      "publisher_handle": "Polymarket",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/prediction-market-arbitrage-api",
-      "local_path": "clawhub-release/prediction-market-arbitrage-api",
-      "release_ref": null,
-      "reason": "The skill's code, instructions, and requested environment variable line up with its stated purpose (read-only arbitrage scanning via the AIsa API); nothing in the bundle appears to require unrelated credentials or installs, but the origin is unknown so verify the third-party API before use."
-    },
-    {
-      "key": "skill:prediction-market-arbitrage-zh",
-      "kind": "skill",
-      "name": "prediction-market-arbitrage-zh",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/prediction-market-arbitrage-zh",
-      "local_path": "clawhub-release/prediction-market-arbitrage-zh",
-      "release_ref": null,
-      "reason": "The skill's code, runtime instructions, and requested environment variable (AISA_API_KEY) are consistent with its stated purpose of read-only arbitrage scanning via the AIsa API."
-    },
-    {
-      "key": "skill:prediction-market-data",
-      "kind": "skill",
-      "name": "prediction-market-data",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/prediction-market-data",
-      "local_path": "clawhub-release/prediction-market-data",
-      "release_ref": null,
-      "reason": "The skill appears to do exactly what it says: a read-only AIsa API client for Polymarket/Kalshi data that requires a single AISA_API_KEY and Python 3, with no unexpected installs or unrelated credentials."
-    },
-    {
-      "key": "skill:prediction-market-data-zh",
-      "kind": "skill",
-      "name": "prediction-market-data-zh",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/prediction-market-data-zh",
-      "local_path": "clawhub-release/prediction-market-data-zh",
-      "release_ref": null,
-      "reason": "The skill's code, declared requirements, and runtime instructions are internally consistent: it only needs AISA_API_KEY and python3 and makes read-only GET calls to api.aisa.one to fetch prediction-market data."
-    },
-    {
-      "key": "skill:scholar-search",
-      "kind": "skill",
-      "name": "scholar-search",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/xxxxxxxxxxxxxxxxxxx20gex/scholar-search",
-      "local_path": "clawhub-release/scholar-search",
-      "release_ref": null,
-      "reason": "The only abnormal-behavior note is a purpose-aligned, unpinned Python dependency install; no hidden execution, destructive action, or deceptive control flow is shown."
-    },
-    {
-      "key": "skill:smart-search",
-      "kind": "skill",
-      "name": "smart-search",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/lee920311/smart-search",
-      "local_path": "clawhub-release/smart-search",
-      "release_ref": null,
-      "reason": "The main concerns are unsafe optional SearX exposure, executing .env as shell code, and over-strong safety claims."
-    },
-    {
-      "key": "skill:stock-dividend",
-      "kind": "skill",
-      "name": "stock-dividend",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/stock-dividend",
-      "local_path": "clawhub-release/stock-dividend",
-      "release_ref": null,
-      "reason": "Only a purpose-aligned external Python dependency is noted; no hidden code execution, destructive commands, or autonomous background behavior is shown."
-    },
-    {
-      "key": "skill:stock-dividend-aisa",
-      "kind": "skill",
-      "name": "stock-dividend-aisa",
-      "publisher_handle": "default",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/stock-dividend-aisa",
-      "local_path": "clawhub-release/stock-dividend-aisa",
-      "release_ref": "k977c1eyngp8gttqcc2r9v503h869avs",
-      "reason": "The only abnormal-behavior-related note is a disclosed, purpose-aligned external Python dependency; there is no hidden execution, persistence, or purchase/trading workflow."
-    },
-    {
-      "key": "skill:stock-hot",
-      "kind": "skill",
-      "name": "stock-hot",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/stock-hot",
-      "local_path": "clawhub-release/stock-hot",
-      "release_ref": null,
-      "reason": "This skill is internally consistent: it needs only an AISA API key and python, runs a local script that calls the AISA API, and does not request unrelated credentials or system access."
-    },
-    {
-      "key": "skill:stock-portfolio",
-      "kind": "skill",
-      "name": "stock-portfolio",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
-      ],
-      "detail_url": "https://clawhub.ai/yinshengf/stock-portfolio",
-      "local_path": "clawhub-release/stock-portfolio",
-      "release_ref": null,
-      "reason": "No hidden control behavior is shown; notes relate to under-declared Python setup, optional cron persistence, and avoiding over-trust in simplified recommendations."
-    },
-    {
-      "key": "skill:stock-rumors",
-      "kind": "skill",
-      "name": "stock-rumors",
-      "publisher_handle": "impact",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/stock-rumors",
-      "local_path": "clawhub-release/stock-rumors",
-      "release_ref": null,
-      "reason": "The skill asks the provider to perform broad live-data searches and uses an unpinned Python dependency, both of which are purpose-aligned but worth noticing."
-    },
-    {
-      "key": "skill:stock-watchlist",
-      "kind": "skill",
-      "name": "stock-watchlist",
-      "publisher_handle": "ticker",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/0xhyperdan/stock-watchlist",
-      "local_path": "clawhub-release/stock-watchlist",
-      "release_ref": null,
-      "reason": "The skill performs documented, purpose-aligned Markdown watchlist updates with visible path-scope guidance."
-    },
-    {
-      "key": "skill:tavily-extract",
-      "kind": "skill",
-      "name": "tavily-extract",
-      "publisher_handle": "relevance",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/evanydl/tavily-extract",
-      "local_path": "clawhub-release/tavily-extract",
-      "release_ref": null,
-      "reason": "The OAuth fallback can automatically execute an unpinned npm helper through `npx -y`."
-    },
-    {
-      "key": "skill:twitter-command-center-search-post",
-      "kind": "skill",
-      "name": "twitter-command-center-search-post",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
       "static_analysis_status": "clean",
       "static_analysis_summary": "No suspicious patterns detected.",
       "suspicious": false,
       "pending": true,
       "rule_ids": [
         "metadata_env_mismatch",
-        "oauth_upload_side_effects",
         "pending_scan",
         "relay_trust_surface"
       ],
       "rule_summaries": [
         "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
         "Security scan output is not final yet.",
         "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
         "Align SKILL.md, README, package manifests, and registry-facing metadata.",
         "Declare every required env var in the same shape across all publish layers.",
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
         "Keep pending, clean, and suspicious as separate states in automation.",
         "Retry live scan before treating the package as resolved.",
         "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
         "Keep the auth story API-key-only unless the runtime truly needs more."
       ],
-      "detail_url": "https://clawhub.ai/baofeng-tech/twitter-command-center-search-post",
-      "local_path": "clawhub-release/twitter-command-center-search-post",
-      "release_ref": "k976yjhn5xgssrffx7yn0ejj6d85av0d",
-      "reason": "The skill’s files, required binary, and single API key align with its stated Twitter/X read-and-posting purpose, but it sends credentials and media to a third-party relay (api.aisa.one) and references undeclared environment overrides you should review before use."
+      "detail_url": "https://clawhub.ai/plugins/openclaw-twitter-post-engage-plugin",
+      "local_path": "clawhub-plugin-release/plugins/openclaw-twitter-post-engage-plugin",
+      "release_ref": "rd7brqg64h1npgb1yvb32atysd85b2x3",
+      "reason": "This skill appears to match its Twitter/X relay purpose, but the registry requirements summary is incomplete even though the manifests and code require an AISA API key."
     },
     {
-      "key": "skill:twitter-command-center-search-post-interact",
+      "key": "skill:last30days",
       "kind": "skill",
-      "name": "twitter-command-center-search-post-interact",
+      "name": "last30days",
       "publisher_handle": "Convex",
       "severity": "warning",
       "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
+      "virus_total": null,
+      "clawscan_verdict": null,
+      "openclaw_verdict": null,
+      "static_analysis_status": null,
+      "static_analysis_summary": null,
       "suspicious": false,
       "pending": true,
       "rule_ids": [
-        "oauth_upload_side_effects",
-        "pending_scan",
-        "relay_trust_surface"
+        "pending_scan"
       ],
       "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/twitter-command-center-search-post-interact",
-      "local_path": "clawhub-release/twitter-command-center-search-post-interact",
-      "release_ref": "k97343sqqfcjc3bn7v2evk56zs85b82e",
-      "reason": "The skill's code, instructions, and required credential (AISA_API_KEY) are consistent with its stated purpose of read/search/engagement and OAuth-backed posting via the AIsa relay service."
-    },
-    {
-      "key": "skill:us-stock-analyst",
-      "kind": "skill",
-      "name": "us-stock-analyst",
-      "publisher_handle": "AIsa",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "platform_trust_gap"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Trust and provenance surfaces are weaker than the package behavior requires."
+        "Security scan output is not final yet."
       ],
       "recommended_actions": [
         "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
+        "Retry live scan before treating the package as resolved."
       ],
-      "detail_url": "https://clawhub.ai/aisadocs/us-stock-analyst",
-      "local_path": "clawhub-release/us-stock-analyst",
-      "release_ref": "k9765t6j8rkzgeyt4rfhq1vhbd85qq2p",
-      "reason": "The skill's requested resources, runtime instructions, and bundled code are coherent with a US stock analysis tool that uses the AIsa API and a local Python client; nothing requests unrelated credentials or installs arbitrary code."
+      "detail_url": "https://clawhub.ai/zats/last30days",
+      "local_path": "clawhub-release/last30days",
+      "release_ref": null,
+      "reason": null
     },
     {
       "key": "skill:x-intelligence-automation",
@@ -1717,39 +682,6 @@
       "local_path": "clawhub-release/x-intelligence-automation",
       "release_ref": null,
       "reason": null
-    },
-    {
-      "key": "skill:youtube-serp",
-      "kind": "skill",
-      "name": "youtube-serp",
-      "publisher_handle": "Convex",
-      "severity": "warning",
-      "scan_status": "pending",
-      "virus_total": "pending",
-      "clawscan_verdict": "clean",
-      "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
-      "static_analysis_summary": "No suspicious patterns detected.",
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan",
-        "relay_trust_surface"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet.",
-        "Relay/API trust surface is under-described for the shipped package."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
-      ],
-      "detail_url": "https://clawhub.ai/bibaofeng/youtube-serp",
-      "local_path": ".tmp-clawhub-batch/skills/youtube-serp",
-      "release_ref": null,
-      "reason": "The skill's code, instructions, and required credential (AISA_API_KEY) are consistent with a YouTube SERP/analytics client that calls the AIsa API; nothing in the package appears disproportionate or unrelated to its stated purpose."
     }
   ]
 }

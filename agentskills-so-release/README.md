@@ -35,6 +35,7 @@ Agent Skills open-standard release layer generated from `targetSkills/`.
 - `cn-llm`
 - `crypto-market-data`
 - `gmail-lead-desk`
+- `kol-creator-discovery`
 - `last30days`
 - `last30days-zh`
 - `llm-router`

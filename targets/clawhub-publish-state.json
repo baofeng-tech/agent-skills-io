@@ -36,7 +36,7 @@
         "suspicious_reason": "This appears to be a coherent AIsa search plugin that uses one expected API key, but its registry-level requirements do not match the requirements declared inside the plugin files.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:16:54.384233+00:00"
+        "checked_at": "2026-07-11T20:12:40.768663+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:03:11.797027+00:00",
@@ -77,10 +77,12 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "tePlus",
         "suspicious": false,
-        "suspicious_reason": "This appears to be an AIsa/OpenClaw provider setup skill that uses the AIsa API key it advertises, with only minor metadata and credential-handling notes.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-27T21:17:10.055825+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 500 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-07-11T20:13:39.131316+00:00"
       }
     },
     "plugin:aisa-tavily-plugin": {
@@ -121,7 +123,7 @@
         "suspicious_reason": "This skill does what it claims: it uses a single AIsa API key to send search and URL-extraction requests to AIsa's Tavily API proxy.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:17:24.441267+00:00"
+        "checked_at": "2026-07-11T20:14:29.174360+00:00"
       }
     },
     "plugin:aisa-twitter-api-plugin": {
@@ -163,7 +165,7 @@
         "suspicious_reason": "The package appears to do what it says: a Python-based wrapper that communicates with the AIsa relay (api.aisa.one) for Twitter/X research and OAuth-gated posting and requires only a single relay API key and python3.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:17:39.278788+00:00"
+        "checked_at": "2026-07-11T20:15:26.254091+00:00"
       }
     },
     "plugin:aisa-twitter-command-center-plugin": {
@@ -201,7 +203,7 @@
         "suspicious_reason": "The package is internally consistent with its stated Twitter/X research and OAuth-backed posting purpose — it requires only AISA_API_KEY and runs local Python clients that call the documented relay (api.aisa.one) to read/search and to publish when authorized.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:17:44.338730+00:00"
+        "checked_at": "2026-07-11T20:15:48.510416+00:00"
       },
       "attempts": 3,
       "last_attempt_at": "2026-04-28T20:04:31.254969+00:00",
@@ -245,7 +247,7 @@
         "suspicious_reason": "The package's code, instructions, and required secret (AISA_API_KEY) are consistent with a Twitter/X relay-based engagement and posting client that uses api.aisa.one; it does not request unrelated credentials or perform unexplained local access.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:17:49.561602+00:00"
+        "checked_at": "2026-07-11T20:16:09.956824+00:00"
       },
       "publish_mode": "published"
     },
@@ -284,7 +286,7 @@
         "suspicious_reason": "This appears to be a coherent Twitter/X relay skill, though its published metadata underreports its required API key/python runtime and its declared network path is narrower than the actual AIsa relay base.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:00.340447+00:00"
+        "checked_at": "2026-07-11T20:16:52.762895+00:00"
       },
       "attempts": 3,
       "last_attempt_at": "2026-04-28T20:04:44.811229+00:00",
@@ -325,7 +327,7 @@
         "suspicious_reason": "The package is internally consistent for a YouTube search plugin that calls the AIsa service and only requires an AISA_API_KEY; nothing in the files suggests unexpected or unrelated privileges.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:15.496065+00:00"
+        "checked_at": "2026-07-11T20:17:50.081596+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:05:25.000713+00:00",
@@ -366,7 +368,7 @@
         "suspicious_reason": "The package consistently implements a YouTube SERP client that calls AIsa's API and only requires an AISA_API_KEY and python3 — the requested access and instructions line up with the stated purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:20.767845+00:00"
+        "checked_at": "2026-07-11T20:18:12.540023+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:05:57.592298+00:00",
@@ -410,7 +412,7 @@
         "suspicious_reason": "The package and runtime instructions are internally consistent: it requires only AISA_API_KEY and python3 to talk to the AIsa API (api.aisa.one) and the included code matches that stated purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:26.076538+00:00"
+        "checked_at": "2026-07-11T20:18:27.811414+00:00"
       }
     },
     "plugin:last30days-plugin": {
@@ -448,7 +450,7 @@
         "suspicious_reason": "This appears to be a real recent-research skill using an AIsa API key and public/social data sources, but its registry metadata does not fully reflect the requirements declared inside the package.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:36.977396+00:00"
+        "checked_at": "2026-07-11T20:19:03.915397+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "last30days-plugin",
@@ -495,7 +497,7 @@
         "suspicious_reason": "This appears to be a recent-research skill that uses an AISA API key and bundled Python scripts in ways that generally match its stated purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:42.050243+00:00"
+        "checked_at": "2026-07-11T20:19:19.688048+00:00"
       }
     },
     "plugin:llm-router-plugin": {
@@ -536,7 +538,7 @@
         "suspicious_reason": "The package is internally consistent: it wraps an AIsa LLM-router client, requires only AISA_API_KEY (which it uses to call api.aisa.one), and its files/instructions match that purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:47.144632+00:00"
+        "checked_at": "2026-07-11T20:19:34.165831+00:00"
       }
     },
     "plugin:market-plugin": {
@@ -574,7 +576,7 @@
         "suspicious_reason": "The package and its runtime instructions are internally consistent for a market-data client that requires a single AISA_API_KEY and python3; nothing in the code or SKILL.md tries to access unrelated credentials or system files.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:52.362943+00:00"
+        "checked_at": "2026-07-11T20:19:49.949958+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:06:05.293964+00:00",
@@ -619,7 +621,7 @@
         "suspicious_reason": "The package behaves like a market-data client that requires a single AISA_API_KEY and a Python runtime; its files, instructions, and required secrets align with the declared purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:57.242682+00:00"
+        "checked_at": "2026-07-11T20:20:07.546653+00:00"
       },
       "publish_mode": "publish-existing"
     },
@@ -661,7 +663,7 @@
         "suspicious_reason": "The skill is internally consistent: it wraps a small Python client that calls AIsa's media APIs and only requests a single service API key and python3, which matches the stated purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:02.156715+00:00"
+        "checked_at": "2026-07-11T20:20:28.331399+00:00"
       }
     },
     "plugin:multi-search-plugin": {
@@ -702,7 +704,7 @@
         "suspicious_reason": "The package is internally consistent: it wraps a Python CLI that calls AIsa's web API and correctly declares the single required credential (AISA_API_KEY); nothing in the files attempts unrelated access or covert exfiltration.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:07.350132+00:00"
+        "checked_at": "2026-07-11T20:20:45.894729+00:00"
       }
     },
     "plugin:openclaw-aisa-youtube-aisa-plugin": {
@@ -743,7 +745,7 @@
         "suspicious_reason": "The package and bundled scripts are coherent with a YouTube research skill: they require a single AISA_API_KEY and python3 and make API calls to api.aisa.one — nothing in the files requests unrelated credentials or surprising system access.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:16.707057+00:00"
+        "checked_at": "2026-07-11T20:21:23.681093+00:00"
       }
     },
     "plugin:openclaw-media-gen-plugin": {
@@ -784,7 +786,7 @@
         "suspicious_reason": "The package is internally consistent: it implements an AIsa-backed image/video generator that only requires AISA_API_KEY and python3 and contains a CLI client that calls api.aisa.one and saves generated media locally.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:21.548072+00:00"
+        "checked_at": "2026-07-11T20:21:42.534147+00:00"
       }
     },
     "plugin:openclaw-search-plugin": {
@@ -825,7 +827,7 @@
         "suspicious_reason": "The package appears to be a straightforward OpenClaw/ClawHub wrapper around an AIsa-backed search client that requires a single AISA_API_KEY and Python; the main inconsistencies are metadata mismatches (registry vs embedded manifests) but the code and instructions are coherent with the stated purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:26.824503+00:00"
+        "checked_at": "2026-07-11T20:21:59.872551+00:00"
       }
     },
     "plugin:openclaw-twitter-plugin": {
@@ -866,7 +868,7 @@
         "suspicious_reason": "The package's code, required env var, and runtime instructions are consistent with a Twitter/X research/posting skill that uses an AIsa relay (api.aisa.one); nothing requested or installed is disproportionate to that stated purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:32.132595+00:00"
+        "checked_at": "2026-07-11T20:22:18.069039+00:00"
       }
     },
     "plugin:openclaw-twitter-post-engage-plugin": {
@@ -893,21 +895,21 @@
         "resolved_slug": "openclaw-twitter-post-engage-plugin",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
-        "virus_total": "clean",
+        "scan_status": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": "clean",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "This skill appears to match its Twitter/X relay purpose, but the registry requirements summary is incomplete even though the manifests and code require an AISA API key.",
-        "pending": false,
+        "pending": true,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:37.056389+00:00"
+        "checked_at": "2026-07-11T20:22:45.967906+00:00"
       }
     },
     "plugin:openclaw-youtube-plugin": {
@@ -948,7 +950,7 @@
         "suspicious_reason": "The package is internally consistent with its stated YouTube research purpose: it requires a single AISA_API_KEY, uses a local Python client to call the aisa.one API, and does not request unrelated credentials or perform unexpected system access.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:42.104402+00:00"
+        "checked_at": "2026-07-11T20:23:03.983013+00:00"
       }
     },
     "plugin:perplexity-research-plugin": {
@@ -989,7 +991,7 @@
         "suspicious_reason": "The package behavior matches its stated purpose: it runs a bundled Python CLI that uses an AISA API key to perform multi-source research; nothing in the files attempts unrelated access or persistence.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:47.500957+00:00"
+        "checked_at": "2026-07-11T20:23:20.439464+00:00"
       }
     },
     "plugin:perplexity-search-plugin": {
@@ -1030,7 +1032,7 @@
         "suspicious_reason": "The package and runtime instructions are coherent with a search client for AIsa: it only requires python3 and an AISA_API_KEY and calls api.aisa.one; nothing in the files requests unrelated credentials or performs unexpected actions.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:52.931900+00:00"
+        "checked_at": "2026-07-11T20:23:37.303487+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-api-plugin": {
@@ -1071,7 +1073,7 @@
         "suspicious_reason": "This skill appears to do what it claims—query AIsa for prediction-market arbitrage data using an AIsa API key—though its registry requirement summary is inconsistent with the files that clearly require that key.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:58.265856+00:00"
+        "checked_at": "2026-07-11T20:23:55.201187+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-plugin": {
@@ -1112,7 +1114,7 @@
         "suspicious_reason": "The package is internally consistent with its stated purpose: it includes Python scripts that use a single AISA_API_KEY to call the AIsa prediction-market API and the SKILL.md instructs running those scripts; nothing requested or installed appears disproportionate or unrelated.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:03.401056+00:00"
+        "checked_at": "2026-07-11T20:24:11.310411+00:00"
       }
     },
     "plugin:prediction-market-arbitrage-zh-plugin": {
@@ -1153,7 +1155,7 @@
         "suspicious_reason": "The package is internally consistent with its stated purpose: it is a Python-based wrapper that calls AIsa's prediction-market API and only requests the AISA_API_KEY it needs.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:08.190885+00:00"
+        "checked_at": "2026-07-11T20:24:28.808190+00:00"
       }
     },
     "plugin:prediction-market-data-plugin": {
@@ -1194,7 +1196,7 @@
         "suspicious_reason": "The package is internally consistent with a prediction-market data client: it requires python3 and an AISA_API_KEY, its instructions point to the included Python client which contacts api.aisa.one, and there are no unrelated credentials, strange installers, or hidden endpoints.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:13.363123+00:00"
+        "checked_at": "2026-07-11T20:24:46.244117+00:00"
       }
     },
     "plugin:prediction-market-data-zh-plugin": {
@@ -1235,7 +1237,7 @@
         "suspicious_reason": "The package and its runtime instructions are internally consistent: it ships a Python client that queries AIsa's API and requires only an AISA_API_KEY and python3, which matches the skill's stated purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:18.580504+00:00"
+        "checked_at": "2026-07-11T20:25:02.708121+00:00"
       }
     },
     "plugin:prediction-market-plugin": {
@@ -1276,7 +1278,7 @@
         "suspicious_reason": "The package appears to do what it says: it wraps a Python client that queries AIsa's prediction-market API and requires an AISA_API_KEY; there are no hidden installers or unrelated credential requests, though there is a small metadata mismatch about declared requirements.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:23.490549+00:00"
+        "checked_at": "2026-07-11T20:25:19.312349+00:00"
       },
       "publish_mode": "publish-existing"
     },
@@ -1316,10 +1318,12 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The package, manifests, SKILL.md, and included Python client are consistent: the skill requires a single AISA_API_KEY and runs a local Python CLI that calls aisa.one APIs to perform searches; nothing in the bundle requests unrelated credentials, installs remote code, or reads unexpected local data.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-27T21:20:28.687751+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 500 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-07-11T20:25:37.828510+00:00"
       }
     },
     "plugin:search-plugin": {
@@ -1361,7 +1365,7 @@
         "suspicious_reason": "The package is internally consistent: it requires python3 and a single AISA_API_KEY and contains a local Python client that calls https://api.aisa.one — the requested permissions and instructions match the stated search/research purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:33.805254+00:00"
+        "checked_at": "2026-07-11T20:25:53.832461+00:00"
       }
     },
     "plugin:smart-search-plugin": {
@@ -1402,7 +1406,7 @@
         "suspicious_reason": "This mostly matches its stated purpose: it uses a Python client and an AISA_API_KEY to send search-related requests to AIsa, though the registry requirements summary appears to under-report those requirements.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:38.800547+00:00"
+        "checked_at": "2026-07-11T20:26:10.535029+00:00"
       }
     },
     "plugin:stock-analysis-plugin": {
@@ -1443,7 +1447,7 @@
         "suspicious_reason": "This skill appears to do what it claims: it runs a local Python script that sends stock or crypto ticker requests to the AIsa API using an AISA_API_KEY.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:43.729402+00:00"
+        "checked_at": "2026-07-11T20:26:26.705908+00:00"
       }
     },
     "plugin:stock-dividend-plugin": {
@@ -1485,7 +1489,7 @@
         "suspicious_reason": "The package appears to do what it says (dividend research via the AIsa API) and requests an AISA_API_KEY which is proportionate, but there are small inconsistencies you should verify before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:48.595637+00:00"
+        "checked_at": "2026-07-11T20:26:41.416281+00:00"
       }
     },
     "plugin:stock-hot-plugin": {
@@ -1527,7 +1531,7 @@
         "suspicious_reason": "The package is internally consistent with its stated purpose (a wrapper that calls the AIsa API to produce market research), but there are a few small mismatches (undeclared environment variables and an uninstalled Python dependency) you should be aware of before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:54.118657+00:00"
+        "checked_at": "2026-07-11T20:26:57.633677+00:00"
       }
     },
     "plugin:stock-portfolio-plugin": {
@@ -1569,7 +1573,7 @@
         "suspicious_reason": "The package and its runtime instructions are coherent for a portfolio tool that fetches live prices via the AIsa API and stores portfolios locally; required credentials and files align with the stated purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:20:59.306322+00:00"
+        "checked_at": "2026-07-11T20:27:14.499783+00:00"
       }
     },
     "plugin:stock-rumors-plugin": {
@@ -1611,7 +1615,7 @@
         "suspicious_reason": "This skill appears to do what it claims: it runs a bundled Python script that uses an AIsa API key to request stock-rumor and market-signal reports, with a few packaging metadata inconsistencies.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:21:04.432838+00:00"
+        "checked_at": "2026-07-11T20:27:29.790794+00:00"
       }
     },
     "plugin:stock-watchlist-plugin": {
@@ -1653,7 +1657,7 @@
         "suspicious_reason": "The package does what it says: a Python-based watchlist that calls an AIsa API using an AISA_API_KEY and stores a local JSON watchlist; its requirements and behavior are consistent with the description.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:21:09.591872+00:00"
+        "checked_at": "2026-07-11T20:27:46.429437+00:00"
       }
     },
     "plugin:tavily-extract-plugin": {
@@ -1695,7 +1699,7 @@
         "suspicious_reason": "The package is internally coherent for a research/search skill: it calls the AIsa API and requires an AISA_API_KEY; nothing in the files indicates hidden exfiltration or unrelated privileges.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:21:14.424381+00:00"
+        "checked_at": "2026-07-11T20:28:03.189020+00:00"
       }
     },
     "plugin:tavily-search-plugin": {
@@ -1737,7 +1741,7 @@
         "suspicious_reason": "The package is internally consistent: it implements a Python CLI that calls AIsa's API and requires only an AISA_API_KEY, which matches the skill's stated search/retrieval purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:21:19.693073+00:00"
+        "checked_at": "2026-07-11T20:28:18.790408+00:00"
       }
     },
     "plugin:twitter-autopilot-plugin": {
@@ -1779,7 +1783,7 @@
         "suspicious_reason": "The package is coherent with its stated purpose: it is a Twitter/X client that uses an AIsa relay (api.aisa.one) and requires an AISA_API_KEY to perform reads, engagement, and OAuth-backed posting; the main issues are minor packaging metadata inconsistencies you should be aware of before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:21:24.711199+00:00"
+        "checked_at": "2026-07-11T20:28:37.479531+00:00"
       }
     },
     "plugin:twitter-command-center-search-post-interact-plugin": {
@@ -1821,7 +1825,7 @@
         "suspicious_reason": "The skill appears to implement the Twitter/X search, engagement, and OAuth posting flows via AIsa relay (api.aisa.one) and its requirements and behavior are broadly coherent with that purpose, but there are metadata inconsistencies and privacy implications you should review before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:21:29.758503+00:00"
+        "checked_at": "2026-07-11T20:28:53.458154+00:00"
       }
     },
     "plugin:twitter-command-center-search-post-plugin": {
@@ -1863,7 +1867,7 @@
         "suspicious_reason": "This appears to be a Twitter/X search-and-post skill that uses an AIsa API key as advertised, with one caution that an optional relay URL can redirect where requests are sent.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:21:35.427251+00:00"
+        "checked_at": "2026-07-11T20:29:07.062014+00:00"
       }
     },
     "plugin:twitter-plugin": {
@@ -1905,7 +1909,7 @@
         "suspicious_reason": "The package appears to implement a Twitter/X client that talks to AIsa relay endpoints and requires a single AISA_API_KEY; its files, instructions, and requested credential are largely coherent with the stated purpose, though there are small metadata inconsistencies you should verify before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:21:40.884479+00:00"
+        "checked_at": "2026-07-11T20:29:21.299124+00:00"
       }
     },
     "plugin:us-stock-analyst-plugin": {
@@ -1947,7 +1951,7 @@
         "suspicious_reason": "The skill's files, runtime instructions, and required AISA_API_KEY align with its stated purpose (calling the AIsa market-data APIs via bundled Python scripts); nothing requests unrelated credentials or hidden endpoints.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:21:51.344294+00:00"
+        "checked_at": "2026-07-11T20:29:54.594815+00:00"
       }
     },
     "plugin:web-search-plugin": {
@@ -1989,7 +1993,7 @@
         "suspicious_reason": "The package does what it says: a wrapper around an AIsa-backed web-search skill that requires an AISA_API_KEY and calls api.aisa.one; its requirements and runtime behavior are coherent with its stated purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:21:56.202985+00:00"
+        "checked_at": "2026-07-11T20:30:09.018477+00:00"
       }
     },
     "plugin:x-intelligence-automation-plugin": {
@@ -2031,7 +2035,7 @@
         "suspicious_reason": "This skill’s Python scripts, AISA_API_KEY use, and api.aisa.one relay access match its stated Twitter/X research, posting, and engagement purpose, though the registry requirement summary appears incomplete.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:01.337494+00:00"
+        "checked_at": "2026-07-11T20:30:23.853943+00:00"
       }
     },
     "plugin:youtube-plugin": {
@@ -2073,7 +2077,7 @@
         "suspicious_reason": "This appears to be a coherent YouTube search skill that uses one AIsa API key to query the advertised AIsa YouTube search endpoint.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:06.281657+00:00"
+        "checked_at": "2026-07-11T20:30:42.659502+00:00"
       }
     },
     "plugin:youtube-search-plugin": {
@@ -2115,7 +2119,7 @@
         "suspicious_reason": "This appears to be a narrowly scoped YouTube search skill that uses an AIsa API key only to call AIsa's YouTube search endpoint.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:11.307577+00:00"
+        "checked_at": "2026-07-11T20:31:06.522205+00:00"
       }
     },
     "skill:aisa-multi-search-engine": {
@@ -2139,8 +2143,8 @@
         "resolved_slug": "aisa-multi-search-engine",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -2150,10 +2154,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "AIsa",
         "suspicious": false,
-        "suspicious_reason": "The skill's code, runtime instructions, and requested environment access are consistent with a multi-source search plugin that calls the AIsa API and only requires an AISA_API_KEY plus python3/node runtimes.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:18.558880+00:00"
+        "checked_at": "2026-07-11T20:31:26.197639+00:00"
       },
       "publish_mode": "published",
       "attempts": 1,
@@ -2184,21 +2188,21 @@
         "resolved_slug": "aisa-provider",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "suspicious",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "tePlus",
-        "suspicious": false,
-        "suspicious_reason": "No suspicious code execution or autonomous behavior is shown, but the documentation contains strong privacy assurances users should independently verify.",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "This appears to be a legitimate AIsa setup skill, but it gives users risky API-key handling guidance that deserves manual review.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:23.081023+00:00"
+        "checked_at": "2026-07-11T20:31:31.378830+00:00"
       }
     },
     "skill:aisa-tavily": {
@@ -2225,8 +2229,8 @@
         "resolved_slug": "aisa-tavily",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -2236,10 +2240,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's files, runtime instructions, and requested environment variable line up with its stated purpose (web/multi-source research via AIsa); it only requires Node and an AISA_API_KEY and sends queries/URLs to api.aisa.one, so the main risk is trusting that external service with your data and API key.",
-        "pending": true,
+        "suspicious_reason": "This is a small AIsa web-research skill whose main risk is that searches, URLs, and the AIsa API key are sent to AIsa's hosted API.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:27.409658+00:00"
+        "checked_at": "2026-07-11T20:31:35.815448+00:00"
       }
     },
     "skill:aisa-twitter-api": {
@@ -2477,8 +2481,8 @@
         "resolved_slug": "cn-llm",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -2488,10 +2492,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's code, runtime instructions, and required environment variables are coherent with its stated purpose (AIsa-backed Chinese LLM routing) and do not request unrelated credentials or perform unexpected actions.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:36.234244+00:00"
+        "checked_at": "2026-07-11T20:31:46.245778+00:00"
       }
     },
     "skill:last30days": {
@@ -2516,21 +2520,23 @@
         "resolved_slug": "last30days",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "clean",
-        "virus_total": "clean",
+        "scan_status": "pending",
+        "virus_total": null,
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": null,
         "clawscan_confidence": null,
-        "openclaw_verdict": "clean",
+        "openclaw_verdict": null,
         "openclaw_confidence": null,
-        "static_analysis_status": "clean",
-        "static_analysis_summary": "No suspicious patterns detected.",
-        "publisher_handle": "script",
+        "static_analysis_status": null,
+        "static_analysis_summary": null,
+        "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "No suspicious patterns detected.",
-        "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-27T21:22:37.405819+00:00"
+        "suspicious_reason": null,
+        "pending": true,
+        "warnings": [
+          "Security scan output is still incomplete or pending."
+        ],
+        "checked_at": "2026-07-11T20:31:46.854494+00:00"
       }
     },
     "skill:last30days-zh": {
@@ -2557,21 +2563,21 @@
         "resolved_slug": "last30days-zh",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill runs bundled Bash/Python scripts as part of its normal research workflow; no static scan findings or hidden execution behavior were shown.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:38.742373+00:00"
+        "checked_at": "2026-07-11T20:31:48.261040+00:00"
       }
     },
     "skill:llm-router": {
@@ -2598,8 +2604,8 @@
         "resolved_slug": "llm-router",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -2609,10 +2615,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's requirements and bundled script match its stated purpose (routing through the AIsa API); it only needs python3 and an AISA_API_KEY and contains no obvious incoherent or excessive requests.",
-        "pending": true,
+        "suspicious_reason": "This skill matches its stated LLM routing purpose and only uses an AIsa API key to send requested model calls to AIsa.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:40.037280+00:00"
+        "checked_at": "2026-07-11T20:31:50.084355+00:00"
       }
     },
     "skill:market": {
@@ -2639,8 +2645,8 @@
         "resolved_slug": "market",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -2650,10 +2656,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "AIsa",
         "suspicious": false,
-        "suspicious_reason": "The skill's requests, instructions, and bundled client code are consistent with a market-data client that uses a single AISA_API_KEY to call https://api.aisa.one; nothing in the package requires unrelated credentials or privileges.",
-        "pending": true,
+        "suspicious_reason": "This skill is a straightforward market-data client that uses one disclosed API key to query the AIsa financial-data API.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:41.349449+00:00"
+        "checked_at": "2026-07-11T20:31:51.871083+00:00"
       },
       "publish_mode": "published"
     },
@@ -2681,8 +2687,8 @@
         "resolved_slug": "marketpulse",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -2692,10 +2698,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "AIsa",
         "suspicious": false,
-        "suspicious_reason": "The skill's code, examples, and required environment variable align with its stated purpose (market data via the AIsa API) and do not request unrelated credentials or perform suspicious actions.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:43.360138+00:00"
+        "checked_at": "2026-07-11T20:31:53.220297+00:00"
       },
       "publish_mode": "published"
     },
@@ -2723,8 +2729,8 @@
         "resolved_slug": "media-gen",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -2734,10 +2740,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's requirements and instructions align with its stated purpose (media generation via the AIsa API); it asks only for an AISA_API_KEY and uses python3 to call api.aisa.one and save downloaded media.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:44.914016+00:00"
+        "checked_at": "2026-07-11T20:31:54.546849+00:00"
       }
     },
     "skill:multi-search": {
@@ -2761,21 +2767,21 @@
         "resolved_slug": "multi-search",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "priority",
         "suspicious": false,
-        "suspicious_reason": "The skill uses disclosed multi-agent web retrieval as part of its research workflow; no hidden or destructive behavior is evidenced.",
-        "pending": true,
+        "suspicious_reason": "This is a disclosed research-assistant skill that uses web retrieval and subagents to create local markdown research reports, with no evidence of hidden execution, credential access, deletion, or exfiltration.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:46.093052+00:00"
+        "checked_at": "2026-07-11T20:31:56.382502+00:00"
       }
     },
     "skill:openclaw-aisa-youtube-aisa": {
@@ -2799,21 +2805,21 @@
         "resolved_slug": "openclaw-aisa-youtube-aisa",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "country",
         "suspicious": false,
-        "suspicious_reason": "The skill exposes a bounded external API client and has limited provenance; no artifact evidence shows goal hijacking, unsafe code execution, cascading effects, or rogue behavior.",
-        "pending": true,
+        "suspicious_reason": "This skill is a disclosed YouTube search helper that sends user queries to AIsa using an AISA_API_KEY, with no hidden persistence or unrelated local access found.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:49.087196+00:00"
+        "checked_at": "2026-07-11T20:31:59.737625+00:00"
       }
     },
     "skill:openclaw-media-gen": {
@@ -2840,8 +2846,8 @@
         "resolved_slug": "openclaw-media-gen",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -2851,10 +2857,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's requirements and runtime instructions match its stated purpose (AIsa image/video generation); it asks only for one API key and uses python3 to call api.aisa.one endpoints, which is coherent with the description.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:50.417233+00:00"
+        "checked_at": "2026-07-11T20:32:01.009516+00:00"
       }
     },
     "skill:openclaw-search": {
@@ -2881,8 +2887,8 @@
         "resolved_slug": "openclaw-search",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -2892,10 +2898,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's code, runtime instructions, and requested environment (AISA_API_KEY + python3) are coherent with its stated purpose (an AIsa-backed search client) and do not request unrelated credentials or elevated persistence.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:52.107129+00:00"
+        "checked_at": "2026-07-11T20:32:02.193716+00:00"
       }
     },
     "skill:openclaw-twitter": {
@@ -2919,21 +2925,21 @@
         "resolved_slug": "openclaw-twitter",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
+        "scan_status": "suspicious",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "AIsa",
-        "suspicious": false,
-        "suspicious_reason": "The skill can invoke public posting actions when the user asks; this is disclosed and purpose-aligned, but users should review ambiguous requests.",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "This Twitter/X skill largely does what it advertises, but it exposes the AISA API key in normal command output and should be reviewed before use.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:53.468342+00:00"
+        "checked_at": "2026-07-11T20:32:04.111859+00:00"
       }
     },
     "skill:openclaw-twitter-post-engage": {
@@ -2957,21 +2963,21 @@
         "resolved_slug": "openclaw-twitter-post-engage",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill can perform public Twitter/X posting and engagement actions, but the artifacts disclose this and require explicit confirmation flags.",
-        "pending": true,
+        "suspicious_reason": "This is a disclosed Twitter/X relay skill for searching, posting, liking, following, and unfollowing, with user confirmation required for public write actions.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:55.770948+00:00"
+        "checked_at": "2026-07-11T20:32:05.964885+00:00"
       },
       "attempts": 7,
       "last_attempt_at": "2026-05-06T18:58:55.777900+00:00",
@@ -3004,8 +3010,8 @@
         "resolved_slug": "openclaw-youtube",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -3015,10 +3021,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's requirements and instructions are coherent with its stated purpose: it runs a bundled Python client that calls the AIsa API using an AISA_API_KEY to search YouTube data.",
-        "pending": true,
+        "suspicious_reason": "This skill is a straightforward YouTube research helper that uses an AIsa API key to call AIsa’s service and return public YouTube search results.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:57.238858+00:00"
+        "checked_at": "2026-07-11T20:32:07.828598+00:00"
       }
     },
     "skill:perplexity-research": {
@@ -3042,21 +3048,21 @@
         "resolved_slug": "perplexity-research",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
+        "scan_status": "clean",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Perplexity",
         "suspicious": false,
-        "suspicious_reason": "The skill uses automatic web search after invocation and relies on unpinned third-party Python packages, both of which are purpose-aligned but worth reviewing.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:58.614979+00:00"
+        "checked_at": "2026-07-11T20:32:09.245137+00:00"
       }
     },
     "skill:perplexity-search": {
@@ -3096,18 +3102,18 @@
         "scan_status": "suspicious",
         "virus_total": "suspicious",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "betting",
         "suspicious": true,
-        "suspicious_reason": "The skill documents raw Base mainnet betting transactions and an agent betting strategy without clear per-transaction confirmation or spending controls.",
+        "suspicious_reason": "The skill is for a real ETH prediction market and matches that purpose, but it gives agents ready-to-use betting transactions and raw private-key command examples without enough safeguards.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:59.984816+00:00"
+        "checked_at": "2026-07-11T20:32:11.065279+00:00"
       },
       "publish_mode": "remote-existing"
     },
@@ -3133,21 +3139,21 @@
         "resolved_slug": "prediction-market-arbitrage",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
+        "scan_status": "clean",
         "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "explicit",
         "suspicious": false,
-        "suspicious_reason": "The skill relies on user-run upstream installs and a broad update-all command, but no hidden or automatic execution is shown.",
-        "pending": true,
+        "suspicious_reason": "This is a disclosed instruction-only workflow for prediction-market monitoring and optional trade planning, with no bundled executable code or hidden behavior found.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:01.655019+00:00"
+        "checked_at": "2026-07-11T20:32:13.095469+00:00"
       }
     },
     "skill:prediction-market-arbitrage-api": {
@@ -3171,21 +3177,21 @@
         "resolved_slug": "prediction-market-arbitrage-api",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "suspicious",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": "clean",
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Polymarket",
-        "suspicious": false,
-        "suspicious_reason": "The skill's code, instructions, and requested environment variable line up with its stated purpose (read-only arbitrage scanning via the AIsa API); nothing in the bundle appears to require unrelated credentials or installs, but the origin is unknown so verify the third-party API before use.",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "The skill is mostly read-only arbitrage tooling, but it includes under-disclosed wallet and financial lookup commands beyond the advertised workflow.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:03.140451+00:00"
+        "checked_at": "2026-07-11T20:32:14.999257+00:00"
       }
     },
     "skill:prediction-market-arbitrage-zh": {
@@ -3209,21 +3215,21 @@
         "resolved_slug": "prediction-market-arbitrage-zh",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "suspicious",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": "clean",
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
-        "suspicious": false,
-        "suspicious_reason": "The skill's code, runtime instructions, and requested environment variable (AISA_API_KEY) are consistent with its stated purpose of read-only arbitrage scanning via the AIsa API.",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "The skill is mostly a read-only arbitrage tool, but it also includes under-disclosed wallet and P&L lookup commands that can expose financial activity through a third-party API.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:04.445301+00:00"
+        "checked_at": "2026-07-11T20:32:16.777211+00:00"
       }
     },
     "skill:prediction-market-data": {
@@ -3248,8 +3254,8 @@
         "resolved_slug": "prediction-market-data",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -3259,10 +3265,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill appears to do exactly what it says: a read-only AIsa API client for Polymarket/Kalshi data that requires a single AISA_API_KEY and Python 3, with no unexpected installs or unrelated credentials.",
-        "pending": true,
+        "suspicious_reason": "This skill appears to be a disclosed, read-only API client for prediction market data, with no evidence of hidden installs, trading, persistence, or unrelated data access.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:06.239404+00:00"
+        "checked_at": "2026-07-11T20:32:18.495132+00:00"
       }
     },
     "skill:prediction-market-data-zh": {
@@ -3286,8 +3292,8 @@
         "resolved_slug": "prediction-market-data-zh",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -3298,9 +3304,9 @@
         "publisher_handle": "Convex",
         "suspicious": false,
         "suspicious_reason": "The skill's code, declared requirements, and runtime instructions are internally consistent: it only needs AISA_API_KEY and python3 and makes read-only GET calls to api.aisa.one to fetch prediction-market data.",
-        "pending": true,
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:07.569624+00:00"
+        "checked_at": "2026-07-11T20:32:20.295761+00:00"
       }
     },
     "skill:scholar-search": {
@@ -3324,21 +3330,21 @@
         "resolved_slug": "scholar-search",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The only abnormal-behavior note is a purpose-aligned, unpinned Python dependency install; no hidden execution, destructive action, or deceptive control flow is shown.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:08.968658+00:00"
+        "checked_at": "2026-07-11T20:32:21.630656+00:00"
       }
     },
     "skill:search": {
@@ -3377,21 +3383,21 @@
         "resolved_slug": "smart-search",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "suspicious",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
-        "suspicious": false,
-        "suspicious_reason": "The main concerns are unsafe optional SearX exposure, executing .env as shell code, and over-strong safety claims.",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "Smart Search appears to be a legitimate web-search skill, but its privacy, credential, trigger, and SearX deployment behavior are under-disclosed enough that users should review it carefully before installing.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:09.730180+00:00"
+        "checked_at": "2026-07-11T20:32:23.580941+00:00"
       }
     },
     "skill:stock-analysis": {
@@ -3426,10 +3432,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "potential",
         "suspicious": true,
-        "suspicious_reason": "The skill is a coherent stock-analysis tool, but its optional social scanning asks users to expose live X/Twitter session credentials to an external CLI with overly broad local permissions.",
+        "suspicious_reason": "This is a coherent stock-analysis skill, but its optional Twitter/X scanners ask users to expose live session cookies to an external CLI with broader credential handling than the feature warrants.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:10.442292+00:00"
+        "checked_at": "2026-07-11T20:32:25.374090+00:00"
       }
     },
     "skill:stock-dividend": {
@@ -3453,21 +3459,21 @@
         "resolved_slug": "stock-dividend",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "Only a purpose-aligned external Python dependency is noted; no hidden code execution, destructive commands, or autonomous background behavior is shown.",
-        "pending": true,
+        "suspicious_reason": "This is a disclosed dividend-analysis skill that sends requested stock tickers to the AIsa API and shows no trading, purchasing, persistence, or destructive behavior.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:11.776118+00:00"
+        "checked_at": "2026-07-11T20:32:27.202780+00:00"
       }
     },
     "skill:stock-hot": {
@@ -3491,8 +3497,8 @@
         "resolved_slug": "stock-hot",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -3502,10 +3508,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "This skill is internally consistent: it needs only an AISA API key and python, runs a local script that calls the AISA API, and does not request unrelated credentials or system access.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:14.566915+00:00"
+        "checked_at": "2026-07-11T20:32:30.344235+00:00"
       }
     },
     "skill:stock-portfolio": {
@@ -3529,21 +3535,21 @@
         "resolved_slug": "stock-portfolio",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "No hidden control behavior is shown; notes relate to under-declared Python setup, optional cron persistence, and avoiding over-trust in simplified recommendations.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:15.862956+00:00"
+        "checked_at": "2026-07-11T20:32:31.682012+00:00"
       }
     },
     "skill:stock-rumors": {
@@ -3567,21 +3573,21 @@
         "resolved_slug": "stock-rumors",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "impact",
         "suspicious": false,
-        "suspicious_reason": "The skill asks the provider to perform broad live-data searches and uses an unpinned Python dependency, both of which are purpose-aligned but worth noticing.",
-        "pending": true,
+        "suspicious_reason": "This skill is a disclosed AIsa API-backed stock-rumor scanner, with expected API-key use and no evidence of trading, persistence, local data collection, or destructive behavior.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:17.337856+00:00"
+        "checked_at": "2026-07-11T20:32:33.444012+00:00"
       }
     },
     "skill:stock-watchlist": {
@@ -3605,21 +3611,21 @@
         "resolved_slug": "stock-watchlist",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "ticker",
         "suspicious": false,
-        "suspicious_reason": "The skill performs documented, purpose-aligned Markdown watchlist updates with visible path-scope guidance.",
-        "pending": true,
+        "suspicious_reason": "This is a coherent stock quote and Markdown watchlist helper with disclosed external lookups and scoped file edits.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:18.856531+00:00"
+        "checked_at": "2026-07-11T20:32:35.237420+00:00"
       }
     },
     "skill:tavily-extract": {
@@ -3645,21 +3651,21 @@
         "resolved_slug": "tavily-extract",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "relevance",
         "suspicious": false,
-        "suspicious_reason": "The OAuth fallback can automatically execute an unpinned npm helper through `npx -y`.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:20.166375+00:00"
+        "checked_at": "2026-07-11T20:32:36.626858+00:00"
       }
     },
     "skill:tavily-search": {
@@ -3712,18 +3718,18 @@
         "scan_status": "suspicious",
         "virus_total": "suspicious",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": true,
-        "suspicious_reason": "The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script.",
+        "suspicious_reason": "The skill matches its Twitter automation purpose, but it needs review because it can use live OAuth credentials to post, delete, and follow autonomously with weak guardrails.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:21.741166+00:00"
+        "checked_at": "2026-07-11T20:32:38.493111+00:00"
       }
     },
     "skill:twitter-command-center-search-post": {
@@ -3750,21 +3756,21 @@
         "resolved_slug": "twitter-command-center-search-post",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "suspicious",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": "clean",
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
-        "suspicious": false,
-        "suspicious_reason": "The skill’s files, required binary, and single API key align with its stated Twitter/X read-and-posting purpose, but it sends credentials and media to a third-party relay (api.aisa.one) and references undeclared environment overrides you should review before use.",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "The skill matches its Twitter/X search-and-posting purpose, but it exposes the AISA API key in normal command output and sends post content/media through a relay, so it needs review before installation.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:23.057866+00:00"
+        "checked_at": "2026-07-11T20:32:40.366143+00:00"
       }
     },
     "skill:twitter-command-center-search-post-interact": {
@@ -3791,21 +3797,21 @@
         "resolved_slug": "twitter-command-center-search-post-interact",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "suspicious",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": "clean",
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
-        "suspicious": false,
-        "suspicious_reason": "The skill's code, instructions, and required credential (AISA_API_KEY) are consistent with its stated purpose of read/search/engagement and OAuth-backed posting via the AIsa relay service.",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "This Twitter/X skill mostly matches its stated purpose, but it exposes the configured API key in normal command output and can perform real posting and engagement actions.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:24.370066+00:00"
+        "checked_at": "2026-07-11T20:32:42.217555+00:00"
       }
     },
     "skill:us-stock-analyst": {
@@ -3832,8 +3838,8 @@
         "resolved_slug": "us-stock-analyst",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -3843,10 +3849,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "AIsa",
         "suspicious": false,
-        "suspicious_reason": "The skill's requested resources, runtime instructions, and bundled code are coherent with a US stock analysis tool that uses the AIsa API and a local Python client; nothing requests unrelated credentials or installs arbitrary code.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:27.127557+00:00"
+        "checked_at": "2026-07-11T20:32:45.382103+00:00"
       },
       "publish_mode": "published"
     },
@@ -3874,18 +3880,18 @@
         "scan_status": "suspicious",
         "virus_total": "suspicious",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "description",
         "suspicious": true,
-        "suspicious_reason": "The only noted control-related issue is a normal, purpose-aligned but unpinned third-party package install.",
+        "suspicious_reason": "No suspicious patterns detected.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:28.241694+00:00"
+        "checked_at": "2026-07-11T20:32:46.727477+00:00"
       }
     },
     "skill:x-intelligence-automation": {
@@ -3925,7 +3931,7 @@
         "warnings": [
           "Security scan output is still incomplete or pending."
         ],
-        "checked_at": "2026-05-27T21:23:28.727052+00:00"
+        "checked_at": "2026-07-11T20:32:47.327137+00:00"
       }
     },
     "skill:youtube": {
@@ -3952,18 +3958,18 @@
         "scan_status": "suspicious",
         "virus_total": "suspicious",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": true,
-        "suspicious_reason": "The skill uses user-directed third-party tool installation and includes broad safety wording, but this is aligned with the YouTube integration purpose.",
+        "suspicious_reason": "Search YouTube videos, get channel info, fetch video details and transcripts using YouTube Data API v3 via MCP server or yt-dlp fallback.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:30.290061+00:00"
+        "checked_at": "2026-07-11T20:32:48.669955+00:00"
       }
     },
     "skill:youtube-search": {
@@ -3990,18 +3996,18 @@
         "scan_status": "suspicious",
         "virus_total": "suspicious",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "name",
         "suspicious": true,
-        "suspicious_reason": "The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits.",
+        "suspicious_reason": "This YouTube skill is mostly coherent, but it asks agents to create or handle a third-party account and persist an API key with broad local changes that deserve review before use.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:31.689280+00:00"
+        "checked_at": "2026-07-11T20:32:50.485913+00:00"
       }
     },
     "skill:aisa-perplexity-search": {
@@ -4041,8 +4047,8 @@
         "resolved_slug": "aisa-search",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -4052,10 +4058,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's code, instructions, and required environment variable (AISA_API_KEY) are consistent with its stated purpose of calling the AIsa search API; it does not request unrelated credentials or perform unexpected local file access.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:24.645226+00:00"
+        "checked_at": "2026-07-11T20:31:32.649826+00:00"
       }
     },
     "skill:aisa-tavily-search": {
@@ -4094,7 +4100,7 @@
         "suspicious_reason": "This skill is a straightforward AIsa web-research integration that uses an API key to send user-provided searches or URLs to AIsa, with no hidden persistence or destructive behavior found.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-07-10T20:49:44.594820+00:00"
+        "checked_at": "2026-07-11T20:31:37.675903+00:00"
       },
       "attempts": 55,
       "last_attempt_at": "2026-07-10T20:46:53.123983+00:00",
@@ -4123,21 +4129,21 @@
         "resolved_slug": "aisa-twitter",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "suspicious",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
-        "suspicious": false,
-        "suspicious_reason": "The skill can publish public Twitter/X posts, replies, and quotes, but this is disclosed and purpose-aligned.",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "This is a disclosed Twitter/X relay skill, but its OAuth posting client can print the full AIsa API key in command output.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:30.474869+00:00"
+        "checked_at": "2026-07-11T20:31:39.399909+00:00"
       }
     },
     "plugin:aisa-perplexity-search-plugin": {
@@ -4188,10 +4194,12 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The package is internally consistent: it wraps a bundled AIsa search skill that requires an AISA_API_KEY and Python, and the code and instructions match that purpose.",
+        "suspicious_reason": null,
         "pending": false,
-        "warnings": [],
-        "checked_at": "2026-05-27T21:17:19.660100+00:00"
+        "warnings": [
+          "OpenClaw detail lookup failed: HTTP 500 while fetching detail page. Render fallback failed: No module named 'playwright'"
+        ],
+        "checked_at": "2026-07-11T20:14:13.589687+00:00"
       }
     },
     "plugin:aisa-tavily-search-plugin": {
@@ -4230,7 +4238,7 @@
         "suspicious_reason": "This skill appears to do what it claims: it uses an AISA API key to send search and extraction requests to AIsa's API.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-07-10T20:48:42.566440+00:00"
+        "checked_at": "2026-07-11T20:14:47.782929+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-tavily-search-plugin",
@@ -4276,7 +4284,7 @@
         "suspicious_reason": "The package appears to do what it claims — a Python-based AIsa-backed Twitter/X client requiring an AISA_API_KEY — with no unexpected credential requests or arbitrary downloads, though there are minor metadata inconsistencies to note.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:17:54.563734+00:00"
+        "checked_at": "2026-07-11T20:16:31.686542+00:00"
       }
     },
     "skill:aisa-perplexity-sonar-search": {
@@ -4304,8 +4312,8 @@
         "resolved_slug": "aisa-perplexity-sonar-search",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -4315,10 +4323,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill is internally consistent: it requires a single AISA_API_KEY, runs a small Python client that POSTs queries to api.aisa.one, and the requested resources match the described search/synthesis purpose.",
-        "pending": true,
+        "suspicious_reason": "No concrete malicious or suspicious behavior was evidenced by the supplied scan data, but artifact-specific files were not available to verify behavior deeply.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:21.241043+00:00"
+        "checked_at": "2026-07-11T20:31:29.291228+00:00"
       }
     },
     "plugin:aisa-perplexity-sonar-search-plugin": {
@@ -4360,7 +4368,7 @@
         "suspicious_reason": "The package is internally consistent: it wraps a bundled Python client that calls AIsa's API and only asks for the AISA_API_KEY and python3 as declared.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:17:05.069380+00:00"
+        "checked_at": "2026-07-11T20:13:19.876782+00:00"
       }
     },
     "plugin:crypto-market-data-plugin": {
@@ -4402,7 +4410,7 @@
         "suspicious_reason": "The skill is internally consistent: it requires a single AISA_API_KEY and python3, calls the AIsa proxy API (api.aisa.one) for CoinGecko data, and the included scripts/instructions match those requirements.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:31.821072+00:00"
+        "checked_at": "2026-07-11T20:18:46.506035+00:00"
       }
     },
     "plugin:multi-source-search-plugin": {
@@ -4441,7 +4449,7 @@
         "suspicious_reason": "The package is internally consistent: it implements a search client that requires a single AISA_API_KEY and python3, and its code and instructions align with the stated search/synthesis purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:19:12.331270+00:00"
+        "checked_at": "2026-07-11T20:21:04.663417+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:07:24.834332+00:00"
@@ -4482,7 +4490,7 @@
         "suspicious_reason": "The package's code, manifests, and runtime instructions are consistent with a YouTube SERP client that calls the AIsa API and only requires an AISA_API_KEY; nothing requests unrelated credentials or installs arbitrary code.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:15.798671+00:00"
+        "checked_at": "2026-07-11T20:31:23.516019+00:00"
       }
     },
     "skill:crypto-market-data": {
@@ -4517,8 +4525,8 @@
         "resolved_slug": "multi-source-search",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -4528,10 +4536,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's code, runtime instructions, and required environment variable are consistent with its stated purpose of aggregating searches via the AIsa (aisa.one) API; nothing in the package requests unrelated credentials or performs unexpected local operations.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:47.751671+00:00"
+        "checked_at": "2026-07-11T20:31:57.845428+00:00"
       },
       "attempts": 1,
       "last_attempt_at": "2026-04-28T20:11:22.096772+00:00",
@@ -4559,8 +4567,8 @@
         "resolved_slug": "youtube-serp",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -4570,10 +4578,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's code, instructions, and required credential (AISA_API_KEY) are consistent with a YouTube SERP/analytics client that calls the AIsa API; nothing in the package appears disproportionate or unrelated to its stated purpose.",
-        "pending": true,
+        "suspicious_reason": "This skill is a disclosed YouTube research client that sends user queries to AIsa using a required AISA_API_KEY and shows no hidden local access, persistence, or destructive behavior.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:32.972811+00:00"
+        "checked_at": "2026-07-11T20:32:52.149023+00:00"
       }
     },
     "skill:aisa-perplexity-search-sonar": {
@@ -4598,8 +4606,8 @@
         "resolved_slug": "aisa-perplexity-search-sonar",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -4609,10 +4617,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's code, runtime instructions, and required credential (AISA_API_KEY) are consistent with a search/synthesis client for the AIsa Perplexity Sonar API and do not request unrelated privileges or perform unexpected actions.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:19.804679+00:00"
+        "checked_at": "2026-07-11T20:31:27.493182+00:00"
       }
     },
     "skill:aisa-search-command-center": {
@@ -4637,8 +4645,8 @@
         "resolved_slug": "aisa-search-command-center",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -4648,10 +4656,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill's code, runtime instructions, and requested credentials align with a search/aggregation client that calls the AIsa API; nothing requires unexplained privileges or unrelated secrets.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:25.969583+00:00"
+        "checked_at": "2026-07-11T20:31:34.012244+00:00"
       }
     },
     "skill:aisa-twitter-research-engage": {
@@ -4676,21 +4684,21 @@
         "resolved_slug": "aisa-twitter-research-engage",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "suspicious",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": "clean",
+        "clawscan_verdict": "suspicious",
         "clawscan_confidence": null,
-        "openclaw_verdict": "clean",
+        "openclaw_verdict": "suspicious",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
-        "suspicious": false,
-        "suspicious_reason": "The skill's code, instructions, and requested credential (AISA_API_KEY) are consistent with its stated purpose (Twitter/X read, engagement, and OAuth-backed posting via an external relay service); the main user decision is whether to trust the external relay (api.aisa.one) with your API key and media.",
-        "pending": true,
+        "suspicious": true,
+        "suspicious_reason": "This Twitter/X skill mostly does what it claims, but it exposes the required AIsa API key in normal command output.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:33.355694+00:00"
+        "checked_at": "2026-07-11T20:31:43.047748+00:00"
       }
     },
     "skill:aisa-crypto-market-data": {
@@ -4718,8 +4726,8 @@
         "resolved_slug": "aisa-crypto-market-data",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
         "clawscan_verdict": "clean",
         "clawscan_confidence": null,
@@ -4729,10 +4737,10 @@
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "Convex",
         "suspicious": false,
-        "suspicious_reason": "The skill is coherent with its stated purpose of fetching crypto market data via the AIsa service: it requires only python3 and an AISA_API_KEY and the bundled script calls the AIsa API — nothing in the package requests unrelated credentials or installs arbitrary code from unknown hosts.",
-        "pending": true,
+        "suspicious_reason": "No suspicious patterns detected.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:22:17.143374+00:00"
+        "checked_at": "2026-07-11T20:31:24.826801+00:00"
       }
     },
     "skill:aisa-twitter-api-command-center": {
@@ -4774,7 +4782,7 @@
         "suspicious_reason": "The skill does what it says, but it exposes the AIsa API key in normal command output, which can leak a sensitive credential into logs or agent transcripts.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-07-10T20:49:46.584100+00:00"
+        "checked_at": "2026-07-11T20:31:41.238335+00:00"
       },
       "owner_handle": "aisadocs",
       "published_name": "aisa-twitter-api-command-center"
@@ -4818,7 +4826,7 @@
         "suspicious_reason": "The package is internally coherent for a crypto market-data plugin: it requires a single AISA_API_KEY and runs a local Python client against api.aisa.one; there are no unexpected credentials, third-party downloads, or broad system access requested.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:16:49.009886+00:00"
+        "checked_at": "2026-07-11T20:12:24.513789+00:00"
       }
     },
     "plugin:aisa-perplexity-search-sonar-plugin": {
@@ -4860,7 +4868,7 @@
         "suspicious_reason": "This appears to be a straightforward AIsa search plugin that uses Python and an AIsa API key to send search requests to AIsa's API.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:16:59.472626+00:00"
+        "checked_at": "2026-07-11T20:13:01.986413+00:00"
       }
     },
     "plugin:aisa-search-command-center-plugin": {
@@ -4902,7 +4910,7 @@
         "suspicious_reason": "The package is internally consistent: it is a search/research skill that requires a single AISA_API_KEY and runs a bundled Python client against api.aisa.one — the requested files, env var, and instructions line up with that purpose.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:17:14.851741+00:00"
+        "checked_at": "2026-07-11T20:13:56.862472+00:00"
       }
     },
     "plugin:aisa-twitter-api-command-center-plugin": {
@@ -4944,7 +4952,7 @@
         "suspicious_reason": "This skill appears to do what it claims—use an AIsa API key and Python scripts for Twitter/X research and posting—though its registry requirement summary under-reports the API key and Python dependency.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-07-10T20:49:02.601441+00:00"
+        "checked_at": "2026-07-11T20:15:06.749039+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-twitter-api-command-center-aisa-api-plugin"
@@ -4988,7 +4996,7 @@
         "suspicious_reason": "The skill's code and runtime instructions largely match a Twitter research/posting tool using an AIsa relay, but there are internal inconsistencies in the declared requirements and some undocumented environment hooks and behaviors that you should review before installing.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:18:05.272912+00:00"
+        "checked_at": "2026-07-11T20:17:12.273084+00:00"
       }
     },
     "skill:aisa-twitter-research-engage-relay": {
@@ -5030,7 +5038,7 @@
         "suspicious_reason": "The skill mostly matches its Twitter/X relay purpose, but it needs review because it can print the AIsa API key and can perform live account actions immediately once invoked.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-07-10T20:49:48.489431+00:00"
+        "checked_at": "2026-07-11T20:31:44.864913+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-twitter-research-engage-relay-aisa-api"
@@ -5074,7 +5082,7 @@
         "suspicious_reason": "This appears to be what it claims: a Twitter/X relay skill that uses an AIsa API key, though installing it means trusting AIsa with Twitter engagement, posting, and any attached media you send.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-07-10T20:49:25.361475+00:00"
+        "checked_at": "2026-07-11T20:17:33.075887+00:00"
       },
       "owner_handle": "bibaofeng",
       "published_name": "aisa-twitter-research-engage-relay-aisa-api-plugin"
@@ -5106,21 +5114,21 @@
         "resolved_slug": "stock-dividend-aisa",
         "page_found": true,
         "fetch_mode": "http",
-        "scan_status": "pending",
-        "virus_total": "pending",
+        "scan_status": "clean",
+        "virus_total": "clean",
         "virus_total_report_url": null,
-        "clawscan_verdict": null,
+        "clawscan_verdict": "clean",
         "clawscan_confidence": null,
-        "openclaw_verdict": null,
+        "openclaw_verdict": "clean",
         "openclaw_confidence": null,
         "static_analysis_status": "clean",
         "static_analysis_summary": "No suspicious patterns detected.",
         "publisher_handle": "default",
         "suspicious": false,
-        "suspicious_reason": "The only abnormal-behavior-related note is a disclosed, purpose-aligned external Python dependency; there is no hidden execution, persistence, or purchase/trading workflow.",
-        "pending": true,
+        "suspicious_reason": "This skill is a disclosed read-only dividend analysis helper that sends ticker requests to an AIsa-compatible API and does not show trading, purchase, persistence, or destructive behavior.",
+        "pending": false,
         "warnings": [],
-        "checked_at": "2026-05-27T21:23:13.263424+00:00"
+        "checked_at": "2026-07-11T20:32:28.967580+00:00"
       }
     },
     "skill:twitter-post-aisa": {
@@ -5164,7 +5172,7 @@
         "suspicious_reason": "The skill’s Twitter/X relay purpose is mostly disclosed, but reported credential exposure in its posting and authorization scripts needs review before use.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-07-10T20:49:50.384793+00:00"
+        "checked_at": "2026-07-11T20:32:44.110924+00:00"
       }
     },
     "plugin:twitter-post-aisa-plugin": {
@@ -5208,7 +5216,7 @@
         "suspicious_reason": "This appears to be a Twitter/X posting and engagement skill that uses one AIsa API key and the documented AIsa API endpoint, with no unrelated credential requests or install steps visible.",
         "pending": false,
         "warnings": [],
-        "checked_at": "2026-07-10T20:49:42.718611+00:00"
+        "checked_at": "2026-07-11T20:29:38.401184+00:00"
       }
     }
   }

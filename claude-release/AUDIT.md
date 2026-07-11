@@ -4,7 +4,7 @@ This report summarizes structural cleanup and residual publishing risk for the g
 
 ## Summary
 
-- Skills converted: 59
+- Skills converted: 60
 - Skills with residual risk notes: 15
 
 ## Per Skill
@@ -154,6 +154,18 @@ This report summarizes structural cleanup and residual publishing risk for the g
 - Source: `targetSkills/gmail-lead-desk`
 - Output: `claude-release/gmail-lead-desk`
 - Description: Gmail Lead Desk — standalone sales/CS Gmail skill via the AISA gateway: OAuth connect, scan unread leads, summarize threads, draft template replies (default draft-only), archive with labels. Keywords: Gmail Lead Desk, Gmail, lead desk, sales, customer support, follow-up, unread, inquiry summary, draft reply, archive, OAuth, AISA, connected account, thread_id. Use when: the user needs this workflow's domain-specific automation or guidance.
+- Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
+- Change: stripped platform-specific metadata from release frontmatter
+- Change: inferred allowed-tools for Claude Code compatibility
+- Change: ensured description carries explicit trigger phrasing for search and selection
+- Change: replaced source README with a Claude-oriented release README
+- Change: copied runtime scripts/references only
+
+### kol-creator-discovery
+
+- Source: `targetSkills/kol-creator-discovery`
+- Output: `claude-release/kol-creator-discovery`
+- Description: Use this skill when a user needs KOL or influencer research, creator email lookup, similar-creator discovery, outreach-list building, influencer prospecting, or a contact table from TikTok, Instagram, or YouTube profile URLs. It uses AIsa's WaveInflu APIs to find verified creator emails, match similar YouTube or TikTok creators, enrich each recommended profile with contact emails, and return an outreach-ready Markdown table without inventing missing data. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
 - Change: rewrote SKILL.md frontmatter for Claude-friendly search and invocation
 - Change: stripped platform-specific metadata from release frontmatter
 - Change: inferred allowed-tools for Claude Code compatibility

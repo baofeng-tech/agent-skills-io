@@ -39,6 +39,7 @@ done
 - `cn-llm-plugin` → `cn-llm`
 - `crypto-market-data-plugin` → `crypto-market-data`
 - `gmail-lead-desk-plugin` → `gmail-lead-desk`
+- `kol-creator-discovery-plugin` → `kol-creator-discovery`
 - `last30days-plugin` → `last30days`
 - `last30days-zh-plugin` → `last30days-zh`
 - `llm-router-plugin` → `llm-router`

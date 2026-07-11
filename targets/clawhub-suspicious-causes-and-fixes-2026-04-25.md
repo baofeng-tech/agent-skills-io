@@ -127,18 +127,18 @@
 <!-- AUTO-DIAGNOSIS:BEGIN -->
 ## 最新自动诊断快照
 
-- 诊断对象数：`54`
-- `blocker`：`10`
-- `warning`：`44`
-- `pending`：`44`
+- 诊断对象数：`22`
+- `blocker`：`19`
+- `warning`：`3`
+- `pending`：`3`
 
 ### 当前高频规则
 
 - `metadata_env_mismatch`: `1`
-- `oauth_upload_side_effects`: `10`
-- `pending_scan`: `44`
-- `platform_trust_gap`: `16`
-- `relay_trust_surface`: `26`
+- `oauth_upload_side_effects`: `7`
+- `pending_scan`: `3`
+- `platform_trust_gap`: `11`
+- `relay_trust_surface`: `8`
 
 ### 当前重点对象
 
@@ -146,48 +146,48 @@
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects, relay_trust_surface`
   reason: The skill's code and runtime instructions largely match a Twitter research/posting tool using an AIsa relay, but there are internal inconsistencies in the declared requirements and some undocumented environment hooks and behaviors that you should review before installing.
+- `skill:aisa-provider`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: This appears to be a legitimate AIsa setup skill, but it gives users risky API-key handling guidance that deserves manual review.
+- `skill:aisa-twitter`
+  severity: `blocker` | status: `suspicious`
+  rules: `oauth_upload_side_effects, relay_trust_surface`
+  reason: This is a disclosed Twitter/X relay skill, but its OAuth posting client can print the full AIsa API key in command output.
 - `skill:aisa-twitter-api-command-center`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
   reason: The skill does what it says, but it exposes the AIsa API key in normal command output, which can leak a sensitive credential into logs or agent transcripts.
+- `skill:aisa-twitter-research-engage`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: This Twitter/X skill mostly does what it claims, but it exposes the required AIsa API key in normal command output.
 - `skill:aisa-twitter-research-engage-relay`
   severity: `blocker` | status: `suspicious`
   rules: `oauth_upload_side_effects, relay_trust_surface`
   reason: The skill mostly matches its Twitter/X relay purpose, but it needs review because it can print the AIsa API key and can perform live account actions immediately once invoked.
+- `skill:openclaw-twitter`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: This Twitter/X skill largely does what it advertises, but it exposes the AISA API key in normal command output and should be reviewed before use.
 - `skill:prediction-market`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
-  reason: The skill documents raw Base mainnet betting transactions and an agent betting strategy without clear per-transaction confirmation or spending controls.
+  reason: The skill is for a real ETH prediction market and matches that purpose, but it gives agents ready-to-use betting transactions and raw private-key command examples without enough safeguards.
+- `skill:prediction-market-arbitrage-api`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: The skill is mostly read-only arbitrage tooling, but it includes under-disclosed wallet and financial lookup commands beyond the advertised workflow.
+- `skill:prediction-market-arbitrage-zh`
+  severity: `blocker` | status: `suspicious`
+  rules: `relay_trust_surface`
+  reason: The skill is mostly a read-only arbitrage tool, but it also includes under-disclosed wallet and P&L lookup commands that can expose financial activity through a third-party API.
+- `skill:smart-search`
+  severity: `blocker` | status: `suspicious`
+  rules: `platform_trust_gap`
+  reason: Smart Search appears to be a legitimate web-search skill, but its privacy, credential, trigger, and SearX deployment behavior are under-disclosed enough that users should review it carefully before installing.
 - `skill:stock-analysis`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
-  reason: The skill is a coherent stock-analysis tool, but its optional social scanning asks users to expose live X/Twitter session credentials to an external CLI with overly broad local permissions.
-- `skill:twitter-autopilot`
-  severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
-  reason: The main concern is direct, public Twitter/X mutation authority with optional autonomous scheduling and approval controls that are described but not enforced in the script.
-- `skill:twitter-post-aisa`
-  severity: `blocker` | status: `suspicious`
-  rules: `oauth_upload_side_effects, relay_trust_surface`
-  reason: The skill’s Twitter/X relay purpose is mostly disclosed, but reported credential exposure in its posting and authorization scripts needs review before use.
-- `skill:web-search`
-  severity: `blocker` | status: `suspicious`
-  rules: `relay_trust_surface`
-  reason: The only noted control-related issue is a normal, purpose-aligned but unpinned third-party package install.
-- `skill:youtube`
-  severity: `blocker` | status: `suspicious`
-  rules: `relay_trust_surface`
-  reason: The skill uses user-directed third-party tool installation and includes broad safety wording, but this is aligned with the YouTube integration purpose.
-- `skill:youtube-search`
-  severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
-  reason: The skill may proactively call the disclosed TranscriptAPI service for YouTube research, which is purpose-aligned but can consume credits.
-- `skill:aisa-crypto-market-data`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan, platform_trust_gap, relay_trust_surface`
-  reason: The skill is coherent with its stated purpose of fetching crypto market data via the AIsa service: it requires only python3 and an AISA_API_KEY and the bundled script calls the AIsa API — nothing in the package requests unrelated credentials or installs arbitrary code from unknown hosts.
-- `skill:aisa-multi-search-engine`
-  severity: `warning` | status: `pending`
-  rules: `pending_scan, relay_trust_surface`
-  reason: The skill's code, runtime instructions, and requested environment access are consistent with a multi-source search plugin that calls the AIsa API and only requires an AISA_API_KEY plus python3/node runtimes.
+  reason: This is a coherent stock-analysis skill, but its optional Twitter/X scanners ask users to expose live session cookies to an external CLI with broader credential handling than the feature warrants.
 <!-- AUTO-DIAGNOSIS:END -->

@@ -1,6 +1,6 @@
 # Hermes Release Audit
 
-- Skills converted: 59
+- Skills converted: 60
 
 ## aisa-multi-search-engine
 
@@ -107,6 +107,14 @@
 - Category: `automation`
 - Path: `hermes-release/automation/gmail-lead-desk`
 - Description: Gmail Lead Desk — standalone sales/CS Gmail skill via the AISA gateway: OAuth connect, scan unread leads, summarize threads, draft template replies (default draft-only), archive with labels. Keywords: Gmail Lead Desk, Gmail, lead desk, sales, customer support, follow-up, unread, inquiry summary, draft reply, archive, OAuth, AISA, connected account, thread_id. Use when: the user needs this workflow's domain-specific automation or guidance.
+- Change: removed non-runtime documentation directories from the Hermes release bundle
+- Change: replaced source README with a Hermes-oriented release README
+
+## kol-creator-discovery
+
+- Category: `research`
+- Path: `hermes-release/research/kol-creator-discovery`
+- Description: Use this skill when a user needs KOL or influencer research, creator email lookup, similar-creator discovery, outreach-list building, influencer prospecting, or a contact table from TikTok, Instagram, or YouTube profile URLs. It uses AIsa's WaveInflu APIs to find verified creator emails, match similar YouTube or TikTok creators, enrich each recommended profile with contact emails, and return an outreach-ready Markdown table without inventing missing data. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
 - Change: removed non-runtime documentation directories from the Hermes release bundle
 - Change: replaced source README with a Hermes-oriented release README
 

@@ -1,6 +1,6 @@
 # ClawHub Plugin Release Audit
 
-- Generated plugins: 63
+- Generated plugins: 64
 - Packaging mode: native-first dual format (`openclaw.plugin.json` + `index.js` + `package.json` + optional `.claude-plugin/plugin.json` + embedded `skills/`)
 - Zip rule: archives are written root-flat with required files at archive root.
 
@@ -108,6 +108,13 @@
 - Directory: `clawhub-plugin-release/plugins/gmail-lead-desk-plugin`
 - Zip: `clawhub-plugin-release/zips/gmail-lead-desk-plugin.zip`
 - Description: Requires AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `gmail-lead-desk`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Gmail Lead Desk — standalone sales/CS Gmail skill via the AISA gateway: OAuth connect, scan unread leads, summarize threads, draft template replies (default draft-only), archive with labels. Keywords: Gmail Lead Desk, Gmail, lead desk, sales, customer support, follow-up, unread, inquiry summary, draft reply, archive, OAuth, AISA, connected account, thread_id. Use when: the user needs this workflow's domain-specific automation or guidance.
+
+## kol-creator-discovery-plugin
+
+- Skill: `kol-creator-discovery`
+- Directory: `clawhub-plugin-release/plugins/kol-creator-discovery-plugin`
+- Zip: `clawhub-plugin-release/zips/kol-creator-discovery-plugin.zip`
+- Description: Requires python3, and AISA_API_KEY. Uses the supplied AISA_API_KEY to send requests to https://api.aisa.one. Native-first ClawHub plugin for `kol-creator-discovery`. Ships the packaged AIsa skill with an `openclaw.plugin.json` manifest and a Claude-compatible bundle fallback. Use this skill when a user needs KOL or influencer research, creator email lookup, similar-creator discovery, outreach-list building, influencer prospecting, or a contact table from TikTok, Instagram, or YouTube profile URLs. It uses AIsa's WaveInflu APIs to find verified creator emails, match similar YouTube or TikTok creators, enrich each recommended profile with contact emails, and return an outreach-ready Markdown table without inventing missing data. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
 
 ## last30days-plugin
 

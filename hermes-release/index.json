@@ -147,6 +147,17 @@
       ]
     },
     {
+      "name": "kol-creator-discovery",
+      "category": "research",
+      "path": "hermes-release/research/kol-creator-discovery",
+      "description": "Use this skill when a user needs KOL or influencer research, creator email lookup, similar-creator discovery, outreach-list building, influencer prospecting, or a contact table from TikTok, Instagram, or YouTube profile URLs. It uses AIsa's WaveInflu APIs to find verified creator emails, match similar YouTube or TikTok creators, enrich each recommended profile with contact emails, and return an outreach-ready Markdown table without inventing missing data. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.",
+      "residual_risks": [],
+      "changes": [
+        "removed non-runtime documentation directories from the Hermes release bundle",
+        "replaced source README with a Hermes-oriented release README"
+      ]
+    },
+    {
       "name": "last30days",
       "category": "research",
       "path": "hermes-release/research/last30days",

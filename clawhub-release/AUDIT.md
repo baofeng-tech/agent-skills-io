@@ -150,6 +150,15 @@
 - Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
 - Change: copied runtime scripts and essential references only
 
+## kol-creator-discovery
+
+- Source: `targetSkills/kol-creator-discovery`
+- Output: `clawhub-release/kol-creator-discovery`
+- Description: Use this skill when a user needs KOL or influencer research, creator email lookup, similar-creator discovery, outreach-list building, influencer prospecting, or a contact table from TikTok, Instagram, or YouTube profile URLs. It uses AIsa's WaveInflu APIs to find verified creator emails, match similar YouTube or TikTok creators, enrich each recommended profile with contact emails, and return an outreach-ready Markdown table without inventing missing data. Use when: the user needs YouTube search, trend discovery, channel research, or SERP analysis.
+- Change: kept the mother-skill body while normalizing ClawHub upload frontmatter
+- Change: normalized frontmatter for ClawHub upload compatibility while keeping canonical metadata.aisa
+- Change: copied runtime scripts and essential references only
+
 ## last30days
 
 - Source: `targetSkills/last30days`
