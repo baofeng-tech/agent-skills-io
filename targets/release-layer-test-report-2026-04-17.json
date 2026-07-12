@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076036655916453982\",\n      \"url\": \"https://x.com/String_The0rist/status/2076036655916453982\",\n      \"twitterUrl\": \"https://twitter.com/String_The0rist/status/2076036655916453982\",\n      \"text\": \"@VladBarash @peakcooper i highly reccommend using workflows + skills. i have one for adversarial reviews, which get routed through the openai/code",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076399064757809468\",\n      \"url\": \"https://x.com/cristianuibar/status/2076399064757809468\",\n      \"twitterUrl\": \"https://twitter.com/cristianuibar/status/2076399064757809468\",\n      \"text\": \"Is @OpenAI killing the 5-hour limit a bold flex at @elonmusk, going head-to-head with @grok to prove who's got the raw compute muscle? Is this the rea",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_z9qLVyexP1TMjZpKMeMEoPrY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-11T20:11:38Z\",\n    \"request_time_taken\": 1.66,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.74,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_z9qLVyexP1TMjZpKMe",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_p1LMWreyyWIdARZwleZYDKaP\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-12T20:11:38Z\",\n    \"request_time_taken\": 2.87,\n    \"parsing_time_taken\": 0.16,\n    \"total_time_taken\": 3.03,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_p1LMWreyyWIdARZwle",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"iSsLZL6WX619T32m_jg0VA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"IiuThcoM8XB-caMzh01qhw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"26064.7722\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22504.146\",\n      \"startDate\": \"2025-05-02T15:48:1",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076036655916453982\",\n      \"url\": \"https://x.com/String_The0rist/status/2076036655916453982\",\n      \"twitterUrl\": \"https://twitter.com/String_The0rist/status/2076036655916453982\",\n      \"text\": \"@VladBarash @peakcooper i highly reccommend using workflows + skills. i have one for adversarial reviews, which get routed through the openai/code",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076399078376931732\",\n      \"url\": \"https://x.com/REipstein71724/status/2076399078376931732\",\n      \"twitterUrl\": \"https://twitter.com/REipstein71724/status/2076399078376931732\",\n      \"text\": \"电报怎么下载\\n苹果id\\n纸飞机帐号 OpenAi账号\\n飞机粉丝 怎么找频道\\nhttps://t.co/oH57pkLzb2\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 2,\n      \"replyCount",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_rpB8WlvR38SqBJExDkXOyEn1\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-11T20:11:51Z\",\n    \"request_time_taken\": 1.29,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.37,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_rpB8WlvR38SqBJExDk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERuaN2VnaenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-12T20:11:50Z\",\n    \"request_time_taken\": 1.41,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.52,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERuaN2Vnae",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"pqDBeUgedk82A7yA0nYnyQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"o4tSmQNv7X3ytDp82RRJOQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"26064.7722\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22504.146\",\n      \"startDate\": \"2025-05-02T15:48:1",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076036655916453982\",\n      \"url\": \"https://x.com/String_The0rist/status/2076036655916453982\",\n      \"twitterUrl\": \"https://twitter.com/String_The0rist/status/2076036655916453982\",\n      \"text\": \"@VladBarash @peakcooper i highly reccommend using workflows + skills. i have one for adversarial reviews, which get routed through the openai/code",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076399143745167485\",\n      \"url\": \"https://x.com/BeamManP/status/2076399143745167485\",\n      \"twitterUrl\": \"https://twitter.com/BeamManP/status/2076399143745167485\",\n      \"text\": \"何と言うかOpenAIさんのアンスロ絶対潰す　みたいな強い意思を感じる…\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quoteC",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsNBjZ7Qv0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-11T20:12:02Z\",\n    \"request_time_taken\": 1.32,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.4,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsNBjZ7Qv0",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqTLmpPODeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-12T20:12:00Z\",\n    \"request_time_taken\": 1.2,\n    \"parsing_time_taken\": 0.14,\n    \"total_time_taken\": 1.33,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqTLmpPODeY",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"tUCPJoKsjtdfmIJIfhpHPA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"4d64jn206zXwsL3Xlz6Y2w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"26064.7722\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22504.146\",\n      \"startDate\": \"2025-05-02T15:48:1",
       "stderr_preview": ""
     },
     {
