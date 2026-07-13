@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076399064757809468\",\n      \"url\": \"https://x.com/cristianuibar/status/2076399064757809468\",\n      \"twitterUrl\": \"https://twitter.com/cristianuibar/status/2076399064757809468\",\n      \"text\": \"Is @OpenAI killing the 5-hour limit a bold flex at @elonmusk, going head-to-head with @grok to prove who's got the raw compute muscle? Is this the rea",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076767787767263322\",\n      \"url\": \"https://x.com/cyberagentic/status/2076767787767263322\",\n      \"twitterUrl\": \"https://twitter.com/cyberagentic/status/2076767787767263322\",\n      \"text\": \"🚨 BREAKING: AI is no longer a software race.\\n\\nIt’s now a race for:\\n• Compute\\n• Energy\\n• Talent\\n• Capital\\n\\nThe next trillion-dollar companies wil",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_p1LMWreyyWIdARZwleZYDKaP\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-12T20:11:38Z\",\n    \"request_time_taken\": 2.87,\n    \"parsing_time_taken\": 0.16,\n    \"total_time_taken\": 3.03,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_p1LMWreyyWIdARZwle",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mpKN8l48W3i6bnBOMe3n1ZDx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-13T20:36:51Z\",\n    \"request_time_taken\": 1.05,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.1,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mpKN8l48W3i6bnBOMe3",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"IiuThcoM8XB-caMzh01qhw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"dwbQXkaELADTNRdfl1iIig\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22504.146\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19704.5801\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076399078376931732\",\n      \"url\": \"https://x.com/REipstein71724/status/2076399078376931732\",\n      \"twitterUrl\": \"https://twitter.com/REipstein71724/status/2076399078376931732\",\n      \"text\": \"电报怎么下载\\n苹果id\\n纸飞机帐号 OpenAi账号\\n飞机粉丝 怎么找频道\\nhttps://t.co/oH57pkLzb2\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 2,\n      \"replyCount",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076767841458544716\",\n      \"url\": \"https://x.com/iamreddsebasti/status/2076767841458544716\",\n      \"twitterUrl\": \"https://twitter.com/iamreddsebasti/status/2076767841458544716\",\n      \"text\": \"🔥 Apple just sued OpenAI for trade secret theft, 400+ former Apple engineers hired in about two years\\n\\n🎯 This isn't \\\"talent poaching.\\\" An entire",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERuaN2VnaenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-12T20:11:50Z\",\n    \"request_time_taken\": 1.41,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.52,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERuaN2Vnae",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_yG2Vzg4wPpTKMxyo5vMDRdNp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-13T20:37:03Z\",\n    \"request_time_taken\": 1.33,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.39,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_yG2Vzg4wPpTKMxyo5v",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"o4tSmQNv7X3ytDp82RRJOQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"M-2OygO7DsIvP7zTVxIdkw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22504.146\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19704.5801\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076399143745167485\",\n      \"url\": \"https://x.com/BeamManP/status/2076399143745167485\",\n      \"twitterUrl\": \"https://twitter.com/BeamManP/status/2076399143745167485\",\n      \"text\": \"何と言うかOpenAIさんのアンスロ絶対潰す　みたいな強い意思を感じる…\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quoteC",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2076767857631780928\",\n      \"url\": \"https://x.com/SvitlaVi/status/2076767857631780928\",\n      \"twitterUrl\": \"https://twitter.com/SvitlaVi/status/2076767857631780928\",\n      \"text\": \"@voidfreud @Anthropic @OpenAI I can agree with almost everything, except one thing, I definitely don't need Steve Jobs. Not in any form.\",\n      \"source\": \"Twit",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqTLmpPODeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-12T20:12:00Z\",\n    \"request_time_taken\": 1.2,\n    \"parsing_time_taken\": 0.14,\n    \"total_time_taken\": 1.33,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqTLmpPODeY",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JBAO2bkaoPuz2LAAB4n7XajE\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-13T20:37:13Z\",\n    \"request_time_taken\": 1.26,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.36,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JBAO2bkaoPuz2LAAB4n",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"4d64jn206zXwsL3Xlz6Y2w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"IOw0r-7KmBzTp8JqAYQ89Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"22504.146\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"19704.5801\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
