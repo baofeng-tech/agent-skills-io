@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2077490770324365629\",\n      \"url\": \"https://x.com/SiriusNewsSite/status/2077490770324365629\",\n      \"twitterUrl\": \"https://twitter.com/SiriusNewsSite/status/2077490770324365629\",\n      \"text\": \"OpenAI、Appleからの商標盗用疑惑への返信遅延はメールの誤送付が原因と説明 https://t.co/YoudBqHYTJ\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2077849416078065982\",\n      \"url\": \"https://x.com/LeChiffre/status/2077849416078065982\",\n      \"twitterUrl\": \"https://twitter.com/LeChiffre/status/2077849416078065982\",\n      \"text\": \"@arena @Kimi_Moonshot @grok compare how much kimi raised vs anthropic vs OpenAI\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyC",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_jOZRYa4201H1o1p90klD6mVx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-15T20:29:38Z\",\n    \"request_time_taken\": 1.38,\n    \"parsing_time_taken\": 0.14,\n    \"total_time_taken\": 1.52,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_jOZRYa4201H1o1p90k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_zV8qOXeM56cwbBaaNepJnE5N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-16T20:14:57Z\",\n    \"request_time_taken\": 1.2,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.31,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_zV8qOXeM56cwbBaaNep",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"fvTsISIt4cLB9uX52Rw0AQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"KCYSKct2hbBYl9edFNQ3qQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"24381.8947\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16705.0718\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2077490770324365629\",\n      \"url\": \"https://x.com/SiriusNewsSite/status/2077490770324365629\",\n      \"twitterUrl\": \"https://twitter.com/SiriusNewsSite/status/2077490770324365629\",\n      \"text\": \"OpenAI、Appleからの商標盗用疑惑への返信遅延はメールの誤送付が原因と説明 https://t.co/YoudBqHYTJ\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2077849457215868938\",\n      \"url\": \"https://x.com/felixius_F/status/2077849457215868938\",\n      \"twitterUrl\": \"https://twitter.com/felixius_F/status/2077849457215868938\",\n      \"text\": \"@IntuitMachine The good news is Google won’t lose its edge to Anthropic or OpenAI.\\n\\nIt will lose it to Kimi.\",\n      \"source\": \"Twitter for iPhone\",\n     ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_W19X7MebbAtjzjPLle68NbDz\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-15T20:29:50Z\",\n    \"request_time_taken\": 1.14,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.21,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_W19X7MebbAtjzjPLle",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Z18NJlvnOYI6n1wJXk3BOm7g\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-16T20:15:10Z\",\n    \"request_time_taken\": 1.08,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.16,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Z18NJlvnOYI6n1wJXk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"MeATjd54_d92-9m-eNbT9A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Hp83n0VQsClfIG7PWQ1KOA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"24381.8947\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16705.0718\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2077490802205360199\",\n      \"url\": \"https://x.com/ryaneshea/status/2077490802205360199\",\n      \"twitterUrl\": \"https://twitter.com/ryaneshea/status/2077490802205360199\",\n      \"text\": \"Incredible... Inkling by Thinking Machines claims the throne as the top American open-source AI model.\\n\\nHigher IQ and better eval performance than all OS mo",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2077849535225688206\",\n      \"url\": \"https://x.com/benfryc/status/2077849535225688206\",\n      \"twitterUrl\": \"https://twitter.com/benfryc/status/2077849535225688206\",\n      \"text\": \"was fun to work with the @OpenAI team and my buds at @work_louder on this one https://t.co/AlIEbd3lTs\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\"",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqTLqLrBMeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-15T20:30:00Z\",\n    \"request_time_taken\": 1.34,\n    \"parsing_time_taken\": 0.16,\n    \"total_time_taken\": 1.49,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqTLqLrBMe",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_DWmO1QkoEbuy5ELO34J2r8Ga\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-16T20:15:21Z\",\n    \"request_time_taken\": 1.11,\n    \"parsing_time_taken\": 0.13,\n    \"total_time_taken\": 1.24,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_DWmO1QkoEbuy5ELO34",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"iqC22SMhBnJaJ1vARH6p3A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"a5CJa3C0kbNWlswc_XmURg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"24381.8947\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"16705.0718\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
