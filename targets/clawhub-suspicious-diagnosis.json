@@ -5,8 +5,8 @@
     "warnings": 4,
     "pending": 4,
     "rules": {
-      "metadata_env_mismatch": 1,
-      "oauth_upload_side_effects": 7,
+      "metadata_env_mismatch": 2,
+      "oauth_upload_side_effects": 8,
       "pending_scan": 4,
       "platform_trust_gap": 11,
       "relay_trust_surface": 8
@@ -589,6 +589,43 @@
       "reason": "This YouTube skill is mostly coherent, but it asks agents to create or handle a third-party account and persist an API key with broad local changes that deserve review before use."
     },
     {
+      "key": "plugin:aisa-twitter-api-command-center-plugin",
+      "kind": "plugin",
+      "name": "aisa-twitter-api-command-center-aisa-api-plugin",
+      "publisher_handle": "Convex",
+      "severity": "warning",
+      "scan_status": "pending",
+      "virus_total": null,
+      "clawscan_verdict": "clean",
+      "openclaw_verdict": null,
+      "static_analysis_status": "clean",
+      "static_analysis_summary": "No suspicious patterns detected.",
+      "suspicious": false,
+      "pending": true,
+      "rule_ids": [
+        "metadata_env_mismatch",
+        "oauth_upload_side_effects",
+        "pending_scan"
+      ],
+      "rule_summaries": [
+        "Registry/manifest/docs/env requirements drifted away from the shipped runtime.",
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Security scan output is not final yet."
+      ],
+      "recommended_actions": [
+        "Align SKILL.md, README, package manifests, and registry-facing metadata.",
+        "Declare every required env var in the same shape across all publish layers.",
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-api-command-center-aisa-api-plugin",
+      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-api-command-center-plugin",
+      "release_ref": "rd7fp8nvwfmtd4691sejp27ywx86bv79",
+      "reason": "This skill appears to do what it claims—use an AIsa API key and Python scripts for Twitter/X research and posting—though its registry requirement summary under-reports the API key and Python dependency."
+    },
+    {
       "key": "plugin:openclaw-twitter-post-engage-plugin",
       "kind": "plugin",
       "name": "openclaw-twitter-post-engage-plugin",
@@ -624,35 +661,6 @@
       "local_path": "clawhub-plugin-release/plugins/openclaw-twitter-post-engage-plugin",
       "release_ref": "rd7brqg64h1npgb1yvb32atysd85b2x3",
       "reason": "This skill appears to match its Twitter/X relay purpose, but the registry requirements summary is incomplete even though the manifests and code require an AISA API key."
-    },
-    {
-      "key": "plugin:twitter-post-aisa-plugin",
-      "kind": "plugin",
-      "name": "twitter-post-aisa-plugin",
-      "publisher_handle": null,
-      "severity": "warning",
-      "scan_status": "unresolved",
-      "virus_total": null,
-      "clawscan_verdict": null,
-      "openclaw_verdict": null,
-      "static_analysis_status": null,
-      "static_analysis_summary": null,
-      "suspicious": false,
-      "pending": true,
-      "rule_ids": [
-        "pending_scan"
-      ],
-      "rule_summaries": [
-        "Security scan output is not final yet."
-      ],
-      "recommended_actions": [
-        "Keep pending, clean, and suspicious as separate states in automation.",
-        "Retry live scan before treating the package as resolved."
-      ],
-      "detail_url": "https://clawhub.ai/plugins/twitter-post-aisa-plugin",
-      "local_path": "clawhub-plugin-release/plugins/twitter-post-aisa-plugin",
-      "release_ref": "rd78a8r18k7ec85pf7tjjh0ebd86b086",
-      "reason": null
     },
     {
       "key": "skill:last30days",

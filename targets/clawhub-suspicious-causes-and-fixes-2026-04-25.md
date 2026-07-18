@@ -134,8 +134,8 @@
 
 ### 当前高频规则
 
-- `metadata_env_mismatch`: `1`
-- `oauth_upload_side_effects`: `7`
+- `metadata_env_mismatch`: `2`
+- `oauth_upload_side_effects`: `8`
 - `pending_scan`: `4`
 - `platform_trust_gap`: `11`
 - `relay_trust_surface`: `8`

@@ -1,6 +1,6 @@
 # AIsa Twitter API
 
-Flagship Twitter/X command center for research, monitoring, watchlists, and OAuth-approved posting through the AIsa relay.
+Flagship Twitter/X command surface for research, monitoring, watchlists, and OAuth-approved posting through the AIsa relay.
 
 ## What it does
 
@@ -32,6 +32,7 @@ Requires:
 ## Relay, OAuth, upload, and write behavior
 
 - Read operations are sent through the relay target `https://api.aisa.one`.
+- OAuth authorization is required before posting can occur.
 - Posting is an external write and requires explicit OAuth approval before it can occur.
 - Image and video posting sends user-selected media through the relay for upload.
 - This skill does not require Twitter/X passwords or browser cookies.
