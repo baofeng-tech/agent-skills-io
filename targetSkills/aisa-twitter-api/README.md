@@ -1,6 +1,6 @@
 # AIsa Twitter API
 
-Flagship Twitter/X command surface for research, monitoring, watchlists, and OAuth-approved posting through the AIsa relay.
+Flagship Twitter/X skill for research, monitoring, watchlists, and OAuth-approved posting through the AIsa relay.
 
 ## What it does
 

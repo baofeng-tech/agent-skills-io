@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2078572928371695956\",\n      \"url\": \"https://x.com/suoda1985/status/2078572928371695956\",\n      \"twitterUrl\": \"https://twitter.com/suoda1985/status/2078572928371695956\",\n      \"text\": \"@techeconomyana - The post claims Chinese domestic LLMs (e.g., Kimi K3) lag far behind official Codex/OpenAI and Claude subscriptions for coding, with a bigge",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2078936268050948563\",\n      \"url\": \"https://x.com/MagsinoRv/status/2078936268050948563\",\n      \"twitterUrl\": \"https://twitter.com/MagsinoRv/status/2078936268050948563\",\n      \"text\": \"Invest $10 every single day or $100 every month in those low prices for up to 5-10 years.\\nBuy and hold OPENAI to da Mars and beyond.\\n\\nContact address;\\n\\n0",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_BZAYNyvAW2i9l5mxdeo93VJQ\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-18T20:09:53Z\",\n    \"request_time_taken\": 1.31,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.38,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_BZAYNyvAW2i9l5mxde",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_DWmO1QkoEbu3A71wo4J2r8Ga\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-19T20:13:36Z\",\n    \"request_time_taken\": 1.29,\n    \"parsing_time_taken\": 0.13,\n    \"total_time_taken\": 1.42,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_DWmO1QkoEbu3A71wo4",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"X5g3w8VcIKje_TkRgUeVzg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Frame. A scorecard for the AI age · Jul 17, 2026 ; Why teens deserve access to safe AI — card image. Why teens deserve access to safe AI · Jul 16, 2026 ; GPT- ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"vyMe5hAYbek2gyAC5LWDOg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Frame. A scorecard for the AI age · Jul 17, 2026 ; Why teens deserve access to safe AI — card image. Why teens deserve access to safe AI · Jul 16, 2026 ; GPT- ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"17816.3968\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"8778.5878\",\n      \"startDate\": \"2025-05-02T15:48:1",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2078572996701086185\",\n      \"url\": \"https://x.com/Aarchimandrita/status/2078572996701086185\",\n      \"twitterUrl\": \"https://twitter.com/Aarchimandrita/status/2078572996701086185\",\n      \"text\": \"@JTLonsdale @DavidSacks And OpenAI did not?\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2078936317006930180\",\n      \"url\": \"https://x.com/AkinwoleKunel/status/2078936317006930180\",\n      \"twitterUrl\": \"https://twitter.com/AkinwoleKunel/status/2078936317006930180\",\n      \"text\": \"@iamchrisani @OoTheNigerian @Kimi_Moonshot Everyone thinks making their  model.smarter is the problem. If they can't match claude or Openai spend budg",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_BZAYNyvAW2i9l58w2eo93VJQ\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-18T20:10:06Z\",\n    \"request_time_taken\": 1.46,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.57,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_BZAYNyvAW2i9l58w2e",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_XJELrMkzrOF5ZodaNk2PNQw7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-19T20:13:50Z\",\n    \"request_time_taken\": 1.38,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.49,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_XJELrMkzrOF5ZodaNk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"ArL_f5j0phG7tLFOIBolFA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Frame. A scorecard for the AI age · Jul 17, 2026 ; Why teens deserve access to safe AI — card image. Why teens deserve access to safe AI · Jul 16, 2026 ; GPT- ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"8m-dvty2h_usmrx-Qz-rGQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Frame. A scorecard for the AI age · Jul 17, 2026 ; Why teens deserve access to safe AI — card image. Why teens deserve access to safe AI · Jul 16, 2026 ; GPT- ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"17816.3968\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"8778.5878\",\n      \"startDate\": \"2025-05-02T15:48:1",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2078572996701086185\",\n      \"url\": \"https://x.com/Aarchimandrita/status/2078572996701086185\",\n      \"twitterUrl\": \"https://twitter.com/Aarchimandrita/status/2078572996701086185\",\n      \"text\": \"@JTLonsdale @DavidSacks And OpenAI did not?\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2078936317006930180\",\n      \"url\": \"https://x.com/AkinwoleKunel/status/2078936317006930180\",\n      \"twitterUrl\": \"https://twitter.com/AkinwoleKunel/status/2078936317006930180\",\n      \"text\": \"@iamchrisani @OoTheNigerian @Kimi_Moonshot Everyone thinks making their  model.smarter is the problem. If they can't match claude or Openai spend budg",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mpO7djkNqos9Rr6JovAPE9xq\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-18T20:10:15Z\",\n    \"request_time_taken\": 1.29,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.37,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mpO7djkNqos9Rr6Jov",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_J70QVB41KphGnPaEPkqLy9mx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-19T20:14:01Z\",\n    \"request_time_taken\": 0.8,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 0.91,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_J70QVB41KphGnPaEPkq",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Mb4iJc0jVoeTXjPeJxBTCA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Frame. A scorecard for the AI age · Jul 17, 2026 ; Why teens deserve access to safe AI — card image. Why teens deserve access to safe AI · Jul 16, 2026 ; GPT- ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"c-qYcnffZwlIgiG75Cfzrw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Frame. A scorecard for the AI age · Jul 17, 2026 ; Why teens deserve access to safe AI — card image. Why teens deserve access to safe AI · Jul 16, 2026 ; GPT- ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"17816.3968\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"8778.5878\",\n      \"startDate\": \"2025-05-02T15:48:1",
       "stderr_preview": ""
     },
     {
