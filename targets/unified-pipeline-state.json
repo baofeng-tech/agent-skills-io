@@ -1,12 +1,12 @@
 {
-  "last_synced_commit": "e07b628dc198e07c553f0f2e353daf3c49d09bea",
-  "last_detected_commit": "e07b628dc198e07c553f0f2e353daf3c49d09bea",
+  "last_synced_commit": "20a938575fc31b76d6e02ceb6c8e30781d403c56",
+  "last_detected_commit": "20a938575fc31b76d6e02ceb6c8e30781d403c56",
   "last_run": {
-    "started_at": "2026-07-12T20:10:16.182853+00:00",
+    "started_at": "2026-07-20T20:43:21.766451+00:00",
     "source_mode": "clone",
     "upstream_root": "/home/runner/work/agent-skills-io/agent-skills-io/.cache/upstream-agent-skills",
     "upstream_branch": "main",
-    "upstream_head": "e07b628dc198e07c553f0f2e353daf3c49d09bea",
+    "upstream_head": "20a938575fc31b76d6e02ceb6c8e30781d403c56",
     "baseline_commit": "e07b628dc198e07c553f0f2e353daf3c49d09bea",
     "selection": "changed",
     "include_working_tree": false,
@@ -17,7 +17,7 @@
     "llm_steps": [],
     "diagnosis_steps": [],
     "publish_steps": [],
-    "completed_at": "2026-07-12T20:10:16.182895+00:00"
+    "completed_at": "2026-07-20T20:43:21.766498+00:00"
   },
   "pending_manual_review": []
 }
