@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T20:17:32.387053+00:00",
+  "generated_at": "2026-07-20T20:48:52.681094+00:00",
   "summary": {
     "total": 120,
     "suspicious": 19,
@@ -240,12 +240,10 @@
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "Convex",
       "suspicious": false,
-      "suspicious_reason": null,
+      "suspicious_reason": "This skill appears to do what it claims: it uses an AISA API key to send search and extraction requests to AIsa's API.",
       "pending": false,
-      "warnings": [
-        "OpenClaw detail lookup failed: <urlopen error timed out> Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-07-19T20:16:33.532880+00:00"
+      "warnings": [],
+      "checked_at": "2026-07-20T20:47:57.051437+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-command-center-plugin",
@@ -268,12 +266,10 @@
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "Convex",
       "suspicious": false,
-      "suspicious_reason": null,
+      "suspicious_reason": "This skill appears to do what it claims—use an AIsa API key and Python scripts for Twitter/X research and posting—though its registry requirement summary under-reports the API key and Python dependency.",
       "pending": false,
-      "warnings": [
-        "OpenClaw detail lookup failed: <urlopen error [Errno 104] Connection reset by peer> Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-07-19T20:16:50.427164+00:00"
+      "warnings": [],
+      "checked_at": "2026-07-20T20:48:13.809351+00:00"
     },
     {
       "key": "plugin:aisa-twitter-api-plugin",
@@ -452,12 +448,10 @@
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "Convex",
       "suspicious": false,
-      "suspicious_reason": null,
+      "suspicious_reason": "This appears to be what it claims: a Twitter/X relay skill that uses an AIsa API key, though installing it means trusting AIsa with Twitter engagement, posting, and any attached media you send.",
       "pending": false,
-      "warnings": [
-        "OpenClaw detail lookup failed: <urlopen error [Errno 104] Connection reset by peer> Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-07-19T20:16:58.444570+00:00"
+      "warnings": [],
+      "checked_at": "2026-07-20T20:48:30.055062+00:00"
     },
     {
       "key": "plugin:aisa-youtube-search-plugin",
@@ -1548,12 +1542,10 @@
       "static_analysis_summary": "No suspicious patterns detected.",
       "publisher_handle": "Convex",
       "suspicious": false,
-      "suspicious_reason": null,
+      "suspicious_reason": "This appears to be a Twitter/X posting and engagement skill that uses one AIsa API key and the documented AIsa API endpoint, with no unrelated credential requests or install steps visible.",
       "pending": false,
-      "warnings": [
-        "OpenClaw detail lookup failed: <urlopen error _ssl.c:993: The handshake operation timed out> Render fallback failed: No module named 'playwright'"
-      ],
-      "checked_at": "2026-07-19T20:17:26.824727+00:00"
+      "warnings": [],
+      "checked_at": "2026-07-20T20:48:45.477656+00:00"
     },
     {
       "key": "plugin:us-stock-analyst-plugin",
@@ -1943,7 +1935,7 @@
       "suspicious_reason": "This skill is a straightforward AIsa web-research integration that uses an API key to send user-provided searches or URLs to AIsa, with no hidden persistence or destructive behavior found.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-07-19T20:17:28.116694+00:00"
+      "checked_at": "2026-07-20T20:48:47.326613+00:00"
     },
     {
       "key": "skill:aisa-twitter",
@@ -1995,7 +1987,7 @@
       "suspicious_reason": "The skill does what it says, but it exposes the AIsa API key in normal command output, which can leak a sensitive credential into logs or agent transcripts.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-07-19T20:17:29.238221+00:00"
+      "checked_at": "2026-07-20T20:48:48.837293+00:00"
     },
     {
       "key": "skill:aisa-twitter-research-engage",
@@ -2047,7 +2039,7 @@
       "suspicious_reason": "The skill mostly matches its Twitter/X relay purpose, but it needs review because it can print the AIsa API key and can perform live account actions immediately once invoked.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-07-19T20:17:30.550856+00:00"
+      "checked_at": "2026-07-20T20:48:50.856923+00:00"
     },
     {
       "key": "skill:cn-llm",
@@ -2985,7 +2977,7 @@
       "suspicious_reason": "The skill’s Twitter/X relay purpose is mostly disclosed, but reported credential exposure in its posting and authorization scripts needs review before use.",
       "pending": false,
       "warnings": [],
-      "checked_at": "2026-07-19T20:17:32.380184+00:00"
+      "checked_at": "2026-07-20T20:48:52.675786+00:00"
     },
     {
       "key": "skill:us-stock-analyst",

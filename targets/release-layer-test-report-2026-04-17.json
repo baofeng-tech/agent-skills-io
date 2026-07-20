@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2078936268050948563\",\n      \"url\": \"https://x.com/MagsinoRv/status/2078936268050948563\",\n      \"twitterUrl\": \"https://twitter.com/MagsinoRv/status/2078936268050948563\",\n      \"text\": \"Invest $10 every single day or $100 every month in those low prices for up to 5-10 years.\\nBuy and hold OPENAI to da Mars and beyond.\\n\\nContact address;\\n\\n0",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2079306500854730966\",\n      \"url\": \"https://x.com/anupamrjp/status/2079306500854730966\",\n      \"twitterUrl\": \"https://twitter.com/anupamrjp/status/2079306500854730966\",\n      \"text\": \"if someone gave you $20 to start building with AI today…\\n\\n:-) OpenAI API\\n:-) Gemini API\\n:-) Claude API\\n:-) Groq API\",\n      \"source\": \"Twitter for iPhone",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_DWmO1QkoEbu3A71wo4J2r8Ga\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-19T20:13:36Z\",\n    \"request_time_taken\": 1.29,\n    \"parsing_time_taken\": 0.13,\n    \"total_time_taken\": 1.42,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_DWmO1QkoEbu3A71wo4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_J70QVB41KphGRxP2jkqLy9mx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-20T20:45:07Z\",\n    \"request_time_taken\": 1.26,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.36,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_J70QVB41KphGRxP2jk",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"vyMe5hAYbek2gyAC5LWDOg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Frame. A scorecard for the AI age · Jul 17, 2026 ; Why teens deserve access to safe AI — card image. Why teens deserve access to safe AI · Jul 16, 2026 ; GPT- ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"2LmxzxVoEKpFqq5Di6jRBg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"8778.5878\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"11863.6689\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2078936317006930180\",\n      \"url\": \"https://x.com/AkinwoleKunel/status/2078936317006930180\",\n      \"twitterUrl\": \"https://twitter.com/AkinwoleKunel/status/2078936317006930180\",\n      \"text\": \"@iamchrisani @OoTheNigerian @Kimi_Moonshot Everyone thinks making their  model.smarter is the problem. If they can't match claude or Openai spend budg",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2079306500854730966\",\n      \"url\": \"https://x.com/anupamrjp/status/2079306500854730966\",\n      \"twitterUrl\": \"https://twitter.com/anupamrjp/status/2079306500854730966\",\n      \"text\": \"if someone gave you $20 to start building with AI today…\\n\\n:-) OpenAI API\\n:-) Gemini API\\n:-) Claude API\\n:-) Groq API\",\n      \"source\": \"Twitter for iPhone",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_XJELrMkzrOF5ZodaNk2PNQw7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-19T20:13:50Z\",\n    \"request_time_taken\": 1.38,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.49,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_XJELrMkzrOF5ZodaNk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_K0EOpDkpY6hoR9ZlOe3wzYN9\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-20T20:45:19Z\",\n    \"request_time_taken\": 1.18,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.29,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_K0EOpDkpY6hoR9ZlOe",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"8m-dvty2h_usmrx-Qz-rGQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Frame. A scorecard for the AI age · Jul 17, 2026 ; Why teens deserve access to safe AI — card image. Why teens deserve access to safe AI · Jul 16, 2026 ; GPT- ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"78wWvua8krWfT3aB8wNS2g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"8778.5878\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"11863.6689\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2078936317006930180\",\n      \"url\": \"https://x.com/AkinwoleKunel/status/2078936317006930180\",\n      \"twitterUrl\": \"https://twitter.com/AkinwoleKunel/status/2078936317006930180\",\n      \"text\": \"@iamchrisani @OoTheNigerian @Kimi_Moonshot Everyone thinks making their  model.smarter is the problem. If they can't match claude or Openai spend budg",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2079306500854730966\",\n      \"url\": \"https://x.com/anupamrjp/status/2079306500854730966\",\n      \"twitterUrl\": \"https://twitter.com/anupamrjp/status/2079306500854730966\",\n      \"text\": \"if someone gave you $20 to start building with AI today…\\n\\n:-) OpenAI API\\n:-) Gemini API\\n:-) Claude API\\n:-) Groq API\",\n      \"source\": \"Twitter for iPhone",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_J70QVB41KphGnPaEPkqLy9mx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-19T20:14:01Z\",\n    \"request_time_taken\": 0.8,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 0.91,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_J70QVB41KphGnPaEPkq",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_zV8qOXeM56cEWPlXmepJnE5N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-20T20:45:30Z\",\n    \"request_time_taken\": 1.15,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.27,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_zV8qOXeM56cEWPlXme",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"c-qYcnffZwlIgiG75Cfzrw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Frame. A scorecard for the AI age · Jul 17, 2026 ; Why teens deserve access to safe AI — card image. Why teens deserve access to safe AI · Jul 16, 2026 ; GPT- ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"P7Kl68MlCPUacv5eCr5L5w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"8778.5878\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"11863.6689\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
