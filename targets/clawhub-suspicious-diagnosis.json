@@ -1,13 +1,13 @@
 {
   "summary": {
-    "artifacts": 22,
+    "artifacts": 23,
     "blockers": 19,
-    "warnings": 3,
-    "pending": 3,
+    "warnings": 4,
+    "pending": 4,
     "rules": {
       "metadata_env_mismatch": 1,
       "oauth_upload_side_effects": 7,
-      "pending_scan": 3,
+      "pending_scan": 4,
       "platform_trust_gap": 11,
       "relay_trust_surface": 8
     }
@@ -587,6 +587,35 @@
       "local_path": "clawhub-release/youtube-search",
       "release_ref": null,
       "reason": "This YouTube skill is mostly coherent, but it asks agents to create or handle a third-party account and persist an API key with broad local changes that deserve review before use."
+    },
+    {
+      "key": "plugin:aisa-twitter-api-command-center-plugin",
+      "kind": "plugin",
+      "name": "aisa-twitter-api-command-center-aisa-api-plugin",
+      "publisher_handle": null,
+      "severity": "warning",
+      "scan_status": "unresolved",
+      "virus_total": null,
+      "clawscan_verdict": null,
+      "openclaw_verdict": null,
+      "static_analysis_status": null,
+      "static_analysis_summary": null,
+      "suspicious": false,
+      "pending": true,
+      "rule_ids": [
+        "pending_scan"
+      ],
+      "rule_summaries": [
+        "Security scan output is not final yet."
+      ],
+      "recommended_actions": [
+        "Keep pending, clean, and suspicious as separate states in automation.",
+        "Retry live scan before treating the package as resolved."
+      ],
+      "detail_url": "https://clawhub.ai/plugins/aisa-twitter-api-command-center-aisa-api-plugin",
+      "local_path": "clawhub-plugin-release/plugins/aisa-twitter-api-command-center-plugin",
+      "release_ref": "rd7fp8nvwfmtd4691sejp27ywx86bv79",
+      "reason": null
     },
     {
       "key": "plugin:openclaw-twitter-post-engage-plugin",
