@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -69,11 +70,11 @@ def get_config(
     file_env = load_env_file(path) if path.exists() else {}
 
     config: dict[str, Any] = {
-        "AISA_API_KEY": file_env.get("AISA_API_KEY"),
-        "XIAOHONGSHU_API_BASE": file_env.get("XIAOHONGSHU_API_BASE"),
+        "AISA_API_KEY": file_env.get("AISA_API_KEY") or os.environ.get("AISA_API_KEY"),
+        "XIAOHONGSHU_API_BASE": file_env.get("XIAOHONGSHU_API_BASE") or os.environ.get("XIAOHONGSHU_API_BASE"),
     }
     for key, default in DEFAULTS.items():
-        config[key] = file_env.get(key, default)
+        config[key] = file_env.get(key) or os.environ.get(key) or default
 
     for key, value in (overrides or {}).items():
         if value in (None, ""):
