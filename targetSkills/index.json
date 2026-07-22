@@ -2,7 +2,7 @@
   "repository": "https://github.com/baofeng-tech/agent-skills-io",
   "branch": "main",
   "branch_url": "https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills",
-  "generated_at": "2026-07-21",
+  "generated_at": "2026-07-22",
   "skills": [
     {
       "name": "aisa-multi-search-engine",
