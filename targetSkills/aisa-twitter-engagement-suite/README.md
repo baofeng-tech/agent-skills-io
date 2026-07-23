@@ -1,6 +1,6 @@
 # AIsa Twitter Engagement Suite
 
-Twitter/X research plus approved engagement and posting follow-through through the AIsa relay.
+Research Twitter/X profiles, tweets, and trends, then take approved engagement and posting follow-through actions through the AIsa relay.
 
 ## What it does
 

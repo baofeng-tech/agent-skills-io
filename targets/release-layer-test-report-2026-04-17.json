@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2080030116978086238\",\n      \"url\": \"https://x.com/AlexNguyen65/status/2080030116978086238\",\n      \"twitterUrl\": \"https://twitter.com/AlexNguyen65/status/2080030116978086238\",\n      \"text\": \"We got California to intervene about OpenAI’s corporate switch from nonprofit status. It’s time for the SEC to come to the table. https://t.co/LvJubUc3K",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2080390912035721443\",\n      \"url\": \"https://x.com/7Lacerda/status/2080390912035721443\",\n      \"twitterUrl\": \"https://twitter.com/7Lacerda/status/2080390912035721443\",\n      \"text\": \"O pastor foi se consultar com o Chat GPT, o chat mandou ele entregar a doença p Deus que seria curado.\\n\\nResultado: quase morreu de embolia pulmonar e decidiu ",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_DWmO1QkoEbu3g9Ja54J2r8Ga\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-22T20:40:09Z\",\n    \"request_time_taken\": 1.47,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.56,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_DWmO1QkoEbu3g9Ja54J",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JBAO2bkaoPugbyEdl4n7XajE\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-23T20:33:48Z\",\n    \"request_time_taken\": 1.44,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 1.49,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JBAO2bkaoPugbyEdl4",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"qpweALUhZwzuRJutE8D7pQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI Presence 1x1. Introducing OpenAI Presence. Product Jul 22, 2026 ; Building AI for the ambitions of small businesses > Card image. Introducing the ChatGPT ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"RRcM44-DANUer48xgsxoSQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; How news organizations are using AI > Card Image. How news organizations use AI to advance their vital missions. Company Jul 22, 2026 ; OpenAI Presence 1x1.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"6263.1316\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"11872.5915\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2080030123542421645\",\n      \"url\": \"https://x.com/mindfrozentime/status/2080030123542421645\",\n      \"twitterUrl\": \"https://twitter.com/mindfrozentime/status/2080030123542421645\",\n      \"text\": \"Hugging Face CEO Thanks Chinese AI for Saving the Day After OpenAI Hack - Decrypt https://t.co/1QWkQrhdlW\",\n      \"source\": \"Twitter for iPhone\",\n  ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2080390944017547355\",\n      \"url\": \"https://x.com/aivanet/status/2080390944017547355\",\n      \"twitterUrl\": \"https://twitter.com/aivanet/status/2080390944017547355\",\n      \"text\": \"OpenAI is making big claims as it rolls out ChatGPT Health to everyone https://t.co/ZoajvwIi5d https://t.co/i0aIUXbGdV\",\n      \"source\": \"Twitter for iPhone\",\n   ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mpKN8l48W3iMxywNNe3n1ZDx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-22T20:40:22Z\",\n    \"request_time_taken\": 1.49,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.57,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mpKN8l48W3iMxywNNe",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mOgBEZe50gHEnxYl1kzwL3jW\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-23T20:34:00Z\",\n    \"request_time_taken\": 1.75,\n    \"parsing_time_taken\": 0.17,\n    \"total_time_taken\": 1.92,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mOgBEZe50gHEnxYl1k",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"RAlma318CEVDKkuv8Vf96A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI Presence 1x1. Introducing OpenAI Presence. Product Jul 22, 2026 ; Building AI for the ambitions of small businesses > Card image. Introducing the ChatGPT ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"f_ETiedTAdHidjCkGfyfIQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; How news organizations are using AI > Card Image. How news organizations use AI to advance their vital missions. Company Jul 22, 2026 ; OpenAI Presence 1x1.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"6263.1316\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"11872.5915\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2080030202923749393\",\n      \"url\": \"https://x.com/youtaronmura/status/2080030202923749393\",\n      \"twitterUrl\": \"https://twitter.com/youtaronmura/status/2080030202923749393\",\n      \"text\": \"【OpenAIも諦めたロボットハンド】ホンダがアシモの技術で実現／開発責任者・吉池孝英「“歩くだけ”はもう簡単」／フィジカルAIの本命は工場作業... https://t.co/YPc9t3SCvB \\n\\n👏👏👏\",\n      \"source\": \"Twitter for iPhone\",\n    ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2080390994059465003\",\n      \"url\": \"https://x.com/JosAndaluz7/status/2080390994059465003\",\n      \"twitterUrl\": \"https://twitter.com/JosAndaluz7/status/2080390994059465003\",\n      \"text\": \"@sanchezcastejon @DonaldTrump @PSOE @ppopular @vox_es @JuntsXCat @XiaomiHyperOS_ @Xiaomi @elonmusk @Starlink @SpaceX @GiorgiaMeloni @inclusiongob @Defenso",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lpb2Z8vDqdsWlxjGGkVgQzRy\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-22T20:40:33Z\",\n    \"request_time_taken\": 3.55,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 3.66,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lpb2Z8vDqdsWlxjGGk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_MG6OPWeEVjFOM5oQp4jR8w7N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-23T20:34:10Z\",\n    \"request_time_taken\": 0.93,\n    \"parsing_time_taken\": 0.13,\n    \"total_time_taken\": 1.06,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_MG6OPWeEVjFOM5oQp4",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"k2sjvTmu2GEnxwJ1rePxEw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI Presence 1x1. Introducing OpenAI Presence. Product Jul 22, 2026 ; Building AI for the ambitions of small businesses > Card image. Introducing the ChatGPT ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"aHeG61UV7wtVfxBwyyNHTg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; How news organizations are using AI > Card Image. How news organizations use AI to advance their vital missions. Company Jul 22, 2026 ; OpenAI Presence 1x1.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"6263.1316\",\n      \"startDate\": \"2025-05-02T15:48:1",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"11872.5915\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
