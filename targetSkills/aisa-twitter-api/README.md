@@ -54,7 +54,7 @@ python3 scripts/twitter_oauth_client.py post --text "Hello from AIsa"
 ## Security & Trust
 
 - Requires only `AISA_API_KEY` as the declared environment secret.
-- Uses a relay-based flow to `https://api.aisa.one` for reads, OAuth handling, and approved uploads.
+- Uses a relay-based flow to `https://api.aisa.one` for reads, OAuth authorization, posting, and approved uploads.
 - External writes happen only after explicit OAuth approval.
 - Image and video posting sends user-selected media through the relay for upload.
 - Does not require passwords or browser cookies.
