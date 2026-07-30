@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2082561638339862683\",\n      \"url\": \"https://x.com/Crypto_Retardio/status/2082561638339862683\",\n      \"twitterUrl\": \"https://twitter.com/Crypto_Retardio/status/2082561638339862683\",\n      \"text\": \"@teije100x @instagram @tiktok_us @Google @OpenAI Agree cousin very eerie.\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2082928820735398260\",\n      \"url\": \"https://x.com/akichan_jpn/status/2082928820735398260\",\n      \"twitterUrl\": \"https://twitter.com/akichan_jpn/status/2082928820735398260\",\n      \"text\": \"【最新AIニュース】\\nOpenAIが、GPT-5.6 Lunaを80%、GPT-5.6 Terraを20%値下げしたと発表しました。\\n\\nAIニュースとして見ると「料金が下がった」ですが、建設業・リフォーム業の社長向けに翻訳すると、AI社員を“毎日回せる単価”に近づける動きです。\\n\\nAI社員は、一番",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mpKN8l48W3iMADpbwe3n1ZDx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-29T20:19:34Z\",\n    \"request_time_taken\": 1.16,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.25,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mpKN8l48W3iMADpbwe3",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_QJGXn64VVWFWo0RbP45l1jp7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-30T20:39:02Z\",\n    \"request_time_taken\": 0.98,\n    \"parsing_time_taken\": 0.17,\n    \"total_time_taken\": 1.16,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_QJGXn64VVWFWo0RbP4",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"w80w9Oc0NcjxDIycU46euQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"G3zCF1b3QslzWkJ1DpChuA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"10394.2119\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"14726.2522\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2082561638339862683\",\n      \"url\": \"https://x.com/Crypto_Retardio/status/2082561638339862683\",\n      \"twitterUrl\": \"https://twitter.com/Crypto_Retardio/status/2082561638339862683\",\n      \"text\": \"@teije100x @instagram @tiktok_us @Google @OpenAI Agree cousin very eerie.\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2082928966885920917\",\n      \"url\": \"https://x.com/MarketFlipper/status/2082928966885920917\",\n      \"twitterUrl\": \"https://twitter.com/MarketFlipper/status/2082928966885920917\",\n      \"text\": \"@OpenAI Sol still spawning Sol sub agents\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7t7YZa6Jk2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-29T20:19:46Z\",\n    \"request_time_taken\": 1.33,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.41,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7t7YZa6Jk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7t7gJ2VEk2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-30T20:39:14Z\",\n    \"request_time_taken\": 1.14,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.23,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7t7gJ2VEk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"s8xDixeeARXSpL9_5ZIVDw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Cy149S5LHCn7aJsJmnJ4xw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"10394.2119\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"14726.2522\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2082561741737574569\",\n      \"url\": \"https://x.com/alsanaree/status/2082561741737574569\",\n      \"twitterUrl\": \"https://twitter.com/alsanaree/status/2082561741737574569\",\n      \"text\": \"fuck ai companies, fucking morrons just lobotomizing the models when im working on minecraft mods, the fuck is wrong with anthropic and openai\",\n      \"source",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2082928999567679912\",\n      \"url\": \"https://x.com/chiboy0123/status/2082928999567679912\",\n      \"twitterUrl\": \"https://twitter.com/chiboy0123/status/2082928999567679912\",\n      \"text\": \"omo @OpenAI  @sama @OpenAIDevs i dont know why my codex chat history keeps clearing off\\n\\nthis is the second time is happening\\n\\ndo something about it\",\n ",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7t7YZaKdk2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-29T20:19:56Z\",\n    \"request_time_taken\": 1.66,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.76,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7t7YZaKdk2",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_o87gAV43YWhy71nJPk1PwrlO\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-07-30T20:39:24Z\",\n    \"request_time_taken\": 1.29,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.39,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_o87gAV43YWhy71nJPk1",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"ST6bFx4Ri7hne0SWNrme3w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Exn5068Fjd7PoG0zFfOK6A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"10394.2119\",\n      \"startDate\": \"2025-05-02T15:48:",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"540817\",\n      \"question\": \"New Rihanna Album before GTA VI?\",\n      \"conditionId\": \"0x1fad72fae204143ff1c3035e99e7c0f65ea8d5cd9bd1070987bd1a3316f772be\",\n      \"slug\": \"new-rhianna-album-before-gta-vi-926\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-07-31T12:00:00Z\",\n      \"liquidity\": \"15144.5245\",\n      \"startDate\": \"2025-05-02T15:48:",
       "stderr_preview": ""
     },
     {
