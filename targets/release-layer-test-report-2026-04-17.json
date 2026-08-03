@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2084010870028251220\",\n      \"url\": \"https://x.com/BenjaminBadejo/status/2084010870028251220\",\n      \"twitterUrl\": \"https://twitter.com/BenjaminBadejo/status/2084010870028251220\",\n      \"text\": \"@TheAngryPit @OpenAI @hivemind_agency @OpenAIDevs This is so good.\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCoun",
+      "stdout_preview": "{\n  \"tweets\": [],\n  \"has_next_page\": false,\n  \"next_cursor\": null\n}\n",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_XJELrMkzrOF5dJJnWk2PNQw7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-02T20:18:19Z\",\n    \"request_time_taken\": 0.77,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 0.86,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_XJELrMkzrOF5dJJnWk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_MG6OPWeEVjFO61EGx4jR8w7N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-03T20:41:23Z\",\n    \"request_time_taken\": 0.77,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 0.85,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_MG6OPWeEVjFO61EGx4",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"wUAPK27yUurRjsMbw9alNg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"5bM0wQH_rtePzL0h34bClA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"267837.94361\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"260663.64375\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2084010906179281078\",\n      \"url\": \"https://x.com/latencius/status/2084010906179281078\",\n      \"twitterUrl\": \"https://twitter.com/latencius/status/2084010906179281078\",\n      \"text\": \"OpenAIの更新スピード速いな。ダリオも見習ってくれ〜\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quoteCount\":",
+      "stdout_preview": "{\n  \"tweets\": [],\n  \"has_next_page\": false,\n  \"next_cursor\": null\n}\n",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_DWmO1QkoEbu3aPpzQ4J2r8Ga\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-02T20:18:31Z\",\n    \"request_time_taken\": 0.89,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 0.97,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_DWmO1QkoEbu3aPpzQ4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_16dWXw4JOrIO1bj7BvqoKNGl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-03T20:41:33Z\",\n    \"request_time_taken\": 0.9,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 0.96,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_16dWXw4JOrIO1bj7Bvq",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"4vLOuwJSoIPqAtoLwJBzBQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"wjNH6skIvqBWFq_kGTUMdg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"267837.94361\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"260663.64375\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2084010963406115238\",\n      \"url\": \"https://x.com/touhou19786917/status/2084010963406115238\",\n      \"twitterUrl\": \"https://twitter.com/touhou19786917/status/2084010963406115238\",\n      \"text\": \"@lynns_warriors @JCats2013 @77WABCradio Why don't you instead of pushing for this Meta, Google, OpenAI-funded bullcrap, realize the danger of what K",
+      "stdout_preview": "{\n  \"tweets\": [],\n  \"has_next_page\": false,\n  \"next_cursor\": null\n}\n",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_o87gAV43YWhyplqpAk1PwrlO\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-02T20:18:41Z\",\n    \"request_time_taken\": 1.8,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.91,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_o87gAV43YWhyplqpAk1",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_W19X7MebbAtEgKjAwe68NbDz\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-03T20:41:41Z\",\n    \"request_time_taken\": 1.28,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.37,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_W19X7MebbAtEgKjAwe",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"70Wgxq2RopSWTEJI2swq1A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"WoiO-IBf3YBqrl68WPmd1g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"267837.94361\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"260663.64375\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
