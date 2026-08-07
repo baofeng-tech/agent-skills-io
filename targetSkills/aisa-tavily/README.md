@@ -7,6 +7,7 @@ Search the web and extract public page content through AIsa's Tavily-backed API 
 - Search the open web for research and source discovery
 - Run news-focused search with recent-day filtering
 - Extract readable content from a public URL for downstream analysis
+- Support task-first research workflows that need remote search results rather than local browser automation
 
 ## When to use
 
@@ -14,12 +15,14 @@ Search the web and extract public page content through AIsa's Tavily-backed API 
 - Find sources before summarizing or comparing claims
 - Look up recent news
 - Extract readable content from a public URL
+- Gather public web inputs for downstream analysis
 
 ## When not to use
 
 - Do not use for sites that require login, cookies, browser sessions, or private account access
 - Do not use for posting, social engagement, OAuth-based actions, or file/media upload
 - Do not use as a local browser automation tool
+- Do not use for local file extraction or private document parsing
 
 ## Requirements
 
