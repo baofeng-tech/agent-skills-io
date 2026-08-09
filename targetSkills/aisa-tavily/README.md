@@ -69,7 +69,7 @@ node scripts/extract.mjs "https://example.com/article"
 - Uses `AISA_API_KEY` for authenticated requests
 - Sends search queries and public target URLs to AIsa's remote relay
 - Connects to `https://aisa.one` / `https://api.aisa.one`
-- Does not use OAuth
+- Does not use OAuth and does not require an approval flow
 - Does not upload media or files
 - This skill is for remote web search and public URL extraction, not local browser automation
 - This skill does not access private accounts, cookies, or authenticated pages
