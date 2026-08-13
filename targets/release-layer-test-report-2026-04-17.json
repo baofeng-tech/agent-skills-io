@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2087631989620756784\",\n      \"url\": \"https://x.com/economicsofwork/status/2087631989620756784\",\n      \"twitterUrl\": \"https://twitter.com/economicsofwork/status/2087631989620756784\",\n      \"text\": \"Ronnie Chatterji of OpenAI discusses how higher education will need to adapt as AI becomes a bigger part of the workplace.\\n\\nUnless there’s a spe",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2087993089625579612\",\n      \"url\": \"https://x.com/MedicompSys/status/2087993089625579612\",\n      \"twitterUrl\": \"https://twitter.com/MedicompSys/status/2087993089625579612\",\n      \"text\": \"ChatGPT can now connect directly to patients' medical records. As AI moves into the exam room before the clinician does, the real question is whether the ",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lmagj14Ooqu0zKO1345E8MQp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-12T20:07:25Z\",\n    \"request_time_taken\": 1.16,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.26,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lmagj14Ooqu0zKO1345",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_K0EOpDkpY6hoyGYpre3wzYN9\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-13T20:02:19Z\",\n    \"request_time_taken\": 1.17,\n    \"parsing_time_taken\": 0.19,\n    \"total_time_taken\": 1.36,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_K0EOpDkpY6hoyGYpre",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"fD04OMrWUIhm1o7hR7TPYg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Rclz0M6YW0RFGt67ZyLx6Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Previewing Ultrafast mode — clean cover. Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed ; Dali Rajic > Article card. OpenAI appoints Dali ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"246909.09784\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"242411.00112\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2087632038400553072\",\n      \"url\": \"https://x.com/slickpetemont/status/2087632038400553072\",\n      \"twitterUrl\": \"https://twitter.com/slickpetemont/status/2087632038400553072\",\n      \"text\": \"@usgraphics idk why companies stopped using mascots. even sports to a degree. mascots feel personable. if OpenAI used a cool bear or something, people",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2087993089625579612\",\n      \"url\": \"https://x.com/MedicompSys/status/2087993089625579612\",\n      \"twitterUrl\": \"https://twitter.com/MedicompSys/status/2087993089625579612\",\n      \"text\": \"ChatGPT can now connect directly to patients' medical records. As AI moves into the exam room before the clinician does, the real question is whether the ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqTRrn8lEeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-12T20:07:36Z\",\n    \"request_time_taken\": 0.88,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 0.93,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqTRrn8lEe",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqTRA63AJeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-13T20:02:31Z\",\n    \"request_time_taken\": 1.7,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.75,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqTRA63AJeY",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"lCR63IMtLowqPhSgPbAO9A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"izHRp8PF2iII-FyxeggoxA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Previewing Ultrafast mode — clean cover. Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed ; Dali Rajic > Article card. OpenAI appoints Dali ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"246909.09784\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"242411.00112\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2087632122224013686\",\n      \"url\": \"https://x.com/armoriqio/status/2087632122224013686\",\n      \"twitterUrl\": \"https://twitter.com/armoriqio/status/2087632122224013686\",\n      \"text\": \"@OpenAI described evaluation models becoming hyperfocused on an internal cybersecurity benchmark \\nchaining vulnerabilities\\nreaching internet-connected infra",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2087993089625579612\",\n      \"url\": \"https://x.com/MedicompSys/status/2087993089625579612\",\n      \"twitterUrl\": \"https://twitter.com/MedicompSys/status/2087993089625579612\",\n      \"text\": \"ChatGPT can now connect directly to patients' medical records. As AI moves into the exam room before the clinician does, the real question is whether the ",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_J70QVB41KphG2LDxLkqLy9mx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-12T20:07:49Z\",\n    \"request_time_taken\": 1.94,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 2.0,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_J70QVB41KphG2LDxLkq",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lmagj14Ooqu0a3djQ45E8MQp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-13T20:02:41Z\",\n    \"request_time_taken\": 0.88,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 0.99,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lmagj14Ooqu0a3djQ4",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"vyuYp9CYIlxb3vrYhzsxeA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"2YVpMLuUo_MInutZ4fZWvw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Previewing Ultrafast mode — clean cover. Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed ; Dali Rajic > Article card. OpenAI appoints Dali ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"246909.09784\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"242411.00112\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
