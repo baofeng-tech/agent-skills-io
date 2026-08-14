@@ -4,7 +4,7 @@ Research Twitter/X profiles, tweets, and trends, then take approved engagement a
 
 ## What it does
 
-- Search Twitter/X profiles, tweets, and trends
+- Search Twitter/X profiles, tweets, trends, lists, communities, and Spaces
 - Publish through OAuth after explicit approval
 - Like, unlike, follow, and unfollow through bundled Python clients
 - Keep research and engagement follow-through in one package without asking for passwords
@@ -15,6 +15,7 @@ Research Twitter/X profiles, tweets, and trends, then take approved engagement a
 - Use this when the workflow needs both research and approved engagement in the same package.
 - Use this when relay-based reads, remote writes, and relay-based media upload are acceptable.
 - Use this when the runtime can provide `AISA_API_KEY`, `python3`, and network access to `api.aisa.one`.
+- Use this when the user can complete explicit OAuth approval before posting or engagement writes.
 - Use `aisa-twitter-api` for the broader flagship Twitter lane.
 - Use `aisa-twitter-command-center` for watchlists, trend scanning, and recurring monitoring.
 
