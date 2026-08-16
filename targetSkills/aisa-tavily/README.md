@@ -67,8 +67,8 @@ node scripts/extract.mjs "https://example.com/article"
 ## Auth, relay, upload, and side effects
 
 - Uses `AISA_API_KEY` for authenticated requests
-- Sends search queries and public target URLs to AIsa's remote relay
-- Connects to `https://aisa.one` / `https://api.aisa.one`
+- Sends requests through AIsa's remote relay at `https://aisa.one` / `https://api.aisa.one`
+- Sends search queries and public target URLs to the remote relay so it can return search results or extracted page content
 - Does not use OAuth and does not require an approval flow
 - Does not upload media or files
 - This skill is for remote web search and public URL extraction, not local browser automation

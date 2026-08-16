@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2088712185321066723\",\n      \"url\": \"https://x.com/AtlantaRayz/status/2088712185321066723\",\n      \"twitterUrl\": \"https://twitter.com/AtlantaRayz/status/2088712185321066723\",\n      \"text\": \"Nvidia Downsizes Plans for $250 Billion Guarantee of OpenAI Data Center https://t.co/lkdJu2ftO7 via @WSJ\",\n      \"source\": \"Twitter for iPhone\",\n      \"re",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2089074477045051465\",\n      \"url\": \"https://x.com/Ultima_Lumina/status/2089074477045051465\",\n      \"twitterUrl\": \"https://twitter.com/Ultima_Lumina/status/2089074477045051465\",\n      \"text\": \"These anti-Ai \\\"activists\\\" stormed OpenAi 😂\\n\\n\\\"The absolute circus that just happened at OpenAI’s Bellevue, Washington office, look at it. \\n\\nA Se",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_z9qLVyexP1TpZJnNgeMEoPrY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-15T19:39:43Z\",\n    \"request_time_taken\": 1.25,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.37,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_z9qLVyexP1TpZJnNge",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_6dAL2p4KqYsgQzJdQk7wnGOm\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-16T19:39:10Z\",\n    \"request_time_taken\": 0.93,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 0.99,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_6dAL2p4KqYsgQzJdQk",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"E7R5CHwMdPuhDmqGtxC3Cg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"-bJOHPj6cPmaDBwACmUQhA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"245721.6183\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"250213.33094\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2088712185321066723\",\n      \"url\": \"https://x.com/AtlantaRayz/status/2088712185321066723\",\n      \"twitterUrl\": \"https://twitter.com/AtlantaRayz/status/2088712185321066723\",\n      \"text\": \"Nvidia Downsizes Plans for $250 Billion Guarantee of OpenAI Data Center https://t.co/lkdJu2ftO7 via @WSJ\",\n      \"source\": \"Twitter for iPhone\",\n      \"re",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2089074477045051465\",\n      \"url\": \"https://x.com/Ultima_Lumina/status/2089074477045051465\",\n      \"twitterUrl\": \"https://twitter.com/Ultima_Lumina/status/2089074477045051465\",\n      \"text\": \"These anti-Ai \\\"activists\\\" stormed OpenAi 😂\\n\\n\\\"The absolute circus that just happened at OpenAI’s Bellevue, Washington office, look at it. \\n\\nA Se",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mxzD17vdE2u3dE5VDklRw056\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-15T19:39:55Z\",\n    \"request_time_taken\": 0.91,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 0.99,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mxzD17vdE2u3dE5VDk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_QJGXn64VVWFW5Mpa845l1jp7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-16T19:39:22Z\",\n    \"request_time_taken\": 1.17,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.28,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_QJGXn64VVWFW5Mpa84",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Md3lWu3kj3OkI1KlnLPtJA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"bmk0_2BPp3Pj11rp4O9p1Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"245721.6183\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"250213.33094\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2088712349364699377\",\n      \"url\": \"https://x.com/us_doge/status/2088712349364699377\",\n      \"twitterUrl\": \"https://twitter.com/us_doge/status/2088712349364699377\",\n      \"text\": \"ChatGPT/CODEX桌面版本崩溃。\\nCodex 26.810.50856 以上版本会持续循环创建 ComputerUseService导致 CPU满载崩溃。\\n\\n回退到 26.803.81509 后恢复正常。\\n疑似 26.810.x 的 Computer Use进程重启机制存在问题。\\n系统macOS26 M4",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2089074477045051465\",\n      \"url\": \"https://x.com/Ultima_Lumina/status/2089074477045051465\",\n      \"twitterUrl\": \"https://twitter.com/Ultima_Lumina/status/2089074477045051465\",\n      \"text\": \"These anti-Ai \\\"activists\\\" stormed OpenAi 😂\\n\\n\\\"The absolute circus that just happened at OpenAI’s Bellevue, Washington office, look at it. \\n\\nA Se",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_b65xNDvgndH3b786j48d73q0\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-15T19:40:10Z\",\n    \"request_time_taken\": 1.28,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.38,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_b65xNDvgndH3b786j48",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_8A9g6Ov07XHlaGy7E4JlbW2m\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-16T19:39:32Z\",\n    \"request_time_taken\": 1.07,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.14,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_8A9g6Ov07XHlaGy7E4",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"VeCQXtvE2iEQwDltFV4nLw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"l26jtV07-EFVWkW4y5n43g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"245721.6183\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"250213.33094\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
