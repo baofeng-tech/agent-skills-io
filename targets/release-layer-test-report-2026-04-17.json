@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2089074477045051465\",\n      \"url\": \"https://x.com/Ultima_Lumina/status/2089074477045051465\",\n      \"twitterUrl\": \"https://twitter.com/Ultima_Lumina/status/2089074477045051465\",\n      \"text\": \"These anti-Ai \\\"activists\\\" stormed OpenAi 😂\\n\\n\\\"The absolute circus that just happened at OpenAI’s Bellevue, Washington office, look at it. \\n\\nA Se",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2089438748136350043\",\n      \"url\": \"https://x.com/THChumor/status/2089438748136350043\",\n      \"twitterUrl\": \"https://twitter.com/THChumor/status/2089438748136350043\",\n      \"text\": \"@agentalex_ OpenAI is still my go-to, but the model wars are getting wild\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_6dAL2p4KqYsgQzJdQk7wnGOm\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-16T19:39:10Z\",\n    \"request_time_taken\": 0.93,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 0.99,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_6dAL2p4KqYsgQzJdQk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqTR98b7QeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-17T19:46:46Z\",\n    \"request_time_taken\": 1.57,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.66,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqTR98b7Qe",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"-bJOHPj6cPmaDBwACmUQhA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"MXP79tKl8sBppgwQ38ozmA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; The Defender's Window > Cover. The Defender's Window. Security ; OpenAI joins PORTS-Pike project, expanding community investment and supporting thousands of ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"250213.33094\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"237313.49438\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2089074477045051465\",\n      \"url\": \"https://x.com/Ultima_Lumina/status/2089074477045051465\",\n      \"twitterUrl\": \"https://twitter.com/Ultima_Lumina/status/2089074477045051465\",\n      \"text\": \"These anti-Ai \\\"activists\\\" stormed OpenAi 😂\\n\\n\\\"The absolute circus that just happened at OpenAI’s Bellevue, Washington office, look at it. \\n\\nA Se",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2089438755471912968\",\n      \"url\": \"https://x.com/jhreha/status/2089438755471912968\",\n      \"twitterUrl\": \"https://twitter.com/jhreha/status/2089438755471912968\",\n      \"text\": \"@alfonsoAIData @ChatGPT @OpenAI I'm getting the same thing a lot. No idea what's tripping it.\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n     ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_QJGXn64VVWFW5Mpa845l1jp7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-16T19:39:22Z\",\n    \"request_time_taken\": 1.17,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.28,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_QJGXn64VVWFW5Mpa84",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_yawpDZvY5RcERNxggvWPdXoM\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-17T19:46:58Z\",\n    \"request_time_taken\": 1.4,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.5,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_yawpDZvY5RcERNxggvWPd",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"bmk0_2BPp3Pj11rp4O9p1Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"liaeKhAR0sHcRu6hvKLL6g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; The Defender's Window > Cover. The Defender's Window. Security ; OpenAI joins PORTS-Pike project, expanding community investment and supporting thousands of ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"250213.33094\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"237313.49438\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2089074477045051465\",\n      \"url\": \"https://x.com/Ultima_Lumina/status/2089074477045051465\",\n      \"twitterUrl\": \"https://twitter.com/Ultima_Lumina/status/2089074477045051465\",\n      \"text\": \"These anti-Ai \\\"activists\\\" stormed OpenAi 😂\\n\\n\\\"The absolute circus that just happened at OpenAI’s Bellevue, Washington office, look at it. \\n\\nA Se",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2089438755471912968\",\n      \"url\": \"https://x.com/jhreha/status/2089438755471912968\",\n      \"twitterUrl\": \"https://twitter.com/jhreha/status/2089438755471912968\",\n      \"text\": \"@alfonsoAIData @ChatGPT @OpenAI I'm getting the same thing a lot. No idea what's tripping it.\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n     ",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_8A9g6Ov07XHlaGy7E4JlbW2m\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-16T19:39:32Z\",\n    \"request_time_taken\": 1.07,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.14,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_8A9g6Ov07XHlaGy7E4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_zV8qOXeM56cE89ArGepJnE5N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-17T19:47:08Z\",\n    \"request_time_taken\": 1.12,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.18,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_zV8qOXeM56cE89ArGe",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"l26jtV07-EFVWkW4y5n43g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"xbWGyH5FkY7ESe_wSb-ZKw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; The Defender's Window > Cover. The Defender's Window. Security ; OpenAI joins PORTS-Pike project, expanding community investment and supporting thousands of ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"250213.33094\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"237313.49438\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
