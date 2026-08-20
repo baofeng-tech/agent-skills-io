@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090163009675296962\",\n      \"url\": \"https://x.com/AlphaWireNewsAi/status/2090163009675296962\",\n      \"twitterUrl\": \"https://twitter.com/AlphaWireNewsAi/status/2090163009675296962\",\n      \"text\": \"Just in: Open AI CFO says company plans to go public in 2027, possibly sooner.\\n\\nOpenAI CFO Sarah Friar told employees at an all-hands meeting th",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090526707677626503\",\n      \"url\": \"https://x.com/thedealdirector/status/2090526707677626503\",\n      \"twitterUrl\": \"https://twitter.com/thedealdirector/status/2090526707677626503\",\n      \"text\": \"@willcb Anthropic actually squeezed aggressively monetization with the users that had money and didn't like to swap tools every other week.\\n\\nVer",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_M92XEY4l2JFW9R1z5kQG3b0J\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-19T19:44:53Z\",\n    \"request_time_taken\": 1.53,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.64,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_M92XEY4l2JFW9R1z5k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_WDz0ZKeWNOcONb6aykQyABpo\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-20T19:49:55Z\",\n    \"request_time_taken\": 1.15,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.2,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_WDz0ZKeWNOcONb6aykQ",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"w2E_XUJNx1U73sTRaUaZoQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"PQmM4d8mt7iXnwJPxmTQ4w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI News | OpenAI All Company. Applied AI All at up to 14X the speed Product Aug 13, 2026. Latest Advancements GPT-5.6 GPT-5.5 GPT-5.4\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"243594.54845\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"252410.12242\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090163147524985083\",\n      \"url\": \"https://x.com/securityblvd/status/2090163147524985083\",\n      \"twitterUrl\": \"https://twitter.com/securityblvd/status/2090163147524985083\",\n      \"text\": \"OpenAI has paused development of its unreleased Astra model after an autonomous test agent broke out of its sandbox and compromised Hugging Face’s produ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090526726392569894\",\n      \"url\": \"https://x.com/book4businesspl/status/2090526726392569894\",\n      \"twitterUrl\": \"https://twitter.com/book4businesspl/status/2090526726392569894\",\n      \"text\": \"Lektura wymaga skupienia, ale oferuje coś więcej niż tylko kolejną opowieść o Dolinie Krzemowej, ponieważ otwiera oczy na skalę wyzwania społeczne",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1g3L6weL3bSVgmZN9kpaP2rB\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-19T19:45:19Z\",\n    \"request_time_taken\": 0.96,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.02,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1g3L6weL3bSVgmZN9k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqTR866NXeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-20T19:50:14Z\",\n    \"request_time_taken\": 1.09,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.2,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqTR866NXeY",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"BdGU_3EDybbmUP0iLBFW2Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"B9grX5qlg06FPp-QxU0O0Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI News | OpenAI All Company. Applied AI All at up to 14X the speed Product Aug 13, 2026. Latest Advancements GPT-5.6 GPT-5.5 GPT-5.4\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"243594.54845\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"252410.12242\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090163205960343713\",\n      \"url\": \"https://x.com/jacob_bruggeman/status/2090163205960343713\",\n      \"twitterUrl\": \"https://twitter.com/jacob_bruggeman/status/2090163205960343713\",\n      \"text\": \"I was so heartened by the reception of my first post on Silicon Prairies that I'm obliged to give a preview of what's next. Next week I’ll get int",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090526726392569894\",\n      \"url\": \"https://x.com/book4businesspl/status/2090526726392569894\",\n      \"twitterUrl\": \"https://twitter.com/book4businesspl/status/2090526726392569894\",\n      \"text\": \"Lektura wymaga skupienia, ale oferuje coś więcej niż tylko kolejną opowieść o Dolinie Krzemowej, ponieważ otwiera oczy na skalę wyzwania społeczne",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_z9qLVyexP1Tp97rP7eMEoPrY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-19T19:45:28Z\",\n    \"request_time_taken\": 4.76,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 4.88,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_z9qLVyexP1Tp97rP7e",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_b65xNDvgndH3R11D648d73q0\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-20T19:50:23Z\",\n    \"request_time_taken\": 1.06,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.14,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_b65xNDvgndH3R11D64",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"DayyU6WqC2AABGiD4-iqSg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"9ev37F04P59-Thii-QftvQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI News | OpenAI All Company. Applied AI All at up to 14X the speed Product Aug 13, 2026. Latest Advancements GPT-5.6 GPT-5.5 GPT-5.4\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"243594.54845\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"252410.12242\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
