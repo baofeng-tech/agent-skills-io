@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090526707677626503\",\n      \"url\": \"https://x.com/thedealdirector/status/2090526707677626503\",\n      \"twitterUrl\": \"https://twitter.com/thedealdirector/status/2090526707677626503\",\n      \"text\": \"@willcb Anthropic actually squeezed aggressively monetization with the users that had money and didn't like to swap tools every other week.\\n\\nVer",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090887281292828788\",\n      \"url\": \"https://x.com/javsolgar/status/2090887281292828788\",\n      \"twitterUrl\": \"https://twitter.com/javsolgar/status/2090887281292828788\",\n      \"text\": \"@Gonzalo_stba Jajajaja, casi na. Creo que openai me tiene en busca y captura https://t.co/4naIuJvWlr\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCou",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_WDz0ZKeWNOcONb6aykQyABpo\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-20T19:49:55Z\",\n    \"request_time_taken\": 1.15,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.2,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_WDz0ZKeWNOcONb6aykQ",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mxzD17vdE2ujZdlnDklRw056\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-21T19:42:38Z\",\n    \"request_time_taken\": 0.97,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 1.01,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mxzD17vdE2ujZdlnDk",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"PQmM4d8mt7iXnwJPxmTQ4w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI News | OpenAI All Company. Applied AI All at up to 14X the speed Product Aug 13, 2026. Latest Advancements GPT-5.6 GPT-5.5 GPT-5.4\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"FxJFnk0iLC7J1QBNqXdJmA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"252410.12242\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"326866.5829\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090526726392569894\",\n      \"url\": \"https://x.com/book4businesspl/status/2090526726392569894\",\n      \"twitterUrl\": \"https://twitter.com/book4businesspl/status/2090526726392569894\",\n      \"text\": \"Lektura wymaga skupienia, ale oferuje coś więcej niż tylko kolejną opowieść o Dolinie Krzemowej, ponieważ otwiera oczy na skalę wyzwania społeczne",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090887311361757339\",\n      \"url\": \"https://x.com/RomanP918791/status/2090887311361757339\",\n      \"twitterUrl\": \"https://twitter.com/RomanP918791/status/2090887311361757339\",\n      \"text\": \"@OpenAI \\\"credit pricing\\\" - lol,  nobody is buying credits.\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n   ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqTR866NXeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-20T19:50:14Z\",\n    \"request_time_taken\": 1.09,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.2,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqTR866NXeY",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lmagj14OoquQZBG2545E8MQp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-21T19:42:50Z\",\n    \"request_time_taken\": 4.95,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 5.06,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lmagj14OoquQZBG2545",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"B9grX5qlg06FPp-QxU0O0Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI News | OpenAI All Company. Applied AI All at up to 14X the speed Product Aug 13, 2026. Latest Advancements GPT-5.6 GPT-5.5 GPT-5.4\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"6XzbimrqynuxviF2T6txJw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"252410.12242\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"326866.5829\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090526726392569894\",\n      \"url\": \"https://x.com/book4businesspl/status/2090526726392569894\",\n      \"twitterUrl\": \"https://twitter.com/book4businesspl/status/2090526726392569894\",\n      \"text\": \"Lektura wymaga skupienia, ale oferuje coś więcej niż tylko kolejną opowieść o Dolinie Krzemowej, ponieważ otwiera oczy na skalę wyzwania społeczne",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2090887363987685782\",\n      \"url\": \"https://x.com/mohbarr/status/2090887363987685782\",\n      \"twitterUrl\": \"https://twitter.com/mohbarr/status/2090887363987685782\",\n      \"text\": \"@OpenAI I have a feeling  @OpenAI is going to lose a lot of users soon there won't be any more celebration resets\",\n      \"source\": \"Twitter for iPhone\",\n      \"r",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_b65xNDvgndH3R11D648d73q0\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-20T19:50:23Z\",\n    \"request_time_taken\": 1.06,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.14,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_b65xNDvgndH3R11D64",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7tl9EJxGk2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-21T19:43:03Z\",\n    \"request_time_taken\": 1.34,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.41,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7tl9EJxGk",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"9ev37F04P59-Thii-QftvQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI News | OpenAI All Company. Applied AI All at up to 14X the speed Product Aug 13, 2026. Latest Advancements GPT-5.6 GPT-5.5 GPT-5.4\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"EU9E6q1pe06mZ9TQLlFX2Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"252410.12242\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"326866.5829\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
       "stderr_preview": ""
     },
     {
