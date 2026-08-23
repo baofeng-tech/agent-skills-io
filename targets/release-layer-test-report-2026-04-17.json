@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091249212209963298\",\n      \"url\": \"https://x.com/meemooRBLX/status/2091249212209963298\",\n      \"twitterUrl\": \"https://twitter.com/meemooRBLX/status/2091249212209963298\",\n      \"text\": \"@ashuraluxx @Synxxsz_rbx @OpenAI Same, my GFX artist gave me 2% ctr 💀\\nBut with AI i only get 6-7% ctr not 10, how did you prompt it\",\n      \"source\": \"Twit",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091611578135375950\",\n      \"url\": \"https://x.com/UnbrokenApple/status/2091611578135375950\",\n      \"twitterUrl\": \"https://twitter.com/UnbrokenApple/status/2091611578135375950\",\n      \"text\": \"This is Sam Altman's sister.\\n\\nSam Altman: CEO of OpenAI and the reason why world is flodded with AI slop and survaillence.\\n\\nAlso Sam Altman: Abuse",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_yawpDZvY5RcYMArxAvWPdXoM\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-22T19:41:20Z\",\n    \"request_time_taken\": 0.85,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 0.92,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_yawpDZvY5RcYMArxAv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_jOZRYa4201HZYbdE3klD6mVx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-23T19:40:53Z\",\n    \"request_time_taken\": 1.39,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.46,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_jOZRYa4201HZYbdE3k",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"m9negalouBHn9_WoJfnDeQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"uOq-d1srcag0fqD9RkjhRg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"231525.93376\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"148015.61378\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091249212209963298\",\n      \"url\": \"https://x.com/meemooRBLX/status/2091249212209963298\",\n      \"twitterUrl\": \"https://twitter.com/meemooRBLX/status/2091249212209963298\",\n      \"text\": \"@ashuraluxx @Synxxsz_rbx @OpenAI Same, my GFX artist gave me 2% ctr 💀\\nBut with AI i only get 6-7% ctr not 10, how did you prompt it\",\n      \"source\": \"Twit",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091611578135375950\",\n      \"url\": \"https://x.com/UnbrokenApple/status/2091611578135375950\",\n      \"twitterUrl\": \"https://twitter.com/UnbrokenApple/status/2091611578135375950\",\n      \"text\": \"This is Sam Altman's sister.\\n\\nSam Altman: CEO of OpenAI and the reason why world is flodded with AI slop and survaillence.\\n\\nAlso Sam Altman: Abuse",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mMjwVJvBznTgPr68pvynp5OY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-22T19:41:31Z\",\n    \"request_time_taken\": 2.04,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 2.15,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mMjwVJvBznTgPr68pv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_gM5dQzeGq7sAgYLqQvOlAjp3\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-23T19:41:06Z\",\n    \"request_time_taken\": 1.71,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.78,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_gM5dQzeGq7sAgYLqQv",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"RBV5o_WyE3qVJxnwJgEjVQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"JD9a-_htB1_X7WEI_JOdZg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"231525.93376\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"148015.61378\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091249212209963298\",\n      \"url\": \"https://x.com/meemooRBLX/status/2091249212209963298\",\n      \"twitterUrl\": \"https://twitter.com/meemooRBLX/status/2091249212209963298\",\n      \"text\": \"@ashuraluxx @Synxxsz_rbx @OpenAI Same, my GFX artist gave me 2% ctr 💀\\nBut with AI i only get 6-7% ctr not 10, how did you prompt it\",\n      \"source\": \"Twit",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091611677343064295\",\n      \"url\": \"https://x.com/carlosrodera_/status/2091611677343064295\",\n      \"twitterUrl\": \"https://twitter.com/carlosrodera_/status/2091611677343064295\",\n      \"text\": \"@technolochap @thsottiaux @CtrlAltDwayne Of course, but you connect with using Codex Runtime, like Cline, OpenCode and many others. \\n\\nAnthropic does",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_jOZRYa4201HZwod18klD6mVx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-22T19:41:41Z\",\n    \"request_time_taken\": 2.4,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 2.49,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_jOZRYa4201HZwod18kl",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_16dWXw4JOrIybpxdOvqoKNGl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-23T19:41:18Z\",\n    \"request_time_taken\": 1.58,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.68,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_16dWXw4JOrIybpxdOvq",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"7RA_XCTYUGr1dDrz0VSvbA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"s1yWKmJtak30hXmEN24F1w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"231525.93376\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"148015.61378\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
