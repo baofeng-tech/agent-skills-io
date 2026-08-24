@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091611578135375950\",\n      \"url\": \"https://x.com/UnbrokenApple/status/2091611578135375950\",\n      \"twitterUrl\": \"https://twitter.com/UnbrokenApple/status/2091611578135375950\",\n      \"text\": \"This is Sam Altman's sister.\\n\\nSam Altman: CEO of OpenAI and the reason why world is flodded with AI slop and survaillence.\\n\\nAlso Sam Altman: Abuse",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091976135936799180\",\n      \"url\": \"https://x.com/silver__tsuki/status/2091976135936799180\",\n      \"twitterUrl\": \"https://twitter.com/silver__tsuki/status/2091976135936799180\",\n      \"text\": \"@willdepue OpenAI computer demo that scrolls twitter and calls everyone you politically disagree with cattle https://t.co/zBfAYDJqKq\",\n      \"source\":",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_jOZRYa4201HZYbdE3klD6mVx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-23T19:40:53Z\",\n    \"request_time_taken\": 1.39,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.46,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_jOZRYa4201HZYbdE3k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_z9qLVyexP1T6bWK5reMEoPrY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-24T19:49:41Z\",\n    \"request_time_taken\": 2.37,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 2.41,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_z9qLVyexP1T6bWK5re",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"uOq-d1srcag0fqD9RkjhRg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"-OSjbn73CfGtGQbDHcRf9Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"148015.61378\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"187135.1756\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091611578135375950\",\n      \"url\": \"https://x.com/UnbrokenApple/status/2091611578135375950\",\n      \"twitterUrl\": \"https://twitter.com/UnbrokenApple/status/2091611578135375950\",\n      \"text\": \"This is Sam Altman's sister.\\n\\nSam Altman: CEO of OpenAI and the reason why world is flodded with AI slop and survaillence.\\n\\nAlso Sam Altman: Abuse",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091976135936799180\",\n      \"url\": \"https://x.com/silver__tsuki/status/2091976135936799180\",\n      \"twitterUrl\": \"https://twitter.com/silver__tsuki/status/2091976135936799180\",\n      \"text\": \"@willdepue OpenAI computer demo that scrolls twitter and calls everyone you politically disagree with cattle https://t.co/zBfAYDJqKq\",\n      \"source\":",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_gM5dQzeGq7sAgYLqQvOlAjp3\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-23T19:41:06Z\",\n    \"request_time_taken\": 1.71,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.78,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_gM5dQzeGq7sAgYLqQv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERuWYMogwenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-24T19:49:56Z\",\n    \"request_time_taken\": 0.69,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 0.78,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERuWYMogwe",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"JD9a-_htB1_X7WEI_JOdZg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"7BLz1Su-_amtErkP6OVLiw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"148015.61378\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"187135.1756\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091611677343064295\",\n      \"url\": \"https://x.com/carlosrodera_/status/2091611677343064295\",\n      \"twitterUrl\": \"https://twitter.com/carlosrodera_/status/2091611677343064295\",\n      \"text\": \"@technolochap @thsottiaux @CtrlAltDwayne Of course, but you connect with using Codex Runtime, like Cline, OpenCode and many others. \\n\\nAnthropic does",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091976304216129683\",\n      \"url\": \"https://x.com/vanyamlb/status/2091976304216129683\",\n      \"twitterUrl\": \"https://twitter.com/vanyamlb/status/2091976304216129683\",\n      \"text\": \"@PipeBladex @OpenAI THIS!!!\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quoteCount\": 0,",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_16dWXw4JOrIybpxdOvqoKNGl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-23T19:41:18Z\",\n    \"request_time_taken\": 1.58,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.68,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_16dWXw4JOrIybpxdOvq",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_pVr1MO4QrQFXydbP7vblzoE9\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-24T19:50:20Z\",\n    \"request_time_taken\": 1.38,\n    \"parsing_time_taken\": 0.13,\n    \"total_time_taken\": 1.51,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_pVr1MO4QrQFXydbP7v",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"s1yWKmJtak30hXmEN24F1w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"ZcktdHcQprw8lzrJB7aAWA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"148015.61378\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"187135.1756\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
       "stderr_preview": ""
     },
     {
