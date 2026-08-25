@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091976135936799180\",\n      \"url\": \"https://x.com/silver__tsuki/status/2091976135936799180\",\n      \"twitterUrl\": \"https://twitter.com/silver__tsuki/status/2091976135936799180\",\n      \"text\": \"@willdepue OpenAI computer demo that scrolls twitter and calls everyone you politically disagree with cattle https://t.co/zBfAYDJqKq\",\n      \"source\":",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2092338663606677557\",\n      \"url\": \"https://x.com/Mosaic_Fi/status/2092338663606677557\",\n      \"twitterUrl\": \"https://twitter.com/Mosaic_Fi/status/2092338663606677557\",\n      \"text\": \"Tonight's draw paid out. $4,704 in dividends went to 797 holders, straight to their wallets. Nobody claimed anything, it just arrived.\\n\\nThe pool bought what",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_z9qLVyexP1T6bWK5reMEoPrY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-24T19:49:41Z\",\n    \"request_time_taken\": 2.37,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 2.41,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_z9qLVyexP1T6bWK5re",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mOgBEZe50gHZN3ExKkzwL3jW\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-25T19:49:56Z\",\n    \"request_time_taken\": 1.32,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.41,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mOgBEZe50gHZN3ExKk",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"-OSjbn73CfGtGQbDHcRf9Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"PHKYR059nOJzfbCxkkaXfg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Jalapeño inference — Art Card. Jalapeño's first results show industry-leading speed and efficiency in AI inference. Engineering ; GPT-5.6 in Kiro > OpenAI ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"187135.1756\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"203573.37872\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091976135936799180\",\n      \"url\": \"https://x.com/silver__tsuki/status/2091976135936799180\",\n      \"twitterUrl\": \"https://twitter.com/silver__tsuki/status/2091976135936799180\",\n      \"text\": \"@willdepue OpenAI computer demo that scrolls twitter and calls everyone you politically disagree with cattle https://t.co/zBfAYDJqKq\",\n      \"source\":",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2092338723908125100\",\n      \"url\": \"https://x.com/EgyIndependent/status/2092338723908125100\",\n      \"twitterUrl\": \"https://twitter.com/EgyIndependent/status/2092338723908125100\",\n      \"text\": \"#AMAY |  OpenAI subpoenaed by Alabama attorney general over Hugging Face hack\\n\\n#EgyptIndependent \\n\\nhttps://t.co/1MOSDtSnEt https://t.co/wfphAPnr",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERuWYMogwenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-24T19:49:56Z\",\n    \"request_time_taken\": 0.69,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 0.78,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERuWYMogwe",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_J70QVB41KphQB2GxqkqLy9mx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-25T19:50:15Z\",\n    \"request_time_taken\": 1.1,\n    \"parsing_time_taken\": 0.32,\n    \"total_time_taken\": 1.42,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_J70QVB41KphQB2Gxqkq",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"7BLz1Su-_amtErkP6OVLiw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"UULYRAzItL8EiUdeobtyiw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Jalapeño inference — Art Card. Jalapeño's first results show industry-leading speed and efficiency in AI inference. Engineering ; GPT-5.6 in Kiro > OpenAI ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"187135.1756\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"203573.37872\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2091976304216129683\",\n      \"url\": \"https://x.com/vanyamlb/status/2091976304216129683\",\n      \"twitterUrl\": \"https://twitter.com/vanyamlb/status/2091976304216129683\",\n      \"text\": \"@PipeBladex @OpenAI THIS!!!\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quoteCount\": 0,",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2092338785925439499\",\n      \"url\": \"https://x.com/MTSlive/status/2092338785925439499\",\n      \"twitterUrl\": \"https://twitter.com/MTSlive/status/2092338785925439499\",\n      \"text\": \"Prime Intellect's @xeophon reveals a reward hack that let an AI agent gain web access inside an offline sandbox, the same behavior behind the OpenAI Hugging Face ",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_pVr1MO4QrQFXydbP7vblzoE9\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-24T19:50:20Z\",\n    \"request_time_taken\": 1.38,\n    \"parsing_time_taken\": 0.13,\n    \"total_time_taken\": 1.51,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_pVr1MO4QrQFXydbP7v",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_yawpDZvY5RcYVlYO8vWPdXoM\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-08-25T19:50:25Z\",\n    \"request_time_taken\": 1.53,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.64,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_yawpDZvY5RcYVlYO8v",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"ZcktdHcQprw8lzrJB7aAWA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"v9vH-ZwbL6bqviEzl-RpAA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Jalapeño inference — Art Card. Jalapeño's first results show industry-leading speed and efficiency in AI inference. Engineering ; GPT-5.6 in Kiro > OpenAI ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"187135.1756\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2026-12-31T00:00:00Z\",\n      \"liquidity\": \"203573.37872\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
