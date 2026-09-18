@@ -137,7 +137,7 @@
 - `metadata_env_mismatch`: `1`
 - `oauth_upload_side_effects`: `7`
 - `pending_scan`: `3`
-- `platform_trust_gap`: `11`
+- `platform_trust_gap`: `12`
 - `relay_trust_surface`: `8`
 
 ### 当前重点对象
@@ -156,16 +156,16 @@
   reason: This is a disclosed Twitter/X relay skill, but its OAuth posting client can print the full AIsa API key in command output.
 - `skill:aisa-twitter-api-command-center`
   severity: `blocker` | status: `suspicious`
-  rules: `platform_trust_gap`
-  reason: The skill does what it says, but it exposes the AIsa API key in normal command output, which can leak a sensitive credential into logs or agent transcripts.
+  rules: `oauth_upload_side_effects, relay_trust_surface`
+  reason: The skill is a disclosed Twitter/X relay, but it needs review because its posting/OAuth client prints the AIsa API key and can upload caller-selected local media files.
 - `skill:aisa-twitter-research-engage`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`
   reason: This Twitter/X skill mostly does what it claims, but it exposes the required AIsa API key in normal command output.
 - `skill:aisa-twitter-research-engage-relay`
   severity: `blocker` | status: `suspicious`
-  rules: `oauth_upload_side_effects, relay_trust_surface`
-  reason: The skill mostly matches its Twitter/X relay purpose, but it needs review because it can print the AIsa API key and can perform live account actions immediately once invoked.
+  rules: `oauth_upload_side_effects, platform_trust_gap, relay_trust_surface`
+  reason: The skill is mostly coherent for Twitter/X research, posting, and engagement, but it exposes the AIsa API key in command output and can upload arbitrary readable local media paths through a third-party relay.
 - `skill:openclaw-twitter`
   severity: `blocker` | status: `suspicious`
   rules: `platform_trust_gap`

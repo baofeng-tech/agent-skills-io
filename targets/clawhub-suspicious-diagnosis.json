@@ -8,7 +8,7 @@
       "metadata_env_mismatch": 1,
       "oauth_upload_side_effects": 7,
       "pending_scan": 3,
-      "platform_trust_gap": 11,
+      "platform_trust_gap": 12,
       "relay_trust_surface": 8
     }
   },
@@ -123,19 +123,23 @@
       "suspicious": true,
       "pending": false,
       "rule_ids": [
-        "platform_trust_gap"
+        "oauth_upload_side_effects",
+        "relay_trust_surface"
       ],
       "rule_summaries": [
-        "Trust and provenance surfaces are weaker than the package behavior requires."
+        "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
-        "Keep source links, manifests, and README provenance aligned.",
-        "Make external writes, uploads, and remote execution boundaries easy to verify."
+        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
+        "Avoid phrasing that makes posting look silent or automatic by default.",
+        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
+        "Keep the auth story API-key-only unless the runtime truly needs more."
       ],
       "detail_url": "https://clawhub.ai/aisadocs/aisa-twitter-api-command-center",
       "local_path": "clawhub-release/aisa-twitter-api-command-center",
       "release_ref": "k97f2echfgvrzyzvxs5k0h7bm186bj3z",
-      "reason": "The skill does what it says, but it exposes the AIsa API key in normal command output, which can leak a sensitive credential into logs or agent transcripts."
+      "reason": "The skill is a disclosed Twitter/X relay, but it needs review because its posting/OAuth client prints the AIsa API key and can upload caller-selected local media files."
     },
     {
       "key": "skill:aisa-twitter-research-engage",
@@ -182,22 +186,26 @@
       "pending": false,
       "rule_ids": [
         "oauth_upload_side_effects",
+        "platform_trust_gap",
         "relay_trust_surface"
       ],
       "rule_summaries": [
         "OAuth, posting, or media-upload side effects are not explicit enough.",
+        "Trust and provenance surfaces are weaker than the package behavior requires.",
         "Relay/API trust surface is under-described for the shipped package."
       ],
       "recommended_actions": [
         "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
         "Avoid phrasing that makes posting look silent or automatic by default.",
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify.",
         "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
         "Keep the auth story API-key-only unless the runtime truly needs more."
       ],
       "detail_url": "https://clawhub.ai/bibaofeng/aisa-twitter-research-engage-relay-aisa-api",
       "local_path": "clawhub-release/aisa-twitter-research-engage-relay",
       "release_ref": "k977v9thzreannpde9dntq0nfd86b3zf",
-      "reason": "The skill mostly matches its Twitter/X relay purpose, but it needs review because it can print the AIsa API key and can perform live account actions immediately once invoked."
+      "reason": "The skill is mostly coherent for Twitter/X research, posting, and engagement, but it exposes the AIsa API key in command output and can upload arbitrary readable local media paths through a third-party relay."
     },
     {
       "key": "skill:openclaw-twitter",
@@ -479,23 +487,19 @@
       "suspicious": true,
       "pending": false,
       "rule_ids": [
-        "oauth_upload_side_effects",
-        "relay_trust_surface"
+        "platform_trust_gap"
       ],
       "rule_summaries": [
-        "OAuth, posting, or media-upload side effects are not explicit enough.",
-        "Relay/API trust surface is under-described for the shipped package."
+        "Trust and provenance surfaces are weaker than the package behavior requires."
       ],
       "recommended_actions": [
-        "Explain user approval, upload paths, and posting behavior in publish-facing docs.",
-        "Avoid phrasing that makes posting look silent or automatic by default.",
-        "State the network target and secret flow explicitly in SKILL.md, README, and manifests.",
-        "Keep the auth story API-key-only unless the runtime truly needs more."
+        "Keep source links, manifests, and README provenance aligned.",
+        "Make external writes, uploads, and remote execution boundaries easy to verify."
       ],
       "detail_url": "https://clawhub.ai/aisadocs/twitter-post-aisa-aisa-one",
       "local_path": "clawhub-release/twitter-post-aisa",
       "release_ref": "k97165v95gbqtvryc147r9pdex86a2wr",
-      "reason": "The skill’s Twitter/X relay purpose is mostly disclosed, but reported credential exposure in its posting and authorization scripts needs review before use."
+      "reason": "The skill mostly matches its Twitter/X engagement purpose, but it exposes the full AISA API key in normal command output, which users should review before installing."
     },
     {
       "key": "skill:web-search",

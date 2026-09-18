@@ -2,7 +2,7 @@
 
 This catalog lists the current cross-platform mother skills in `targetSkills/`.
 
-- Generated at: `2026-09-15`
+- Generated at: `2026-09-18`
 - Repository target: `https://github.com/baofeng-tech/agent-skills-io`
 - Branch target: `main`
 - Total skills: `60`
@@ -24,7 +24,7 @@ This catalog lists the current cross-platform mother skills in `targetSkills/`.
 - `aisa-twitter-api`
   - Category: `twitter`
   - Path: `aisa-twitter-api`
-  - Description: Twitter/X research, monitoring, watchlists, and OAuth-approved posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, timeline analysis, or approved posting without sharing passwords. Supports relay-based reads, watchlists, search, and OAuth-gated text or media posting.
+  - Description: Twitter/X research, monitoring, watchlists, and OAuth-approved posting through AIsa. Use when: the user needs one flagship Twitter skill for trend tracking, competitor monitoring, timeline analysis, or approved posting without sharing passwords. Supports relay-based reads, watchlists, search, and OAuth-gated text or media posting through https://api.aisa.one.
 - `aisa-twitter-command-center`
   - Category: `twitter`
   - Path: `aisa-twitter-command-center`

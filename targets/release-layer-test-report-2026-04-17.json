@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2099986413349703757\",\n      \"url\": \"https://x.com/AskYatharth/status/2099986413349703757\",\n      \"twitterUrl\": \"https://twitter.com/AskYatharth/status/2099986413349703757\",\n      \"text\": \"@RichardMCNgo re: jacob coxon, virtue ethics vs consequentialism, the one ring memeplex, inevitability of a race between china and us, fixation, anthropic",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2101065003583574051\",\n      \"url\": \"https://x.com/capcap_max/status/2101065003583574051\",\n      \"twitterUrl\": \"https://twitter.com/capcap_max/status/2101065003583574051\",\n      \"text\": \"@OpenAI and @AnthropicAI allowing third party companies (i.e instinct) to use existing monthly subscriptions customers have in their products would create a",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_MG6OPWeEVjFymDmEO4jR8w7N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-15T22:19:30Z\",\n    \"request_time_taken\": 3.48,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 3.53,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_MG6OPWeEVjFymDmEO4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsZmYYAqv0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-18T21:45:21Z\",\n    \"request_time_taken\": 1.05,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.1,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsZmYYAqv0",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"xK32iLdTKxbt-zRd6QAuaw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6 · GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"SlT__cbGX8tkTHPwXIhZhg\",\n  \"results\": [\n    {\n      \"title\": \"GPT-6 Astra: A new generation of intelligence\",\n      \"link\": \"https://openai.com/index/gpt-6-astra/\",\n      \"snippet\": \"Introducing GPT-6 Astra, our most intelligent and aligned model yet, with state-of-the-art capabilities across computer use, coding, cybersecurity, ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"220618.99923\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"409164.89404\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2099986463697875193\",\n      \"url\": \"https://x.com/ShawnFumo/status/2099986463697875193\",\n      \"twitterUrl\": \"https://twitter.com/ShawnFumo/status/2099986463697875193\",\n      \"text\": \"@OPPtimus_Pr1me @umarramzanmp @_NathanCalvin Ilya's maybe a weird example in both directions. He was forced out of OpenAI and started a rival lab, so not sure",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2101065069299720572\",\n      \"url\": \"https://x.com/IAMLULAWS/status/2101065069299720572\",\n      \"twitterUrl\": \"https://twitter.com/IAMLULAWS/status/2101065069299720572\",\n      \"text\": \"@nycexpatmom there's a few big legal things going around in the US that are at least tangential that.\\nCA has AB316, and SB243 and SB1119, KY is planning one ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_6dAL2p4KqYsamQmrOk7wnGOm\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-15T22:19:46Z\",\n    \"request_time_taken\": 1.59,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.64,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_6dAL2p4KqYsamQmrOk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_zV8qOXeM56cyrEENEepJnE5N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-18T21:45:35Z\",\n    \"request_time_taken\": 1.2,\n    \"parsing_time_taken\": 0.02,\n    \"total_time_taken\": 1.23,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_zV8qOXeM56cyrEENEep",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Cm_-J33NVgmPD5r3zrIt_g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6 · GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"aKGDY_Qi1EZUB0AeHoA9cg\",\n  \"results\": [\n    {\n      \"title\": \"GPT-6 Astra: A new generation of intelligence\",\n      \"link\": \"https://openai.com/index/gpt-6-astra/\",\n      \"snippet\": \"Introducing GPT-6 Astra, our most intelligent and aligned model yet, with state-of-the-art capabilities across computer use, coding, cybersecurity, ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"220618.99923\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"409164.89404\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2099986537098154314\",\n      \"url\": \"https://x.com/Schroey1128/status/2099986537098154314\",\n      \"twitterUrl\": \"https://twitter.com/Schroey1128/status/2099986537098154314\",\n      \"text\": \"@OpenAI @SenSanders @BarackObama \\n\\nHmm... 27 lawsuits involving OpenAI and suicide or suicide harm; whereby they argue the product didn't meet the thres",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2101065092519661924\",\n      \"url\": \"https://x.com/motatoeshq/status/2101065092519661924\",\n      \"twitterUrl\": \"https://twitter.com/motatoeshq/status/2101065092519661924\",\n      \"text\": \"BYOK improvements incoming to @opencomputerHQ serverless agents - conntect any openAI-compatible provider! https://t.co/tHetp76QuV\",\n      \"source\": \"Twitte",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lmagj14OoquQmKmy245E8MQp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-15T22:19:58Z\",\n    \"request_time_taken\": 1.5,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.57,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lmagj14OoquQmKmy245",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERuW6DD3EenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-18T21:45:47Z\",\n    \"request_time_taken\": 1.1,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 1.15,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERuW6DD3Een",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"9txFihIlo9GdjIiSjs3IXw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6 · GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy · Trust & ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"fw7qE962449kK9bdVfP5yQ\",\n  \"results\": [\n    {\n      \"title\": \"GPT-6 Astra: A new generation of intelligence\",\n      \"link\": \"https://openai.com/index/gpt-6-astra/\",\n      \"snippet\": \"Introducing GPT-6 Astra, our most intelligent and aligned model yet, with state-of-the-art capabilities across computer use, coding, cybersecurity, ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"220618.99923\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"409164.89404\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
