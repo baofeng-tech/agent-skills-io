@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2102165456844915071\",\n      \"url\": \"https://x.com/aris_intel/status/2102165456844915071\",\n      \"twitterUrl\": \"https://twitter.com/aris_intel/status/2102165456844915071\",\n      \"text\": \"Plugin4Shell defeated SHA-pinning for zero-click RCE in four coding agents this week. Separately, OpenAI found 2.15% of GPT-5.6's own compaction summaries c",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2102522767954661552\",\n      \"url\": \"https://x.com/Chaos2Cured/status/2102522767954661552\",\n      \"twitterUrl\": \"https://twitter.com/Chaos2Cured/status/2102522767954661552\",\n      \"text\": \"@MTSlive @ElliotGlazer Same dude saying how bad OpenAI released info uses his time to plug Astra and Reddit… \\n\\nSam Altman putting on a master class on b",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7tlJMna0k2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-21T22:38:17Z\",\n    \"request_time_taken\": 0.93,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 0.98,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7tlJMna0k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7tlnryoWk2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-22T22:18:11Z\",\n    \"request_time_taken\": 1.06,\n    \"parsing_time_taken\": 0.02,\n    \"total_time_taken\": 1.08,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7tlnryoWk",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"E_MDorzANXFdCMBL3l8agg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Advisory Group on Mathematics and Artificial Intelligence — cover. Advisory group on mathematics and artificial intelligence ; Expanding OpenAI Academy with new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"3r1LLTa9tuqRYazlO-RpGg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-6 · GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"583031.03494\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"495117.99493\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2102165548662485036\",\n      \"url\": \"https://x.com/soycronus/status/2102165548662485036\",\n      \"twitterUrl\": \"https://twitter.com/soycronus/status/2102165548662485036\",\n      \"text\": \"OpenAI shipped the Agents API so you get the Codex harness without rebuilding it.\\n\\nWhat I still wire myself regardless of whose API hosts it:\\n\\n1. Automati",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2102522871809499342\",\n      \"url\": \"https://x.com/0x_tommy9/status/2102522871809499342\",\n      \"twitterUrl\": \"https://twitter.com/0x_tommy9/status/2102522871809499342\",\n      \"text\": \"What the hell happened to Gemini? Less than a year ago OpenAI was in 'code red' because of them...\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JBAO2bkaoPuPK8XoP4n7XajE\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-21T22:38:29Z\",\n    \"request_time_taken\": 1.64,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.7,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JBAO2bkaoPuPK8XoP4n",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_XJELrMkzrOFl96Bymk2PNQw7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-22T22:18:27Z\",\n    \"request_time_taken\": 2.13,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 2.2,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_XJELrMkzrOFl96Bymk2",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"mv4KjXU6nikaDdiyPexepA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Advisory Group on Mathematics and Artificial Intelligence — cover. Advisory group on mathematics and artificial intelligence ; Expanding OpenAI Academy with new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"r1Lx7ieeAGxdrYHgC6p53g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-6 · GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"583031.03494\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"495117.99493\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2102165594053415180\",\n      \"url\": \"https://x.com/shinnokao_p/status/2102165594053415180\",\n      \"twitterUrl\": \"https://twitter.com/shinnokao_p/status/2102165594053415180\",\n      \"text\": \"自律AIが壊すSaaSのシート課金OpenAI自律基盤が迫るソフトウェア淘汰｜ギークおじ （街・趣味・ビジネス） @shinnokao_p https://t.co/ujYik8dixC\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\"",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2102522913492721995\",\n      \"url\": \"https://x.com/saotomeauto/status/2102522913492721995\",\n      \"twitterUrl\": \"https://twitter.com/saotomeauto/status/2102522913492721995\",\n      \"text\": \"AIの請求が高い理由が、今朝から画面で1行ずつ見えるようになりました。OpenAIの新しい画面です。見なくても請求は来ます。 https://t.co/k6A6GdOiU4\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n  ",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_DWmO1QkoEbul5YY3Q4J2r8Ga\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-21T22:38:42Z\",\n    \"request_time_taken\": 1.2,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.24,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_DWmO1QkoEbul5YY3Q4J",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_MG6OPWeEVjFy8A67y4jR8w7N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-22T22:18:51Z\",\n    \"request_time_taken\": 1.06,\n    \"parsing_time_taken\": 0.21,\n    \"total_time_taken\": 1.27,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_MG6OPWeEVjFy8A67y4",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"0bsMsjLMroXz9lkX5ddp7w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Advisory Group on Mathematics and Artificial Intelligence — cover. Advisory group on mathematics and artificial intelligence ; Expanding OpenAI Academy with new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"3CgE8KkChgChgNIYJlJfcQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-6 · GPT-5.6 · GPT-5.5 · GPT-5.4. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"583031.03494\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"495963.57216\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
