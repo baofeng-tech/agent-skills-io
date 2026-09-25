@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2102886485171044628\",\n      \"url\": \"https://x.com/jmatuk/status/2102886485171044628\",\n      \"twitterUrl\": \"https://twitter.com/jmatuk/status/2102886485171044628\",\n      \"text\": \"Sam Altman, CEO de @OpenAI se presento en la ONU y pidió tener cuidado con la IA, pero a diferencia de Trump, cree que se debe encontrar el punto medio en lo que re",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2103612740224884989\",\n      \"url\": \"https://x.com/darekgusto/status/2103612740224884989\",\n      \"twitterUrl\": \"https://twitter.com/darekgusto/status/2103612740224884989\",\n      \"text\": \"@anotherdaynow @OpenAI They better deliver OR ELSE. 🔥\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCou",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_DWmO1QkoEbuXA3oO74J2r8Ga\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-23T22:23:44Z\",\n    \"request_time_taken\": 0.88,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 0.92,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_DWmO1QkoEbuXA3oO74",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_MG6OPWeEVjF5WjgZb4jR8w7N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-25T22:29:03Z\",\n    \"request_time_taken\": 1.19,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 1.22,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_MG6OPWeEVjF5WjgZb4",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"pJ2yE21pa_XrlwJqXHTKmw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Two years of OpenAI Academy — card image. Two years of OpenAI Academy · Sep 23, 2026 ; Better prompt caching for GPT-6 — Card image. Better prompt caching ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"0RuMW8e-GB-Yoog9JuS14A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6 · GPT-5.6 ; Safety. Safety Approach · Deployment Safety (opens in a new window) ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"517564.08204\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"480092.98822\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2102886648556240963\",\n      \"url\": \"https://x.com/DrkcDc/status/2102886648556240963\",\n      \"twitterUrl\": \"https://twitter.com/DrkcDc/status/2102886648556240963\",\n      \"text\": \"@OpenAI I would love a family plan, it's way overdue!\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2103612792695837177\",\n      \"url\": \"https://x.com/ajlhp1/status/2103612792695837177\",\n      \"twitterUrl\": \"https://twitter.com/ajlhp1/status/2103612792695837177\",\n      \"text\": \"@mehdirhasan OpenAI (owner of ChatGPT), Anthropic (owner of Claude), Google, SpaceX, Palantir, etc. These Jew-led tech companies, listed on US stock exchange, are t",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_rpB8WlvR38S2AE7mMkXOyEn1\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-23T22:24:49Z\",\n    \"request_time_taken\": 0.95,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.0,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_rpB8WlvR38S2AE7mMkX",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_b65xNDvgndHlEWQy848d73q0\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-25T22:29:15Z\",\n    \"request_time_taken\": 0.9,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 0.96,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_b65xNDvgndHlEWQy848",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"1AmldCYpTsMwgbSxVoFGug\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Two years of OpenAI Academy — card image. Two years of OpenAI Academy · Sep 23, 2026 ; Better prompt caching for GPT-6 — Card image. Better prompt caching ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"kWYWItKWc5IA_ySvH3sgfQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6 · GPT-5.6 ; Safety. Safety Approach · Deployment Safety (opens in a new window) ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"518011.47841\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"480092.98822\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2102886918455546290\",\n      \"url\": \"https://x.com/una_s_ripurai/status/2102886918455546290\",\n      \"twitterUrl\": \"https://twitter.com/una_s_ripurai/status/2102886918455546290\",\n      \"text\": \"@25181oto OpenAIの商売ですね()\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quoteCou",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2103612810827534515\",\n      \"url\": \"https://x.com/RedPacketSec/status/2103612810827534515\",\n      \"twitterUrl\": \"https://twitter.com/RedPacketSec/status/2103612810827534515\",\n      \"text\": \"@OpenAI This is where we need encrypted  user sessions.\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"l",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERu70DE29enbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-23T22:25:47Z\",\n    \"request_time_taken\": 1.63,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.68,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERu70DE29e",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERu7PqMAzenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-25T22:29:25Z\",\n    \"request_time_taken\": 1.24,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.29,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERu7PqMAze",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"SkQnz4a8ZG1bLVv7qsmjUw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Two years of OpenAI Academy — card image. Two years of OpenAI Academy · Sep 23, 2026 ; Better prompt caching for GPT-6 — Card image. Better prompt caching ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"X09ZsFbFHey-JZ8SaZ2Diw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6 · GPT-5.6 ; Safety. Safety Approach · Deployment Safety (opens in a new window) ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"518011.47841\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"480092.98822\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
