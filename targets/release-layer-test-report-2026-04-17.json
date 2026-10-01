@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2105433740117999886\",\n      \"url\": \"https://x.com/welaunch_kr/status/2105433740117999886\",\n      \"twitterUrl\": \"https://twitter.com/welaunch_kr/status/2105433740117999886\",\n      \"text\": \"OpenAI DevDay 2026 : 24시간 스스로 알아서 일하는 '닷츠(dots)' AI 에이전트 공개\\n\\n사용자가 잠든 사이에도 스스로 판단하고 행동하는 ‘능동형’ 자율 에이전트 시대가 본격적으로 열렸다는 평가다.\\n\\nhttps://t.co/Vkf44Q0B2T\",\n ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2105798936288272566\",\n      \"url\": \"https://x.com/Iamjustrambling/status/2105798936288272566\",\n      \"twitterUrl\": \"https://twitter.com/Iamjustrambling/status/2105798936288272566\",\n      \"text\": \"@xhuozhong @DarioAmodei @sama @thsottiaux @claudeai @OpenAI Omg 😳 😂😂😂😂🫢\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"re",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsyyyxYAv0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-30T23:05:15Z\",\n    \"request_time_taken\": 1.06,\n    \"parsing_time_taken\": 0.02,\n    \"total_time_taken\": 1.09,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsyyyxYAv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1g3L6weL3bS6dEL6EkpaP2rB\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-01T23:16:26Z\",\n    \"request_time_taken\": 1.25,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.29,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1g3L6weL3bS6dEL6Ek",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"bX0FY8jC1lktyJYjgZkD_g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI News | OpenAI. Introducing GPT-6.1. Latest Advancements GPT-6.1 GPT-6 GPT-5.6 GPT-5.5 Safety Safety Approach Deployment\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"IbiWGnZJA1W-X-VXuUgYvQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"504822.89538\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"656618.2453\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2105433774578397675\",\n      \"url\": \"https://x.com/mindagames/status/2105433774578397675\",\n      \"twitterUrl\": \"https://twitter.com/mindagames/status/2105433774578397675\",\n      \"text\": \"I don't know what everyone is complaining about. Maybe they don't actually have @OpenAI subs, but I have been using GPT-6.1 Sol all day on Extra high /fast ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2105798998917607557\",\n      \"url\": \"https://x.com/nicolasmelo/status/2105798998917607557\",\n      \"twitterUrl\": \"https://twitter.com/nicolasmelo/status/2105798998917607557\",\n      \"text\": \"@gabrielbuzziv Assim é a entrevista de SWE na OpenAI (Antigo já, post de Fevereiro desse ano)\\n\\nDe fato. Nenhum LeetCode 🎉🥳\\n\\nMas não sei você, eu parti",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_M92XEY4l2JFLLLXDgkQG3b0J\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-30T23:05:25Z\",\n    \"request_time_taken\": 0.83,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 0.86,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_M92XEY4l2JFLLLXDgk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mR5DzpePyDIEzbPGy4YdGQno\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-01T23:16:36Z\",\n    \"request_time_taken\": 1.02,\n    \"parsing_time_taken\": 0.01,\n    \"total_time_taken\": 1.03,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mR5DzpePyDIEzbPGy4",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"4bhDA2WdQ8O2vWXh82K6vg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI News | OpenAI. Introducing GPT-6.1. Latest Advancements GPT-6.1 GPT-6 GPT-5.6 GPT-5.5 Safety Safety Approach Deployment\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"flXlEgfPGd08xH6amJS8fA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"504822.89538\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"656618.2453\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2105433853456536004\",\n      \"url\": \"https://x.com/TheZenoZhang/status/2105433853456536004\",\n      \"twitterUrl\": \"https://twitter.com/TheZenoZhang/status/2105433853456536004\",\n      \"text\": \"Voice calls to my dot in ChatGPT keep ringing, then fail on iOS. Mic access is enabled, and regular ChatGPT voice works. The issue persists after reconn",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2105799028440973729\",\n      \"url\": \"https://x.com/d7den/status/2105799028440973729\",\n      \"twitterUrl\": \"https://twitter.com/d7den/status/2105799028440973729\",\n      \"text\": \"@nathans_codes_2 @True_Undead it's the ai edgelord of openai council, are they not?\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1r3VbxvXpgt8885mLvB26gOP\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-09-30T23:05:30Z\",\n    \"request_time_taken\": 1.2,\n    \"parsing_time_taken\": 0.02,\n    \"total_time_taken\": 1.22,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1r3VbxvXpgt8885mLvB",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4moruQ8pMoXk03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-01T23:16:43Z\",\n    \"request_time_taken\": 1.22,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.26,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4moruQ8pMoXk",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"uNc-Xa7MQIgqvy0_621TWw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"OpenAI News | OpenAI. Introducing GPT-6.1. Latest Advancements GPT-6.1 GPT-6 GPT-5.6 GPT-5.5 Safety Safety Approach Deployment\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"bo9HZUtfKcRwHwUxfTHwag\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"504822.89538\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"656618.2453\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n   ",
       "stderr_preview": ""
     },
     {
