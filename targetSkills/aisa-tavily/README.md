@@ -51,6 +51,12 @@ node scripts/search.mjs "query" --deep
 node scripts/search.mjs "query" --topic news
 ```
 
+### News with recent-day filtering
+
+```bash
+node scripts/search.mjs "query" --topic news --days 7
+```
+
 ### Options
 
 - `-n <count>`: Number of results (default: 5, max: 20)
