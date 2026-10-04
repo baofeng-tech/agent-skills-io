@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2106507450669056391\",\n      \"url\": \"https://x.com/pixhell/status/2106507450669056391\",\n      \"twitterUrl\": \"https://twitter.com/pixhell/status/2106507450669056391\",\n      \"text\": \"@OrganicGPT @spydenator @OpenAI @AnthropicAI standard form: point at the keys, make random sounds, proceed to dance. classic pretraining loop. everything since ha",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2106872616808043004\",\n      \"url\": \"https://x.com/RHouseResearch/status/2106872616808043004\",\n      \"twitterUrl\": \"https://twitter.com/RHouseResearch/status/2106872616808043004\",\n      \"text\": \"@acemoney21 Of course, but his entire premise is that OpenAI is struggling (which obviously was the case earlier this year but certainly not now). \\",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lmagj14OoqujA0jqo45E8MQp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-03T22:12:03Z\",\n    \"request_time_taken\": 1.1,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.16,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lmagj14OoqujA0jqo45",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_o87gAV43YWhaLrbmWk1PwrlO\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-04T22:22:46Z\",\n    \"request_time_taken\": 0.85,\n    \"parsing_time_taken\": 0.02,\n    \"total_time_taken\": 0.87,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_o87gAV43YWhaLrbmWk",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"hq3BE1JGoOyZfWZ5qL0B4Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"10j1uAfJNqppaEwNz9hBXw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"487686.16452\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"561285.35396\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2106507450669056391\",\n      \"url\": \"https://x.com/pixhell/status/2106507450669056391\",\n      \"twitterUrl\": \"https://twitter.com/pixhell/status/2106507450669056391\",\n      \"text\": \"@OrganicGPT @spydenator @OpenAI @AnthropicAI standard form: point at the keys, make random sounds, proceed to dance. classic pretraining loop. everything since ha",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2106872685565562880\",\n      \"url\": \"https://x.com/sibjax/status/2106872685565562880\",\n      \"twitterUrl\": \"https://twitter.com/sibjax/status/2106872685565562880\",\n      \"text\": \"I called 2 businesses in the Bay Area today and they were both on OpenAI voice bots - working amazingly well\\n\\n1x restaurant for brunch\\n1x plumber\\n\\nTotally by c",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mOgBEZe50gHxlExr2kzwL3jW\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-03T22:12:12Z\",\n    \"request_time_taken\": 0.96,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 1.0,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mOgBEZe50gHxlExr2kz",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_XJELrMkzrOFrxNOO9k2PNQw7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-04T22:22:54Z\",\n    \"request_time_taken\": 0.9,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 0.94,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_XJELrMkzrOFrxNOO9k2",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"vMXpdGHN-n-D25dmrbUN6A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"XPWKPTpka00l5PUwuLS8RQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"487686.16452\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"561285.35396\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2106507450669056391\",\n      \"url\": \"https://x.com/pixhell/status/2106507450669056391\",\n      \"twitterUrl\": \"https://twitter.com/pixhell/status/2106507450669056391\",\n      \"text\": \"@OrganicGPT @spydenator @OpenAI @AnthropicAI standard form: point at the keys, make random sounds, proceed to dance. classic pretraining loop. everything since ha",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2106872685565562880\",\n      \"url\": \"https://x.com/sibjax/status/2106872685565562880\",\n      \"twitterUrl\": \"https://twitter.com/sibjax/status/2106872685565562880\",\n      \"text\": \"I called 2 businesses in the Bay Area today and they were both on OpenAI voice bots - working amazingly well\\n\\n1x restaurant for brunch\\n1x plumber\\n\\nTotally by c",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4moruQ15QEYk03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-03T22:12:18Z\",\n    \"request_time_taken\": 1.27,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 1.31,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4moruQ15QEYk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_K0EOpDkpY6hpxdlXPe3wzYN9\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-04T22:23:01Z\",\n    \"request_time_taken\": 1.48,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.55,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_K0EOpDkpY6hpxdlXPe",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"kgAkuByhaIPyfProaiRPuw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"3MwJTspMjjbfgEaxLILn-A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"487686.16452\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"559562.74796\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
