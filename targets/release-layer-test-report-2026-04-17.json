@@ -17,7 +17,7 @@
       "layer": "claude",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -28,14 +28,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2107608754392855018\",\n      \"url\": \"https://x.com/Flextor97/status/2107608754392855018\",\n      \"twitterUrl\": \"https://twitter.com/Flextor97/status/2107608754392855018\",\n      \"text\": \"OpenAI just put 722 math manuscripts from an unreleased model on GitHub. ~4,000 problems posed, ~3 hrs of ChatGPT Pro thinking per result.\\n\\n162 have a Lean ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2107978759601356851\",\n      \"url\": \"https://x.com/YU64702116/status/2107978759601356851\",\n      \"twitterUrl\": \"https://twitter.com/YU64702116/status/2107978759601356851\",\n      \"text\": \"openAIとanthropicの競り合いに割って入れるベンダーなんてあるわけ、、、、\\nちらっ(go\\n\\nただもはやモデルの性能改善に一般ユーザーは興味が持てなくなってきていて、コストダウンかブレイクスルーが常に期待されてる気がする。厳しい世の中。\",\n      \"source\": \"Twitter fo",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
@@ -44,14 +44,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1XbZBxkZENuaJ3wO5v8JaLNR\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-06T23:07:47Z\",\n    \"request_time_taken\": 1.57,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.62,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1XbZBxkZENuaJ3wO5v",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4moruQnXQ73k03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-07T23:38:10Z\",\n    \"request_time_taken\": 6.18,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 6.25,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4moruQnXQ73k",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -62,14 +62,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"6DmJYHE5zeAaLs-n-iMnAw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"_ZeJgYl1B7hysVxO5952cA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology. Oct 7, 2026 Sharing AI progress in mathematics. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -79,14 +79,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"560852.95102\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"650162.96214\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
       "layer": "claude",
       "path": "llm-router",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/llm_router_client.py",
         "models"
       ],
@@ -128,7 +128,7 @@
       "layer": "hermes",
       "path": "communication/aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/twitter_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -141,14 +141,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2107608786416640406\",\n      \"url\": \"https://x.com/ItsGoharr/status/2107608786416640406\",\n      \"twitterUrl\": \"https://twitter.com/ItsGoharr/status/2107608786416640406\",\n      \"text\": \"@AndrewCurran_ Read one OpenAI math proof before calling this hype\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n   ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2107978825623798221\",\n      \"url\": \"https://x.com/kindlenotoriko4/status/2107978825623798221\",\n      \"twitterUrl\": \"https://twitter.com/kindlenotoriko4/status/2107978825623798221\",\n      \"text\": \"@nirvash ワイも壊れました\\nGitHubでも何人か報告してる人いますが、どないしてくれるんでしょ…\\nhttps://t.co/ieclqUhZyR\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n ",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "research/aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/youtube_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -159,14 +159,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Z18NJlvnOYI82KnMQk3BOm7g\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-06T23:07:57Z\",\n    \"request_time_taken\": 1.12,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.15,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Z18NJlvnOYI82KnMQk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7tbWPbR9k2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-07T23:38:26Z\",\n    \"request_time_taken\": 1.66,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.75,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7tbWPbR9k",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "research/search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/search_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -179,14 +179,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"YdB6iF61eJA3Z5zlV3GwZg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"4porWIdNn5cUTT8WxwgJKQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology. Oct 7, 2026 Sharing AI progress in mathematics. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "finance/prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/prediction_market_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -198,14 +198,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"569290.96585\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"650162.96214\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
       "layer": "hermes",
       "path": "ai/llm-router",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/llm_router_client.py",
         "--api-key",
         "***REDACTED_AISA_API_KEY***",
@@ -235,7 +235,7 @@
       "layer": "clawhub",
       "path": "aisa-twitter-command-center",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/twitter_client.py",
         "search",
         "--query",
@@ -246,14 +246,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2107608786416640406\",\n      \"url\": \"https://x.com/ItsGoharr/status/2107608786416640406\",\n      \"twitterUrl\": \"https://twitter.com/ItsGoharr/status/2107608786416640406\",\n      \"text\": \"@AndrewCurran_ Read one OpenAI math proof before calling this hype\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n   ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2107978825623798221\",\n      \"url\": \"https://x.com/kindlenotoriko4/status/2107978825623798221\",\n      \"twitterUrl\": \"https://twitter.com/kindlenotoriko4/status/2107978825623798221\",\n      \"text\": \"@nirvash ワイも壊れました\\nGitHubでも何人か報告してる人いますが、どないしてくれるんでしょ…\\nhttps://t.co/ieclqUhZyR\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n ",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "aisa-youtube-serp-scout",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/youtube_client.py",
         "search",
         "--query",
@@ -262,14 +262,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_J70QVB41KphJor6XLkqLy9mx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-06T23:08:03Z\",\n    \"request_time_taken\": 1.2,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.26,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_J70QVB41KphJor6XLkq",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lpb2Z8vDqds3KyOWLkVgQzRy\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-07T23:38:38Z\",\n    \"request_time_taken\": 1.46,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.55,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lpb2Z8vDqds3KyOWLk",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "search",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/search_client.py",
         "web",
         "--query",
@@ -280,14 +280,14 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"8OA0HfP8SnKH0WsGNvf31g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"EMegwBTTdOcaNmO68tToTw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology. Oct 7, 2026 Sharing AI progress in mathematics. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
       "layer": "clawhub",
       "path": "prediction-market",
       "command": [
-        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3",
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python3",
         "scripts/prediction_market_client.py",
         "polymarket",
         "markets",
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"569290.96585\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"650162.96214\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
