@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2107978759601356851\",\n      \"url\": \"https://x.com/YU64702116/status/2107978759601356851\",\n      \"twitterUrl\": \"https://twitter.com/YU64702116/status/2107978759601356851\",\n      \"text\": \"openAIとanthropicの競り合いに割って入れるベンダーなんてあるわけ、、、、\\nちらっ(go\\n\\nただもはやモデルの性能改善に一般ユーザーは興味が持てなくなってきていて、コストダウンかブレイクスルーが常に期待されてる気がする。厳しい世の中。\",\n      \"source\": \"Twitter fo",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2108343664338424123\",\n      \"url\": \"https://x.com/Wolfgangchomper/status/2108343664338424123\",\n      \"twitterUrl\": \"https://twitter.com/Wolfgangchomper/status/2108343664338424123\",\n      \"text\": \"@CNN @KlasfeldReports Does OpenAI let us know when out government, the Israeli’s or the Saudis do the same?\",\n      \"source\": \"Twitter for iPhone\"",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4moruQnXQ73k03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-07T23:38:10Z\",\n    \"request_time_taken\": 6.18,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 6.25,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4moruQnXQ73k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERu7z8XMBenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-08T23:48:30Z\",\n    \"request_time_taken\": 2.26,\n    \"parsing_time_taken\": 0.41,\n    \"total_time_taken\": 2.67,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERu7z8XMBe",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"_ZeJgYl1B7hysVxO5952cA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology. Oct 7, 2026 Sharing AI progress in mathematics. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"KiaLz10V16hJP97XFu236w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"650162.96214\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"654474.18608\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2107978825623798221\",\n      \"url\": \"https://x.com/kindlenotoriko4/status/2107978825623798221\",\n      \"twitterUrl\": \"https://twitter.com/kindlenotoriko4/status/2107978825623798221\",\n      \"text\": \"@nirvash ワイも壊れました\\nGitHubでも何人か報告してる人いますが、どないしてくれるんでしょ…\\nhttps://t.co/ieclqUhZyR\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2108343817644749105\",\n      \"url\": \"https://x.com/DiQpjzns/status/2108343817644749105\",\n      \"twitterUrl\": \"https://twitter.com/DiQpjzns/status/2108343817644749105\",\n      \"text\": \"📊 市況と売買\\n10/8 NY: NASDAQ -1.25%。OpenAI売上が期待未達の報道でAI投資の持続性に疑問、半導体が売られる\\nNVDA $230.48 (-2.9%)：取得比-2.2%。撤退条件（MACD転換・$220割れ）は未発火→保有継続\\n東京10/8: 日経 -1.42%、1306 429.5円",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7tbWPbR9k2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-07T23:38:26Z\",\n    \"request_time_taken\": 1.66,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.75,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7tbWPbR9k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_M92XEY4l2JFLaVbjpkQG3b0J\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-08T23:48:41Z\",\n    \"request_time_taken\": 1.02,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.08,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_M92XEY4l2JFLaVbjpk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"4porWIdNn5cUTT8WxwgJKQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology. Oct 7, 2026 Sharing AI progress in mathematics. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"MJhou9OmDLDBvYcA74xuxQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"650162.96214\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"654474.18608\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2107978825623798221\",\n      \"url\": \"https://x.com/kindlenotoriko4/status/2107978825623798221\",\n      \"twitterUrl\": \"https://twitter.com/kindlenotoriko4/status/2107978825623798221\",\n      \"text\": \"@nirvash ワイも壊れました\\nGitHubでも何人か報告してる人いますが、どないしてくれるんでしょ…\\nhttps://t.co/ieclqUhZyR\",\n      \"source\": \"Twitter for iPhone\",\n      \"retweetCount\": 0,\n ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2108343865958867223\",\n      \"url\": \"https://x.com/lrnRlLf/status/2108343865958867223\",\n      \"twitterUrl\": \"https://twitter.com/lrnRlLf/status/2108343865958867223\",\n      \"text\": \"📝OpenAIの売上がが従来報じられた水準を約200億ドル下回る500億ドル。ただしGoogleやAmazon経由のパートナー販売額を含まないとのこと。\\nFTが 10月8日 12:42 PM EDTに報道、NDXは約-1%、SOXは-2%ほどの下落。\\n\\nhttps://t.co/tOvZf46IvZ https://",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lpb2Z8vDqds3KyOWLkVgQzRy\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-07T23:38:38Z\",\n    \"request_time_taken\": 1.46,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.55,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lpb2Z8vDqds3KyOWLk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_W75dANvqloT7gP66R4blrDJ3\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-08T23:48:47Z\",\n    \"request_time_taken\": 1.96,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 2.03,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_W75dANvqloT7gP66R4",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"EMegwBTTdOcaNmO68tToTw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology. Oct 7, 2026 Sharing AI progress in mathematics. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Shlsfv20hoRbYkG3RmY91w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"650162.96214\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"654474.18608\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
