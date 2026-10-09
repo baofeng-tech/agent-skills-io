@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2108343664338424123\",\n      \"url\": \"https://x.com/Wolfgangchomper/status/2108343664338424123\",\n      \"twitterUrl\": \"https://twitter.com/Wolfgangchomper/status/2108343664338424123\",\n      \"text\": \"@CNN @KlasfeldReports Does OpenAI let us know when out government, the Israeli’s or the Saudis do the same?\",\n      \"source\": \"Twitter for iPhone\"",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2108699038174597329\",\n      \"url\": \"https://x.com/paramiao/status/2108699038174597329\",\n      \"twitterUrl\": \"https://twitter.com/paramiao/status/2108699038174597329\",\n      \"text\": \"date: 2026-10-10 07:00:00+08:00\\ndraft: false\\noriginal_lang: zh\\nsummary: Today's core trend is the shift in enterprise agents from capability demonstrations\\n",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERu7z8XMBenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-08T23:48:30Z\",\n    \"request_time_taken\": 2.26,\n    \"parsing_time_taken\": 0.41,\n    \"total_time_taken\": 2.67,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERu7z8XMBe",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_o87gAV43YWhalbKKDk1PwrlO\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-09T23:20:13Z\",\n    \"request_time_taken\": 1.31,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.4,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_o87gAV43YWhalbKKDk1",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"KiaLz10V16hJP97XFu236w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Tq5NXT4RN_Tt5JUpT9Wxvg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"654474.18608\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"635849.51724\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2108343817644749105\",\n      \"url\": \"https://x.com/DiQpjzns/status/2108343817644749105\",\n      \"twitterUrl\": \"https://twitter.com/DiQpjzns/status/2108343817644749105\",\n      \"text\": \"📊 市況と売買\\n10/8 NY: NASDAQ -1.25%。OpenAI売上が期待未達の報道でAI投資の持続性に疑問、半導体が売られる\\nNVDA $230.48 (-2.9%)：取得比-2.2%。撤退条件（MACD転換・$220割れ）は未発火→保有継続\\n東京10/8: 日経 -1.42%、1306 429.5円",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2108699089076654547\",\n      \"url\": \"https://x.com/lacker/status/2108699089076654547\",\n      \"twitterUrl\": \"https://twitter.com/lacker/status/2108699089076654547\",\n      \"text\": \"The OpenAI math drop has led to a flurry of collaboration.\\n\\n\\\"Human experts have been key to seeding the insights for breakthroughs that push the models to out-of",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_M92XEY4l2JFLaVbjpkQG3b0J\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-08T23:48:41Z\",\n    \"request_time_taken\": 1.02,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.08,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_M92XEY4l2JFLaVbjpk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_pVr1MO4QrQF2wywxBvblzoE9\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-09T23:20:23Z\",\n    \"request_time_taken\": 1.42,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 1.46,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_pVr1MO4QrQF2wywxBv",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"MJhou9OmDLDBvYcA74xuxQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"_1mopfAlDqLbUF2NPFbfQg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"654474.18608\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"635849.51724\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2108343865958867223\",\n      \"url\": \"https://x.com/lrnRlLf/status/2108343865958867223\",\n      \"twitterUrl\": \"https://twitter.com/lrnRlLf/status/2108343865958867223\",\n      \"text\": \"📝OpenAIの売上がが従来報じられた水準を約200億ドル下回る500億ドル。ただしGoogleやAmazon経由のパートナー販売額を含まないとのこと。\\nFTが 10月8日 12:42 PM EDTに報道、NDXは約-1%、SOXは-2%ほどの下落。\\n\\nhttps://t.co/tOvZf46IvZ https://",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2108699089076654547\",\n      \"url\": \"https://x.com/lacker/status/2108699089076654547\",\n      \"twitterUrl\": \"https://twitter.com/lacker/status/2108699089076654547\",\n      \"text\": \"The OpenAI math drop has led to a flurry of collaboration.\\n\\n\\\"Human experts have been key to seeding the insights for breakthroughs that push the models to out-of",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_W75dANvqloT7gP66R4blrDJ3\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-08T23:48:47Z\",\n    \"request_time_taken\": 1.96,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 2.03,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_W75dANvqloT7gP66R4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_zV8qOXeM56cK323OpepJnE5N\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-09T23:20:30Z\",\n    \"request_time_taken\": 2.31,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 2.4,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_zV8qOXeM56cK323Opep",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Shlsfv20hoRbYkG3RmY91w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"UbeHl8ewN2tQHp6NhiheQw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"654474.18608\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"635849.51724\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
