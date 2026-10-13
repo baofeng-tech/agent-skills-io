@@ -2,7 +2,7 @@
   "summary": {
     "structure_error_count": 0,
     "smoke_failure_count": 0,
-    "smoke_transient_count": 0
+    "smoke_transient_count": 1
   },
   "structure": {
     "claude_errors": [],
@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2109418567359697038\",\n      \"url\": \"https://x.com/razaaitech/status/2109418567359697038\",\n      \"twitterUrl\": \"https://twitter.com/razaaitech/status/2109418567359697038\",\n      \"text\": \"@ArtificialStudi @OpenAI @OpenAIDevs Amazing comparison! The image quality and creativity are impressive .\",\n      \"source\": \"Twitter for iPhone\",\n      \"re",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2109817806154051885\",\n      \"url\": \"https://x.com/linkaixa/status/2109817806154051885\",\n      \"twitterUrl\": \"https://twitter.com/linkaixa/status/2109817806154051885\",\n      \"text\": \"@YunQi2025 I think a substantial portion of ChatGPT users are still there because OpenAI keeps renewing the promises they made all the way back when GPT5 launch",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mxzD17vdE2uLwOyzKklRw056\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-11T22:59:22Z\",\n    \"request_time_taken\": 1.17,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.25,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mxzD17vdE2uLwOyzKk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lmagj14Ooquj9E00l45E8MQp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-13T01:25:57Z\",\n    \"request_time_taken\": 1.12,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.18,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lmagj14Ooquj9E00l4",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Ti0DS_7rzhF5V7D4OUmpCw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"1uWhXZt8R2YG6H6lxx9Vkw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"609720.44721\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"622914.70696\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -138,11 +138,11 @@
         "--type",
         "Latest"
       ],
-      "code": 0,
-      "status": "passed",
-      "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2109418576302293159\",\n      \"url\": \"https://x.com/QstarSentinels/status/2109418576302293159\",\n      \"twitterUrl\": \"https://twitter.com/QstarSentinels/status/2109418576302293159\",\n      \"text\": \"Q*xQ💛 officially re branded @OpenAI to house of cards 🃏. How does that make you feel @sama @tszzl\",\n      \"source\": \"Twitter for iPhone\",\n      \"ret",
-      "stderr_preview": ""
+      "code": 1,
+      "status": "transient",
+      "application_error": true,
+      "stdout_preview": "",
+      "stderr_preview": "Traceback (most recent call last):\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/hermes-release/communication/aisa-twitter-command-center/scripts/twitter_client.py\", line 413, in <module>\n    main()\n  File \"/home/runner/work/agent-skills-io/agent-skills-io/hermes-release/communication/aisa-twitter-command-center/scripts/twitter_client.py\", line 369, in main\n    result = client.search(a"
     },
     {
       "layer": "hermes",
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsyV1D2Lv0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-11T22:59:32Z\",\n    \"request_time_taken\": 0.78,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 0.81,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsyV1D2Lv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1XbZBxkZENuamy6lyv8JaLNR\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-13T01:27:05Z\",\n    \"request_time_taken\": 0.89,\n    \"parsing_time_taken\": 0.02,\n    \"total_time_taken\": 0.91,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1XbZBxkZENuamy6lyv",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"tTOrcjJ2w-zUolHLDE4Dfg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Rra3DTngJjdnTUk5EGpfoA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"610206.90386\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"622914.70696\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2109418576302293159\",\n      \"url\": \"https://x.com/QstarSentinels/status/2109418576302293159\",\n      \"twitterUrl\": \"https://twitter.com/QstarSentinels/status/2109418576302293159\",\n      \"text\": \"Q*xQ💛 officially re branded @OpenAI to house of cards 🃏. How does that make you feel @sama @tszzl\",\n      \"source\": \"Twitter for iPhone\",\n      \"ret",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2109818067274629230\",\n      \"url\": \"https://x.com/aisafetyaction/status/2109818067274629230\",\n      \"twitterUrl\": \"https://twitter.com/aisafetyaction/status/2109818067274629230\",\n      \"text\": \"@gmiller @AnthropicAI @OpenAI We are also confused and will host a call soon for frontier staff (former and current) to connect with each other and ",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_8A9g6Ov07XH0m2QlV4JlbW2m\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-11T22:59:40Z\",\n    \"request_time_taken\": 1.5,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.56,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_8A9g6Ov07XH0m2QlV4J",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERu7JpQPQenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-13T01:27:49Z\",\n    \"request_time_taken\": 1.73,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.78,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERu7JpQPQe",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"i71wqdjI7G_0Bk_G3P__Gg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"dRZx0DRcEig21rPu7ID64w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Economic Research. Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"610206.90386\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"622914.70696\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
