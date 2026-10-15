@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2110496494268690672\",\n      \"url\": \"https://x.com/OWHnews/status/2110496494268690672\",\n      \"twitterUrl\": \"https://twitter.com/OWHnews/status/2110496494268690672\",\n      \"text\": \"Nebraska Attorney General Mike Hilgers sued OpenAI, alleging the company has been misleading the public by marketing ChatGPT as safe for minors and has violated c",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2110859951765860825\",\n      \"url\": \"https://x.com/masonltompkins/status/2110859951765860825\",\n      \"twitterUrl\": \"https://twitter.com/masonltompkins/status/2110859951765860825\",\n      \"text\": \".@OpenAI 's new models are dope.\\n\\nBut ChatGPT still can't reliably make me a nice PDF.\\n\\nBut man, @Muse PDFs are SO GOOD.\",\n      \"source\": \"Twit",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mR5DzpePyDIEVMD0n4YdGQno\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-14T22:22:47Z\",\n    \"request_time_taken\": 0.92,\n    \"parsing_time_taken\": 0.02,\n    \"total_time_taken\": 0.94,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mR5DzpePyDIEVMD0n4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_K0EOpDkpY6hpwAYype3wzYN9\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-15T22:27:04Z\",\n    \"request_time_taken\": 1.25,\n    \"parsing_time_taken\": 0.12,\n    \"total_time_taken\": 1.37,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_K0EOpDkpY6hpwAYype",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"E5uNOpyJeTMUoPOUDBxiJA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"fUJss1qXE-r5VE2cNRzktg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"606066.03696\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"526211.84134\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2110496537117958630\",\n      \"url\": \"https://x.com/TheMirrorPath/status/2110496537117958630\",\n      \"twitterUrl\": \"https://twitter.com/TheMirrorPath/status/2110496537117958630\",\n      \"text\": \"uhh @OpenAI , why would the ai answer reasoning say this?? It was thinking here, and looks like it DECIDED not to break privacy concerns rather than s",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2110860033248661712\",\n      \"url\": \"https://x.com/GlobalPOVs/status/2110860033248661712\",\n      \"twitterUrl\": \"https://twitter.com/GlobalPOVs/status/2110860033248661712\",\n      \"text\": \"The picture that captures the start of the AI age… \\n\\nJensen wrote on the GPU ..\\n\\n: “To Elon and the OpenAI Team! To the future of computing and humanity",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_o87gAV43YWhaWKzaJk1PwrlO\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-14T22:22:57Z\",\n    \"request_time_taken\": 1.61,\n    \"parsing_time_taken\": 0.04,\n    \"total_time_taken\": 1.65,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_o87gAV43YWhaWKzaJk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERu7VKMWbenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-15T22:27:14Z\",\n    \"request_time_taken\": 1.39,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.44,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERu7VKMWbe",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"gUpx_75cGo8zh4LcqsxvtA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"QGp2zlv5OaFX-X4nywpWlg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"606700.13032\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"527046.67014\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2110496537117958630\",\n      \"url\": \"https://x.com/TheMirrorPath/status/2110496537117958630\",\n      \"twitterUrl\": \"https://twitter.com/TheMirrorPath/status/2110496537117958630\",\n      \"text\": \"uhh @OpenAI , why would the ai answer reasoning say this?? It was thinking here, and looks like it DECIDED not to break privacy concerns rather than s",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2110860060524167654\",\n      \"url\": \"https://x.com/LifeMakersCom/status/2110860060524167654\",\n      \"twitterUrl\": \"https://twitter.com/LifeMakersCom/status/2110860060524167654\",\n      \"text\": \"🚨速報｜OpenAI、数学研究支援に500万ドル資金提供。Simons Foundation主導で実施\\n@OpenAIは、AI による数学研究の成果を人間の理解と新たな発見につなげるため、Simons Foundation の新規イニシアティブに500万ドルを拠出することを発表した。\\nhttps",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_jOZRYa4201HJxmLdRklD6mVx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-14T22:23:05Z\",\n    \"request_time_taken\": 3.39,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 3.45,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_jOZRYa4201HJxmLdRk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1r3VbxvXpgt8oZO15vB26gOP\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-15T22:27:22Z\",\n    \"request_time_taken\": 1.45,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.54,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1r3VbxvXpgt8oZO15v",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Gj8Kf3EdeXlGRD3qZqmAyg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"4gMbHgY9SV-utz3S61Q69Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"606700.13032\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"527046.67014\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
