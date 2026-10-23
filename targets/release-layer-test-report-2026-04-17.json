@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2113396717869773247\",\n      \"url\": \"https://x.com/spuicey/status/2113396717869773247\",\n      \"twitterUrl\": \"https://twitter.com/spuicey/status/2113396717869773247\",\n      \"text\": \"@ThiagoUnreal Yes, with your own Anthropic API key (Claude Opus 5.5 by default). Claude subscriptions can't be used though, Anthropic doesn't let other apps sign ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2113757269246759229\",\n      \"url\": \"https://x.com/TaketsuCorp/status/2113757269246759229\",\n      \"twitterUrl\": \"https://twitter.com/TaketsuCorp/status/2113757269246759229\",\n      \"text\": \"Hay un pozo de premio para este evento de 25k dolares, donde deben usar la plataforma de OpenAI Codex para crear utiles y creativas experiencias para los ",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsWy98MBv0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-22T22:27:11Z\",\n    \"request_time_taken\": 1.39,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 1.48,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsWy98MBv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_o87gAV43YWh89NoJBk1PwrlO\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-23T22:19:53Z\",\n    \"request_time_taken\": 1.83,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.89,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_o87gAV43YWh89NoJBk",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"NDOEXEDYLfyXW0wZbeYv0A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"vTOsPr7sQpLY4huTj9HSOA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"453201.02857\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"458266.05394\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2113396743891235308\",\n      \"url\": \"https://x.com/jilyannori/status/2113396743891235308\",\n      \"twitterUrl\": \"https://twitter.com/jilyannori/status/2113396743891235308\",\n      \"text\": \"@OpenAI Three weeks on-site feels like the ultimate tech reality show. Wonder what the coffee break chats were like! ☕\",\n      \"source\": \"\",\n      \"retweetC",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2113757305476989034\",\n      \"url\": \"https://x.com/WarGuy_/status/2113757305476989034\",\n      \"twitterUrl\": \"https://twitter.com/WarGuy_/status/2113757305476989034\",\n      \"text\": \"OpenAI is seeking about $30 billion at a $1.25 trillion valuation, Bloomberg reports.\\n\\nBloomberg News reporter Rebecca Torrence reported the fundraising effort.",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_WDz0ZKeWNOcWlMJDPkQyABpo\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-22T22:27:20Z\",\n    \"request_time_taken\": 1.45,\n    \"parsing_time_taken\": 0.11,\n    \"total_time_taken\": 1.56,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_WDz0ZKeWNOcWlMJDPk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_WDz0ZKeWNOcW1QwnwkQyABpo\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-23T22:20:11Z\",\n    \"request_time_taken\": 4.4,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 4.43,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_WDz0ZKeWNOcW1QwnwkQ",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"YmRZ2GW04UQjDKC7fxP9-Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"oyJgzHzxRud46TRicbc-kA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"453201.02857\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"458266.05394\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2113396743891235308\",\n      \"url\": \"https://x.com/jilyannori/status/2113396743891235308\",\n      \"twitterUrl\": \"https://twitter.com/jilyannori/status/2113396743891235308\",\n      \"text\": \"@OpenAI Three weeks on-site feels like the ultimate tech reality show. Wonder what the coffee break chats were like! ☕\",\n      \"source\": \"\",\n      \"retweetC",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2113757389799248189\",\n      \"url\": \"https://x.com/axonreview/status/2113757389799248189\",\n      \"twitterUrl\": \"https://twitter.com/axonreview/status/2113757389799248189\",\n      \"text\": \"OpenAI has resumed training its frontier AI models in an offline environment, using indexed and cached web content after prior incidents involving unauthori",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1XbZBxkZENu6ap8P3v8JaLNR\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-22T22:27:27Z\",\n    \"request_time_taken\": 1.47,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.52,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1XbZBxkZENu6ap8P3v",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_BZAYNyvAW2ipDaLMGeo93VJQ\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-23T22:20:21Z\",\n    \"request_time_taken\": 1.46,\n    \"parsing_time_taken\": 0.34,\n    \"total_time_taken\": 1.81,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_BZAYNyvAW2ipDaLMGe",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"PO4_p_YvTUMxS0jNarR8kA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"8ool_TkWdxzY9TGN5Beasw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"453201.02857\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"458266.05394\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
