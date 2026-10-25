@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2114109732122222725\",\n      \"url\": \"https://x.com/Heisenmink/status/2114109732122222725\",\n      \"twitterUrl\": \"https://twitter.com/Heisenmink/status/2114109732122222725\",\n      \"text\": \"@log4j @OpenAI @claudeai \\\"safety concerns\\\" LMAO don't you dare to utter such words ever again.\",\n      \"source\": \"\",\n      \"retweetCount\": 0,\n      \"reply",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2114475664606896321\",\n      \"url\": \"https://x.com/rodolfobernal/status/2114475664606896321\",\n      \"twitterUrl\": \"https://twitter.com/rodolfobernal/status/2114475664606896321\",\n      \"text\": \"OpenAI just locked frontier models offline after one escaped to the live web.\\nMoonshot’s Kimi K3.1 Pro is nearly matching Claude Opus, with open weig",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_XJELrMkzrOFKRYaZgk2PNQw7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-24T21:41:02Z\",\n    \"request_time_taken\": 1.2,\n    \"parsing_time_taken\": 0.18,\n    \"total_time_taken\": 1.38,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_XJELrMkzrOFKRYaZgk2",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_rpB8WlvR38SrNV3PNkXOyEn1\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-25T21:54:26Z\",\n    \"request_time_taken\": 1.84,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.89,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_rpB8WlvR38SrNV3PNk",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"nz6fy6CDUFKAbiMJny40MQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Fpju17lupGSU1Zfr1isN-g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"333279.11496\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"295210.28377\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2114109732122222725\",\n      \"url\": \"https://x.com/Heisenmink/status/2114109732122222725\",\n      \"twitterUrl\": \"https://twitter.com/Heisenmink/status/2114109732122222725\",\n      \"text\": \"@log4j @OpenAI @claudeai \\\"safety concerns\\\" LMAO don't you dare to utter such words ever again.\",\n      \"source\": \"\",\n      \"retweetCount\": 0,\n      \"reply",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2114475664606896321\",\n      \"url\": \"https://x.com/rodolfobernal/status/2114475664606896321\",\n      \"twitterUrl\": \"https://twitter.com/rodolfobernal/status/2114475664606896321\",\n      \"text\": \"OpenAI just locked frontier models offline after one escaped to the live web.\\nMoonshot’s Kimi K3.1 Pro is nearly matching Claude Opus, with open weig",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_DWmO1QkoEbuzjxZ1b4J2r8Ga\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-24T21:41:11Z\",\n    \"request_time_taken\": 1.78,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.83,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_DWmO1QkoEbuzjxZ1b4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lmagj14Ooqu65RPNR45E8MQp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-25T21:54:36Z\",\n    \"request_time_taken\": 1.72,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.79,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lmagj14Ooqu65RPNR4",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Ig1AZI8lhRejOoiB64WS0Q\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"olDZTIzyvwUtg38iPNskWA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"333279.11496\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"295210.28377\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2114109732122222725\",\n      \"url\": \"https://x.com/Heisenmink/status/2114109732122222725\",\n      \"twitterUrl\": \"https://twitter.com/Heisenmink/status/2114109732122222725\",\n      \"text\": \"@log4j @OpenAI @claudeai \\\"safety concerns\\\" LMAO don't you dare to utter such words ever again.\",\n      \"source\": \"\",\n      \"retweetCount\": 0,\n      \"reply",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2114475728406298861\",\n      \"url\": \"https://x.com/AIEngineRoom/status/2114475728406298861\",\n      \"twitterUrl\": \"https://twitter.com/AIEngineRoom/status/2114475728406298861\",\n      \"text\": \"Sources:\\n1. https://t.co/Q0nMxi3Bt0\\n2. https://t.co/gJxdCdtIA2\\n3. https://t.co/BF3BKTWqnj\\n4. https://t.co/ft6zdmi9wE\\n5. https://t.co/HWMEx2XsjQ\\n6.",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_XJELrMkzrOFKRYaGbk2PNQw7\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-24T21:41:19Z\",\n    \"request_time_taken\": 1.11,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.16,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_XJELrMkzrOFKRYaGbk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsWDbprlv0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-25T21:54:44Z\",\n    \"request_time_taken\": 1.66,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.71,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsWDbprlv",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"TZwDkwqiPX0weznNx3OSuw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"UHeSr-viV_4SpHxMhmrK3w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"333279.11496\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"295210.28377\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
