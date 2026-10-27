@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2114475664606896321\",\n      \"url\": \"https://x.com/rodolfobernal/status/2114475664606896321\",\n      \"twitterUrl\": \"https://twitter.com/rodolfobernal/status/2114475664606896321\",\n      \"text\": \"OpenAI just locked frontier models offline after one escaped to the live web.\\nMoonshot’s Kimi K3.1 Pro is nearly matching Claude Opus, with open weig",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2115217132342366631\",\n      \"url\": \"https://x.com/gavinz0228/status/2115217132342366631\",\n      \"twitterUrl\": \"https://twitter.com/gavinz0228/status/2115217132342366631\",\n      \"text\": \"🤖 OpenAI just dropped GPT-6.1 \\\"Terra\\\" — its most computer-savvy model yet. Rolling out now to Plus, Pro, Enterprise &amp; Edu in ChatGPT Work and Codex. T",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_rpB8WlvR38SrNV3PNkXOyEn1\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-25T21:54:26Z\",\n    \"request_time_taken\": 1.84,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.89,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_rpB8WlvR38SrNV3PNk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_16dWXw4JOrIM1x9wZvqoKNGl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-27T23:01:00Z\",\n    \"request_time_taken\": 1.3,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.33,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_16dWXw4JOrIM1x9wZvq",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"Fpju17lupGSU1Zfr1isN-g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"SYCff6Sv0i364ltSR-fWzQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"295210.28377\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"287693.16884\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2114475664606896321\",\n      \"url\": \"https://x.com/rodolfobernal/status/2114475664606896321\",\n      \"twitterUrl\": \"https://twitter.com/rodolfobernal/status/2114475664606896321\",\n      \"text\": \"OpenAI just locked frontier models offline after one escaped to the live web.\\nMoonshot’s Kimi K3.1 Pro is nearly matching Claude Opus, with open weig",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2115217132342366631\",\n      \"url\": \"https://x.com/gavinz0228/status/2115217132342366631\",\n      \"twitterUrl\": \"https://twitter.com/gavinz0228/status/2115217132342366631\",\n      \"text\": \"🤖 OpenAI just dropped GPT-6.1 \\\"Terra\\\" — its most computer-savvy model yet. Rolling out now to Plus, Pro, Enterprise &amp; Edu in ChatGPT Work and Codex. T",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lmagj14Ooqu65RPNR45E8MQp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-25T21:54:36Z\",\n    \"request_time_taken\": 1.72,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.79,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lmagj14Ooqu65RPNR4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_WDz0ZKeWNOcWArQ0XkQyABpo\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-27T23:01:10Z\",\n    \"request_time_taken\": 1.37,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.42,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_WDz0ZKeWNOcWArQ0Xk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"olDZTIzyvwUtg38iPNskWA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"psPHmQ4CX-p4xB8nIQ5G_w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"295210.28377\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"287693.16884\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2114475728406298861\",\n      \"url\": \"https://x.com/AIEngineRoom/status/2114475728406298861\",\n      \"twitterUrl\": \"https://twitter.com/AIEngineRoom/status/2114475728406298861\",\n      \"text\": \"Sources:\\n1. https://t.co/Q0nMxi3Bt0\\n2. https://t.co/gJxdCdtIA2\\n3. https://t.co/BF3BKTWqnj\\n4. https://t.co/ft6zdmi9wE\\n5. https://t.co/HWMEx2XsjQ\\n6.",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2115217231747629339\",\n      \"url\": \"https://x.com/ppmmzzcn/status/2115217231747629339\",\n      \"twitterUrl\": \"https://twitter.com/ppmmzzcn/status/2115217231747629339\",\n      \"text\": \"🤖【AIBase】OpenAI官宣数学与物理学三大突破：AI攻克百年猜想，携手全球学者开启科学验证新模式在调和分析领域，模型成功给出了各维度下局部光滑（local smoothing）猜想的证明，从而在所有维度上直接解决了数学界的 Kakeya 猜想与 Stein 限制猜想。该项复杂的工作由 David Gross 领",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsWDbprlv0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-25T21:54:44Z\",\n    \"request_time_taken\": 1.66,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.71,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsWDbprlv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_p1LMWreyyWI8nA2LGeZYDKaP\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-27T23:01:18Z\",\n    \"request_time_taken\": 2.31,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 2.34,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_p1LMWreyyWI8nA2LGe",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"UHeSr-viV_4SpHxMhmrK3w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"AXYJJ1jj-Q6sUwstZgAJBA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"295210.28377\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"287693.16884\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
