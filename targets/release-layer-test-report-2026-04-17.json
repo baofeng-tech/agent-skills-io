@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2115584316696920508\",\n      \"url\": \"https://x.com/ledgeai/status/2115584316696920508\",\n      \"twitterUrl\": \"https://twitter.com/ledgeai/status/2115584316696920508\",\n      \"text\": \"OpenAI、「GPT-6.1 Terra」を発表　API料金をGPT-6.1 Solの半額に、視覚的推論とコンピューター操作を強化 https://t.co/T8HNSnCzXN\",\n      \"source\": \"\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2115947443993059818\",\n      \"url\": \"https://x.com/JamesDa55049936/status/2115947443993059818\",\n      \"twitterUrl\": \"https://twitter.com/JamesDa55049936/status/2115947443993059818\",\n      \"text\": \"算力池子扩了，额度也超级加倍了。\\n现在棋盘上唯一的拼图，就差一个能正面硬刚 Opus 5.5 级别的王炸模型了。\\n\\n​按这个步步为营的节奏……\\nDay 25 翻倍额度，突然让我对 Tibo 的 Day 28 开始产生极其危险的期待了。👀💥\\n​奥特曼，你把终极武器藏在最后三天了是吧？",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_6dAL2p4KqYsGzJo86k7wnGOm\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-28T23:19:53Z\",\n    \"request_time_taken\": 1.47,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.55,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_6dAL2p4KqYsGzJo86k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lmagj14Ooqu6MZ0q845E8MQp\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-29T23:22:55Z\",\n    \"request_time_taken\": 1.72,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.75,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lmagj14Ooqu6MZ0q84",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"IUovMNuYgFyxLeuThrC-8A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"FPoWF9lwBrDPYHe6wGTLbA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"272038.95337\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"284787.12778\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2115584395621069039\",\n      \"url\": \"https://x.com/PulsoIA_ES/status/2115584395621069039\",\n      \"twitterUrl\": \"https://twitter.com/PulsoIA_ES/status/2115584395621069039\",\n      \"text\": \"Tu suscripción de ChatGPT ahora también te da crédito para usar la API de OpenAI.\\n\\nLos planes Pro incluyen 100, 200 o 500 dólares al mes según el nivel, y",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2115947443993059818\",\n      \"url\": \"https://x.com/JamesDa55049936/status/2115947443993059818\",\n      \"twitterUrl\": \"https://twitter.com/JamesDa55049936/status/2115947443993059818\",\n      \"text\": \"算力池子扩了，额度也超级加倍了。\\n现在棋盘上唯一的拼图，就差一个能正面硬刚 Opus 5.5 级别的王炸模型了。\\n\\n​按这个步步为营的节奏……\\nDay 25 翻倍额度，突然让我对 Tibo 的 Day 28 开始产生极其危险的期待了。👀💥\\n​奥特曼，你把终极武器藏在最后三天了是吧？",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_KMjqpW46ERu1pXmDgenbZ3LV\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-28T23:20:15Z\",\n    \"request_time_taken\": 2.31,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 2.37,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_KMjqpW46ERu1pXmDge",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lpb2Z8vDqdsO7dWn3kVgQzRy\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-29T23:23:06Z\",\n    \"request_time_taken\": 1.62,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.68,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lpb2Z8vDqdsO7dWn3k",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"tnWl5KFwCBS0RxOlhXliBw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"VzYsZZ3N78nm7nbTNUkL5A\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"272038.95337\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"284787.12778\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2115584395621069039\",\n      \"url\": \"https://x.com/PulsoIA_ES/status/2115584395621069039\",\n      \"twitterUrl\": \"https://twitter.com/PulsoIA_ES/status/2115584395621069039\",\n      \"text\": \"Tu suscripción de ChatGPT ahora también te da crédito para usar la API de OpenAI.\\n\\nLos planes Pro incluyen 100, 200 o 500 dólares al mes según el nivel, y",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2115947548045422927\",\n      \"url\": \"https://x.com/2020_hira/status/2115947548045422927\",\n      \"twitterUrl\": \"https://twitter.com/2020_hira/status/2115947548045422927\",\n      \"text\": \"読ませてもらった。\\n\\nOpenAI DevDayとか行きたかったなぁ。\\n\\n@plugin-creator エージェントがMCPサーバー経由で閲覧・更新できる共有TODOリストを作成し、Sitesにデプロイして、Codexプラグインとしてパッケージ化してください。\\n\\nの部分は、これは使えそうって思った！\"",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mMjwVJvBznT1o9BoPvynp5OY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-28T23:20:24Z\",\n    \"request_time_taken\": 1.52,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.58,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mMjwVJvBznT1o9BoPv",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqT3DGRQqeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-10-29T23:23:15Z\",\n    \"request_time_taken\": 2.97,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 3.0,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqT3DGRQqeY",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"sGWit0KVavmXsaCZCFrzzQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"s-DKrXlODKHV7_R1YVgfjw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra ; Safety. Safety Approach · Deployment Safety (opens in a new ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"272038.95337\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"284787.12778\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
