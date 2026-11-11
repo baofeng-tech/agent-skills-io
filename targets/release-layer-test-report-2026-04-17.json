@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2119977221444014416\",\n      \"url\": \"https://x.com/MichaelLee009/status/2119977221444014416\",\n      \"twitterUrl\": \"https://twitter.com/MichaelLee009/status/2119977221444014416\",\n      \"text\": \"@PaoPaolord OpenAI总干这样的事情，所以对齐对他们来说非常重要。\",\n      \"source\": \"\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quoteCount",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2120307149272400038\",\n      \"url\": \"https://x.com/Gegam245074/status/2120307149272400038\",\n      \"twitterUrl\": \"https://twitter.com/Gegam245074/status/2120307149272400038\",\n      \"text\": \"@PussyBlaster10k Why are you being so rude? Where did I say Terra is a bad model? It's a good one, but only for specific tasks, and even OpenAI has offici",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4moru8MQK3Bk03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-10T02:15:43Z\",\n    \"request_time_taken\": 1.44,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.51,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4moru8MQK3Bk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsdNZ99wv0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-11T00:06:42Z\",\n    \"request_time_taken\": 2.03,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 2.12,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsdNZ99wv",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"IPM5VJIxp63A-jPMyeouQw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 GPT-5.5\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Kj_Mbk5rJsFu50aH49KpwA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"246286.09579\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"282877.07711\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2119977272425984502\",\n      \"url\": \"https://x.com/OwMyAgung/status/2119977272425984502\",\n      \"twitterUrl\": \"https://twitter.com/OwMyAgung/status/2119977272425984502\",\n      \"text\": \"@GergelyOrosz just like other models; their development speed is nowhere close to the big 4 (openai, anthropic, spacexai, deepseek)\",\n      \"source\": \"\",\n    ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2120307222865436903\",\n      \"url\": \"https://x.com/LeMastellini/status/2120307222865436903\",\n      \"twitterUrl\": \"https://twitter.com/LeMastellini/status/2120307222865436903\",\n      \"text\": \"Fontes:\\n\\nPaper e post da OpenAI, \\\"Why language models hallucinate\\\": https://t.co/cU90coQuUg\\n\\nGuia da Anthropic pra reduzir alucinação: https://t.c",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_WDz0ZKeWNOc1xl3R0kQyABpo\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-10T02:15:54Z\",\n    \"request_time_taken\": 1.0,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.03,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_WDz0ZKeWNOc1xl3R0kQ",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1g3L6weL3bSdbDXVnkpaP2rB\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-11T00:07:12Z\",\n    \"request_time_taken\": 1.65,\n    \"parsing_time_taken\": 0.14,\n    \"total_time_taken\": 1.79,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1g3L6weL3bSdbDXVnk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"bHYInTxALKzqSpllxXkaNQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 GPT-5.5\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"deKC8UYbFRU_wQiZtS8Tsw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"246286.09579\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"282877.07711\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2119977294299025787\",\n      \"url\": \"https://x.com/kiranadimatyam/status/2119977294299025787\",\n      \"twitterUrl\": \"https://twitter.com/kiranadimatyam/status/2119977294299025787\",\n      \"text\": \"OpenAI says GPT-6 Cyber stayed away from out-of-scope services in 99.93% of runs without its deployment prompt, and 100% with it.\\n\\nRun it 10,000 t",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2120307322601824376\",\n      \"url\": \"https://x.com/techbooky/status/2120307322601824376\",\n      \"twitterUrl\": \"https://twitter.com/techbooky/status/2120307322601824376\",\n      \"text\": \"OpenAI Lets Businesses Claim Profiles and Launch Agents in ChatGPT\\n\\nOpenAI is giving businesses a more direct way to manage how they appear inside ChatGPT.\\",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7tXpbJEbk2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-10T02:16:03Z\",\n    \"request_time_taken\": 1.88,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.93,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7tXpbJEbk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_jOZRYa4201H01ZDbVklD6mVx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-11T00:07:24Z\",\n    \"request_time_taken\": 1.58,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.61,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_jOZRYa4201H01ZDbVk",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"nHQoMDtcAqXpi4Tdn1hXmw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 GPT-5.5\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"u1J1-4p8Bzeq3Fg8P3tJkw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"246286.09579\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"282877.07711\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
