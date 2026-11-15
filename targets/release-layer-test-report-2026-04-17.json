@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2121740288247078982\",\n      \"url\": \"https://x.com/okapi_fukugyo/status/2121740288247078982\",\n      \"twitterUrl\": \"https://twitter.com/okapi_fukugyo/status/2121740288247078982\",\n      \"text\": \"11月のAIニュースまとめ（11/1〜15時点）\\n\\n1日：MMI $1.25億調達（AIロボット手術）\\n2日：DeepSeek Creator Mode（Harness、自然言語プラグイン作成）\\n2日：OpenAI Pando公開（社内Gitバックエンド、push遅延80%削減）\\n2日：A",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2122108779634561434\",\n      \"url\": \"https://x.com/yasinaktimur/status/2122108779634561434\",\n      \"twitterUrl\": \"https://twitter.com/yasinaktimur/status/2122108779634561434\",\n      \"text\": \"Bir kullanıcı btc fiyatının büyük ipo lardan önce düştüğünü tespit etmiş\\n\\nDaha önce spaceX de olan şey.\\nŞimdi Antropic de de olmuş.\\n\\nKısaca openai ",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mMjwVJvBznTD7PrQovynp5OY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-14T23:03:21Z\",\n    \"request_time_taken\": 1.37,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.43,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mMjwVJvBznTD7PrQov",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_8A9g6Ov07XHD38KWd4JlbW2m\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-15T23:25:56Z\",\n    \"request_time_taken\": 2.25,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 2.3,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_8A9g6Ov07XHD38KWd4J",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"l6EvrGcVYKM4PK7naO_1xg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"Gb6xfa6YLPRfGUQci3889g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"350312.21664\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"331541.36127\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2121740819342504418\",\n      \"url\": \"https://x.com/JamesDa55049936/status/2121740819342504418\",\n      \"twitterUrl\": \"https://twitter.com/JamesDa55049936/status/2121740819342504418\",\n      \"text\": \"下周 AI 圈可能要迎来一个真正的历史转折点，而且这次恐怕不只是模型排行榜换个第一。💀\\n\\nClaude Fable 5.2 已经在 Epoch 的 SimpleQA Verified 测试中甩开了一众对手。 现在所有人的目光，都开始转向 OpenAI 即将到来的 GPT-6.2 Astr",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2122108878976630850\",\n      \"url\": \"https://x.com/AirCodeLab/status/2122108878976630850\",\n      \"twitterUrl\": \"https://twitter.com/AirCodeLab/status/2122108878976630850\",\n      \"text\": \"@thesimaximalist @elonmusk @OpenAI @PlayStation @XBOX @NintendoAmerica @Steam @EpicGames @RockstarGames @Activision @Blizzard_Ent @nvidia @AMD @Microsoft @G",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_b65xNDvgndHQpoOnp48d73q0\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-14T23:03:33Z\",\n    \"request_time_taken\": 1.43,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.51,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_b65xNDvgndHQpoOnp4",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_pVr1MO4QrQFdWD0oRvblzoE9\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-15T23:26:10Z\",\n    \"request_time_taken\": 2.23,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 2.28,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_pVr1MO4QrQFdWD0oRv",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"aAGuSxyiFpn_GiO44uR-Lw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"fZOOVsIZcdTBnpKzuhIUqA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"350312.21664\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"331541.36127\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2121740819342504418\",\n      \"url\": \"https://x.com/JamesDa55049936/status/2121740819342504418\",\n      \"twitterUrl\": \"https://twitter.com/JamesDa55049936/status/2121740819342504418\",\n      \"text\": \"下周 AI 圈可能要迎来一个真正的历史转折点，而且这次恐怕不只是模型排行榜换个第一。💀\\n\\nClaude Fable 5.2 已经在 Epoch 的 SimpleQA Verified 测试中甩开了一众对手。 现在所有人的目光，都开始转向 OpenAI 即将到来的 GPT-6.2 Astr",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2122108878976630850\",\n      \"url\": \"https://x.com/AirCodeLab/status/2122108878976630850\",\n      \"twitterUrl\": \"https://twitter.com/AirCodeLab/status/2122108878976630850\",\n      \"text\": \"@thesimaximalist @elonmusk @OpenAI @PlayStation @XBOX @NintendoAmerica @Steam @EpicGames @RockstarGames @Activision @Blizzard_Ent @nvidia @AMD @Microsoft @G",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mxzD17vdE2uMygmoBklRw056\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-14T23:03:41Z\",\n    \"request_time_taken\": 2.62,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 2.67,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mxzD17vdE2uMygmoBk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsd0AN13v0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-15T23:26:20Z\",\n    \"request_time_taken\": 3.65,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 3.71,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsd0AN13v",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"HwC1-UWrk1Ibyk0gj5pvag\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"ix84gsnnOM2BcLqeKtCsIQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"All ; Research. Research Index · Research Overview · Economic Research ; Latest Advancements. GPT-6.1 Sol · GPT-6 Astra · GPT-5.6 · GPT-5.5 ; Safety. Safety ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"350312.21664\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"331541.36127\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {

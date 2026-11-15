@@ -4,10 +4,10 @@ Research Twitter/X profiles, tweets, and trends, then complete approved engageme
 
 ## What it does
 
-- Search Twitter/X profiles, tweets, trends, lists, communities, and Spaces
-- Publish through OAuth after explicit approval
-- Like, unlike, follow, and unfollow through bundled Python clients
-- Keep research and engagement follow-through in one package without asking for passwords
+- Search Twitter/X profiles, tweets, trends, lists, communities, and Spaces.
+- Publish through OAuth after explicit approval.
+- Like, unlike, follow, and unfollow through bundled Python clients.
+- Keep research and engagement follow-through in one package without asking for passwords.
 
 ## Best fit
 
