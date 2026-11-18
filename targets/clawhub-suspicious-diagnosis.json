@@ -631,7 +631,7 @@
       "virus_total": null,
       "clawscan_verdict": "clean",
       "openclaw_verdict": "clean",
-      "static_analysis_status": "clean",
+      "static_analysis_status": null,
       "static_analysis_summary": null,
       "suspicious": false,
       "pending": true,
