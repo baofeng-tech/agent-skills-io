@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [],\n  \"has_next_page\": false,\n  \"next_cursor\": null\n}\n",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2123224136998945164\",\n      \"url\": \"https://x.com/0xbawan/status/2123224136998945164\",\n      \"twitterUrl\": \"https://twitter.com/0xbawan/status/2123224136998945164\",\n      \"text\": \"卧槽，谷歌这次是真把掀桌子玩明白了！\\n\\n刚刚出炉的 Gemini 4 Neon 跑分数据简直离谱到家：\\n\\n🔥 19 项核心测试狂揽 15 项第一，几乎全方位碾压 Claude Opus 5.5 和 GPT 6.2 Sol！\\n🔥 AA 智能指数直接飙到 61 分，编程、深度推理、长上下文全线霸榜！\\n🔥 就连地狱级",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7tXrn7Jpk2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-18T01:42:02Z\",\n    \"request_time_taken\": 2.12,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 2.19,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7tXrn7Jpk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_DWmO1QkoEbu7m32Mr4J2r8Ga\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-19T01:17:58Z\",\n    \"request_time_taken\": 3.45,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 3.5,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_DWmO1QkoEbu7m32Mr4J",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"3ogb3j1H9l2HKUvLQgPoFQ\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Announcing our first phase of embedded assessments. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 GPT-6.2 Safety\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"4xrk2Gea_JyuG34jglvGDA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.2 · GPT-6.1 Sol · GPT-6 Astra · GPT-5.6. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"342226.80169\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"336005.64387\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2122867979633529084\",\n      \"url\": \"https://x.com/Aging_Scientist/status/2122867979633529084\",\n      \"twitterUrl\": \"https://twitter.com/Aging_Scientist/status/2122867979633529084\",\n      \"text\": \"@TokenGremlin You write like an AI troll bot.\\n\\\"Hiding known obstacles from the user: 11% to 22%. Not admitting its search tool was broken: 7.6% ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2123224247988539456\",\n      \"url\": \"https://x.com/SuperElian0/status/2123224247988539456\",\n      \"twitterUrl\": \"https://twitter.com/SuperElian0/status/2123224247988539456\",\n      \"text\": \"@MichaelLee009 @AnthropicAI @OpenAI @grok 冲起来！！AI泡沫还没破！\",\n      \"source\": \"\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 1,\n      ",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_Lpb2Z8vDqdsD2MDqpkVgQzRy\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-18T01:42:39Z\",\n    \"request_time_taken\": 2.67,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 2.72,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_Lpb2Z8vDqdsD2MDqpk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_BZAYNyvAW2iDGXzPMeo93VJQ\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-19T01:18:09Z\",\n    \"request_time_taken\": 5.95,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 6.0,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_BZAYNyvAW2iDGXzPMeo",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"BnE9bK6tzB-EXLwHAlBKAg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Announcing our first phase of embedded assessments. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 GPT-6.2 Safety\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"3zS7JfCUb0SPQb2L_90Wwg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.2 · GPT-6.1 Sol · GPT-6 Astra · GPT-5.6. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"342226.80169\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"336005.64387\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2122868079684460810\",\n      \"url\": \"https://x.com/BasicProtein26/status/2122868079684460810\",\n      \"twitterUrl\": \"https://twitter.com/BasicProtein26/status/2122868079684460810\",\n      \"text\": \"Theo calls GPT-6.2 Astra the worst model OpenAI has ever shipped. He tested it early, wrote OpenAI a letter about it, and they fixed a few of his co",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2123224247988539456\",\n      \"url\": \"https://x.com/SuperElian0/status/2123224247988539456\",\n      \"twitterUrl\": \"https://twitter.com/SuperElian0/status/2123224247988539456\",\n      \"text\": \"@MichaelLee009 @AnthropicAI @OpenAI @grok 冲起来！！AI泡沫还没破！\",\n      \"source\": \"\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 1,\n      ",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_BZAYNyvAW2iDjWKZjeo93VJQ\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-18T01:43:02Z\",\n    \"request_time_taken\": 1.53,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.62,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_BZAYNyvAW2iDjWKZje",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mMjwVJvBznTDG50lbvynp5OY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-19T01:18:21Z\",\n    \"request_time_taken\": 1.86,\n    \"parsing_time_taken\": 0.06,\n    \"total_time_taken\": 1.92,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mMjwVJvBznTDG50lbv",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"MhcYdAc052IoxbGpqxisig\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Announcing our first phase of embedded assessments. Latest Advancements GPT-6.1 Sol GPT-6 Astra GPT-5.6 GPT-6.2 Safety\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"LoT_i-f6zG1ATtVUpRtGIA\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Latest Advancements. GPT-6.2 · GPT-6.1 Sol · GPT-6 Astra · GPT-5.6. Safety. Safety Approach · Deployment Safety (opens in a new window) · Security & Privacy ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"342226.80169\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"336005.64387\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
