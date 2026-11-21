@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2123942474754203669\",\n      \"url\": \"https://x.com/DailyAITechNews/status/2123942474754203669\",\n      \"twitterUrl\": \"https://twitter.com/DailyAITechNews/status/2123942474754203669\",\n      \"text\": \"The helpers that write software are now rewriting the circuits those computers run on. Some of that is already headed for a factory.\\n\\nOpenAI sai",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2124289527787442684\",\n      \"url\": \"https://x.com/su42ds/status/2124289527787442684\",\n      \"twitterUrl\": \"https://twitter.com/su42ds/status/2124289527787442684\",\n      \"text\": \"おはよう、日曜のAIニュースまとめ\\n🔥リーマン予想の証明、Lean検証で認定\\n🔥NVIDIA、SEC調査報道で1日14%急落\\n💬OpenAI、敵対的蒸留への防御公開、54%→0.2%\\n💬Signal、OS内蔵AIから会話を守るスクショ制限\\n💬Inkling 2 Mini公開、32GB Macで動作\\n今日もAI界隈は",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_1g3L6weL3bSd593j7kpaP2rB\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-21T00:52:12Z\",\n    \"request_time_taken\": 1.01,\n    \"parsing_time_taken\": 0.17,\n    \"total_time_taken\": 1.19,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_1g3L6weL3bSd593j7k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mxzD17vdE2uMp0ZXBklRw056\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-21T23:51:25Z\",\n    \"request_time_taken\": 1.79,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.89,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mxzD17vdE2uMp0ZXBkl",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"qm-RVOdRA6NvKC9ZnQyiew\",\n  \"results\": [\n    {\n      \"title\": \"Top 5 Tech News This Week: OpenAI Cancels GPT-6.1, Google AI Chips in ...\",\n      \"link\": \"https://www.youtube.com/watch?v=_pckP_ruHP4\",\n      \"snippet\": \"OpenAI Cancels GPT-6.1. InsideAI AI agent builds itself a robot body, does exactly what experts warned. OpenAI Just Made a Discovery Nobody\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"jcc2NeOAAttdpNTfxuK-Lw\",\n  \"results\": [\n    {\n      \"title\": \"BRIEF-OpenAI Is Open To Slowing Cutting-Edge AI, CEO Sam Altman ...\",\n      \"link\": \"https://thedailyguardian.com/world/brief-openai-is-open-to-slowing-cutting-edge-ai-ceo-sam-altman-tells-staff-bloomberg-news-756051/\",\n      \"snippet\": \"Updated: September 11, 2026. OPENAI IS OPEN TO SLOWING CUTTING-EDGE AI, CEO SAM ALTMAN TE",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"296416.91622\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"293259.66308\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2123942524842824166\",\n      \"url\": \"https://x.com/AragonDev/status/2123942524842824166\",\n      \"twitterUrl\": \"https://twitter.com/AragonDev/status/2123942524842824166\",\n      \"text\": \"@blueemi99 openai solved token effeciency by making the models lazy as fuck\",\n      \"source\": \"\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeC",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2124289527787442684\",\n      \"url\": \"https://x.com/su42ds/status/2124289527787442684\",\n      \"twitterUrl\": \"https://twitter.com/su42ds/status/2124289527787442684\",\n      \"text\": \"おはよう、日曜のAIニュースまとめ\\n🔥リーマン予想の証明、Lean検証で認定\\n🔥NVIDIA、SEC調査報道で1日14%急落\\n💬OpenAI、敵対的蒸留への防御公開、54%→0.2%\\n💬Signal、OS内蔵AIから会話を守るスクショ制限\\n💬Inkling 2 Mini公開、32GB Macで動作\\n今日もAI界隈は",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_z9qLVyexP1TWAxDb5eMEoPrY\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-21T00:52:27Z\",\n    \"request_time_taken\": 0.8,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 0.83,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_z9qLVyexP1TWAxDb5eM",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsdB0zQ5v0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-21T23:51:34Z\",\n    \"request_time_taken\": 0.87,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 0.96,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsdB0zQ5v",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"PTs2uF3MmVD3XizXusTFwA\",\n  \"results\": [\n    {\n      \"title\": \"Top 5 Tech News This Week: OpenAI Cancels GPT-6.1, Google AI Chips in ...\",\n      \"link\": \"https://www.youtube.com/watch?v=_pckP_ruHP4\",\n      \"snippet\": \"OpenAI Cancels GPT-6.1. InsideAI AI agent builds itself a robot body, does exactly what experts warned. OpenAI Just Made a Discovery Nobody\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"uNhg6VpUjAdcdgRjxYLDUw\",\n  \"results\": [\n    {\n      \"title\": \"BRIEF-OpenAI Is Open To Slowing Cutting-Edge AI, CEO Sam Altman ...\",\n      \"link\": \"https://thedailyguardian.com/world/brief-openai-is-open-to-slowing-cutting-edge-ai-ceo-sam-altman-tells-staff-bloomberg-news-756051/\",\n      \"snippet\": \"Updated: September 11, 2026. OPENAI IS OPEN TO SLOWING CUTTING-EDGE AI, CEO SAM ALTMAN TE",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"296416.91622\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"293259.66308\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2123942581444968834\",\n      \"url\": \"https://x.com/yangtingxiao/status/2123942581444968834\",\n      \"twitterUrl\": \"https://twitter.com/yangtingxiao/status/2123942581444968834\",\n      \"text\": \"OpenAI 又给 Plus 用户发福利了？\\n\\n还有各种性能提升和优化\\n\\n比起28天的不疼不痒的重置\\n\\n你更期待他能给我们带来什么新功能？\\n\\n#OpenAI #ChatGPT #Codex #Tibo\",\n      \"source\": \"\",\n      \"retweetCount\":",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2124289527787442684\",\n      \"url\": \"https://x.com/su42ds/status/2124289527787442684\",\n      \"twitterUrl\": \"https://twitter.com/su42ds/status/2124289527787442684\",\n      \"text\": \"おはよう、日曜のAIニュースまとめ\\n🔥リーマン予想の証明、Lean検証で認定\\n🔥NVIDIA、SEC調査報道で1日14%急落\\n💬OpenAI、敵対的蒸留への防御公開、54%→0.2%\\n💬Signal、OS内蔵AIから会話を守るスクショ制限\\n💬Inkling 2 Mini公開、32GB Macで動作\\n今日もAI界隈は",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_G6ZMRV4jp7tXAzRa5k2X071E\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-21T00:52:34Z\",\n    \"request_time_taken\": 1.45,\n    \"parsing_time_taken\": 0.16,\n    \"total_time_taken\": 1.61,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_G6ZMRV4jp7tXAzRa5k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4moru8LaWwgk03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-21T23:51:40Z\",\n    \"request_time_taken\": 1.08,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.11,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4moru8LaWwgk",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"q49ffNCZgmt3JQdtjQPiHg\",\n  \"results\": [\n    {\n      \"title\": \"Top 5 Tech News This Week: OpenAI Cancels GPT-6.1, Google AI Chips in ...\",\n      \"link\": \"https://www.youtube.com/watch?v=_pckP_ruHP4\",\n      \"snippet\": \"OpenAI Cancels GPT-6.1. InsideAI AI agent builds itself a robot body, does exactly what experts warned. OpenAI Just Made a Discovery Nobody\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"pavUwh2dGd8OG4gKCPnvGg\",\n  \"results\": [\n    {\n      \"title\": \"BRIEF-OpenAI Is Open To Slowing Cutting-Edge AI, CEO Sam Altman ...\",\n      \"link\": \"https://thedailyguardian.com/world/brief-openai-is-open-to-slowing-cutting-edge-ai-ceo-sam-altman-tells-staff-bloomberg-news-756051/\",\n      \"snippet\": \"Updated: September 11, 2026. OPENAI IS OPEN TO SLOWING CUTTING-EDGE AI, CEO SAM ALTMAN TE",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"296416.91622\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"293259.66308\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
