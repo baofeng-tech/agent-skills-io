@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2124289527787442684\",\n      \"url\": \"https://x.com/su42ds/status/2124289527787442684\",\n      \"twitterUrl\": \"https://twitter.com/su42ds/status/2124289527787442684\",\n      \"text\": \"おはよう、日曜のAIニュースまとめ\\n🔥リーマン予想の証明、Lean検証で認定\\n🔥NVIDIA、SEC調査報道で1日14%急落\\n💬OpenAI、敵対的蒸留への防御公開、54%→0.2%\\n💬Signal、OS内蔵AIから会話を守るスクショ制限\\n💬Inkling 2 Mini公開、32GB Macで動作\\n今日もAI界隈は",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2124659690395373642\",\n      \"url\": \"https://x.com/dailyoozoo602/status/2124659690395373642\",\n      \"twitterUrl\": \"https://twitter.com/dailyoozoo602/status/2124659690395373642\",\n      \"text\": \"这周 AI 圈疯了，从周二到周日连炸六天：\\n\\n阿里、OpenAI、谷歌三天旗舰撞车；Anthropic 刚上市，转头用 Claude 证出黎曼猜想，股价竟然反跌！周末还爆出 AI Agent 泄露密钥，数据全在裸奔……\\n\\n魔幻一周全复盘 👇 哪条最让你头皮发麻？ https://t.co/V",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mxzD17vdE2uMp0ZXBklRw056\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-21T23:51:25Z\",\n    \"request_time_taken\": 1.79,\n    \"parsing_time_taken\": 0.1,\n    \"total_time_taken\": 1.89,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mxzD17vdE2uMp0ZXBkl",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mxzD17vdE2uMBMGw7klRw056\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-23T00:22:14Z\",\n    \"request_time_taken\": 1.7,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 1.74,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mxzD17vdE2uMBMGw7kl",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"jcc2NeOAAttdpNTfxuK-Lw\",\n  \"results\": [\n    {\n      \"title\": \"BRIEF-OpenAI Is Open To Slowing Cutting-Edge AI, CEO Sam Altman ...\",\n      \"link\": \"https://thedailyguardian.com/world/brief-openai-is-open-to-slowing-cutting-edge-ai-ceo-sam-altman-tells-staff-bloomberg-news-756051/\",\n      \"snippet\": \"Updated: September 11, 2026. OPENAI IS OPEN TO SLOWING CUTTING-EDGE AI, CEO SAM ALTMAN TE",
+      "stdout_preview": "{\n  \"id\": \"EzlU8hLYHqtCv4OCk5MWGw\",\n  \"results\": [\n    {\n      \"title\": \"16 Top AI News Stories: OpenAI Controversy, QuitGPT Campaign ...\",\n      \"link\": \"https://www.youtube.com/watch?v=rlbL7zg62_4\",\n      \"snippet\": \"An event on AI tools, Excel automation, and more. OpenAI in Crisis … 17 Top AI News Stories: The AI Industry in Turmoil! NVIDIA Crisis, ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"293259.66308\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"272734.11511\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2124289527787442684\",\n      \"url\": \"https://x.com/su42ds/status/2124289527787442684\",\n      \"twitterUrl\": \"https://twitter.com/su42ds/status/2124289527787442684\",\n      \"text\": \"おはよう、日曜のAIニュースまとめ\\n🔥リーマン予想の証明、Lean検証で認定\\n🔥NVIDIA、SEC調査報道で1日14%急落\\n💬OpenAI、敵対的蒸留への防御公開、54%→0.2%\\n💬Signal、OS内蔵AIから会話を守るスクショ制限\\n💬Inkling 2 Mini公開、32GB Macで動作\\n今日もAI界隈は",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2124659690395373642\",\n      \"url\": \"https://x.com/dailyoozoo602/status/2124659690395373642\",\n      \"twitterUrl\": \"https://twitter.com/dailyoozoo602/status/2124659690395373642\",\n      \"text\": \"这周 AI 圈疯了，从周二到周日连炸六天：\\n\\n阿里、OpenAI、谷歌三天旗舰撞车；Anthropic 刚上市，转头用 Claude 证出黎曼猜想，股价竟然反跌！周末还爆出 AI Agent 泄露密钥，数据全在裸奔……\\n\\n魔幻一周全复盘 👇 哪条最让你头皮发麻？ https://t.co/V",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsdB0zQ5v0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-21T23:51:34Z\",\n    \"request_time_taken\": 0.87,\n    \"parsing_time_taken\": 0.09,\n    \"total_time_taken\": 0.96,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsdB0zQ5v",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_pVr1MO4QrQFdPdoNLvblzoE9\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-23T00:22:24Z\",\n    \"request_time_taken\": 2.32,\n    \"parsing_time_taken\": 0.05,\n    \"total_time_taken\": 2.37,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_pVr1MO4QrQFdPdoNLv",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"uNhg6VpUjAdcdgRjxYLDUw\",\n  \"results\": [\n    {\n      \"title\": \"BRIEF-OpenAI Is Open To Slowing Cutting-Edge AI, CEO Sam Altman ...\",\n      \"link\": \"https://thedailyguardian.com/world/brief-openai-is-open-to-slowing-cutting-edge-ai-ceo-sam-altman-tells-staff-bloomberg-news-756051/\",\n      \"snippet\": \"Updated: September 11, 2026. OPENAI IS OPEN TO SLOWING CUTTING-EDGE AI, CEO SAM ALTMAN TE",
+      "stdout_preview": "{\n  \"id\": \"IXI5zg7GZjJ6qav8CDWqtw\",\n  \"results\": [\n    {\n      \"title\": \"16 Top AI News Stories: OpenAI Controversy, QuitGPT Campaign ...\",\n      \"link\": \"https://www.youtube.com/watch?v=rlbL7zg62_4\",\n      \"snippet\": \"An event on AI tools, Excel automation, and more. OpenAI in Crisis … 17 Top AI News Stories: The AI Industry in Turmoil! NVIDIA Crisis, ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"293259.66308\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"272734.11511\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2124289527787442684\",\n      \"url\": \"https://x.com/su42ds/status/2124289527787442684\",\n      \"twitterUrl\": \"https://twitter.com/su42ds/status/2124289527787442684\",\n      \"text\": \"おはよう、日曜のAIニュースまとめ\\n🔥リーマン予想の証明、Lean検証で認定\\n🔥NVIDIA、SEC調査報道で1日14%急落\\n💬OpenAI、敵対的蒸留への防御公開、54%→0.2%\\n💬Signal、OS内蔵AIから会話を守るスクショ制限\\n💬Inkling 2 Mini公開、32GB Macで動作\\n今日もAI界隈は",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2124659787291898210\",\n      \"url\": \"https://x.com/dbcourier/status/2124659787291898210\",\n      \"twitterUrl\": \"https://twitter.com/dbcourier/status/2124659787291898210\",\n      \"text\": \"Seeking funding in 2017 for their AI “Manhattan Project”, one of the founders of OpenAI suggested inciting a bidding war among world powers with the goal of s",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_d97LXP4moru8LaWwgk03EOrl\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-21T23:51:40Z\",\n    \"request_time_taken\": 1.08,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.11,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_d97LXP4moru8LaWwgk",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_BZAYNyvAW2iDnDbd5eo93VJQ\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-23T00:22:32Z\",\n    \"request_time_taken\": 1.26,\n    \"parsing_time_taken\": 0.02,\n    \"total_time_taken\": 1.28,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_BZAYNyvAW2iDnDbd5e",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"pavUwh2dGd8OG4gKCPnvGg\",\n  \"results\": [\n    {\n      \"title\": \"BRIEF-OpenAI Is Open To Slowing Cutting-Edge AI, CEO Sam Altman ...\",\n      \"link\": \"https://thedailyguardian.com/world/brief-openai-is-open-to-slowing-cutting-edge-ai-ceo-sam-altman-tells-staff-bloomberg-news-756051/\",\n      \"snippet\": \"Updated: September 11, 2026. OPENAI IS OPEN TO SLOWING CUTTING-EDGE AI, CEO SAM ALTMAN TE",
+      "stdout_preview": "{\n  \"id\": \"cQJL85yPBeLyfff91NhJrA\",\n  \"results\": [\n    {\n      \"title\": \"16 Top AI News Stories: OpenAI Controversy, QuitGPT Campaign ...\",\n      \"link\": \"https://www.youtube.com/watch?v=rlbL7zg62_4\",\n      \"snippet\": \"An event on AI tools, Excel automation, and more. OpenAI in Crisis … 17 Top AI News Stories: The AI Industry in Turmoil! NVIDIA Crisis, ...\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"293259.66308\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"272734.11511\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
