@@ -70,7 +70,7 @@ node scripts/search.mjs "query" --topic news --days 7
 node scripts/extract.mjs "https://example.com/article"
 ```
 
-## Auth, relay, upload, and side effects
+## Auth, relay, upload, OAuth, and side effects
 
 - Uses `AISA_API_KEY` for authenticated requests
 - Sends requests through AIsa's remote relay at `https://aisa.one` / `https://api.aisa.one`

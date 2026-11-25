@@ -95,7 +95,7 @@ Requirements:
 - `AISA_API_KEY`
 - Internet access with outbound requests to `https://aisa.one` and `https://api.aisa.one`
 
-Auth, relay, upload, and side-effect notes:
+Auth, relay, upload, OAuth, and side-effect notes:
 - This skill requires `AISA_API_KEY` from https://marketplace.aisa.one
 - Requests are sent through AIsa's remote relay at `https://aisa.one` and `https://api.aisa.one`
 - Search queries and public target URLs are sent to the remote AIsa relay so it can return search results or extracted page content
