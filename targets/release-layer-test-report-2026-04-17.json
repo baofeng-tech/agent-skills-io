@@ -28,7 +28,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2125425442739884371\",\n      \"url\": \"https://x.com/opanteraos/status/2125425442739884371\",\n      \"twitterUrl\": \"https://twitter.com/opanteraos/status/2125425442739884371\",\n      \"text\": \"7/ E na tarefa de prever a estrutura completa de uma proteína, o modelo segue bem atrás dos especializados.\\n\\nSó que o relatório é da própria OpenAI sobre ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2125775804995154235\",\n      \"url\": \"https://x.com/JayInTechInfo/status/2125775804995154235\",\n      \"twitterUrl\": \"https://twitter.com/JayInTechInfo/status/2125775804995154235\",\n      \"text\": \"@nmyx888 Tharia加入OpenAI\",\n      \"source\": \"\",\n      \"retweetCount\": 0,\n      \"replyCount\": 0,\n      \"likeCount\": 0,\n      \"quoteCount\": 0,\n      \"view",
       "stderr_preview": ""
     },
     {
@@ -44,7 +44,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_M92XEY4l2JFM8zbVDkQG3b0J\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-25T03:05:00Z\",\n    \"request_time_taken\": 7.12,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 7.2,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_M92XEY4l2JFM8zbVDkQ",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_JoY68Me7qNsdxwM53v0axRVb\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-26T02:17:22Z\",\n    \"request_time_taken\": 1.29,\n    \"parsing_time_taken\": 0.15,\n    \"total_time_taken\": 1.44,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_JoY68Me7qNsdxwM53v",
       "stderr_preview": ""
     },
     {
@@ -62,7 +62,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"do9VPb--rg5y-SPzR9mKQg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"67WY390CHR6M3hTGllZYjg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -79,7 +79,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"293748.68131\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"292997.38019\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -141,7 +141,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2125425503901233228\",\n      \"url\": \"https://x.com/mappy_ai/status/2125425503901233228\",\n      \"twitterUrl\": \"https://twitter.com/mappy_ai/status/2125425503901233228\",\n      \"text\": \"OpenAIが、小さなお店にAIの先生を送り込む\\n名前はOpenWorksで、11月23日にアメリカで始まった\\n対象は20の地域の、個人経営の飲食店や小売店など\\n支援役のAI専門家には、OpenAIが月に最大8,000ドルを払う\\nお店側は無料で、ChatGPT Businessも3か月使える\\nAIの使い方を人",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2125775892832301380\",\n      \"url\": \"https://x.com/TTKQ5Dchess/status/2125775892832301380\",\n      \"twitterUrl\": \"https://twitter.com/TTKQ5Dchess/status/2125775892832301380\",\n      \"text\": \"@elonmusk 😄…Wrap it up, and stop selling models you depreciate, XAi, OpenAI, and Anthropic. On second thoughts you know what? Cancel everything! No more s",
       "stderr_preview": ""
     },
     {
@@ -159,7 +159,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_rpB8WlvR38SzaKA19kXOyEn1\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-25T03:05:18Z\",\n    \"request_time_taken\": 1.39,\n    \"parsing_time_taken\": 0.08,\n    \"total_time_taken\": 1.48,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_rpB8WlvR38SzaKA19k",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_jOZRYa4201H0OaqAOklD6mVx\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-26T02:17:31Z\",\n    \"request_time_taken\": 3.08,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 3.11,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_jOZRYa4201H0OaqAOk",
       "stderr_preview": ""
     },
     {
@@ -179,7 +179,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"RsWgbc1AYy_HR5nPBtzE2g\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"JuVnwMX2LL9E-WhMhHeGiw\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -198,7 +198,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"293748.68131\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"292997.38019\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
@@ -246,7 +246,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2125425566136648010\",\n      \"url\": \"https://x.com/ai_shihan/status/2125425566136648010\",\n      \"twitterUrl\": \"https://twitter.com/ai_shihan/status/2125425566136648010\",\n      \"text\": \"OpenAI が、GPT-6 Cyber の1回の実行で、ローカルで root を取られうる Linux カーネルのバグ948件を確かめ、レビュー用の修正案を作ったと公表した。\\n目を引くのは数より順番。AI が確かめて案を作り、取り込むかは人が決める。\\nhttps://t.co/6g2LS3sYHM\",\n   ",
+      "stdout_preview": "{\n  \"tweets\": [\n    {\n      \"type\": \"tweet\",\n      \"id\": \"2125775892832301380\",\n      \"url\": \"https://x.com/TTKQ5Dchess/status/2125775892832301380\",\n      \"twitterUrl\": \"https://twitter.com/TTKQ5Dchess/status/2125775892832301380\",\n      \"text\": \"@elonmusk 😄…Wrap it up, and stop selling models you depreciate, XAi, OpenAI, and Anthropic. On second thoughts you know what? Cancel everything! No more s",
       "stderr_preview": ""
     },
     {
@@ -262,7 +262,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_dXG2jzvrlqTzPEplVeYoaOb8\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-25T03:05:28Z\",\n    \"request_time_taken\": 0.97,\n    \"parsing_time_taken\": 0.07,\n    \"total_time_taken\": 1.04,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_dXG2jzvrlqTzPEplVe",
+      "stdout_preview": "{\n  \"search_metadata\": {\n    \"id\": \"search_mOgBEZe50gHYBVR8pkzwL3jW\",\n    \"status\": \"Success\",\n    \"created_at\": \"2026-11-26T02:17:40Z\",\n    \"request_time_taken\": 0.98,\n    \"parsing_time_taken\": 0.03,\n    \"total_time_taken\": 1.01,\n    \"request_url\": \"https://www.youtube.com/results?search_query=OpenAI&gl=US&hl=en\",\n    \"html_url\": \"https://www.searchapi.io/api/v1/searches/search_mOgBEZe50gHYBVR8pk",
       "stderr_preview": ""
     },
     {
@@ -280,7 +280,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"id\": \"y-IHbzbubdUgd-g_QnLnlg\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
+      "stdout_preview": "{\n  \"id\": \"hNpAs_Wekx_2iOPZ8wAq7w\",\n  \"results\": [\n    {\n      \"title\": \"OpenAI News\",\n      \"link\": \"https://openai.com/news/\",\n      \"snippet\": \"Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.\"\n    }\n  ]\n}\n",
       "stderr_preview": ""
     },
     {
@@ -297,7 +297,7 @@
       "code": 0,
       "status": "passed",
       "application_error": false,
-      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"293748.68131\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
+      "stdout_preview": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"559651\",\n      \"question\": \"Xi Jinping out before 2027?\",\n      \"conditionId\": \"0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7\",\n      \"slug\": \"xi-jinping-out-before-2027\",\n      \"resolutionSource\": \"\",\n      \"endDate\": \"2027-01-01T04:59:00Z\",\n      \"liquidity\": \"292997.38019\",\n      \"startDate\": \"2025-07-03T20:37:00.228Z\",\n  ",
       "stderr_preview": ""
     },
     {
